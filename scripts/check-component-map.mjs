@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const map = JSON.parse(readFileSync(resolve(root, 'design/component-map.json'), 'utf8'));
 const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-variants.json'), 'utf8'));
+const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -35,4 +36,22 @@ for (const variant of buttonVariants.axes.variant) for (const size of buttonVari
   if (!combinations.has(key)) throw new Error(`Missing Button variant: ${key}`);
 }
 if (!selectors.has('button')) throw new Error('Missing good-button selector.');
-console.log(`Checked ${names.length} Penpot families against ${selectors.size - 1} Angular selectors and ${combinations.size} Button variants.`);
+if (switchVariants.family !== 'goodui.switch' || switchVariants.selector !== 'good-switch') throw new Error('Switch variant family must map to good-switch.');
+const switchCombinations = new Set();
+const switchIds = new Set();
+for (const entry of switchVariants.variants) {
+  if (!entry.id || switchIds.has(entry.id)) throw new Error(`Duplicate or missing Switch Penpot ID: ${entry.id}`);
+  switchIds.add(entry.id);
+  const key = ['state', 'size', 'status'].map(axis => {
+    if (!switchVariants.axes[axis]?.includes(entry[axis])) throw new Error(`Unknown Switch ${axis}: ${entry[axis]}`);
+    return entry[axis];
+  }).join('/');
+  if (switchCombinations.has(key)) throw new Error(`Duplicate Switch variant: ${key}`);
+  switchCombinations.add(key);
+}
+for (const state of switchVariants.axes.state) for (const size of switchVariants.axes.size) for (const status of switchVariants.axes.status) {
+  const key = `${state}/${size}/${status}`;
+  if (!switchCombinations.has(key)) throw new Error(`Missing Switch variant: ${key}`);
+}
+if (!selectors.has('switch')) throw new Error('Missing good-switch selector.');
+console.log(`Checked ${names.length} Penpot families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, and ${switchCombinations.size} Switch variants.`);

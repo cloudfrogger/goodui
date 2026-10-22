@@ -1,0 +1,133 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "03 Controls",
+  "family": "goodui.switch",
+  "selector": "good-switch",
+  "containerId": "521fe58c-da62-80e2-8008-d457ef0aef38",
+  "axes": {
+    "state": [
+      "off",
+      "on"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "status": [
+      "default",
+      "disabled",
+      "error"
+    ]
+  },
+  "variants": [
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d40432c7",
+      "state": "off",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d48d35ee",
+      "state": "off",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d54e737d",
+      "state": "off",
+      "size": "small",
+      "status": "error"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d45780b73d98",
+      "state": "off",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d77754a6",
+      "state": "off",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d81dca53",
+      "state": "off",
+      "size": "default",
+      "status": "error"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457da557a85",
+      "state": "off",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457dad10b7f",
+      "state": "off",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457db6eceb5",
+      "state": "off",
+      "size": "large",
+      "status": "error"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d5ce2ce2",
+      "state": "on",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d64bd3d7",
+      "state": "on",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d6f06d67",
+      "state": "on",
+      "size": "small",
+      "status": "error"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d8b7ba6e",
+      "state": "on",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d93a8ed5",
+      "state": "on",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457d9d8d316",
+      "state": "on",
+      "size": "default",
+      "status": "error"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457dc0f32d9",
+      "state": "on",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457dc94645c",
+      "state": "on",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d457dd2ec281",
+      "state": "on",
+      "size": "large",
+      "status": "error"
+    }
+  ]
+}

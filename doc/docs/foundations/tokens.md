@@ -28,6 +28,11 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `subnav.height` / `.mobile-height` | `--good-subnav-height` / `--good-subnav-mobile-height` | Subnav board heights | Subnav strip |
 | `radius.item` / `radius.card` | `--good-radius-item` / `--good-radius-card` | SidebarItem corners / MainView content border corners | Items and cards |
 | `radius.button` | `--good-radius-button` | Button board corners | Button corner radius |
+| `color.error` / `switch.error.border` | `--good-color-error` / `--good-switch-error-border` | Switch error outline | Theme-specific validation color |
+| `control.switch-width-*` / `control.switch-height-*` | `--good-control-switch-width-*` / `--good-control-switch-height-*` | Switch track dimensions | Small, default, large tracks |
+| `control.switch-thumb-size-*` | `--good-control-switch-thumb-size-*` | Switch thumb dimensions | Small, default, large thumbs |
+| `switch.off.background` / `switch.on.background` / `switch.thumb.background` | `--good-switch-*-background` | Switch track and thumb fills | On/off surfaces |
+| `radius.switch` | `--good-radius-switch` | Switch track corners | Pill radius |
 
 The semantic values `topbar.padding-inline`, `main-menu.gap`, `sidebar.menu-gap`, and `control.action-size` are Penpot aliases. Generated CSS preserves those references with `var(...)`; changing their base tokens changes both the resolved Penpot value and the generated CSS value after the documented refresh.
 
@@ -40,6 +45,8 @@ Some existing boards use absolute positions: the account MainView, Subnav's item
 Two existing visual differences remain outside the shared-token mapping: Penpot's mobile MainMenu has a 10 px gap while Angular uses 4 px at the mobile breakpoint, and Penpot's TopbarMenuContainer has a 10 px flex gap while Angular uses 26 px on desktop. They need a design decision before they can share one semantic token without changing one of the current appearances.
 
 Open and responsive shell states remain separate Penpot components. Button is a real variant group with 45 combinations; its former outline component IDs and nested instances are preserved. The [variant ID manifest](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) maps Penpot variants to the `good-button` inputs.
+
+Switch is a real 18-combination variant group. Its width, height, radius, track fill, thumb size/fill, and error border have live Penpot token bindings. `switch.error.border` aliases `color.error`; the light value is `#DC2626` and the dark override is `#F87171`. The dark set also overrides the off and on track fills. The [Switch variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) maps the Penpot axes to `good-switch` inputs.
 
 ## Export and generation
 

@@ -40,6 +40,10 @@
       "brand": {
         "$value": "#2563EB",
         "$type": "color"
+      },
+      "error": {
+        "$value": "#DC2626",
+        "$type": "color"
       }
     },
     "space": {
@@ -83,6 +87,10 @@
       },
       "button": {
         "$value": "6",
+        "$type": "borderRadius"
+      },
+      "switch": {
+        "$value": "999",
         "$type": "borderRadius"
       }
     },
@@ -152,6 +160,42 @@
         "$type": "sizing"
       },
       "button-icon-size-large": {
+        "$value": "20",
+        "$type": "sizing"
+      },
+      "switch-width-small": {
+        "$value": "28",
+        "$type": "sizing"
+      },
+      "switch-height-small": {
+        "$value": "16",
+        "$type": "sizing"
+      },
+      "switch-thumb-size-small": {
+        "$value": "12",
+        "$type": "sizing"
+      },
+      "switch-width-default": {
+        "$value": "36",
+        "$type": "sizing"
+      },
+      "switch-height-default": {
+        "$value": "20",
+        "$type": "sizing"
+      },
+      "switch-thumb-size-default": {
+        "$value": "16",
+        "$type": "sizing"
+      },
+      "switch-width-large": {
+        "$value": "44",
+        "$type": "sizing"
+      },
+      "switch-height-large": {
+        "$value": "24",
+        "$type": "sizing"
+      },
+      "switch-thumb-size-large": {
         "$value": "20",
         "$type": "sizing"
       }
@@ -253,6 +297,32 @@
           "$type": "color"
         }
       }
+    },
+    "switch": {
+      "off": {
+        "background": {
+          "$value": "#D4D4D8",
+          "$type": "color"
+        }
+      },
+      "on": {
+        "background": {
+          "$value": "{color.brand}",
+          "$type": "color"
+        }
+      },
+      "thumb": {
+        "background": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "error": {
+        "border": {
+          "$value": "{color.error}",
+          "$type": "color"
+        }
+      }
     }
   },
   "layout-dark": {
@@ -292,12 +362,30 @@
       "overlay": {
         "$value": "#000000",
         "$type": "color"
+      },
+      "error": {
+        "$value": "#F87171",
+        "$type": "color"
       }
     },
     "button": {
       "secondary": {
         "hover": {
           "$value": "#27272A",
+          "$type": "color"
+        }
+      }
+    },
+    "switch": {
+      "off": {
+        "background": {
+          "$value": "#52525B",
+          "$type": "color"
+        }
+      },
+      "on": {
+        "background": {
+          "$value": "#3B82F6",
           "$type": "color"
         }
       }

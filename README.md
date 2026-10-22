@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, switches, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -58,6 +58,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@goodui/angular`. See the [Button guide](doc/docs/components/button.md) and the demo's `/components/buttons` page for all variants and sizes.
 
+   For on/off settings, use `<good-switch label="Email notifications" [showLabel]="true" [(checked)]="emailEnabled" />`. It also works with Angular forms. See the [Switch guide](doc/docs/components/switch.md) and the demo's `/components/switches` page.
+
    Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-layout>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppLayout guide](doc/docs/layout/app-layout.md).
 
 ## Current demo
@@ -77,6 +79,7 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | `good-main-view` | Page heading, description, actions, and content spacing |
 | `good-subnav` | Single-row page navigation with mobile horizontal scroll and child menus |
 | `good-button` | Five visual variants, three sizes, optional Lucide icon, and accessible icon-only actions |
+| `good-switch` | Accessible on/off control with three sizes, forms support, and theme-aware error styling |
 | `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 

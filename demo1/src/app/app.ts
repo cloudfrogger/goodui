@@ -49,7 +49,10 @@ export class App {
   ]);
   readonly sidebarSections: readonly GoodSidebarSection[] = [
     { id: 'dashboards', items: [{ id: 'dashboard', label: 'Dashboards', icon: 'dashboard', route: '/dashboard' }] },
-    { id: 'components', heading: 'COMPONENTS', items: [{ id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' }] },
+    { id: 'components', heading: 'COMPONENTS', items: [
+      { id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' },
+      { id: 'switches', label: 'Switches', icon: 'settings', route: '/components/switches' },
+    ] },
     { id: 'user', heading: 'USER', items: [
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
       { id: 'account', label: 'My Account', icon: 'settings', children: [
@@ -89,6 +92,7 @@ export class App {
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
+    { id: 'switches', label: 'Switches', description: 'States and form example', route: '/components/switches' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },
     { id: 'profile', label: 'User Profile', description: 'Personal information', route: '/account/home/user-profile' },
     { id: 'network', label: 'Network', description: 'Kontakte', route: '/network' },

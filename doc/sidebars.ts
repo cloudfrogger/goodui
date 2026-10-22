@@ -3,14 +3,14 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   main: [
     'intro',
-    {type: 'category', label: 'Foundations', items: ['foundations/tokens', 'foundations/naming']},
-    {type: 'category', label: 'Layout', items: ['layout/app-layout', 'layout/layout-rules']},
-    {type: 'category', label: 'Components', items: [
+    {type: 'category', label: 'Foundations', collapsed: false, collapsible: false, items: ['foundations/tokens', 'foundations/naming']},
+    {type: 'category', label: 'Layout', collapsed: false, collapsible: false, items: ['layout/app-layout', 'layout/layout-rules']},
+    {type: 'category', label: 'Components', collapsed: false, collapsible: false, items: [
       'components/sidebar', 'components/topbar', 'components/main-menu',
       'components/search', 'components/notifications', 'components/settings',
-      'components/avatar-menu', 'components/submenus', 'components/main-view', 'components/subnav', 'components/button', 'components/action-menu',
+      'components/avatar-menu', 'components/submenus', 'components/main-view', 'components/subnav', 'components/button', 'components/switch', 'components/action-menu',
     ]},
-    {type: 'category', label: 'Contributing', items: ['contributing/design-to-code']},
+    {type: 'category', label: 'Contributing', collapsed: false, collapsible: false, items: ['contributing/design-to-code']},
   ],
 };
 

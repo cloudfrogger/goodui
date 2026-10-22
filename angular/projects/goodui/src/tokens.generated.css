@@ -10,6 +10,7 @@
   --good-color-selected: #F4F4F5;
   --good-color-overlay: #000000;
   --good-color-brand: #2563EB;
+  --good-color-error: #DC2626;
   --good-space-1: 4px;
   --good-space-2: 8px;
   --good-space-3: 12px;
@@ -20,6 +21,7 @@
   --good-radius-item: 8px;
   --good-radius-card: 12px;
   --good-radius-button: 6px;
+  --good-radius-switch: 999px;
   --good-size-sidebar: 280px;
   --good-size-topbar: 70px;
   --good-size-action: 36px;
@@ -35,6 +37,15 @@
   --good-control-button-icon-size-small: 14px;
   --good-control-button-icon-size-default: 16px;
   --good-control-button-icon-size-large: 20px;
+  --good-control-switch-width-small: 28px;
+  --good-control-switch-height-small: 16px;
+  --good-control-switch-thumb-size-small: 12px;
+  --good-control-switch-width-default: 36px;
+  --good-control-switch-height-default: 20px;
+  --good-control-switch-thumb-size-default: 16px;
+  --good-control-switch-width-large: 44px;
+  --good-control-switch-height-large: 24px;
+  --good-control-switch-thumb-size-large: 20px;
   --good-subnav-height: 60px;
   --good-subnav-mobile-height: 44px;
   --good-button-gap-small: 6px;
@@ -56,6 +67,10 @@
   --good-button-outline-foreground: var(--good-color-text);
   --good-button-ghost-foreground: var(--good-color-text);
   --good-button-ghost-hover: var(--good-color-selected);
+  --good-switch-off-background: #D4D4D8;
+  --good-switch-on-background: var(--good-color-brand);
+  --good-switch-thumb-background: #FFFFFF;
+  --good-switch-error-border: var(--good-color-error);
   --good-canvas: var(--good-color-canvas);
   --good-surface: var(--good-color-surface);
   --good-text: var(--good-color-text);
@@ -66,6 +81,7 @@
   --good-selected: var(--good-color-selected);
   --good-overlay: var(--good-color-overlay);
   --good-brand: var(--good-color-brand);
+  --good-error: var(--good-color-error);
 }
 
 [data-theme="dark"] {
@@ -77,7 +93,10 @@
   --good-color-icon: #A1A1AA;
   --good-color-muted: #A1A1AA;
   --good-color-selected: #18181B;
+  --good-color-error: #F87171;
   --good-button-secondary-hover: #27272A;
+  --good-switch-off-background: #52525B;
+  --good-switch-on-background: #3B82F6;
 }
 
 @theme inline {
@@ -91,4 +110,5 @@
   --color-good-selected: var(--good-selected);
   --color-good-overlay: var(--good-overlay);
   --color-good-brand: var(--good-brand);
+  --color-good-error: var(--good-error);
 }

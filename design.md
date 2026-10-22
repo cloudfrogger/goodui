@@ -26,6 +26,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Main view | 20 px top and 30 px horizontal padding below topbar | `MainView` owns page container and optional heading |
 | Subnav | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `Subnav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
 | Button | 32/40/48 px high by size, 6 px radius; optional leading Lucide icon or icon-only square | `Button` owns padding, border, focus, disabled state, and hit area |
+| Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Mobile | 60 px topbar, sidebar as drawer | `AppLayout` owns trigger, scrim, drawer, and scroll lock |
 
 These are the current desktop and mobile measurements for GoodUI. The shell should avoid horizontal overflow between 390 px and desktop. The Angular implementation switches navigation at a 900 px breakpoint.
@@ -99,6 +100,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.subnav` | Optional page subnav, scroll viewport, active indicator, and child menu |
 | `goodui.subnav-item` | Link or menu trigger with optional chevron and active state |
 | `goodui.button` | Reusable action control with five variants, three sizes, and text/icon content options |
+| `goodui.switch` | Accessible on/off setting with three sizes and disabled/error presentation |
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
@@ -130,6 +132,12 @@ The reusable `goodui.button` Penpot variant group on `03 Controls` has `variant`
 The default size is 40 px, small is 32 px, and large is 48 px. Icon-only controls use those values for both width and height. The default variant uses brand blue, secondary a quiet neutral surface, destructive a vivid red, outline a transparent surface with a border, and ghost a transparent surface without a border. The control owns hover, focus, and disabled runtime states. Subnav and ActionMenu request outline/small to preserve their established layout. Penpot icons are instances of the connected `Lucide-icons` library; Angular renders Lucide Angular icon classes or data. The component name and variant values stay domain neutral for reuse in future projects.
 
 The Penpot Lucide source shapes use 24 px vector geometry. Their linked Button instances use 14, 16, or 20 px geometry to match Angular; the child paths and strokes must scale with the instance bounds. The Penpot plugin's `resize()` changes an instance's bounds without scaling its child paths, so check the actual vector geometry and preserve the width/height and stroke-color token bindings whenever an icon instance is replaced or resized.
+
+### Switch
+
+The `goodui.switch` Penpot variant group on `03 Controls` has `state=off/on`, `size=small/default/large`, and `status=default/disabled/error`. Its 18 published variants map to `good-switch`; `state` maps to the `checked` model, `size` to the `size` input, and `status` to the `disabled` or `error` input. The complete library-ID map is `design/switch-variants.json`. Each variant keeps a token-bound track and thumb as editable shapes. Disabled variants are dimmed; error variants keep their on/off value and add a two-pixel outer border. If `disabled` and `error` are both true at runtime, disabled styling takes priority.
+
+The switch track and thumb dimensions have their own semantic sizing tokens. `switch.on.background` aliases `color.brand` in light mode and is overridden in dark mode. `switch.error.border` aliases `color.error`, which is `#DC2626` in light mode and `#F87171` in dark mode. The same relationships generate the CSS variables. Angular uses a native checkbox with switch semantics, a 44 × 44 px minimum hit area, an accessible label, and optional `ControlValueAccessor` form binding. The visual component contains no product-specific label; consumers supply the label text.
 
 ### Nested topbar menus
 

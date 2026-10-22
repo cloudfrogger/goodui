@@ -63,6 +63,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.subnav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
 | `goodui.subnav.with-actions` | `521fe58c-da62-80e2-8008-d41a1e574999` |
 | `goodui.button` variant group (`variant` × `size` × `content`) | Container `521fe58c-da62-80e2-8008-d4240d421919`; all 45 IDs in [button-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) |
+| `goodui.switch` variant group (`state` × `size` × `status`) | Container `521fe58c-da62-80e2-8008-d457ef0aef38`; all 18 IDs in [switch-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) |
 | `goodui.action-menu.default` / `.open` | `521fe58c-da62-80e2-8008-d41a7659d7eb` / `521fe58c-da62-80e2-8008-d41a76a2c06d` |
 
 Open states are visual designs. The Angular implementation connects triggers, focus, closing, data, and navigation. The two-level Help and avatar account menus exist in Penpot, the library, and `demo1`. Review new states across all three.
@@ -103,7 +104,12 @@ The Angular demo takes its wordmarks from those SVG exports. Run `npm run brand:
 | `goodui.button`, `size=small/default/large` | `good-button [size]`; default is `default` |
 | `goodui.button`, `content=text/with-icon/icon-only` | Projected text; optional Lucide `[icon]`; for icon-only use an empty label or `[iconOnly]="true"` and required `ariaLabel` |
 | `goodui.action-menu.default`, `.open` | `good-action-menu [items]="..."`; `label`, `icon`, and runtime open state |
+| `goodui.switch`, `state=off/on` | `good-switch [checked]` / `[(checked)]`; native checkbox with switch semantics |
+| `goodui.switch`, `size=small/default/large` | `good-switch [size]`; default is `default` |
+| `goodui.switch`, `status=default/disabled/error` | `good-switch [disabled]` or `[error]`; disabled takes visual priority when both are true |
 
 The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8` (small text) and `521fe58c-da62-80e2-8008-d41a10456bbf` (small icon-only) remain in the variant group. Existing Subnav and ActionMenu compositions retain their Button instances. `design/button-variants.json` is the complete Penpot-library-ID-to-Angular-input registry; `npm run check:mapping` checks its matrix and uniqueness. The script cannot read live Penpot, so also compare the manifest with the MCP catalog after design changes.
+
+`design/switch-variants.json` is the matching Switch registry. The track and thumb are token-bound Penpot shapes inside each library variant. `npm run check:mapping` checks the 18 combinations and unique IDs; compare the file with the live Penpot variant group after edits. The visual error state uses `switch.error.border` and the runtime control adds `aria-invalid` and an optional `describedBy` relationship.
 
 The previous public names `GoodSectionNavComponent`, `GoodSectionNavItem`, `good-section-nav`, `sectionNavItems`, and `sectionNavLabel` were replaced by `GoodSubnavComponent`, `GoodSubnavItem`, `good-subnav`, `subnavItems`, and `subnavLabel`. Update consuming code when moving to this version.

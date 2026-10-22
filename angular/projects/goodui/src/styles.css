@@ -8,7 +8,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-main-view, good-subnav, good-button { box-sizing: border-box; }
+good-main-menu, good-main-view, good-subnav, good-button, good-switch { box-sizing: border-box; }
 
 .good-icon { display: inline-flex; width: 18px; height: 18px; flex: none; }
 .good-icon svg { width: 100%; height: 100%; }
@@ -163,6 +163,21 @@ good-main-menu, good-main-view, good-subnav, good-button { box-sizing: border-bo
 .good-button-icon { display: block; width: var(--good-button-icon-size); height: var(--good-button-icon-size); flex: none; }
 .good-button-label:empty { display: none; }
 .good-button-icon-only, .good-button-control:has(.good-button-label:empty) { width: var(--good-button-height); padding: 0; }
+.good-switch { display: inline-flex; vertical-align: middle; }
+.good-switch-control { position: relative; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 44px; min-height: 44px; color: var(--good-text); font: inherit; cursor: pointer; }
+.good-switch-input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
+.good-switch-track { position: relative; box-sizing: border-box; display: inline-block; flex: none; width: var(--good-switch-width); height: var(--good-switch-height); border-radius: var(--good-radius-switch); background: var(--good-switch-off-background); transition: background-color .15s ease, box-shadow .15s ease; }
+.good-switch-thumb { position: absolute; top: 2px; left: 2px; display: block; width: var(--good-switch-thumb-size); height: var(--good-switch-thumb-size); border-radius: 50%; background: var(--good-switch-thumb-background); box-shadow: 0 1px 2px #0003; transition: transform .15s ease; }
+.good-switch-label { line-height: 20px; }
+.good-switch-control[data-size="small"] { --good-switch-width: var(--good-control-switch-width-small); --good-switch-height: var(--good-control-switch-height-small); --good-switch-thumb-size: var(--good-control-switch-thumb-size-small); }
+.good-switch-control[data-size="default"] { --good-switch-width: var(--good-control-switch-width-default); --good-switch-height: var(--good-control-switch-height-default); --good-switch-thumb-size: var(--good-control-switch-thumb-size-default); }
+.good-switch-control[data-size="large"] { --good-switch-width: var(--good-control-switch-width-large); --good-switch-height: var(--good-control-switch-height-large); --good-switch-thumb-size: var(--good-control-switch-thumb-size-large); }
+.good-switch-control[data-state="on"] .good-switch-track { background: var(--good-switch-on-background); }
+.good-switch-control[data-state="on"] .good-switch-thumb { transform: translateX(calc(var(--good-switch-width) - var(--good-switch-thumb-size) - 4px)); }
+.good-switch-control[data-status="error"] .good-switch-track { box-shadow: 0 0 0 2px var(--good-switch-error-border); }
+.good-switch-control[data-status="disabled"] { opacity: .45; cursor: not-allowed; }
+.good-switch-input:focus-visible + .good-switch-track { outline: 2px solid var(--good-accent); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .good-switch-track, .good-switch-thumb { transition: none; } }
 .good-action-menu { position: relative; display: inline-flex; }
 .good-action-menu-panel { position: absolute; top: calc(100% + 6px); right: 0; z-index: 40; display: flex; flex-direction: column; min-width: 180px; padding: 6px; border: 1px solid var(--good-border); border-radius: var(--good-radius-item); background: var(--good-surface); box-shadow: 0 12px 30px #0002; }
 .good-action-menu-panel a, .good-action-menu-panel button { display: block; width: 100%; min-height: 36px; padding: 8px 10px; border: 0; border-radius: 5px; background: transparent; color: var(--good-text); font: inherit; font-size: 13px; text-align: left; text-decoration: none; cursor: pointer; }
