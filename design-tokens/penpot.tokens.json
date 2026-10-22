@@ -1,0 +1,221 @@
+{
+  "layout": {
+    "color": {
+      "canvas": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "surface": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "#09090B",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "#E4E4E7",
+        "$type": "color"
+      },
+      "accent": {
+        "$value": "#2563EB",
+        "$type": "color"
+      },
+      "icon": {
+        "$value": "#69707D",
+        "$type": "color"
+      },
+      "muted": {
+        "$value": "#71717A",
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "#F4F4F5",
+        "$type": "color"
+      },
+      "overlay": {
+        "$value": "#000000",
+        "$type": "color"
+      }
+    },
+    "space": {
+      "1": {
+        "$value": "4",
+        "$type": "spacing"
+      },
+      "2": {
+        "$value": "8",
+        "$type": "spacing"
+      },
+      "3": {
+        "$value": "12",
+        "$type": "spacing"
+      },
+      "5": {
+        "$value": "20",
+        "$type": "spacing"
+      },
+      "6": {
+        "$value": "24",
+        "$type": "spacing"
+      },
+      "2_5": {
+        "$value": "10",
+        "$type": "spacing"
+      },
+      "7_5": {
+        "$value": "30",
+        "$type": "spacing"
+      }
+    },
+    "radius": {
+      "item": {
+        "$value": "8",
+        "$type": "borderRadius"
+      },
+      "card": {
+        "$value": "12",
+        "$type": "borderRadius"
+      },
+      "button": {
+        "$value": "6",
+        "$type": "borderRadius"
+      }
+    },
+    "size": {
+      "sidebar": {
+        "$value": "280",
+        "$type": "sizing"
+      },
+      "topbar": {
+        "$value": "70",
+        "$type": "sizing"
+      },
+      "action": {
+        "$value": "36",
+        "$type": "sizing"
+      },
+      "topbar-mobile": {
+        "$value": "60",
+        "$type": "sizing"
+      }
+    },
+    "topbar": {
+      "padding-inline": {
+        "$value": "{space.7_5}",
+        "$type": "spacing"
+      }
+    },
+    "main-menu": {
+      "gap": {
+        "$value": "{space.2_5}",
+        "$type": "spacing"
+      }
+    },
+    "sidebar": {
+      "menu-gap": {
+        "$value": "{space.2}",
+        "$type": "spacing"
+      }
+    },
+    "control": {
+      "action-size": {
+        "$value": "{size.action}",
+        "$type": "sizing"
+      },
+      "sidebar-row-height": {
+        "$value": "36",
+        "$type": "sizing"
+      },
+      "button-height": {
+        "$value": "32",
+        "$type": "sizing"
+      }
+    },
+    "subnav": {
+      "height": {
+        "$value": "60",
+        "$type": "sizing"
+      },
+      "mobile-height": {
+        "$value": "44",
+        "$type": "sizing"
+      }
+    }
+  },
+  "layout-dark": {
+    "color": {
+      "canvas": {
+        "$value": "#09090B",
+        "$type": "color"
+      },
+      "surface": {
+        "$value": "#09090B",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "#FAFAFA",
+        "$type": "color"
+      },
+      "muted": {
+        "$value": "#A1A1AA",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "#27272A",
+        "$type": "color"
+      },
+      "accent": {
+        "$value": "#60A5FA",
+        "$type": "color"
+      },
+      "selected": {
+        "$value": "#18181B",
+        "$type": "color"
+      },
+      "icon": {
+        "$value": "#A1A1AA",
+        "$type": "color"
+      },
+      "overlay": {
+        "$value": "#000000",
+        "$type": "color"
+      }
+    }
+  },
+  "$themes": [
+    {
+      "id": "521fe58c-da62-80e2-8008-d342c6a31c20",
+      "name": "light",
+      "group": "appearance",
+      "description": "",
+      "isSource": false,
+      "selectedTokenSets": {
+        "layout": "enabled"
+      }
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d342c6a4b35d",
+      "name": "dark",
+      "group": "appearance",
+      "description": "",
+      "isSource": false,
+      "selectedTokenSets": {
+        "layout": "enabled",
+        "layout-dark": "enabled"
+      }
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "layout",
+      "layout-dark"
+    ],
+    "activeThemes": [
+      "appearance/light"
+    ],
+    "activeSets": [
+      "layout"
+    ]
+  }
+}

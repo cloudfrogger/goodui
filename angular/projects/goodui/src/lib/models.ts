@@ -23,12 +23,22 @@ export interface GoodTopbarItem {
   separatorBefore?: boolean;
 }
 
-export interface GoodSectionNavItem {
+export interface GoodSubnavItem {
   id: string;
   label: string;
   route?: string;
-  children?: readonly GoodSectionNavItem[];
+  children?: readonly GoodSubnavItem[];
   disabled?: boolean;
+}
+
+export interface GoodSubnavAction {
+  id: string;
+  label: string;
+  icon?: GoodIconName;
+  iconOnly?: boolean;
+  route?: string;
+  action?: () => void;
+  menuItems?: readonly GoodMenuAction[];
 }
 
 export interface GoodUser {
@@ -87,6 +97,6 @@ export function goodTopbarItemContainsRoute(item: GoodTopbarItem, current: strin
   return goodRouteActive(item.route, current) || !!item.children?.some(child => goodTopbarItemContainsRoute(child, current));
 }
 
-export function goodSectionNavItemContainsRoute(item: GoodSectionNavItem, current: string): boolean {
-  return goodRouteActive(item.route, current) || !!item.children?.some(child => goodSectionNavItemContainsRoute(child, current));
+export function goodSubnavItemContainsRoute(item: GoodSubnavItem, current: string): boolean {
+  return goodRouteActive(item.route, current) || !!item.children?.some(child => goodSubnavItemContainsRoute(child, current));
 }

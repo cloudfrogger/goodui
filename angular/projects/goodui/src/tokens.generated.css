@@ -1,0 +1,66 @@
+/* Generated from design-tokens/penpot.tokens.json. Run npm run tokens:generate. */
+:root {
+  --good-color-canvas: #FFFFFF;
+  --good-color-surface: #FFFFFF;
+  --good-color-text: #09090B;
+  --good-color-border: #E4E4E7;
+  --good-color-accent: #2563EB;
+  --good-color-icon: #69707D;
+  --good-color-muted: #71717A;
+  --good-color-selected: #F4F4F5;
+  --good-color-overlay: #000000;
+  --good-space-1: 4px;
+  --good-space-2: 8px;
+  --good-space-3: 12px;
+  --good-space-5: 20px;
+  --good-space-6: 24px;
+  --good-space-2-5: 10px;
+  --good-space-7-5: 30px;
+  --good-radius-item: 8px;
+  --good-radius-card: 12px;
+  --good-radius-button: 6px;
+  --good-size-sidebar: 280px;
+  --good-size-topbar: 70px;
+  --good-size-action: 36px;
+  --good-size-topbar-mobile: 60px;
+  --good-topbar-padding-inline: var(--good-space-7-5);
+  --good-main-menu-gap: var(--good-space-2-5);
+  --good-sidebar-menu-gap: var(--good-space-2);
+  --good-control-action-size: var(--good-size-action);
+  --good-control-sidebar-row-height: 36px;
+  --good-control-button-height: 32px;
+  --good-subnav-height: 60px;
+  --good-subnav-mobile-height: 44px;
+  --good-canvas: var(--good-color-canvas);
+  --good-surface: var(--good-color-surface);
+  --good-text: var(--good-color-text);
+  --good-border: var(--good-color-border);
+  --good-accent: var(--good-color-accent);
+  --good-icon: var(--good-color-icon);
+  --good-muted: var(--good-color-muted);
+  --good-selected: var(--good-color-selected);
+  --good-overlay: var(--good-color-overlay);
+}
+
+[data-theme="dark"] {
+  --good-color-canvas: #09090B;
+  --good-color-surface: #09090B;
+  --good-color-text: #FAFAFA;
+  --good-color-border: #27272A;
+  --good-color-accent: #60A5FA;
+  --good-color-icon: #A1A1AA;
+  --good-color-muted: #A1A1AA;
+  --good-color-selected: #18181B;
+}
+
+@theme inline {
+  --color-good-canvas: var(--good-canvas);
+  --color-good-surface: var(--good-surface);
+  --color-good-text: var(--good-text);
+  --color-good-border: var(--good-border);
+  --color-good-accent: var(--good-accent);
+  --color-good-icon: var(--good-icon);
+  --color-good-muted: var(--good-muted);
+  --color-good-selected: var(--good-selected);
+  --color-good-overlay: var(--good-overlay);
+}

@@ -24,7 +24,8 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Topbar submenu | Support Forum panel 218 × 124 px; 4 px gap from parent, aligned with trigger row | `TopbarSubmenu` owns the next level and flips at the viewport edge |
 | Avatar menu | About 250 × 384 px account panel under the avatar; 40 px rows, 36 px identity image, 8 px panel radius | `AvatarMenu` owns identity, row spacing, nested menus, appearance switch, and sign-out area |
 | Main view | 20 px top and 30 px horizontal padding below topbar | `MainView` owns page container and optional heading |
-| Section navigation | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `SectionNav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
+| Subnav | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `Subnav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
+| Small outlined button | 32 px high, 6 px radius; optional icon or icon-only label | `Button` owns padding, border, focus, disabled state, and hit area |
 | Mobile | 60 px topbar, sidebar as drawer | `AppLayout` owns trigger, scrim, drawer, and scroll lock |
 
 These are the current desktop and mobile measurements for GoodUI. The shell should avoid horizontal overflow between 390 px and desktop. The Angular implementation switches navigation at a 900 px breakpoint.
@@ -60,8 +61,9 @@ AppLayout
    │        ├─ Dark Mode switch
    │        └─ optional sign-out item
    └─ MainView
-      ├─ SectionNav (optional)
-      │  └─ SectionNavItem (repeatable; optional child links)
+      ├─ Subnav (optional)
+      │  ├─ SubnavItem (repeatable; optional child links)
+      │  └─ actions (optional: Button and ActionMenu)
       ├─ optional page heading
       └─ page content
 ```
@@ -92,8 +94,10 @@ AppLayout
 | `goodui.avatar-menu` | Avatar trigger and account menu with identity, nested actions, appearance switch, and sign-out area |
 | `goodui.avatar-menu-item` | Reusable account link, action, or expandable parent row |
 | `goodui.main-view` | Optional page heading, actions, and projected content |
-| `goodui.section-nav` | Optional page section navigation, scroll viewport, active indicator, and child menu |
-| `goodui.section-nav-item` | Link or menu trigger with optional chevron and active state |
+| `goodui.subnav` | Optional page subnav, scroll viewport, active indicator, and child menu |
+| `goodui.subnav-item` | Link or menu trigger with optional chevron and active state |
+| `goodui.button` | Reusable outlined text or icon-only control |
+| `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
 
@@ -101,18 +105,21 @@ AppLayout
 - Penpot main component: `goodui.<kebab-name>.<state-or-variant>`, such as `goodui.sidebar-item.active`.
 - Angular selector: `good-<kebab-name>`, such as `good-sidebar-item`.
 - Documentation path: `components/<name>`.
+- `design/component-map.json` records every Penpot family and its Angular selector or internal owner; verify it against live Penpot through MCP and run `npm run check:mapping` when names change.
 - Internal shape names describe purpose: `heading`, `label`, `icon`, `content-slot`, `scrim`.
 - Variant axes are `variant`, `size`, and `state`, with stable English values.
 
 The simple API accepts brand, sidebar groups, topbar items, actions, user, and notifications. Apps can also compose the exported containers and items directly. Public TypeScript exports are in `angular/projects/goodui/src/public-api.ts`; see `doc/` for examples.
 
-### Page section navigation
+### Page subnav
 
-`MainView.sectionNavItems` places `SectionNav` above the heading and extends its strip across the page width. `SectionNav` can also be used independently. Its `GoodSectionNavItem` model has a stable `id`, `label`, optional `route`, optional one-level `children`, and optional `disabled`. A route plus children produces a link and a separate chevron button, so navigating and opening the child menu remain distinct actions. Items with only children use a menu button. The active item follows the Angular Router URL unless `activeRoute` is supplied directly to `SectionNav`.
+`MainView.subnavItems` places `Subnav` above the heading and extends its strip across the page width. `Subnav` can also be used independently. Its `GoodSubnavItem` model has a stable `id`, `label`, optional `route`, optional one-level `children`, and optional `disabled`. A route plus children produces a link and a separate chevron button, so navigating and opening the child menu remain distinct actions. Items with only children use a menu button. The active item follows the Angular Router URL unless `activeRoute` is supplied directly to `Subnav`.
 
 The track stays on one line at every viewport width. On mobile, the 44 px strip scrolls horizontally with touch or a trackpad; the page itself does not gain horizontal overflow. The active item scrolls into view on route changes. The child menu opens outside the clipped scroll viewport, stays within the screen edge, and closes on Escape, outside click, scroll, resize, or navigation. Links receive `aria-current="page"`; menu buttons expose `aria-expanded` and `aria-controls`. Arrow keys, Home, and End move between top-level items; opening a menu focuses its first link and Escape returns focus to its trigger.
 
-Penpot contains desktop, mobile clipped-scroll, dropdown, and composed open variants. The account MainView variants use nested SectionNav component instances. The Angular demo supplies the account sections and real child routes.
+Penpot contains desktop, mobile clipped-scroll, dropdown, and composed open variants. The account MainView variants use nested Subnav component instances. The Angular demo supplies the account sections and real child routes.
+
+`Subnav` also owns a fixed right action area. `MainView.subnavActions` or `Subnav.actions` accepts `GoodSubnavAction[]` and renders reusable Buttons or ActionMenus. Direct `good-subnav` users may also project a `[good-subnav-actions]` group. Only the item track scrolls. The action area stays visible and item labels never wrap. The first Button style is an outlined 32 px control with text or an accessible icon-only presentation. `ActionMenu` provides focus movement, Escape, and outside-click dismissal. The Penpot `goodui.subnav.with-actions` composition uses nested Button instances and maps to the same Angular `good-subnav` selector with action data.
 
 ### Nested topbar menus
 
@@ -146,6 +153,10 @@ Penpot themes `appearance/light` and `appearance/dark` switch the same semantic 
 
 Shared `layout` dimensions: `space.1`, `.2`, `.2_5`, `.3`, `.5`, `.6`, `.7_5` = 4, 8, 10, 12, 20, 24, 30 px; `radius.item` = 8 px; `radius.card` = 12 px; `size.sidebar` = 280 px; `size.topbar` = 70 px. Add shared roles for overlay opacity, hover, or focus if several components need them.
 
+The live Penpot file uses version 2.17.0 of the plugin API. It has 64 named library components; responsive and open states are separate main components, with no registered Penpot variant components. The existing color tokens remain bound to fills and strokes. New semantic aliases in `layout` bind `topbar.padding-inline` to topbar flex padding, `main-menu.gap` to MainMenu flex column gap, and `sidebar.menu-gap` to the sidebar menu flex row gap. Sizing tokens bind sidebar width, desktop/mobile topbar height, subnav height, sidebar row height, and the four 36 px action controls. `radius.item` binds sidebar item corners; `radius.card` binds MainView content border corners. Main component IDs and intentionally different instance values remain unchanged.
+
+The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizing` on width/height, and `borderRadius` on corners. The account MainView, subnavigation track, and mobile topbar use absolute positioning rather than Penpot flex layout, so their placement offsets and mobile topbar padding cannot receive spacing-token bindings without changing layout behavior. They remain explicit geometry; the corresponding runtime CSS values are documented. Nested sidebar menu copies with a different flex gap are not rebound to the main component's gap token.
+
 `color.accent` is a foreground color on neutral backgrounds and is set for readable contrast. A future filled accent button needs separate background and foreground roles.
 
 ### Angular and Tailwind CSS 4 contract
@@ -153,11 +164,12 @@ Shared `layout` dimensions: `space.1`, `.2`, `.2_5`, `.3`, `.5`, `.6`, `.7_5` = 
 - The app may set `data-theme="light"` or `data-theme="dark"` on a common root. Without it, light applies. Theme changes update CSS variables at runtime without rebuilding the library.
 - Components use semantic roles (`canvas`, `surface`, `text`, `muted`, `border`, `accent`, `selected`, `icon`, `overlay`). Apps can override these variables per theme without changing component CSS. A future brand theme may override accent/brand roles independently of appearance.
 - Tailwind CSS 4 maps runtime variables to `--color-good-*` through `@theme inline`; `@custom-variant dark` uses the same selector. The mapping and example are in [Design tokens](doc/docs/foundations/tokens.md).
+- `design-tokens/penpot.tokens.json` is a Penpot-compatible snapshot. `scripts/generate-tokens.mjs` generates the CSS variables and Tailwind color mapping from it. Refreshing the snapshot from Penpot is manual; the build does not read the live Penpot file.
 - Check new color combinations visually and for contrast in both appearances. Icons follow `color.icon`; state surfaces should not hard-code light colors.
 
 ## Penpot inventory
 
-File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components` and `02 Layout`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
+File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, and `03 Controls`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
 
 Shell compositions use nested component instances. Keep IDs when a component retains its meaning. The current ID registry is in [Design to Angular](doc/docs/contributing/design-to-code.md) and can be verified through Penpot MCP.
 
@@ -169,7 +181,7 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 - Popovers, dialogs, and drawers need accessible labels, focus management, Escape handling, and focus return.
 - The mobile sidebar opens from the topbar trigger and closes through the scrim or Escape. Desktop sidebar collapse exists as a design variant but is not yet exposed as an Angular API state.
 - `MainView` accepts page content without imposing a card layout. The heading and actions are optional; content grows and scrolls.
-- `SectionNav` owns its horizontal viewport and child menu. Apps provide route data and do not add custom wrapping or page offsets.
+- `Subnav` owns its horizontal viewport and child menu. Apps provide route data and do not add custom wrapping or page offsets.
 - `MainMenu` can hide each of its four actions. Apps may project a custom `good-main-menu` into `Topbar`; the container still owns spacing and hit areas.
 - Tailwind CSS 4 theme variables provide colors; the shipped component CSS provides geometry. Apps do not add `margin-left` or `padding-top` to align the shell.
 

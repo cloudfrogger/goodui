@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSectionNavItem } from '@goodui/angular';
+import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem } from '@goodui/angular';
 
 @Component({
   selector: 'app-demo-page',
@@ -8,7 +8,7 @@ import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSectionNavI
   imports: [GoodMainViewComponent, GoodIconComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view [title]="title" [description]="description" [sectionNavItems]="isAccount ? sectionNavItems : []" [sectionNavLabel]="'Account sections'">
+    <good-main-view [title]="title" [description]="description" [subnavItems]="isAccount ? subnavItems : []" [subnavActions]="isAccount ? subnavActions : []" [subnavLabel]="'Account sections'">
       @if (landing) {
         <div class="demo-card-grid">
           @for (card of cards; track card.title) {
@@ -26,11 +26,19 @@ import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSectionNavI
 })
 export class DemoPageComponent {
   private readonly route = inject(ActivatedRoute);
+  readonly subnavActions: readonly GoodSubnavAction[] = [
+    { id: 'help', label: 'Help', icon: 'question', route: '/help' },
+    { id: 'account-actions', label: 'Account actions', icon: 'menu', menuItems: [
+      { id: 'profile', label: 'Profile', route: '/account/home/user-profile' },
+      { id: 'settings', label: 'Account settings', route: '/account/home/settings' },
+      { id: 'notifications', label: 'Notifications', route: '/account/notifications' },
+    ] },
+  ];
   readonly title = this.route.snapshot.data['title'] as string;
   readonly description = this.route.snapshot.data['description'] as string;
   readonly landing = this.route.snapshot.data['landing'] as boolean;
   readonly isAccount = this.route.snapshot.routeConfig?.path?.startsWith('account/') ?? false;
-  readonly sectionNavItems: readonly GoodSectionNavItem[] = [
+  readonly subnavItems: readonly GoodSubnavItem[] = [
     { id: 'home', label: 'Account Home', route: '/account/home/get-started', children: [
       { id: 'get-started', label: 'Get Started', route: '/account/home/get-started' },
       { id: 'user-profile', label: 'User Profile', route: '/account/home/user-profile' },

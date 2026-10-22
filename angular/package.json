@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "npm run build:lib",
-    "build:css": "tailwindcss -i projects/goodui/src/styles.css -o projects/goodui/assets/styles.css --minify",
+    "build:css": "node ../scripts/generate-tokens.mjs && tailwindcss -i projects/goodui/src/styles.css -o projects/goodui/assets/styles.css --minify",
     "build:lib": "npm run build:css && ng build goodui",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

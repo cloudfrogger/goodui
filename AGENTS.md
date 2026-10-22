@@ -2,7 +2,9 @@
 
 ## Project
 
-GoodUI is an Angular UI library with a Penpot design system and Docusaurus documentation. The library is in `angular/projects/goodui`; `demo1` is an Angular app linked to the built package. Project prose, documentation, examples, and user-facing default strings use American English. Keep stable public IDs and selectors unchanged.
+GoodUI is an Angular UI library with a Penpot design system and Docusaurus documentation. The library is in `angular/projects/goodui`; `demo1` is an Angular app linked to the built package. Project prose, documentation, examples, and user-facing default strings use American English. Preserve stable public IDs and selectors unless a deliberate documented rename is requested.
+
+GoodUI is intended to be a generic, reusable UI framework. Review every component name and visual design for common use across unrelated products before adding it. Future projects will use the GoodUI Penpot components as a design library and the matching Angular package as their implementation. Keep a documented, unambiguous mapping from every published Penpot component family to its Angular selector, inputs, and variant/state semantics. Use domain-specific words only in example content, never in reusable component names. Verify the mapping whenever either side changes.
 
 ## Before editing
 
@@ -13,6 +15,7 @@ GoodUI is an Angular UI library with a Penpot design system and Docusaurus docum
 ## Design rules
 
 - Penpot is the visual source. Maintain real Penpot library components with stable names and IDs.
+- Keep `design/component-map.json` complete for every Penpot component family. Run `npm run check:mapping` after changing a family or Angular selector, then compare the manifest with the live Penpot library through MCP. Internal Penpot parts must identify their owning Angular selector.
 - Keep the `goodui.` design ID and `good-` Angular selector prefixes.
 - Name child elements semantically. Model variants as `variant`, `size`, and `state`; do not simulate states with decorative copies.
 - Keep repeated dimensions and colors as semantic tokens in `layout`. Check measurements against the current GoodUI design and rendered demo before changing them.
@@ -22,6 +25,7 @@ GoodUI is an Angular UI library with a Penpot design system and Docusaurus docum
 - Expanded topbar menus retain `TopbarDropdownMenu`, `TopbarDropdownItem`, and `TopbarSubmenu` instances. Parents with children are chevron triggers; only leaves navigate.
 - Inspect actual Penpot instances and rendered/exported states. Report status and limitations accurately.
 - After changing tokens, check light and dark themes, nested shell exports, and text contrast. Leave Penpot on light and the `02 Layout` page.
+- Refresh `design-tokens/penpot.tokens.json` from the Penpot token export after token edits, run `npm run tokens:generate` and `npm run tokens:check`, and verify the snapshot against the live Penpot catalog. Do not hand-edit `tokens.generated.css` or claim live synchronization.
 
 ## Documentation
 

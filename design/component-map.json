@@ -1,0 +1,32 @@
+{
+  "directFamilies": [
+    "action-menu",
+    "app-layout",
+    "avatar-menu",
+    "avatar-menu-item",
+    "brand-icon",
+    "button",
+    "main-menu",
+    "main-view",
+    "notifications",
+    "search",
+    "settings",
+    "sidebar-container",
+    "sidebar-item",
+    "sidebar-menu-container",
+    "sidebar-submenu-group",
+    "sidebar-submenu-item",
+    "subnav",
+    "topbar",
+    "topbar-dropdown-item",
+    "topbar-dropdown-menu",
+    "topbar-menu-container",
+    "topbar-menu-item",
+    "topbar-submenu"
+  ],
+  "internalParts": {
+    "avatar-submenu": "avatar-menu",
+    "subnav-dropdown": "subnav",
+    "subnav-item": "subnav"
+  }
+}

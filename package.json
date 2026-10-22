@@ -2,6 +2,9 @@
   "name": "goodui-project",
   "private": true,
   "scripts": {
+    "check:mapping": "node scripts/check-component-map.mjs",
+    "tokens:generate": "node scripts/generate-tokens.mjs",
+    "tokens:check": "node scripts/generate-tokens.mjs --check",
     "setup": "npm --prefix angular ci --legacy-peer-deps && npm run build:lib && npm --prefix demo1 ci --legacy-peer-deps && npm run link:demo && npm --prefix doc ci",
     "build:lib": "npm --prefix angular run build:lib",
     "link:demo": "npm --prefix demo1 run link:goodui",

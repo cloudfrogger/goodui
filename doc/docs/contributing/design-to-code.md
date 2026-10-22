@@ -12,7 +12,7 @@ title: From Penpot to Angular
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`. The IDs below are Penpot library IDs; preserve the main shape while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -58,8 +58,26 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.main-view.default` / `.mobile` | `521fe58c-da62-80e2-8008-d33f7aa54b2b` / `521fe58c-da62-80e2-8008-d33fc4dcceec` |
 | `goodui.main-view.account` | `521fe58c-da62-80e2-8008-d34655a672c2` |
 | `goodui.main-view.account-mobile` | `521fe58c-da62-80e2-8008-d40ced977d68` |
-| `goodui.section-nav-item.link` / `.parent` / `.active` | `521fe58c-da62-80e2-8008-d40ca2339866` / `521fe58c-da62-80e2-8008-d40ca29a692f` / `521fe58c-da62-80e2-8008-d40ca32c96fa` |
-| `goodui.section-nav.desktop` / `.mobile` / `.billing-open` | `521fe58c-da62-80e2-8008-d40cb8b8e01a` / `521fe58c-da62-80e2-8008-d40cba28bff7` / `521fe58c-da62-80e2-8008-d40cd63c49cf` |
-| `goodui.section-nav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
+| `goodui.subnav-item.link` / `.parent` / `.active` | `521fe58c-da62-80e2-8008-d40ca2339866` / `521fe58c-da62-80e2-8008-d40ca29a692f` / `521fe58c-da62-80e2-8008-d40ca32c96fa` |
+| `goodui.subnav.desktop` / `.mobile` / `.menu-open` | `521fe58c-da62-80e2-8008-d40cb8b8e01a` / `521fe58c-da62-80e2-8008-d40cba28bff7` / `521fe58c-da62-80e2-8008-d40cd63c49cf` |
+| `goodui.subnav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
+| `goodui.subnav.with-actions` | `521fe58c-da62-80e2-8008-d41a1e574999` |
+| `goodui.button.outline` / `.outline-icon` | `521fe58c-da62-80e2-8008-d41a0ffcd7b8` / `521fe58c-da62-80e2-8008-d41a10456bbf` |
+| `goodui.action-menu.default` / `.open` | `521fe58c-da62-80e2-8008-d41a7659d7eb` / `521fe58c-da62-80e2-8008-d41a76a2c06d` |
 
 Open states are visual designs. The Angular implementation connects triggers, focus, closing, data, and navigation. The two-level Help and avatar account menus exist in Penpot, the library, and `demo1`. Review new states across all three.
+
+## Reusable component mapping
+
+`design/component-map.json` lists every published Penpot component family. Most map to Angular selectors by the `goodui.<family>.<state>` → `good-<family>` rule. Three visual parts, `avatar-submenu`, `subnav-dropdown`, and `subnav-item`, are internal to their owning Angular components, as recorded in the manifest. The state suffix is represented by input data, projected content, or runtime state, not by a new selector. Use this contract when importing GoodUI components into future Penpot project files and implementing those designs with `@goodui/angular`. A design is ready for handoff only after its component names, state semantics, and Angular API are checked together. Run `npm run check:mapping` to check the manifest against Angular selectors and compare it with the live Penpot library through MCP; the script itself does not connect to Penpot.
+
+| Penpot family and state | Angular API |
+| --- | --- |
+| `goodui.subnav.desktop`, `.mobile`, `.menu-open` | `good-subnav`, `GoodSubnavItem[]`; viewport and open state are responsive/runtime behavior |
+| `goodui.subnav.with-actions` | `good-subnav [actions]` or `good-main-view [subnavActions]` using `GoodSubnavAction[]` |
+| `goodui.subnav-item.*`, `goodui.subnav-dropdown.default` | Internal parts of `good-subnav`; `items[].route`, `items[].children`, and router state |
+| `goodui.button.outline` | `good-button`, default outline appearance; projected label, optional `icon` |
+| `goodui.button.outline-icon` | `good-button [iconOnly]="true"`, required accessible `ariaLabel` |
+| `goodui.action-menu.default`, `.open` | `good-action-menu [items]="..."`; `label`, `icon`, and runtime open state |
+
+The previous public names `GoodSectionNavComponent`, `GoodSectionNavItem`, `good-section-nav`, `sectionNavItems`, and `sectionNavLabel` were replaced by `GoodSubnavComponent`, `GoodSubnavItem`, `good-subnav`, `subnavItems`, and `subnavLabel`. Update consuming code when moving to this version.

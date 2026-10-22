@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page section navigation, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -71,7 +71,9 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | Topbar components | Optional brand icon, menu groups, nested dropdowns |
 | Main menu components | Search, notifications, settings, and avatar actions |
 | `good-main-view` | Page heading, description, actions, and content spacing |
-| `good-section-nav` | Single-row page navigation with mobile horizontal scroll and child menus |
+| `good-subnav` | Single-row page navigation with mobile horizontal scroll and child menus |
+| `good-button` | Reusable outlined text or icon button with accessible disabled and focus states |
+| `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
 The components own their layout. Your app can provide data through `GoodAppLayoutComponent` inputs or compose the exported container and item components directly when needed.
@@ -90,6 +92,7 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 ## Project map
 
 - [Design contract](design.md) — measurements, component ownership, tokens, and Penpot IDs.
+- [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Documentation](doc/docs/intro.md) — integration, layouts, components, and examples.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.
 - [Demo application](demo1/) — an Angular app consuming the built package.
