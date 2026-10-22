@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { DemoPageComponent } from './demo-page';
 import { ButtonsPageComponent } from './buttons-page';
 import { SwitchesPageComponent } from './switches-page';
+import { InputsPageComponent } from './inputs-page';
 
 const page = (title: string, description: string, landing = false) => ({
   component: DemoPageComponent,
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'dashboard', ...page('Dashboard', 'Overview and key metrics') },
   { path: 'components/buttons', component: ButtonsPageComponent },
   { path: 'components/switches', component: SwitchesPageComponent },
+  { path: 'components/inputs', component: InputsPageComponent },
   { path: 'profile', ...page('Public Profile', 'Public profile') },
   { path: 'account/home/get-started', ...page('Account', 'Get Started', true) },
   { path: 'account/home/user-profile', ...page('User Profile', 'Account and personal information') },

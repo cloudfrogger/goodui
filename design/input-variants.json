@@ -1,0 +1,335 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "03 Controls",
+  "family": "goodui.input",
+  "selector": "good-input",
+  "containerId": "79fa6408-a1e2-80d7-8008-d47eb4e37dc7",
+  "variants": [
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e0468f62d",
+      "kind": "text",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e1c3c15e4",
+      "kind": "text",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e1d0f8a2e",
+      "kind": "text",
+      "size": "small",
+      "status": "readonly"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e1e13bf91",
+      "kind": "text",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e1f033b4b",
+      "kind": "text",
+      "size": "small",
+      "status": "error"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e1fda163b",
+      "kind": "text",
+      "size": "default",
+      "status": "readonly"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e20b0dda6",
+      "kind": "text",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e2174e90b",
+      "kind": "text",
+      "size": "default",
+      "status": "error"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e224339b8",
+      "kind": "text",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e232d181a",
+      "kind": "text",
+      "size": "large",
+      "status": "readonly"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e23fd6fc6",
+      "kind": "text",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e24d919ba",
+      "kind": "text",
+      "size": "large",
+      "status": "error"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e2ce079e2",
+      "kind": "file",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e2e7cdaab",
+      "kind": "file",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e2fecf95d",
+      "kind": "file",
+      "size": "small",
+      "status": "error"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e31ade925",
+      "kind": "file",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e3322be35",
+      "kind": "file",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e34bbd32a",
+      "kind": "file",
+      "size": "default",
+      "status": "error"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e3669ee9c",
+      "kind": "file",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e37d7af67",
+      "kind": "file",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d47e393f0627",
+      "kind": "file",
+      "size": "large",
+      "status": "error"
+    }
+  ],
+  "addon": {
+    "family": "goodui.input-addon",
+    "owner": "good-input",
+    "containerId": "79fa6408-a1e2-80d7-8008-d47f49489ba6",
+    "variants": [
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47efb6eeb15",
+        "side": "start",
+        "content": "icon",
+        "tone": "inline",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f2ab33099",
+        "side": "start",
+        "content": "icon",
+        "tone": "inline",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f2ba4b025",
+        "side": "start",
+        "content": "icon",
+        "tone": "inline",
+        "size": "large"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f2cbff085",
+        "side": "start",
+        "content": "icon",
+        "tone": "contrast",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f2dcef105",
+        "side": "start",
+        "content": "icon",
+        "tone": "contrast",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f2efa8d2e",
+        "side": "start",
+        "content": "icon",
+        "tone": "contrast",
+        "size": "large"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f2f927f0b",
+        "side": "start",
+        "content": "text",
+        "tone": "inline",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f2ff77da1",
+        "side": "start",
+        "content": "text",
+        "tone": "inline",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f30600d7d",
+        "side": "start",
+        "content": "text",
+        "tone": "inline",
+        "size": "large"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f30fb236b",
+        "side": "start",
+        "content": "text",
+        "tone": "contrast",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f319ba33d",
+        "side": "start",
+        "content": "text",
+        "tone": "contrast",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f3235ec3e",
+        "side": "start",
+        "content": "text",
+        "tone": "contrast",
+        "size": "large"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f3a5bfe20",
+        "side": "end",
+        "content": "icon",
+        "tone": "inline",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f3b3d4b83",
+        "side": "end",
+        "content": "icon",
+        "tone": "inline",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f3c26c2bd",
+        "side": "end",
+        "content": "icon",
+        "tone": "inline",
+        "size": "large"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f3d4aabd8",
+        "side": "end",
+        "content": "icon",
+        "tone": "contrast",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f3e7bb7b0",
+        "side": "end",
+        "content": "icon",
+        "tone": "contrast",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f3f9b33c9",
+        "side": "end",
+        "content": "icon",
+        "tone": "contrast",
+        "size": "large"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f402c5b99",
+        "side": "end",
+        "content": "text",
+        "tone": "inline",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f4098fabb",
+        "side": "end",
+        "content": "text",
+        "tone": "inline",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f410a9966",
+        "side": "end",
+        "content": "text",
+        "tone": "inline",
+        "size": "large"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f41a9b9d8",
+        "side": "end",
+        "content": "text",
+        "tone": "contrast",
+        "size": "small"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f4249f3ee",
+        "side": "end",
+        "content": "text",
+        "tone": "contrast",
+        "size": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d47f4302a6f5",
+        "side": "end",
+        "content": "text",
+        "tone": "contrast",
+        "size": "large"
+      }
+    ]
+  },
+  "compositions": [
+    {
+      "family": "goodui.input.with-addons",
+      "componentId": "79fa6408-a1e2-80d7-8008-d4801e49f71b",
+      "selector": "good-input",
+      "inputs": {
+        "type": "text",
+        "size": "default",
+        "startIcon": "LucideSearch",
+        "endText": "USD",
+        "endTone": "contrast"
+      }
+    },
+    {
+      "family": "goodui.input.file-with-addon",
+      "componentId": "79fa6408-a1e2-80d7-8008-d4803cf6fbee",
+      "selector": "good-input",
+      "inputs": {
+        "type": "file",
+        "size": "default",
+        "startIcon": "LucideSearch",
+        "startTone": "contrast"
+      }
+    }
+  ]
+}

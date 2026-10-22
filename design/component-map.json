@@ -6,6 +6,7 @@
     "avatar-menu-item",
     "brand-icon",
     "button",
+    "input",
     "main-menu",
     "main-view",
     "notifications",
@@ -27,7 +28,9 @@
   ],
   "internalParts": {
     "avatar-submenu": "avatar-menu",
+    "input-addon": "input",
     "subnav-dropdown": "subnav",
     "subnav-item": "subnav"
-  }
+  },
+  "pendingPenpotFamilies": []
 }

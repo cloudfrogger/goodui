@@ -52,6 +52,7 @@ export class App {
     { id: 'components', heading: 'COMPONENTS', items: [
       { id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' },
       { id: 'switches', label: 'Switches', icon: 'settings', route: '/components/switches' },
+      { id: 'inputs', label: 'Inputs', icon: 'grid', route: '/components/inputs' },
     ] },
     { id: 'user', heading: 'USER', items: [
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
@@ -93,6 +94,7 @@ export class App {
   readonly searchItems: readonly GoodSearchItem[] = [
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
     { id: 'switches', label: 'Switches', description: 'States and form example', route: '/components/switches' },
+    { id: 'inputs', label: 'Inputs', description: 'Text and file controls', route: '/components/inputs' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },
     { id: 'profile', label: 'User Profile', description: 'Personal information', route: '/account/home/user-profile' },
     { id: 'network', label: 'Network', description: 'Kontakte', route: '/network' },

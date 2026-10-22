@@ -27,6 +27,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Subnav | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `Subnav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
 | Button | 32/40/48 px high by size, 6 px radius; optional leading Lucide icon or icon-only square | `Button` owns padding, border, focus, disabled state, and hit area |
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
+| Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
 | Mobile | 60 px topbar, sidebar as drawer | `AppLayout` owns trigger, scrim, drawer, and scroll lock |
 
 These are the current desktop and mobile measurements for GoodUI. The shell should avoid horizontal overflow between 390 px and desktop. The Angular implementation switches navigation at a 900 px breakpoint.
@@ -101,6 +102,8 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.subnav-item` | Link or menu trigger with optional chevron and active state |
 | `goodui.button` | Reusable action control with five variants, three sizes, and text/icon content options |
 | `goodui.switch` | Accessible on/off setting with three sizes and disabled/error presentation |
+| `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
+| `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
@@ -137,6 +140,12 @@ The Penpot Lucide source shapes use 24 px vector geometry. Their linked Button i
 
 The `goodui.switch` Penpot variant group on `03 Controls` has `state=off/on`, `size=small/default/large`, and `status=default/disabled/error`. Its 18 published variants map to `good-switch`; `state` maps to the `checked` model, `size` to the `size` input, and `status` to the `disabled` or `error` input. The complete library-ID map is `design/switch-variants.json`. Each variant keeps a token-bound track and thumb as editable shapes. Disabled variants are dimmed; error variants keep their on/off value and add a two-pixel outer border. If `disabled` and `error` are both true at runtime, disabled styling takes priority.
 
+### Input contract
+
+`good-input` supports `small`, `default`, and `large` at the same 32/40/48 px control heights as Button. `type=file` uses a native file input with a fixed File action and filename text; other supported types use a native text-like input. `disabled` prevents interaction, `readonly` keeps text selectable with a neutral surface, and `error` uses a theme-specific red border. Start and end slots each accept a Lucide icon or fixed text, with `inline` or `contrast` presentation. Icons and fixed text are display-only. The shell uses flex layout so addons and the editable area align without absolute offsets. Only the invisible native file input overlays the shell to retain native file activation.
+
+The published Penpot `goodui.input` family uses `kind=text/file`, `size=small/default/large`, and `status=default/disabled/readonly/error` where valid. The internal `goodui.input-addon` family supplies optional start/end icon or text content with inline or contrast treatment. The 21 Input and 24 addon library IDs and their Angular mapping are recorded in `design/input-variants.json`. The two example compositions retain linked addon instances. The Angular component and demo use the same state and size semantics.
+
 The switch track and thumb dimensions have their own semantic sizing tokens. `switch.on.background` aliases `color.brand` in light mode and is overridden in dark mode. `switch.error.border` aliases `color.error`, which is `#DC2626` in light mode and `#F87171` in dark mode. The same relationships generate the CSS variables. Angular uses a native checkbox with switch semantics, a 44 × 44 px minimum hit area, an accessible label, and optional `ControlValueAccessor` form binding. The visual component contains no product-specific label; consumers supply the label text.
 
 ### Nested topbar menus
@@ -170,6 +179,10 @@ Penpot themes `appearance/light` and `appearance/dark` switch the same semantic 
 | Overlay | `color.overlay` | `#000000` | `#000000` |
 
 Shared `layout` dimensions: `space.1`, `.2`, `.2_5`, `.3`, `.5`, `.6`, `.7_5` = 4, 8, 10, 12, 20, 24, 30 px; `radius.item` = 8 px; `radius.card` = 12 px; `size.sidebar` = 280 px; `size.topbar` = 70 px. Add shared roles for overlay opacity, hover, or focus if several components need them.
+
+`radius.control` aliases the 6 px `radius.button`; `radius.compact` is 4 px; `radius.action` is the circular action-trigger role. The Angular stylesheet uses shared tokens for control, menu, item, card, action, and pill corners. Input main components and compositions bind their radius, sizing, gaps, padding, fills, borders, readonly surface, and error colors to semantic tokens. The `goodui.input` group has 21 variants; `goodui.input-addon` has 24. The addon is an internal visual part of `good-input`. The two compositions preserve linked addon instances. All rounded main-component boards on `01 Components` now have role-token bindings; nested inset surfaces retain their existing geometric radii and need separate treatment if their construction changes.
+
+Angular Switch, the avatar appearance switch, and all 18 Penpot Switch variants place their thumbs with flex alignment while retaining the same track sizes and on/off positions. `switch.thumb-inset` binds the four track paddings in Penpot and CSS. Absolute positioning remains appropriate for popovers, fixed submenus, and the invisible file input overlay.
 
 The live Penpot file uses version 2.17.0 of the plugin API. Shell responsive and open states are separate main components; Button is a registered 45-combination Penpot variant group. The existing color tokens remain bound to fills and strokes. Semantic aliases in `layout` bind `topbar.padding-inline` to topbar flex padding, `main-menu.gap` to MainMenu flex column gap, and `sidebar.menu-gap` to the sidebar menu flex row gap. Sizing tokens bind sidebar width, desktop/mobile topbar height, subnav height, sidebar row height, the four 36 px action controls, and Button heights and icon sizes. `radius.item` binds sidebar item corners; `radius.card` binds MainView content border corners; `radius.button` binds Button corners. Main component IDs and intentionally different instance values remain unchanged.
 

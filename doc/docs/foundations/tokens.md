@@ -28,11 +28,19 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `subnav.height` / `.mobile-height` | `--good-subnav-height` / `--good-subnav-mobile-height` | Subnav board heights | Subnav strip |
 | `radius.item` / `radius.card` | `--good-radius-item` / `--good-radius-card` | SidebarItem corners / MainView content border corners | Items and cards |
 | `radius.button` | `--good-radius-button` | Button board corners | Button corner radius |
+| `radius.action` | `--good-radius-action` | Circular search, notifications, settings, and avatar triggers | Action-trigger rounding |
 | `color.error` / `switch.error.border` | `--good-color-error` / `--good-switch-error-border` | Switch error outline | Theme-specific validation color |
 | `control.switch-width-*` / `control.switch-height-*` | `--good-control-switch-width-*` / `--good-control-switch-height-*` | Switch track dimensions | Small, default, large tracks |
 | `control.switch-thumb-size-*` | `--good-control-switch-thumb-size-*` | Switch thumb dimensions | Small, default, large thumbs |
 | `switch.off.background` / `switch.on.background` / `switch.thumb.background` | `--good-switch-*-background` | Switch track and thumb fills | On/off surfaces |
 | `radius.switch` | `--good-radius-switch` | Switch track corners | Pill radius |
+| `radius.control` / `radius.compact` | `--good-radius-control` / `--good-radius-compact` | Input outer and file-button corners | Shared 6 px controls and 4 px compact details |
+| `control.input-height-*` / `control.input-icon-size-*` | `--good-control-input-height-*` / `--good-control-input-icon-size-*` | Input and addon dimensions | Button-aligned 32/40/48 px controls and 14/16/20 px icons |
+| `control.input-addon-icon-width-*` / `control.input-file-button-height-*` | `--good-control-input-addon-icon-width-*` / `--good-control-input-file-button-height-*` | Icon addon widths and file action heights | Size-specific internal controls |
+| `input.padding-inline-*` / `input.gap-*` | `--good-input-padding-inline-*` / `--good-input-gap-*` | Input flex padding and gap | Size-specific field spacing |
+| `input.background` / `.border` / `.foreground` / `.placeholder` | `--good-input-*` | Input surface, border, and text | Text-field surface, border, text, and hint |
+| `input.readonly.background` / `input.addon.background` / `.foreground` | `--good-input-*-*` | Readonly and contrasted addon surfaces | Theme-aware secondary surfaces |
+| `input.error.border` / `input.focus.border` | `--good-input-error-border` / `--good-input-focus-border` | Error stroke; runtime focus ring | Theme-aware error and focus borders |
 
 The semantic values `topbar.padding-inline`, `main-menu.gap`, `sidebar.menu-gap`, and `control.action-size` are Penpot aliases. Generated CSS preserves those references with `var(...)`; changing their base tokens changes both the resolved Penpot value and the generated CSS value after the documented refresh.
 
@@ -47,6 +55,10 @@ Two existing visual differences remain outside the shared-token mapping: Penpot'
 Open and responsive shell states remain separate Penpot components. Button is a real variant group with 45 combinations; its former outline component IDs and nested instances are preserved. The [variant ID manifest](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) maps Penpot variants to the `good-button` inputs.
 
 Switch is a real 18-combination variant group. Its width, height, radius, track fill, thumb size/fill, and error border have live Penpot token bindings. `switch.error.border` aliases `color.error`; the light value is `#DC2626` and the dark override is `#F87171`. The dark set also overrides the off and on track fills. The [Switch variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) maps the Penpot axes to `good-switch` inputs.
+
+Input and shared control-radius tokens are present in Penpot's `layout` set and the repository snapshot. The generated CSS preserves all aliases: Input heights, icon sizes, padding, and gaps inherit Button's scale; `radius.control` inherits `radius.button`; `input.error.border` inherits the light/dark `color.error` values. The 21 Input variants, 24 addon variants, and two compositions on `03 Controls` bind their supported shape properties to these roles. The [Input variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) records their library IDs. Changing `radius.button` and `input.error.border` temporarily changed the bound Input corner and error stroke in Penpot; both values were restored. Existing CSS corner values of 4, 6, 8, and 12 px were replaced with role tokens. All rounded main-component boards on `01 Components` have semantic radius bindings. Nested one-pixel inset surfaces retain their existing geometric radii; review those separately if the component construction changes.
+
+The 2 px generic brand mark and circular avatar-image masks are geometric details outside the control/card radius scale. Popovers and invisible native inputs still use absolute positioning to overlay their triggers; regular control content uses flex layout.
 
 ## Export and generation
 

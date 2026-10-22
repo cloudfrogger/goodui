@@ -92,6 +92,18 @@
       "switch": {
         "$value": "999",
         "$type": "borderRadius"
+      },
+      "control": {
+        "$value": "{radius.button}",
+        "$type": "borderRadius"
+      },
+      "compact": {
+        "$value": "4",
+        "$type": "borderRadius"
+      },
+      "action": {
+        "$value": "999",
+        "$type": "borderRadius"
       }
     },
     "size": {
@@ -197,6 +209,54 @@
       },
       "switch-thumb-size-large": {
         "$value": "20",
+        "$type": "sizing"
+      },
+      "input-height-small": {
+        "$value": "{control.button-height-small}",
+        "$type": "sizing"
+      },
+      "input-height-default": {
+        "$value": "{control.button-height-default}",
+        "$type": "sizing"
+      },
+      "input-height-large": {
+        "$value": "{control.button-height-large}",
+        "$type": "sizing"
+      },
+      "input-icon-size-small": {
+        "$value": "{control.button-icon-size-small}",
+        "$type": "sizing"
+      },
+      "input-icon-size-default": {
+        "$value": "{control.button-icon-size-default}",
+        "$type": "sizing"
+      },
+      "input-icon-size-large": {
+        "$value": "{control.button-icon-size-large}",
+        "$type": "sizing"
+      },
+      "input-file-button-height-small": {
+        "$value": "24",
+        "$type": "sizing"
+      },
+      "input-file-button-height-default": {
+        "$value": "30",
+        "$type": "sizing"
+      },
+      "input-file-button-height-large": {
+        "$value": "36",
+        "$type": "sizing"
+      },
+      "input-addon-icon-width-small": {
+        "$value": "38",
+        "$type": "sizing"
+      },
+      "input-addon-icon-width-default": {
+        "$value": "48",
+        "$type": "sizing"
+      },
+      "input-addon-icon-width-large": {
+        "$value": "60",
         "$type": "sizing"
       }
     },
@@ -321,6 +381,86 @@
         "border": {
           "$value": "{color.error}",
           "$type": "color"
+        }
+      },
+      "thumb-inset": {
+        "$value": "2",
+        "$type": "spacing"
+      }
+    },
+    "input": {
+      "padding-inline-small": {
+        "$value": "{button.padding-inline-small}",
+        "$type": "spacing"
+      },
+      "padding-inline-default": {
+        "$value": "{button.padding-inline-default}",
+        "$type": "spacing"
+      },
+      "padding-inline-large": {
+        "$value": "{button.padding-inline-large}",
+        "$type": "spacing"
+      },
+      "gap-small": {
+        "$value": "{button.gap-small}",
+        "$type": "spacing"
+      },
+      "gap-default": {
+        "$value": "{button.gap-default}",
+        "$type": "spacing"
+      },
+      "gap-large": {
+        "$value": "{button.gap-large}",
+        "$type": "spacing"
+      },
+      "background": {
+        "$value": "{color.surface}",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "{color.border}",
+        "$type": "color"
+      },
+      "foreground": {
+        "$value": "{color.text}",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "{color.muted}",
+        "$type": "color"
+      },
+      "readonly": {
+        "background": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        }
+      },
+      "addon": {
+        "background": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "{color.muted}",
+          "$type": "color"
+        }
+      },
+      "error": {
+        "border": {
+          "$value": "{color.error}",
+          "$type": "color"
+        }
+      },
+      "focus": {
+        "border": {
+          "$value": "{color.accent}",
+          "$type": "color"
+        }
+      },
+      "file-button": {
+        "padding-inline": {
+          "$value": "{space.2}",
+          "$type": "spacing"
         }
       }
     }

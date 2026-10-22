@@ -5,19 +5,22 @@ const root = resolve(import.meta.dirname, '..');
 const map = JSON.parse(readFileSync(resolve(root, 'design/component-map.json'), 'utf8'));
 const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-variants.json'), 'utf8'));
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
+const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
 const direct = new Set(map.directFamilies);
 const internal = Object.keys(map.internalParts);
-const names = [...direct, ...internal];
+const pending = new Set(map.pendingPenpotFamilies ?? []);
+const names = [...direct, ...internal, ...pending];
 if (new Set(names).size !== names.length) throw new Error('A Penpot family is mapped twice.');
 for (const name of direct) if (!selectors.has(name)) throw new Error(`Missing Angular selector for goodui.${name}`);
+for (const name of pending) if (!selectors.has(name)) throw new Error(`Missing Angular selector for pending goodui.${name}`);
 for (const [name, owner] of Object.entries(map.internalParts)) {
   if (selectors.has(name)) throw new Error(`goodui.${name} now has a selector; move it to directFamilies.`);
   if (!direct.has(owner)) throw new Error(`Unknown Angular owner for goodui.${name}: ${owner}`);
 }
-for (const name of selectors) if (name !== 'icon' && !direct.has(name)) throw new Error(`Unmapped Angular selector: good-${name}`);
+for (const name of selectors) if (name !== 'icon' && !direct.has(name) && !pending.has(name)) throw new Error(`Unmapped Angular selector: good-${name}`);
 if (buttonVariants.family !== 'goodui.button' || buttonVariants.selector !== 'good-button') throw new Error('Button variant family does not map to good-button.');
 const combinations = new Set();
 const ids = new Set();
@@ -54,4 +57,33 @@ for (const state of switchVariants.axes.state) for (const size of switchVariants
   if (!switchCombinations.has(key)) throw new Error(`Missing Switch variant: ${key}`);
 }
 if (!selectors.has('switch')) throw new Error('Missing good-switch selector.');
-console.log(`Checked ${names.length} Penpot families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, and ${switchCombinations.size} Switch variants.`);
+if (inputVariants.family !== 'goodui.input' || inputVariants.selector !== 'good-input' || !inputVariants.containerId) throw new Error('Input variant family must map to good-input.');
+if (inputVariants.addon.family !== 'goodui.input-addon' || inputVariants.addon.owner !== 'good-input' || !inputVariants.addon.containerId) throw new Error('Input addon family must belong to good-input.');
+const inputIds = new Set();
+const checkMatrix = (entries, axes, expected, label) => {
+  const seen = new Set();
+  for (const entry of entries) {
+    if (!entry.id || inputIds.has(entry.id)) throw new Error(`Duplicate or missing ${label} Penpot ID: ${entry.id}`);
+    inputIds.add(entry.id);
+    const key = axes.map(([axis, values]) => {
+      if (!values.includes(entry[axis])) throw new Error(`Unknown ${label} ${axis}: ${entry[axis]}`);
+      return entry[axis];
+    }).join('/');
+    if (seen.has(key)) throw new Error(`Duplicate ${label} variant: ${key}`);
+    seen.add(key);
+  }
+  for (const key of expected) if (!seen.has(key)) throw new Error(`Missing ${label} variant: ${key}`);
+  if (seen.size !== expected.length) throw new Error(`Unexpected ${label} variant count: ${seen.size}`);
+};
+const inputExpected = [];
+for (const kind of ['text', 'file']) for (const size of ['small', 'default', 'large']) for (const status of (kind === 'text' ? ['default', 'readonly', 'disabled', 'error'] : ['default', 'disabled', 'error'])) inputExpected.push(`${kind}/${size}/${status}`);
+checkMatrix(inputVariants.variants, [['kind', ['text', 'file']], ['size', ['small', 'default', 'large']], ['status', ['default', 'readonly', 'disabled', 'error']]], inputExpected, 'Input');
+const addonExpected = [];
+for (const side of ['start', 'end']) for (const content of ['icon', 'text']) for (const tone of ['inline', 'contrast']) for (const size of ['small', 'default', 'large']) addonExpected.push(`${side}/${content}/${tone}/${size}`);
+checkMatrix(inputVariants.addon.variants, [['side', ['start', 'end']], ['content', ['icon', 'text']], ['tone', ['inline', 'contrast']], ['size', ['small', 'default', 'large']]], addonExpected, 'Input addon');
+for (const composition of inputVariants.compositions) {
+  if (!composition.componentId || inputIds.has(composition.componentId) || composition.selector !== 'good-input') throw new Error(`Invalid Input composition: ${composition.family}`);
+  inputIds.add(composition.componentId);
+}
+if (inputVariants.compositions.length !== 2) throw new Error('Expected text and file Input compositions.');
+console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, ${switchCombinations.size} Switch variants, ${inputVariants.variants.length} Input variants, and ${inputVariants.addon.variants.length} Input addon variants.`);
