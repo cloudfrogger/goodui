@@ -23,6 +23,14 @@ export interface GoodTopbarItem {
   separatorBefore?: boolean;
 }
 
+export interface GoodSectionNavItem {
+  id: string;
+  label: string;
+  route?: string;
+  children?: readonly GoodSectionNavItem[];
+  disabled?: boolean;
+}
+
 export interface GoodUser {
   name: string;
   email?: string;
@@ -77,4 +85,8 @@ export function goodItemContainsRoute(item: GoodNavItem, current: string): boole
 
 export function goodTopbarItemContainsRoute(item: GoodTopbarItem, current: string): boolean {
   return goodRouteActive(item.route, current) || !!item.children?.some(child => goodTopbarItemContainsRoute(child, current));
+}
+
+export function goodSectionNavItemContainsRoute(item: GoodSectionNavItem, current: string): boolean {
+  return goodRouteActive(item.route, current) || !!item.children?.some(child => goodSectionNavItemContainsRoute(child, current));
 }

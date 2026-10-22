@@ -57,5 +57,9 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.avatar-submenu.default` / `goodui.avatar-menu.account-open` | `521fe58c-da62-80e2-8008-d3e0a96714b4` / `521fe58c-da62-80e2-8008-d3e0a9a60899` |
 | `goodui.main-view.default` / `.mobile` | `521fe58c-da62-80e2-8008-d33f7aa54b2b` / `521fe58c-da62-80e2-8008-d33fc4dcceec` |
 | `goodui.main-view.account` | `521fe58c-da62-80e2-8008-d34655a672c2` |
+| `goodui.main-view.account-mobile` | `521fe58c-da62-80e2-8008-d40ced977d68` |
+| `goodui.section-nav-item.link` / `.parent` / `.active` | `521fe58c-da62-80e2-8008-d40ca2339866` / `521fe58c-da62-80e2-8008-d40ca29a692f` / `521fe58c-da62-80e2-8008-d40ca32c96fa` |
+| `goodui.section-nav.desktop` / `.mobile` / `.billing-open` | `521fe58c-da62-80e2-8008-d40cb8b8e01a` / `521fe58c-da62-80e2-8008-d40cba28bff7` / `521fe58c-da62-80e2-8008-d40cd63c49cf` |
+| `goodui.section-nav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
 
 Open states are visual designs. The Angular implementation connects triggers, focus, closing, data, and navigation. The two-level Help and avatar account menus exist in Penpot, the library, and `demo1`. Review new states across all three.

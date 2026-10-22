@@ -43,7 +43,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-main-view { box-sizing: border-box; }
+good-main-menu, good-main-view, good-section-nav { box-sizing: border-box; }
 
 .good-icon { display: inline-flex; width: 18px; height: 18px; flex: none; }
 .good-icon svg { width: 100%; height: 100%; }
@@ -168,6 +168,26 @@ good-main-menu, good-main-view { box-sizing: border-box; }
 .good-empty-state { padding: 24px; color: var(--good-muted); text-align: center; }
 
 .good-main-view { display: flex; flex-direction: column; min-height: 100%; padding: 20px 30px 30px; background: var(--good-canvas); }
+.good-main-view > .good-section-nav { flex: none; margin: -20px -30px 36px; }
+.good-section-nav { display: block; min-width: 0; height: 60px; border-bottom: 1px solid var(--good-border); background: var(--good-surface); color: var(--good-text); }
+.good-section-nav nav { height: 100%; }
+.good-section-nav-scroll { width: 100%; height: 100%; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none; }
+.good-section-nav-scroll::-webkit-scrollbar { display: none; }
+.good-section-nav-track { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 12px; width: max-content; min-width: 100%; height: 100%; padding: 0 30px; box-sizing: border-box; }
+.good-section-nav-item { position: relative; display: inline-flex; align-items: center; flex: none; white-space: nowrap; scroll-margin-inline: 24px; }
+.good-section-nav-item.good-is-active::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: var(--good-accent); content: ''; }
+.good-section-nav-link, .good-section-nav-chevron { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 0; background: transparent; color: var(--good-muted); font: inherit; font-size: 13px; font-weight: 500; text-decoration: none; cursor: pointer; }
+.good-section-nav-link { padding: 0 8px; }
+.good-section-nav-inline-chevron { width: 14px; height: 14px; margin-left: 10px; }
+.good-section-nav-chevron { width: 28px; padding: 0; }
+.good-section-nav-chevron svg { width: 14px; height: 14px; }
+.good-section-nav-item:hover > .good-section-nav-link, .good-section-nav-item:hover > .good-section-nav-chevron, .good-section-nav-item.good-is-active > .good-section-nav-link, .good-section-nav-item.good-is-active > .good-section-nav-chevron { color: var(--good-accent); }
+.good-section-nav .good-is-disabled { opacity: .5; cursor: default; }
+.good-section-nav-link:focus-visible, .good-section-nav-chevron:focus-visible, .good-section-nav-dropdown-link:focus-visible { border-radius: 4px; outline: 2px solid var(--good-accent); outline-offset: -2px; }
+.good-section-nav-dropdown { position: fixed; z-index: 35; box-sizing: border-box; display: flex; flex-direction: column; gap: 2px; width: 220px; max-height: min(360px, 60dvh); overflow-y: auto; padding: 8px; border: 1px solid var(--good-border); border-radius: 8px; background: var(--good-surface); box-shadow: 0 12px 30px #0002; }
+.good-section-nav-dropdown-link { box-sizing: border-box; display: flex; align-items: center; min-height: 40px; padding: 8px 10px; border-radius: 6px; color: var(--good-text); font-size: 13px; text-decoration: none; white-space: nowrap; }
+.good-section-nav-dropdown-link:hover { background: var(--good-selected); }
+.good-section-nav-dropdown-link.good-is-active { color: var(--good-accent); background: var(--good-selected); }
 .good-main-view-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
 .good-main-view-heading h1 { margin: 0; color: var(--good-text); font-size: 20px; line-height: 28px; font-weight: 600; }
 .good-main-view-heading p { margin: 0; color: var(--good-muted); font-size: 14px; line-height: 20px; }
@@ -204,5 +224,8 @@ good-main-menu, good-main-view { box-sizing: border-box; }
   .good-mobile-menu-button, .good-mobile-brand { display: inline-flex !important; }
   .good-mobile-brand { align-items: center; font-size: 15px; font-weight: 700; }
   .good-main-view { padding: 20px 24px 24px; }
+  .good-main-view > .good-section-nav { height: 44px; margin: -20px -24px 24px; }
+  .good-section-nav-track { gap: 8px; padding: 0 24px; }
+  .good-section-nav-link, .good-section-nav-chevron { min-height: 44px; }
   .good-main-menu { gap: 4px; }
 }

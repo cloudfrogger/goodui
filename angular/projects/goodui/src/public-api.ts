@@ -5,4 +5,5 @@ export * from './lib/sidebar';
 export * from './lib/topbar';
 export * from './lib/actions';
 export * from './lib/main-view';
+export * from './lib/section-nav';
 export * from './lib/app-layout';

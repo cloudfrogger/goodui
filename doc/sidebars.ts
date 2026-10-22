@@ -8,7 +8,7 @@ const sidebars: SidebarsConfig = {
     {type: 'category', label: 'Components', items: [
       'components/sidebar', 'components/topbar', 'components/main-menu',
       'components/search', 'components/notifications', 'components/settings',
-      'components/avatar-menu', 'components/main-view',
+      'components/avatar-menu', 'components/main-view', 'components/section-nav',
     ]},
     {type: 'category', label: 'Contributing', items: ['contributing/design-to-code']},
   ],

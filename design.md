@@ -24,6 +24,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Topbar submenu | Support Forum panel 218 × 124 px; 4 px gap from parent, aligned with trigger row | `TopbarSubmenu` owns the next level and flips at the viewport edge |
 | Avatar menu | About 250 × 384 px account panel under the avatar; 40 px rows, 36 px identity image, 8 px panel radius | `AvatarMenu` owns identity, row spacing, nested menus, appearance switch, and sign-out area |
 | Main view | 20 px top and 30 px horizontal padding below topbar | `MainView` owns page container and optional heading |
+| Section navigation | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `SectionNav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
 | Mobile | 60 px topbar, sidebar as drawer | `AppLayout` owns trigger, scrim, drawer, and scroll lock |
 
 These are the current desktop and mobile measurements for GoodUI. The shell should avoid horizontal overflow between 390 px and desktop. The Angular implementation switches navigation at a 900 px breakpoint.
@@ -59,6 +60,8 @@ AppLayout
    │        ├─ Dark Mode switch
    │        └─ optional sign-out item
    └─ MainView
+      ├─ SectionNav (optional)
+      │  └─ SectionNavItem (repeatable; optional child links)
       ├─ optional page heading
       └─ page content
 ```
@@ -89,6 +92,8 @@ AppLayout
 | `goodui.avatar-menu` | Avatar trigger and account menu with identity, nested actions, appearance switch, and sign-out area |
 | `goodui.avatar-menu-item` | Reusable account link, action, or expandable parent row |
 | `goodui.main-view` | Optional page heading, actions, and projected content |
+| `goodui.section-nav` | Optional page section navigation, scroll viewport, active indicator, and child menu |
+| `goodui.section-nav-item` | Link or menu trigger with optional chevron and active state |
 
 ## Naming and Angular API
 
@@ -100,6 +105,14 @@ AppLayout
 - Variant axes are `variant`, `size`, and `state`, with stable English values.
 
 The simple API accepts brand, sidebar groups, topbar items, actions, user, and notifications. Apps can also compose the exported containers and items directly. Public TypeScript exports are in `angular/projects/goodui/src/public-api.ts`; see `doc/` for examples.
+
+### Page section navigation
+
+`MainView.sectionNavItems` places `SectionNav` above the heading and extends its strip across the page width. `SectionNav` can also be used independently. Its `GoodSectionNavItem` model has a stable `id`, `label`, optional `route`, optional one-level `children`, and optional `disabled`. A route plus children produces a link and a separate chevron button, so navigating and opening the child menu remain distinct actions. Items with only children use a menu button. The active item follows the Angular Router URL unless `activeRoute` is supplied directly to `SectionNav`.
+
+The track stays on one line at every viewport width. On mobile, the 44 px strip scrolls horizontally with touch or a trackpad; the page itself does not gain horizontal overflow. The active item scrolls into view on route changes. The child menu opens outside the clipped scroll viewport, stays within the screen edge, and closes on Escape, outside click, scroll, resize, or navigation. Links receive `aria-current="page"`; menu buttons expose `aria-expanded` and `aria-controls`. Arrow keys, Home, and End move between top-level items; opening a menu focuses its first link and Escape returns focus to its trigger.
+
+Penpot contains desktop, mobile clipped-scroll, dropdown, and composed open variants. The account MainView variants use nested SectionNav component instances. The Angular demo supplies the account sections and real child routes.
 
 ### Nested topbar menus
 
@@ -156,6 +169,7 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 - Popovers, dialogs, and drawers need accessible labels, focus management, Escape handling, and focus return.
 - The mobile sidebar opens from the topbar trigger and closes through the scrim or Escape. Desktop sidebar collapse exists as a design variant but is not yet exposed as an Angular API state.
 - `MainView` accepts page content without imposing a card layout. The heading and actions are optional; content grows and scrolls.
+- `SectionNav` owns its horizontal viewport and child menu. Apps provide route data and do not add custom wrapping or page offsets.
 - `MainMenu` can hide each of its four actions. Apps may project a custom `good-main-menu` into `Topbar`; the container still owns spacing and hit areas.
 - Tailwind CSS 4 theme variables provide colors; the shipped component CSS provides geometry. Apps do not add `margin-left` or `padding-top` to align the shell.
 

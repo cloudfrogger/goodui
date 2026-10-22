@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, nested navigation, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page section navigation, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -71,6 +71,7 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | Topbar components | Optional brand icon, menu groups, nested dropdowns |
 | Main menu components | Search, notifications, settings, and avatar actions |
 | `good-main-view` | Page heading, description, actions, and content spacing |
+| `good-section-nav` | Single-row page navigation with mobile horizontal scroll and child menus |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
 The components own their layout. Your app can provide data through `GoodAppLayoutComponent` inputs or compose the exported container and item components directly when needed.
