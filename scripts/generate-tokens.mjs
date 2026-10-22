@@ -19,7 +19,7 @@ function flatten(group, prefix = '', result = new Map()) {
     const name = prefix ? `${prefix}.${key}` : key;
     if ('$value' in value) {
       if (result.has(name)) throw new Error(`Duplicate token: ${name}`);
-      if (!['color', 'spacing', 'sizing', 'borderRadius'].includes(value.$type)) throw new Error(`Unsupported token type: ${name} (${value.$type})`);
+      if (!['color', 'spacing', 'sizing', 'borderRadius', 'fontSizes'].includes(value.$type)) throw new Error(`Unsupported token type: ${name} (${value.$type})`);
       result.set(name, value);
     } else flatten(value, name, result);
   }
@@ -32,7 +32,7 @@ const sets = new Map(setOrder.map(name => {
 }));
 const cssName = name => `--good-${name.replaceAll('.', '-').replaceAll('_', '-')}`;
 const alias = /^\{([^{}]+)\}$/;
-const dimensionTypes = new Set(['spacing', 'sizing', 'borderRadius']);
+const dimensionTypes = new Set(['spacing', 'sizing', 'borderRadius', 'fontSizes']);
 
 function effectiveTokens(theme) {
   const selected = theme.selectedTokenSets ?? {};

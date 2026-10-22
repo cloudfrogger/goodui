@@ -112,6 +112,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.dropdown-panel` | Internal header, item list, and footer composition |
 | `goodui.dropdown-item` | Internal action, link, badge, icon, disabled state, or submenu parent |
 | `goodui.breadcrumbs` | Ordered path, optional first icon, configurable separators, collapsed middle, and optional card frame |
+| `goodui.badge` | Compact status or metadata label with semantic color, treatment, shape, size, optional icon, and removable action |
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
@@ -157,6 +158,12 @@ The published Penpot `goodui.input` family uses `kind=text/file`, `size=small/de
 ### Breadcrumbs contract
 
 `good-breadcrumbs` accepts an ordered `GoodBreadcrumbItem[]` path. The last item is the current page; earlier items use their optional Angular routes. `homeIcon` replaces the first label visually while preserving its accessible name. `separator` accepts a Lucide/custom icon or text, defaulting to Lucide Chevron Right. `maxItems` is an optional displayed-entry limit with a minimum of three. When exceeded, the component keeps the first and final entries and collapses consecutive ancestors starting at level two into an ellipsis dropdown. The dropdown reuses GoodUI's menu focus, dismissal, and placement behavior. `card` applies the shared surface, border, `radius.card`, and spacing roles. The component owns list semantics, links, overflow, wrapping, and focus presentation.
+
+### Badge
+
+`good-badge` is an inline label for status and metadata. `color` is `primary`, `secondary`, `destructive`, `warning`, `success`, `info`, or `text`; `secondary` aliases the secondary Button color and `text` follows the current theme text role. `variant` is `solid` (default), `outline` (a light tint with a role-colored border), or `light` (a softened fill). `shape` is `circle` (default) or `square`; `size` is `small`, `default`, or `large`. The optional leading `icon` accepts the same Lucide or custom icon data as Button. `removable` adds a real trailing button; its `removed` output lets the owner remove the item. The owner supplies `label` and may override the button's accessible `removeLabel`.
+
+The `goodui.badge` Penpot variant group is on `05 Badges` with all 126 `color × variant × shape × size` combinations. Four linked example instances show plain text, a leading icon, an X, and both content options. The component owns flex alignment, spacing, icon sizing, and pill or compact corners; consuming layouts only place the finished Badge. Hidden Lucide icon slots in every Penpot variant can be revealed in an instance. `design/badge-variants.json` records the exact published variant IDs. Token-bound heights are 24/28/32 px; inline padding is 8/10/12 px, gap is 4/6/8 px, and icon sizes are 12/14/16 px. Color roles, typography, radii, and spacing are semantic tokens shared with the generated CSS. Penpot examples show the X visually; click, keyboard focus, and event emission belong to Angular.
 
 The Penpot `goodui.breadcrumbs` family on `03 Controls` contains sixteen `style=plain/card` × `start=text/icon` × `path=full/collapsed` × `separator=chevron/slash` variants. `style` maps to `[card]`; `start` maps to optional `[homeIcon]`; `path` maps to the actual `items` length and `[maxItems]`; `separator` maps to `[separator]`. Chevron and home instances remain linked to Lucide, and the Card and text roles are token-bound. The collapsed design shows the trigger; actual menu behavior belongs to Angular. IDs are in `design/breadcrumbs-variants.json`.
 

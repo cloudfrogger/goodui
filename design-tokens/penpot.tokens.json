@@ -44,6 +44,18 @@
       "error": {
         "$value": "#DC2626",
         "$type": "color"
+      },
+      "warning": {
+        "$value": "#B45309",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "#15803D",
+        "$type": "color"
+      },
+      "info": {
+        "$value": "#0369A1",
+        "$type": "color"
       }
     },
     "space": {
@@ -390,36 +402,90 @@
     },
     "dropdown": {
       "panel": {
-        "width": { "$value": "240", "$type": "sizing" },
-        "padding": { "$value": "6", "$type": "spacing" },
-        "gap": { "$value": "2", "$type": "spacing" },
-        "background": { "$value": "{color.surface}", "$type": "color" },
-        "border": { "$value": "{color.border}", "$type": "color" }
+        "width": {
+          "$value": "240",
+          "$type": "sizing"
+        },
+        "padding": {
+          "$value": "6",
+          "$type": "spacing"
+        },
+        "gap": {
+          "$value": "2",
+          "$type": "spacing"
+        },
+        "background": {
+          "$value": "{color.surface}",
+          "$type": "color"
+        },
+        "border": {
+          "$value": "{color.border}",
+          "$type": "color"
+        }
       },
       "popup": {
-        "gap": { "$value": "6", "$type": "spacing" }
+        "gap": {
+          "$value": "6",
+          "$type": "spacing"
+        }
       },
       "item": {
-        "height": { "$value": "36", "$type": "sizing" },
-        "icon-size": { "$value": "16", "$type": "sizing" },
-        "chevron-size": { "$value": "14", "$type": "sizing" },
-        "icon": { "$value": "{color.icon}", "$type": "color" },
-        "padding-inline": { "$value": "{space.2_5}", "$type": "spacing" },
-        "foreground": { "$value": "{color.text}", "$type": "color" },
-        "hover-background": { "$value": "{color.selected}", "$type": "color" }
+        "height": {
+          "$value": "36",
+          "$type": "sizing"
+        },
+        "icon-size": {
+          "$value": "16",
+          "$type": "sizing"
+        },
+        "chevron-size": {
+          "$value": "14",
+          "$type": "sizing"
+        },
+        "icon": {
+          "$value": "{color.icon}",
+          "$type": "color"
+        },
+        "padding-inline": {
+          "$value": "{space.2_5}",
+          "$type": "spacing"
+        },
+        "foreground": {
+          "$value": "{color.text}",
+          "$type": "color"
+        },
+        "hover-background": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        }
       },
       "section": {
-        "padding": { "$value": "{space.2}", "$type": "spacing" }
+        "padding": {
+          "$value": "{space.2}",
+          "$type": "spacing"
+        }
       },
       "submenu": {
-        "width": { "$value": "220", "$type": "sizing" }
+        "width": {
+          "$value": "220",
+          "$type": "sizing"
+        }
       },
       "header": {
-        "foreground": { "$value": "{color.muted}", "$type": "color" }
+        "foreground": {
+          "$value": "{color.muted}",
+          "$type": "color"
+        }
       },
       "badge": {
-        "background": { "$value": "{color.selected}", "$type": "color" },
-        "foreground": { "$value": "{color.muted}", "$type": "color" }
+        "background": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "{color.muted}",
+          "$type": "color"
+        }
       }
     },
     "input": {
@@ -497,6 +563,370 @@
           "$type": "spacing"
         }
       }
+    },
+    "badge": {
+      "primary": {
+        "color": {
+          "$value": "{color.accent}",
+          "$type": "color"
+        },
+        "solid": {
+          "background": {
+            "$value": "{button.default.background}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "#FFFFFF",
+            "$type": "color"
+          }
+        },
+        "outline": {
+          "background": {
+            "$value": "#EFF6FF",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "{badge.primary.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.primary.color}",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#DBEAFE",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.primary.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "secondary": {
+        "color": {
+          "$value": "{button.secondary.hover}",
+          "$type": "color"
+        },
+        "solid": {
+          "background": {
+            "$value": "{button.secondary.background}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{button.secondary.foreground}",
+            "$type": "color"
+          }
+        },
+        "outline": {
+          "background": {
+            "$value": "#FAFAFA",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "{badge.secondary.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{button.secondary.foreground}",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#F4F4F5",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{button.secondary.foreground}",
+            "$type": "color"
+          }
+        }
+      },
+      "destructive": {
+        "color": {
+          "$value": "{color.error}",
+          "$type": "color"
+        },
+        "solid": {
+          "background": {
+            "$value": "{badge.destructive.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "#FFFFFF",
+            "$type": "color"
+          }
+        },
+        "outline": {
+          "background": {
+            "$value": "#FEF2F2",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "{badge.destructive.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.destructive.color}",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#FEE2E2",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.destructive.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "warning": {
+        "color": {
+          "$value": "{color.warning}",
+          "$type": "color"
+        },
+        "solid": {
+          "background": {
+            "$value": "{badge.warning.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "#FFFFFF",
+            "$type": "color"
+          }
+        },
+        "outline": {
+          "background": {
+            "$value": "#FFFBEB",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "{badge.warning.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.warning.color}",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#FEF3C7",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.warning.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "success": {
+        "color": {
+          "$value": "{color.success}",
+          "$type": "color"
+        },
+        "solid": {
+          "background": {
+            "$value": "{badge.success.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "#FFFFFF",
+            "$type": "color"
+          }
+        },
+        "outline": {
+          "background": {
+            "$value": "#F0FDF4",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "{badge.success.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.success.color}",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#DCFCE7",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.success.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "info": {
+        "color": {
+          "$value": "{color.info}",
+          "$type": "color"
+        },
+        "solid": {
+          "background": {
+            "$value": "{badge.info.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "#FFFFFF",
+            "$type": "color"
+          }
+        },
+        "outline": {
+          "background": {
+            "$value": "#F0F9FF",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "{badge.info.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.info.color}",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#E0F2FE",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.info.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "$value": "{color.text}",
+          "$type": "color"
+        },
+        "solid": {
+          "background": {
+            "$value": "{badge.text.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{color.surface}",
+            "$type": "color"
+          }
+        },
+        "outline": {
+          "background": {
+            "$value": "#FAFAFA",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "{badge.text.color}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.text.color}",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#F4F4F5",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{badge.text.color}",
+            "$type": "color"
+          }
+        }
+      },
+      "size": {
+        "small": {
+          "height": {
+            "$value": "24",
+            "$type": "sizing"
+          },
+          "padding-inline": {
+            "$value": "8",
+            "$type": "spacing"
+          },
+          "gap": {
+            "$value": "4",
+            "$type": "spacing"
+          },
+          "icon-size": {
+            "$value": "12",
+            "$type": "sizing"
+          },
+          "font-size": {
+            "$value": "11",
+            "$type": "fontSizes"
+          }
+        },
+        "default": {
+          "height": {
+            "$value": "28",
+            "$type": "sizing"
+          },
+          "padding-inline": {
+            "$value": "10",
+            "$type": "spacing"
+          },
+          "gap": {
+            "$value": "6",
+            "$type": "spacing"
+          },
+          "icon-size": {
+            "$value": "14",
+            "$type": "sizing"
+          },
+          "font-size": {
+            "$value": "12",
+            "$type": "fontSizes"
+          }
+        },
+        "large": {
+          "height": {
+            "$value": "32",
+            "$type": "sizing"
+          },
+          "padding-inline": {
+            "$value": "12",
+            "$type": "spacing"
+          },
+          "gap": {
+            "$value": "8",
+            "$type": "spacing"
+          },
+          "icon-size": {
+            "$value": "16",
+            "$type": "sizing"
+          },
+          "font-size": {
+            "$value": "13",
+            "$type": "fontSizes"
+          }
+        }
+      },
+      "shape": {
+        "circle": {
+          "radius": {
+            "$value": "{radius.action}",
+            "$type": "borderRadius"
+          }
+        },
+        "square": {
+          "radius": {
+            "$value": "{radius.compact}",
+            "$type": "borderRadius"
+          }
+        }
+      }
     }
   },
   "layout-dark": {
@@ -540,6 +970,18 @@
       "error": {
         "$value": "#F87171",
         "$type": "color"
+      },
+      "warning": {
+        "$value": "#FBBF24",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "#4ADE80",
+        "$type": "color"
+      },
+      "info": {
+        "$value": "#38BDF8",
+        "$type": "color"
       }
     },
     "button": {
@@ -561,6 +1003,130 @@
         "background": {
           "$value": "#3B82F6",
           "$type": "color"
+        }
+      }
+    },
+    "badge": {
+      "primary": {
+        "outline": {
+          "background": {
+            "$value": "#172554",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#1E3A8A",
+            "$type": "color"
+          }
+        }
+      },
+      "secondary": {
+        "outline": {
+          "background": {
+            "$value": "#111113",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#18181B",
+            "$type": "color"
+          }
+        }
+      },
+      "destructive": {
+        "outline": {
+          "background": {
+            "$value": "#3F171B",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#4A1D21",
+            "$type": "color"
+          }
+        },
+        "solid": {
+          "foreground": {
+            "$value": "#09090B",
+            "$type": "color"
+          }
+        }
+      },
+      "warning": {
+        "outline": {
+          "background": {
+            "$value": "#3A2A12",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#4A3513",
+            "$type": "color"
+          }
+        },
+        "solid": {
+          "foreground": {
+            "$value": "#09090B",
+            "$type": "color"
+          }
+        }
+      },
+      "success": {
+        "outline": {
+          "background": {
+            "$value": "#143923",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#1B4D2E",
+            "$type": "color"
+          }
+        },
+        "solid": {
+          "foreground": {
+            "$value": "#09090B",
+            "$type": "color"
+          }
+        }
+      },
+      "info": {
+        "outline": {
+          "background": {
+            "$value": "#0D3444",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#12495F",
+            "$type": "color"
+          }
+        },
+        "solid": {
+          "foreground": {
+            "$value": "#09090B",
+            "$type": "color"
+          }
+        }
+      },
+      "text": {
+        "outline": {
+          "background": {
+            "$value": "#18181B",
+            "$type": "color"
+          }
+        },
+        "light": {
+          "background": {
+            "$value": "#27272A",
+            "$type": "color"
+          }
         }
       }
     }

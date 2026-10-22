@@ -12,7 +12,7 @@ title: From Penpot to Angular
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`. The IDs below are Penpot library IDs; preserve the main shape while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -121,6 +121,8 @@ The Angular demo takes its wordmarks from those SVG exports. Run `npm run brand:
 | `goodui.breadcrumbs`, `start=text/icon` | `good-breadcrumbs [homeIcon]`; first item label remains the accessible name |
 | `goodui.breadcrumbs`, `path=full/collapsed` | `GoodBreadcrumbItem[]` and `[maxItems]`; hidden ancestors open through the ellipsis menu |
 | `goodui.breadcrumbs`, `separator=chevron/slash` | `[separator]`; default Lucide Chevron Right or custom icon/text |
+| `goodui.badge`, `color` / `variant` / `shape` / `size` | `good-badge` inputs with exactly matching values; defaults are `primary`, `solid`, `circle`, `default` |
+| `goodui.badge`, leading icon / removable X | `good-badge [icon]` and `[removable]`; `(removed)` is emitted by the X button |
 
 The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8` (small text) and `521fe58c-da62-80e2-8008-d41a10456bbf` (small icon-only) remain in the variant group. Existing Subnav and ActionMenu compositions retain their Button instances. `design/button-variants.json` is the complete Penpot-library-ID-to-Angular-input registry; `npm run check:mapping` checks its matrix and uniqueness. The script cannot read live Penpot, so also compare the manifest with the MCP catalog after design changes.
 
@@ -131,5 +133,7 @@ The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8
 `goodui.dropdown` is a published 16-variant family whose trigger is a linked `goodui.button` instance. Its optional trailing chevron is a linked Lucide instance layered over the Button copy because Penpot does not allow adding children inside a copy; Angular renders it inside the Button. Four `goodui.dropdown-panel` variants contain linked `goodui.dropdown-item` instances. Twelve item variants cover plain, icon, badge, submenu, and disabled visuals; further text/detail and arbitrary custom icon data are runtime content. `goodui.dropdown.submenu-open` shows a linked child panel. [dropdown-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/dropdown-variants.json) records all IDs. The scroll variant uses a clipped list as the Penpot representation of browser scrolling. Trigger mode, focus, keyboard handling, dynamic viewport clamping, and actual scrollbars are Angular behavior rather than static Penpot variants.
 
 `goodui.breadcrumbs` is a published 16-variant family with linked Lucide home and chevron instances. The Card samples bind their fill, border, radius, padding, and gap to shared tokens. [breadcrumbs-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/breadcrumbs-variants.json) records the exact IDs and axis values. The collapsed variants show the `…` trigger; Angular supplies the navigable overflow menu and keyboard behavior.
+
+`goodui.badge` is a published 126-variant family on `05 Badges`; `color`, `variant`, `shape`, and `size` match the `good-badge` inputs exactly. Each variant contains hidden, linked Lucide slots for the optional leading icon and removable X. Four linked instance examples show `icon` and `removable` combinations. [badge-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/badge-variants.json) records every library ID and the example instance IDs. The `removed` output and X keyboard behavior are Angular runtime behavior. Compare the manifest with the live Penpot variant catalog after changes.
 
 The previous public names `GoodSectionNavComponent`, `GoodSectionNavItem`, `good-section-nav`, `sectionNavItems`, and `sectionNavLabel` were replaced by `GoodSubnavComponent`, `GoodSubnavItem`, `good-subnav`, `subnavItems`, and `subnavLabel`. Update consuming code when moving to this version.

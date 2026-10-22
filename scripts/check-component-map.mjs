@@ -8,6 +8,7 @@ const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-vari
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
 const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
 const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadcrumbs-variants.json'), 'utf8'));
+const badgeVariants = JSON.parse(readFileSync(resolve(root, 'design/badge-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -112,4 +113,14 @@ for (const style of ['plain', 'card']) for (const start of ['text', 'icon']) for
 checkMatrix(breadcrumbsVariants.variants, [
   ['style', ['plain', 'card']], ['start', ['text', 'icon']], ['path', ['full', 'collapsed']], ['separator', ['chevron', 'slash']],
 ], breadcrumbExpected, 'Breadcrumbs', new Set());
-console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, ${switchCombinations.size} Switch variants, ${inputVariants.variants.length} Input variants, ${inputVariants.addon.variants.length} Input addon variants, ${dropdownVariants.variants.length} Dropdown variants, ${dropdownVariants.panel.variants.length} panels, ${dropdownVariants.item.variants.length} items, and ${breadcrumbsVariants.variants.length} Breadcrumb variants.`);
+if (badgeVariants.family !== 'goodui.badge' || badgeVariants.selector !== 'good-badge' || !badgeVariants.containerId || badgeVariants.page !== '05 Badges') throw new Error('Badge variants must map to good-badge on 05 Badges.');
+const badgeExpected = [];
+for (const color of ['primary', 'secondary', 'destructive', 'warning', 'success', 'info', 'text']) for (const variant of ['solid', 'outline', 'light']) for (const shape of ['circle', 'square']) for (const size of ['small', 'default', 'large']) badgeExpected.push(`${color}/${variant}/${shape}/${size}`);
+checkMatrix(badgeVariants.variants, [
+  ['color', ['primary', 'secondary', 'destructive', 'warning', 'success', 'info', 'text']],
+  ['variant', ['solid', 'outline', 'light']],
+  ['shape', ['circle', 'square']],
+  ['size', ['small', 'default', 'large']],
+], badgeExpected, 'Badge', new Set());
+if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
+console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${badgeVariants.variants.length} Badge variants.`);

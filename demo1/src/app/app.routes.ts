@@ -5,6 +5,7 @@ import { SwitchesPageComponent } from './switches-page';
 import { InputsPageComponent } from './inputs-page';
 import { DropdownsPageComponent } from './dropdowns-page';
 import { BreadcrumbsPageComponent } from './breadcrumbs-page';
+import { BadgesPageComponent } from './badges-page';
 
 const page = (title: string, description: string, landing = false) => ({
   component: DemoPageComponent,
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'components/inputs', component: InputsPageComponent },
   { path: 'components/dropdowns', component: DropdownsPageComponent },
   { path: 'components/breadcrumbs', component: BreadcrumbsPageComponent },
+  { path: 'components/badges', component: BadgesPageComponent },
   { path: 'profile', ...page('Public Profile', 'Public profile') },
   { path: 'account/home/get-started', ...page('Account', 'Get Started', true) },
   { path: 'account/home/user-profile', ...page('User Profile', 'Account and personal information') },
