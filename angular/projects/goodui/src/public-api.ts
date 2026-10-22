@@ -7,5 +7,6 @@ export * from './lib/actions';
 export * from './lib/main-view';
 export * from './lib/subnav';
 export * from './lib/button';
+export * from '@lucide/angular';
 export * from './lib/action-menu';
 export * from './lib/app-layout';

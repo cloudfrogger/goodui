@@ -13,15 +13,15 @@ import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, G
   imports: [GoodSidebarContainerComponent, GoodTopbarComponent, GoodTopbarMenuContainerComponent, GoodMainViewComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-sidebar-container class="good-desktop-sidebar" [brand]="brand()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
+    <good-sidebar-container class="good-desktop-sidebar" [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
     <div class="good-app-main">
-      <good-topbar [brand]="brand()" [showBrandIcon]="showBrandIcon()" [items]="topbarItems()" [activeRoute]="activeRoute()"
+      <good-topbar [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [showBrandIcon]="showBrandIcon()" [items]="topbarItems()" [activeRoute]="activeRoute()"
         [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()"
         (menuToggle)="openDrawer()" />
       <div class="good-app-page"><ng-content /></div>
     </div>
     <dialog #drawer class="good-sidebar-drawer" aria-label="Navigation" (click)="onBackdropClick($event)" (close)="onDrawerClose()">
-      <good-sidebar-container [brand]="brand()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
+      <good-sidebar-container [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
       @if (topbarItems().length) {
         <nav class="good-drawer-topbar-nav" aria-label="More navigation">
           <strong>Menu</strong><good-topbar-menu-container [items]="topbarItems()" [activeRoute]="activeRoute()" />
@@ -38,6 +38,8 @@ export class GoodAppLayoutComponent {
   private returnFocus: HTMLElement | null = null;
 
   readonly brand = input('GOODUI');
+  readonly brandLogoSrc = input('');
+  readonly brandLogoDarkSrc = input('');
   readonly showBrandIcon = input(false);
   readonly sidebarSections = input<readonly GoodSidebarSection[]>([]);
   readonly topbarItems = input<readonly GoodTopbarItem[]>([]);

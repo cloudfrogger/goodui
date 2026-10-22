@@ -1,0 +1,297 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "03 Controls",
+  "family": "goodui.button",
+  "selector": "good-button",
+  "axes": {
+    "variant": [
+      "default",
+      "secondary",
+      "destructive",
+      "outline",
+      "ghost"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "content": [
+      "text",
+      "with-icon",
+      "icon-only"
+    ]
+  },
+  "variants": [
+    {
+      "id": "521fe58c-da62-80e2-8008-d423692ae80f",
+      "variant": "default",
+      "size": "small",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d42369b1b87e",
+      "variant": "default",
+      "size": "small",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4236a675d42",
+      "variant": "default",
+      "size": "small",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4236b18276d",
+      "variant": "default",
+      "size": "default",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4236b9c1b82",
+      "variant": "default",
+      "size": "default",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4236c54a904",
+      "variant": "default",
+      "size": "default",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4236cf32554",
+      "variant": "default",
+      "size": "large",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4236d5e24be",
+      "variant": "default",
+      "size": "large",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4236e1cf751",
+      "variant": "default",
+      "size": "large",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4237cd88915",
+      "variant": "secondary",
+      "size": "small",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4237d834d6d",
+      "variant": "secondary",
+      "size": "small",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4237e52bf36",
+      "variant": "secondary",
+      "size": "small",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4237f152935",
+      "variant": "secondary",
+      "size": "default",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4237fb513e4",
+      "variant": "secondary",
+      "size": "default",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d42380acfb3d",
+      "variant": "secondary",
+      "size": "default",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423817384e6",
+      "variant": "secondary",
+      "size": "large",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d42381f32dbd",
+      "variant": "secondary",
+      "size": "large",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d42382df658e",
+      "variant": "secondary",
+      "size": "large",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4238ac5ea5f",
+      "variant": "destructive",
+      "size": "small",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4238b6d4084",
+      "variant": "destructive",
+      "size": "small",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4238cb0e12d",
+      "variant": "destructive",
+      "size": "small",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4238dac0305",
+      "variant": "destructive",
+      "size": "default",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4238e2f5400",
+      "variant": "destructive",
+      "size": "default",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4238f63b8df",
+      "variant": "destructive",
+      "size": "default",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423905a6c02",
+      "variant": "destructive",
+      "size": "large",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d42390d7d3bf",
+      "variant": "destructive",
+      "size": "large",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423920652b6",
+      "variant": "destructive",
+      "size": "large",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d41a0ffcd7b8",
+      "variant": "outline",
+      "size": "small",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4239d82cef7",
+      "variant": "outline",
+      "size": "small",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d41a10456bbf",
+      "variant": "outline",
+      "size": "small",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4239e7f2e2b",
+      "variant": "outline",
+      "size": "default",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4239f130a9c",
+      "variant": "outline",
+      "size": "default",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d4239fe9792b",
+      "variant": "outline",
+      "size": "default",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423a0cc401a",
+      "variant": "outline",
+      "size": "large",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423a1635768",
+      "variant": "outline",
+      "size": "large",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423a21bdda1",
+      "variant": "outline",
+      "size": "large",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423aa607c40",
+      "variant": "ghost",
+      "size": "small",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423ab42fb8a",
+      "variant": "ghost",
+      "size": "small",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423ac7838ba",
+      "variant": "ghost",
+      "size": "small",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423ad32926d",
+      "variant": "ghost",
+      "size": "default",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423ada7fb5e",
+      "variant": "ghost",
+      "size": "default",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423aeace2cc",
+      "variant": "ghost",
+      "size": "default",
+      "content": "icon-only"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423af73138b",
+      "variant": "ghost",
+      "size": "large",
+      "content": "text"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423afe55af4",
+      "variant": "ghost",
+      "size": "large",
+      "content": "with-icon"
+    },
+    {
+      "id": "521fe58c-da62-80e2-8008-d423b09d4f0e",
+      "variant": "ghost",
+      "size": "large",
+      "content": "icon-only"
+    }
+  ]
+}

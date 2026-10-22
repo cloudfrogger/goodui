@@ -20,7 +20,11 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `size.topbar` / `size.topbar-mobile` | `--good-size-topbar` / `--good-size-topbar-mobile` | Topbar heights | Shell heights |
 | `control.action-size` | `--good-control-action-size` | Search, notifications, settings, avatar width and height | Four action hit areas |
 | `control.sidebar-row-height` | `--good-control-sidebar-row-height` | SidebarItem height | Sidebar row minimum height |
-| `control.button-height` | `--good-control-button-height` | Button board height | Button minimum height and icon-only width |
+| `control.button-height-small/default/large` | `--good-control-button-height-*` | Button variant height and icon-only width | 32/40/48 px control dimensions |
+| `control.button-icon-size-small/default/large` | `--good-control-button-icon-size-*` | Nested Lucide instance width and height | 14/16/20 px icons |
+| `button.padding-inline-*` / `button.gap-*` | `--good-button-padding-inline-*` / `--good-button-gap-*` | Button flex padding and icon-label gap | Size-specific spacing |
+| `button.default/secondary/destructive.*` | `--good-button-<variant>-*` | Filled Button surface and foreground | Light/dark fill, text, and hover roles |
+| `button.outline.*` / `button.ghost.*` | `--good-button-<variant>-*` | Border or foreground | Transparent Button variants |
 | `subnav.height` / `.mobile-height` | `--good-subnav-height` / `--good-subnav-mobile-height` | Subnav board heights | Subnav strip |
 | `radius.item` / `radius.card` | `--good-radius-item` / `--good-radius-card` | SidebarItem corners / MainView content border corners | Items and cards |
 | `radius.button` | `--good-radius-button` | Button board corners | Button corner radius |
@@ -35,7 +39,7 @@ Some existing boards use absolute positions: the account MainView, Subnav's item
 
 Two existing visual differences remain outside the shared-token mapping: Penpot's mobile MainMenu has a 10 px gap while Angular uses 4 px at the mobile breakpoint, and Penpot's TopbarMenuContainer has a 10 px flex gap while Angular uses 26 px on desktop. They need a design decision before they can share one semantic token without changing one of the current appearances.
 
-The file has 64 reusable named components. Open and responsive states are separate components rather than Penpot variant components. Existing component IDs and instance relationships are preserved.
+Open and responsive shell states remain separate Penpot components. Button is a real variant group with 45 combinations; its former outline component IDs and nested instances are preserved. The [variant ID manifest](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) maps Penpot variants to the `good-button` inputs.
 
 ## Export and generation
 

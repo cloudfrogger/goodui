@@ -12,7 +12,7 @@ title: From Penpot to Angular
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`. The IDs below are Penpot library IDs; preserve the main shape while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -62,10 +62,33 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.subnav.desktop` / `.mobile` / `.menu-open` | `521fe58c-da62-80e2-8008-d40cb8b8e01a` / `521fe58c-da62-80e2-8008-d40cba28bff7` / `521fe58c-da62-80e2-8008-d40cd63c49cf` |
 | `goodui.subnav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
 | `goodui.subnav.with-actions` | `521fe58c-da62-80e2-8008-d41a1e574999` |
-| `goodui.button.outline` / `.outline-icon` | `521fe58c-da62-80e2-8008-d41a0ffcd7b8` / `521fe58c-da62-80e2-8008-d41a10456bbf` |
+| `goodui.button` variant group (`variant` × `size` × `content`) | Container `521fe58c-da62-80e2-8008-d4240d421919`; all 45 IDs in [button-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) |
 | `goodui.action-menu.default` / `.open` | `521fe58c-da62-80e2-8008-d41a7659d7eb` / `521fe58c-da62-80e2-8008-d41a76a2c06d` |
 
 Open states are visual designs. The Angular implementation connects triggers, focus, closing, data, and navigation. The two-level Help and avatar account menus exist in Penpot, the library, and `demo1`. Review new states across all three.
+
+### Brand artwork on `04 Logos`
+
+These are brand assets rather than Angular UI components, so they have no `good-*` selector. The two wordmarks are transparent vector components with nine editable paths each. The standalone light and dark symbols retain their original library IDs and now each contain three editable paths (`checkmark`, `dot`, and `smile`) on a transparent board, with no image fill. Their direct Penpot exports are `doc/static/img/goodui-mark.svg` and `goodui-mark-dark.svg`; the wordmarks are exported to `goodui-logo-light.svg` and `goodui-logo-dark.svg` in the same directory. The remaining square symbols, glossy symbols, and badges use supplied PNG artwork as image fills, including the original backgrounds and effects. The miniature symbols in `artwork/iconography.png` are size previews of the standalone symbol, not separate logo forms.
+
+The Angular demo takes its wordmarks from those SVG exports. Run `npm run brand:sync` after a Penpot logo export; `build:demo` and `start:demo` run the same step automatically. The script copies the two wordmarks to `demo1/public/` and the two symbol exports as `favicon.svg` and `favicon-dark.svg`. The demo selects its favicon from the active GoodUI theme. The documentation site uses the light symbol export as its favicon. The Angular library does not ship or set a favicon. A consuming app supplies its own logo URLs and favicon in its own public assets and `index.html`.
+
+| Penpot asset | Library ID | Source artwork |
+| --- | --- | --- |
+| `goodui.logo.wordmark.light` | `521fe58c-da62-80e2-8008-d43db1552ac3` | `artwork/goodui_logo_white_and_dark.png` |
+| `goodui.logo.wordmark.dark` | `521fe58c-da62-80e2-8008-d43de4638aa6` | `artwork/goodui_logo_white_and_dark.png` |
+| `goodui.logo.symbol.light` | `521fe58c-da62-80e2-8008-d43de7597121` | `artwork/iconography.png` |
+| `goodui.logo.symbol.dark` | `521fe58c-da62-80e2-8008-d43df4f611b5` | `artwork/iconography.png` |
+| `goodui.logo.symbol-tile.light` | `521fe58c-da62-80e2-8008-d43dea2d593c` | `artwork/iconography.png` |
+| `goodui.logo.symbol-tile.dark` | `521fe58c-da62-80e2-8008-d43df99f0c6c` | `artwork/iconography.png` |
+| `goodui.logo.symbol-glossy.light` | `521fe58c-da62-80e2-8008-d43dee73988e` | `artwork/iconography.png` |
+| `goodui.logo.symbol-glossy.dark` | `521fe58c-da62-80e2-8008-d43dfe8d4d4b` | `artwork/iconography.png` |
+| `goodui.logo.badge-outline.light` | `521fe58c-da62-80e2-8008-d43e0089be7a` | `artwork/reference_logos.png` |
+| `goodui.logo.badge-outline.dark` | `521fe58c-da62-80e2-8008-d43e102b60ef` | `artwork/reference_logos.png` |
+| `goodui.logo.badge-solid.light` | `521fe58c-da62-80e2-8008-d43e051ac34e` | `artwork/reference_logos.png` |
+| `goodui.logo.badge-solid.dark` | `521fe58c-da62-80e2-8008-d43e197f84af` | `artwork/reference_logos.png` |
+| `goodui.logo.badge-built-with.light` | `521fe58c-da62-80e2-8008-d43e0a19338e` | `artwork/reference_logos.png` |
+| `goodui.logo.badge-built-with.dark` | `521fe58c-da62-80e2-8008-d43e1b73cbf2` | `artwork/reference_logos.png` |
 
 ## Reusable component mapping
 
@@ -76,8 +99,11 @@ Open states are visual designs. The Angular implementation connects triggers, fo
 | `goodui.subnav.desktop`, `.mobile`, `.menu-open` | `good-subnav`, `GoodSubnavItem[]`; viewport and open state are responsive/runtime behavior |
 | `goodui.subnav.with-actions` | `good-subnav [actions]` or `good-main-view [subnavActions]` using `GoodSubnavAction[]` |
 | `goodui.subnav-item.*`, `goodui.subnav-dropdown.default` | Internal parts of `good-subnav`; `items[].route`, `items[].children`, and router state |
-| `goodui.button.outline` | `good-button`, default outline appearance; projected label, optional `icon` |
-| `goodui.button.outline-icon` | `good-button [iconOnly]="true"`, required accessible `ariaLabel` |
+| `goodui.button`, `variant=default/secondary/destructive/outline/ghost` | `good-button [variant]`; default is `default` |
+| `goodui.button`, `size=small/default/large` | `good-button [size]`; default is `default` |
+| `goodui.button`, `content=text/with-icon/icon-only` | Projected text; optional Lucide `[icon]`; for icon-only use an empty label or `[iconOnly]="true"` and required `ariaLabel` |
 | `goodui.action-menu.default`, `.open` | `good-action-menu [items]="..."`; `label`, `icon`, and runtime open state |
+
+The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8` (small text) and `521fe58c-da62-80e2-8008-d41a10456bbf` (small icon-only) remain in the variant group. Existing Subnav and ActionMenu compositions retain their Button instances. `design/button-variants.json` is the complete Penpot-library-ID-to-Angular-input registry; `npm run check:mapping` checks its matrix and uniqueness. The script cannot read live Penpot, so also compare the manifest with the MCP catalog after design changes.
 
 The previous public names `GoodSectionNavComponent`, `GoodSectionNavItem`, `good-section-nav`, `sectionNavItems`, and `sectionNavLabel` were replaced by `GoodSubnavComponent`, `GoodSubnavItem`, `good-subnav`, `subnavItems`, and `subnavLabel`. Update consuming code when moving to this version.

@@ -6,6 +6,8 @@ title: Sidebar
 
 `SidebarContainer` owns the brand area, scrolling, and desktop/drawer display. A `SidebarMenuContainer` contains an optional heading and repeated `SidebarItem` children. Each item can show an icon, label, badge, or expander. Penpot includes `default`, `active`, and `expanded` states. Expanded groups contain another expandable row, guide lines, and repeated `SidebarSubmenuItem` instances; groups have `collapsed`/`expanded` states and child links have `default`/`active` states.
 
+For a product logo, set `brandLogoSrc` and optionally `brandLogoDarkSrc` on `good-app-layout` or directly on `good-sidebar-container`. `brand` provides the image's accessible name. Without a logo URL, the generic mark and text remain available.
+
 The demo's Account / Get Started navigation shows two expansion levels. GoodUI uses 36 px child rows, a 4 px gap, indentation, and a dot on the active link. The active child uses `color.selected` for its surface, `color.accent` for text and dot, and `radius.item` for its corners. `SidebarSubmenuGroup` owns the guide lines and indentation; child links need no external margins.
 
 ### Component composition

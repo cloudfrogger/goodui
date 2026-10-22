@@ -1,26 +1,30 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { GoodIconComponent } from './icon';
-import { GoodIconName } from './models';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { LucideDynamicIcon } from '@lucide/angular';
+import { GoodButtonIcon, GoodButtonSize, GoodButtonVariant } from './models';
 
 @Component({
   selector: 'good-button',
   standalone: true,
-  imports: [GoodIconComponent],
+  imports: [LucideDynamicIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <button class="good-button-control" [class.good-button-icon-only]="iconOnly()" [type]="type()"
+      [attr.data-variant]="variant()" [attr.data-size]="size()"
       [disabled]="disabled()" [attr.aria-label]="ariaLabel() || null"
       [attr.aria-expanded]="ariaExpanded()" [attr.aria-controls]="ariaControls() || null"
       [attr.aria-haspopup]="hasPopup() || null">
-      @if (icon(); as iconName) { <good-icon [name]="iconName" /> }
+      @if (icon(); as iconData) { <svg class="good-button-icon" [lucideIcon]="iconData" [size]="iconSize()" aria-hidden="true"></svg> }
       @if (!iconOnly()) { <span class="good-button-label"><ng-content /></span> }
     </button>
   `,
   host: { class: 'good-button' },
 })
 export class GoodButtonComponent {
-  readonly icon = input<GoodIconName>();
+  readonly icon = input<GoodButtonIcon>();
   readonly iconOnly = input(false);
+  readonly variant = input<GoodButtonVariant>('default');
+  readonly size = input<GoodButtonSize>('default');
+  readonly iconSize = computed(() => ({ small: 14, default: 16, large: 20 })[this.size()]);
   readonly ariaLabel = input('');
   readonly disabled = input(false);
   readonly type = input<'button' | 'submit' | 'reset'>('button');

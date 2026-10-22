@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostListener, computed,
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
+import { LucideEllipsis } from '@lucide/angular';
 import { GoodSubnavAction, GoodSubnavItem, goodSubnavItemContainsRoute } from './models';
 import { GoodButtonComponent } from './button';
 import { GoodActionMenuComponent } from './action-menu';
@@ -43,9 +44,9 @@ let nextSubnavId = 0;
       <div class="good-subnav-actions">
         @for (action of actions(); track action.id) {
           @if (action.menuItems?.length) {
-            <good-action-menu [icon]="action.icon || 'menu'" [label]="action.label" [items]="action.menuItems!" />
+            <good-action-menu [icon]="action.icon || ellipsisIcon" [variant]="action.variant || 'outline'" [size]="action.size || 'small'" [label]="action.label" [items]="action.menuItems!" />
           } @else {
-            <good-button [icon]="action.icon" [iconOnly]="!!action.iconOnly" [ariaLabel]="action.iconOnly ? action.label : ''"
+            <good-button [icon]="action.icon" [iconOnly]="!!action.iconOnly" [variant]="action.variant || 'outline'" [size]="action.size || 'small'" [ariaLabel]="action.iconOnly ? action.label : ''"
               (click)="activateAction(action)">{{ action.label }}</good-button>
           }
         }
@@ -69,6 +70,7 @@ let nextSubnavId = 0;
   host: { class: 'good-subnav' },
 })
 export class GoodSubnavComponent {
+  readonly ellipsisIcon = LucideEllipsis;
   private readonly router = inject(Router);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly scrollViewport = viewChild<ElementRef<HTMLElement>>('scrollViewport');

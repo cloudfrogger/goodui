@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoodAppLayoutComponent, GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, GoodTopbarItem, GoodUser } from '@goodui/angular';
+import { GoodAppLayoutComponent, GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@goodui/angular';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,23 @@ import { GoodAppLayoutComponent, GoodMenuAction, GoodNotification, GoodSearchIte
   imports: [RouterOutlet, GoodAppLayoutComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-app-layout brand="GOODUI" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems"
+    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems"
       [user]="user" [notifications]="notifications" [searchItems]="searchItems" [avatarActions]="avatarActions()">
       <router-outlet />
     </good-app-layout>
   `,
 })
 export class App {
+  private readonly document = inject(DOCUMENT);
+  private readonly theme = inject(GoodThemeService);
+
+  constructor() {
+    effect(() => {
+      this.document.querySelector<HTMLLinkElement>('#app-favicon')
+        ?.setAttribute('href', this.theme.theme() === 'dark' ? 'favicon-dark.svg' : 'favicon.svg');
+    });
+  }
+
   readonly user: GoodUser = { name: 'Steve Fischer', email: 'steve@example.com', initials: 'SF', badge: 'Pro' };
   readonly language = signal('English');
   readonly avatarActions = computed<readonly GoodMenuAction[]>(() => [
@@ -38,6 +49,7 @@ export class App {
   ]);
   readonly sidebarSections: readonly GoodSidebarSection[] = [
     { id: 'dashboards', items: [{ id: 'dashboard', label: 'Dashboards', icon: 'dashboard', route: '/dashboard' }] },
+    { id: 'components', heading: 'COMPONENTS', items: [{ id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' }] },
     { id: 'user', heading: 'USER', items: [
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
       { id: 'account', label: 'My Account', icon: 'settings', children: [
@@ -76,6 +88,7 @@ export class App {
     { id: 'welcome', title: 'Welcome to GoodUI', description: 'Notifications are provided by a reusable library component.', time: 'Today', read: false },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
+    { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },
     { id: 'profile', label: 'User Profile', description: 'Personal information', route: '/account/home/user-profile' },
     { id: 'network', label: 'Network', description: 'Kontakte', route: '/network' },

@@ -6,6 +6,8 @@ title: Topbar
 
 The topbar places an optional brand icon and navigation on the left, with [MainMenu](./main-menu.md) on the right. It is 70 px tall on desktop with 30 px horizontal padding. On mobile, a drawer trigger appears and the navigation moves into the drawer. Penpot contains default, `with-brand`, and mobile main components.
 
+On mobile, `brandLogoSrc` and optional `brandLogoDarkSrc` display the application wordmark; `brand` supplies its accessible name. With no logo URL, the mobile topbar displays the brand text. `good-app-layout` forwards these inputs from one place to the topbar and both sidebar presentations.
+
 ## Nested menus
 
 The Help menu opens a 220 px panel beneath the topbar. It has five 34 px rows and a divider before “Contact Us.” “Support Forum” is a parent row with a chevron. When open, it uses a neutral surface and reveals a 218 × 124 px panel 4 px to its right. Panels have a 6 px radius, subtle border, and semantic light/dark colors.

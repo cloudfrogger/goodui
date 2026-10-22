@@ -32,11 +32,11 @@ The strip never wraps. On narrow screens, users can swipe or scroll the item row
 Place optional controls at the right edge without page-level layout CSS:
 
 ```ts
-import { GoodMainViewComponent, type GoodSubnavAction } from '@goodui/angular';
+import { GoodMainViewComponent, LucideCircleQuestionMark, LucideEllipsis, type GoodSubnavAction } from '@goodui/angular';
 
 readonly subnavActions: readonly GoodSubnavAction[] = [
-  { id: 'help', label: 'Help', icon: 'question', route: '/help' },
-  { id: 'account-actions', label: 'Account actions', icon: 'menu', menuItems: [
+  { id: 'help', label: 'Help', icon: LucideCircleQuestionMark, variant: 'outline', size: 'small', route: '/help' },
+  { id: 'account-actions', label: 'Account actions', icon: LucideEllipsis, menuItems: [
     { id: 'profile', label: 'Profile', route: '/account/profile' },
     { id: 'settings', label: 'Settings', route: '/account/settings' },
   ] },
@@ -49,7 +49,7 @@ readonly subnavActions: readonly GoodSubnavAction[] = [
 </good-main-view>
 ```
 
-`GoodSubnavAction` renders either a `good-button` or a `good-action-menu` when `menuItems` is present. `route` navigates and `action` calls a callback. `iconOnly` needs a meaningful `label`, used as the accessible name. When using `good-subnav` directly, you can also project a `[good-subnav-actions]` group of custom controls. The action area remains visible while only the items scroll. It is optional; without actions the strip uses its full width. The `goodui.subnav.with-actions` Penpot composition is the design counterpart of this API.
+`GoodSubnavAction` renders either a `good-button` or a `good-action-menu` when `menuItems` is present. The `icon` value is a Lucide icon class or icon data; `variant` and `size` use the same Button API. Subnav controls default to `outline` and `small` to preserve the compact strip. `route` navigates and `action` calls a callback. `iconOnly` needs a meaningful `label`, used as the accessible name. When using `good-subnav` directly, you can also project a `[good-subnav-actions]` group of custom controls. The action area remains visible while only the items scroll. It is optional; without actions the strip uses its full width. The `goodui.subnav.with-actions` Penpot composition is the design counterpart of this API.
 
 `Subnav` is a named navigation landmark. Current links use `aria-current="page"`; menu buttons use `aria-expanded` and `aria-controls`. Arrow Left/Right and Home/End move among top-level links or buttons. Opening a menu focuses its first link; Escape closes it and returns focus. Outside click, horizontal scroll, window resize, and route changes also close it. Keep labels concise enough to scan, and use an explicit accessible label when a page has more than one navigation landmark.
 

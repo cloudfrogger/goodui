@@ -36,6 +36,10 @@
       "overlay": {
         "$value": "#000000",
         "$type": "color"
+      },
+      "brand": {
+        "$value": "#2563EB",
+        "$type": "color"
       }
     },
     "space": {
@@ -127,8 +131,28 @@
         "$value": "36",
         "$type": "sizing"
       },
-      "button-height": {
+      "button-height-small": {
         "$value": "32",
+        "$type": "sizing"
+      },
+      "button-height-default": {
+        "$value": "40",
+        "$type": "sizing"
+      },
+      "button-height-large": {
+        "$value": "48",
+        "$type": "sizing"
+      },
+      "button-icon-size-small": {
+        "$value": "14",
+        "$type": "sizing"
+      },
+      "button-icon-size-default": {
+        "$value": "16",
+        "$type": "sizing"
+      },
+      "button-icon-size-large": {
+        "$value": "20",
         "$type": "sizing"
       }
     },
@@ -140,6 +164,94 @@
       "mobile-height": {
         "$value": "44",
         "$type": "sizing"
+      }
+    },
+    "button": {
+      "gap-small": {
+        "$value": "6",
+        "$type": "spacing"
+      },
+      "gap-default": {
+        "$value": "8",
+        "$type": "spacing"
+      },
+      "gap-large": {
+        "$value": "10",
+        "$type": "spacing"
+      },
+      "padding-inline-small": {
+        "$value": "12",
+        "$type": "spacing"
+      },
+      "padding-inline-default": {
+        "$value": "16",
+        "$type": "spacing"
+      },
+      "padding-inline-large": {
+        "$value": "20",
+        "$type": "spacing"
+      },
+      "default": {
+        "background": {
+          "$value": "{color.brand}",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "#1D4ED8",
+          "$type": "color"
+        }
+      },
+      "secondary": {
+        "background": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "{color.text}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "#E4E4E7",
+          "$type": "color"
+        }
+      },
+      "destructive": {
+        "background": {
+          "$value": "#DC2626",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "#B91C1C",
+          "$type": "color"
+        }
+      },
+      "outline": {
+        "border": {
+          "$value": "{color.border}",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "{color.text}",
+          "$type": "color"
+        }
+      },
+      "ghost": {
+        "foreground": {
+          "$value": "{color.text}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        }
       }
     }
   },
@@ -180,6 +292,14 @@
       "overlay": {
         "$value": "#000000",
         "$type": "color"
+      }
+    },
+    "button": {
+      "secondary": {
+        "hover": {
+          "$value": "#27272A",
+          "$type": "color"
+        }
       }
     }
   },

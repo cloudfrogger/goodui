@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostListener, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GoodButtonComponent } from './button';
-import { GoodIconName, GoodMenuAction } from './models';
+import { LucideEllipsis } from '@lucide/angular';
+import { GoodButtonIcon, GoodButtonSize, GoodButtonVariant, GoodMenuAction } from './models';
 
 let nextActionMenuId = 0;
 
@@ -11,7 +12,7 @@ let nextActionMenuId = 0;
   imports: [GoodButtonComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-button [icon]="icon()" [iconOnly]="true" [ariaLabel]="label()"
+    <good-button [icon]="icon()" [iconOnly]="true" [variant]="variant()" [size]="size()" [ariaLabel]="label()"
       [ariaExpanded]="open()" [ariaControls]="panelId" hasPopup="menu"
       (click)="toggle()" (keydown.arrowdown)="openAndFocus($event)" />
     @if (open()) {
@@ -30,7 +31,9 @@ let nextActionMenuId = 0;
 })
 export class GoodActionMenuComponent {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  readonly icon = input<GoodIconName>('menu');
+  readonly icon = input<GoodButtonIcon>(LucideEllipsis);
+  readonly variant = input<GoodButtonVariant>('outline');
+  readonly size = input<GoodButtonSize>('small');
   readonly label = input('More actions');
   readonly items = input<readonly GoodMenuAction[]>([]);
   readonly open = signal(false);

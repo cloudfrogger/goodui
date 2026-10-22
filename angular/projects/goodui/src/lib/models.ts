@@ -1,3 +1,9 @@
+import type { LucideIcon, LucideIconData } from '@lucide/angular';
+
+export type GoodButtonIcon = LucideIcon | LucideIconData;
+export type GoodButtonVariant = 'default' | 'secondary' | 'destructive' | 'outline' | 'ghost';
+export type GoodButtonSize = 'small' | 'default' | 'large';
+
 export interface GoodNavItem {
   id: string;
   label: string;
@@ -34,8 +40,10 @@ export interface GoodSubnavItem {
 export interface GoodSubnavAction {
   id: string;
   label: string;
-  icon?: GoodIconName;
+  icon?: GoodButtonIcon;
   iconOnly?: boolean;
+  variant?: GoodButtonVariant;
+  size?: GoodButtonSize;
   route?: string;
   action?: () => void;
   menuItems?: readonly GoodMenuAction[];

@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -56,6 +56,10 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    Configure your app with `provideRouter(routes)`. Each routed page can use `<good-main-view title="Home">...</good-main-view>` for consistent page spacing. See the [working demo](demo1/src/app/app.ts) and [AppLayout guide](doc/docs/layout/app-layout.md) for topbar items, user data, and nested menus.
 
+   Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@goodui/angular`. See the [Button guide](doc/docs/components/button.md) and the demo's `/components/buttons` page for all variants and sizes.
+
+   Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-layout>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppLayout guide](doc/docs/layout/app-layout.md).
+
 ## Current demo
 
 ![GoodUI demo dashboard showing the sidebar, topbar, and account overview](assets/demo-dashboard.png)
@@ -72,7 +76,7 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | Main menu components | Search, notifications, settings, and avatar actions |
 | `good-main-view` | Page heading, description, actions, and content spacing |
 | `good-subnav` | Single-row page navigation with mobile horizontal scroll and child menus |
-| `good-button` | Reusable outlined text or icon button with accessible disabled and focus states |
+| `good-button` | Five visual variants, three sizes, optional Lucide icon, and accessible icon-only actions |
 | `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
@@ -92,6 +96,7 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 ## Project map
 
 - [Design contract](design.md) — measurements, component ownership, tokens, and Penpot IDs.
+- [Button variant registry](design/button-variants.json) — one-to-one Penpot IDs and Angular inputs for all 45 combinations.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Documentation](doc/docs/intro.md) — integration, layouts, components, and examples.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.
@@ -99,3 +104,7 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 - [Contributor instructions](AGENTS.md) — design and implementation workflow.
 
 GoodUI is under active development. The package has not been published to npm; install the built package from this repository as shown above.
+
+## License
+
+GoodUI is released under the [MIT License](LICENSE). Copyright © 2026 Cloudfrogger, Inc.

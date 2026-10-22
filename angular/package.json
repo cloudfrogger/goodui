@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "npm run build:lib",
     "build:css": "node ../scripts/generate-tokens.mjs && tailwindcss -i projects/goodui/src/styles.css -o projects/goodui/assets/styles.css --minify",
-    "build:lib": "npm run build:css && ng build goodui",
+    "build:lib": "npm run build:css && ng build goodui && node ../scripts/copy-license.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -19,6 +19,7 @@
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
+    "@lucide/angular": "^1.61.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

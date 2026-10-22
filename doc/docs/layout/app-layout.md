@@ -20,6 +20,8 @@ AppLayout
 ```html
 <good-app-layout
   [brand]="brand"
+  brandLogoSrc="my-logo-light.svg"
+  brandLogoDarkSrc="my-logo-dark.svg"
   [sidebarSections]="navigation"
   [topbarItems]="topbarItems"
   [user]="currentUser"
@@ -31,3 +33,7 @@ AppLayout
 ```
 
 The simple input API creates the component hierarchy internally. You can compose the exported containers directly for special cases. Navigation requires `provideRouter(...)`; the active path comes from Angular Router.
+
+`brand` is the accessible name for an optional logo. `brandLogoSrc` supplies the light-theme image URL; `brandLogoDarkSrc` optionally supplies a dark-theme image URL. When the dark URL is omitted, the same image is used in both themes. When no image is supplied, the shell displays the text brand and its generic accent mark. The shell uses the same images in the desktop sidebar, mobile topbar, and mobile drawer. Put the files in your Angular application's `public/` directory (or use your own hosted URLs). GoodUI does not package an application logo or favicon.
+
+The browser favicon belongs to the application. Set its URL in your app's `src/index.html`, for example `<link rel="icon" type="image/svg+xml" href="favicon.svg">`, and put that file in your app's `public/` directory. Replace those with your own favicon when branding a consuming app; no GoodUI API or library file needs changing.

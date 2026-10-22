@@ -2,18 +2,37 @@
 title: Button
 ---
 
-`good-button` is a reusable action control. The first shipped visual variant is a small outlined button: 32 px high with a 6 px radius. It works with text, a leading icon, or an icon alone. The control owns its border, padding, focus ring, disabled state, and native button behavior. New visual variants can extend this component without giving the base control a page-specific name.
+`good-button` owns the action's dimensions, padding, icon alignment, focus ring, disabled state, and native button behavior. It accepts text, a leading Lucide icon, or an icon alone. An icon-only button is square at every size, whether its empty label is inferred or `iconOnly` is set explicitly.
+
+| `variant` | Appearance |
+| --- | --- |
+| `default` | Filled brand blue; the default action |
+| `secondary` | Subtle neutral fill |
+| `destructive` | Filled red for destructive actions |
+| `outline` | Transparent fill with a border |
+| `ghost` | Transparent fill without a border |
+
+Sizes are `small` (32 px), `default` (40 px), and `large` (48 px). The default variant and size are both `default`. All five variants work in light and dark themes.
 
 ```ts
-import { GoodButtonComponent } from '@goodui/angular';
+import { GoodButtonComponent, LucidePlus, LucideSettings, LucideTrash2 } from '@goodui/angular';
+
+readonly plusIcon = LucidePlus;
+readonly settingsIcon = LucideSettings;
+readonly trashIcon = LucideTrash2;
 ```
 
 ```html
-<good-button icon="question" (click)="openHelp()">Help</good-button>
-<good-button icon="settings" [iconOnly]="true" ariaLabel="Settings" (click)="openSettings()" />
+<good-button [icon]="plusIcon" (click)="createItem()">Create</good-button>
+<good-button variant="secondary" size="small">Cancel</good-button>
+<good-button variant="destructive" [icon]="trashIcon" (click)="deleteItem()">Delete</good-button>
+<good-button variant="outline" size="large" [icon]="settingsIcon"
+  ariaLabel="Settings" (click)="openSettings()" />
+<good-button variant="ghost" [icon]="settingsIcon" [iconOnly]="true"
+  ariaLabel="More settings" (click)="openSettings()" />
 <good-button [disabled]="saving" type="submit">Save changes</good-button>
 ```
 
-Icon-only buttons require a meaningful `ariaLabel`. The default native type is `button`; set `type="submit"` or `type="reset"` for form controls. The click event bubbles from the internal native button. Do not place links inside Button; use a navigation handler for a button action.
+Lucide Angular is a dependency of `@goodui/angular`, and the library re-exports its icons. Import the icon classes you use from GoodUI and pass them to `[icon]`; no icon font, global provider, or icon CSS import is needed. The Penpot file uses the connected `Lucide-icons` library for the same icon shapes. Use a visible label when space allows. An icon-only button needs an icon and a meaningful `ariaLabel`; `[iconOnly]="true"` explicitly hides projected text. The default native type is `button`; set `type="submit"` or `type="reset"` for form controls. The click event bubbles from the internal native button. Use Angular Router links for navigation actions.
 
-Penpot components on `03 Controls`: `goodui.button.outline` and `goodui.button.outline-icon`. Both map to `GoodButtonComponent` / `good-button`; the second uses `iconOnly=true`. `control.button-height` and `radius.button` bind the control's height and corners in Penpot and generate the CSS dimensions.
+Penpot `03 Controls` contains one `goodui.button` variant group with the axes `variant`, `size`, and `content` (`text`, `with-icon`, `icon-only`). Its 45 combinations map to the same `GoodButtonComponent` / `good-button` selector. The [variant ID manifest](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) records each published Penpot library ID and the matching Angular inputs. The button's height, radius, padding, icon size, gap, and color roles are token-bound in Penpot and generated into CSS. `disabled`, focus, and hover are runtime states; they do not create new selectors or Penpot variants.

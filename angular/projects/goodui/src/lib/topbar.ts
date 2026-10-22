@@ -305,7 +305,12 @@ export class GoodTopbarMenuContainerComponent {
     <div class="good-topbar-left">
       <button type="button" class="good-mobile-menu-button good-action-button" aria-label="Open sidebar" (click)="menuToggle.emit()"><good-icon name="menu" /></button>
       @if (showBrandIcon()) { <good-brand-icon /> }
-      <span class="good-mobile-brand">{{ brand() }}</span>
+      <span class="good-mobile-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
+        @if (brandLogoSrc()) {
+          <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
+          @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
+        } @else { {{ brand() }} }
+      </span>
       @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" /> }
       <ng-content select="good-topbar-menu-container" />
     </div>
@@ -316,6 +321,8 @@ export class GoodTopbarMenuContainerComponent {
 })
 export class GoodTopbarComponent {
   readonly brand = input('GOODUI');
+  readonly brandLogoSrc = input('');
+  readonly brandLogoDarkSrc = input('');
   readonly showBrandIcon = input(false);
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly activeRoute = input('');

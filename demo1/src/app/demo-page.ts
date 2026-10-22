@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem } from '@goodui/angular';
+import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem, LucideCircleQuestionMark, LucideEllipsis } from '@goodui/angular';
 
 @Component({
   selector: 'app-demo-page',
@@ -27,8 +27,8 @@ import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavActio
 export class DemoPageComponent {
   private readonly route = inject(ActivatedRoute);
   readonly subnavActions: readonly GoodSubnavAction[] = [
-    { id: 'help', label: 'Help', icon: 'question', route: '/help' },
-    { id: 'account-actions', label: 'Account actions', icon: 'menu', menuItems: [
+    { id: 'help', label: 'Help', icon: LucideCircleQuestionMark, route: '/help' },
+    { id: 'account-actions', label: 'Account actions', icon: LucideEllipsis, menuItems: [
       { id: 'profile', label: 'Profile', route: '/account/home/user-profile' },
       { id: 'settings', label: 'Account settings', route: '/account/home/settings' },
       { id: 'notifications', label: 'Notifications', route: '/account/notifications' },

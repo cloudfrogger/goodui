@@ -9,6 +9,7 @@
   --good-color-muted: #71717A;
   --good-color-selected: #F4F4F5;
   --good-color-overlay: #000000;
+  --good-color-brand: #2563EB;
   --good-space-1: 4px;
   --good-space-2: 8px;
   --good-space-3: 12px;
@@ -28,9 +29,33 @@
   --good-sidebar-menu-gap: var(--good-space-2);
   --good-control-action-size: var(--good-size-action);
   --good-control-sidebar-row-height: 36px;
-  --good-control-button-height: 32px;
+  --good-control-button-height-small: 32px;
+  --good-control-button-height-default: 40px;
+  --good-control-button-height-large: 48px;
+  --good-control-button-icon-size-small: 14px;
+  --good-control-button-icon-size-default: 16px;
+  --good-control-button-icon-size-large: 20px;
   --good-subnav-height: 60px;
   --good-subnav-mobile-height: 44px;
+  --good-button-gap-small: 6px;
+  --good-button-gap-default: 8px;
+  --good-button-gap-large: 10px;
+  --good-button-padding-inline-small: 12px;
+  --good-button-padding-inline-default: 16px;
+  --good-button-padding-inline-large: 20px;
+  --good-button-default-background: var(--good-color-brand);
+  --good-button-default-foreground: #FFFFFF;
+  --good-button-default-hover: #1D4ED8;
+  --good-button-secondary-background: var(--good-color-selected);
+  --good-button-secondary-foreground: var(--good-color-text);
+  --good-button-secondary-hover: #E4E4E7;
+  --good-button-destructive-background: #DC2626;
+  --good-button-destructive-foreground: #FFFFFF;
+  --good-button-destructive-hover: #B91C1C;
+  --good-button-outline-border: var(--good-color-border);
+  --good-button-outline-foreground: var(--good-color-text);
+  --good-button-ghost-foreground: var(--good-color-text);
+  --good-button-ghost-hover: var(--good-color-selected);
   --good-canvas: var(--good-color-canvas);
   --good-surface: var(--good-color-surface);
   --good-text: var(--good-color-text);
@@ -40,6 +65,7 @@
   --good-muted: var(--good-color-muted);
   --good-selected: var(--good-color-selected);
   --good-overlay: var(--good-color-overlay);
+  --good-brand: var(--good-color-brand);
 }
 
 [data-theme="dark"] {
@@ -51,6 +77,7 @@
   --good-color-icon: #A1A1AA;
   --good-color-muted: #A1A1AA;
   --good-color-selected: #18181B;
+  --good-button-secondary-hover: #27272A;
 }
 
 @theme inline {
@@ -63,4 +90,5 @@
   --color-good-muted: var(--good-muted);
   --color-good-selected: var(--good-selected);
   --color-good-overlay: var(--good-overlay);
+  --color-good-brand: var(--good-brand);
 }

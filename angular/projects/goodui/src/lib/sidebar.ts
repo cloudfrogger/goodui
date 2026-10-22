@@ -204,8 +204,14 @@ export class GoodSidebarMenuContainerComponent {
   imports: [GoodSidebarMenuContainerComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="good-sidebar-brand"><span class="good-brand-mark" aria-hidden="true"></span>
-      <span class="good-brand-name">{{ brand() }}</span></div>
+    <div class="good-sidebar-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
+      @if (brandLogoSrc()) {
+        <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
+        @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
+      } @else {
+        <span class="good-brand-mark" aria-hidden="true"></span><span class="good-brand-name">{{ brand() }}</span>
+      }
+    </div>
     <nav class="good-sidebar-scroll" aria-label="Hauptnavigation">
       @for (section of sections(); track section.id) {
         <good-sidebar-menu-container [heading]="section.heading ?? ''" [items]="section.items" [activeRoute]="activeRoute()" />
@@ -217,6 +223,8 @@ export class GoodSidebarMenuContainerComponent {
 })
 export class GoodSidebarContainerComponent {
   readonly brand = input('GOODUI');
+  readonly brandLogoSrc = input('');
+  readonly brandLogoDarkSrc = input('');
   readonly sections = input<readonly GoodSidebarSection[]>([]);
   readonly activeRoute = input('');
 }
