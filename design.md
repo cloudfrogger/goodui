@@ -29,6 +29,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
 | Dropdown | Button-sized trigger; 240 px token-based popup with 36 px item rows | `Dropdown` owns sections, placement, scrolling, nested items, and dismissal |
+| Breadcrumbs | 14 px labels, 8 px gaps; optional card border and 12 px radius | `Breadcrumbs` owns hierarchy, separators, overflow menu, and card frame |
 | Mobile | 60 px topbar, sidebar as drawer | `AppLayout` owns trigger, scrim, drawer, and scroll lock |
 
 These are the current desktop and mobile measurements for GoodUI. The shell should avoid horizontal overflow between 390 px and desktop. The Angular implementation switches navigation at a 900 px breakpoint.
@@ -110,6 +111,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.dropdown` | Button-based trigger and positioned popup with click or hover activation |
 | `goodui.dropdown-panel` | Internal header, item list, and footer composition |
 | `goodui.dropdown-item` | Internal action, link, badge, icon, disabled state, or submenu parent |
+| `goodui.breadcrumbs` | Ordered path, optional first icon, configurable separators, collapsed middle, and optional card frame |
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
@@ -151,6 +153,12 @@ The `goodui.switch` Penpot variant group on `03 Controls` has `state=off/on`, `s
 `good-input` supports `small`, `default`, and `large` at the same 32/40/48 px control heights as Button. `type=file` uses a native file input with a fixed File action and filename text; other supported types use a native text-like input. `disabled` prevents interaction, `readonly` keeps text selectable with a neutral surface, and `error` uses a theme-specific red border. Start and end slots each accept a Lucide icon or fixed text, with `inline` or `contrast` presentation. Icons and fixed text are display-only. The shell uses flex layout so addons and the editable area align without absolute offsets. Only the invisible native file input overlays the shell to retain native file activation.
 
 The published Penpot `goodui.input` family uses `kind=text/file`, `size=small/default/large`, and `status=default/disabled/readonly/error` where valid. The internal `goodui.input-addon` family supplies optional start/end icon or text content with inline or contrast treatment. The 21 Input and 24 addon library IDs and their Angular mapping are recorded in `design/input-variants.json`. The two example compositions retain linked addon instances. The Angular component and demo use the same state and size semantics.
+
+### Breadcrumbs contract
+
+`good-breadcrumbs` accepts an ordered `GoodBreadcrumbItem[]` path. The last item is the current page; earlier items use their optional Angular routes. `homeIcon` replaces the first label visually while preserving its accessible name. `separator` accepts a Lucide/custom icon or text, defaulting to Lucide Chevron Right. `maxItems` is an optional displayed-entry limit with a minimum of three. When exceeded, the component keeps the first and final entries and collapses consecutive ancestors starting at level two into an ellipsis dropdown. The dropdown reuses GoodUI's menu focus, dismissal, and placement behavior. `card` applies the shared surface, border, `radius.card`, and spacing roles. The component owns list semantics, links, overflow, wrapping, and focus presentation.
+
+The Penpot `goodui.breadcrumbs` family on `03 Controls` contains sixteen `style=plain/card` × `start=text/icon` × `path=full/collapsed` × `separator=chevron/slash` variants. `style` maps to `[card]`; `start` maps to optional `[homeIcon]`; `path` maps to the actual `items` length and `[maxItems]`; `separator` maps to `[separator]`. Chevron and home instances remain linked to Lucide, and the Card and text roles are token-bound. The collapsed design shows the trigger; actual menu behavior belongs to Angular. IDs are in `design/breadcrumbs-variants.json`.
 
 ### Dropdown contract
 

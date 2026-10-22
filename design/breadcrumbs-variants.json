@@ -1,0 +1,139 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "03 Controls",
+  "family": "goodui.breadcrumbs",
+  "selector": "good-breadcrumbs",
+  "containerId": "79fa6408-a1e2-80d7-8008-d48e4edba3e0",
+  "axes": {
+    "style": [
+      "plain",
+      "card"
+    ],
+    "start": [
+      "text",
+      "icon"
+    ],
+    "path": [
+      "full",
+      "collapsed"
+    ],
+    "separator": [
+      "chevron",
+      "slash"
+    ]
+  },
+  "variants": [
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4adf33b5",
+      "style": "plain",
+      "start": "text",
+      "path": "full",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4aea647c",
+      "style": "plain",
+      "start": "text",
+      "path": "full",
+      "separator": "slash"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4af4b37f",
+      "style": "plain",
+      "start": "text",
+      "path": "collapsed",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b0109e1",
+      "style": "plain",
+      "start": "text",
+      "path": "collapsed",
+      "separator": "slash"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b0bc7ac",
+      "style": "plain",
+      "start": "icon",
+      "path": "full",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b162854",
+      "style": "plain",
+      "start": "icon",
+      "path": "full",
+      "separator": "slash"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b1fa67d",
+      "style": "plain",
+      "start": "icon",
+      "path": "collapsed",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b296dae",
+      "style": "plain",
+      "start": "icon",
+      "path": "collapsed",
+      "separator": "slash"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b32a03a",
+      "style": "card",
+      "start": "text",
+      "path": "full",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b3d3e59",
+      "style": "card",
+      "start": "text",
+      "path": "full",
+      "separator": "slash"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b47344a",
+      "style": "card",
+      "start": "text",
+      "path": "collapsed",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b5040d9",
+      "style": "card",
+      "start": "text",
+      "path": "collapsed",
+      "separator": "slash"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b5ccf94",
+      "style": "card",
+      "start": "icon",
+      "path": "full",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b679ed7",
+      "style": "card",
+      "start": "icon",
+      "path": "full",
+      "separator": "slash"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b71a34d",
+      "style": "card",
+      "start": "icon",
+      "path": "collapsed",
+      "separator": "chevron"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48e4b7a5dfc",
+      "style": "card",
+      "start": "icon",
+      "path": "collapsed",
+      "separator": "slash"
+    }
+  ]
+}

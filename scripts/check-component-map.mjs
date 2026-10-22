@@ -7,6 +7,7 @@ const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-vari
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
 const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
+const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadcrumbs-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -105,4 +106,10 @@ for (const composition of dropdownVariants.compositions) {
   dropdownIds.add(composition.componentId);
 }
 if (dropdownVariants.compositions.length !== 1) throw new Error('Expected a Dropdown submenu composition.');
-console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, ${switchCombinations.size} Switch variants, ${inputVariants.variants.length} Input variants, ${inputVariants.addon.variants.length} Input addon variants, ${dropdownVariants.variants.length} Dropdown variants, ${dropdownVariants.panel.variants.length} panels, and ${dropdownVariants.item.variants.length} items.`);
+if (breadcrumbsVariants.family !== 'goodui.breadcrumbs' || breadcrumbsVariants.selector !== 'good-breadcrumbs' || !breadcrumbsVariants.containerId) throw new Error('Breadcrumb variants must map to good-breadcrumbs.');
+const breadcrumbExpected = [];
+for (const style of ['plain', 'card']) for (const start of ['text', 'icon']) for (const path of ['full', 'collapsed']) for (const separator of ['chevron', 'slash']) breadcrumbExpected.push(`${style}/${start}/${path}/${separator}`);
+checkMatrix(breadcrumbsVariants.variants, [
+  ['style', ['plain', 'card']], ['start', ['text', 'icon']], ['path', ['full', 'collapsed']], ['separator', ['chevron', 'slash']],
+], breadcrumbExpected, 'Breadcrumbs', new Set());
+console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, ${switchCombinations.size} Switch variants, ${inputVariants.variants.length} Input variants, ${inputVariants.addon.variants.length} Input addon variants, ${dropdownVariants.variants.length} Dropdown variants, ${dropdownVariants.panel.variants.length} panels, ${dropdownVariants.item.variants.length} items, and ${breadcrumbsVariants.variants.length} Breadcrumb variants.`);

@@ -10,6 +10,7 @@ export * from './lib/button';
 export * from './lib/switch';
 export * from './lib/input';
 export * from './lib/dropdown';
+export * from './lib/breadcrumbs';
 export * from '@lucide/angular';
 export * from './lib/action-menu';
 export * from './lib/app-layout';

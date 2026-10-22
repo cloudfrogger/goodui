@@ -54,6 +54,7 @@ export class App {
       { id: 'switches', label: 'Switches', icon: 'settings', route: '/components/switches' },
       { id: 'inputs', label: 'Inputs', icon: 'grid', route: '/components/inputs' },
       { id: 'dropdowns', label: 'Dropdowns', icon: 'menu', route: '/components/dropdowns' },
+      { id: 'breadcrumbs', label: 'Breadcrumbs', icon: 'chevron-right', route: '/components/breadcrumbs' },
     ] },
     { id: 'user', heading: 'USER', items: [
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
@@ -97,6 +98,7 @@ export class App {
     { id: 'switches', label: 'Switches', description: 'States and form example', route: '/components/switches' },
     { id: 'inputs', label: 'Inputs', description: 'Text and file controls', route: '/components/inputs' },
     { id: 'dropdowns', label: 'Dropdowns', description: 'Button-based menus and placement', route: '/components/dropdowns' },
+    { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },
     { id: 'profile', label: 'User Profile', description: 'Personal information', route: '/account/home/user-profile' },
     { id: 'network', label: 'Network', description: 'Kontakte', route: '/network' },
