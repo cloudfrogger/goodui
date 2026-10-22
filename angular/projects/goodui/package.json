@@ -1,0 +1,16 @@
+{
+  "name": "@goodui/angular",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/router": "^21.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "exports": {
+    "./styles.css": "./styles.css"
+  },
+  "sideEffects": false
+}

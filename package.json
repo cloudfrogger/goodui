@@ -1,0 +1,12 @@
+{
+  "name": "goodui-project",
+  "private": true,
+  "scripts": {
+    "setup": "npm --prefix angular ci --legacy-peer-deps && npm run build:lib && npm --prefix demo1 ci --legacy-peer-deps && npm run link:demo && npm --prefix doc ci",
+    "build:lib": "npm --prefix angular run build:lib",
+    "link:demo": "npm --prefix demo1 run link:goodui",
+    "build:demo": "npm run build:lib && npm run link:demo && npm --prefix demo1 run build",
+    "start:demo": "npm run build:lib && npm run link:demo && npm --prefix demo1 start",
+    "build:docs": "npm --prefix doc run build"
+  }
+}
