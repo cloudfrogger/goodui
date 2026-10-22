@@ -6,6 +6,7 @@ const map = JSON.parse(readFileSync(resolve(root, 'design/component-map.json'), 
 const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-variants.json'), 'utf8'));
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
+const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -60,11 +61,11 @@ if (!selectors.has('switch')) throw new Error('Missing good-switch selector.');
 if (inputVariants.family !== 'goodui.input' || inputVariants.selector !== 'good-input' || !inputVariants.containerId) throw new Error('Input variant family must map to good-input.');
 if (inputVariants.addon.family !== 'goodui.input-addon' || inputVariants.addon.owner !== 'good-input' || !inputVariants.addon.containerId) throw new Error('Input addon family must belong to good-input.');
 const inputIds = new Set();
-const checkMatrix = (entries, axes, expected, label) => {
+const checkMatrix = (entries, axes, expected, label, ids = inputIds) => {
   const seen = new Set();
   for (const entry of entries) {
-    if (!entry.id || inputIds.has(entry.id)) throw new Error(`Duplicate or missing ${label} Penpot ID: ${entry.id}`);
-    inputIds.add(entry.id);
+    if (!entry.id || ids.has(entry.id)) throw new Error(`Duplicate or missing ${label} Penpot ID: ${entry.id}`);
+    ids.add(entry.id);
     const key = axes.map(([axis, values]) => {
       if (!values.includes(entry[axis])) throw new Error(`Unknown ${label} ${axis}: ${entry[axis]}`);
       return entry[axis];
@@ -86,4 +87,22 @@ for (const composition of inputVariants.compositions) {
   inputIds.add(composition.componentId);
 }
 if (inputVariants.compositions.length !== 2) throw new Error('Expected text and file Input compositions.');
-console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, ${switchCombinations.size} Switch variants, ${inputVariants.variants.length} Input variants, and ${inputVariants.addon.variants.length} Input addon variants.`);
+if (dropdownVariants.family !== 'goodui.dropdown' || dropdownVariants.selector !== 'good-dropdown' || !dropdownVariants.containerId) throw new Error('Dropdown variants must map to good-dropdown.');
+if (dropdownVariants.panel.family !== 'goodui.dropdown-panel' || dropdownVariants.panel.owner !== 'good-dropdown' || !dropdownVariants.panel.containerId) throw new Error('Dropdown panel must belong to good-dropdown.');
+if (dropdownVariants.item.family !== 'goodui.dropdown-item' || dropdownVariants.item.owner !== 'good-dropdown' || !dropdownVariants.item.containerId) throw new Error('Dropdown item must belong to good-dropdown.');
+const dropdownIds = new Set();
+const dropdownExpected = [];
+for (const placement of dropdownVariants.axes.placement) for (const chevron of dropdownVariants.axes.chevron) for (const state of dropdownVariants.axes.state) dropdownExpected.push(`${placement}/${chevron}/${state}`);
+checkMatrix(dropdownVariants.variants, [['placement', ['top-start', 'bottom-start', 'left-start', 'right-start']], ['chevron', ['hidden', 'shown']], ['state', ['closed', 'open']]], dropdownExpected, 'Dropdown', dropdownIds);
+const panelExpected = [];
+for (const sections of ['items-only', 'full']) for (const scroll of ['off', 'on']) panelExpected.push(`${sections}/${scroll}`);
+checkMatrix(dropdownVariants.panel.variants, [['sections', ['items-only', 'full']], ['scroll', ['off', 'on']]], panelExpected, 'Dropdown panel', dropdownIds);
+const itemExpected = [];
+for (const content of ['text', 'icon', 'text-badge', 'icon-badge', 'text-submenu', 'icon-submenu']) for (const state of ['default', 'disabled']) itemExpected.push(`${content}/${state}`);
+checkMatrix(dropdownVariants.item.variants, [['content', ['text', 'icon', 'text-badge', 'icon-badge', 'text-submenu', 'icon-submenu']], ['state', ['default', 'disabled']]], itemExpected, 'Dropdown item', dropdownIds);
+for (const composition of dropdownVariants.compositions) {
+  if (!composition.componentId || dropdownIds.has(composition.componentId) || composition.selector !== 'good-dropdown') throw new Error(`Invalid Dropdown composition: ${composition.family}`);
+  dropdownIds.add(composition.componentId);
+}
+if (dropdownVariants.compositions.length !== 1) throw new Error('Expected a Dropdown submenu composition.');
+console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, ${combinations.size} Button variants, ${switchCombinations.size} Switch variants, ${inputVariants.variants.length} Input variants, ${inputVariants.addon.variants.length} Input addon variants, ${dropdownVariants.variants.length} Dropdown variants, ${dropdownVariants.panel.variants.length} panels, and ${dropdownVariants.item.variants.length} items.`);

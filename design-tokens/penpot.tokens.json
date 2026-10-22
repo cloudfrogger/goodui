@@ -388,6 +388,40 @@
         "$type": "spacing"
       }
     },
+    "dropdown": {
+      "panel": {
+        "width": { "$value": "240", "$type": "sizing" },
+        "padding": { "$value": "6", "$type": "spacing" },
+        "gap": { "$value": "2", "$type": "spacing" },
+        "background": { "$value": "{color.surface}", "$type": "color" },
+        "border": { "$value": "{color.border}", "$type": "color" }
+      },
+      "popup": {
+        "gap": { "$value": "6", "$type": "spacing" }
+      },
+      "item": {
+        "height": { "$value": "36", "$type": "sizing" },
+        "icon-size": { "$value": "16", "$type": "sizing" },
+        "chevron-size": { "$value": "14", "$type": "sizing" },
+        "icon": { "$value": "{color.icon}", "$type": "color" },
+        "padding-inline": { "$value": "{space.2_5}", "$type": "spacing" },
+        "foreground": { "$value": "{color.text}", "$type": "color" },
+        "hover-background": { "$value": "{color.selected}", "$type": "color" }
+      },
+      "section": {
+        "padding": { "$value": "{space.2}", "$type": "spacing" }
+      },
+      "submenu": {
+        "width": { "$value": "220", "$type": "sizing" }
+      },
+      "header": {
+        "foreground": { "$value": "{color.muted}", "$type": "color" }
+      },
+      "badge": {
+        "background": { "$value": "{color.selected}", "$type": "color" },
+        "foreground": { "$value": "{color.muted}", "$type": "color" }
+      }
+    },
     "input": {
       "padding-inline-small": {
         "$value": "{button.padding-inline-small}",

@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, switches, inputs, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, switches, inputs, dropdowns, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -62,6 +62,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](doc/docs/components/input.md) and the demo's `/components/inputs` page.
 
+   For structured actions, use `<good-dropdown [items]="actions"><span goodDropdownTrigger>Actions</span></good-dropdown>`. It uses GoodUI Button styling and owns the popup layout, placement, and keyboard behavior. See the [Dropdown guide](doc/docs/components/dropdown.md) and `/components/dropdowns` in the demo.
+
    Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-layout>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppLayout guide](doc/docs/layout/app-layout.md).
 
 ## Current demo
@@ -83,6 +85,7 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | `good-button` | Five visual variants, three sizes, optional Lucide icon, and accessible icon-only actions |
 | `good-switch` | Accessible on/off control with three sizes, forms support, and theme-aware error styling |
 | `good-input` | Text and native file controls with optional icons or fixed group text |
+| `good-dropdown` | Button-based popup with optional sections, scrolling, placement, and submenus |
 | `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
@@ -104,6 +107,7 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 - [Design contract](design.md) — measurements, component ownership, tokens, and Penpot IDs.
 - [Button variant registry](design/button-variants.json) — one-to-one Penpot IDs and Angular inputs for all 45 combinations.
 - [Input variant registry](design/input-variants.json) — Penpot IDs for 21 Input states, 24 addon options, and two compositions.
+- [Dropdown variant registry](design/dropdown-variants.json) — Penpot IDs for 16 dropdown states, four panels, twelve items, and the submenu composition.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Documentation](doc/docs/intro.md) — integration, layouts, components, and examples.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.

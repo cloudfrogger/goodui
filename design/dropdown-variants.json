@@ -1,0 +1,248 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "03 Controls",
+  "family": "goodui.dropdown",
+  "selector": "good-dropdown",
+  "containerId": "79fa6408-a1e2-80d7-8008-d4862be1ed43",
+  "axes": {
+    "placement": [
+      "top-start",
+      "bottom-start",
+      "left-start",
+      "right-start"
+    ],
+    "chevron": [
+      "hidden",
+      "shown"
+    ],
+    "state": [
+      "closed",
+      "open"
+    ]
+  },
+  "variants": [
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4860ff28811",
+      "placement": "bottom-start",
+      "chevron": "shown",
+      "state": "open"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48622c3959a",
+      "placement": "top-start",
+      "chevron": "hidden",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d486232b712b",
+      "placement": "top-start",
+      "chevron": "hidden",
+      "state": "open"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d486241e89de",
+      "placement": "top-start",
+      "chevron": "shown",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d486250e71da",
+      "placement": "top-start",
+      "chevron": "shown",
+      "state": "open"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d486253fea10",
+      "placement": "bottom-start",
+      "chevron": "hidden",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4862595b957",
+      "placement": "bottom-start",
+      "chevron": "hidden",
+      "state": "open"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48626669868",
+      "placement": "bottom-start",
+      "chevron": "shown",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4862698c977",
+      "placement": "left-start",
+      "chevron": "hidden",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48626e3af82",
+      "placement": "left-start",
+      "chevron": "hidden",
+      "state": "open"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48627e30d1a",
+      "placement": "left-start",
+      "chevron": "shown",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d486294abc7c",
+      "placement": "left-start",
+      "chevron": "shown",
+      "state": "open"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d486298d77a9",
+      "placement": "right-start",
+      "chevron": "hidden",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d48629e98542",
+      "placement": "right-start",
+      "chevron": "hidden",
+      "state": "open"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4862b0007ef",
+      "placement": "right-start",
+      "chevron": "shown",
+      "state": "closed"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4862bde5788",
+      "placement": "right-start",
+      "chevron": "shown",
+      "state": "open"
+    }
+  ],
+  "panel": {
+    "family": "goodui.dropdown-panel",
+    "owner": "good-dropdown",
+    "containerId": "79fa6408-a1e2-80d7-8008-d485ec2fb91d",
+    "axes": {
+      "sections": [
+        "items-only",
+        "full"
+      ],
+      "scroll": [
+        "off",
+        "on"
+      ]
+    },
+    "variants": [
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d485cac233d5",
+        "sections": "full",
+        "scroll": "off"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d485e7b1f75c",
+        "sections": "items-only",
+        "scroll": "off"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d485e92677ee",
+        "sections": "items-only",
+        "scroll": "on"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d485ec2b45c5",
+        "sections": "full",
+        "scroll": "on"
+      }
+    ]
+  },
+  "item": {
+    "family": "goodui.dropdown-item",
+    "owner": "good-dropdown",
+    "containerId": "79fa6408-a1e2-80d7-8008-d48594a79ebf",
+    "axes": {
+      "content": [
+        "text",
+        "icon",
+        "text-badge",
+        "icon-badge",
+        "icon-submenu",
+        "text-submenu"
+      ],
+      "state": [
+        "default",
+        "disabled"
+      ]
+    },
+    "variants": [
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4857d32da5d",
+        "content": "icon-badge",
+        "state": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4858a1cf4ec",
+        "content": "text",
+        "state": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4858b371b93",
+        "content": "icon",
+        "state": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4858c48da6c",
+        "content": "text-badge",
+        "state": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4858e02727d",
+        "content": "icon-submenu",
+        "state": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4858eab7662",
+        "content": "text",
+        "state": "disabled"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4858fd2745b",
+        "content": "icon",
+        "state": "disabled"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d48590f3ff88",
+        "content": "text-badge",
+        "state": "disabled"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d48592b27643",
+        "content": "icon-badge",
+        "state": "disabled"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d48594a3440a",
+        "content": "icon-submenu",
+        "state": "disabled"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4892898cd2b",
+        "content": "text-submenu",
+        "state": "default"
+      },
+      {
+        "id": "79fa6408-a1e2-80d7-8008-d4893677af31",
+        "content": "text-submenu",
+        "state": "disabled"
+      }
+    ]
+  },
+  "compositions": [
+    {
+      "family": "goodui.dropdown.submenu-open",
+      "componentId": "79fa6408-a1e2-80d7-8008-d48641347a8e",
+      "selector": "good-dropdown",
+      "state": "open",
+      "submenu": "Team"
+    }
+  ]
+}

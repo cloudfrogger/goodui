@@ -6,6 +6,7 @@
     "avatar-menu-item",
     "brand-icon",
     "button",
+    "dropdown",
     "input",
     "main-menu",
     "main-view",
@@ -28,6 +29,8 @@
   ],
   "internalParts": {
     "avatar-submenu": "avatar-menu",
+    "dropdown-item": "dropdown",
+    "dropdown-panel": "dropdown",
     "input-addon": "input",
     "subnav-dropdown": "subnav",
     "subnav-item": "subnav"

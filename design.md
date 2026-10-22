@@ -28,6 +28,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Button | 32/40/48 px high by size, 6 px radius; optional leading Lucide icon or icon-only square | `Button` owns padding, border, focus, disabled state, and hit area |
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
+| Dropdown | Button-sized trigger; 240 px token-based popup with 36 px item rows | `Dropdown` owns sections, placement, scrolling, nested items, and dismissal |
 | Mobile | 60 px topbar, sidebar as drawer | `AppLayout` owns trigger, scrim, drawer, and scroll lock |
 
 These are the current desktop and mobile measurements for GoodUI. The shell should avoid horizontal overflow between 390 px and desktop. The Angular implementation switches navigation at a 900 px breakpoint.
@@ -72,6 +73,8 @@ AppLayout
 
 `AppLayout` owns shell geometry, scrolling, and mobile switching. Apps do not set sidebar offsets, topbar height, overlay layers, or content padding. Each container owns its alignment and spacing; individual items have no external layout margins.
 
+`Dropdown` can be placed in any action area. It owns a Button trigger, optional header and footer, and a list of recursive `DropdownItem` entries inside a positioned `DropdownPanel`.
+
 The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppLayout` feed the desktop sidebar, mobile topbar, and drawer. `brand` is the image's accessible name; text and the generic accent mark are the fallback when no logo is supplied. The dark logo URL is optional; if absent, the light URL remains visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI demo uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers.
 
 ## Public components
@@ -104,6 +107,9 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.switch` | Accessible on/off setting with three sizes and disabled/error presentation |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
 | `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
+| `goodui.dropdown` | Button-based trigger and positioned popup with click or hover activation |
+| `goodui.dropdown-panel` | Internal header, item list, and footer composition |
+| `goodui.dropdown-item` | Internal action, link, badge, icon, disabled state, or submenu parent |
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
@@ -145,6 +151,12 @@ The `goodui.switch` Penpot variant group on `03 Controls` has `state=off/on`, `s
 `good-input` supports `small`, `default`, and `large` at the same 32/40/48 px control heights as Button. `type=file` uses a native file input with a fixed File action and filename text; other supported types use a native text-like input. `disabled` prevents interaction, `readonly` keeps text selectable with a neutral surface, and `error` uses a theme-specific red border. Start and end slots each accept a Lucide icon or fixed text, with `inline` or `contrast` presentation. Icons and fixed text are display-only. The shell uses flex layout so addons and the editable area align without absolute offsets. Only the invisible native file input overlays the shell to retain native file activation.
 
 The published Penpot `goodui.input` family uses `kind=text/file`, `size=small/default/large`, and `status=default/disabled/readonly/error` where valid. The internal `goodui.input-addon` family supplies optional start/end icon or text content with inline or contrast treatment. The 21 Input and 24 addon library IDs and their Angular mapping are recorded in `design/input-variants.json`. The two example compositions retain linked addon instances. The Angular component and demo use the same state and size semantics.
+
+### Dropdown contract
+
+`good-dropdown` uses `good-button` for its trigger. It inherits Button variant, size, icon, disabled behavior, and focus treatment; an optional trailing chevron indicates the popup. The popup can contain projected header and footer content around a data-driven item list. An optional height limit scrolls only the middle list. Items accept Lucide or custom icons, text, badges, secondary detail, actions, routes, disabled state, dividers, and recursive children. Parent items expand rather than navigate. The four placement preferences are `top-start`, `bottom-start`, `left-start`, and `right-start`; viewport clamping can shift the final location. `click` is the default trigger; `hover` opens with a pointer, while touch and keyboard remain usable.
+
+Penpot's `goodui.dropdown` has 16 `placement` × `chevron` × `state` variants and linked Button instances. `goodui.dropdown-panel` has four `sections` × `scroll` variants; `goodui.dropdown-item` has twelve `content` × `state` variants. These two are internal to `good-dropdown`. The `goodui.dropdown.submenu-open` composition demonstrates linked panels. `design/dropdown-variants.json` records every library ID. The Penpot panel uses flex layout, token-bound surface, border, radius, padding, gap, and width; items bind their height, padding, radius, text, icon, and badge roles. Penpot can clip a scroll example but does not implement browser scrollbars, hover, focus, or dynamic placement. Angular supplies those behaviors and keeps header and footer outside the scrollable list. The trigger's extra chevron is a linked Lucide instance over a linked Button instance in Penpot because the plugin cannot add children inside a Button copy; Angular renders the chevron inside the Button through its trailing-icon API.
 
 The switch track and thumb dimensions have their own semantic sizing tokens. `switch.on.background` aliases `color.brand` in light mode and is overridden in dark mode. `switch.error.border` aliases `color.error`, which is `#DC2626` in light mode and `#F87171` in dark mode. The same relationships generate the CSS variables. Angular uses a native checkbox with switch semantics, a 44 × 44 px minimum hit area, an accessible label, and optional `ControlValueAccessor` form binding. The visual component contains no product-specific label; consumers supply the label text.
 

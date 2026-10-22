@@ -15,12 +15,14 @@ import { GoodButtonIcon, GoodButtonSize, GoodButtonVariant } from './models';
       [attr.aria-haspopup]="hasPopup() || null">
       @if (icon(); as iconData) { <svg class="good-button-icon" [lucideIcon]="iconData" [size]="iconSize()" aria-hidden="true"></svg> }
       @if (!iconOnly()) { <span class="good-button-label"><ng-content /></span> }
+      @if (endIcon(); as iconData) { <svg class="good-button-icon good-button-end-icon" [lucideIcon]="iconData" [size]="iconSize()" aria-hidden="true"></svg> }
     </button>
   `,
   host: { class: 'good-button' },
 })
 export class GoodButtonComponent {
   readonly icon = input<GoodButtonIcon>();
+  readonly endIcon = input<GoodButtonIcon>();
   readonly iconOnly = input(false);
   readonly variant = input<GoodButtonVariant>('default');
   readonly size = input<GoodButtonSize>('default');
