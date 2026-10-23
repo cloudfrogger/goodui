@@ -251,6 +251,32 @@
   --good-card-header-image-height: 144px;
   --good-card-radius: var(--good-radius-card);
   --good-card-padding-inline: var(--good-space-6);
+  --good-code-background: var(--good-color-selected);
+  --good-code-border: var(--good-color-border);
+  --good-code-foreground: var(--good-color-text);
+  --good-code-muted: var(--good-color-muted);
+  --good-code-toolbar-background: var(--good-color-surface);
+  --good-code-toolbar-height: 44px;
+  --good-code-toolbar-padding-inline: var(--good-space-5);
+  --good-code-toolbar-gap: var(--good-space-2);
+  --good-code-inline-background: var(--good-color-selected);
+  --good-code-inline-radius: var(--good-radius-compact);
+  --good-code-inline-padding-inline: var(--good-space-2);
+  --good-code-inline-padding-block: 2px;
+  --good-code-syntax-keyword: #7C3AED;
+  --good-code-syntax-string: #15803D;
+  --good-code-syntax-number: #B45309;
+  --good-code-syntax-comment: #71717A;
+  --good-code-syntax-function: #1D4ED8;
+  --good-code-syntax-type: #0F766E;
+  --good-code-radius: var(--good-radius-card);
+  --good-code-padding-inline: var(--good-space-5);
+  --good-code-padding-block: var(--good-space-5);
+  --good-code-line-height: 24px;
+  --good-code-gutter-width: 40px;
+  --good-code-fade-height: 72px;
+  --good-code-font-size: 13px;
+  --good-code-caption-font-size: 12px;
   --good-canvas: var(--good-color-canvas);
   --good-surface: var(--good-color-surface);
   --good-text: var(--good-color-text);
@@ -301,6 +327,12 @@
   --good-badge-info-light-background: #12495F;
   --good-badge-text-outline-background: #18181B;
   --good-badge-text-light-background: #27272A;
+  --good-code-syntax-keyword: #C4B5FD;
+  --good-code-syntax-string: #86EFAC;
+  --good-code-syntax-number: #FCD34D;
+  --good-code-syntax-comment: #A1A1AA;
+  --good-code-syntax-function: #93C5FD;
+  --good-code-syntax-type: #5EEAD4;
 }
 
 @theme inline {

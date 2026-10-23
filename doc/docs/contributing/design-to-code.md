@@ -12,7 +12,7 @@ title: From Penpot to Angular
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, `09 Code`. The IDs below are Penpot library IDs; preserve the main shape while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -69,6 +69,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.link` (`appearance` × `underline` × `decoration` × `status`) | Container `c0c3286f-e4bf-804c-8008-d52ebed18b43`; all 24 IDs in [link-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/link-variants.json) |
 | `goodui.card` (`header` × `footer`) | Container `c0c3286f-e4bf-804c-8008-d530a53ab97a`; all 20 IDs in [card-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/card-variants.json) |
 | `goodui.card-header` (`tone` × `actions`) / `goodui.card-footer` (`content`) | Containers `c0c3286f-e4bf-804c-8008-d52fb75ce3d8` / `c0c3286f-e4bf-804c-8008-d52ff73e803a`; six Header and four Footer IDs in the same manifest |
+| `goodui.code-block` (`display` × `lineNumbers` × `preview`) | Container `c0c3286f-e4bf-804c-8008-d53b76052bd3`; five IDs in [code-block-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/code-block-variants.json) |
 | `goodui.input` variant group (`kind` × `size` × `status`) | Container `79fa6408-a1e2-80d7-8008-d47eb4e37dc7`; all 21 IDs in [input-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) |
 | `goodui.input-addon` variant group (`side` × `content` × `tone` × `size`) | Container `79fa6408-a1e2-80d7-8008-d47f49489ba6`; all 24 IDs in the same manifest |
 | `goodui.dropdown` variant group (`placement` × `chevron` × `state`) | Container `79fa6408-a1e2-80d7-8008-d4862be1ed43`; all 16 IDs in [dropdown-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/dropdown-variants.json) |
@@ -131,6 +132,9 @@ The Angular demo takes its wordmarks from those SVG exports. Run `npm run brand:
 | `goodui.card`, `footer=none/text/link/buttons/mixed` | `good-card` with optional `good-card-footer` and projected content |
 | `goodui.card-header`, `tone=default/secondary/image`, `actions=none/buttons` | `good-card-header [title]`, `[headingLevel]`, optional `[goodCardSubtitle]` and `[goodCardActions]`; actions are projected controls |
 | `goodui.card-footer`, `content=text/link/buttons/mixed` | `good-card-footer [align]` with projected text, `good-link`, and/or `good-button` |
+| `goodui.code-block`, `display=block/inline` | `good-code-block [inline]`; block is the default |
+| `goodui.code-block`, `lineNumbers=off/on` | `good-code-block [lineNumbers]`; ignored in inline mode |
+| `goodui.code-block`, `preview=full/collapsed` | `good-code-block [collapsible]` and `[collapsedLines]`; expand/collapse is runtime state |
 | `goodui.dropdown`, `placement=top-start/bottom-start/left-start/right-start` | `good-dropdown [placement]`; runtime viewport clamping may shift final coordinates |
 | `goodui.dropdown`, `chevron=shown/hidden`, `state=closed/open` | `good-dropdown [showChevron]` and `[(open)]`; click or hover is selected with `[trigger]` |
 | `goodui.dropdown-panel`, `sections=items-only/full`, `scroll=off/on` | Optional `goodDropdownHeader` and `goodDropdownFooter` projection; `[scrollItems]` and `[maxItemsHeight]` |
@@ -153,6 +157,8 @@ The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8
 `goodui.link` publishes 24 variants on `08 Cards and Links`. The label fill and underline stroke bind to `link.brand.color` or `link.mono.color`; `underline=hover` depicts the resting state. Angular supplies the native anchor, hover, focus, routing, and disabled behavior. [link-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/link-variants.json) records every library ID.
 
 `goodui.card` publishes 20 variants on the same page, built with linked Header and Footer component instances. The six `goodui.card-header` variants cover surface tone and action presence; the four `goodui.card-footer` variants cover projected content examples. Header actions retain linked Button and ActionMenu instances, while footer examples retain linked Link and Button instances. `good-card` owns the outer border, clipping, body padding, and separators. The `goodui.card` body is an internal part of `good-card`. [card-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/card-variants.json) records all 30 IDs and one root composition with visible right-side actions. The image fill is a PNG rendering of the demo SVG because Penpot's media import did not retain that SVG; Angular accepts an application-owned image URL.
+
+`goodui.code-block` publishes five variants on `09 Code`: block with or without line numbers, each full or collapsed, and inline. [code-block-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/code-block-variants.json) records their IDs. The copy and expansion controls are linked `goodui.button` instances; language labels, source, and syntax colors are editable content, not separate variants. Angular supplies highlighting, clipboard feedback, horizontal scrolling, and the live expansion state. The Penpot fade uses six token-bound translucent strips to follow theme changes; CSS uses a smooth gradient. The title, viewport, gutter, and source lines are internal parts of `good-code-block`.
 
 `goodui.input` is a published 21-variant Penpot family. `kind=text/file` maps to `good-input type`, `size=small/default/large` maps to `size`, and `status=disabled/readonly/error` maps to the corresponding inputs; default has no status flag. The 24 `goodui.input-addon` variants map `side=start/end`, `content=icon/text`, and `tone=inline/contrast` to the matching `start*` and `end*` inputs of the same Angular component. The addon has no separate selector. Two Penpot compositions show text and file controls with linked addon instances. [input-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) records all component IDs. `npm run check:mapping` validates the complete matrix and uniqueness; compare IDs and bindings against live Penpot after design edits.
 

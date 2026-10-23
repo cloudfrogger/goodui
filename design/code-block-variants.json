@@ -1,0 +1,53 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "09 Code",
+  "family": "goodui.code-block",
+  "selector": "good-code-block",
+  "containerId": "c0c3286f-e4bf-804c-8008-d53b76052bd3",
+  "axes": {
+    "display": [
+      "block",
+      "inline"
+    ],
+    "lineNumbers": [
+      "off",
+      "on"
+    ],
+    "preview": [
+      "full",
+      "collapsed"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53b608ac38a",
+      "display": "block",
+      "lineNumbers": "off",
+      "preview": "full"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53b608e999d",
+      "display": "block",
+      "lineNumbers": "on",
+      "preview": "full"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53b6092c256",
+      "display": "block",
+      "lineNumbers": "off",
+      "preview": "collapsed"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53b60970802",
+      "display": "block",
+      "lineNumbers": "on",
+      "preview": "collapsed"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53b60999396",
+      "display": "inline",
+      "lineNumbers": "off",
+      "preview": "full"
+    }
+  ]
+}

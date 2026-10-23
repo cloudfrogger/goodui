@@ -29,6 +29,7 @@ export const routes: Routes = [
   { path: 'components/radio-groups', component: RadioGroupsPageComponent },
   { path: 'components/cards', component: CardsPageComponent },
   { path: 'components/links', component: LinksPageComponent },
+  { path: 'components/code-blocks', loadComponent: () => import('./code-blocks-page').then(module => module.CodeBlocksPageComponent) },
   { path: 'profile', ...page('Public Profile', 'Public profile') },
   { path: 'account/home/get-started', ...page('Account', 'Get Started', true) },
   { path: 'account/home/user-profile', ...page('User Profile', 'Account and personal information') },

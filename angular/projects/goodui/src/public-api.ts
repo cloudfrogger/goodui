@@ -12,6 +12,7 @@ export * from './lib/checkbox';
 export * from './lib/radio-group';
 export * from './lib/link';
 export * from './lib/card';
+export * from './lib/code-block';
 export * from './lib/input';
 export * from './lib/dropdown';
 export * from './lib/breadcrumbs';

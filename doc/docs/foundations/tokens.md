@@ -64,6 +64,13 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `card.header.image-height` / `.image.foreground` | `--good-card-header-image-*` | Image Header height and label color | Full-width image title bar |
 | `card.padding-inline` / `.header.padding-block` / `.body.padding-block` / `.footer.padding-block` | `--good-card-*-padding-*` | Card section flex padding | Header, content, and footer spacing |
 | `card.header.gap` / `.footer.gap` / `.footer.min-height` | `--good-card-*-gap` / `--good-card-footer-min-height` | Flex gaps and footer height | Actions and mixed footer content |
+| `code.background` / `.border` / `.foreground` / `.muted` | `--good-code-*` | Source frame, outline, and text | Theme-aware block surface |
+| `code.inline.background` / `.inline.radius` | `--good-code-inline-*` | Inline fill and corners | Inline source in running text |
+| `code.syntax.keyword/string/number/comment/function/type` | `--good-code-syntax-*` | Representative source text fills | Light/dark syntax palette |
+| `code.padding-inline` / `.padding-block` / `.gutter.width` / `.line-height` | `--good-code-*` | Viewport padding, gutter width, and line rhythm | Block layout and line numbers |
+| `code.toolbar.height` / `.toolbar.padding-inline` / `.toolbar.background` | `--good-code-toolbar-*` | Toolbar height, padding, and fill | Caption and copy action |
+| `code.fade.height` | `--good-code-fade-height` | Stepped Penpot overlay height | Collapsed preview fade |
+| `code.font-size` / `.caption.font-size` | `--good-code-font-size` / `--good-code-caption-font-size` | Source and caption text sizes | Proportional code typography |
 
 The semantic values `topbar.padding-inline`, `main-menu.gap`, `sidebar.menu-gap`, and `control.action-size` are Penpot aliases. Generated CSS preserves those references with `var(...)`; changing their base tokens changes both the resolved Penpot value and the generated CSS value after the documented refresh.
 
@@ -94,6 +101,8 @@ The 2 px generic brand mark and circular avatar-image masks are geometric detail
 Radio Group adds 15 `layout` tokens with semantic roles separate from Checkbox. Its 24 Penpot variants bind the option indicator, dot, radius, and flex gaps to those roles; the [Radio Group variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/radio-group-variants.json) records every ID. A temporary `color.text` change moved the bound mono dot, and a temporary `radio.mono.selected.color` change moved it to brand blue. Both values were restored. In the dark theme, the brand dot resolved to `#3B82F6`, the mono dot to `#FAFAFA`, and the indicator surface to `#09090B`. The Penpot catalog and repository snapshot matched across 229 `layout` and 34 `layout-dark` tokens before CSS generation.
 
 Card and Link add 22 semantic `layout` tokens. The 24 Link variants bind label and underline colors; Card, Header, and Footer bind their frame, fills, text, radius, section sizes, padding, and gaps. Header images are media fills and cannot bind to a color token; their foreground uses `card.header.image.foreground`. The [Card](https://github.com/cloudfrogger/goodui/blob/master/design/card-variants.json) and [Link](https://github.com/cloudfrogger/goodui/blob/master/design/link-variants.json) manifests record the published IDs. The current repository snapshot contains 251 `layout` and 34 `layout-dark` tokens. Refreshing the JSON from Penpot remains a manual export/capture step; generated CSS preserves the aliases.
+
+Code block adds 26 semantic `layout` tokens and six dark syntax overrides, for 277 `layout` and 40 `layout-dark` tokens. The five [Code block variants](https://github.com/cloudfrogger/goodui/blob/master/design/code-block-variants.json) bind their frame, toolbar, source text, padding, gutter width, fade strips, and radii where Penpot supports the property. A Penpot gradient stop cannot bind directly to a color token, so the static design uses six translucent, token-bound strips; CSS uses a smooth gradient with `code.background`. Changing base `radius.card` temporarily moved the bound Code block radius from 12 to 13 px; changing semantic `code.syntax.keyword` temporarily recolored the bound source text. Both values were restored. Dark mode resolves background to `#18181B`, foreground to `#FAFAFA`, and keywords to `#C4B5FD`. The Penpot catalog and repository snapshot matched token by token after restoration. Language-specific highlighting, clipboard access, and changing preview height are browser behavior.
 
 ## Export and generation
 

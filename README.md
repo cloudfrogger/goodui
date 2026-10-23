@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, inputs, dropdowns, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, inputs, dropdowns, code blocks, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -72,6 +72,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    For page hierarchy, use `<good-breadcrumbs [items]="path" [maxItems]="4" />`. Long paths keep hidden ancestors in an accessible ellipsis menu. See the [Breadcrumbs guide](doc/docs/components/breadcrumbs.md) and `/components/breadcrumbs` in the demo.
 
+   For source examples, use `<good-code-block [code]="example" language="typescript" [lineNumbers]="true" />`. Add `[collapsible]="true"` for a faded preview or `[inline]="true"` for code inside a sentence. See the [Code block guide](doc/docs/components/code-block.md) and `/components/code-blocks` in the demo.
+
    Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-layout>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppLayout guide](doc/docs/layout/app-layout.md).
 
 ## Current demo
@@ -100,6 +102,7 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | `good-breadcrumbs` | Hierarchical path with optional home icon, custom separator, overflow menu, and card frame |
 | `good-card` | Bordered content with optional title bar, actions, image, and footer |
 | `good-link` | Token-colored navigation with optional persistent or hover underline |
+| `good-code-block` | Highlighted source with optional line numbers, copy, expansion, and inline mode |
 | `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
@@ -128,6 +131,7 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 - [Radio group variant registry](design/radio-group-variants.json) — Penpot IDs for all 24 appearance, size, selection, and disabled combinations.
 - [Card variant registry](design/card-variants.json) — Penpot IDs for Card, Header, and Footer combinations.
 - [Link variant registry](design/link-variants.json) — Penpot IDs for appearance, underline, decoration, and disabled combinations.
+- [Code block variant registry](design/code-block-variants.json) — Penpot IDs for block, numbered, collapsed, and inline presentations.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Documentation](doc/docs/intro.md) — integration, layouts, components, and examples.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.

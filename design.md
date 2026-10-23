@@ -28,6 +28,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Button | 32/40/48 px high by size, 6 px radius; optional leading Lucide icon or icon-only square | `Button` owns padding, border, focus, disabled state, and hit area |
 | Card | 1 px border, 12 px outer radius; optional 64 px header, 144 px image header, and footer | `Card` owns frame, clipping, content padding, and section dividers; Header and Footer own their internal flow |
 | Link | Inline text with hover or persistent underline | `Link` owns appearance, decoration style, disabled presentation, and navigation behavior |
+| Code block | Proportional source text, optional line numbers, copy, collapsed preview, and inline mode | `CodeBlock` owns source formatting, scrolling, toolbar, and expansion |
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Checkbox | 16/20/24 px box; 44 × 44 px minimum hit area | `Checkbox` owns the native input, three-state transition, mark, focus, and disabled presentation |
 | Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
@@ -117,6 +118,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.card-header` | Title, optional subtitle and actions, default/secondary surface or image background |
 | `goodui.card-footer` | Footer row for text, Link, Buttons, or mixed content |
 | `goodui.link` | Navigable text with brand/mono appearance, underline behavior and style, and disabled presentation |
+| `goodui.code-block` | Selectable source with highlighted languages, optional line numbers, copy, preview, and inline display |
 | `goodui.switch` | Accessible on/off setting with three sizes, brand/mono appearance, and disabled/error presentation |
 | `goodui.checkbox` | Native three-state selection with brand/mono appearance, three sizes, and disabled presentation |
 | `goodui.radio-group` | Exclusive native choice group with brand/mono appearance, three sizes, and disabled presentation |
@@ -168,6 +170,12 @@ Penpot page `08 Cards and Links` publishes 20 `goodui.card` variants (`header=no
 ### Link
 
 `good-link` accepts either `route` for in-app navigation or `href` for a URL. `appearance=brand/mono` chooses the accent or theme text color. `underline=hover/always` controls when the line appears, and `decoration=solid/dashed/dotted` controls its style. Disabled links keep their text visible, have no destination, and leave the tab order. Penpot publishes 24 `goodui.link` variants on `08 Cards and Links` across these four axes and `status=default/disabled`; `design/link-variants.json` records their IDs. Penpot's hover variants depict the resting state, while Angular adds the underline on pointer hover. The line's style is an editable Penpot stroke; its color and the label fill bind to the same semantic Link color token. In CSS the native text decoration follows that token and respects theme changes.
+
+### Code block
+
+`good-code-block` accepts literal `code` and a `language`. Its built-in grammars cover Bash, CSS, Go, HTML, Java, JavaScript, JSON, Markdown, Python, Rust, SQL, TypeScript, and YAML; plaintext is the fallback. Grammars are loaded only when used. The block owns a toolbar with an optional `title` and `copyable` action, optional `lineNumbers`, horizontal scrolling, and an optional `collapsible` preview with `collapsedLines`. A longer preview starts collapsed, shows a bottom fade, and has a keyboard-operable Show more/Show less button. `[inline]=true` places a short snippet within running text without block controls. The proportional Inter/system UI font is intentional; spaces and line breaks remain preserved.
+
+Penpot page `09 Code` publishes five `goodui.code-block` variants across `display=block/inline`, `lineNumbers=off/on`, and `preview=full/collapsed` where those combinations apply. `design/code-block-variants.json` records every ID. Language and title are content, while copy and expansion behavior are Angular runtime states. The Penpot toolbar and expand controls contain linked GoodUI Button instances. Code surfaces, colors, dimensions, padding, and corners bind to semantic `code.*` tokens. Penpot uses a series of token-bound translucent fade strips because token binding of individual gradient stops is unavailable; Angular renders a smooth CSS gradient using the same background token.
 
 ### Switch
 
@@ -261,7 +269,7 @@ The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizi
 
 ## Penpot inventory
 
-File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, and `08 Cards and Links`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
+File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, and `09 Code`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
 
 `04 Logos` contains 14 reusable brand assets: light and dark wordmarks, standalone symbols, square symbols, glossy square symbols, and three badge styles in both appearances. The names use `goodui.logo.<form>.<appearance>`; the complete IDs are in [Design to Angular](doc/docs/contributing/design-to-code.md). These are product artwork assets, not UI component families, so they have no Angular selector. Both wordmarks and both standalone symbols have transparent, editable Penpot vector paths traced from the supplied PNGs. Their direct SVG exports are `doc/static/img/goodui-logo-light.svg`, `goodui-logo-dark.svg`, `goodui-mark.svg`, and `goodui-mark-dark.svg`. The Angular demo copies both symbol exports as favicons and selects one according to its active GoodUI theme. Square symbols, glossy square symbols, and badges still use image fills that preserve their original backgrounds and effects. A traced vector can differ slightly from its raster source; review each exported SVG against the artwork after any brand update.
 
