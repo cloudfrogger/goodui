@@ -30,6 +30,7 @@ import { GoodIconName } from './models';
         @case ('book') { <rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/> }
         @case ('contact') { <circle cx="12" cy="5" r="2"/><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="m10.5 6.6-4 8M13.5 6.6l4 8M7 17h10"/> }
         @case ('star') { <path d="m12 2 3.1 6.4 7 .9-5.1 5 .9 7-5.9-3.2-5.9 3.2.9-7-5.1-5 7-.9z"/> }
+        @case ('check') { <rect x="3" y="3" width="18" height="18" rx="4"/><path d="m7 12 3 3 7-7"/> }
         @case ('message') { <path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 1-2Z"/><path d="M10 9a2 2 0 0 1 4 1c0 1-2 1.5-2 2.5M12 15h.01"/> }
         @case ('globe') { <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4 6 4 9s-1 6-4 9M12 3c-3 3-4 6-4 9s1 6 4 9"/> }
       }

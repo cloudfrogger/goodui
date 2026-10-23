@@ -18,3 +18,31 @@
   --ifm-color-primary-lighter: #bfdbfe;
   --ifm-color-primary-lightest: #dbeafe;
 }
+
+.goodui-github-reference {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.6rem;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.goodui-github-reference:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.goodui-github-reference img {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+}
+
+[data-theme='dark'] .goodui-github-reference img {
+  filter: invert(1);
+}

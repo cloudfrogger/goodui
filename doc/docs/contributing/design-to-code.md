@@ -12,7 +12,7 @@ title: From Penpot to Angular
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`. The IDs below are Penpot library IDs; preserve the main shape while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -63,7 +63,8 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.subnav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
 | `goodui.subnav.with-actions` | `521fe58c-da62-80e2-8008-d41a1e574999` |
 | `goodui.button` variant group (`variant` × `size` × `content`) | Container `521fe58c-da62-80e2-8008-d4240d421919`; all 45 IDs in [button-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) |
-| `goodui.switch` variant group (`state` × `size` × `status`) | Container `521fe58c-da62-80e2-8008-d457ef0aef38`; all 18 IDs in [switch-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) |
+| `goodui.switch` variant group (`state` × `size` × `status` × `appearance`) | Container `521fe58c-da62-80e2-8008-d457ef0aef38`; all 36 IDs in [switch-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) |
+| `goodui.checkbox` variant group (`appearance` × `state` × `size` × `status`) | Container `79fa6408-a1e2-80d7-8008-d497977b07fc`; all 36 IDs in [checkbox-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/checkbox-variants.json) |
 | `goodui.input` variant group (`kind` × `size` × `status`) | Container `79fa6408-a1e2-80d7-8008-d47eb4e37dc7`; all 21 IDs in [input-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) |
 | `goodui.input-addon` variant group (`side` × `content` × `tone` × `size`) | Container `79fa6408-a1e2-80d7-8008-d47f49489ba6`; all 24 IDs in the same manifest |
 | `goodui.dropdown` variant group (`placement` × `chevron` × `state`) | Container `79fa6408-a1e2-80d7-8008-d4862be1ed43`; all 16 IDs in [dropdown-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/dropdown-variants.json) |
@@ -113,6 +114,10 @@ The Angular demo takes its wordmarks from those SVG exports. Run `npm run brand:
 | `goodui.switch`, `state=off/on` | `good-switch [checked]` / `[(checked)]`; native checkbox with switch semantics |
 | `goodui.switch`, `size=small/default/large` | `good-switch [size]`; default is `default` |
 | `goodui.switch`, `status=default/disabled/error` | `good-switch [disabled]` or `[error]`; disabled takes visual priority when both are true |
+| `goodui.switch`, `appearance=brand/mono` | `good-switch [appearance]`; brand is the default, mono follows theme text color |
+| `goodui.checkbox`, `appearance=brand/mono` | `good-checkbox [appearance]`; brand is the default |
+| `goodui.checkbox`, `state=unchecked/checked/indeterminate` | `checked` and `indeterminate` models, or Angular form values `false` / `true` / `null` |
+| `goodui.checkbox`, `size=small/default/large`, `status=default/disabled` | `good-checkbox [size]` and `[disabled]` or disabled FormControl |
 | `goodui.dropdown`, `placement=top-start/bottom-start/left-start/right-start` | `good-dropdown [placement]`; runtime viewport clamping may shift final coordinates |
 | `goodui.dropdown`, `chevron=shown/hidden`, `state=closed/open` | `good-dropdown [showChevron]` and `[(open)]`; click or hover is selected with `[trigger]` |
 | `goodui.dropdown-panel`, `sections=items-only/full`, `scroll=off/on` | Optional `goodDropdownHeader` and `goodDropdownFooter` projection; `[scrollItems]` and `[maxItemsHeight]` |
@@ -126,7 +131,9 @@ The Angular demo takes its wordmarks from those SVG exports. Run `npm run brand:
 
 The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8` (small text) and `521fe58c-da62-80e2-8008-d41a10456bbf` (small icon-only) remain in the variant group. Existing Subnav and ActionMenu compositions retain their Button instances. `design/button-variants.json` is the complete Penpot-library-ID-to-Angular-input registry; `npm run check:mapping` checks its matrix and uniqueness. The script cannot read live Penpot, so also compare the manifest with the MCP catalog after design changes.
 
-`design/switch-variants.json` is the matching Switch registry. The track and thumb are token-bound Penpot shapes inside each library variant. `npm run check:mapping` checks the 18 combinations and unique IDs; compare the file with the live Penpot variant group after edits. The visual error state uses `switch.error.border` and the runtime control adds `aria-invalid` and an optional `describedBy` relationship.
+`design/switch-variants.json` is the matching Switch registry. The track and thumb are token-bound Penpot shapes inside each library variant. `npm run check:mapping` checks all 36 combinations and unique IDs; the original 18 IDs remain under `appearance=brand`. The visual error state uses `switch.error.border` and the runtime control adds `aria-invalid` and an optional `describedBy` relationship.
+
+`goodui.checkbox` publishes 36 variants on `06 Checkboxes`. Its `appearance`, `state`, `size`, and `status` axes map to `good-checkbox` inputs and native form behavior. The mark is a vector in a flex-centered, token-sized board; Penpot cannot size-bind the imported SVG group itself, so its path coordinates are authored per size. [checkbox-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/checkbox-variants.json) records all IDs. The browser supplies native focus and the required indeterminate-to-unchecked transition.
 
 `goodui.input` is a published 21-variant Penpot family. `kind=text/file` maps to `good-input type`, `size=small/default/large` maps to `size`, and `status=disabled/readonly/error` maps to the corresponding inputs; default has no status flag. The 24 `goodui.input-addon` variants map `side=start/end`, `content=icon/text`, and `tone=inline/contrast` to the matching `start*` and `end*` inputs of the same Angular component. The addon has no separate selector. Two Penpot compositions show text and file controls with linked addon instances. [input-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) records all component IDs. `npm run check:mapping` validates the complete matrix and uniqueness; compare IDs and bindings against live Penpot after design edits.
 

@@ -8,7 +8,10 @@ GoodUI is a complete Angular UI toolkit for SaaS applications. It comes with a r
 
 Layout flexibility is intentionally limited. GoodUI components own their spacing, structure, and composition rules so different combinations produce a consistent interface with little custom layout work. The toolkit includes an application shell, navigation, menus, controls, and page content components. The Angular package uses Tailwind CSS 4; `demo1/` shows it in use.
 
-**GitHub:** [cloudfrogger/goodui](https://github.com/cloudfrogger/goodui)
+<a className="goodui-github-reference" href="https://github.com/cloudfrogger/goodui">
+  <img src="/img/github.svg" alt="" aria-hidden="true" />
+  <span><strong>GitHub</strong> · cloudfrogger/goodui</span>
+</a>
 
 **License:** [MIT](https://github.com/cloudfrogger/goodui/blob/master/LICENSE) · Copyright © 2026 Cloudfrogger, Inc.
 

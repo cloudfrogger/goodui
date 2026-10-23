@@ -89,7 +89,7 @@ export type GoodIconName =
   | 'dashboard' | 'account' | 'network' | 'home' | 'settings'
   | 'search' | 'bell' | 'menu' | 'close' | 'chevron-down'
   | 'chevron-right' | 'sun' | 'moon' | 'grid' | 'logout'
-  | 'calendar' | 'question' | 'card' | 'book' | 'contact' | 'star' | 'message' | 'globe';
+  | 'calendar' | 'question' | 'card' | 'book' | 'contact' | 'star' | 'message' | 'globe' | 'check';
 
 export function goodRouteActive(route: string | undefined, current: string): boolean {
   if (!route) return false;

@@ -9,6 +9,7 @@ title: Switch
 | `label` | Required accessible name; set `showLabel` to display it beside the track |
 | `checked` | Current on/off value; supports `[(checked)]` |
 | `size` | `small`, `default`, or `large` |
+| `appearance` | `brand` (default) or `mono`; mono uses theme text colors instead of the brand color |
 | `disabled` | Prevents changes and dims the control |
 | `error` | Adds a theme-aware error outline and `aria-invalid`; the value remains on or off |
 | `describedBy` | ID of a hint or error message for assistive technology |
@@ -30,6 +31,8 @@ readonly emailEnabled = signal(false);
 
 <good-switch label="Publishing" [error]="true" describedBy="publish-error" />
 <p id="publish-error">Choose a publishing option before continuing.</p>
+
+<good-switch label="Compact setting" appearance="mono" [checked]="true" />
 ```
 
 The component is also an Angular `ControlValueAccessor` for reactive and template-driven forms. Use either a form binding or `[(checked)]` as the source of truth for a given instance. In reactive forms, `disabled` also follows the form control's disabled state.
@@ -44,4 +47,4 @@ readonly notifications = new FormControl(false, { nonNullable: true });
 <good-switch label="Email notifications" [showLabel]="true" [formControl]="notifications" />
 ```
 
-Penpot `03 Controls` contains a `goodui.switch` variant group with `state=off/on`, `size=small/default/large`, and `status=default/disabled/error`. All 18 variants map to the same `good-switch` selector: `state` maps to `checked`, `size` to `size`, and `status` to `disabled` or `error`. The [Switch variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) records the published Penpot IDs. Penpot binds the track, thumb, dimensions, error outline, and pill radius to the same semantic tokens used by Angular. The error color is `#DC2626` in light mode and `#F87171` in dark mode.
+Penpot `03 Controls` contains a `goodui.switch` variant group with `state=off/on`, `size=small/default/large`, `status=default/disabled/error`, and `appearance=brand/mono`. All 36 variants map to `good-switch`; the first 18 brand variants retain their published IDs. The [Switch variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) records every ID. Penpot binds the track, thumb, dimensions, error outline, and pill radius to the same semantic tokens used by Angular. Mono uses the active theme text color for its on track and the inverse surface for its thumb; its off thumb follows the text color. Error remains a separate validation color: `#DC2626` in light mode and `#F87171` in dark mode.

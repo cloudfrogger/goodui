@@ -25,7 +25,12 @@ body { margin: 0; }
 .demo-switch-table th, .demo-switch-table td { padding: 10px 14px; border-bottom: 1px solid var(--good-border); vertical-align: middle; }
 .demo-switch-table thead th { color: var(--good-muted); font-size: 12px; font-weight: 600; text-transform: capitalize; }
 .demo-switch-table tbody th { font-weight: 500; }
+.demo-checkbox-table { min-width: 480px; table-layout: fixed; }
+.demo-checkbox-table tbody th, .demo-checkbox-table thead th:first-child { width: 165px; }
 .demo-switch-scroll-hint { display: none; margin: 10px 0 0; color: var(--good-muted); font-size: 12px; }
+.demo-switch-mono-grid { display: grid; gap: 8px; max-width: 460px; }
+.demo-switch-mono-row { display: grid; grid-template-columns: 100px repeat(3, 1fr); align-items: center; gap: 12px; }
+.demo-switch-mono-row strong { color: var(--good-muted); font-size: 12px; text-transform: capitalize; }
 .demo-input-table { width: 100%; min-width: 880px; border-collapse: collapse; text-align: left; }
 .demo-input-table th, .demo-input-table td { padding: 12px 14px; border-bottom: 1px solid var(--good-border); vertical-align: middle; }
 .demo-input-table thead th { color: var(--good-muted); font-size: 12px; font-weight: 600; text-transform: capitalize; }

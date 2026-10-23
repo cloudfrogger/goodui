@@ -18,6 +18,10 @@
       "default",
       "disabled",
       "error"
+    ],
+    "appearance": [
+      "brand",
+      "mono"
     ]
   },
   "variants": [
@@ -25,109 +29,253 @@
       "id": "521fe58c-da62-80e2-8008-d457d40432c7",
       "state": "off",
       "size": "small",
-      "status": "default"
+      "status": "default",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d48d35ee",
       "state": "off",
       "size": "small",
-      "status": "disabled"
+      "status": "disabled",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d54e737d",
       "state": "off",
       "size": "small",
-      "status": "error"
+      "status": "error",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d45780b73d98",
       "state": "off",
       "size": "default",
-      "status": "default"
+      "status": "default",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d77754a6",
       "state": "off",
       "size": "default",
-      "status": "disabled"
+      "status": "disabled",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d81dca53",
       "state": "off",
       "size": "default",
-      "status": "error"
+      "status": "error",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457da557a85",
       "state": "off",
       "size": "large",
-      "status": "default"
+      "status": "default",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457dad10b7f",
       "state": "off",
       "size": "large",
-      "status": "disabled"
+      "status": "disabled",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457db6eceb5",
       "state": "off",
       "size": "large",
-      "status": "error"
+      "status": "error",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d5ce2ce2",
       "state": "on",
       "size": "small",
-      "status": "default"
+      "status": "default",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d64bd3d7",
       "state": "on",
       "size": "small",
-      "status": "disabled"
+      "status": "disabled",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d6f06d67",
       "state": "on",
       "size": "small",
-      "status": "error"
+      "status": "error",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d8b7ba6e",
       "state": "on",
       "size": "default",
-      "status": "default"
+      "status": "default",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d93a8ed5",
       "state": "on",
       "size": "default",
-      "status": "disabled"
+      "status": "disabled",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457d9d8d316",
       "state": "on",
       "size": "default",
-      "status": "error"
+      "status": "error",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457dc0f32d9",
       "state": "on",
       "size": "large",
-      "status": "default"
+      "status": "default",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457dc94645c",
       "state": "on",
       "size": "large",
-      "status": "disabled"
+      "status": "disabled",
+      "appearance": "brand"
     },
     {
       "id": "521fe58c-da62-80e2-8008-d457dd2ec281",
       "state": "on",
       "size": "large",
-      "status": "error"
+      "status": "error",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d2a36f62",
+      "state": "off",
+      "size": "small",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d27c0f9d",
+      "state": "off",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d2efe252",
+      "state": "off",
+      "size": "small",
+      "status": "error",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d2915ca6",
+      "state": "off",
+      "size": "default",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d332057d",
+      "state": "off",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d320f476",
+      "state": "off",
+      "size": "default",
+      "status": "error",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d31229a0",
+      "state": "off",
+      "size": "large",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d262e8b0",
+      "state": "off",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d2b56b2a",
+      "state": "off",
+      "size": "large",
+      "status": "error",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d2c8284a",
+      "state": "on",
+      "size": "small",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d2de09f4",
+      "state": "on",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d351c7cf",
+      "state": "on",
+      "size": "small",
+      "status": "error",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496c98c83d3",
+      "state": "on",
+      "size": "default",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d3016a4d",
+      "state": "on",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d38033d7",
+      "state": "on",
+      "size": "default",
+      "status": "error",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d361275f",
+      "state": "on",
+      "size": "large",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d370bad8",
+      "state": "on",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d496d3423bc3",
+      "state": "on",
+      "size": "large",
+      "status": "error",
+      "appearance": "mono"
     }
   ]
 }

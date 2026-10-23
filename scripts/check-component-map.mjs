@@ -9,6 +9,7 @@ const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-varian
 const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
 const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadcrumbs-variants.json'), 'utf8'));
 const badgeVariants = JSON.parse(readFileSync(resolve(root, 'design/badge-variants.json'), 'utf8'));
+const checkboxVariants = JSON.parse(readFileSync(resolve(root, 'design/checkbox-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -48,15 +49,15 @@ const switchIds = new Set();
 for (const entry of switchVariants.variants) {
   if (!entry.id || switchIds.has(entry.id)) throw new Error(`Duplicate or missing Switch Penpot ID: ${entry.id}`);
   switchIds.add(entry.id);
-  const key = ['state', 'size', 'status'].map(axis => {
+  const key = ['state', 'size', 'status', 'appearance'].map(axis => {
     if (!switchVariants.axes[axis]?.includes(entry[axis])) throw new Error(`Unknown Switch ${axis}: ${entry[axis]}`);
     return entry[axis];
   }).join('/');
   if (switchCombinations.has(key)) throw new Error(`Duplicate Switch variant: ${key}`);
   switchCombinations.add(key);
 }
-for (const state of switchVariants.axes.state) for (const size of switchVariants.axes.size) for (const status of switchVariants.axes.status) {
-  const key = `${state}/${size}/${status}`;
+for (const state of switchVariants.axes.state) for (const size of switchVariants.axes.size) for (const status of switchVariants.axes.status) for (const appearance of switchVariants.axes.appearance) {
+  const key = `${state}/${size}/${status}/${appearance}`;
   if (!switchCombinations.has(key)) throw new Error(`Missing Switch variant: ${key}`);
 }
 if (!selectors.has('switch')) throw new Error('Missing good-switch selector.');
@@ -78,6 +79,13 @@ const checkMatrix = (entries, axes, expected, label, ids = inputIds) => {
   for (const key of expected) if (!seen.has(key)) throw new Error(`Missing ${label} variant: ${key}`);
   if (seen.size !== expected.length) throw new Error(`Unexpected ${label} variant count: ${seen.size}`);
 };
+if (checkboxVariants.family !== 'goodui.checkbox' || checkboxVariants.selector !== 'good-checkbox' || !checkboxVariants.containerId || checkboxVariants.page !== '06 Checkboxes') throw new Error('Checkbox variants must map to good-checkbox on 06 Checkboxes.');
+const checkboxExpected = [];
+for (const appearance of ['brand', 'mono']) for (const state of ['unchecked', 'checked', 'indeterminate']) for (const size of ['small', 'default', 'large']) for (const status of ['default', 'disabled']) checkboxExpected.push(`${appearance}/${state}/${size}/${status}`);
+checkMatrix(checkboxVariants.variants, [
+  ['appearance', ['brand', 'mono']], ['state', ['unchecked', 'checked', 'indeterminate']],
+  ['size', ['small', 'default', 'large']], ['status', ['default', 'disabled']],
+], checkboxExpected, 'Checkbox', new Set());
 const inputExpected = [];
 for (const kind of ['text', 'file']) for (const size of ['small', 'default', 'large']) for (const status of (kind === 'text' ? ['default', 'readonly', 'disabled', 'error'] : ['default', 'disabled', 'error'])) inputExpected.push(`${kind}/${size}/${status}`);
 checkMatrix(inputVariants.variants, [['kind', ['text', 'file']], ['size', ['small', 'default', 'large']], ['status', ['default', 'readonly', 'disabled', 'error']]], inputExpected, 'Input');
@@ -123,4 +131,4 @@ checkMatrix(badgeVariants.variants, [
   ['size', ['small', 'default', 'large']],
 ], badgeExpected, 'Badge', new Set());
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
-console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${badgeVariants.variants.length} Badge variants.`);
+console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch and ${checkboxVariants.variants.length} Checkbox variants.`);

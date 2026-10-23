@@ -1,0 +1,281 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "06 Checkboxes",
+  "family": "goodui.checkbox",
+  "selector": "good-checkbox",
+  "containerId": "79fa6408-a1e2-80d7-8008-d497977b07fc",
+  "axes": {
+    "state": [
+      "unchecked",
+      "checked",
+      "indeterminate"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "status": [
+      "default",
+      "disabled"
+    ],
+    "appearance": [
+      "brand",
+      "mono"
+    ]
+  },
+  "variants": [
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497970f1cc5",
+      "state": "unchecked",
+      "size": "small",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497971ab77f",
+      "state": "unchecked",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4979723485d",
+      "state": "unchecked",
+      "size": "default",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497972af0ab",
+      "state": "unchecked",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497972f6a74",
+      "state": "unchecked",
+      "size": "large",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4979735a77a",
+      "state": "unchecked",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497973b811a",
+      "state": "checked",
+      "size": "small",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4979741537c",
+      "state": "checked",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797473a30",
+      "state": "checked",
+      "size": "default",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497974c9cd1",
+      "state": "checked",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797528a3d",
+      "state": "checked",
+      "size": "large",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797583527",
+      "state": "checked",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497975e0634",
+      "state": "indeterminate",
+      "size": "small",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497976415a5",
+      "state": "indeterminate",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797686577",
+      "state": "indeterminate",
+      "size": "default",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497976cf674",
+      "state": "indeterminate",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4979770c38b",
+      "state": "indeterminate",
+      "size": "large",
+      "status": "default",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4979775a4ab",
+      "state": "indeterminate",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "brand"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797159c35",
+      "state": "unchecked",
+      "size": "small",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497971f5ae2",
+      "state": "unchecked",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797274d72",
+      "state": "unchecked",
+      "size": "default",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497972d2845",
+      "state": "unchecked",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797325fac",
+      "state": "unchecked",
+      "size": "large",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4979738ccb2",
+      "state": "unchecked",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497973efc83",
+      "state": "checked",
+      "size": "small",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797439f1c",
+      "state": "checked",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d4979749e889",
+      "state": "checked",
+      "size": "default",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497974fa971",
+      "state": "checked",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797557310",
+      "state": "checked",
+      "size": "large",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497975a822b",
+      "state": "checked",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797614882",
+      "state": "indeterminate",
+      "size": "small",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797669fab",
+      "state": "indeterminate",
+      "size": "small",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497976a8358",
+      "state": "indeterminate",
+      "size": "default",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d497976f2a0c",
+      "state": "indeterminate",
+      "size": "default",
+      "status": "disabled",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797738ef1",
+      "state": "indeterminate",
+      "size": "large",
+      "status": "default",
+      "appearance": "mono"
+    },
+    {
+      "id": "79fa6408-a1e2-80d7-8008-d49797788d05",
+      "state": "indeterminate",
+      "size": "large",
+      "status": "disabled",
+      "appearance": "mono"
+    }
+  ]
+}

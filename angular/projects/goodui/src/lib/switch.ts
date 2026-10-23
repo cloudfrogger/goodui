@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, forwardRef, input, model,
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export type GoodSwitchSize = 'small' | 'default' | 'large';
+export type GoodSwitchAppearance = 'brand' | 'mono';
 
 @Component({
   selector: 'good-switch',
@@ -9,7 +10,7 @@ export type GoodSwitchSize = 'small' | 'default' | 'large';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodSwitchComponent), multi: true }],
   template: `
-    <label class="good-switch-control" [attr.data-size]="size()" [attr.data-state]="checked() ? 'on' : 'off'"
+    <label class="good-switch-control" [attr.data-size]="size()" [attr.data-appearance]="appearance()" [attr.data-state]="checked() ? 'on' : 'off'"
       [attr.data-status]="status()">
       <input class="good-switch-input" type="checkbox" role="switch" [checked]="checked()"
         [disabled]="isDisabled()" [required]="required()" [name]="name()" [id]="inputId() || null"
@@ -26,6 +27,7 @@ export class GoodSwitchComponent implements ControlValueAccessor {
   readonly showLabel = input(false);
   readonly checked = model(false);
   readonly size = input<GoodSwitchSize>('default');
+  readonly appearance = input<GoodSwitchAppearance>('brand');
   readonly disabled = input(false);
   readonly error = input(false);
   readonly required = input(false);

@@ -35,6 +35,19 @@ type SwitchRow = { label: string; status: 'default' | 'disabled' | 'error'; init
         <p class="demo-switch-scroll-hint">Scroll horizontally to compare all three sizes.</p>
         <p id="switch-error-help" class="demo-button-feedback">The red outline marks invalid input. Fixing the related field clears the error state.</p>
       </section>
+      <section class="demo-showcase" aria-labelledby="switch-mono-title">
+        <div class="demo-showcase-heading"><h2 id="switch-mono-title">Mono style</h2><p>The on track follows the theme text color instead of the brand color.</p></div>
+        <div class="demo-switch-mono-grid">
+          @for (size of sizes; track size) {
+            <div class="demo-switch-mono-row">
+              <strong>{{ size }}</strong>
+              <good-switch [label]="size + ' mono off'" [size]="size" appearance="mono" />
+              <good-switch [label]="size + ' mono on'" [size]="size" appearance="mono" [checked]="true" />
+              <good-switch [label]="size + ' mono disabled'" [size]="size" appearance="mono" [checked]="true" [disabled]="true" />
+            </div>
+          }
+        </div>
+      </section>
       <section class="demo-showcase" aria-labelledby="switch-form-title">
         <div class="demo-showcase-heading"><h2 id="switch-form-title">Form control</h2><p>The same component works with Angular reactive forms.</p></div>
         <good-switch label="Email notifications" [showLabel]="true" [formControl]="notifications" />

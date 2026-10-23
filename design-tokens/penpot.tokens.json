@@ -398,6 +398,28 @@
       "thumb-inset": {
         "$value": "2",
         "$type": "spacing"
+      },
+      "mono": {
+        "on": {
+          "background": {
+            "$value": "{color.text}",
+            "$type": "color"
+          },
+          "thumb": {
+            "background": {
+              "$value": "{color.surface}",
+              "$type": "color"
+            }
+          }
+        },
+        "off": {
+          "thumb": {
+            "background": {
+              "$value": "{color.text}",
+              "$type": "color"
+            }
+          }
+        }
       }
     },
     "dropdown": {
@@ -924,6 +946,86 @@
           "radius": {
             "$value": "{radius.compact}",
             "$type": "borderRadius"
+          }
+        }
+      }
+    },
+    "checkbox": {
+      "unchecked": {
+        "background": {
+          "$value": "{color.surface}",
+          "$type": "color"
+        }
+      },
+      "brand": {
+        "unchecked": {
+          "border": {
+            "$value": "{color.muted}",
+            "$type": "color"
+          }
+        },
+        "selected": {
+          "background": {
+            "$value": "{switch.on.background}",
+            "$type": "color"
+          },
+          "mark": {
+            "$value": "{switch.thumb.background}",
+            "$type": "color"
+          }
+        }
+      },
+      "mono": {
+        "unchecked": {
+          "border": {
+            "$value": "{color.text}",
+            "$type": "color"
+          }
+        },
+        "selected": {
+          "background": {
+            "$value": "{color.text}",
+            "$type": "color"
+          },
+          "mark": {
+            "$value": "{color.surface}",
+            "$type": "color"
+          }
+        }
+      },
+      "radius": {
+        "$value": "{radius.compact}",
+        "$type": "borderRadius"
+      },
+      "size": {
+        "small": {
+          "box": {
+            "$value": "16",
+            "$type": "sizing"
+          },
+          "mark": {
+            "$value": "10",
+            "$type": "sizing"
+          }
+        },
+        "default": {
+          "box": {
+            "$value": "20",
+            "$type": "sizing"
+          },
+          "mark": {
+            "$value": "12",
+            "$type": "sizing"
+          }
+        },
+        "large": {
+          "box": {
+            "$value": "24",
+            "$type": "sizing"
+          },
+          "mark": {
+            "$value": "16",
+            "$type": "sizing"
           }
         }
       }

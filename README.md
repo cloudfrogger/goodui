@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, inputs, dropdowns, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, inputs, dropdowns, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -62,6 +62,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    For on/off settings, use `<good-switch label="Email notifications" [showLabel]="true" [(checked)]="emailEnabled" />`. It also works with Angular forms. See the [Switch guide](doc/docs/components/switch.md) and the demo's `/components/switches` page.
 
+   For selection, use `<good-checkbox label="Include archived projects" [showLabel]="true" [formControl]="includeArchived" />`. It supports checked, unchecked, and indeterminate values plus a monochrome appearance. See the [Checkbox guide](doc/docs/components/checkbox.md) and `/components/checkboxes` in the demo.
+
    For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](doc/docs/components/input.md) and the demo's `/components/inputs` page.
 
    For structured actions, use `<good-dropdown [items]="actions"><span goodDropdownTrigger>Actions</span></good-dropdown>`. It uses GoodUI Button styling and owns the popup layout, placement, and keyboard behavior. See the [Dropdown guide](doc/docs/components/dropdown.md) and `/components/dropdowns` in the demo.
@@ -88,7 +90,8 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | `good-subnav` | Single-row page navigation with mobile horizontal scroll and child menus |
 | `good-button` | Five visual variants, three sizes, optional Lucide icon, and accessible icon-only actions |
 | `good-badge` | Seven semantic colors, three treatments, two shapes, three sizes, optional icon, and removable action |
-| `good-switch` | Accessible on/off control with three sizes, forms support, and theme-aware error styling |
+| `good-switch` | Accessible on/off control with three sizes, forms support, brand or mono appearance, and theme-aware error styling |
+| `good-checkbox` | Native three-state checkbox with three sizes, forms support, and brand or mono appearance |
 | `good-input` | Text and native file controls with optional icons or fixed group text |
 | `good-dropdown` | Button-based popup with optional sections, scrolling, placement, and submenus |
 | `good-breadcrumbs` | Hierarchical path with optional home icon, custom separator, overflow menu, and card frame |
@@ -116,6 +119,7 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 - [Dropdown variant registry](design/dropdown-variants.json) — Penpot IDs for 16 dropdown states, four panels, twelve items, and the submenu composition.
 - [Breadcrumb variant registry](design/breadcrumbs-variants.json) — Penpot IDs for all 16 path, icon, separator, and card combinations.
 - [Badge variant registry](design/badge-variants.json) — Penpot IDs for all 126 color, treatment, shape, and size combinations.
+- [Checkbox variant registry](design/checkbox-variants.json) — Penpot IDs for all 36 appearance, state, size, and disabled combinations.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Documentation](doc/docs/intro.md) — integration, layouts, components, and examples.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.
