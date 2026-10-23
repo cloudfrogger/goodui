@@ -1,0 +1,50 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "11 Action Groups",
+  "family": "goodui.action-group",
+  "selector": "good-action-group",
+  "containerId": "c0c3286f-e4bf-804c-8008-d5619557bd60",
+  "axes": {
+    "orientation": [
+      "horizontal",
+      "vertical"
+    ],
+    "spacing": [
+      "small",
+      "default",
+      "large"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d561933711ad",
+      "orientation": "horizontal",
+      "spacing": "small"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d56193a0201d",
+      "orientation": "horizontal",
+      "spacing": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d561940b1d10",
+      "orientation": "horizontal",
+      "spacing": "large"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d561946f6749",
+      "orientation": "vertical",
+      "spacing": "small"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d56194dbe12c",
+      "orientation": "vertical",
+      "spacing": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d56195568dac",
+      "orientation": "vertical",
+      "spacing": "large"
+    }
+  ]
+}

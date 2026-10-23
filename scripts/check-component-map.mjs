@@ -14,6 +14,8 @@ const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-g
 const linkVariants = JSON.parse(readFileSync(resolve(root, 'design/link-variants.json'), 'utf8'));
 const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants.json'), 'utf8'));
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
+const modalVariants = JSON.parse(readFileSync(resolve(root, 'design/modal-variants.json'), 'utf8'));
+const actionGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/action-group-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -122,6 +124,19 @@ const codeExpected = ['block/off/full', 'block/on/full', 'block/off/collapsed', 
 checkMatrix(codeBlockVariants.variants, [
   ['display', ['block', 'inline']], ['lineNumbers', ['off', 'on']], ['preview', ['full', 'collapsed']],
 ], codeExpected, 'Code block', new Set());
+if (modalVariants.family !== 'goodui.modal' || modalVariants.selector !== 'good-modal' || modalVariants.page !== '10 Modals' || !modalVariants.containerId) throw new Error('Modal variants must map to good-modal on 10 Modals.');
+const modalExpected = [];
+for (const presentation of ['dialog', 'fullwidth', 'overlay']) for (const size of ['small', 'default', 'large']) for (const footer of ['off', 'on']) modalExpected.push(`${presentation}/${size}/${footer}`);
+const modalIds = new Set();
+checkMatrix(modalVariants.variants, [['presentation', ['dialog', 'fullwidth', 'overlay']], ['size', ['small', 'default', 'large']], ['footer', ['off', 'on']]], modalExpected, 'Modal', modalIds);
+if (modalVariants.header.family !== 'goodui.modal-header' || modalVariants.header.selector !== 'good-modal-header' || !modalVariants.header.containerId) throw new Error('Modal header variants must map to good-modal-header.');
+checkMatrix(modalVariants.header.variants, [['description', ['off', 'on']]], ['off', 'on'], 'Modal header', modalIds);
+if (modalVariants.footerPart.family !== 'goodui.modal-footer' || modalVariants.footerPart.selector !== 'good-modal-footer' || !modalVariants.footerPart.containerId) throw new Error('Modal footer variants must map to good-modal-footer.');
+checkMatrix(modalVariants.footerPart.variants, [['actions', ['one', 'two']]], ['one', 'two'], 'Modal footer', modalIds);
+if (actionGroupVariants.family !== 'goodui.action-group' || actionGroupVariants.selector !== 'good-action-group' || actionGroupVariants.page !== '11 Action Groups' || !actionGroupVariants.containerId) throw new Error('Action group variants must map to good-action-group on 11 Action Groups.');
+const actionGroupExpected = [];
+for (const orientation of ['horizontal', 'vertical']) for (const spacing of ['small', 'default', 'large']) actionGroupExpected.push(`${orientation}/${spacing}`);
+checkMatrix(actionGroupVariants.variants, [['orientation', ['horizontal', 'vertical']], ['spacing', ['small', 'default', 'large']]], actionGroupExpected, 'Action group', new Set());
 const inputExpected = [];
 for (const kind of ['text', 'file']) for (const size of ['small', 'default', 'large']) for (const status of (kind === 'text' ? ['default', 'readonly', 'disabled', 'error'] : ['default', 'disabled', 'error'])) inputExpected.push(`${kind}/${size}/${status}`);
 checkMatrix(inputVariants.variants, [['kind', ['text', 'file']], ['size', ['small', 'default', 'large']], ['status', ['default', 'readonly', 'disabled', 'error']]], inputExpected, 'Input');

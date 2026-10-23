@@ -8,7 +8,57 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-main-view, good-subnav, good-button, good-switch, good-checkbox, good-radio-group, good-link, good-card, good-card-header, good-card-footer, good-code-block, good-input, good-dropdown, good-breadcrumbs, good-badge { box-sizing: border-box; }
+good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-link, good-card, good-card-header, good-card-footer, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-dropdown, good-breadcrumbs, good-badge { box-sizing: border-box; }
+
+.good-action-group { display: flex; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap; gap: var(--good-action-group-gap-default); min-width: 0; }
+.good-action-group[data-spacing="small"] { gap: var(--good-action-group-gap-small); }
+.good-action-group[data-spacing="large"] { gap: var(--good-action-group-gap-large); }
+.good-action-group[data-orientation="vertical"] { flex-direction: column; flex-wrap: nowrap; }
+.good-action-group[data-wrap="false"] { flex-wrap: nowrap; }
+.good-action-group[data-justify="center"] { justify-content: center; }
+.good-action-group[data-justify="end"] { justify-content: flex-end; }
+.good-action-group[data-justify="between"] { justify-content: space-between; }
+.good-action-group[data-align="center"] { align-items: center; }
+.good-action-group[data-align="end"] { align-items: flex-end; }
+.good-action-group[data-align="stretch"] { align-items: stretch; }
+.good-action-group[data-align="stretch"] > good-button .good-button-control { width: 100%; }
+@media (max-width: 680px) {
+  .good-action-group[data-orientation="responsive"] { flex-direction: column; align-items: stretch; flex-wrap: nowrap; }
+  .good-action-group[data-orientation="responsive"] > good-button .good-button-control { width: 100%; }
+}
+
+.good-modal { display: contents; }
+.good-modal-dialog { box-sizing: border-box; width: var(--good-modal-width-default); max-width: calc(100vw - 2 * var(--good-modal-viewport-margin)); max-height: calc(100dvh - 2 * var(--good-modal-viewport-margin)); margin: auto; padding: 0; overflow-y: auto; border: 1px solid var(--good-modal-border); border-radius: var(--good-modal-radius); background: var(--good-modal-background); color: var(--good-modal-foreground); font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 14px; box-shadow: 0 24px 64px rgb(0 0 0 / .22); }
+.good-modal-dialog::backdrop { background: var(--good-modal-backdrop-color); opacity: var(--good-modal-backdrop-opacity); backdrop-filter: blur(var(--good-modal-backdrop-blur)); }
+.good-modal-dialog[data-blur="false"]::backdrop { backdrop-filter: none; }
+.good-modal-dialog[data-size="small"] { width: var(--good-modal-width-small); }
+.good-modal-dialog[data-size="large"] { width: var(--good-modal-width-large); }
+.good-modal-dialog[data-presentation="fullwidth"][data-size="small"] { width: var(--good-modal-fullwidth-width-small); }
+.good-modal-dialog[data-presentation="fullwidth"][data-size="default"] { width: var(--good-modal-fullwidth-width-default); }
+.good-modal-dialog[data-presentation="fullwidth"][data-size="large"] { width: var(--good-modal-fullwidth-width-large); }
+.good-modal-dialog[data-presentation="overlay"] { width: calc(100vw - 2 * var(--good-modal-overlay-margin)); max-width: none; height: calc(100dvh - 2 * var(--good-modal-overlay-margin)); max-height: none; overflow: hidden; }
+.good-modal-panel { display: flex; flex-direction: column; min-width: 0; }
+.good-modal-dialog[data-presentation="overlay"] .good-modal-panel { height: 100%; }
+.good-modal-header, .good-modal-footer { display: block; flex: none; }
+.good-modal-header-content { box-sizing: border-box; display: flex; align-items: center; gap: var(--good-modal-header-gap); min-height: var(--good-modal-header-min-height); padding: var(--good-modal-header-padding-block) var(--good-modal-padding-inline); border-bottom: 1px solid var(--good-modal-border); background: var(--good-modal-header-background); }
+.good-modal-header-copy { flex: 1 1 auto; min-width: 0; }
+.good-modal-title { margin: 0; color: var(--good-modal-foreground); font-size: 18px; font-weight: 600; line-height: 1.35; }
+.good-modal-description { margin: 4px 0 0; color: var(--good-modal-muted); font-size: 13px; line-height: 1.4; }
+.good-modal-body { box-sizing: border-box; flex: 1 1 auto; min-width: 0; min-height: 0; padding: var(--good-modal-body-padding-block) var(--good-modal-padding-inline); }
+.good-modal-body > :first-child { margin-top: 0; }
+.good-modal-body > :last-child { margin-bottom: 0; }
+.good-modal-footer-content { box-sizing: border-box; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: var(--good-modal-footer-gap); min-height: var(--good-modal-footer-min-height); padding: var(--good-modal-footer-padding-block) var(--good-modal-padding-inline); border-top: 1px solid var(--good-modal-border); background: var(--good-modal-footer-background); }
+.good-modal-footer-content[data-align="start"] { justify-content: flex-start; }
+.good-modal-footer-content[data-align="between"] { justify-content: space-between; }
+.good-modal-dialog[data-scroll="body"] { overflow: hidden; }
+.good-modal-dialog[data-scroll="body"] .good-modal-panel { max-height: calc(100dvh - 2 * var(--good-modal-viewport-margin) - 2px); }
+.good-modal-dialog[data-scroll="body"] .good-modal-body, .good-modal-dialog[data-presentation="overlay"] .good-modal-body { overflow-y: auto; scrollbar-color: var(--good-modal-scrollbar-thumb) transparent; }
+.good-modal-dialog[data-presentation="overlay"] .good-modal-panel { max-height: none; }
+@media (max-width: 900px) {
+  .good-modal-dialog:is([data-size], [data-presentation]) { width: calc(100vw - 2 * var(--good-modal-mobile-margin)); max-width: none; height: calc(100dvh - 2 * var(--good-modal-mobile-margin)); max-height: none; overflow: hidden; }
+  .good-modal-dialog .good-modal-panel, .good-modal-dialog[data-scroll="body"] .good-modal-panel { height: 100%; max-height: none; }
+  .good-modal-body { overflow-y: auto; }
+}
 
 .good-code-block { display: block; min-width: 0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
 .good-code-block.good-code-display-inline { display: inline; }

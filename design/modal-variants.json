@@ -1,0 +1,175 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "10 Modals",
+  "family": "goodui.modal",
+  "selector": "good-modal",
+  "containerId": "c0c3286f-e4bf-804c-8008-d5597a4374dc",
+  "axes": {
+    "presentation": [
+      "dialog",
+      "fullwidth",
+      "overlay"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "footer": [
+      "off",
+      "on"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d55954ee2241",
+      "presentation": "dialog",
+      "size": "small",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5595716f1b7",
+      "presentation": "dialog",
+      "size": "small",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d559596ef2df",
+      "presentation": "dialog",
+      "size": "default",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5595bf021d8",
+      "presentation": "dialog",
+      "size": "default",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5595e574b24",
+      "presentation": "dialog",
+      "size": "large",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d55960a4e0f0",
+      "presentation": "dialog",
+      "size": "large",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d55962e7e4da",
+      "presentation": "fullwidth",
+      "size": "small",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5596524516d",
+      "presentation": "fullwidth",
+      "size": "small",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d559676369a0",
+      "presentation": "fullwidth",
+      "size": "default",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d55969a92b05",
+      "presentation": "fullwidth",
+      "size": "default",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5596be364a9",
+      "presentation": "fullwidth",
+      "size": "large",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5596e79fefc",
+      "presentation": "fullwidth",
+      "size": "large",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5597062a6ac",
+      "presentation": "overlay",
+      "size": "small",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d55972839d22",
+      "presentation": "overlay",
+      "size": "small",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d559745a77e7",
+      "presentation": "overlay",
+      "size": "default",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5597673ddb0",
+      "presentation": "overlay",
+      "size": "default",
+      "footer": "on"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d55978542918",
+      "presentation": "overlay",
+      "size": "large",
+      "footer": "off"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5597a42fd0e",
+      "presentation": "overlay",
+      "size": "large",
+      "footer": "on"
+    }
+  ],
+  "header": {
+    "family": "goodui.modal-header",
+    "selector": "good-modal-header",
+    "containerId": "c0c3286f-e4bf-804c-8008-d55933e7c8e3",
+    "variants": [
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d55931609220",
+        "description": "off"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d55933e724f5",
+        "description": "on"
+      }
+    ],
+    "axes": {
+      "description": [
+        "off",
+        "on"
+      ]
+    }
+  },
+  "footerPart": {
+    "family": "goodui.modal-footer",
+    "selector": "good-modal-footer",
+    "containerId": "c0c3286f-e4bf-804c-8008-d559378cfb14",
+    "variants": [
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d55935c53f0b",
+        "actions": "one"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d559378cb4c7",
+        "actions": "two"
+      }
+    ],
+    "axes": {
+      "actions": [
+        "one",
+        "two"
+      ]
+    }
+  }
+}

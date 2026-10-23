@@ -1,5 +1,6 @@
 {
   "directFamilies": [
+    "action-group",
     "action-menu",
     "app-layout",
     "avatar-menu",
@@ -18,6 +19,9 @@
     "link",
     "main-menu",
     "main-view",
+    "modal",
+    "modal-footer",
+    "modal-header",
     "notifications",
     "radio-group",
     "search",

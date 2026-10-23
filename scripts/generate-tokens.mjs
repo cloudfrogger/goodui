@@ -19,7 +19,7 @@ function flatten(group, prefix = '', result = new Map()) {
     const name = prefix ? `${prefix}.${key}` : key;
     if ('$value' in value) {
       if (result.has(name)) throw new Error(`Duplicate token: ${name}`);
-      if (!['color', 'spacing', 'sizing', 'borderRadius', 'fontSizes'].includes(value.$type)) throw new Error(`Unsupported token type: ${name} (${value.$type})`);
+      if (!['color', 'spacing', 'sizing', 'borderRadius', 'fontSizes', 'opacity'].includes(value.$type)) throw new Error(`Unsupported token type: ${name} (${value.$type})`);
       result.set(name, value);
     } else flatten(value, name, result);
   }
@@ -57,6 +57,11 @@ function validateAndFormat(tokens, name, chain = []) {
   if (token.$type === 'color') {
     if (!/^#[0-9a-f]{6}$/i.test(raw)) throw new Error(`Invalid color: ${name}`);
     return raw;
+  }
+  if (token.$type === 'opacity') {
+    const opacity = Number(raw);
+    if (!Number.isFinite(opacity) || opacity < 0 || opacity > 1) throw new Error(`Invalid opacity: ${name}`);
+    return String(opacity);
   }
   if (!dimensionTypes.has(token.$type) || !Number.isFinite(Number(raw))) throw new Error(`Invalid dimension: ${name}`);
   return `${Number(raw)}px`;
