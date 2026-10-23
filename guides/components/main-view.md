@@ -8,6 +8,6 @@
 </good-main-view>
 ```
 
-The content area grows with its children and does not impose a card or column structure. Your application supplies its page content; MainView already supplies the page spacing.
+The content area grows with its children and does not impose a card or column structure. Your application supplies its page content; MainView already supplies the page spacing. `title` renders the reusable `good-heading` as an H1, and `description` renders `good-summary`. Pass `eyebrow` and optional `eyebrowAppearance="mono"` to place a small label above the title. All three belong to `good-heading-group`, which owns their gaps. See [Typography](./typography.md) for standalone composition.
 
 Pass `subnavItems` to place [Subnav](./subnav.md) above the heading. MainView makes the strip full width and keeps the page content aligned to its normal padding. `subnavLabel` sets the navigation landmark's accessible name. Pass `subnavActions` to add optional buttons and action menus at the right edge of the strip.

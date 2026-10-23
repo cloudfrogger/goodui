@@ -1,0 +1,22 @@
+{
+  "page": "12 Typography",
+  "families": [
+    { "family": "heading-group", "selector": "good-heading-group", "componentId": "c0c3286f-e4bf-804c-8008-d58d09f60369", "composition": ["eyebrow", "heading", "summary"] },
+    { "family": "eyebrow", "selector": "good-eyebrow", "containerId": "c0c3286f-e4bf-804c-8008-d58daec5d3f8", "input": "appearance", "variants": { "brand": "c0c3286f-e4bf-804c-8008-d58ca0985d81", "mono": "c0c3286f-e4bf-804c-8008-d58ca09a0f4b" } },
+    { "family": "heading", "selector": "good-heading", "componentId": "c0c3286f-e4bf-804c-8008-d58c723ff455", "input": "level", "note": "Penpot shows the page heading; levels 1 through 6 are semantic runtime choices." },
+    { "family": "summary", "selector": "good-summary", "componentId": "c0c3286f-e4bf-804c-8008-d58ca09bab16" },
+    { "family": "prose", "selector": "good-prose", "componentId": "c0c3286f-e4bf-804c-8008-d58d0a7628e8", "composition": ["paragraph", "subheading", "citation"] },
+    { "family": "paragraph", "selector": "good-paragraph", "componentId": "c0c3286f-e4bf-804c-8008-d58ca09e0594" },
+    { "family": "subheading", "selector": "good-subheading", "componentId": "c0c3286f-e4bf-804c-8008-d58ca09f1874", "input": "level", "note": "Levels 2 through 6 share this visual role and preserve semantic HTML headings." },
+    { "family": "citation", "selector": "good-citation", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a09eb1", "inputs": ["source", "cite"] },
+    { "family": "separator", "selector": "good-separator", "containerId": "c0c3286f-e4bf-804c-8008-d58dd6fac624", "penpotAxis": "style", "input": "variant", "variants": { "dots": "c0c3286f-e4bf-804c-8008-d58d18952b69", "line": "c0c3286f-e4bf-804c-8008-d58d1a4464fb" } },
+    { "family": "inline-image", "selector": "good-inline-image", "containerId": "c0c3286f-e4bf-804c-8008-d58dd71fab11", "input": "align", "inputs": ["src", "alt", "caption", "loading"], "variants": { "center": "c0c3286f-e4bf-804c-8008-d58d2b885f78", "left": "c0c3286f-e4bf-804c-8008-d58d2cc362c5", "right": "c0c3286f-e4bf-804c-8008-d58d2df9f5e6" } },
+    { "family": "form-field", "selector": "good-form-field", "containerId": "c0c3286f-e4bf-804c-8008-d58dd7440a43", "variants": { "default": "c0c3286f-e4bf-804c-8008-d58d481338f9", "error": "c0c3286f-e4bf-804c-8008-d58d48ff20ee" }, "note": "The state is composed from its control and message; it is not a form-field input." },
+    { "family": "field-label", "selector": "good-field-label", "containerId": "c0c3286f-e4bf-804c-8008-d58dd6c6c444", "input": "required", "inputs": ["forId"], "variants": { "false": "c0c3286f-e4bf-804c-8008-d58ca0a37ad8", "true": "c0c3286f-e4bf-804c-8008-d58ccb254713" } },
+    { "family": "hint", "selector": "good-hint", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a208d6" },
+    { "family": "error-text", "selector": "good-error-text", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a4e2d3" }
+  ],
+  "internalParts": [
+    { "family": "image-caption", "owner": "inline-image", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a60733" }
+  ]
+}

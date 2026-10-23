@@ -10,7 +10,7 @@
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, `09 Code`, `10 Modals`, `11 Action Groups`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, `09 Code`, `10 Modals`, `11 Action Groups`, `12 Typography`. The IDs below are Penpot library IDs; preserve the main shape while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -71,6 +71,9 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.modal` (`presentation` × `size` × `footer`) | Container `c0c3286f-e4bf-804c-8008-d5597a4374dc`; 18 IDs in [modal-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/modal-variants.json) |
 | `goodui.modal-header` (`description`) / `goodui.modal-footer` (`actions`) | Containers `c0c3286f-e4bf-804c-8008-d55933e7c8e3` / `c0c3286f-e4bf-804c-8008-d559378cfb14`; two IDs each in the same manifest |
 | `goodui.action-group` (`orientation` × `spacing`) | Container `c0c3286f-e4bf-804c-8008-d5619557bd60`; six IDs in [action-group-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/action-group-variants.json) |
+| `goodui.heading-group`, `goodui.heading`, `goodui.summary`, `goodui.prose`, `goodui.paragraph`, `goodui.subheading`, `goodui.citation` | Published IDs and Angular selectors in [typography-components.json](../../design/typography-components.json) |
+| `goodui.eyebrow` (`appearance=brand/mono`), `goodui.separator` (`style=dots/line`), `goodui.inline-image` (`align=center/left/right`) | Variant IDs and inputs in [typography-components.json](../../design/typography-components.json) |
+| `goodui.form-field` (`state=default/error`), `goodui.field-label` (`required=false/true`), `goodui.hint`, `goodui.error-text` | Linked form compositions and text IDs in [typography-components.json](../../design/typography-components.json) |
 | `goodui.input` variant group (`kind` × `size` × `status`) | Container `79fa6408-a1e2-80d7-8008-d47eb4e37dc7`; all 21 IDs in [input-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) |
 | `goodui.input-addon` variant group (`side` × `content` × `tone` × `size`) | Container `79fa6408-a1e2-80d7-8008-d47f49489ba6`; all 24 IDs in the same manifest |
 | `goodui.dropdown` variant group (`placement` × `chevron` × `state`) | Container `79fa6408-a1e2-80d7-8008-d4862be1ed43`; all 16 IDs in [dropdown-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/dropdown-variants.json) |
@@ -106,7 +109,7 @@ The Angular homepage takes its wordmarks from those SVG exports. Run `npm run br
 
 ## Reusable component mapping
 
-`design/component-map.json` lists every published Penpot component family. Most map to Angular selectors by the `goodui.<family>.<state>` → `good-<family>` rule. Six visual parts, `avatar-submenu`, `dropdown-item`, `dropdown-panel`, `input-addon`, `subnav-dropdown`, and `subnav-item`, are internal to their owning Angular components, as recorded in the manifest. The state suffix is represented by input data, projected content, or runtime state, not by a new selector. Use this contract when importing GoodUI components into future Penpot project files and implementing those designs with `@goodui/angular`. A design is ready for handoff only after its component names, state semantics, and Angular API are checked together. Run `npm run check:mapping` to check the manifest against Angular selectors and compare it with the live Penpot library through MCP; the script itself does not connect to Penpot.
+`design/component-map.json` lists every published Penpot component family. Most map to Angular selectors by the `goodui.<family>.<state>` → `good-<family>` rule. Seven visual parts, `avatar-submenu`, `dropdown-item`, `dropdown-panel`, `image-caption`, `input-addon`, `subnav-dropdown`, and `subnav-item`, are internal to their owning Angular components, as recorded in the manifest. The state suffix is represented by input data, projected content, or runtime state, not by a new selector. Use this contract when importing GoodUI components into future Penpot project files and implementing those designs with `@goodui/angular`. A design is ready for handoff only after its component names, state semantics, and Angular API are checked together. Run `npm run check:mapping` to check the manifest against Angular selectors and compare it with the live Penpot library through MCP; the script itself does not connect to Penpot.
 
 | Penpot family and state | Angular API |
 | --- | --- |

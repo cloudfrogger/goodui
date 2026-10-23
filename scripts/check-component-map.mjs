@@ -16,6 +16,7 @@ const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
 const modalVariants = JSON.parse(readFileSync(resolve(root, 'design/modal-variants.json'), 'utf8'));
 const actionGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/action-group-variants.json'), 'utf8'));
+const typographyComponents = JSON.parse(readFileSync(resolve(root, 'design/typography-components.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -182,4 +183,28 @@ checkMatrix(badgeVariants.variants, [
   ['size', ['small', 'default', 'large']],
 ], badgeExpected, 'Badge', new Set());
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
+const typographyExpected = new Map([
+  ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', null], ['summary', null],
+  ['prose', null], ['paragraph', null], ['subheading', null], ['citation', null],
+  ['separator', ['dots', 'line']], ['inline-image', ['center', 'left', 'right']],
+  ['form-field', ['default', 'error']], ['field-label', ['false', 'true']],
+  ['hint', null], ['error-text', null],
+]);
+if (typographyComponents.page !== '12 Typography' || typographyComponents.families.length !== typographyExpected.size) throw new Error('Typography family registry is incomplete.');
+const typographyIds = new Set();
+for (const entry of typographyComponents.families) {
+  if (!typographyExpected.has(entry.family) || !direct.has(entry.family) || entry.selector !== `good-${entry.family}`) throw new Error(`Invalid Typography family: ${entry.family}`);
+  const expected = typographyExpected.get(entry.family);
+  if (expected) {
+    if (!entry.containerId || !entry.variants || expected.some(value => !entry.variants[value]) || Object.keys(entry.variants).length !== expected.length) throw new Error(`Incomplete Typography variants: ${entry.family}`);
+  } else if (!entry.componentId || entry.variants) throw new Error(`Invalid Typography component: ${entry.family}`);
+  for (const id of [entry.componentId, entry.containerId, ...Object.values(entry.variants ?? {})].filter(Boolean)) {
+    if (typographyIds.has(id)) throw new Error(`Duplicate Typography Penpot ID: ${id}`);
+    typographyIds.add(id);
+  }
+  typographyExpected.delete(entry.family);
+}
+if (typographyExpected.size) throw new Error(`Missing Typography families: ${[...typographyExpected.keys()].join(', ')}`);
+if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
+if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
 console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

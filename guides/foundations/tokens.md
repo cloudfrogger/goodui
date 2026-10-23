@@ -74,6 +74,10 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `modal.radius` / `.padding-inline` / `.header.*` / `.footer.*` / `.body.*` | `--good-modal-*` | Corner, section spacing, and section surfaces | Header, Body, and Footer layout |
 | `modal.backdrop.color` / `.opacity` / `.blur` | `--good-modal-backdrop-*` | Dim and blur the page behind a modal | Native dialog backdrop |
 | `action-group.gap.small/default/large` | `--good-action-group-gap-*` | 8/12/16 px flex gap | Spacing between related controls |
+| `typography.heading.*` / `.eyebrow.*` / `.summary.*` | `--good-typography-*` | Page title scale, colors, and vertical gaps | Heading group with optional context |
+| `typography.flow.*` / `.paragraph.*` / `.separator.*` | `--good-typography-*` | Reading width and content rhythm | Prose, subheadings, and divisions |
+| `typography.image.*` / `.caption.*` | `--good-typography-*` | Figure width and caption spacing | Inline images in content flow |
+| `typography.field.*` / `.label.*` / `.hint.*` / `.error.*` | `--good-typography-*` | Control labeling and feedback | Form field composition |
 
 The semantic values `topbar.padding-inline`, `main-menu.gap`, `sidebar.menu-gap`, and `control.action-size` are Penpot aliases. Generated CSS preserves those references with `var(...)`; changing their base tokens changes both the resolved Penpot value and the generated CSS value after the documented refresh.
 
@@ -114,6 +118,8 @@ The Modal binding check changed base `radius.card` from 12 to 13 px and semantic
 Action group adds a base `space.4` token (16 px) and three semantic aliases for its small, default, and large gaps. The six [Action group variants](https://github.com/cloudfrogger/goodui/blob/master/design/action-group-variants.json) bind row and column gaps to those aliases. The current token snapshot has 309 `layout` and 40 `layout-dark` tokens; Angular consumes the same aliases through generated CSS. Horizontal and vertical flow uses Penpot flex layout and CSS flexbox; responsive switching at 680 px is an Angular runtime rule.
 
 The binding check temporarily changed `space.4` from 16 to 18 px and `action-group.gap.default` from `{space.3}` to `{space.2}`. After reapplying the appearance theme, the bound large and default Penpot gaps measured 18 and 8 px respectively. Both values were restored, and the same gaps returned to 16 and 12 px. The live Penpot catalog and repository snapshot then matched by token name, type, and value across all 309 `layout` and 40 `layout-dark` tokens. Dark mode kept the Button variants' linked colors readable; the Action group itself has no color fill.
+
+Typography adds 48 semantic `layout` tokens, bringing the snapshot to 357 `layout` and 40 `layout-dark` tokens. They bind text sizes, weights, and colors plus flex gaps, image width, and the three-dot separator where supported. The [Typography registry](https://github.com/cloudfrogger/goodui/blob/master/design/typography-components.json) lists the linked components and variants. Penpot's current plugin rejects binding `fontFamilies` to text, and exposes no binding for line height or italic style; the specimens explicitly use Inter and authored line heights and italics. CSS consumes the exported font-family token and the same semantic color and spacing aliases.
 
 ## Export and generation
 

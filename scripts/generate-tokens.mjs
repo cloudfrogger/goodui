@@ -19,7 +19,7 @@ function flatten(group, prefix = '', result = new Map()) {
     const name = prefix ? `${prefix}.${key}` : key;
     if ('$value' in value) {
       if (result.has(name)) throw new Error(`Duplicate token: ${name}`);
-      if (!['color', 'spacing', 'sizing', 'borderRadius', 'fontSizes', 'opacity'].includes(value.$type)) throw new Error(`Unsupported token type: ${name} (${value.$type})`);
+      if (!['color', 'spacing', 'sizing', 'borderRadius', 'fontSizes', 'fontWeights', 'fontFamilies', 'opacity'].includes(value.$type)) throw new Error(`Unsupported token type: ${name} (${value.$type})`);
       result.set(name, value);
     } else flatten(value, name, result);
   }
@@ -62,6 +62,15 @@ function validateAndFormat(tokens, name, chain = []) {
     const opacity = Number(raw);
     if (!Number.isFinite(opacity) || opacity < 0 || opacity > 1) throw new Error(`Invalid opacity: ${name}`);
     return String(opacity);
+  }
+  if (token.$type === 'fontWeights') {
+    if (!/^[1-9]00$/.test(raw)) throw new Error(`Invalid font weight: ${name}`);
+    return raw;
+  }
+  if (token.$type === 'fontFamilies') {
+    const families = Array.isArray(token.$value) ? token.$value : [token.$value];
+    if (!families.length || families.some(family => typeof family !== 'string' || !/^[a-zA-Z][a-zA-Z0-9 -]*$/.test(family))) throw new Error(`Invalid font family: ${name}`);
+    return families.map(family => family.includes(' ') ? `"${family}"` : family).join(', ');
   }
   if (!dimensionTypes.has(token.$type) || !Number.isFinite(Number(raw))) throw new Error(`Invalid dimension: ${name}`);
   return `${Number(raw)}px`;

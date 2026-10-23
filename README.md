@@ -91,6 +91,7 @@ The screenshot shows the `homepage` application at 1440 × 620 px in light mode.
 | Topbar components | Optional brand icon, menu groups, nested dropdowns |
 | Main menu components | Search, notifications, settings, and avatar actions |
 | `good-main-view` | Page heading, description, actions, and content spacing |
+| Typography components | Reusable headings, prose, citations, separators, images, and form text with token-based spacing |
 | `good-subnav` | Single-row page navigation with mobile horizontal scroll and child menus |
 | `good-button` | Five visual variants, three sizes, optional Lucide icon, and accessible icon-only actions |
 | `good-badge` | Seven semantic colors, three treatments, two shapes, three sizes, optional icon, and removable action |
@@ -136,6 +137,7 @@ Open `http://localhost:4200/`. After changing library source, run `npm run build
 - [Code block variant registry](design/code-block-variants.json) — Penpot IDs for block, numbered, collapsed, and inline presentations.
 - [Modal variant registry](design/modal-variants.json) — Penpot IDs for presentation, size, Footer, Header, and action compositions.
 - [Action group variant registry](design/action-group-variants.json) — Penpot IDs for orientation and spacing.
+- [Typography registry](design/typography-components.json) — Penpot IDs, variants, compositions, and Angular selectors.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Markdown guides](guides/README.md) — integration, layout, components, and Penpot mapping.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.

@@ -15,7 +15,7 @@ export type GoodInputAddonTone = 'inline' | 'contrast';
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodInputComponent), multi: true }],
   template: `
     <label class="good-input-field" [attr.data-size]="size()" [attr.data-status]="status()" [attr.data-type]="type()">
-      @if (showLabel()) { <span class="good-input-label">{{ label() }}</span> }
+      @if (showLabel()) { <span class="good-input-label">{{ label() }}@if (required()) { <span class="good-required-mark" aria-hidden="true">*</span><span class="good-sr-only"> required</span> }</span> }
       <span class="good-input-shell">
         @if (startText() || startIcon()) {
           <span class="good-input-addon" data-side="start" [attr.data-tone]="startTone()" aria-hidden="true">
