@@ -11,6 +11,8 @@ const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadc
 const badgeVariants = JSON.parse(readFileSync(resolve(root, 'design/badge-variants.json'), 'utf8'));
 const checkboxVariants = JSON.parse(readFileSync(resolve(root, 'design/checkbox-variants.json'), 'utf8'));
 const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-group-variants.json'), 'utf8'));
+const linkVariants = JSON.parse(readFileSync(resolve(root, 'design/link-variants.json'), 'utf8'));
+const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -94,6 +96,26 @@ checkMatrix(radioGroupVariants.variants, [
   ['appearance', ['brand', 'mono']], ['size', ['small', 'default', 'large']],
   ['selection', ['none', 'selected']], ['status', ['default', 'disabled']],
 ], radioExpected, 'Radio group', new Set());
+if (linkVariants.family !== 'goodui.link' || linkVariants.selector !== 'good-link' || !linkVariants.containerId || linkVariants.page !== '08 Cards and Links') throw new Error('Link variants must map to good-link on 08 Cards and Links.');
+const linkExpected = [];
+for (const appearance of ['brand', 'mono']) for (const underline of ['hover', 'always']) for (const decoration of ['solid', 'dashed', 'dotted']) for (const status of ['default', 'disabled']) linkExpected.push(`${appearance}/${underline}/${decoration}/${status}`);
+checkMatrix(linkVariants.variants, [
+  ['appearance', ['brand', 'mono']], ['underline', ['hover', 'always']],
+  ['decoration', ['solid', 'dashed', 'dotted']], ['status', ['default', 'disabled']],
+], linkExpected, 'Link', new Set());
+if (cardVariants.family !== 'goodui.card' || cardVariants.selector !== 'good-card' || !cardVariants.containerId || cardVariants.page !== '08 Cards and Links') throw new Error('Card variants must map to good-card on 08 Cards and Links.');
+if (cardVariants.header.family !== 'goodui.card-header' || cardVariants.header.selector !== 'good-card-header' || !cardVariants.header.containerId) throw new Error('Card header variants must map to good-card-header.');
+if (cardVariants.footer.family !== 'goodui.card-footer' || cardVariants.footer.selector !== 'good-card-footer' || !cardVariants.footer.containerId) throw new Error('Card footer variants must map to good-card-footer.');
+const cardIds = new Set();
+const cardExpected = [];
+for (const header of ['none', 'default', 'secondary', 'image']) for (const footer of ['none', 'text', 'link', 'buttons', 'mixed']) cardExpected.push(`${header}/${footer}`);
+checkMatrix(cardVariants.variants, [['header', ['none', 'default', 'secondary', 'image']], ['footer', ['none', 'text', 'link', 'buttons', 'mixed']]], cardExpected, 'Card', cardIds);
+const headerExpected = [];
+for (const tone of ['default', 'secondary', 'image']) for (const actions of ['none', 'buttons']) headerExpected.push(`${tone}/${actions}`);
+checkMatrix(cardVariants.header.variants, [['tone', ['default', 'secondary', 'image']], ['actions', ['none', 'buttons']]], headerExpected, 'Card header', cardIds);
+checkMatrix(cardVariants.footer.variants, [['content', ['text', 'link', 'buttons', 'mixed']]], ['text', 'link', 'buttons', 'mixed'], 'Card footer', cardIds);
+if (!cardVariants.variants.some(v => v.id === cardVariants.headerActionsExample?.cardVariantId && v.header === 'default' && v.footer === 'mixed') ||
+    !cardVariants.header.variants.some(v => v.id === cardVariants.headerActionsExample?.headerVariantId && v.tone === 'default' && v.actions === 'buttons')) throw new Error('Card header action composition does not match published variants.');
 const inputExpected = [];
 for (const kind of ['text', 'file']) for (const size of ['small', 'default', 'large']) for (const status of (kind === 'text' ? ['default', 'readonly', 'disabled', 'error'] : ['default', 'disabled', 'error'])) inputExpected.push(`${kind}/${size}/${status}`);
 checkMatrix(inputVariants.variants, [['kind', ['text', 'file']], ['size', ['small', 'default', 'large']], ['status', ['default', 'readonly', 'disabled', 'error']]], inputExpected, 'Input');
@@ -139,4 +161,4 @@ checkMatrix(badgeVariants.variants, [
   ['size', ['small', 'default', 'large']],
 ], badgeExpected, 'Badge', new Set());
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
-console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, and ${radioGroupVariants.variants.length} Radio group variants.`);
+console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${linkVariants.variants.length} Link, and ${cardVariants.variants.length} Card variants.`);

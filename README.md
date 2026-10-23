@@ -98,6 +98,8 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | `good-input` | Text and native file controls with optional icons or fixed group text |
 | `good-dropdown` | Button-based popup with optional sections, scrolling, placement, and submenus |
 | `good-breadcrumbs` | Hierarchical path with optional home icon, custom separator, overflow menu, and card frame |
+| `good-card` | Bordered content with optional title bar, actions, image, and footer |
+| `good-link` | Token-colored navigation with optional persistent or hover underline |
 | `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
@@ -124,6 +126,8 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 - [Badge variant registry](design/badge-variants.json) — Penpot IDs for all 126 color, treatment, shape, and size combinations.
 - [Checkbox variant registry](design/checkbox-variants.json) — Penpot IDs for all 36 appearance, state, size, and disabled combinations.
 - [Radio group variant registry](design/radio-group-variants.json) — Penpot IDs for all 24 appearance, size, selection, and disabled combinations.
+- [Card variant registry](design/card-variants.json) — Penpot IDs for Card, Header, and Footer combinations.
+- [Link variant registry](design/link-variants.json) — Penpot IDs for appearance, underline, decoration, and disabled combinations.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Documentation](doc/docs/intro.md) — integration, layouts, components, and examples.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.

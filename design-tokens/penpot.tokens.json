@@ -1119,6 +1119,118 @@
         "$value": "{radius.action}",
         "$type": "borderRadius"
       }
+    },
+    "link": {
+      "brand": {
+        "color": {
+          "$value": "{color.accent}",
+          "$type": "color"
+        }
+      },
+      "mono": {
+        "color": {
+          "$value": "{color.text}",
+          "$type": "color"
+        }
+      },
+      "underline": {
+        "gap": {
+          "$value": "2",
+          "$type": "spacing"
+        }
+      }
+    },
+    "card": {
+      "background": {
+        "$value": "{color.surface}",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "{color.border}",
+        "$type": "color"
+      },
+      "heading": {
+        "color": {
+          "$value": "{color.text}",
+          "$type": "color"
+        }
+      },
+      "body": {
+        "color": {
+          "$value": "{color.text}",
+          "$type": "color"
+        },
+        "padding-block": {
+          "$value": "{space.6}",
+          "$type": "spacing"
+        }
+      },
+      "footer": {
+        "color": {
+          "$value": "{color.muted}",
+          "$type": "color"
+        },
+        "background": {
+          "$value": "{color.surface}",
+          "$type": "color"
+        },
+        "padding-block": {
+          "$value": "16",
+          "$type": "spacing"
+        },
+        "gap": {
+          "$value": "{space.3}",
+          "$type": "spacing"
+        },
+        "min-height": {
+          "$value": "64",
+          "$type": "sizing"
+        }
+      },
+      "header": {
+        "default": {
+          "background": {
+            "$value": "{color.surface}",
+            "$type": "color"
+          }
+        },
+        "secondary": {
+          "background": {
+            "$value": "{color.selected}",
+            "$type": "color"
+          }
+        },
+        "image": {
+          "foreground": {
+            "$value": "{button.default.foreground}",
+            "$type": "color"
+          }
+        },
+        "padding-block": {
+          "$value": "{space.5}",
+          "$type": "spacing"
+        },
+        "gap": {
+          "$value": "{space.3}",
+          "$type": "spacing"
+        },
+        "min-height": {
+          "$value": "64",
+          "$type": "sizing"
+        },
+        "image-height": {
+          "$value": "144",
+          "$type": "sizing"
+        }
+      },
+      "radius": {
+        "$value": "{radius.card}",
+        "$type": "borderRadius"
+      },
+      "padding-inline": {
+        "$value": "{space.6}",
+        "$type": "spacing"
+      }
     }
   },
   "layout-dark": {

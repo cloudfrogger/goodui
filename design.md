@@ -26,6 +26,8 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Main view | 20 px top and 30 px horizontal padding below topbar | `MainView` owns page container and optional heading |
 | Subnav | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `Subnav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
 | Button | 32/40/48 px high by size, 6 px radius; optional leading Lucide icon or icon-only square | `Button` owns padding, border, focus, disabled state, and hit area |
+| Card | 1 px border, 12 px outer radius; optional 64 px header, 144 px image header, and footer | `Card` owns frame, clipping, content padding, and section dividers; Header and Footer own their internal flow |
+| Link | Inline text with hover or persistent underline | `Link` owns appearance, decoration style, disabled presentation, and navigation behavior |
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Checkbox | 16/20/24 px box; 44 × 44 px minimum hit area | `Checkbox` owns the native input, three-state transition, mark, focus, and disabled presentation |
 | Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
@@ -72,6 +74,10 @@ AppLayout
       │  └─ actions (optional: Button and ActionMenu)
       ├─ optional page heading
       └─ page content
+         └─ Card (optional, repeatable)
+            ├─ CardHeader (optional; title, subtitle, right actions, optional image)
+            ├─ body content
+            └─ CardFooter (optional; text, Link, Button, or mixed actions)
 ```
 
 `AppLayout` owns shell geometry, scrolling, and mobile switching. Apps do not set sidebar offsets, topbar height, overlay layers, or content padding. Each container owns its alignment and spacing; individual items have no external layout margins.
@@ -107,6 +113,10 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.subnav` | Optional page subnav, scroll viewport, active indicator, and child menu |
 | `goodui.subnav-item` | Link or menu trigger with optional chevron and active state |
 | `goodui.button` | Reusable action control with five variants, three sizes, and text/icon content options |
+| `goodui.card` | Bordered content container with optional linked header and footer parts |
+| `goodui.card-header` | Title, optional subtitle and actions, default/secondary surface or image background |
+| `goodui.card-footer` | Footer row for text, Link, Buttons, or mixed content |
+| `goodui.link` | Navigable text with brand/mono appearance, underline behavior and style, and disabled presentation |
 | `goodui.switch` | Accessible on/off setting with three sizes, brand/mono appearance, and disabled/error presentation |
 | `goodui.checkbox` | Native three-state selection with brand/mono appearance, three sizes, and disabled presentation |
 | `goodui.radio-group` | Exclusive native choice group with brand/mono appearance, three sizes, and disabled presentation |
@@ -148,6 +158,16 @@ The reusable `goodui.button` Penpot variant group on `03 Controls` has `variant`
 The default size is 40 px, small is 32 px, and large is 48 px. Icon-only controls use those values for both width and height. The default variant uses brand blue, secondary a quiet neutral surface, destructive a vivid red, outline a transparent surface with a border, and ghost a transparent surface without a border. The control owns hover, focus, and disabled runtime states. Subnav and ActionMenu request outline/small to preserve their established layout. Penpot icons are instances of the connected `Lucide-icons` library; Angular renders Lucide Angular icon classes or data. The component name and variant values stay domain neutral for reuse in future projects.
 
 The Penpot Lucide source shapes use 24 px vector geometry. Their linked Button instances use 14, 16, or 20 px geometry to match Angular; the child paths and strokes must scale with the instance bounds. The Penpot plugin's `resize()` changes an instance's bounds without scaling its child paths, so check the actual vector geometry and preserve the width/height and stroke-color token bindings whenever an icon instance is replaced or resized.
+
+### Card
+
+`good-card` owns the same neutral border, surface, and 12 px corners as the existing demo cards. Its body wrapper supplies padding without app layout CSS. Optional `good-card-header` accepts `title`, `headingLevel`, `tone=default/secondary`, and `backgroundImage`; an image fills the entire header behind a dark scrim and title text. A projected `[goodCardSubtitle]` and `[goodCardActions]` region let the header arrange supporting text, Buttons, and ActionMenus. The header's default surface matches the body; secondary uses the selected surface. The Card owns the thin separators. `good-card-footer` accepts projected text, Links, Buttons, or any combination and provides `align=start/end/between`. Both Card and its sections use flex layout; only the decorative image and scrim overlay are absolute. The outer Card clips the image to its rounded top corners.
+
+Penpot page `08 Cards and Links` publishes 20 `goodui.card` variants (`header=none/default/secondary/image` × `footer=none/text/link/buttons/mixed`), six `goodui.card-header` variants (`tone=default/secondary/image` × `actions=none/buttons`), and four `goodui.card-footer` content variants. The root Card variants contain linked Header and Footer instances; the Header actions and Footer link/button examples retain their linked GoodUI component instances. `design/card-variants.json` records all 30 IDs and the default/mixed Card composition that shows right-side actions. The image example in Penpot uses a PNG rendering of `demo1/public/card-header-art.svg`; the Angular demo uses that SVG directly. A consuming app supplies its own image URL.
+
+### Link
+
+`good-link` accepts either `route` for in-app navigation or `href` for a URL. `appearance=brand/mono` chooses the accent or theme text color. `underline=hover/always` controls when the line appears, and `decoration=solid/dashed/dotted` controls its style. Disabled links keep their text visible, have no destination, and leave the tab order. Penpot publishes 24 `goodui.link` variants on `08 Cards and Links` across these four axes and `status=default/disabled`; `design/link-variants.json` records their IDs. Penpot's hover variants depict the resting state, while Angular adds the underline on pointer hover. The line's style is an editable Penpot stroke; its color and the label fill bind to the same semantic Link color token. In CSS the native text decoration follows that token and respects theme changes.
 
 ### Switch
 
@@ -241,7 +261,7 @@ The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizi
 
 ## Penpot inventory
 
-File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, and `07 Radio Groups`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
+File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, and `08 Cards and Links`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
 
 `04 Logos` contains 14 reusable brand assets: light and dark wordmarks, standalone symbols, square symbols, glossy square symbols, and three badge styles in both appearances. The names use `goodui.logo.<form>.<appearance>`; the complete IDs are in [Design to Angular](doc/docs/contributing/design-to-code.md). These are product artwork assets, not UI component families, so they have no Angular selector. Both wordmarks and both standalone symbols have transparent, editable Penpot vector paths traced from the supplied PNGs. Their direct SVG exports are `doc/static/img/goodui-logo-light.svg`, `goodui-logo-dark.svg`, `goodui-mark.svg`, and `goodui-mark-dark.svg`. The Angular demo copies both symbol exports as favicons and selects one according to its active GoodUI theme. Square symbols, glossy square symbols, and badges still use image fills that preserve their original backgrounds and effects. A traced vector can differ slightly from its raster source; review each exported SVG against the artwork after any brand update.
 

@@ -4,11 +4,19 @@
 body { margin: 0; }
 
 .demo-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
-.demo-card { min-height: 172px; padding: 28px 30px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); box-shadow: 0 1px 2px #00000008; color: var(--good-text); text-decoration: none; }
+.demo-card { min-height: 172px; padding: 28px 30px; border: 1px solid var(--good-card-border); border-radius: var(--good-card-radius); background: var(--good-card-background); box-shadow: 0 1px 2px #00000008; color: var(--good-text); text-decoration: none; }
 .demo-card-icon { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin-bottom: 14px; border-radius: 7px; color: var(--good-accent); border: 1px solid var(--good-accent); font-size: 17px; }
 .demo-card h2 { margin: 0 0 7px; font-size: 16px; font-weight: 600; }
 .demo-card p { margin: 0; color: var(--good-muted); line-height: 1.5; }
 .demo-card:hover { border-color: var(--good-accent); }
+.demo-card-showcase-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 24px; }
+.demo-card-action-status { margin: 20px 0 0; color: var(--good-muted); }
+.demo-link-matrix { display: grid; gap: 14px; }
+.demo-link-row { display: grid; grid-template-columns: minmax(160px, 1fr) repeat(3, minmax(120px, 1fr)); align-items: center; gap: 16px; }
+.demo-link-row strong { color: var(--good-muted); font-size: 13px; }
+.demo-link-examples { display: flex; flex-wrap: wrap; gap: 24px; }
+@media (max-width: 900px) { .demo-card-showcase-grid { grid-template-columns: 1fr; } }
+@media (max-width: 680px) { .demo-link-row { grid-template-columns: 1fr; gap: 8px; } }
 .demo-showcase { margin-bottom: 24px; padding: 24px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); }
 .demo-showcase-heading { margin-bottom: 20px; }
 .demo-showcase-heading h2 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }

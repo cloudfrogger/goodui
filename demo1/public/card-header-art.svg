@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-label="Abstract blue and teal waves">
+  <defs>
+    <linearGradient id="sky" x2="1" y2="1">
+      <stop stop-color="#0F1B49"/>
+      <stop offset="0.55" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="wave" x2="1" y2="0">
+      <stop stop-color="#60A5FA" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#5EEAD4" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v420H0z"/>
+  <path fill="url(#wave)" d="M0 298c180-130 342-120 525-36 187 86 370 94 675-72v230H0z"/>
+  <path fill="#93C5FD" fill-opacity="0.18" d="M0 355c245-102 466-60 681-12 180 40 356 22 519-38v115H0z"/>
+  <circle cx="970" cy="82" r="185" fill="#99F6E4" fill-opacity="0.13"/>
+  <circle cx="1110" cy="238" r="70" fill="#BFDBFE" fill-opacity="0.16"/>
+</svg>

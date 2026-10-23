@@ -57,6 +57,13 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `badge.<color>.outline.border` | `--good-badge-<color>-outline-border` | Badge outline stroke | Tinted outline treatment |
 | `badge.size.<size>.height/padding-inline/gap/icon-size/font-size` | `--good-badge-size-<size>-*` | Badge flex size, padding, gap, icon size, and text font size | 24/28/32 px labels |
 | `badge.shape.circle.radius` / `.square.radius` | `--good-badge-shape-*-radius` | Badge board corners | Pill and compact shapes |
+| `link.brand.color` / `link.mono.color` | `--good-link-brand-color` / `--good-link-mono-color` | Link label fill and underline stroke | Accent or theme text color |
+| `link.underline.gap` | `--good-link-underline-gap` | Link underline offset | Underline geometry |
+| `card.background` / `card.border` / `card.radius` | `--good-card-background` / `--good-card-border` / `--good-card-radius` | Card surface, outline, outer corners | Shared card frame |
+| `card.header.default.background` / `.secondary.background` | `--good-card-header-*-background` | Header fill | Default or quiet title bar |
+| `card.header.image-height` / `.image.foreground` | `--good-card-header-image-*` | Image Header height and label color | Full-width image title bar |
+| `card.padding-inline` / `.header.padding-block` / `.body.padding-block` / `.footer.padding-block` | `--good-card-*-padding-*` | Card section flex padding | Header, content, and footer spacing |
+| `card.header.gap` / `.footer.gap` / `.footer.min-height` | `--good-card-*-gap` / `--good-card-footer-min-height` | Flex gaps and footer height | Actions and mixed footer content |
 
 The semantic values `topbar.padding-inline`, `main-menu.gap`, `sidebar.menu-gap`, and `control.action-size` are Penpot aliases. Generated CSS preserves those references with `var(...)`; changing their base tokens changes both the resolved Penpot value and the generated CSS value after the documented refresh.
 
@@ -85,6 +92,8 @@ Badge adds semantic colors for warning, success, and info, with dark theme overr
 The 2 px generic brand mark and circular avatar-image masks are geometric details outside the control/card radius scale. Popovers and invisible native inputs still use absolute positioning to overlay their triggers; regular control content uses flex layout.
 
 Radio Group adds 15 `layout` tokens with semantic roles separate from Checkbox. Its 24 Penpot variants bind the option indicator, dot, radius, and flex gaps to those roles; the [Radio Group variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/radio-group-variants.json) records every ID. A temporary `color.text` change moved the bound mono dot, and a temporary `radio.mono.selected.color` change moved it to brand blue. Both values were restored. In the dark theme, the brand dot resolved to `#3B82F6`, the mono dot to `#FAFAFA`, and the indicator surface to `#09090B`. The Penpot catalog and repository snapshot matched across 229 `layout` and 34 `layout-dark` tokens before CSS generation.
+
+Card and Link add 22 semantic `layout` tokens. The 24 Link variants bind label and underline colors; Card, Header, and Footer bind their frame, fills, text, radius, section sizes, padding, and gaps. Header images are media fills and cannot bind to a color token; their foreground uses `card.header.image.foreground`. The [Card](https://github.com/cloudfrogger/goodui/blob/master/design/card-variants.json) and [Link](https://github.com/cloudfrogger/goodui/blob/master/design/link-variants.json) manifests record the published IDs. The current repository snapshot contains 251 `layout` and 34 `layout-dark` tokens. Refreshing the JSON from Penpot remains a manual export/capture step; generated CSS preserves the aliases.
 
 ## Export and generation
 

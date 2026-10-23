@@ -1,0 +1,196 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "08 Cards and Links",
+  "family": "goodui.link",
+  "selector": "good-link",
+  "containerId": "c0c3286f-e4bf-804c-8008-d52ebed18b43",
+  "axes": {
+    "appearance": [
+      "brand",
+      "mono"
+    ],
+    "underline": [
+      "hover",
+      "always"
+    ],
+    "decoration": [
+      "solid",
+      "dashed",
+      "dotted"
+    ],
+    "status": [
+      "default",
+      "disabled"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d4e0e8e",
+      "appearance": "brand",
+      "underline": "hover",
+      "decoration": "solid",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d4f993b",
+      "appearance": "brand",
+      "underline": "hover",
+      "decoration": "solid",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d5080fb",
+      "appearance": "brand",
+      "underline": "hover",
+      "decoration": "dashed",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d51db8c",
+      "appearance": "brand",
+      "underline": "hover",
+      "decoration": "dashed",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d531068",
+      "appearance": "brand",
+      "underline": "hover",
+      "decoration": "dotted",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d544d86",
+      "appearance": "brand",
+      "underline": "hover",
+      "decoration": "dotted",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d558b64",
+      "appearance": "brand",
+      "underline": "always",
+      "decoration": "solid",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d569ef4",
+      "appearance": "brand",
+      "underline": "always",
+      "decoration": "solid",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d57b1c7",
+      "appearance": "brand",
+      "underline": "always",
+      "decoration": "dashed",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d58c14b",
+      "appearance": "brand",
+      "underline": "always",
+      "decoration": "dashed",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d5a002e",
+      "appearance": "brand",
+      "underline": "always",
+      "decoration": "dotted",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d5b43fb",
+      "appearance": "brand",
+      "underline": "always",
+      "decoration": "dotted",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d5c88cc",
+      "appearance": "mono",
+      "underline": "hover",
+      "decoration": "solid",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d5dbf26",
+      "appearance": "mono",
+      "underline": "hover",
+      "decoration": "solid",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d5e962a",
+      "appearance": "mono",
+      "underline": "hover",
+      "decoration": "dashed",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d5f82ec",
+      "appearance": "mono",
+      "underline": "hover",
+      "decoration": "dashed",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d609e4a",
+      "appearance": "mono",
+      "underline": "hover",
+      "decoration": "dotted",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d61ec29",
+      "appearance": "mono",
+      "underline": "hover",
+      "decoration": "dotted",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d6350a2",
+      "appearance": "mono",
+      "underline": "always",
+      "decoration": "solid",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d644ecf",
+      "appearance": "mono",
+      "underline": "always",
+      "decoration": "solid",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d656c5a",
+      "appearance": "mono",
+      "underline": "always",
+      "decoration": "dashed",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d6658d5",
+      "appearance": "mono",
+      "underline": "always",
+      "decoration": "dashed",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d675054",
+      "appearance": "mono",
+      "underline": "always",
+      "decoration": "dotted",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52e8d6875ae",
+      "appearance": "mono",
+      "underline": "always",
+      "decoration": "dotted",
+      "status": "disabled"
+    }
+  ]
+}

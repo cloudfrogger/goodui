@@ -1,0 +1,207 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "08 Cards and Links",
+  "family": "goodui.card",
+  "selector": "good-card",
+  "containerId": "c0c3286f-e4bf-804c-8008-d530a53ab97a",
+  "axes": {
+    "header": [
+      "none",
+      "default",
+      "secondary",
+      "image"
+    ],
+    "footer": [
+      "none",
+      "text",
+      "link",
+      "buttons",
+      "mixed"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d530253a828d",
+      "header": "none",
+      "footer": "none"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d530281933f1",
+      "header": "none",
+      "footer": "text"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5302b1ac08e",
+      "header": "none",
+      "footer": "link"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5302de93764",
+      "header": "none",
+      "footer": "buttons"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53030d44be9",
+      "header": "none",
+      "footer": "mixed"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53033c0fa61",
+      "header": "default",
+      "footer": "none"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d530371f9c64",
+      "header": "default",
+      "footer": "text"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5303ae4dc37",
+      "header": "default",
+      "footer": "link"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5303e7fd324",
+      "header": "default",
+      "footer": "buttons"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53041bd6ca5",
+      "header": "default",
+      "footer": "mixed"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d530456c7a7a",
+      "header": "secondary",
+      "footer": "none"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d530497c98d6",
+      "header": "secondary",
+      "footer": "text"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5304d321f36",
+      "header": "secondary",
+      "footer": "link"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53050d54e2d",
+      "header": "secondary",
+      "footer": "buttons"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53054c6dcfc",
+      "header": "secondary",
+      "footer": "mixed"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d530580a28d8",
+      "header": "image",
+      "footer": "none"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5305bdfb9c9",
+      "header": "image",
+      "footer": "text"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5305fa7e327",
+      "header": "image",
+      "footer": "link"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d530633380e2",
+      "header": "image",
+      "footer": "buttons"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d53066fbf0a1",
+      "header": "image",
+      "footer": "mixed"
+    }
+  ],
+  "headerActionsExample": {
+    "cardVariantId": "c0c3286f-e4bf-804c-8008-d53041bd6ca5",
+    "headerVariantId": "c0c3286f-e4bf-804c-8008-d52f5c94a68c"
+  },
+  "header": {
+    "family": "goodui.card-header",
+    "selector": "good-card-header",
+    "containerId": "c0c3286f-e4bf-804c-8008-d52fb75ce3d8",
+    "axes": {
+      "tone": [
+        "default",
+        "secondary",
+        "image"
+      ],
+      "actions": [
+        "none",
+        "buttons"
+      ]
+    },
+    "variants": [
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52f5a30d187",
+        "tone": "default",
+        "actions": "none"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52f5c94a68c",
+        "tone": "default",
+        "actions": "buttons"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52f5f2d2829",
+        "tone": "secondary",
+        "actions": "none"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52f618419b2",
+        "tone": "secondary",
+        "actions": "buttons"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52f6419cf1f",
+        "tone": "image",
+        "actions": "none"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52f6682db0e",
+        "tone": "image",
+        "actions": "buttons"
+      }
+    ]
+  },
+  "footer": {
+    "family": "goodui.card-footer",
+    "selector": "good-card-footer",
+    "containerId": "c0c3286f-e4bf-804c-8008-d52ff73e803a",
+    "axes": {
+      "content": [
+        "text",
+        "link",
+        "buttons",
+        "mixed"
+      ]
+    },
+    "variants": [
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52fe52ad872",
+        "content": "text"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52fe718f12b",
+        "content": "link"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52fe8e1e9b6",
+        "content": "buttons"
+      },
+      {
+        "id": "c0c3286f-e4bf-804c-8008-d52fead0acb0",
+        "content": "mixed"
+      }
+    ]
+  }
+}
