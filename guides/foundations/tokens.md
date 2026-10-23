@@ -2,6 +2,30 @@
 
 GoodUI uses the connected Penpot file's `layout` and `layout-dark` token sets. The `appearance/light` theme activates `layout`; `appearance/dark` activates both sets so dark colors override the shared values. The repository keeps a Penpot-format snapshot at `design-tokens/penpot.tokens.json` and generates CSS from it. The JSON holds the values; this guide explains their roles and bindings.
 
+The interactive [Color Scheme page](../../homepage/src/app/getting-started/color-scheme.html) shows the current light and dark values for the 14 core `color.*` roles as swatches. Canvas, surface, text, muted, icon, border, selected, and overlay form the neutral layer. Brand and accent are separate roles even when they share a light value; error, warning, success, and info express state. Component tokens such as `button.default.background` alias these roles where appropriate. Overlay opacity is a separate component token.
+
+## Customizing a consuming app
+
+Import the package stylesheet in the application's global stylesheet, then put app-specific CSS variable overrides after it:
+
+```css
+@import "@goodui/angular/styles.css";
+
+:root {
+  --good-color-brand: #6D28D9;
+  --good-color-accent: #6D28D9;
+  --good-button-default-hover: #5B21B6;
+}
+
+[data-theme="dark"] {
+  --good-color-accent: #C4B5FD;
+}
+```
+
+Base color overrides propagate through aliases such as `--good-brand` and many component roles. Some component colors have their own explicit values, including the primary Button hover color; override those separately when changing the brand. `GoodThemeService.setTheme('dark')` or `setTheme('light')` selects the theme and stores the choice in `localStorage`. With no stored choice, the service uses the system color preference.
+
+CSS overrides affect only that app. To change the shared GoodUI Penpot and Angular palette together, edit `layout` and `layout-dark` in Penpot, export the token snapshot, and run `npm run tokens:generate` followed by `npm run tokens:check`. The export is manual; no automatic Penpot synchronization is implied.
+
 ## Penpot-to-CSS mapping
 
 Token names remain intact in CSS, with dots and underscores converted to hyphens and a `--good-` prefix. The existing public color variables remain aliases for compatibility.

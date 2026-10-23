@@ -51,9 +51,12 @@ export class App {
     { id: 'getting-started', heading: 'GETTING STARTED', items: [
       { id: 'introduction', label: 'Introduction', icon: 'book', route: '/getting-started/introduction' },
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
-      { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
+    ] },
+    { id: 'foundation', heading: 'FOUNDATION', items: [
+      { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
+      { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
     ] },
     { id: 'dashboards', items: [{ id: 'dashboard', label: 'Dashboards', icon: 'dashboard', route: '/dashboard' }] },
     { id: 'components', heading: 'COMPONENTS', items: [
@@ -93,6 +96,10 @@ export class App {
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
+      { id: 'foundation', label: 'Foundation', children: [
+        { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
+        { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
+      ] },
     ] },
     { id: 'home', label: 'Home', route: '/dashboard' },
     { id: 'profiles', label: 'Profiles', route: '/profile' },
@@ -114,7 +121,8 @@ export class App {
     { id: 'welcome', title: 'Welcome to GoodUI', description: 'Notifications are provided by a reusable library component.', time: 'Today', read: false },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
-    { id: 'typography', label: 'Typography', description: 'Getting Started · headings, prose, images, and form text', route: '/getting-started/typography' },
+    { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
+    { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
     { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },
     { id: 'designing', label: 'Designing', description: 'Getting Started', route: '/getting-started/designing' },
     { id: 'developing', label: 'Developing', description: 'Getting Started', route: '/getting-started/developing' },
