@@ -9,10 +9,10 @@ import { GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, L
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Inputs" description="Text and file controls with shared sizes, themes, and states.">
-      <section class="demo-showcase" aria-labelledby="input-states-title">
-        <div class="demo-showcase-heading"><h2 id="input-states-title">Sizes and states</h2><p>Readonly values remain selectable. Disabled inputs cannot be edited.</p></div>
-        <div class="demo-button-table-wrap" role="region" aria-label="Input sizes; scroll horizontally to compare all sizes" tabindex="0">
-          <table class="demo-input-table">
+      <section class="showcase-section" aria-labelledby="input-states-title">
+        <div class="showcase-section-heading"><h2 id="input-states-title">Sizes and states</h2><p>Readonly values remain selectable. Disabled inputs cannot be edited.</p></div>
+        <div class="showcase-button-table-wrap" role="region" aria-label="Input sizes; scroll horizontally to compare all sizes" tabindex="0">
+          <table class="showcase-input-table">
             <thead><tr><th scope="col">State</th>@for (size of sizes; track size) { <th scope="col">{{ size }}</th> }</tr></thead>
             <tbody>
               <tr><th scope="row">Default</th>@for (size of sizes; track size) { <td><good-input [label]="size + ' default input'" [size]="size" placeholder="Enter a value" /></td> }</tr>
@@ -22,12 +22,12 @@ import { GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, L
             </tbody>
           </table>
         </div>
-        <p class="demo-switch-scroll-hint">Scroll horizontally to compare all three sizes.</p>
-        <p id="input-error-help" class="demo-button-feedback">The error border follows the active theme. Provide a specific error message in your form.</p>
+        <p class="showcase-switch-scroll-hint">Scroll horizontally to compare all three sizes.</p>
+        <p id="input-error-help" class="showcase-button-feedback">The error border follows the active theme. Provide a specific error message in your form.</p>
       </section>
-      <section class="demo-showcase" aria-labelledby="input-addons-title">
-        <div class="demo-showcase-heading"><h2 id="input-addons-title">Icons and group text</h2><p>Leading and trailing content can be inline or set apart with a neutral surface.</p></div>
-        <div class="demo-input-grid">
+      <section class="showcase-section" aria-labelledby="input-addons-title">
+        <div class="showcase-section-heading"><h2 id="input-addons-title">Icons and group text</h2><p>Leading and trailing content can be inline or set apart with a neutral surface.</p></div>
+        <div class="showcase-input-grid">
           <good-input label="Search" [showLabel]="true" placeholder="Search records" [startIcon]="searchIcon" />
           <good-input label="Email" [showLabel]="true" type="email" placeholder="name@example.com" [endIcon]="mailIcon" endTone="contrast" />
           <good-input label="Website" [showLabel]="true" placeholder="example.com" startText="https://" startTone="contrast" />
@@ -35,18 +35,18 @@ import { GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, L
           <good-input label="Verified code" [showLabel]="true" placeholder="Enter code" [endIcon]="verifiedIcon" />
         </div>
       </section>
-      <section class="demo-showcase" aria-labelledby="input-file-title">
-        <div class="demo-showcase-heading"><h2 id="input-file-title">File selector</h2><p>Selecting the control opens the browser or operating system file dialog.</p></div>
-        <div class="demo-input-grid">
+      <section class="showcase-section" aria-labelledby="input-file-title">
+        <div class="showcase-section-heading"><h2 id="input-file-title">File selector</h2><p>Selecting the control opens the browser or operating system file dialog.</p></div>
+        <div class="showcase-input-grid">
           <good-input label="Attachment" [showLabel]="true" type="file" (filesChange)="onFiles($event)" />
           <good-input label="Multiple images" [showLabel]="true" type="file" accept="image/*" [multiple]="true" [startIcon]="verifiedIcon" startTone="contrast" (filesChange)="onFiles($event)" />
           <good-input label="Unavailable file selector" [showLabel]="true" type="file" [disabled]="true" />
         </div>
-        <p class="demo-button-feedback" role="status">{{ chosenFiles() }}</p>
+        <p class="showcase-button-feedback" role="status">{{ chosenFiles() }}</p>
       </section>
-      <section class="demo-showcase" aria-labelledby="input-form-title">
-        <div class="demo-showcase-heading"><h2 id="input-form-title">Angular form control</h2><p>The text input implements ControlValueAccessor.</p></div>
-        <div class="demo-input-grid"><good-input label="Workspace name" [showLabel]="true" [formControl]="workspaceName" /></div>
+      <section class="showcase-section" aria-labelledby="input-form-title">
+        <div class="showcase-section-heading"><h2 id="input-form-title">Angular form control</h2><p>The text input implements ControlValueAccessor.</p></div>
+        <div class="showcase-input-grid"><good-input label="Workspace name" [showLabel]="true" [formControl]="workspaceName" /></div>
       </section>
     </good-main-view>
   `,
@@ -57,7 +57,7 @@ export class InputsPageComponent {
   readonly mailIcon = LucideMail;
   readonly verifiedIcon = LucideShieldCheck;
   readonly chosenFiles = signal('No files selected');
-  readonly workspaceName = new FormControl('GoodUI demo', { nonNullable: true });
+  readonly workspaceName = new FormControl('GoodUI homepage', { nonNullable: true });
 
   onFiles(files: FileList | null): void {
     this.chosenFiles.set(files?.length ? Array.from(files, file => file.name).join(', ') : 'No files selected');

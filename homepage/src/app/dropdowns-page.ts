@@ -8,13 +8,13 @@ import { GoodDropdownComponent, GoodDropdownFooterDirective, GoodDropdownHeaderD
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Dropdowns" description="Button-based menus with reusable sections, placement, and nested actions.">
-      <section class="demo-showcase" aria-labelledby="dropdown-composition-title">
-        <div class="demo-showcase-heading"><h2 id="dropdown-composition-title">Header, items, and footer</h2><p>The middle section can scroll while the header and footer stay visible.</p></div>
-        <div class="demo-dropdown-row">
+      <section class="showcase-section" aria-labelledby="dropdown-composition-title">
+        <div class="showcase-section-heading"><h2 id="dropdown-composition-title">Header, items, and footer</h2><p>The middle section can scroll while the header and footer stay visible.</p></div>
+        <div class="showcase-dropdown-row">
           <good-dropdown #primaryDropdown menuLabel="Project actions" [items]="projectItems" [scrollItems]="true" [maxItemsHeight]="180" (itemSelected)="record($event.label)">
             <span goodDropdownTrigger>Project actions</span>
-            <div goodDropdownHeader><strong>Project actions</strong><span class="demo-dropdown-subtitle">Choose a task for this workspace.</span></div>
-            <button goodDropdownFooter type="button" class="demo-dropdown-footer-button" (click)="record('Manage all actions'); primaryDropdown.close()">Manage all actions</button>
+            <div goodDropdownHeader><strong>Project actions</strong><span class="showcase-dropdown-subtitle">Choose a task for this workspace.</span></div>
+            <button goodDropdownFooter type="button" class="showcase-dropdown-footer-button" (click)="record('Manage all actions'); primaryDropdown.close()">Manage all actions</button>
           </good-dropdown>
           <good-dropdown menuLabel="Quick actions" [items]="quickItems" [showChevron]="false" [icon]="settingsIcon" variant="secondary" (itemSelected)="record($event.label)">
             <span goodDropdownTrigger>Without chevron</span>
@@ -24,20 +24,20 @@ import { GoodDropdownComponent, GoodDropdownFooterDirective, GoodDropdownHeaderD
         </div>
       </section>
 
-      <section class="demo-showcase" aria-labelledby="dropdown-placement-title">
-        <div class="demo-showcase-heading"><h2 id="dropdown-placement-title">Placement and trigger</h2><p>Each menu aligns to the start edge of its trigger and stays inside the viewport.</p></div>
-        <div class="demo-dropdown-placement-grid">
+      <section class="showcase-section" aria-labelledby="dropdown-placement-title">
+        <div class="showcase-section-heading"><h2 id="dropdown-placement-title">Placement and trigger</h2><p>Each menu aligns to the start edge of its trigger and stays inside the viewport.</p></div>
+        <div class="showcase-dropdown-placement-grid">
           <good-dropdown menuLabel="Top menu" placement="top-start" [items]="quickItems" (itemSelected)="record($event.label)"><span goodDropdownTrigger>Top start</span></good-dropdown>
           <good-dropdown menuLabel="Bottom menu" placement="bottom-start" [items]="quickItems" (itemSelected)="record($event.label)"><span goodDropdownTrigger>Bottom start</span></good-dropdown>
           <good-dropdown menuLabel="Left menu" placement="left-start" [items]="quickItems" (itemSelected)="record($event.label)"><span goodDropdownTrigger>Left start</span></good-dropdown>
           <good-dropdown menuLabel="Right menu" placement="right-start" [items]="quickItems" (itemSelected)="record($event.label)"><span goodDropdownTrigger>Right start</span></good-dropdown>
         </div>
-        <div class="demo-dropdown-row">
+        <div class="showcase-dropdown-row">
           <good-dropdown menuLabel="Hover menu" trigger="hover" [items]="quickItems" (itemSelected)="record($event.label)"><span goodDropdownTrigger>Hover to open</span></good-dropdown>
-          <span class="demo-dropdown-note">The hover trigger also opens by keyboard and touch.</span>
+          <span class="showcase-dropdown-note">The hover trigger also opens by keyboard and touch.</span>
         </div>
       </section>
-      <p class="demo-button-feedback" role="status">{{ feedback() }}</p>
+      <p class="showcase-button-feedback" role="status">{{ feedback() }}</p>
     </good-main-view>
   `,
 })

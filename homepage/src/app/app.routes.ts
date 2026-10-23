@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { DemoPageComponent } from './demo-page';
+import { ShowcasePageComponent } from './showcase-page';
 import { ButtonsPageComponent } from './buttons-page';
 import { SwitchesPageComponent } from './switches-page';
 import { InputsPageComponent } from './inputs-page';
@@ -12,14 +12,20 @@ import { CardsPageComponent } from './cards-page';
 import { LinksPageComponent } from './links-page';
 
 const page = (title: string, description: string, landing = false) => ({
-  component: DemoPageComponent,
+  component: ShowcasePageComponent,
   data: { title, description, landing },
 });
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'account/home/get-started', pathMatch: 'full' },
+  { path: '', redirectTo: 'getting-started/introduction', pathMatch: 'full' },
+  { path: 'getting-started', redirectTo: 'getting-started/introduction', pathMatch: 'full' },
+  { path: 'getting-started/introduction', loadComponent: () => import('./getting-started-page').then(module => module.GettingStartedPageComponent), data: { chapter: 'introduction' } },
+  { path: 'getting-started/designing', loadComponent: () => import('./getting-started-page').then(module => module.GettingStartedPageComponent), data: { chapter: 'designing' } },
+  { path: 'getting-started/developing', loadComponent: () => import('./getting-started-page').then(module => module.GettingStartedPageComponent), data: { chapter: 'developing' } },
+  { path: 'getting-started/license', loadComponent: () => import('./getting-started-page').then(module => module.GettingStartedPageComponent), data: { chapter: 'license' } },
   { path: 'dashboard', ...page('Dashboard', 'Overview and key metrics') },
   { path: 'components/buttons', component: ButtonsPageComponent },
+  { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },
   { path: 'components/inputs', component: InputsPageComponent },
   { path: 'components/dropdowns', component: DropdownsPageComponent },
@@ -30,6 +36,7 @@ export const routes: Routes = [
   { path: 'components/cards', component: CardsPageComponent },
   { path: 'components/links', component: LinksPageComponent },
   { path: 'components/code-blocks', loadComponent: () => import('./code-blocks-page').then(module => module.CodeBlocksPageComponent) },
+  { path: 'components/modals', loadComponent: () => import('./modals-page').then(module => module.ModalsPageComponent) },
   { path: 'profile', ...page('Public Profile', 'Public profile') },
   { path: 'account/home/get-started', ...page('Account', 'Get Started', true) },
   { path: 'account/home/user-profile', ...page('User Profile', 'Account and personal information') },
@@ -50,13 +57,13 @@ export const routes: Routes = [
   { path: 'network', ...page('Network', 'Contacts and connections') },
   { path: 'store', ...page('Store', 'Products and services') },
   { path: 'help', ...page('Help', 'Help and support') },
-  { path: 'help/getting-started', ...page('Getting Started', 'Introduction and first steps') },
+  { path: 'help/getting-started', redirectTo: 'getting-started/introduction' },
   { path: 'help/forum/all', ...page('All Questions', 'Questions from the support forum') },
   { path: 'help/forum/popular', ...page('Popular Questions', 'Frequently read questions') },
   { path: 'help/forum/ask', ...page('Ask Question', 'Ask a new question') },
-  { path: 'help/licenses', ...page('Licenses & FAQ', 'Licenses and answers') },
-  { path: 'help/documentation', ...page('Documentation', 'Guides and reference') },
+  { path: 'help/licenses', redirectTo: 'getting-started/license' },
+  { path: 'help/documentation', redirectTo: 'getting-started/introduction' },
   { path: 'help/contact', ...page('Contact Us', 'Contact and support') },
   { path: 'sign-out', ...page('Log out', 'Connect this action to your application’s authentication provider.') },
-  { path: '**', redirectTo: 'account/home/get-started' },
+  { path: '**', redirectTo: 'getting-started/introduction' },
 ];

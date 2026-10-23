@@ -3,19 +3,19 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { GoodMainViewComponent, GoodRadioAppearance, GoodRadioGroupComponent, GoodRadioOption, GoodRadioSize } from '@goodui/angular';
 
 @Component({
-  selector: 'demo-radio-groups-page',
+  selector: 'showcase-radio-groups-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodRadioGroupComponent, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Radio groups" description="Single selection with brand and mono appearances">
       @for (appearance of appearances; track appearance) {
-        <section class="demo-showcase">
-          <div class="demo-showcase-heading">
+        <section class="showcase-section">
+          <div class="showcase-section-heading">
             <h2>{{ appearance === 'brand' ? 'Brand' : 'Mono' }} appearance</h2>
             <p>Each size is a separate native radio group. Arrow keys move between choices.</p>
           </div>
-          <div class="demo-radio-grid">
+          <div class="showcase-radio-grid">
             @for (size of sizes; track size) {
               <good-radio-group [label]="size + ' ' + appearance + ' plan'" [options]="plans" [size]="size"
                 [appearance]="appearance" [formControl]="control(appearance, size)" />
@@ -23,15 +23,15 @@ import { GoodMainViewComponent, GoodRadioAppearance, GoodRadioGroupComponent, Go
           </div>
         </section>
       }
-      <section class="demo-showcase">
-        <div class="demo-showcase-heading"><h2>Disabled group</h2><p>The selected value remains visible while the group is disabled.</p></div>
-        <div class="demo-radio-grid">
+      <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Disabled group</h2><p>The selected value remains visible while the group is disabled.</p></div>
+        <div class="showcase-radio-grid">
           <good-radio-group label="Brand appearance" [options]="delivery" [formControl]="disabledDelivery" />
           <good-radio-group label="Mono appearance" [options]="delivery" appearance="mono" [formControl]="disabledDeliveryMono" />
         </div>
       </section>
-      <section class="demo-showcase">
-        <div class="demo-showcase-heading"><h2>Horizontal layout</h2><p>Choices wrap when space is limited.</p></div>
+      <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Horizontal layout</h2><p>Choices wrap when space is limited.</p></div>
         <good-radio-group label="Visibility" [options]="visibility" orientation="horizontal" appearance="mono" [formControl]="visibilityControl" />
       </section>
     </good-main-view>

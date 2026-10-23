@@ -48,15 +48,23 @@ export class App {
     { id: 'sign-out', label: 'Log out', variant: 'sign-out', route: '/sign-out' },
   ]);
   readonly sidebarSections: readonly GoodSidebarSection[] = [
+    { id: 'getting-started', heading: 'GETTING STARTED', items: [
+      { id: 'introduction', label: 'Introduction', icon: 'book', route: '/getting-started/introduction' },
+      { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
+      { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
+      { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
+    ] },
     { id: 'dashboards', items: [{ id: 'dashboard', label: 'Dashboards', icon: 'dashboard', route: '/dashboard' }] },
     { id: 'components', heading: 'COMPONENTS', items: [
       { id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' },
+      { id: 'action-groups', label: 'Action groups', icon: 'menu', route: '/components/action-groups' },
       { id: 'switches', label: 'Switches', icon: 'settings', route: '/components/switches' },
       { id: 'checkboxes', label: 'Checkboxes', icon: 'check', route: '/components/checkboxes' },
       { id: 'radio-groups', label: 'Radio groups', icon: 'grid', route: '/components/radio-groups' },
       { id: 'cards', label: 'Cards', icon: 'card', route: '/components/cards' },
       { id: 'links', label: 'Links', icon: 'globe', route: '/components/links' },
       { id: 'code-blocks', label: 'Code blocks', icon: 'book', route: '/components/code-blocks' },
+      { id: 'modals', label: 'Modals', icon: 'grid', route: '/components/modals' },
       { id: 'inputs', label: 'Inputs', icon: 'grid', route: '/components/inputs' },
       { id: 'dropdowns', label: 'Dropdowns', icon: 'menu', route: '/components/dropdowns' },
       { id: 'breadcrumbs', label: 'Breadcrumbs', icon: 'chevron-right', route: '/components/breadcrumbs' },
@@ -79,13 +87,18 @@ export class App {
     ] },
   ];
   readonly topbarItems: readonly GoodTopbarItem[] = [
+    { id: 'getting-started', label: 'Getting Started', children: [
+      { id: 'introduction', label: 'Introduction', icon: 'book', route: '/getting-started/introduction' },
+      { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
+      { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
+      { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
+    ] },
     { id: 'home', label: 'Home', route: '/dashboard' },
     { id: 'profiles', label: 'Profiles', route: '/profile' },
     { id: 'account', label: 'My Account', route: '/account/home/get-started' },
     { id: 'network', label: 'Network', route: '/network' },
     { id: 'store', label: 'Store', route: '/store' },
     { id: 'help', label: 'Help', children: [
-      { id: 'getting-started', label: 'Getting Started', icon: 'calendar', route: '/help/getting-started' },
       { id: 'support-forum', label: 'Support Forum', icon: 'question', children: [
         { id: 'all-questions', label: 'All Questions', icon: 'book', route: '/help/forum/all' },
         { id: 'popular-questions', label: 'Popular Questions', icon: 'star', route: '/help/forum/popular' },
@@ -100,13 +113,19 @@ export class App {
     { id: 'welcome', title: 'Welcome to GoodUI', description: 'Notifications are provided by a reusable library component.', time: 'Today', read: false },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
+    { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },
+    { id: 'designing', label: 'Designing', description: 'Getting Started', route: '/getting-started/designing' },
+    { id: 'developing', label: 'Developing', description: 'Getting Started', route: '/getting-started/developing' },
+    { id: 'license', label: 'License', description: 'Getting Started', route: '/getting-started/license' },
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
+    { id: 'action-groups', label: 'Action groups', description: 'Horizontal, vertical, and responsive arrangements', route: '/components/action-groups' },
     { id: 'switches', label: 'Switches', description: 'States and form example', route: '/components/switches' },
     { id: 'checkboxes', label: 'Checkboxes', description: 'Tri-state brand and mono controls', route: '/components/checkboxes' },
     { id: 'radio-groups', label: 'Radio groups', description: 'Single selection in three sizes', route: '/components/radio-groups' },
     { id: 'cards', label: 'Cards', description: 'Headers, actions, images, and footers', route: '/components/cards' },
     { id: 'links', label: 'Links', description: 'Underlines, styles, and mono appearance', route: '/components/links' },
     { id: 'code-blocks', label: 'Code blocks', description: 'Highlighted source, copy, and expandable previews', route: '/components/code-blocks' },
+    { id: 'modals', label: 'Modals', description: 'Focused dialogs, flexible layouts, and nested flows', route: '/components/modals' },
     { id: 'inputs', label: 'Inputs', description: 'Text and file controls', route: '/components/inputs' },
     { id: 'dropdowns', label: 'Dropdowns', description: 'Button-based menus and placement', route: '/components/dropdowns' },
     { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },

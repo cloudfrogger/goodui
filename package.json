@@ -6,12 +6,11 @@
     "check:mapping": "node scripts/check-component-map.mjs",
     "tokens:generate": "node scripts/generate-tokens.mjs",
     "tokens:check": "node scripts/generate-tokens.mjs --check",
-    "brand:sync": "node scripts/sync-demo-brand.mjs",
-    "setup": "npm --prefix angular ci --legacy-peer-deps && npm run build:lib && npm --prefix demo1 ci --legacy-peer-deps && npm run link:demo && npm --prefix doc ci",
+    "brand:sync": "node scripts/sync-homepage-brand.mjs",
+    "setup": "npm --prefix angular ci --legacy-peer-deps && npm run build:lib && npm --prefix homepage ci --legacy-peer-deps && npm run link:homepage",
     "build:lib": "npm --prefix angular run build:lib",
-    "link:demo": "npm --prefix demo1 run link:goodui",
-    "build:demo": "npm run brand:sync && npm run build:lib && npm run link:demo && npm --prefix demo1 run build",
-    "start:demo": "npm run brand:sync && npm run build:lib && npm run link:demo && npm --prefix demo1 start",
-    "build:docs": "npm --prefix doc run build"
+    "link:homepage": "npm --prefix homepage run link:goodui",
+    "build:homepage": "npm run brand:sync && npm run build:lib && npm run link:homepage && npm --prefix homepage run build",
+    "start:homepage": "npm run brand:sync && npm run build:lib && npm run link:homepage && npm --prefix homepage start"
   }
 }

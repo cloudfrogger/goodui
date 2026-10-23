@@ -5,20 +5,20 @@ import { GoodCheckboxAppearance, GoodCheckboxComponent, GoodCheckboxSize, GoodMa
 type CheckboxRow = { label: string; value: boolean | null; disabled: boolean };
 
 @Component({
-  selector: 'demo-checkboxes-page',
+  selector: 'showcase-checkboxes-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodCheckboxComponent, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Checkboxes" description="Three states, two color styles, and three sizes">
       @for (appearance of appearances; track appearance) {
-        <section class="demo-showcase">
-          <div class="demo-showcase-heading">
+        <section class="showcase-section">
+          <div class="showcase-section-heading">
             <h2>{{ appearance === 'brand' ? 'Brand' : 'Mono' }} appearance</h2>
             <p>Indeterminate becomes unchecked on the first click. Disabled controls keep their state.</p>
           </div>
-          <div class="demo-button-table-wrap" role="region" [attr.aria-label]="appearance + ' checkbox sizes; scroll horizontally to compare'" tabindex="0">
-            <table class="demo-switch-table demo-checkbox-table">
+          <div class="showcase-button-table-wrap" role="region" [attr.aria-label]="appearance + ' checkbox sizes; scroll horizontally to compare'" tabindex="0">
+            <table class="showcase-switch-table showcase-checkbox-table">
               <thead><tr><th scope="col">State</th>@for (size of sizes; track size) { <th scope="col">{{ size }}</th> }</tr></thead>
               <tbody>
                 @for (row of rows; track row.label) {
@@ -32,11 +32,11 @@ type CheckboxRow = { label: string; value: boolean | null; disabled: boolean };
               </tbody>
             </table>
           </div>
-          <p class="demo-switch-scroll-hint">Scroll horizontally to compare all three sizes.</p>
+          <p class="showcase-switch-scroll-hint">Scroll horizontally to compare all three sizes.</p>
         </section>
       }
-      <section class="demo-showcase">
-        <div class="demo-showcase-heading"><h2>With a visible label</h2><p>Click the label or use Space while the checkbox has focus.</p></div>
+      <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>With a visible label</h2><p>Click the label or use Space while the checkbox has focus.</p></div>
         <good-checkbox label="Include archived projects" [showLabel]="true" [formControl]="includeArchived" />
       </section>
     </good-main-view>

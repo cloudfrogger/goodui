@@ -11,13 +11,13 @@ type SwitchRow = { label: string; status: 'default' | 'disabled' | 'error'; init
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Switches" description="Theme-aware on/off controls in three sizes, with disabled and error states.">
-      <section class="demo-showcase" aria-labelledby="switch-matrix-title">
-        <div class="demo-showcase-heading">
+      <section class="showcase-section" aria-labelledby="switch-matrix-title">
+        <div class="showcase-section-heading">
           <h2 id="switch-matrix-title">Switch states</h2>
           <p>Active switches can be changed. Disabled switches keep their value; errors keep the on/off meaning.</p>
         </div>
-        <div class="demo-button-table-wrap" role="region" aria-label="Switch sizes; scroll horizontally to compare all sizes" tabindex="0">
-          <table class="demo-switch-table">
+        <div class="showcase-button-table-wrap" role="region" aria-label="Switch sizes; scroll horizontally to compare all sizes" tabindex="0">
+          <table class="showcase-switch-table">
             <thead><tr><th scope="col">State</th>@for (size of sizes; track size) { <th scope="col">{{ size }}</th> }</tr></thead>
             <tbody>
               @for (row of rows; track row.label) {
@@ -32,14 +32,14 @@ type SwitchRow = { label: string; status: 'default' | 'disabled' | 'error'; init
             </tbody>
           </table>
         </div>
-        <p class="demo-switch-scroll-hint">Scroll horizontally to compare all three sizes.</p>
-        <p id="switch-error-help" class="demo-button-feedback">The red outline marks invalid input. Fixing the related field clears the error state.</p>
+        <p class="showcase-switch-scroll-hint">Scroll horizontally to compare all three sizes.</p>
+        <p id="switch-error-help" class="showcase-button-feedback">The red outline marks invalid input. Fixing the related field clears the error state.</p>
       </section>
-      <section class="demo-showcase" aria-labelledby="switch-mono-title">
-        <div class="demo-showcase-heading"><h2 id="switch-mono-title">Mono style</h2><p>The on track follows the theme text color instead of the brand color.</p></div>
-        <div class="demo-switch-mono-grid">
+      <section class="showcase-section" aria-labelledby="switch-mono-title">
+        <div class="showcase-section-heading"><h2 id="switch-mono-title">Mono style</h2><p>The on track follows the theme text color instead of the brand color.</p></div>
+        <div class="showcase-switch-mono-grid">
           @for (size of sizes; track size) {
-            <div class="demo-switch-mono-row">
+            <div class="showcase-switch-mono-row">
               <strong>{{ size }}</strong>
               <good-switch [label]="size + ' mono off'" [size]="size" appearance="mono" />
               <good-switch [label]="size + ' mono on'" [size]="size" appearance="mono" [checked]="true" />
@@ -48,8 +48,8 @@ type SwitchRow = { label: string; status: 'default' | 'disabled' | 'error'; init
           }
         </div>
       </section>
-      <section class="demo-showcase" aria-labelledby="switch-form-title">
-        <div class="demo-showcase-heading"><h2 id="switch-form-title">Form control</h2><p>The same component works with Angular reactive forms.</p></div>
+      <section class="showcase-section" aria-labelledby="switch-form-title">
+        <div class="showcase-section-heading"><h2 id="switch-form-title">Form control</h2><p>The same component works with Angular reactive forms.</p></div>
         <good-switch label="Email notifications" [showLabel]="true" [formControl]="notifications" />
       </section>
     </good-main-view>

@@ -6,14 +6,14 @@ import {
 } from '@goodui/angular';
 
 @Component({
-  selector: 'demo-cards-page',
+  selector: 'showcase-cards-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCardFooterComponent,
     GoodCardActionsDirective, GoodButtonComponent, GoodActionMenuComponent, GoodLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Cards" description="Bordered content with optional headers, actions, images, and footers">
-      <div class="demo-card-showcase-grid">
+      <div class="showcase-card-showcase-grid">
         <good-card>
           <h2>Border-only card</h2>
           <p>The card owns its border, corners, surface, and content padding. Add only the content your page needs.</p>
@@ -52,7 +52,7 @@ import {
           </good-card-footer>
         </good-card>
       </div>
-      <p class="demo-card-action-status" role="status">{{ lastAction() }}</p>
+      <p class="showcase-card-action-status" role="status">{{ lastAction() }}</p>
     </good-main-view>
   `,
 })

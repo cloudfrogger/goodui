@@ -9,9 +9,9 @@ const assets = [
 
 for (const [source, destination] of assets) {
   await copyFile(
-    new URL(`../doc/static/img/${source}`, import.meta.url),
-    new URL(`../demo1/public/${destination}`, import.meta.url),
+    new URL(`../assets/brand/${source}`, import.meta.url),
+    new URL(`../homepage/public/${destination}`, import.meta.url),
   );
 }
 
-console.log('Synced Penpot brand SVG exports to the Angular demo.');
+console.log('Synced Penpot brand SVG exports to the GoodUI homepage.');

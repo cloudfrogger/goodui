@@ -3,28 +3,28 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem, LucideCircleQuestionMark, LucideEllipsis } from '@goodui/angular';
 
 @Component({
-  selector: 'app-demo-page',
+  selector: 'app-showcase-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodIconComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view [title]="title" [description]="description" [subnavItems]="isAccount ? subnavItems : []" [subnavActions]="isAccount ? subnavActions : []" [subnavLabel]="'Account sections'">
       @if (landing) {
-        <div class="demo-card-grid">
+        <div class="showcase-card-grid">
           @for (card of cards; track card.title) {
-            <a class="demo-card" [routerLink]="card.route">
-              <span class="demo-card-icon"><good-icon [name]="card.icon" /></span>
+            <a class="showcase-card" [routerLink]="card.route">
+              <span class="showcase-card-icon"><good-icon [name]="card.icon" /></span>
               <h2>{{ card.title }}</h2><p>{{ card.description }}</p>
             </a>
           }
         </div>
       } @else {
-        <section class="demo-card"><h2>{{ title }}</h2><p>{{ description }}. This page demonstrates GoodUI navigation and the MainView component.</p></section>
+        <section class="showcase-card"><h2>{{ title }}</h2><p>{{ description }}. Explore this area using GoodUI navigation.</p></section>
       }
     </good-main-view>
   `,
 })
-export class DemoPageComponent {
+export class ShowcasePageComponent {
   private readonly route = inject(ActivatedRoute);
   readonly subnavActions: readonly GoodSubnavAction[] = [
     { id: 'help', label: 'Help', icon: LucideCircleQuestionMark, route: '/help' },

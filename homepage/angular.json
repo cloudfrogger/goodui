@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "demo1": {
+    "homepage": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -59,10 +59,10 @@
           "options": { "prebundle": { "exclude": ["@goodui/angular"] } },
           "configurations": {
             "production": {
-              "buildTarget": "demo1:build:production"
+              "buildTarget": "homepage:build:production"
             },
             "development": {
-              "buildTarget": "demo1:build:development"
+              "buildTarget": "homepage:build:development"
             }
           },
           "defaultConfiguration": "development"
