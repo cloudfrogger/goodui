@@ -1,0 +1,26 @@
+<good-main-view title="Developing" description="Getting Started with GoodUI">
+  <div class="homepage-guide">
+    <good-card>
+      <good-card-header title="Create your first GoodUI app" />
+      <div class="homepage-prose">
+        <p>GoodUI currently ships as a locally built package and targets Angular 21.2. You need Node.js 20.19 or newer. From a directory where you want both projects, build GoodUI and create an Angular app:</p>
+        <good-code-block [code]="setupCode" language="bash" title="terminal" />
+        <p>Add the compiled GoodUI stylesheet to <code>src/styles.css</code>:</p>
+        <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
+        <p>Replace <code>src/app/app.ts</code> with a small page:</p>
+        <good-code-block [code]="helloCode" language="typescript" title="src/app/app.ts" />
+        <p>The <code>--routing</code> option creates the router configuration required by <code>good-app-layout</code>. Start the app with <code>npm start</code> and open <code>http://localhost:4200/</code>. GoodUI's compiled CSS works without Tailwind in the consuming app.</p>
+      </div>
+    </good-card>
+    <good-card>
+      <good-card-header title="Add GoodUI to an existing Angular app" />
+      <div class="homepage-prose">
+        <p>Build GoodUI with the first four commands above. In your Angular 21.2 project, run <code>npm install /path/to/goodui/angular/dist/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</p>
+        <p>Ensure the app provides Angular Router, for example with <code>provideRouter(routes)</code> in <code>app.config.ts</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</p>
+        <p>To run this repository's website and component examples:</p>
+        <good-code-block [code]="homepageCode" language="bash" title="terminal" />
+        <p>Open <code>http://localhost:4200/</code>. Explore the <good-link href="https://github.com/cloudfrogger/goodui/tree/master/guides" target="_blank">component and layout guides</good-link> for more examples.</p>
+      </div>
+    </good-card>
+  </div>
+</good-main-view>

@@ -49,6 +49,7 @@ GoodUI is intended to be a generic, reusable UI framework. Review every componen
 ## Reference material
 
 - The Angular `homepage/` contains the public Getting Started content and component examples. `guides/` retains plain Markdown reference material; there is no separate documentation application or documentation build.
+- Edit Getting Started prose and component markup in `homepage/src/app/getting-started/*.html`. Keep page classes focused on Angular bindings and code sample data; update the matching HTML when a chapter changes.
 - The Penpot ID registry is in `guides/contributing/design-to-code.md`. Keep stable IDs and the component mapping accurate when the design or Angular API changes.
 - Verify published Angular examples against `angular/projects/goodui/src/public-api.ts`.
 

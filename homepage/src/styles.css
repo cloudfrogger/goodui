@@ -3,6 +3,21 @@
 
 body { margin: 0; }
 
+.showcase-typography-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--good-typography-flow-section-gap); min-width: 0; }
+.showcase-typography-layout > .showcase-section { min-width: 0; }
+.showcase-typography-heading-examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--good-typography-flow-section-gap); }
+.showcase-typography-example { display: grid; align-content: start; gap: var(--good-typography-flow-gap); min-width: 0; }
+.showcase-typography-recipes { display: grid; min-width: 0; }
+.showcase-typography-recipe { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: start; gap: var(--good-typography-flow-section-gap); min-width: 0; padding: var(--good-typography-flow-gap) 0; border-top: 1px solid var(--good-card-border); }
+.showcase-typography-preview { display: grid; align-content: start; gap: var(--good-typography-flow-gap); min-width: 0; }
+.showcase-typography-preview > strong { color: var(--good-text); font-size: 13px; font-weight: 600; }
+.showcase-typography-preview > good-prose { width: 100%; }
+.showcase-typography-example > good-code-block, .showcase-typography-recipe > good-code-block { min-width: 0; }
+.showcase-typography-import-note { margin: 0 0 var(--good-typography-flow-gap); }
+.showcase-typography-composition > good-code-block + good-code-block { display: block; margin-top: var(--good-typography-flow-gap); }
+@media (max-width: 900px) { .showcase-typography-recipe { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) { .showcase-typography-heading-examples { grid-template-columns: 1fr; } }
+
 .homepage-guide { display: grid; gap: 24px; width: min(100%, 980px); }
 .homepage-prose { display: grid; gap: 16px; line-height: 1.7; }
 .homepage-prose p { margin: 0; }

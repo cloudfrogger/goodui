@@ -1,0 +1,136 @@
+<good-main-view title="Typography" eyebrow="CONTENT SYSTEM" description="Reusable text elements with consistent rhythm for pages and forms.">
+  <div class="showcase-typography-layout">
+    <section class="showcase-section">
+      <div class="showcase-section-heading"><h2>Page headings</h2><p>Eyebrow and summary are optional. The heading remains a real HTML heading.</p></div>
+      <div class="showcase-typography-heading-examples">
+        <div class="showcase-typography-example">
+          <good-heading-group>
+            <good-eyebrow>Workspace overview</good-eyebrow>
+            <good-heading [level]="3">A clear page title</good-heading>
+            <good-summary>A short summary gives the page more context than a regular paragraph.</good-summary>
+          </good-heading-group>
+          <good-code-block [code]="headingCode" language="html" title="Heading with summary" />
+        </div>
+        <div class="showcase-typography-example">
+          <good-heading-group>
+            <good-eyebrow appearance="mono">A quieter category</good-eyebrow>
+            <good-heading [level]="3">A heading can stand alone</good-heading>
+          </good-heading-group>
+          <good-code-block [code]="monoHeadingCode" language="html" title="Mono eyebrow" />
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase-section">
+      <div class="showcase-section-heading"><h2>Content flow</h2><p>Use <code>good-prose</code> to provide spacing and reading width for its children. Each example includes its Angular template.</p></div>
+      <div class="showcase-typography-recipes">
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Paragraph</strong>
+            <good-prose>
+              <good-paragraph>GoodUI gives paragraphs a consistent reading rhythm.</good-paragraph>
+              <good-paragraph>Place related paragraphs directly inside a prose container.</good-paragraph>
+            </good-prose>
+          </div>
+          <good-code-block [code]="paragraphCode" language="html" title="Paragraph · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Subheading</strong>
+            <good-prose>
+              <good-subheading [level]="3">A new section</good-subheading>
+              <good-paragraph>The following paragraph sits closer to its subheading.</good-paragraph>
+            </good-prose>
+          </div>
+          <good-code-block [code]="subheadingCode" language="html" title="Subheading · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Citation</strong>
+            <good-prose><good-citation source="Example quotation">“A useful interface gives its content room to breathe.”</good-citation></good-prose>
+          </div>
+          <good-code-block [code]="citationCode" language="html" title="Citation · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Separators</strong>
+            <good-prose>
+              <good-separator />
+              <good-separator variant="line" />
+            </good-prose>
+          </div>
+          <good-code-block [code]="separatorCode" language="html" title="Separators · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Centered image</strong>
+            <good-prose>
+              <good-inline-image src="/card-header-art.svg" alt="Abstract blue and teal waves" caption="An optional caption stays close to the image." />
+            </good-prose>
+          </div>
+          <good-code-block [code]="imageCode" language="html" title="Centered image · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Left-aligned image</strong>
+            <good-prose>
+              <good-inline-image align="left" src="/card-header-art.svg" alt="Abstract blue and teal waves" caption="Left-aligned image" />
+            </good-prose>
+          </div>
+          <good-code-block [code]="leftImageCode" language="html" title="Left-aligned image · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Right-aligned image</strong>
+            <good-prose>
+              <good-inline-image align="right" src="/card-header-art.svg" alt="Abstract blue and teal waves" caption="Right-aligned image" />
+            </good-prose>
+          </div>
+          <good-code-block [code]="rightImageCode" language="html" title="Right-aligned image · Angular template" />
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase-section">
+      <div class="showcase-section-heading"><h2>Form text</h2><p>Labels, required marks, hints, and errors sit on the same spacing scale as controls.</p></div>
+      <div class="showcase-typography-recipes">
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Label and hint</strong>
+            <good-form-field>
+              <good-field-label forId="typography-email" [required]="true">Email address</good-field-label>
+              <good-input inputId="typography-email" label="Email address" type="email" [required]="true" describedBy="typography-email-hint" placeholder="name@example.com" />
+              <good-hint id="typography-email-hint">We use this address for account updates.</good-hint>
+            </good-form-field>
+          </div>
+          <good-code-block [code]="hintCode" language="html" title="Label and hint · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Error text</strong>
+            <good-form-field>
+              <good-field-label forId="typography-code" [required]="true">Verification code</good-field-label>
+              <good-input inputId="typography-code" label="Verification code" [required]="true" [error]="true" describedBy="typography-code-error" placeholder="Enter your code" />
+              <good-error-text id="typography-code-error">Enter the six-digit code from your email.</good-error-text>
+            </good-form-field>
+          </div>
+          <good-code-block [code]="errorCode" language="html" title="Error text · Angular template" />
+        </div>
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Built-in input label</strong>
+            <good-input label="Required field" inputId="typography-built-in" [showLabel]="true" [required]="true" placeholder="Enter a value" />
+          </div>
+          <good-code-block [code]="inputLabelCode" language="html" title="Built-in label · Angular template" />
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase-section showcase-typography-composition">
+      <div class="showcase-section-heading"><h2>Composition</h2><p>These elements can be reused without page-specific margin rules.</p></div>
+      <p class="showcase-typography-import-note">Import the standalone components in the Angular component that owns your template:</p>
+      <good-code-block [code]="importsCode" language="typescript" title="page.ts" />
+      <good-code-block [code]="exampleCode" language="html" title="page.html" />
+    </section>
+  </div>
+</good-main-view>
