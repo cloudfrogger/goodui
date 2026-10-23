@@ -10,6 +10,7 @@ const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-
 const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadcrumbs-variants.json'), 'utf8'));
 const badgeVariants = JSON.parse(readFileSync(resolve(root, 'design/badge-variants.json'), 'utf8'));
 const checkboxVariants = JSON.parse(readFileSync(resolve(root, 'design/checkbox-variants.json'), 'utf8'));
+const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-group-variants.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
@@ -86,6 +87,13 @@ checkMatrix(checkboxVariants.variants, [
   ['appearance', ['brand', 'mono']], ['state', ['unchecked', 'checked', 'indeterminate']],
   ['size', ['small', 'default', 'large']], ['status', ['default', 'disabled']],
 ], checkboxExpected, 'Checkbox', new Set());
+if (radioGroupVariants.family !== 'goodui.radio-group' || radioGroupVariants.selector !== 'good-radio-group' || !radioGroupVariants.containerId || radioGroupVariants.page !== '07 Radio Groups') throw new Error('Radio group variants must map to good-radio-group on 07 Radio Groups.');
+const radioExpected = [];
+for (const appearance of ['brand', 'mono']) for (const size of ['small', 'default', 'large']) for (const selection of ['none', 'selected']) for (const status of ['default', 'disabled']) radioExpected.push(`${appearance}/${size}/${selection}/${status}`);
+checkMatrix(radioGroupVariants.variants, [
+  ['appearance', ['brand', 'mono']], ['size', ['small', 'default', 'large']],
+  ['selection', ['none', 'selected']], ['status', ['default', 'disabled']],
+], radioExpected, 'Radio group', new Set());
 const inputExpected = [];
 for (const kind of ['text', 'file']) for (const size of ['small', 'default', 'large']) for (const status of (kind === 'text' ? ['default', 'readonly', 'disabled', 'error'] : ['default', 'disabled', 'error'])) inputExpected.push(`${kind}/${size}/${status}`);
 checkMatrix(inputVariants.variants, [['kind', ['text', 'file']], ['size', ['small', 'default', 'large']], ['status', ['default', 'readonly', 'disabled', 'error']]], inputExpected, 'Input');
@@ -131,4 +139,4 @@ checkMatrix(badgeVariants.variants, [
   ['size', ['small', 'default', 'large']],
 ], badgeExpected, 'Badge', new Set());
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
-console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch and ${checkboxVariants.variants.length} Checkbox variants.`);
+console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, and ${radioGroupVariants.variants.length} Radio group variants.`);

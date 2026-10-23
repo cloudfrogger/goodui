@@ -37,6 +37,10 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `checkbox.unchecked.background` / `checkbox.<appearance>.unchecked.border` | `--good-checkbox-*` | Checkbox box fill and outline | Unchecked state |
 | `checkbox.<appearance>.selected.background/mark` | `--good-checkbox-*` | Checkbox fill and vector stroke | Checked and indeterminate states |
 | `checkbox.size.<size>.box/mark` / `checkbox.radius` | `--good-checkbox-size-<size>-*` / `--good-checkbox-radius` | Checkbox board and mark wrapper size, box corners | Three control sizes |
+| `radio.unchecked.background` / `radio.<appearance>.unchecked.border` | `--good-radio-*` | Radio indicator fill and border | Unselected choices |
+| `radio.<appearance>.selected.color` | `--good-radio-<appearance>-selected-color` | Selected indicator border and dot | Brand or mono selection |
+| `radio.size.<size>.indicator/dot` / `radio.radius` | `--good-radio-size-<size>-*` / `--good-radio-radius` | Radio indicator and dot size and rounded corners | Small, default, and large choices |
+| `radio.legend.gap` / `radio.group.gap` / `radio.option.gap` | `--good-radio-*-gap` | Legend, option list, and indicator-to-label spacing | Radio Group flex layout |
 | `radius.switch` | `--good-radius-switch` | Switch track corners | Pill radius |
 | `radius.control` / `radius.compact` | `--good-radius-control` / `--good-radius-compact` | Input outer and file-button corners | Shared 6 px controls and 4 px compact details |
 | `control.input-height-*` / `control.input-icon-size-*` | `--good-control-input-height-*` / `--good-control-input-icon-size-*` | Input and addon dimensions | Button-aligned 32/40/48 px controls and 14/16/20 px icons |
@@ -79,6 +83,8 @@ Dropdown adds 18 `layout` tokens. Its Panel and Item main components bind the su
 Badge adds semantic colors for warning, success, and info, with dark theme overrides. `secondary` solid references the secondary Button background and foreground; `text` follows the theme text role. Its 126 Penpot variants bind fills, text, height, inline padding, gap, icon size, font size, and four corner radii to the same names used in generated CSS. `fontSizes` is supported by the current Penpot token catalog and the generator. The [Badge variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/badge-variants.json) maps every visual combination to `good-badge`. A temporary change to base `color.warning` changed the bound solid Badge fill; a temporary alias change to `badge.warning.solid.background` changed it to brand blue. Both original values were restored. In Penpot dark mode the solid warning, success, and info fills resolved to `#FBBF24`, `#4ADE80`, and `#38BDF8`, with dark text; secondary resolved to `#18181B` with light text. The live catalog and repository snapshot matched by name, type, and value: 197 tokens in `layout` and 34 in `layout-dark`.
 
 The 2 px generic brand mark and circular avatar-image masks are geometric details outside the control/card radius scale. Popovers and invisible native inputs still use absolute positioning to overlay their triggers; regular control content uses flex layout.
+
+Radio Group adds 15 `layout` tokens with semantic roles separate from Checkbox. Its 24 Penpot variants bind the option indicator, dot, radius, and flex gaps to those roles; the [Radio Group variant manifest](https://github.com/cloudfrogger/goodui/blob/master/design/radio-group-variants.json) records every ID. A temporary `color.text` change moved the bound mono dot, and a temporary `radio.mono.selected.color` change moved it to brand blue. Both values were restored. In the dark theme, the brand dot resolved to `#3B82F6`, the mono dot to `#FAFAFA`, and the indicator surface to `#09090B`. The Penpot catalog and repository snapshot matched across 229 `layout` and 34 `layout-dark` tokens before CSS generation.
 
 ## Export and generation
 

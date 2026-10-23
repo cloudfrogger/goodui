@@ -9,6 +9,7 @@ export * from './lib/subnav';
 export * from './lib/button';
 export * from './lib/switch';
 export * from './lib/checkbox';
+export * from './lib/radio-group';
 export * from './lib/input';
 export * from './lib/dropdown';
 export * from './lib/breadcrumbs';

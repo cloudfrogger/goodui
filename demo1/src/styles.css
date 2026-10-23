@@ -27,6 +27,8 @@ body { margin: 0; }
 .demo-switch-table tbody th { font-weight: 500; }
 .demo-checkbox-table { min-width: 480px; table-layout: fixed; }
 .demo-checkbox-table tbody th, .demo-checkbox-table thead th:first-child { width: 165px; }
+.demo-radio-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 900px) { .demo-radio-grid { grid-template-columns: 1fr; } }
 .demo-switch-scroll-hint { display: none; margin: 10px 0 0; color: var(--good-muted); font-size: 12px; }
 .demo-switch-mono-grid { display: grid; gap: 8px; max-width: 460px; }
 .demo-switch-mono-row { display: grid; grid-template-columns: 100px repeat(3, 1fr); align-items: center; gap: 12px; }

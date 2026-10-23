@@ -1,0 +1,196 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "07 Radio Groups",
+  "family": "goodui.radio-group",
+  "selector": "good-radio-group",
+  "containerId": "c0c3286f-e4bf-804c-8008-d527a8bca171",
+  "axes": {
+    "appearance": [
+      "brand",
+      "mono"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "selection": [
+      "none",
+      "selected"
+    ],
+    "status": [
+      "default",
+      "disabled"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762ebe541",
+      "appearance": "brand",
+      "size": "small",
+      "selection": "none",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762ed201a",
+      "appearance": "brand",
+      "size": "default",
+      "selection": "none",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762eeb317",
+      "appearance": "brand",
+      "size": "large",
+      "selection": "none",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762f01c57",
+      "appearance": "brand",
+      "size": "small",
+      "selection": "selected",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762f23637",
+      "appearance": "brand",
+      "size": "default",
+      "selection": "selected",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762f37f61",
+      "appearance": "brand",
+      "size": "large",
+      "selection": "selected",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762f4a360",
+      "appearance": "brand",
+      "size": "small",
+      "selection": "none",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762f5eeb3",
+      "appearance": "brand",
+      "size": "default",
+      "selection": "none",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762f71f62",
+      "appearance": "brand",
+      "size": "large",
+      "selection": "none",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762f8f6ff",
+      "appearance": "brand",
+      "size": "small",
+      "selection": "selected",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762fa7aa9",
+      "appearance": "brand",
+      "size": "default",
+      "selection": "selected",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762fc6214",
+      "appearance": "brand",
+      "size": "large",
+      "selection": "selected",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762fdd5c8",
+      "appearance": "mono",
+      "size": "small",
+      "selection": "none",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52762ff2f1a",
+      "appearance": "mono",
+      "size": "default",
+      "selection": "none",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5276300ef84",
+      "appearance": "mono",
+      "size": "large",
+      "selection": "none",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5276302aae8",
+      "appearance": "mono",
+      "size": "small",
+      "selection": "selected",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5276303e8df",
+      "appearance": "mono",
+      "size": "default",
+      "selection": "selected",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52763059b6e",
+      "appearance": "mono",
+      "size": "large",
+      "selection": "selected",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d5276306cf92",
+      "appearance": "mono",
+      "size": "small",
+      "selection": "none",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52763093d70",
+      "appearance": "mono",
+      "size": "default",
+      "selection": "none",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d527630a82a8",
+      "appearance": "mono",
+      "size": "large",
+      "selection": "none",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d527630c6454",
+      "appearance": "mono",
+      "size": "small",
+      "selection": "selected",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d527630df8b6",
+      "appearance": "mono",
+      "size": "default",
+      "selection": "selected",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d52763102fb6",
+      "appearance": "mono",
+      "size": "large",
+      "selection": "selected",
+      "status": "disabled"
+    }
+  ]
+}

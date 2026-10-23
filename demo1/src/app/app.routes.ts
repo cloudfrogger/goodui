@@ -7,6 +7,7 @@ import { DropdownsPageComponent } from './dropdowns-page';
 import { BreadcrumbsPageComponent } from './breadcrumbs-page';
 import { BadgesPageComponent } from './badges-page';
 import { CheckboxesPageComponent } from './checkboxes-page';
+import { RadioGroupsPageComponent } from './radio-groups-page';
 
 const page = (title: string, description: string, landing = false) => ({
   component: DemoPageComponent,
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'components/breadcrumbs', component: BreadcrumbsPageComponent },
   { path: 'components/badges', component: BadgesPageComponent },
   { path: 'components/checkboxes', component: CheckboxesPageComponent },
+  { path: 'components/radio-groups', component: RadioGroupsPageComponent },
   { path: 'profile', ...page('Public Profile', 'Public profile') },
   { path: 'account/home/get-started', ...page('Account', 'Get Started', true) },
   { path: 'account/home/user-profile', ...page('User Profile', 'Account and personal information') },

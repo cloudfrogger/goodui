@@ -8,7 +8,7 @@ const sidebars: SidebarsConfig = {
     {type: 'category', label: 'Components', collapsed: false, collapsible: false, items: [
       'components/sidebar', 'components/topbar', 'components/main-menu',
       'components/search', 'components/notifications', 'components/settings',
-      'components/avatar-menu', 'components/submenus', 'components/main-view', 'components/subnav', 'components/breadcrumbs', 'components/button', 'components/badge', 'components/switch', 'components/checkbox', 'components/input', 'components/dropdown', 'components/action-menu',
+      'components/avatar-menu', 'components/submenus', 'components/main-view', 'components/subnav', 'components/breadcrumbs', 'components/button', 'components/badge', 'components/switch', 'components/checkbox', 'components/radio-group', 'components/input', 'components/dropdown', 'components/action-menu',
     ]},
     {type: 'category', label: 'Contributing', collapsed: false, collapsible: false, items: ['contributing/design-to-code']},
   ],

@@ -28,6 +28,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Button | 32/40/48 px high by size, 6 px radius; optional leading Lucide icon or icon-only square | `Button` owns padding, border, focus, disabled state, and hit area |
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Checkbox | 16/20/24 px box; 44 × 44 px minimum hit area | `Checkbox` owns the native input, three-state transition, mark, focus, and disabled presentation |
+| Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
 | Dropdown | Button-sized trigger; 240 px token-based popup with 36 px item rows | `Dropdown` owns sections, placement, scrolling, nested items, and dismissal |
 | Breadcrumbs | 14 px labels, 8 px gaps; optional card border and 12 px radius | `Breadcrumbs` owns hierarchy, separators, overflow menu, and card frame |
@@ -108,6 +109,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.button` | Reusable action control with five variants, three sizes, and text/icon content options |
 | `goodui.switch` | Accessible on/off setting with three sizes, brand/mono appearance, and disabled/error presentation |
 | `goodui.checkbox` | Native three-state selection with brand/mono appearance, three sizes, and disabled presentation |
+| `goodui.radio-group` | Exclusive native choice group with brand/mono appearance, three sizes, and disabled presentation |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
 | `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
 | `goodui.dropdown` | Button-based trigger and positioned popup with click or hover activation |
@@ -150,6 +152,12 @@ The Penpot Lucide source shapes use 24 px vector geometry. Their linked Button i
 ### Switch
 
 The `goodui.switch` Penpot variant group on `03 Controls` has `state=off/on`, `size=small/default/large`, `status=default/disabled/error`, and `appearance=brand/mono`. Its 36 published variants map to `good-switch`; the original 18 IDs remain the brand variants. `state` maps to `checked`, `size` and `appearance` map directly to inputs, and `status` maps to `disabled` or `error`. The complete library-ID map is `design/switch-variants.json`. Each variant keeps a token-bound track and thumb as editable shapes. Mono uses theme text color for the on track, a surface thumb when on, and a text-colored thumb when off; no brand blue appears in its normal state or focus ring. Disabled variants are dimmed; error variants retain a semantic error outline. If `disabled` and `error` are both true at runtime, disabled styling takes priority.
+
+### Radio group
+
+`good-radio-group` is the reusable exclusive-choice container. It accepts a required `label` and `options` array of unique string values and visible option labels. A native `fieldset` and `legend` give the group its accessible name; each option contains a native radio input. `value` is a two-way `string | null` model and Angular forms use the same value through ControlValueAccessor. The group can be disabled through its input or a form control; individual options may also be disabled. `size=small/default/large` selects 16/20/24 px indicators, and `appearance=brand/mono` chooses brand or theme text color for the selected dot and ring. The optional horizontal orientation wraps its items; vertical is the default. The group owns 44 px minimum choice heights, item spacing, and focus styling.
+
+Penpot publishes 24 `goodui.radio-group` variants on `07 Radio Groups` with axes `appearance=brand/mono`, `size=small/default/large`, `selection=none/selected`, and `status=default/disabled`. The `selected` specimen selects its second option. Each Penpot specimen shows three choices; the Angular `options` array supplies runtime labels and count, so neither is a variant axis. `design/radio-group-variants.json` records every library ID. The group uses flex layout: the root owns legend spacing, its options container owns row spacing, and each option owns indicator-to-label spacing. The indicator and dot bind their dimensions and colors to distinct `radio.*` roles, including aliases to the theme-aware base colors.
 
 ### Checkbox
 
@@ -233,7 +241,7 @@ The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizi
 
 ## Penpot inventory
 
-File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, and `06 Checkboxes`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
+File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, and `07 Radio Groups`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
 
 `04 Logos` contains 14 reusable brand assets: light and dark wordmarks, standalone symbols, square symbols, glossy square symbols, and three badge styles in both appearances. The names use `goodui.logo.<form>.<appearance>`; the complete IDs are in [Design to Angular](doc/docs/contributing/design-to-code.md). These are product artwork assets, not UI component families, so they have no Angular selector. Both wordmarks and both standalone symbols have transparent, editable Penpot vector paths traced from the supplied PNGs. Their direct SVG exports are `doc/static/img/goodui-logo-light.svg`, `goodui-logo-dark.svg`, `goodui-mark.svg`, and `goodui-mark-dark.svg`. The Angular demo copies both symbol exports as favicons and selects one according to its active GoodUI theme. Square symbols, glossy square symbols, and badges still use image fills that preserve their original backgrounds and effects. A traced vector can differ slightly from its raster source; review each exported SVG against the artwork after any brand update.
 
