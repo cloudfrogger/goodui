@@ -3,7 +3,7 @@
   "families": [
     { "family": "heading-group", "selector": "good-heading-group", "componentId": "c0c3286f-e4bf-804c-8008-d58d09f60369", "composition": ["eyebrow", "heading", "summary"] },
     { "family": "eyebrow", "selector": "good-eyebrow", "containerId": "c0c3286f-e4bf-804c-8008-d58daec5d3f8", "input": "appearance", "variants": { "brand": "c0c3286f-e4bf-804c-8008-d58ca0985d81", "mono": "c0c3286f-e4bf-804c-8008-d58ca09a0f4b" } },
-    { "family": "heading", "selector": "good-heading", "componentId": "c0c3286f-e4bf-804c-8008-d58c723ff455", "input": "level", "note": "Penpot shows the page heading; levels 1 through 6 are semantic runtime choices." },
+    { "family": "heading", "selector": "good-heading", "containerId": "c0c3286f-e4bf-804c-8008-d5d1ac3b1e56", "input": "level", "variants": { "1": "c0c3286f-e4bf-804c-8008-d58c723ff455", "2-6": "c0c3286f-e4bf-804c-8008-d5d1a6fa0770" }, "note": "Level 1 uses the stronger page-title weight; levels 2 through 6 use the regular heading weight and their semantic HTML tags." },
     { "family": "summary", "selector": "good-summary", "componentId": "c0c3286f-e4bf-804c-8008-d58ca09bab16" },
     { "family": "section", "selector": "good-section", "componentId": "c0c3286f-e4bf-804c-8008-d59bac524010", "composition": ["subheading", "prose"], "note": "A readable semantic section; its heading and content use linked Typography instances." },
     { "family": "prose", "selector": "good-prose", "componentId": "c0c3286f-e4bf-804c-8008-d58d0a7628e8", "composition": ["paragraph", "subheading", "citation"] },

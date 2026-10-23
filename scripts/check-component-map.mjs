@@ -186,7 +186,7 @@ checkMatrix(badgeVariants.variants, [
 ], badgeExpected, 'Badge', new Set());
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
 const typographyExpected = new Map([
-  ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', null], ['summary', null],
+  ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', ['1', '2-6']], ['summary', null],
   ['section', null], ['prose', null], ['paragraph', null], ['subheading', null], ['citation', null],
   ['separator', ['dots', 'line']], ['inline-image', ['center', 'left', 'right']],
   ['form-field', ['default', 'error']], ['field-label', ['false', 'true']],

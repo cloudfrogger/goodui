@@ -26,7 +26,7 @@ export class GoodEyebrowComponent {
 @Component({
   selector: 'good-heading', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgTemplateOutlet],
-  host: { class: 'good-heading' },
+  host: { class: 'good-heading', '[attr.data-level]': 'level()' },
   template: `
     <ng-template #content><ng-content /></ng-template>
     @switch (level()) {

@@ -4,7 +4,7 @@ GoodUI Typography supplies content structure and spacing without page-specific m
 
 ## Page heading
 
-`good-heading-group` arranges an optional `good-eyebrow`, a `good-heading`, and an optional `good-summary`. Eyebrow defaults to the brand color and accepts `appearance="mono"`. Summary uses the same 14 px size as regular text but a stronger weight. `good-heading` renders a real heading tag according to `level` (1–6, default 1). `good-main-view` already composes these elements for its `eyebrow`, `title`, and `description` inputs.
+`good-heading-group` arranges an optional `good-eyebrow`, a `good-heading`, and an optional `good-summary`. Eyebrow defaults to the brand color and accepts `appearance="mono"`. The Summary uses 15 px text, weight 700, and 0.75 px letter spacing (0.05em at this fixed size) so it reads as a distinct lead-in above 14 px paragraphs without overpowering the title in multi-line copy. `good-heading` renders a real heading tag according to `level` (1–6, default 1). H1 uses 24 px and weight 800, with a 16 px gap below it when followed by Summary in a HeadingGroup or by page content in MainView; H2–H6 use 20 px and weight 600 with the compact 4 px gap. `good-main-view` already composes these elements for its `eyebrow`, `title`, and `description` inputs.
 
 ```html
 <good-main-view eyebrow="WORKSPACE" title="Reports" description="A concise page summary">
@@ -22,7 +22,7 @@ Use the standalone components when a heading belongs inside another layout:
 </good-heading-group>
 ```
 
-Keep heading levels in document order. The level changes the HTML tag; this visual role stays consistent. The Penpot Eyebrow variants are `appearance=brand/mono`. Eyebrow and Summary can be omitted without leaving empty spacing.
+Keep heading levels in document order. Penpot's `goodui.heading` variants are `level=1` and `level=2-6`, matching the Angular `level` input and its two weights. Penpot Eyebrow variants are `appearance=brand/mono`. Eyebrow and Summary can be omitted without leaving empty spacing.
 
 ## Readable sections
 
@@ -40,11 +40,11 @@ Use `good-section` for a content section beneath a page heading or beside other 
 </good-main-view>
 ```
 
-`good-main-view` owns the page heading-to-content gap; Section owns reading width and heading-to-body spacing; Prose owns the rhythm within the body. No page-specific wrapper or text margins are needed. The Penpot `goodui.section` composition uses linked Subheading and Prose instances and binds its gap to `typography.paragraph.subheading-gap`. Both Section and Prose use `typography.flow.max-width`; adjacent sections use `typography.flow.section-gap`.
+`good-main-view` owns the page heading-to-content gap. It aliases the H1 after-gap token, so a page title has the same 16 px spacing whether a Summary follows or content begins immediately. Section owns reading width and heading-to-body spacing; Prose owns the rhythm within the body. No page-specific wrapper or text margins are needed. The Penpot `goodui.section` composition uses linked Subheading and Prose instances and binds its gap to `typography.paragraph.subheading-gap`. Both Section and Prose use `typography.flow.max-width`; adjacent sections use `typography.flow.section-gap`.
 
 ## Content flow
 
-`good-prose` provides a readable 760 px maximum width and owns the vertical rhythm of its children. `good-paragraph` renders a paragraph; `good-subheading` renders a semantic H2–H6 (`level=2` by default); `good-citation` renders a blockquote with optional `source` and `cite`; and `good-separator` defaults to three quiet dots or accepts `variant="line"`. Penpot's `style` axis maps to the Angular `variant` input because `style` is reserved for HTML/CSS. Subheadings belong between paragraphs as siblings, keeping the HTML valid. A leading Subheading or Separator has no artificial top margin.
+`good-prose` provides a readable 760 px maximum width and owns the vertical rhythm of its children. `good-paragraph` renders a paragraph with 20 px of following space when used on its own. Within Prose, the container uses the same semantic token for its standard child gap and removes the paragraph's own margin, so adjacent blocks retain one consistent gap. `good-subheading` renders a semantic H2–H6 (`level=2` by default); `good-citation` renders a blockquote with optional `source` and `cite`; and `good-separator` defaults to three quiet dots or accepts `variant="line"`. Penpot's `style` axis maps to the Angular `variant` input because `style` is reserved for HTML/CSS. Subheadings belong between paragraphs as siblings, keeping the HTML valid. A leading Subheading or Separator has no artificial top margin.
 
 For a page with paragraphs, import `GoodProseComponent` and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component, then use:
 
@@ -90,6 +90,6 @@ For validation, set the control's error state, replace the hint with `good-error
 
 ## Tokens and Penpot limits
 
-The Penpot `layout` set is the source for the `--good-typography-*` CSS variables. Font sizes, weights, colors, image corners, flex gaps, and supported padding are bound to tokens in the published Penpot components. Eyebrow, required, error, and muted colors alias the existing semantic colors and follow the active light or dark theme. The repository snapshot is exported to `design-tokens/penpot.tokens.json`; `npm run tokens:generate` builds the CSS.
+The Penpot `layout` set is the source for the `--good-typography-*` CSS variables. Font sizes, weights, letter spacing, colors, image corners, flex gaps, and supported padding are bound to tokens in the published Penpot components. Eyebrow, required, error, and muted colors alias the existing semantic colors and follow the active light or dark theme. The repository snapshot is exported to `design-tokens/penpot.tokens.json`; `npm run tokens:generate` builds the CSS.
 
 The current Penpot plugin rejects applying a `fontFamilies` token to text. The specimens retain Inter as their explicit font family; Angular uses the exported `typography.font-family` token. Penpot does not offer a token binding for line height or italic style, so these are explicit properties in Penpot and CSS. Semantic HTML tags, responsive wrapping, image alt text, and live error announcements are verified in Angular.

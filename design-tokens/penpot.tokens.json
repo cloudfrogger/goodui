@@ -1522,6 +1522,18 @@
           "$value": "600",
           "$type": "fontWeights"
         },
+        "level-1-font-weight": {
+          "$value": "800",
+          "$type": "fontWeights"
+        },
+        "level-1-font-size": {
+          "$value": "24",
+          "$type": "fontSizes"
+        },
+        "level-1-after-gap": {
+          "$value": "16",
+          "$type": "spacing"
+        },
         "eyebrow-gap": {
           "$value": "{space.2}",
           "$type": "spacing"
@@ -1535,7 +1547,7 @@
           "$type": "color"
         },
         "content-gap": {
-          "$value": "28",
+          "$value": "{typography.heading.level-1-after-gap}",
           "$type": "spacing"
         },
         "actions-gap": {
@@ -1563,12 +1575,16 @@
       },
       "summary": {
         "font-size": {
-          "$value": "14",
+          "$value": "15",
           "$type": "fontSizes"
         },
         "font-weight": {
-          "$value": "500",
+          "$value": "700",
           "$type": "fontWeights"
+        },
+        "letter-spacing": {
+          "$value": "0.75",
+          "$type": "letterSpacing"
         },
         "color": {
           "$value": "{color.text}",
@@ -1583,6 +1599,10 @@
         "font-weight": {
           "$value": "400",
           "$type": "fontWeights"
+        },
+        "after-gap": {
+          "$value": "{space.5}",
+          "$type": "spacing"
         },
         "subheading-gap": {
           "$value": "{space.2}",
@@ -1667,7 +1687,7 @@
       },
       "flow": {
         "gap": {
-          "$value": "{space.4}",
+          "$value": "{typography.paragraph.after-gap}",
           "$type": "spacing"
         },
         "section-gap": {
