@@ -125,6 +125,11 @@
     "cardVariantId": "c0c3286f-e4bf-804c-8008-d53041bd6ca5",
     "headerVariantId": "c0c3286f-e4bf-804c-8008-d52f5c94a68c"
   },
+  "plainHeaderExample": {
+    "cardVariantId": "c0c3286f-e4bf-804c-8008-d53033c0fa61",
+    "headerVariantId": "c0c3286f-e4bf-804c-8008-d52f5a30d187",
+    "subtitle": "hidden on this Card instance"
+  },
   "header": {
     "family": "goodui.card-header",
     "selector": "good-card-header",

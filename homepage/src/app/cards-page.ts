@@ -20,6 +20,11 @@ import {
         </good-card>
 
         <good-card>
+          <good-card-header title="Card title" [headingLevel]="3" />
+          <p>The title sits in a separate header block. Its surface matches the card body, with only a thin divider between them.</p>
+        </good-card>
+
+        <good-card>
           <good-card-header title="Team activity" [headingLevel]="3">
             <span goodCardSubtitle>Updates from your workspace</span>
             <div goodCardActions>

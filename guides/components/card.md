@@ -33,6 +33,17 @@ import {
 
 The Card wraps projected body content in its padded body region. Use `good-card-header` and `good-card-footer` as direct children of `good-card` so Angular places them in the correct sections. The header `title` is required; `headingLevel` is `2` by default and also accepts `3` or `4`. `tone="default"` matches the body surface; `tone="secondary"` uses a quiet neutral surface. `backgroundImage` accepts an application-owned image URL and takes precedence over `tone`:
 
+For a simple title bar with the same background as the Card body, use the default tone and omit the optional subtitle and actions:
+
+```html
+<good-card>
+  <good-card-header title="Card title" [headingLevel]="3" />
+  <p>Card content follows below the thin header divider.</p>
+</good-card>
+```
+
+The `goodui.card` `header=default` / `footer=none` Penpot variant shows this composition with its linked Header instance. Its subtitle is hidden on this instance; the reusable Header variant still demonstrates the optional subtitle.
+
 ```html
 <good-card>
   <good-card-header title="Explore" [headingLevel]="3" backgroundImage="/assets/header.jpg" />
@@ -44,4 +55,4 @@ The header image is decorative because the heading remains real text. A dark scr
 
 `good-card-footer` accepts plain text, Links, Buttons, or a mix. Its `align` input is `between` by default; `start` and `end` are available. It wraps at narrow widths, while the Card maintains its border and clipping. Buttons remain actions; use `good-link` for navigation. Cards without a header or footer have no unused section or divider.
 
-In Penpot, `goodui.card` has 20 `header × footer` variants. Linked `goodui.card-header` variants cover default, secondary, and image surfaces with optional right actions; linked `goodui.card-footer` variants show text, Link, Buttons, and mixed content. [card-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/card-variants.json) lists all 30 library IDs and the composition with header actions. The body is an internal part of `good-card`, not another selector. Penpot uses an example image rendered from the homepage's SVG; applications provide their own images at runtime.
+In Penpot, `goodui.card` has 20 `header × footer` variants. Linked `goodui.card-header` variants cover default, secondary, and image surfaces with optional right actions; linked `goodui.card-footer` variants show text, Link, Buttons, and mixed content. [card-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/card-variants.json) lists all 30 library IDs, the plain title-bar example, and the composition with header actions. The body is an internal part of `good-card`, not another selector. Penpot uses an example image rendered from the homepage's SVG; applications provide their own images at runtime.

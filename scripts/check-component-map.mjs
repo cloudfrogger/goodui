@@ -120,6 +120,8 @@ checkMatrix(cardVariants.header.variants, [['tone', ['default', 'secondary', 'im
 checkMatrix(cardVariants.footer.variants, [['content', ['text', 'link', 'buttons', 'mixed']]], ['text', 'link', 'buttons', 'mixed'], 'Card footer', cardIds);
 if (!cardVariants.variants.some(v => v.id === cardVariants.headerActionsExample?.cardVariantId && v.header === 'default' && v.footer === 'mixed') ||
     !cardVariants.header.variants.some(v => v.id === cardVariants.headerActionsExample?.headerVariantId && v.tone === 'default' && v.actions === 'buttons')) throw new Error('Card header action composition does not match published variants.');
+if (!cardVariants.variants.some(v => v.id === cardVariants.plainHeaderExample?.cardVariantId && v.header === 'default' && v.footer === 'none') ||
+    !cardVariants.header.variants.some(v => v.id === cardVariants.plainHeaderExample?.headerVariantId && v.tone === 'default' && v.actions === 'none')) throw new Error('Plain Card header composition does not match published variants.');
 if (codeBlockVariants.family !== 'goodui.code-block' || codeBlockVariants.selector !== 'good-code-block' || !codeBlockVariants.containerId || codeBlockVariants.page !== '09 Code') throw new Error('Code block variants must map to good-code-block on 09 Code.');
 const codeExpected = ['block/off/full', 'block/on/full', 'block/off/collapsed', 'block/on/collapsed', 'inline/off/full'];
 checkMatrix(codeBlockVariants.variants, [
