@@ -13,7 +13,7 @@ export class IntroductionPageComponent {}
 @Component({
   selector: 'app-designing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent],
+  imports: [GoodMainViewComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/designing.html',
 })
@@ -72,7 +72,7 @@ npm run start:homepage`;
 @Component({
   selector: 'app-license-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/license.html',
 })
