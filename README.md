@@ -54,33 +54,33 @@ GoodUI currently ships from this repository as a locally built package. It targe
    }
    ```
 
-   Configure your app with `provideRouter(routes)`. Each routed page can use `<good-main-view title="Home">...</good-main-view>` for consistent page spacing. See the [working demo](demo1/src/app/app.ts) and [AppLayout guide](doc/docs/layout/app-layout.md) for topbar items, user data, and nested menus.
+   Configure your app with `provideRouter(routes)`. Each routed page can use `<good-main-view title="Home">...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppLayout guide](guides/layout/app-layout.md) for topbar items, user data, and nested menus.
 
-   Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@goodui/angular`. See the [Button guide](doc/docs/components/button.md) and the demo's `/components/buttons` page for all variants and sizes.
+   Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@goodui/angular`. See the [Button guide](guides/components/button.md) and the homepage's `/components/buttons` page for all variants and sizes.
 
-   Show status with `<good-badge label="Active" color="success" />`. Badges also support outlines, light fills, optional icons, and a removable action. See the [Badge guide](doc/docs/components/badge.md) and `/components/badges` in the demo.
+   Show status with `<good-badge label="Active" color="success" />`. Badges also support outlines, light fills, optional icons, and a removable action. See the [Badge guide](guides/components/badge.md) and `/components/badges` on the homepage.
 
-   For on/off settings, use `<good-switch label="Email notifications" [showLabel]="true" [(checked)]="emailEnabled" />`. It also works with Angular forms. See the [Switch guide](doc/docs/components/switch.md) and the demo's `/components/switches` page.
+   For on/off settings, use `<good-switch label="Email notifications" [showLabel]="true" [(checked)]="emailEnabled" />`. It also works with Angular forms. See the [Switch guide](guides/components/switch.md) and the homepage's `/components/switches` page.
 
-   For selection, use `<good-checkbox label="Include archived projects" [showLabel]="true" [formControl]="includeArchived" />`. It supports checked, unchecked, and indeterminate values plus a monochrome appearance. See the [Checkbox guide](doc/docs/components/checkbox.md) and `/components/checkboxes` in the demo.
+   For selection, use `<good-checkbox label="Include archived projects" [showLabel]="true" [formControl]="includeArchived" />`. It supports checked, unchecked, and indeterminate values plus a monochrome appearance. See the [Checkbox guide](guides/components/checkbox.md) and `/components/checkboxes` on the homepage.
 
-   For one choice from several, use `<good-radio-group label="Plan" [options]="plans" [formControl]="plan" />`. It supports brand and mono appearances, three sizes, and disabled groups. See the [Radio group guide](doc/docs/components/radio-group.md) and `/components/radio-groups` in the demo.
+   For one choice from several, use `<good-radio-group label="Plan" [options]="plans" [formControl]="plan" />`. It supports brand and mono appearances, three sizes, and disabled groups. See the [Radio group guide](guides/components/radio-group.md) and `/components/radio-groups` on the homepage.
 
-   For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](doc/docs/components/input.md) and the demo's `/components/inputs` page.
+   For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](guides/components/input.md) and the homepage's `/components/inputs` page.
 
-   For structured actions, use `<good-dropdown [items]="actions"><span goodDropdownTrigger>Actions</span></good-dropdown>`. It uses GoodUI Button styling and owns the popup layout, placement, and keyboard behavior. See the [Dropdown guide](doc/docs/components/dropdown.md) and `/components/dropdowns` in the demo.
+   For structured actions, use `<good-dropdown [items]="actions"><span goodDropdownTrigger>Actions</span></good-dropdown>`. It uses GoodUI Button styling and owns the popup layout, placement, and keyboard behavior. See the [Dropdown guide](guides/components/dropdown.md) and `/components/dropdowns` on the homepage.
 
-   For page hierarchy, use `<good-breadcrumbs [items]="path" [maxItems]="4" />`. Long paths keep hidden ancestors in an accessible ellipsis menu. See the [Breadcrumbs guide](doc/docs/components/breadcrumbs.md) and `/components/breadcrumbs` in the demo.
+   For page hierarchy, use `<good-breadcrumbs [items]="path" [maxItems]="4" />`. Long paths keep hidden ancestors in an accessible ellipsis menu. See the [Breadcrumbs guide](guides/components/breadcrumbs.md) and `/components/breadcrumbs` on the homepage.
 
-   For source examples, use `<good-code-block [code]="example" language="typescript" [lineNumbers]="true" />`. Add `[collapsible]="true"` for a faded preview or `[inline]="true"` for code inside a sentence. See the [Code block guide](doc/docs/components/code-block.md) and `/components/code-blocks` in the demo.
+   For source examples, use `<good-code-block [code]="example" language="typescript" [lineNumbers]="true" />`. Add `[collapsible]="true"` for a faded preview or `[inline]="true"` for code inside a sentence. See the [Code block guide](guides/components/code-block.md) and `/components/code-blocks` on the homepage.
 
-   Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-layout>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppLayout guide](doc/docs/layout/app-layout.md).
+   Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-layout>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppLayout guide](guides/layout/app-layout.md).
 
-## Current demo
+## Homepage and component gallery
 
-![GoodUI demo dashboard showing the sidebar, topbar, and account overview](assets/demo-dashboard.png)
+![GoodUI homepage showing the Getting Started introduction and component navigation](assets/homepage.png)
 
-The screenshot shows the current `demo1` application at 1440 × 620 px in light mode. Run the demo to try the menus, responsive drawer, and dark mode.
+The screenshot shows the `homepage` application at 1440 × 620 px in light mode. Run it to explore the guides, component gallery, responsive navigation, and dark mode.
 
 ## What is inside
 
@@ -103,21 +103,23 @@ The screenshot shows the current `demo1` application at 1440 × 620 px in light 
 | `good-card` | Bordered content with optional title bar, actions, image, and footer |
 | `good-link` | Token-colored navigation with optional persistent or hover underline |
 | `good-code-block` | Highlighted source with optional line numbers, copy, expansion, and inline mode |
+| `good-action-group` | Spaced horizontal, vertical, or responsive groups of actions |
+| `good-modal`, `good-modal-header`, `good-modal-footer` | Focused dialogs with optional body scrolling, responsive presentation, and nested flows |
 | `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
 The components own their layout. Your app can provide data through `GoodAppLayoutComponent` inputs or compose the exported container and item components directly when needed.
 
-## Run the demo and docs
+## Run the homepage
 
 Requires Node.js 20.19 or newer. From the repository root:
 
 ```bash
 npm run setup
-npm run start:demo
+npm run start:homepage
 ```
 
-Open `http://localhost:4200/`. To run the documentation separately, use `npm --prefix doc start` and open `http://localhost:3000/`. After changing library source, run `npm run build:lib` again. The demo links to the built package at `angular/dist/goodui`.
+Open `http://localhost:4200/`. After changing library source, run `npm run build:lib` again. The homepage links to the built package at `angular/dist/goodui`. The [Markdown guides](guides/README.md) remain available in the repository.
 
 ## Project map
 
@@ -132,10 +134,12 @@ Open `http://localhost:4200/`. To run the documentation separately, use `npm --p
 - [Card variant registry](design/card-variants.json) — Penpot IDs for Card, Header, and Footer combinations.
 - [Link variant registry](design/link-variants.json) — Penpot IDs for appearance, underline, decoration, and disabled combinations.
 - [Code block variant registry](design/code-block-variants.json) — Penpot IDs for block, numbered, collapsed, and inline presentations.
+- [Modal variant registry](design/modal-variants.json) — Penpot IDs for presentation, size, Footer, Header, and action compositions.
+- [Action group variant registry](design/action-group-variants.json) — Penpot IDs for orientation and spacing.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
-- [Documentation](doc/docs/intro.md) — integration, layouts, components, and examples.
+- [Markdown guides](guides/README.md) — integration, layout, components, and Penpot mapping.
 - [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.
-- [Demo application](demo1/) — an Angular app consuming the built package.
+- [Homepage](homepage/) — an Angular website consuming the built package.
 - [Contributor instructions](AGENTS.md) — design and implementation workflow.
 
 GoodUI is under active development. The package has not been published to npm; install the built package from this repository as shown above.

@@ -2,7 +2,7 @@
 
 ## Purpose and baseline
 
-GoodUI is an Angular UI library styled with Tailwind CSS 4 and designed in Penpot. Its shell arranges the sidebar, topbar, menus, main view, and responsive drawer so applications can provide navigation, user data, and page content without rebuilding the layout. The library is in `angular/projects/goodui`; the consuming example is in `demo1`.
+GoodUI is an Angular UI library styled with Tailwind CSS 4 and designed in Penpot. Its shell arranges the sidebar, topbar, menus, main view, and responsive drawer so applications can provide navigation, user data, and page content without rebuilding the layout. The library is in `angular/projects/goodui`; the consuming example is in `homepage`.
 
 GoodUI's current layout baseline is documented here and in Penpot. The shell is reviewed at 1440 × 900 and 390 × 844 px. The topbar action sequence is **search, notifications, settings, avatar**.
 
@@ -26,9 +26,11 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Main view | 20 px top and 30 px horizontal padding below topbar | `MainView` owns page container and optional heading |
 | Subnav | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `Subnav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
 | Button | 32/40/48 px high by size, 6 px radius; optional leading Lucide icon or icon-only square | `Button` owns padding, border, focus, disabled state, and hit area |
+| Action group | 8/12/16 px token gaps; horizontal wrap or vertical stack | `ActionGroup` owns spacing and alignment between related controls |
 | Card | 1 px border, 12 px outer radius; optional 64 px header, 144 px image header, and footer | `Card` owns frame, clipping, content padding, and section dividers; Header and Footer own their internal flow |
 | Link | Inline text with hover or persistent underline | `Link` owns appearance, decoration style, disabled presentation, and navigation behavior |
 | Code block | Proportional source text, optional line numbers, copy, collapsed preview, and inline mode | `CodeBlock` owns source formatting, scrolling, toolbar, and expansion |
+| Modal | 420/560/720 px dialog widths; optional fullwidth or near-viewport overlay; 12 px radius | `Modal` owns the backdrop, focus, stacking, and body scrolling; Header and Footer own their internal flow |
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Checkbox | 16/20/24 px box; 44 × 44 px minimum hit area | `Checkbox` owns the native input, three-state transition, mark, focus, and disabled presentation |
 | Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
@@ -85,7 +87,7 @@ AppLayout
 
 `Dropdown` can be placed in any action area. It owns a Button trigger, optional header and footer, and a list of recursive `DropdownItem` entries inside a positioned `DropdownPanel`.
 
-The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppLayout` feed the desktop sidebar, mobile topbar, and drawer. `brand` is the image's accessible name; text and the generic accent mark are the fallback when no logo is supplied. The dark logo URL is optional; if absent, the light URL remains visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI demo uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers.
+The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppLayout` feed the desktop sidebar, mobile topbar, and drawer. `brand` is the image's accessible name; text and the generic accent mark are the fallback when no logo is supplied. The dark logo URL is optional; if absent, the light URL remains visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI homepage uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers.
 
 ## Public components
 
@@ -114,6 +116,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.subnav` | Optional page subnav, scroll viewport, active indicator, and child menu |
 | `goodui.subnav-item` | Link or menu trigger with optional chevron and active state |
 | `goodui.button` | Reusable action control with five variants, three sizes, and text/icon content options |
+| `goodui.action-group` | Reusable horizontal or vertical layout for related actions, with three spacing choices |
 | `goodui.card` | Bordered content container with optional linked header and footer parts |
 | `goodui.card-header` | Title, optional subtitle and actions, default/secondary surface or image background |
 | `goodui.card-footer` | Footer row for text, Link, Buttons, or mixed content |
@@ -141,7 +144,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 - Internal shape names describe purpose: `heading`, `label`, `icon`, `content-slot`, `scrim`.
 - Variant axes are named by actual design choices: Button uses `variant`, `size`, and `content`; runtime interaction states stay in Angular.
 
-The simple API accepts brand, sidebar groups, topbar items, actions, user, and notifications. Apps can also compose the exported containers and items directly. Public TypeScript exports are in `angular/projects/goodui/src/public-api.ts`; see `doc/` for examples.
+The simple API accepts brand, sidebar groups, topbar items, actions, user, and notifications. Apps can also compose the exported containers and items directly. Public TypeScript exports are in `angular/projects/goodui/src/public-api.ts`; see `homepage/` for examples.
 
 ### Page subnav
 
@@ -149,7 +152,7 @@ The simple API accepts brand, sidebar groups, topbar items, actions, user, and n
 
 The track stays on one line at every viewport width. On mobile, the 44 px strip scrolls horizontally with touch or a trackpad; the page itself does not gain horizontal overflow. The active item scrolls into view on route changes. The child menu opens outside the clipped scroll viewport, stays within the screen edge, and closes on Escape, outside click, scroll, resize, or navigation. Links receive `aria-current="page"`; menu buttons expose `aria-expanded` and `aria-controls`. Arrow keys, Home, and End move between top-level items; opening a menu focuses its first link and Escape returns focus to its trigger.
 
-Penpot contains desktop, mobile clipped-scroll, dropdown, and composed open variants. The account MainView variants use nested Subnav component instances. The Angular demo supplies the account sections and real child routes.
+Penpot contains desktop, mobile clipped-scroll, dropdown, and composed open variants. The account MainView variants use nested Subnav component instances. The Angular homepage supplies the account sections and real child routes.
 
 `Subnav` also owns a fixed right action area. `MainView.subnavActions` or `Subnav.actions` accepts `GoodSubnavAction[]` and renders reusable Buttons or ActionMenus. Direct `good-subnav` users may also project a `[good-subnav-actions]` group. Only the item track scrolls. The action area stays visible and item labels never wrap. Its default Button presentation is an outlined 32 px control with text or an accessible icon-only presentation. `ActionMenu` provides focus movement, Escape, and outside-click dismissal. The Penpot `goodui.subnav.with-actions` composition uses nested Button instances and maps to the same Angular `good-subnav` selector with action data.
 
@@ -161,11 +164,19 @@ The default size is 40 px, small is 32 px, and large is 48 px. Icon-only control
 
 The Penpot Lucide source shapes use 24 px vector geometry. Their linked Button instances use 14, 16, or 20 px geometry to match Angular; the child paths and strokes must scale with the instance bounds. The Penpot plugin's `resize()` changes an instance's bounds without scaling its child paths, so check the actual vector geometry and preserve the width/height and stroke-color token bindings whenever an icon instance is replaced or resized.
 
+### Action group
+
+`good-action-group` owns spacing between related controls. Buttons own their own dimensions and internal content and receive no external margins. The group accepts `orientation=horizontal/vertical/responsive`, `spacing=small/default/large`, `wrap`, `justify`, `align`, and an optional accessible `ariaLabel`. Horizontal actions wrap by default. Responsive actions use a row above 680 px and a full-width column below it; vertical actions remain a column at every size. Controls can include Buttons, Dropdowns, and links. The parent supplies available width, while the group owns the action flow. Modal Body examples use this group; Modal Footer has its own section-specific action spacing.
+
+Penpot page `11 Action Groups` publishes six `goodui.action-group` variants (`orientation=horizontal/vertical` × `spacing=small/default/large`) containing linked GoodUI Buttons. `design/action-group-variants.json` records all six IDs. `action-group.gap.*` tokens bind both row and column gaps and alias the shared 8/12/16 px spacing scale. The Angular `responsive` option maps to the horizontal variant on desktop and the vertical variant on mobile; wrapping and alignment are runtime layout behavior.
+
+The homepage exposes Action group as its own Components page at `/components/action-groups`, with Buttons, Dropdowns, and Links in the same flow. The Modal page uses it for launchers; the Buttons page stays focused on the Button control itself.
+
 ### Card
 
 `good-card` owns the same neutral border, surface, and 12 px corners as the existing demo cards. Its body wrapper supplies padding without app layout CSS. Optional `good-card-header` accepts `title`, `headingLevel`, `tone=default/secondary`, and `backgroundImage`; an image fills the entire header behind a dark scrim and title text. A projected `[goodCardSubtitle]` and `[goodCardActions]` region let the header arrange supporting text, Buttons, and ActionMenus. The header's default surface matches the body; secondary uses the selected surface. The Card owns the thin separators. `good-card-footer` accepts projected text, Links, Buttons, or any combination and provides `align=start/end/between`. Both Card and its sections use flex layout; only the decorative image and scrim overlay are absolute. The outer Card clips the image to its rounded top corners.
 
-Penpot page `08 Cards and Links` publishes 20 `goodui.card` variants (`header=none/default/secondary/image` × `footer=none/text/link/buttons/mixed`), six `goodui.card-header` variants (`tone=default/secondary/image` × `actions=none/buttons`), and four `goodui.card-footer` content variants. The root Card variants contain linked Header and Footer instances; the Header actions and Footer link/button examples retain their linked GoodUI component instances. `design/card-variants.json` records all 30 IDs and the default/mixed Card composition that shows right-side actions. The image example in Penpot uses a PNG rendering of `demo1/public/card-header-art.svg`; the Angular demo uses that SVG directly. A consuming app supplies its own image URL.
+Penpot page `08 Cards and Links` publishes 20 `goodui.card` variants (`header=none/default/secondary/image` × `footer=none/text/link/buttons/mixed`), six `goodui.card-header` variants (`tone=default/secondary/image` × `actions=none/buttons`), and four `goodui.card-footer` content variants. The root Card variants contain linked Header and Footer instances; the Header actions and Footer link/button examples retain their linked GoodUI component instances. `design/card-variants.json` records all 30 IDs and the default/mixed Card composition that shows right-side actions. The image example in Penpot uses a PNG rendering of `homepage/public/card-header-art.svg`; the Angular homepage uses that SVG directly. A consuming app supplies its own image URL.
 
 ### Link
 
@@ -176,6 +187,12 @@ Penpot page `08 Cards and Links` publishes 20 `goodui.card` variants (`header=no
 `good-code-block` accepts literal `code` and a `language`. Its built-in grammars cover Bash, CSS, Go, HTML, Java, JavaScript, JSON, Markdown, Python, Rust, SQL, TypeScript, and YAML; plaintext is the fallback. Grammars are loaded only when used. The block owns a toolbar with an optional `title` and `copyable` action, optional `lineNumbers`, horizontal scrolling, and an optional `collapsible` preview with `collapsedLines`. A longer preview starts collapsed, shows a bottom fade, and has a keyboard-operable Show more/Show less button. `[inline]=true` places a short snippet within running text without block controls. The proportional Inter/system UI font is intentional; spaces and line breaks remain preserved.
 
 Penpot page `09 Code` publishes five `goodui.code-block` variants across `display=block/inline`, `lineNumbers=off/on`, and `preview=full/collapsed` where those combinations apply. `design/code-block-variants.json` records every ID. Language and title are content, while copy and expansion behavior are Angular runtime states. The Penpot toolbar and expand controls contain linked GoodUI Button instances. Code surfaces, colors, dimensions, padding, and corners bind to semantic `code.*` tokens. Penpot uses a series of token-bound translucent fade strips because token binding of individual gradient stops is unavailable; Angular renders a smooth CSS gradient using the same background token.
+
+### Modal
+
+`good-modal` owns a native modal dialog, dimmed backdrop with optional blur, focus management, viewport margins, and a single active dialog stack. `open` is a two-way model. Opening another `good-modal` suspends the current one; closing the top dialog restores the previous dialog and its focused control. Opening focuses the first available control inside the dialog; closing the last dialog returns focus to the original trigger. Escape and optional backdrop clicks dismiss. `size=small/default/large` chooses 420/560/720 px standard widths. `presentation=fullwidth` uses 960/1120/1280 px maximum widths; `presentation=overlay` fills the viewport except for a 20 px margin. Below 900 px every presentation becomes an overlay with a 12 px margin. `scrollBody` keeps Header and Footer visible while Body scrolls. Content belongs in the Body projection; `good-modal-header` provides required title, optional description, optional actions, and a close button; `good-modal-footer` projects actions with start, end, or between alignment. The Footer itself is optional.
+
+Penpot page `10 Modals` publishes 18 `goodui.modal` variants across `presentation`, `size`, and `footer`, two `goodui.modal-header` description variants, and two `goodui.modal-footer` action examples. Root variants contain linked Header/Footer instances; Header and Footer retain linked GoodUI Buttons and a linked Lucide X in the close action. `design/modal-variants.json` records all 22 library IDs and exact Angular mappings. The `modal.*` tokens bind dimensions, colors, padding, gaps, and corner radius. A separate preview uses a linked Modal instance over a backdrop shape whose fill and opacity bind to semantic tokens. Native focus, stacking, scrolling, viewport rules, and dismissal are runtime behaviors rather than static Penpot variants. Penpot cannot bind a blur radius to the backdrop blur effect, so the preview uses a fixed 8 px effect while CSS applies `modal.backdrop.blur` at runtime.
 
 ### Switch
 
@@ -219,11 +236,11 @@ The switch track and thumb dimensions have their own semantic sizing tokens. `sw
 
 ### Nested topbar menus
 
-The demo's Help navigation has “Getting Started,” “Support Forum,” “Licenses & FAQ,” “Documentation,” and “Contact Us” after a divider. “Support Forum” reveals “All Questions,” “Popular Questions,” and “Ask Question.” Parents show a chevron; only leaves navigate. The selected parent uses `color.selected`; text, icons, borders, and surfaces use semantic color roles.
+The homepage has a top-level “Getting Started” menu with Introduction, Designing, Developing, and License routes. Its separate Help menu has “Support Forum,” “Licenses & FAQ,” “Documentation,” and “Contact Us” after a divider. “Support Forum” reveals “All Questions,” “Popular Questions,” and “Ask Question.” Parents show a chevron; only leaves navigate. The selected parent uses `color.selected`; text, icons, borders, and surfaces use semantic color roles.
 
 `TopbarMenuItem` owns the trigger and first open state. `TopbarDropdownMenu` arranges the first level; `TopbarDropdownItem` renders a link or parent; `TopbarSubmenu` arranges the next level. Further levels reuse these components. Desktop supports hover, click, and keyboard focus. On mobile, the drawer stacks levels vertically. Escape closes the deepest level first and returns focus to its trigger; outside clicks close the chain. Submenus flip toward available viewport space.
 
-Penpot includes `goodui.topbar-menu-item.open`, `goodui.topbar-dropdown-item.link`/`.parent`/`.open`, `goodui.topbar-dropdown-menu.default`/`.nested-open`, `goodui.topbar-submenu.default`, and the composed topbar and AppLayout open states. Angular renders the recursive `GoodTopbarItem.children` model through `GoodTopbarDropdownItemComponent`, `GoodTopbarDropdownMenuComponent`, and `GoodTopbarSubmenuComponent`. The demo shows Help → Support Forum with working routes, mobile layout, and edge flipping.
+Penpot includes `goodui.topbar-menu-item.open`, `goodui.topbar-dropdown-item.link`/`.parent`/`.open`, `goodui.topbar-dropdown-menu.default`/`.nested-open`, `goodui.topbar-submenu.default`, and the composed topbar and AppLayout open states. Angular renders the recursive `GoodTopbarItem.children` model through `GoodTopbarDropdownItemComponent`, `GoodTopbarDropdownMenuComponent`, and `GoodTopbarSubmenuComponent`. The homepage shows Help → Support Forum with working routes, mobile layout, and edge flipping.
 
 ### Avatar account menu
 
@@ -263,7 +280,7 @@ The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizi
 
 - The app may set `data-theme="light"` or `data-theme="dark"` on a common root. Without it, light applies. Theme changes update CSS variables at runtime without rebuilding the library.
 - Components use semantic roles (`canvas`, `surface`, `text`, `muted`, `border`, `accent`, `selected`, `icon`, `overlay`). Apps can override these variables per theme without changing component CSS. A future brand theme may override accent/brand roles independently of appearance.
-- Tailwind CSS 4 maps runtime variables to `--color-good-*` through `@theme inline`; `@custom-variant dark` uses the same selector. The mapping and example are in [Design tokens](doc/docs/foundations/tokens.md).
+- Tailwind CSS 4 maps runtime variables to `--color-good-*` through `@theme inline`; `@custom-variant dark` uses the same selector. The mapping and example are in [Design tokens](guides/foundations/tokens.md).
 - `design-tokens/penpot.tokens.json` is a Penpot-compatible snapshot. `scripts/generate-tokens.mjs` generates the CSS variables and Tailwind color mapping from it. Refreshing the snapshot from Penpot is manual; the build does not read the live Penpot file.
 - Check new color combinations visually and for contrast in both appearances. Icons follow `color.icon`; state surfaces should not hard-code light colors.
 
@@ -271,9 +288,9 @@ The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizi
 
 File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, and `09 Code`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
 
-`04 Logos` contains 14 reusable brand assets: light and dark wordmarks, standalone symbols, square symbols, glossy square symbols, and three badge styles in both appearances. The names use `goodui.logo.<form>.<appearance>`; the complete IDs are in [Design to Angular](doc/docs/contributing/design-to-code.md). These are product artwork assets, not UI component families, so they have no Angular selector. Both wordmarks and both standalone symbols have transparent, editable Penpot vector paths traced from the supplied PNGs. Their direct SVG exports are `doc/static/img/goodui-logo-light.svg`, `goodui-logo-dark.svg`, `goodui-mark.svg`, and `goodui-mark-dark.svg`. The Angular demo copies both symbol exports as favicons and selects one according to its active GoodUI theme. Square symbols, glossy square symbols, and badges still use image fills that preserve their original backgrounds and effects. A traced vector can differ slightly from its raster source; review each exported SVG against the artwork after any brand update.
+`04 Logos` contains 14 reusable brand assets: light and dark wordmarks, standalone symbols, square symbols, glossy square symbols, and three badge styles in both appearances. The names use `goodui.logo.<form>.<appearance>`; the complete IDs are in [Design to Angular](guides/contributing/design-to-code.md). These are product artwork assets, not UI component families, so they have no Angular selector. Both wordmarks and both standalone symbols have transparent, editable Penpot vector paths traced from the supplied PNGs. Their direct SVG exports are `assets/brand/goodui-logo-light.svg`, `goodui-logo-dark.svg`, `goodui-mark.svg`, and `goodui-mark-dark.svg`. The Angular homepage copies both symbol exports as favicons and selects one according to its active GoodUI theme. Square symbols, glossy square symbols, and badges still use image fills that preserve their original backgrounds and effects. A traced vector can differ slightly from its raster source; review each exported SVG against the artwork after any brand update.
 
-Shell compositions use nested component instances. Keep IDs when a component retains its meaning. The current ID registry is in [Design to Angular](doc/docs/contributing/design-to-code.md) and can be verified through Penpot MCP.
+Shell compositions use nested component instances. Keep IDs when a component retains its meaning. The current ID registry is in [Design to Angular](guides/contributing/design-to-code.md) and can be verified through Penpot MCP.
 
 ## Behavior contract
 
@@ -292,5 +309,5 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 1. Review the current GoodUI design and intended behavior; update this contract.
 2. Edit the affected Penpot main component and inspect its nested instances.
 3. Export and visually review desktop, mobile, and open states.
-4. Update Docusaurus guidance and examples.
+4. Update the homepage examples and the Penpot-to-Angular mapping when behavior or APIs change.
 5. When implementation is requested, build Angular/Tailwind and verify behavior, accessibility, and visual alignment.

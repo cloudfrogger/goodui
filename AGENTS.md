@@ -2,7 +2,7 @@
 
 ## Project
 
-GoodUI is an Angular UI library with a Penpot design system and Docusaurus documentation. The library is in `angular/projects/goodui`; `demo1` is an Angular app linked to the built package. Project prose, documentation, examples, and user-facing default strings use American English. Preserve stable public IDs and selectors unless a deliberate documented rename is requested.
+GoodUI is an Angular UI library with a Penpot design system and an Angular homepage. The library is in `angular/projects/goodui`; `homepage` is an Angular app linked to the built package. Project prose, documentation, examples, and user-facing default strings use American English. Preserve stable public IDs and selectors unless a deliberate documented rename is requested.
 
 Use `Cloudfrogger, Inc.` for copyright attribution throughout the project.
 
@@ -12,13 +12,13 @@ GoodUI is intended to be a generic, reusable UI framework. Review every componen
 
 1. Read `design.md`, especially naming, tokens, component ownership, and open states.
 2. Inspect the affected Penpot page through MCP before changing a design. Do not infer the current board from an older description.
-3. Read the relevant page in `doc/docs/`. Update the design contract and documentation together when behavior or API changes.
+3. Check `guides/` for existing component and design contracts, and inspect the corresponding homepage example before changing behavior or APIs.
 
 ## Design rules
 
 - Penpot is the visual source. Maintain real Penpot library components with stable names and IDs.
 - Keep `design/component-map.json` complete for every Penpot component family. Run `npm run check:mapping` after changing a family or Angular selector, then compare the manifest with the live Penpot library through MCP. Internal Penpot parts must identify their owning Angular selector.
-- Keep brand artwork on `04 Logos` separate from generic UI families. Record each published logo asset's Penpot ID and source PNG in `doc/docs/contributing/design-to-code.md`; logo artwork has no Angular component selector. The light and dark wordmarks are editable Penpot vectors exported to `doc/static/img/`; the other symbols and badges retain their raster backgrounds and effects. Keep the SVG exports aligned with their Penpot components.
+- Keep brand artwork on `04 Logos` separate from generic UI families. Record each published logo asset's Penpot ID and source PNG in `guides/contributing/design-to-code.md`; logo artwork has no Angular component selector. The light and dark wordmarks are editable Penpot vectors exported to `assets/brand/`; the other symbols and badges retain their raster backgrounds and effects. Keep the SVG exports aligned with their Penpot components.
 - Keep `design/button-variants.json` aligned with the live `goodui.button` Penpot variant group. Preserve all 45 published library IDs and the `variant` / `size` / `content` mapping to `good-button`; update and verify the manifest when Button variants change.
 - Keep `design/switch-variants.json` aligned with the live `goodui.switch` Penpot variant group. Preserve the original 18 brand library IDs and map all 36 `state` / `size` / `status` / `appearance` combinations to `good-switch`; verify mono colors, the theme-specific error token, and runtime accessibility.
 - Keep `design/checkbox-variants.json` aligned with the live `goodui.checkbox` Penpot variant group on `06 Checkboxes`. Its 36 `appearance` / `state` / `size` / `status` combinations map to `good-checkbox`; verify native indeterminate-to-unchecked behavior, disabled controls, token bindings, and both themes. The mark wrapper boards must have no fill so their vector checks and dashes remain visible.
@@ -30,10 +30,12 @@ GoodUI is intended to be a generic, reusable UI framework. Review every componen
 - Keep `design/link-variants.json` aligned with the 24 `goodui.link` variants on `08 Cards and Links`. Map appearance, underline behavior, decoration style, and disabled state to `good-link`; verify real navigation, focus, and theme colors.
 - Keep `design/card-variants.json` aligned with the 20 `goodui.card`, six `goodui.card-header`, and four `goodui.card-footer` variants on `08 Cards and Links`. Map them to `good-card`, `good-card-header`, and `good-card-footer`; preserve linked Header, Footer, Button, ActionMenu, and Link instances, and verify image clipping and both themes.
 - Keep `design/code-block-variants.json` aligned with the five `goodui.code-block` variants on `09 Code`. Map display, line numbers, and preview state to `good-code-block`; preserve linked GoodUI Buttons and token bindings. Verify highlighted languages, clipboard feedback, expansion, inline rendering, and both themes.
+- Keep `design/modal-variants.json` aligned with the `goodui.modal`, `goodui.modal-header`, and `goodui.modal-footer` groups on `10 Modals`. Map all presentation, size, footer, description, and action states to their Angular selectors. Preserve linked Header, Footer, GoodUI Button, and Lucide instances. Verify focus, Escape, backdrop clicks and blur, nested dialog restoration, body scrolling, viewport presentation, and both themes.
+- Keep `design/action-group-variants.json` aligned with the six `goodui.action-group` variants on `11 Action Groups`. Preserve linked GoodUI Buttons and token-bound flex gaps. Map Penpot horizontal/vertical states and three spacing values to `good-action-group`; verify its responsive stack, wrapping, alignment, and both themes. Button components themselves must not gain external margins to compensate for missing container layout.
 - Keep the linked Lucide artwork inside Button variants scaled with its outer instance. Penpot's plugin resize can change the instance bounds without scaling its 24 px child paths; inspect the rendered 14/16/20 px icons and retain their size and stroke-color token bindings after edits.
 - Keep the `goodui.` design ID and `good-` Angular selector prefixes.
 - Name child elements semantically. Model Button choices as `variant`, `size`, and `content`; keep focus, hover, and disabled as runtime states rather than decorative copies.
-- Keep repeated dimensions and colors as semantic tokens in `layout`. Check measurements against the current GoodUI design and rendered demo before changing them.
+- Keep repeated dimensions and colors as semantic tokens in `layout`. Check measurements against the current GoodUI design and rendered homepage before changing them.
 - Use shared radius tokens for control, item, card, compact, and pill corners; preserve each semantic role when values happen to match. Prefer flex or grid for component internals and layout flow. Absolute positioning is reserved for genuine overlays or invisible native controls that require it.
 - Check color roles in both Penpot themes, `appearance/light` and `appearance/dark`. Shared dimensions belong in `layout`; `layout-dark` overrides colors only.
 - Preserve nesting: `AppLayout` → `SidebarContainer`/`Topbar`/`MainView`; sidebar menu container → items; topbar menu container → items; `MainMenu` → four action components.
@@ -43,16 +45,14 @@ GoodUI is intended to be a generic, reusable UI framework. Review every componen
 - After changing tokens, check light and dark themes, nested shell exports, and text contrast. Leave Penpot on light and the `02 Layout` page.
 - Refresh `design-tokens/penpot.tokens.json` from the Penpot token export after token edits, run `npm run tokens:generate` and `npm run tokens:check`, and verify the snapshot against the live Penpot catalog. Do not hand-edit `tokens.generated.css` or claim live synchronization.
 
-## Documentation
+## Reference material
 
-- `doc/` is a standalone Docusaurus project. Run `npm --prefix doc start` locally and `npm run build:docs` from the root to verify it.
-- Each component page covers purpose, states, accessibility, layout responsibility, and usage. The Penpot registry is in `doc/docs/contributing/design-to-code.md`.
-- Verify Angular examples against `angular/projects/goodui/src/public-api.ts`.
-- MDX treats HTML tags as components; put Angular selectors in code blocks or escape them as `&lt;...&gt;`.
-- Do not reintroduce Docusaurus sample or placeholder content.
+- The Angular `homepage/` contains the public Getting Started content and component examples. `guides/` retains plain Markdown reference material; there is no separate documentation application or documentation build.
+- The Penpot ID registry is in `guides/contributing/design-to-code.md`. Keep stable IDs and the component mapping accurate when the design or Angular API changes.
+- Verify published Angular examples against `angular/projects/goodui/src/public-api.ts`.
 
 ## Implementation
 
 - Derive Angular APIs from `design.md` and the component guides. Use Tailwind CSS **4**. Edit library sources under `angular/projects/goodui/src/`; build its CSS from `src/styles.css`.
-- Keep API, token, and Penpot changes synchronized with documentation and migration guidance.
-- Never edit generated files as the only source of a change. Run `npm run build:demo` and `npm run build:docs`; inspect the demo in a browser after layout or interaction changes.
+- Keep API, token, and Penpot changes synchronized with the homepage usage examples and migration guidance.
+- Never edit generated files as the only source of a change. Run `npm run build:homepage`; inspect the homepage in a browser after layout or interaction changes.
