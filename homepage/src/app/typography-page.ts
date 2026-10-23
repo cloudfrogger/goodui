@@ -3,7 +3,7 @@ import {
   GoodCitationComponent, GoodCodeBlockComponent, GoodErrorTextComponent, GoodEyebrowComponent,
   GoodFieldLabelComponent, GoodFormFieldComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodHintComponent, GoodInlineImageComponent, GoodInputComponent, GoodMainViewComponent,
-  GoodParagraphComponent, GoodProseComponent, GoodSeparatorComponent, GoodSubheadingComponent,
+  GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSeparatorComponent, GoodSubheadingComponent,
   GoodSummaryComponent,
 } from '@goodui/angular';
 
@@ -11,7 +11,7 @@ import {
   selector: 'showcase-typography-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent,
-    GoodSummaryComponent, GoodProseComponent, GoodParagraphComponent, GoodSubheadingComponent,
+    GoodSummaryComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodSubheadingComponent,
     GoodCitationComponent, GoodSeparatorComponent, GoodInlineImageComponent, GoodFormFieldComponent,
     GoodFieldLabelComponent, GoodHintComponent, GoodErrorTextComponent, GoodInputComponent, GoodCodeBlockComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,6 +33,14 @@ export class TypographyPageComponent {
   <good-paragraph>GoodUI gives paragraphs a consistent reading rhythm.</good-paragraph>
   <good-paragraph>Place related paragraphs directly inside a prose container.</good-paragraph>
 </good-prose>`;
+
+  readonly sectionCode = `<good-section>
+  <good-subheading>Design with reusable components</good-subheading>
+  <good-prose>
+    <good-paragraph>The section sets a readable width and connects its heading to the text.</good-paragraph>
+    <good-paragraph>Prose handles spacing between paragraphs.</good-paragraph>
+  </good-prose>
+</good-section>`;
 
   readonly subheadingCode = `<good-prose>
   <good-subheading [level]="3">A new section</good-subheading>
@@ -87,26 +95,29 @@ export class TypographyPageComponent {
 
   readonly importsCode = `import { Component } from '@angular/core';
 import {
-  GoodMainViewComponent, GoodProseComponent, GoodParagraphComponent,
+  GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
   GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent,
 } from '@goodui/angular';
 
 @Component({
   selector: 'app-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodProseComponent, GoodParagraphComponent,
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
     GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent],
   templateUrl: './page.html',
 })
 export class PageComponent {}`;
 
   readonly exampleCode = `<good-main-view title="Project notes" eyebrow="WORKSPACE" description="A short page summary">
-  <good-prose>
-    <good-paragraph>Introduce the topic with a readable paragraph.</good-paragraph>
-    <good-subheading>Next steps</good-subheading>
-    <good-paragraph>Continue with the details.</good-paragraph>
-    <good-separator />
-    <good-inline-image src="/diagram.svg" alt="Workflow diagram" caption="How the steps connect" />
-  </good-prose>
+  <good-section>
+    <good-subheading>Overview</good-subheading>
+    <good-prose>
+      <good-paragraph>Introduce the topic with a readable paragraph.</good-paragraph>
+      <good-subheading [level]="3">Next steps</good-subheading>
+      <good-paragraph>Continue with the details.</good-paragraph>
+      <good-separator />
+      <good-inline-image src="/diagram.svg" alt="Workflow diagram" caption="How the steps connect" />
+    </good-prose>
+  </good-section>
 </good-main-view>`;
 }

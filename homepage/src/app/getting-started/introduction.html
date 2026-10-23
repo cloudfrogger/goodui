@@ -1,12 +1,27 @@
-<good-main-view title="Introduction" description="Getting Started with GoodUI">
-  <div class="homepage-guide">
-    <good-card>
-      <good-card-header title="GoodUI — an Angular UI toolkit" />
-      <div class="homepage-prose">
-        <p>GoodUI is a complete Angular UI toolkit for SaaS applications. It comes with a reusable Penpot component library and is designed for AI-assisted design and implementation: component names, variants, and Angular APIs have a clear mapping, so the same building blocks can move from design to code.</p>
-        <p>Layout flexibility is intentionally limited. GoodUI components own their spacing, structure, and composition rules so different combinations produce a consistent interface with little custom layout work. The toolkit includes an application shell, navigation, menus, controls, and page content components. The Angular package uses Tailwind CSS 4; <code>homepage/</code> shows it in use.</p>
-        <p><good-link href="https://github.com/cloudfrogger/goodui" target="_blank">GitHub · cloudfrogger/goodui</good-link></p>
-      </div>
-    </good-card>
-  </div>
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Getting started</good-eyebrow>
+        <good-heading [level]="1">Introduction</good-heading>
+        <good-summary>GoodUI is a complete Angular UI toolkit for SaaS applications. It comes with a reusable Penpot
+          component library and is designed for AI-assisted design and implementation: component names, variants, and
+          Angular APIs have a clear mapping, so the same building blocks can move from design to code.</good-summary>
+      </good-heading-group>
+      <good-paragraph>Layout flexibility is intentionally limited. GoodUI components own their spacing, structure, and composition
+        rules so different combinations produce a consistent interface with little custom layout work. The toolkit
+        includes an application shell, navigation, menus, controls, and page content components. The Angular package
+        uses Tailwind CSS 4; <code>homepage/</code> shows it in use.</good-paragraph>
+
+      <good-heading [level]="2">Sourcecode and Contributing</good-heading>
+      <good-paragraph>If you want to contribute to GoodUI, please check the repository for contribution guidelines and open issues.
+        The sourcecode is fully available on GitHub, and contributions are welcome.
+      </good-paragraph>
+      <good-paragraph><good-link href="https://github.com/cloudfrogger/goodui" target="_blank">GitHub ·
+          cloudfrogger/goodui</good-link></good-paragraph>
+
+      <good-heading [level]="2">License</good-heading>
+      <good-paragraph>GoodUI is licensed under the MIT License. You can find the full license text in the repository. Feel free to open issues or submit pull requests to improve GoodUI.</good-paragraph>
+    </good-prose>
+  </good-section>
 </good-main-view>

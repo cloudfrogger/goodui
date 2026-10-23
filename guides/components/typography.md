@@ -24,9 +24,27 @@ Use the standalone components when a heading belongs inside another layout:
 
 Keep heading levels in document order. The level changes the HTML tag; this visual role stays consistent. The Penpot Eyebrow variants are `appearance=brand/mono`. Eyebrow and Summary can be omitted without leaving empty spacing.
 
+## Readable sections
+
+Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, limits text to the shared reading width, and spaces its heading from its body. Adjacent sections receive the shared section gap. Give each section a descriptive `good-subheading`; choose its `level` to preserve heading order. `good-prose` owns paragraph spacing inside the section. Import `GoodSectionComponent`, `GoodSubheadingComponent`, `GoodProseComponent`, and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component.
+
+```html
+<good-main-view title="Designing" description="Getting Started with GoodUI">
+  <good-section>
+    <good-subheading>Design with the component library</good-subheading>
+    <good-prose>
+      <good-paragraph>Build a page from reusable components.</good-paragraph>
+      <good-paragraph>Keep design instances linked to their source.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>
+```
+
+`good-main-view` owns the page heading-to-content gap; Section owns reading width and heading-to-body spacing; Prose owns the rhythm within the body. No page-specific wrapper or text margins are needed. The Penpot `goodui.section` composition uses linked Subheading and Prose instances and binds its gap to `typography.paragraph.subheading-gap`. Both Section and Prose use `typography.flow.max-width`; adjacent sections use `typography.flow.section-gap`.
+
 ## Content flow
 
-`good-prose` provides a readable 760 px maximum width and owns the vertical rhythm of its children. `good-paragraph` renders a paragraph; `good-subheading` renders a semantic H2–H6 (`level=2` by default); `good-citation` renders a blockquote with optional `source` and `cite`; and `good-separator` defaults to three quiet dots or accepts `variant="line"`. Penpot's `style` axis maps to the Angular `variant` input because `style` is reserved for HTML/CSS. Subheadings belong between paragraphs as siblings, keeping the HTML valid.
+`good-prose` provides a readable 760 px maximum width and owns the vertical rhythm of its children. `good-paragraph` renders a paragraph; `good-subheading` renders a semantic H2–H6 (`level=2` by default); `good-citation` renders a blockquote with optional `source` and `cite`; and `good-separator` defaults to three quiet dots or accepts `variant="line"`. Penpot's `style` axis maps to the Angular `variant` input because `style` is reserved for HTML/CSS. Subheadings belong between paragraphs as siblings, keeping the HTML valid. A leading Subheading or Separator has no artificial top margin.
 
 For a page with paragraphs, import `GoodProseComponent` and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component, then use:
 
@@ -52,6 +70,8 @@ The [Typography page](../../homepage/src/app/getting-started/typography.html) pl
 ```
 
 The separator has `role="separator"` and reserves more space before the division than after it. `good-inline-image` renders a semantic figure and optional figcaption. Its `align` is `center` by default, with `left` and `right` alternatives; the image stays within 420 px and shrinks to fit mobile width. Supply meaningful `alt` text for informative images, or an empty string for decorative ones. `loading` defaults to `lazy`.
+
+In a standalone Angular page, include `GoodInlineImageComponent` in that page's `imports`. Put a local image in the application's `public/` directory and use a root-relative URL such as `src="/framework_concept.png"`; a relative URL without the leading slash resolves under the current route.
 
 ## Form text
 

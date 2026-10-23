@@ -50,6 +50,12 @@ export class GoodHeadingComponent {
 export class GoodSummaryComponent {}
 
 @Component({
+  selector: 'good-section', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-section' }, template: `<section><ng-content /></section>`,
+})
+export class GoodSectionComponent {}
+
+@Component({
   selector: 'good-prose', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'good-prose' }, template: `<ng-content />`,
 })

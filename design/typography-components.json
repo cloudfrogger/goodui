@@ -5,6 +5,7 @@
     { "family": "eyebrow", "selector": "good-eyebrow", "containerId": "c0c3286f-e4bf-804c-8008-d58daec5d3f8", "input": "appearance", "variants": { "brand": "c0c3286f-e4bf-804c-8008-d58ca0985d81", "mono": "c0c3286f-e4bf-804c-8008-d58ca09a0f4b" } },
     { "family": "heading", "selector": "good-heading", "componentId": "c0c3286f-e4bf-804c-8008-d58c723ff455", "input": "level", "note": "Penpot shows the page heading; levels 1 through 6 are semantic runtime choices." },
     { "family": "summary", "selector": "good-summary", "componentId": "c0c3286f-e4bf-804c-8008-d58ca09bab16" },
+    { "family": "section", "selector": "good-section", "componentId": "c0c3286f-e4bf-804c-8008-d59bac524010", "composition": ["subheading", "prose"], "note": "A readable semantic section; its heading and content use linked Typography instances." },
     { "family": "prose", "selector": "good-prose", "componentId": "c0c3286f-e4bf-804c-8008-d58d0a7628e8", "composition": ["paragraph", "subheading", "citation"] },
     { "family": "paragraph", "selector": "good-paragraph", "componentId": "c0c3286f-e4bf-804c-8008-d58ca09e0594" },
     { "family": "subheading", "selector": "good-subheading", "componentId": "c0c3286f-e4bf-804c-8008-d58ca09f1874", "input": "level", "note": "Levels 2 through 6 share this visual role and preserve semantic HTML headings." },

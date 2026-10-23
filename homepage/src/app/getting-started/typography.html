@@ -1,4 +1,4 @@
-<good-main-view title="Typography" eyebrow="CONTENT SYSTEM" description="Reusable text elements with consistent rhythm for pages and forms.">
+<good-main-view title="Typography" eyebrow="FOUNDATION" description="Reusable text elements with consistent rhythm for pages and forms.">
   <div class="showcase-typography-layout">
     <section class="showcase-section">
       <div class="showcase-section-heading"><h2>Page headings</h2><p>Eyebrow and summary are optional. The heading remains a real HTML heading.</p></div>
@@ -22,8 +22,21 @@
     </section>
 
     <section class="showcase-section">
-      <div class="showcase-section-heading"><h2>Content flow</h2><p>Use <code>good-prose</code> to provide spacing and reading width for its children. Each example includes its Angular template.</p></div>
+      <div class="showcase-section-heading"><h2>Content flow</h2><p>Use <code>good-section</code> for a readable section and <code>good-prose</code> for the text rhythm inside it. Each example includes its Angular template.</p></div>
       <div class="showcase-typography-recipes">
+        <div class="showcase-typography-recipe">
+          <div class="showcase-typography-preview">
+            <strong>Section</strong>
+            <good-section>
+              <good-subheading>Design with reusable components</good-subheading>
+              <good-prose>
+                <good-paragraph>The section sets a readable width and connects its heading to the text.</good-paragraph>
+                <good-paragraph>Prose handles spacing between paragraphs.</good-paragraph>
+              </good-prose>
+            </good-section>
+          </div>
+          <good-code-block [code]="sectionCode" language="html" title="Section · Angular template" />
+        </div>
         <div class="showcase-typography-recipe">
           <div class="showcase-typography-preview">
             <strong>Paragraph</strong>

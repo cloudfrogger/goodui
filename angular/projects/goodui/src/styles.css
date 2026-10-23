@@ -9,7 +9,7 @@ good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sideb
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
 good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-link, good-card, good-card-header, good-card-footer, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-dropdown, good-breadcrumbs, good-badge,
-good-heading-group, good-eyebrow, good-heading, good-summary, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
+good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-heading-group-text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-summary-gap); min-width: 0; }
@@ -18,11 +18,14 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-prose, good-p
 .good-eyebrow[data-appearance="mono"] { color: var(--good-typography-eyebrow-mono-color); }
 .good-heading :is(h1,h2,h3,h4,h5,h6) { margin: 0; color: var(--good-typography-heading-color); font-size: var(--good-typography-heading-font-size); font-weight: var(--good-typography-heading-font-weight); line-height: 1.4; }
 .good-summary p { margin: 0; color: var(--good-typography-summary-color); font-size: var(--good-typography-summary-font-size); font-weight: var(--good-typography-summary-font-weight); line-height: 1.5; }
+.good-section { display: block; width: 100%; max-width: var(--good-typography-flow-max-width); min-width: 0; }
+.good-section + .good-section { margin-block-start: var(--good-typography-flow-section-gap); }
+.good-section > section { display: flex; flex-direction: column; align-items: stretch; gap: var(--good-typography-paragraph-subheading-gap); min-width: 0; }
 .good-prose { display: flex; flex-direction: column; align-items: stretch; min-width: 0; max-width: var(--good-typography-flow-max-width); }
 .good-prose > * + * { margin-block-start: var(--good-typography-flow-gap); }
-.good-prose > good-subheading { margin-block-start: var(--good-typography-flow-section-gap); }
+.good-prose > * + good-subheading { margin-block-start: var(--good-typography-flow-section-gap); }
 .good-prose > good-subheading + good-paragraph { margin-block-start: var(--good-typography-paragraph-subheading-gap); }
-.good-prose > good-separator { margin-block-start: var(--good-typography-separator-before-gap); }
+.good-prose > * + good-separator { margin-block-start: var(--good-typography-separator-before-gap); }
 .good-prose > good-separator + * { margin-block-start: var(--good-typography-separator-after-gap); }
 .good-paragraph p { margin: 0; color: var(--good-typography-paragraph-color); font-size: var(--good-typography-paragraph-font-size); font-weight: var(--good-typography-paragraph-font-weight); line-height: 1.65; overflow-wrap: break-word; }
 .good-subheading :is(h2,h3,h4,h5,h6) { margin: 0; color: var(--good-typography-subheading-color); font-size: var(--good-typography-subheading-font-size); font-weight: var(--good-typography-subheading-font-weight); line-height: 1.4; }

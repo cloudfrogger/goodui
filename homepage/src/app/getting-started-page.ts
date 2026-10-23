@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodMainViewComponent, GoodSubheadingComponent, GoodParagraphComponent, GoodProseComponent } from '@goodui/angular';
+import { GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent } from '@goodui/angular';
 
 @Component({
   selector: 'app-introduction-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/introduction.html',
 })
@@ -13,7 +13,7 @@ export class IntroductionPageComponent {}
 @Component({
   selector: 'app-designing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodLinkComponent, GoodProseComponent, GoodSubheadingComponent, GoodParagraphComponent],
+  imports: [GoodMainViewComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/designing.html',
 })
