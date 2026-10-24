@@ -1917,6 +1917,122 @@
           }
         }
       }
+    },
+    "table": {
+      "surface": {
+        "$value": "{color.surface}",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "{color.border}",
+        "$type": "color"
+      },
+      "text": {
+        "$value": "{color.text}",
+        "$type": "color"
+      },
+      "muted": {
+        "$value": "{color.muted}",
+        "$type": "color"
+      },
+      "header": {
+        "background": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "{color.muted}",
+          "$type": "color"
+        },
+        "height": {
+          "$value": "44",
+          "$type": "sizing"
+        }
+      },
+      "row": {
+        "hover": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        },
+        "striped": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        },
+        "height": {
+          "$value": "56",
+          "$type": "sizing"
+        }
+      },
+      "empty": {
+        "icon": {
+          "$value": "{color.icon}",
+          "$type": "color"
+        },
+        "min-height": {
+          "$value": "144",
+          "$type": "sizing"
+        }
+      },
+      "radius": {
+        "$value": "{radius.card}",
+        "$type": "borderRadius"
+      },
+      "cell": {
+        "padding-inline": {
+          "$value": "{space.4}",
+          "$type": "spacing"
+        },
+        "padding-block": {
+          "$value": "{space.3}",
+          "$type": "spacing"
+        }
+      },
+      "compact": {
+        "padding-inline": {
+          "$value": "{space.3}",
+          "$type": "spacing"
+        },
+        "padding-block": {
+          "$value": "{space.2}",
+          "$type": "spacing"
+        },
+        "row": {
+          "height": {
+            "$value": "40",
+            "$type": "sizing"
+          }
+        }
+      },
+      "toolbar": {
+        "gap": {
+          "$value": "{space.3}",
+          "$type": "spacing"
+        },
+        "padding": {
+          "$value": "{space.4}",
+          "$type": "spacing"
+        }
+      },
+      "footer": {
+        "gap": {
+          "$value": "{space.3}",
+          "$type": "spacing"
+        },
+        "padding": {
+          "$value": "{space.4}",
+          "$type": "spacing"
+        }
+      },
+      "search": {
+        "width": {
+          "$value": "260",
+          "$type": "sizing"
+        }
+      },
+      "min-width": {
+        "$value": "640",
+        "$type": "sizing"
+      }
     }
   },
   "layout-dark": {

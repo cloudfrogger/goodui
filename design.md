@@ -127,6 +127,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.checkbox` | Native three-state selection with brand/mono appearance, three sizes, and disabled presentation |
 | `goodui.radio-group` | Exclusive native choice group with brand/mono appearance, three sizes, and disabled presentation |
 | `goodui.rating` | Selectable or display-only whole-number score with star, heart, thumbs-up, or custom Lucide artwork |
+| `goodui.table` | TanStack-powered record table with optional search, column sorting, rich cells, and client or server pagination |
 | `goodui.form` | Whole-form vertical, left-aligned, or right-aligned label and control columns; Angular `form[goodForm]` directive |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
 | `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
@@ -140,6 +141,8 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
+
+Table is published on Penpot page `16 Tables` with `style=default/bordered/striped/compact` and `state=populated/empty`. The populated specimens demonstrate linked Badge, Switch, and action controls inside cells. Search and pagination are optional parts of `good-table`, rather than separate top-level selectors. Angular uses TanStack Table v9 column definitions and flex rendering so cell content may be plain text, a GoodUI control, or a consumer-owned component. Each column opts into sorting; client mode sorts supplied data while manual mode emits sorting and search with the pagination request for a backend. With no pagination configuration the table shows every supplied row and grows vertically. Client pagination, numbered backend pages, and cursor navigation are distinct configurations. The `table.*` semantic tokens own surface, border, header, row state, spacing, minimum width, and density in both themes. See [Table](guides/components/table.md) and `design/table-variants.json`.
 
 Rating is published on Penpot page `15 Ratings` as 36 `icon` × `size` × representative `value` × `status` variants. Its five linked Lucide instances and flex item containers use `rating.*` color, gap, icon size, and target size tokens; `design/rating-variants.json` records stable library IDs. Stars and thumbs-up use `rating.selected.color` (yellow), hearts use `rating.heart.color` (red), and unselected symbols use `rating.unselected.color` (gray), each with theme-aware values. A separate linked-smile specimen shows `rating.custom.color` (purple) without becoming another published variant. Angular `good-rating` supplies a runtime count, exact integer value, editable native radios, read-only description, disabled state, custom Lucide icon, optional `selectedColor` override, and form control integration. Penpot `value=1/3` represents examples, not a two-value limit. See [Rating](guides/components/rating.md).
 

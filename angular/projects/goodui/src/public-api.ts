@@ -14,6 +14,8 @@ export * from './lib/switch';
 export * from './lib/checkbox';
 export * from './lib/radio-group';
 export * from './lib/rating';
+export * from './lib/table';
+export { flexRenderComponent } from '@tanstack/angular-table';
 export * from './lib/link';
 export * from './lib/card';
 export * from './lib/code-block';

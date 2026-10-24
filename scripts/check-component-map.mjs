@@ -14,6 +14,7 @@ const badgeVariants = JSON.parse(readFileSync(resolve(root, 'design/badge-varian
 const checkboxVariants = JSON.parse(readFileSync(resolve(root, 'design/checkbox-variants.json'), 'utf8'));
 const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-group-variants.json'), 'utf8'));
 const ratingVariants = JSON.parse(readFileSync(resolve(root, 'design/rating-variants.json'), 'utf8'));
+const tableVariants = JSON.parse(readFileSync(resolve(root, 'design/table-variants.json'), 'utf8'));
 const linkVariants = JSON.parse(readFileSync(resolve(root, 'design/link-variants.json'), 'utf8'));
 const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants.json'), 'utf8'));
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
@@ -47,6 +48,21 @@ for (const entry of ratingVariants.variants) {
 for (const icon of ratingVariants.axes.icon) for (const size of ratingVariants.axes.size) for (const value of ratingVariants.axes.value) for (const status of ratingVariants.axes.status) {
   if (!ratingKeys.has(`${icon}/${size}/${value}/${status}`)) throw new Error(`Missing Rating variant: ${icon}/${size}/${value}/${status}`);
 }
+if (tableVariants.family !== 'goodui.table' || tableVariants.selector !== 'good-table' || tableVariants.page !== '16 Tables' || !/^[0-9a-f-]{36}$/.test(tableVariants.containerId)) throw new Error('Invalid Table registry.');
+const tableIds = new Set();
+const tableKeys = new Set();
+for (const entry of tableVariants.variants) {
+  if (!/^[0-9a-f-]{36}$/.test(entry.id) || tableIds.has(entry.id)) throw new Error('Duplicate or missing Table Penpot ID.');
+  tableIds.add(entry.id);
+  if (!tableVariants.axes.style.includes(entry.style) || !tableVariants.axes.state.includes(entry.state)) throw new Error(`Unknown Table variant: ${entry.style}/${entry.state}`);
+  const key = `${entry.style}/${entry.state}`;
+  if (tableKeys.has(key)) throw new Error(`Duplicate Table variant: ${key}`);
+  tableKeys.add(key);
+}
+for (const style of tableVariants.axes.style) for (const state of tableVariants.axes.state) {
+  if (!tableKeys.has(`${style}/${state}`)) throw new Error(`Missing Table variant: ${style}/${state}`);
+}
+if (!map.componentMappings.some(entry => entry.penpotName === 'goodui.table' && entry.penpotId === tableVariants.variants.find(v => v.style === 'default' && v.state === 'populated')?.id)) throw new Error('Table family mapping does not point to the default populated variant.');
 const mappedNames = new Set();
 const mappedIds = new Set();
 for (const entry of map.componentMappings) {
@@ -285,4 +301,4 @@ for (const [selection, id] of Object.entries(formFieldSelections)) {
 }
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
-console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
+console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

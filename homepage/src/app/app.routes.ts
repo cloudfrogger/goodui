@@ -9,6 +9,7 @@ import { BadgesPageComponent } from './badges-page';
 import { CheckboxesPageComponent } from './checkboxes-page';
 import { RadioGroupsPageComponent } from './radio-groups-page';
 import { RatingsPageComponent } from './ratings-page';
+import { TablesPageComponent } from './tables-page';
 import { CardsPageComponent } from './cards-page';
 import { LinksPageComponent } from './links-page';
 
@@ -43,6 +44,7 @@ export const routes: Routes = [
   { path: 'components/checkboxes', component: CheckboxesPageComponent },
   { path: 'components/radio-groups', component: RadioGroupsPageComponent },
   { path: 'components/ratings', component: RatingsPageComponent },
+  { path: 'components/tables', component: TablesPageComponent },
   { path: 'components/cards', component: CardsPageComponent },
   { path: 'components/links', component: LinksPageComponent },
   { path: 'components/code-blocks', loadComponent: () => import('./code-blocks-page').then(module => module.CodeBlocksPageComponent) },

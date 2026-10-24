@@ -55,6 +55,9 @@ body { margin: 0; }
 .showcase-rating-example { display: flex; flex-wrap: wrap; align-items: center; gap: var(--good-space-4); min-height: 48px; }
 .showcase-rating-example strong { width: 100px; color: var(--good-muted); font-size: 13px; text-transform: capitalize; }
 .showcase-rating-list > p { margin: 0; color: var(--good-muted); font-size: 13px; }
+.showcase-table-style-grid { display: grid; gap: var(--good-space-5); }
+.showcase-table-style-grid h3 { margin: 0 0 var(--good-space-2); color: var(--good-muted); font-size: 13px; text-transform: capitalize; }
+.showcase-table-feedback { margin: var(--good-space-3) 0 0; color: var(--good-muted); font-size: 13px; }
 @media (max-width: 600px) { .showcase-rating-example { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--good-space-1); } .showcase-rating-example strong { width: auto; } }
 .showcase-topbar-menu-preview { display: flex; align-items: center; min-height: 70px; padding: 0 20px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); }
 .showcase-topbar-menu-preview > .good-topbar-menu-container { min-height: 70px; }

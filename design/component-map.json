@@ -53,6 +53,7 @@
     "subheading",
     "summary",
     "switch",
+    "table",
     "topbar",
     "topbar-dropdown-item",
     "topbar-dropdown-menu",
@@ -576,6 +577,13 @@
       "state": null
     },
     {
+      "penpotName": "goodui.table",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d7049380955e",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": null
+    },
+    {
       "penpotName": "goodui.search.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f6563524e",
       "angularSelector": "good-search",
@@ -932,6 +940,7 @@
     "design/modal-variants.json",
     "design/radio-group-variants.json",
     "design/rating-variants.json",
+    "design/table-variants.json",
     "design/switch-variants.json",
     "design/typography-components.json"
   ]

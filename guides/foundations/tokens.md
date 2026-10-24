@@ -65,6 +65,11 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `rating.selected.color` / `rating.unselected.color` | `--good-rating-selected-color` / `--good-rating-unselected-color` | Linked Lucide path fill/stroke or stroke | Theme-aware selected yellow and unselected gray |
 | `rating.heart.color` / `rating.custom.color` | `--good-rating-heart-color` / `--good-rating-custom-color` | Linked heart fill/stroke and custom smile stroke | Theme-aware red hearts and purple custom icons; `selectedColor` may override either at runtime |
 | `rating.size.<size>.icon/target` / `rating.gap` | `--good-rating-size-<size>-*` / `--good-rating-gap` | Linked icon and hit-target dimensions; rating flex gap | Three rating sizes and spacing |
+| `table.surface/border/text/muted` | `--good-table-*` | Table frame, boundaries, content, and supporting text | Theme-aware table base |
+| `table.header.*` / `table.row.hover/striped` | `--good-table-header-*` / `--good-table-row-*` | Header and row state fills and text | Theme-aware table states |
+| `table.cell.padding-*` / `table.compact.padding-*` | `--good-table-*-padding-*` | Header and data cell insets | Normal and compact density |
+| `table.toolbar.*` / `table.footer.*` | `--good-table-toolbar-*` / `--good-table-footer-*` | Search and pagination section spacing | Optional table regions |
+| `table.radius/min-width/search.width/empty.min-height` | `--good-table-*` | Frame corners, horizontal overflow, search width, empty state | Table geometry |
 | `radio.legend.gap` / `radio.group.gap` / `radio.option.gap` | `--good-radio-*-gap` | Legend, option list, and indicator-to-label spacing | Radio Group flex layout |
 | `radius.switch` | `--good-radius-switch` | Switch track corners | Pill radius |
 | `radius.control` / `radius.compact` | `--good-radius-control` / `--good-radius-compact` | Input outer and file-button corners | Shared 6 px controls and 4 px compact details |
