@@ -34,6 +34,8 @@ export const routes: Routes = [
   { path: 'components/dropdowns', component: DropdownsPageComponent },
   { path: 'components/breadcrumbs', component: BreadcrumbsPageComponent },
   { path: 'components/badges', component: BadgesPageComponent },
+  { path: 'components/topbar-menu', loadComponent: () => import('./topbar-menu-page').then(module => module.TopbarMenuPageComponent) },
+  { path: 'components/topbar-submenu', loadComponent: () => import('./topbar-submenu-page').then(module => module.TopbarSubmenuPageComponent) },
   { path: 'components/checkboxes', component: CheckboxesPageComponent },
   { path: 'components/radio-groups', component: RadioGroupsPageComponent },
   { path: 'components/cards', component: CardsPageComponent },

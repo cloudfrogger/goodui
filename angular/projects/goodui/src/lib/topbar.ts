@@ -6,6 +6,8 @@ import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodTopbarItem, GoodU
 
 let nextDropdownId = 0;
 
+export type GoodTopbarMobileMenuMode = 'hidden' | 'popup';
+
 @Component({
   selector: 'good-brand-icon',
   standalone: true,
@@ -283,17 +285,56 @@ export class GoodTopbarMenuItemComponent implements OnDestroy {
 @Component({
   selector: 'good-topbar-menu-container',
   standalone: true,
-  imports: [GoodTopbarMenuItemComponent],
+  imports: [GoodIconComponent, GoodTopbarMenuItemComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    @for (item of items(); track item.id) { <good-topbar-menu-item [item]="item" [activeRoute]="activeRoute()" /> }
-    <ng-content />
+    <button #mobileTrigger type="button" class="good-topbar-mobile-trigger good-action-button"
+      [attr.aria-label]="mobileOpen() ? 'Close topbar menu' : 'Open topbar menu'"
+      aria-haspopup="true" [attr.aria-expanded]="mobileOpen()" [attr.aria-controls]="mobilePanelId"
+      (click)="toggleMobileMenu()"><good-icon name="grid" /></button>
+    <div class="good-topbar-menu-items" [id]="mobilePanelId" [class.good-topbar-menu-popup-open]="mobileOpen()"
+      [attr.role]="mobileMode() === 'popup' ? 'navigation' : null" [attr.aria-label]="mobileMode() === 'popup' ? 'Topbar menu' : null">
+      @for (item of items(); track item.id) { <good-topbar-menu-item [item]="item" [activeRoute]="activeRoute()" /> }
+      <ng-content />
+    </div>
   `,
-  host: { class: 'good-topbar-menu-container' },
+  host: { class: 'good-topbar-menu-container', '[attr.data-mobile-mode]': 'mobileMode()' },
 })
 export class GoodTopbarMenuContainerComponent {
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly activeRoute = input('');
+  readonly mobileMode = input<GoodTopbarMobileMenuMode>('hidden');
+  readonly mobileOpen = signal(false);
+  readonly mobilePanelId = `good-topbar-mobile-panel-${++nextDropdownId}`;
+  private readonly element: ElementRef<HTMLElement> = inject(ElementRef);
+
+  toggleMobileMenu(): void { this.mobileOpen.update(open => !open); }
+
+  private closeMobileMenu(returnFocus = false): void {
+    if (!this.mobileOpen()) return;
+    this.mobileOpen.set(false);
+    if (returnFocus) this.element.nativeElement.querySelector<HTMLElement>('.good-topbar-mobile-trigger')?.focus();
+  }
+
+  @HostListener('click', ['$event']) onClick(event: MouseEvent): void {
+    if ((event.target as Element).closest('a.good-topbar-link, a.good-dropdown-link')) this.closeMobileMenu();
+  }
+
+  @HostListener('document:pointerdown', ['$event']) onOutsidePointer(event: PointerEvent): void {
+    if (!this.element.nativeElement.contains(event.target as Node)) this.closeMobileMenu();
+  }
+
+  @HostListener('keydown.escape', ['$event']) onEscape(event: Event): void {
+    if (!this.mobileOpen()) return;
+    event.preventDefault();
+    event.stopPropagation();
+    this.closeMobileMenu(true);
+  }
+
+  @HostListener('window:resize') onResize(): void {
+    const width = this.element.nativeElement.ownerDocument.defaultView?.innerWidth;
+    if (width && width > 900) this.closeMobileMenu();
+  }
 }
 
 @Component({
@@ -311,13 +352,13 @@ export class GoodTopbarMenuContainerComponent {
           @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
         } @else { {{ brand() }} }
       </span>
-      @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" /> }
+      @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" [mobileMode]="mobileMenuMode()" /> }
       <ng-content select="good-topbar-menu-container" />
     </div>
     @if (!projectedMainMenu()) { <good-main-menu [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" /> }
     <ng-content select="good-main-menu" />
   `,
-  host: { class: 'good-topbar' },
+  host: { class: 'good-topbar', '[attr.data-mobile-menu]': 'mobileMenuMode()' },
 })
 export class GoodTopbarComponent {
   readonly brand = input('GOODUI');
@@ -326,6 +367,7 @@ export class GoodTopbarComponent {
   readonly showBrandIcon = input(false);
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly activeRoute = input('');
+  readonly mobileMenuMode = input<GoodTopbarMobileMenuMode>('hidden');
   readonly user = input<GoodUser | null>(null);
   readonly notifications = input<readonly GoodNotification[]>([]);
   readonly searchItems = input<readonly GoodSearchItem[]>([]);

@@ -9,7 +9,7 @@ import { GoodAppLayoutComponent, GoodMenuAction, GoodNotification, GoodSearchIte
   imports: [RouterOutlet, GoodAppLayoutComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems"
+    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup"
       [user]="user" [notifications]="notifications" [searchItems]="searchItems" [avatarActions]="avatarActions()">
       <router-outlet />
     </good-app-layout>
@@ -73,6 +73,8 @@ export class App {
       { id: 'dropdowns', label: 'Dropdowns', icon: 'menu', route: '/components/dropdowns' },
       { id: 'breadcrumbs', label: 'Breadcrumbs', icon: 'chevron-right', route: '/components/breadcrumbs' },
       { id: 'badges', label: 'Badges', icon: 'star', route: '/components/badges' },
+      { id: 'topbar-menu', label: 'Topbar menu', icon: 'menu', route: '/components/topbar-menu' },
+      { id: 'topbar-submenu', label: 'Topbar submenu', icon: 'chevron-right', route: '/components/topbar-submenu' },
     ] },
     { id: 'user', heading: 'USER', items: [
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
@@ -140,6 +142,8 @@ export class App {
     { id: 'dropdowns', label: 'Dropdowns', description: 'Button-based menus and placement', route: '/components/dropdowns' },
     { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },
     { id: 'badges', label: 'Badges', description: 'Colors, sizes, shapes, and removable labels', route: '/components/badges' },
+    { id: 'topbar-menu', label: 'Topbar menu', description: 'Responsive navigation and mobile popup', route: '/components/topbar-menu' },
+    { id: 'topbar-submenu', label: 'Topbar submenu', description: 'Nested navigation and keyboard behavior', route: '/components/topbar-submenu' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },
     { id: 'profile', label: 'User Profile', description: 'Personal information', route: '/account/home/user-profile' },
     { id: 'network', label: 'Network', description: 'Kontakte', route: '/network' },

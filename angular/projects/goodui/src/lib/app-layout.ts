@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
 import { GoodSidebarContainerComponent } from './sidebar';
-import { GoodTopbarComponent, GoodTopbarMenuContainerComponent } from './topbar';
+import { GoodTopbarComponent, GoodTopbarMenuContainerComponent, GoodTopbarMobileMenuMode } from './topbar';
 import { GoodMainViewComponent } from './main-view';
 import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, GoodTopbarItem, GoodUser } from './models';
 
@@ -15,14 +15,14 @@ import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, G
   template: `
     <good-sidebar-container class="good-desktop-sidebar" [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
     <div class="good-app-main">
-      <good-topbar [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [showBrandIcon]="showBrandIcon()" [items]="topbarItems()" [activeRoute]="activeRoute()"
+      <good-topbar [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [showBrandIcon]="showBrandIcon()" [items]="topbarItems()" [activeRoute]="activeRoute()" [mobileMenuMode]="mobileTopbarMenuMode()"
         [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()"
         (menuToggle)="openDrawer()" />
       <div class="good-app-page"><ng-content /></div>
     </div>
     <dialog #drawer class="good-sidebar-drawer" aria-label="Navigation" (click)="onBackdropClick($event)" (close)="onDrawerClose()">
       <good-sidebar-container [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
-      @if (topbarItems().length) {
+      @if (topbarItems().length && mobileTopbarMenuMode() === 'hidden') {
         <nav class="good-drawer-topbar-nav" aria-label="More navigation">
           <strong>Menu</strong><good-topbar-menu-container [items]="topbarItems()" [activeRoute]="activeRoute()" />
         </nav>
@@ -43,6 +43,7 @@ export class GoodAppLayoutComponent {
   readonly showBrandIcon = input(false);
   readonly sidebarSections = input<readonly GoodSidebarSection[]>([]);
   readonly topbarItems = input<readonly GoodTopbarItem[]>([]);
+  readonly mobileTopbarMenuMode = input<GoodTopbarMobileMenuMode>('hidden');
   readonly user = input<GoodUser | null>(null);
   readonly notifications = input<readonly GoodNotification[]>([]);
   readonly searchItems = input<readonly GoodSearchItem[]>([]);

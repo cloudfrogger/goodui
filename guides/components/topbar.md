@@ -2,7 +2,7 @@
 
 **Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.
 
-The topbar places an optional brand icon and navigation on the left, with [MainMenu](./main-menu.md) on the right. It is 70 px tall on desktop with 30 px horizontal padding. On mobile, a drawer trigger appears and the navigation moves into the drawer. Penpot contains default, `with-brand`, and mobile main components.
+The topbar places an optional brand icon and navigation on the left, with [MainMenu](./main-menu.md) on the right. It is 70 px tall on desktop with 30 px horizontal padding. On mobile, a drawer trigger appears. The default `hidden` mode places navigation in the AppLayout drawer; `popup` mode replaces the horizontal row with a topbar icon that opens a separate navigation popup. Penpot contains default, `with-brand`, mobile, mobile icon, and mobile popup states.
 
 On mobile, `brandLogoSrc` and optional `brandLogoDarkSrc` display the application wordmark; `brand` supplies its accessible name. With no logo URL, the mobile topbar displays the brand text. `good-app-layout` forwards these inputs from one place to the topbar and both sidebar presentations.
 
@@ -25,7 +25,7 @@ TopbarMenuContainer
       └─ TopbarDropdownItem “Contact Us” (link after divider)
 ```
 
-These blocks are Penpot library components with nested instances. Their states include `topbar-menu-item.default/open`, `topbar-dropdown-item.link/parent/open`, `topbar-dropdown-menu.default/nested-open`, `topbar.help-open/help-submenu-open`, and `app-layout.help-submenu-open`. Parent items expand; only leaves navigate. Near the right viewport edge, the submenu opens to the left. On mobile, it expands vertically in the drawer.
+These blocks are Penpot library components with nested instances. Their states include `topbar-menu-item.default/open`, `topbar-dropdown-item.link/parent/open`, `topbar-dropdown-menu.default/nested-open`, `topbar.help-open/help-submenu-open`, and `app-layout.help-submenu-open`. Parent items expand; only leaves navigate. Near the right viewport edge, the submenu opens to the left. On mobile, it expands vertically in the drawer or topbar popup, according to the selected mode.
 
 ### Data API
 
@@ -46,7 +46,19 @@ const help: GoodTopbarItem = {
 };
 ```
 
-Parent items are buttons with `aria-expanded` and `aria-controls`; leaves are links. Desktop supports hover, click, and keyboard focus. Escape closes the deepest open level first and returns focus to its trigger. Clicking outside closes the chain. The mobile drawer stacks levels and scrolls when needed.
+Parent items are buttons with `aria-expanded` and `aria-controls`; leaves are links. Desktop supports hover, click, and keyboard focus. Escape closes the deepest open level first and returns focus to its trigger. Clicking outside closes the chain. Mobile navigation stacks levels and scrolls when needed.
+
+## Mobile menu mode
+
+`good-app-layout` accepts `mobileTopbarMenuMode="hidden" | "popup"` and forwards it to `good-topbar` as `mobileMenuMode`. The default is `hidden`, which keeps topbar navigation in the sidebar drawer. In `popup` mode, AppLayout omits that drawer copy, and the topbar shows an icon button with an accessible label, `aria-expanded`, and `aria-controls`. The popup closes on Escape, outside pointer input, navigation, and desktop resize. Escape closes nested levels before the popup and restores focus to the relevant trigger.
+
+```html
+<good-app-layout [topbarItems]="navigation" mobileTopbarMenuMode="popup">
+  <router-outlet />
+</good-app-layout>
+```
+
+For a standalone topbar, use `[mobileMenuMode]="'popup'"`. For a projected menu container, set `mobileMode="popup"` on `good-topbar-menu-container` itself. The Penpot `goodui.topbar-menu-container.mobile-icon` and `.mobile-popup-open` states map to `mobileMode="popup"` with the popup closed/open. `goodui.topbar.mobile-menu-icon` and `.mobile-menu-popup-open` compose those states with the existing mobile topbar. The popup contents reuse linked menu item components in Penpot; Angular renders the supplied `GoodTopbarItem` tree.
 
 ### Component composition
 

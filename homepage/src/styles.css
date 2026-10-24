@@ -51,6 +51,16 @@ body { margin: 0; }
 .showcase-section-heading { margin-bottom: 20px; }
 .showcase-section-heading h2 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
 .showcase-section-heading p { margin: 0; color: var(--good-muted); }
+.showcase-topbar-menu-preview { display: flex; align-items: center; min-height: 70px; padding: 0 20px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); }
+.showcase-topbar-menu-preview > .good-topbar-menu-container { min-height: 70px; }
+.showcase-topbar-submenu-preview { position: relative; min-height:220px; padding: 8px; }
+.showcase-topbar-submenu-preview > .good-topbar-submenu { position: relative; top: auto; left: auto; right: auto; }
+@media (max-width: 900px) {
+  .showcase-topbar-menu-preview { min-height: 64px; }
+  .showcase-topbar-menu-preview > .good-topbar-menu-container { min-height: 64px; }
+  .showcase-topbar-submenu-preview .good-topbar-submenu { position: static; width: 100%; }
+  .showcase-topbar-submenu-preview .good-topbar-submenu .good-dropdown-panel { width: 100%; }
+}
 .showcase-button-table-wrap { max-width: 100%; overflow-x: auto; }
 .showcase-button-table { width: 100%; min-width: 1050px; border-collapse: collapse; text-align: left; }
 .showcase-button-table th, .showcase-button-table td { padding: 16px 14px; border-bottom: 1px solid var(--good-border); vertical-align: middle; }
