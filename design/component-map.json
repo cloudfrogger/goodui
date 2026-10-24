@@ -64,5 +64,768 @@
     "subnav-dropdown": "subnav",
     "subnav-item": "subnav"
   },
-  "pendingPenpotFamilies": []
+  "pendingPenpotFamilies": [],
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "componentMappings": [
+    {
+      "penpotName": "goodui.action-group",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d561933711ad",
+      "angularSelector": "good-action-group",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.action-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d41a7659d7eb",
+      "angularSelector": "good-action-menu",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.action-menu.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d41a76a2c06d",
+      "angularSelector": "good-action-menu",
+      "kind": "component",
+      "state": "open"
+    },
+    {
+      "penpotName": "goodui.app-layout.desktop",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f7af79de1",
+      "angularSelector": "good-app-layout",
+      "kind": "component",
+      "state": "desktop"
+    },
+    {
+      "penpotName": "goodui.app-layout.help-submenu-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb84e00368",
+      "angularSelector": "good-app-layout",
+      "kind": "component",
+      "state": "help-submenu-open"
+    },
+    {
+      "penpotName": "goodui.app-layout.mobile",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fc5601fd6",
+      "angularSelector": "good-app-layout",
+      "kind": "component",
+      "state": "mobile"
+    },
+    {
+      "penpotName": "goodui.app-layout.mobile-drawer-expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d345fc71d6ee",
+      "angularSelector": "good-app-layout",
+      "kind": "component",
+      "state": "mobile-drawer-expanded"
+    },
+    {
+      "penpotName": "goodui.app-layout.mobile-drawer-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fc5a77074",
+      "angularSelector": "good-app-layout",
+      "kind": "component",
+      "state": "mobile-drawer-open"
+    },
+    {
+      "penpotName": "goodui.app-layout.sidebar-expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d34591f8da80",
+      "angularSelector": "good-app-layout",
+      "kind": "component",
+      "state": "sidebar-expanded"
+    },
+    {
+      "penpotName": "goodui.avatar-menu-item.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3dff07e8b0c",
+      "angularSelector": "good-avatar-menu-item",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.avatar-menu-item.parent",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e02020206b",
+      "angularSelector": "good-avatar-menu-item",
+      "kind": "component",
+      "state": "parent"
+    },
+    {
+      "penpotName": "goodui.avatar-menu-item.sign-out",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e020759afe",
+      "angularSelector": "good-avatar-menu-item",
+      "kind": "component",
+      "state": "sign-out"
+    },
+    {
+      "penpotName": "goodui.avatar-menu.account-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e0a9a60899",
+      "angularSelector": "good-avatar-menu",
+      "kind": "component",
+      "state": "account-open"
+    },
+    {
+      "penpotName": "goodui.avatar-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65e8aeea",
+      "angularSelector": "good-avatar-menu",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.avatar-menu.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3400143c866",
+      "angularSelector": "good-avatar-menu",
+      "kind": "component",
+      "state": "open"
+    },
+    {
+      "penpotName": "goodui.avatar-submenu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e0a96714b4",
+      "angularSelector": "good-avatar-menu",
+      "kind": "internal-part",
+      "owner": "goodui.avatar-menu",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.badge",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d494408275ff",
+      "angularSelector": "good-badge",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.brand-icon.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f6648cf58",
+      "angularSelector": "good-brand-icon",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.breadcrumbs",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d48e4adf33b5",
+      "angularSelector": "good-breadcrumbs",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.button",
+      "penpotId": "521fe58c-da62-80e2-8008-d423817384e6",
+      "angularSelector": "good-button",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.card",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d530253a828d",
+      "angularSelector": "good-card",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.card-footer",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d52fe52ad872",
+      "angularSelector": "good-card-footer",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.card-header",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d52f5a30d187",
+      "angularSelector": "good-card-header",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.checkbox",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d497970f1cc5",
+      "angularSelector": "good-checkbox",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.citation",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca0a09eb1",
+      "angularSelector": "good-citation",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.code-block",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d53b608ac38a",
+      "angularSelector": "good-code-block",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.dropdown",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d4860ff28811",
+      "angularSelector": "good-dropdown",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.dropdown-item",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d4857d32da5d",
+      "angularSelector": "good-dropdown",
+      "kind": "internal-part",
+      "owner": "goodui.dropdown",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.dropdown-panel",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d485cac233d5",
+      "angularSelector": "good-dropdown",
+      "kind": "internal-part",
+      "owner": "goodui.dropdown",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.dropdown.submenu-open",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d48641347a8e",
+      "angularSelector": "good-dropdown",
+      "kind": "component",
+      "state": "submenu-open"
+    },
+    {
+      "penpotName": "goodui.error-text",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca0a4e2d3",
+      "angularSelector": "good-error-text",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.eyebrow",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca0985d81",
+      "angularSelector": "good-eyebrow",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.field-label",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca0a37ad8",
+      "angularSelector": "good-field-label",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.form-field",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58d481338f9",
+      "angularSelector": "good-form-field",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.heading",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58c723ff455",
+      "angularSelector": "good-heading",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.heading-group",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58d09f60369",
+      "angularSelector": "good-heading-group",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.hint",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca0a208d6",
+      "angularSelector": "good-hint",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.image-caption",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca0a60733",
+      "angularSelector": "good-inline-image",
+      "kind": "internal-part",
+      "owner": "goodui.inline-image",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.inline-image",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58d2b885f78",
+      "angularSelector": "good-inline-image",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.input",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d47e20b0dda6",
+      "angularSelector": "good-input",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.input-addon",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d47f2ff77da1",
+      "angularSelector": "good-input",
+      "kind": "internal-part",
+      "owner": "goodui.input",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.input.file-with-addon",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d4803cf6fbee",
+      "angularSelector": "good-input",
+      "kind": "component",
+      "state": "file-with-addon"
+    },
+    {
+      "penpotName": "goodui.input.with-addons",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d4801e49f71b",
+      "angularSelector": "good-input",
+      "kind": "component",
+      "state": "with-addons"
+    },
+    {
+      "penpotName": "goodui.link",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d52e8d4e0e8e",
+      "angularSelector": "good-link",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.main-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f6619a524",
+      "angularSelector": "good-main-menu",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.main-view.account",
+      "penpotId": "521fe58c-da62-80e2-8008-d34655a672c2",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "account"
+    },
+    {
+      "penpotName": "goodui.main-view.account-mobile",
+      "penpotId": "521fe58c-da62-80e2-8008-d40ced977d68",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "account-mobile"
+    },
+    {
+      "penpotName": "goodui.main-view.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f7aa54b2b",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.main-view.mobile",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fc4dcceec",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "mobile"
+    },
+    {
+      "penpotName": "goodui.modal",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d55954ee2241",
+      "angularSelector": "good-modal",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.modal-footer",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d55935c53f0b",
+      "angularSelector": "good-modal-footer",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.modal-header",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d55931609220",
+      "angularSelector": "good-modal-header",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.notifications.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65811a2c",
+      "angularSelector": "good-notifications",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.notifications.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fff9a20ba",
+      "angularSelector": "good-notifications",
+      "kind": "component",
+      "state": "open"
+    },
+    {
+      "penpotName": "goodui.paragraph",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca09e0594",
+      "angularSelector": "good-paragraph",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.prose",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58d0a7628e8",
+      "angularSelector": "good-prose",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.radio-group",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d52762ebe541",
+      "angularSelector": "good-radio-group",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.search.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f6563524e",
+      "angularSelector": "good-search",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.search.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d33ffe1c4f79",
+      "angularSelector": "good-search",
+      "kind": "component",
+      "state": "open"
+    },
+    {
+      "penpotName": "goodui.section",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d59bac524010",
+      "angularSelector": "good-section",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.separator",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58d18952b69",
+      "angularSelector": "good-separator",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.settings.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65a3839a",
+      "angularSelector": "good-settings",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.settings.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d340005398c5",
+      "angularSelector": "good-settings",
+      "kind": "component",
+      "state": "open"
+    },
+    {
+      "penpotName": "goodui.sidebar-container.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f4ac0f922",
+      "angularSelector": "good-sidebar-container",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.sidebar-container.drawer",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fc3f1ea97",
+      "angularSelector": "good-sidebar-container",
+      "kind": "component",
+      "state": "drawer"
+    },
+    {
+      "penpotName": "goodui.sidebar-container.drawer-expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d345f7623c28",
+      "angularSelector": "good-sidebar-container",
+      "kind": "component",
+      "state": "drawer-expanded"
+    },
+    {
+      "penpotName": "goodui.sidebar-container.expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d3458996ee89",
+      "angularSelector": "good-sidebar-container",
+      "kind": "component",
+      "state": "expanded"
+    },
+    {
+      "penpotName": "goodui.sidebar-item.active",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f4a133c70",
+      "angularSelector": "good-sidebar-item",
+      "kind": "component",
+      "state": "active"
+    },
+    {
+      "penpotName": "goodui.sidebar-item.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f49ccaa46",
+      "angularSelector": "good-sidebar-item",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.sidebar-item.expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d34552e9bc72",
+      "angularSelector": "good-sidebar-item",
+      "kind": "component",
+      "state": "expanded"
+    },
+    {
+      "penpotName": "goodui.sidebar-menu-container.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f4a57452a",
+      "angularSelector": "good-sidebar-menu-container",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.sidebar-menu-container.expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d3457ea24a0f",
+      "angularSelector": "good-sidebar-menu-container",
+      "kind": "component",
+      "state": "expanded"
+    },
+    {
+      "penpotName": "goodui.sidebar-submenu-group.collapsed",
+      "penpotId": "521fe58c-da62-80e2-8008-d345acbb05fb",
+      "angularSelector": "good-sidebar-submenu-group",
+      "kind": "component",
+      "state": "collapsed"
+    },
+    {
+      "penpotName": "goodui.sidebar-submenu-group.expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d3454e2d2cfc",
+      "angularSelector": "good-sidebar-submenu-group",
+      "kind": "component",
+      "state": "expanded"
+    },
+    {
+      "penpotName": "goodui.sidebar-submenu-item.active",
+      "penpotId": "521fe58c-da62-80e2-8008-d34536702092",
+      "angularSelector": "good-sidebar-submenu-item",
+      "kind": "component",
+      "state": "active"
+    },
+    {
+      "penpotName": "goodui.sidebar-submenu-item.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d34536320476",
+      "angularSelector": "good-sidebar-submenu-item",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.subheading",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
+      "angularSelector": "good-subheading",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.subnav-dropdown.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d40cd5f5d476",
+      "angularSelector": "good-subnav",
+      "kind": "internal-part",
+      "owner": "goodui.subnav",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.subnav-item.active",
+      "penpotId": "521fe58c-da62-80e2-8008-d40ca32c96fa",
+      "angularSelector": "good-subnav",
+      "kind": "internal-part",
+      "owner": "goodui.subnav",
+      "state": "active"
+    },
+    {
+      "penpotName": "goodui.subnav-item.link",
+      "penpotId": "521fe58c-da62-80e2-8008-d40ca2339866",
+      "angularSelector": "good-subnav",
+      "kind": "internal-part",
+      "owner": "goodui.subnav",
+      "state": "link"
+    },
+    {
+      "penpotName": "goodui.subnav-item.parent",
+      "penpotId": "521fe58c-da62-80e2-8008-d40ca29a692f",
+      "angularSelector": "good-subnav",
+      "kind": "internal-part",
+      "owner": "goodui.subnav",
+      "state": "parent"
+    },
+    {
+      "penpotName": "goodui.subnav.desktop",
+      "penpotId": "521fe58c-da62-80e2-8008-d40cb8b8e01a",
+      "angularSelector": "good-subnav",
+      "kind": "component",
+      "state": "desktop"
+    },
+    {
+      "penpotName": "goodui.subnav.menu-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d40cd63c49cf",
+      "angularSelector": "good-subnav",
+      "kind": "component",
+      "state": "menu-open"
+    },
+    {
+      "penpotName": "goodui.subnav.mobile",
+      "penpotId": "521fe58c-da62-80e2-8008-d40cba28bff7",
+      "angularSelector": "good-subnav",
+      "kind": "component",
+      "state": "mobile"
+    },
+    {
+      "penpotName": "goodui.subnav.with-actions",
+      "penpotId": "521fe58c-da62-80e2-8008-d41a1e574999",
+      "angularSelector": "good-subnav",
+      "kind": "component",
+      "state": "with-actions"
+    },
+    {
+      "penpotName": "goodui.summary",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca09bab16",
+      "angularSelector": "good-summary",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.switch",
+      "penpotId": "521fe58c-da62-80e2-8008-d457dad10b7f",
+      "angularSelector": "good-switch",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-item.link",
+      "penpotId": "521fe58c-da62-80e2-8008-d3caa3b78281",
+      "angularSelector": "good-topbar-dropdown-item",
+      "kind": "component",
+      "state": "link"
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-item.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3caf0167256",
+      "angularSelector": "good-topbar-dropdown-item",
+      "kind": "component",
+      "state": "open"
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-item.parent",
+      "penpotId": "521fe58c-da62-80e2-8008-d3caefc179e0",
+      "angularSelector": "good-topbar-dropdown-item",
+      "kind": "component",
+      "state": "parent"
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb1bfe9de3",
+      "angularSelector": "good-topbar-dropdown-menu",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-menu.nested-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb41079b9e",
+      "angularSelector": "good-topbar-dropdown-menu",
+      "kind": "component",
+      "state": "nested-open"
+    },
+    {
+      "penpotName": "goodui.topbar-menu-container.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65433040",
+      "angularSelector": "good-topbar-menu-container",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.topbar-menu-container.mobile-icon",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d5e4dc8469c8",
+      "angularSelector": "good-topbar-menu-container",
+      "kind": "component",
+      "state": "mobile-icon"
+    },
+    {
+      "penpotName": "goodui.topbar-menu-container.mobile-popup-open",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d5e4f1abf064",
+      "angularSelector": "good-topbar-menu-container",
+      "kind": "component",
+      "state": "mobile-popup-open"
+    },
+    {
+      "penpotName": "goodui.topbar-menu-item.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65037987",
+      "angularSelector": "good-topbar-menu-item",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.topbar-menu-item.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb40c02667",
+      "angularSelector": "good-topbar-menu-item",
+      "kind": "component",
+      "state": "open"
+    },
+    {
+      "penpotName": "goodui.topbar-submenu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb2ae3b496",
+      "angularSelector": "good-topbar-submenu",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.topbar.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f667375d0",
+      "angularSelector": "good-topbar",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.topbar.help-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb51d73426",
+      "angularSelector": "good-topbar",
+      "kind": "component",
+      "state": "help-open"
+    },
+    {
+      "penpotName": "goodui.topbar.help-submenu-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb522ee751",
+      "angularSelector": "good-topbar",
+      "kind": "component",
+      "state": "help-submenu-open"
+    },
+    {
+      "penpotName": "goodui.topbar.mobile",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fc43d443e",
+      "angularSelector": "good-topbar",
+      "kind": "component",
+      "state": "mobile"
+    },
+    {
+      "penpotName": "goodui.topbar.mobile-menu-icon",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d5e514a9b336",
+      "angularSelector": "good-topbar",
+      "kind": "component",
+      "state": "mobile-menu-icon"
+    },
+    {
+      "penpotName": "goodui.topbar.mobile-menu-popup-open",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d5e5154d923f",
+      "angularSelector": "good-topbar",
+      "kind": "component",
+      "state": "mobile-menu-popup-open"
+    },
+    {
+      "penpotName": "goodui.topbar.with-brand",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f66ae31ee",
+      "angularSelector": "good-topbar",
+      "kind": "component",
+      "state": "with-brand"
+    }
+  ],
+  "variantManifests": [
+    "design/action-group-variants.json",
+    "design/badge-variants.json",
+    "design/breadcrumbs-variants.json",
+    "design/button-variants.json",
+    "design/card-variants.json",
+    "design/checkbox-variants.json",
+    "design/code-block-variants.json",
+    "design/dropdown-variants.json",
+    "design/input-variants.json",
+    "design/link-variants.json",
+    "design/modal-variants.json",
+    "design/radio-group-variants.json",
+    "design/switch-variants.json",
+    "design/typography-components.json"
+  ]
 }

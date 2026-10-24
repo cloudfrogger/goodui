@@ -25,6 +25,31 @@ const internal = Object.keys(map.internalParts);
 const pending = new Set(map.pendingPenpotFamilies ?? []);
 const names = [...direct, ...internal, ...pending];
 if (new Set(names).size !== names.length) throw new Error('A Penpot family is mapped twice.');
+if (!/^[0-9a-f-]{36}$/.test(map.penpotFileId ?? '')) throw new Error('Missing Penpot file ID in component map.');
+if (!Array.isArray(map.componentMappings) || !map.componentMappings.length) throw new Error('Missing concrete Penpot to Angular mappings.');
+const mappedNames = new Set();
+const mappedIds = new Set();
+for (const entry of map.componentMappings) {
+  if (!entry.penpotName?.startsWith('goodui.') || !/^[0-9a-f-]{36}$/.test(entry.penpotId ?? '')) throw new Error(`Invalid Penpot component mapping: ${entry.penpotName}`);
+  if (mappedNames.has(entry.penpotName) || mappedIds.has(entry.penpotId)) throw new Error(`Duplicate Penpot component mapping: ${entry.penpotName}`);
+  mappedNames.add(entry.penpotName);
+  mappedIds.add(entry.penpotId);
+  const family = names.filter(name => entry.penpotName === `goodui.${name}` || entry.penpotName.startsWith(`goodui.${name}.`))
+    .sort((left, right) => right.length - left.length)[0];
+  if (!family) throw new Error(`Unmapped Penpot family: ${entry.penpotName}`);
+  const owner = map.internalParts[family];
+  if (entry.angularSelector !== `good-${owner ?? family}` || entry.kind !== (owner ? 'internal-part' : 'component') ||
+      (owner ? entry.owner !== `goodui.${owner}` : 'owner' in entry)) throw new Error(`Invalid Angular mapping for ${entry.penpotName}`);
+  const state = entry.penpotName === `goodui.${family}` ? null : entry.penpotName.slice(`goodui.${family}.`.length);
+  if (entry.state !== state) throw new Error(`Invalid state mapping for ${entry.penpotName}`);
+}
+for (const family of [...direct, ...internal]) {
+  if (![...mappedNames].some(name => name === `goodui.${family}` || name.startsWith(`goodui.${family}.`))) throw new Error(`No concrete Penpot component for goodui.${family}`);
+}
+for (const path of map.variantManifests ?? []) {
+  if (!path.startsWith('design/') || !path.endsWith('.json')) throw new Error(`Invalid variant manifest path: ${path}`);
+  JSON.parse(readFileSync(resolve(root, path), 'utf8'));
+}
 for (const name of direct) if (!selectors.has(name)) throw new Error(`Missing Angular selector for goodui.${name}`);
 for (const name of pending) if (!selectors.has(name)) throw new Error(`Missing Angular selector for pending goodui.${name}`);
 for (const [name, owner] of Object.entries(map.internalParts)) {
@@ -209,4 +234,4 @@ for (const entry of typographyComponents.families) {
 if (typographyExpected.size) throw new Error(`Missing Typography families: ${[...typographyExpected.keys()].join(', ')}`);
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
-console.log(`Checked ${direct.size + internal.length} Penpot families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
+console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
