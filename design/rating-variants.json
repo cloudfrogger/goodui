@@ -1,0 +1,281 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "15 Ratings",
+  "family": "goodui.rating",
+  "selector": "good-rating",
+  "containerId": "c0c3286f-e4bf-804c-8008-d6d2d59cd6de",
+  "axes": {
+    "icon": [
+      "star",
+      "heart",
+      "thumbs-up"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "value": [
+      "1",
+      "3"
+    ],
+    "status": [
+      "default",
+      "disabled"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d13c994a",
+      "icon": "star",
+      "size": "small",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1465be2",
+      "icon": "star",
+      "size": "small",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d14ce95d",
+      "icon": "star",
+      "size": "small",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d152ee01",
+      "icon": "star",
+      "size": "default",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d156e3e6",
+      "icon": "star",
+      "size": "default",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d15b06df",
+      "icon": "star",
+      "size": "default",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d15f3373",
+      "icon": "star",
+      "size": "default",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1638b36",
+      "icon": "star",
+      "size": "large",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d167b136",
+      "icon": "star",
+      "size": "large",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d16b035f",
+      "icon": "star",
+      "size": "large",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d16f6cf6",
+      "icon": "star",
+      "size": "large",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d17374f7",
+      "icon": "heart",
+      "size": "small",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d17798c9",
+      "icon": "heart",
+      "size": "small",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d17a2dfc",
+      "icon": "heart",
+      "size": "small",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d17d9051",
+      "icon": "heart",
+      "size": "small",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1806278",
+      "icon": "heart",
+      "size": "default",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d18311c7",
+      "icon": "heart",
+      "size": "default",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1869c4e",
+      "icon": "heart",
+      "size": "default",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1894846",
+      "icon": "heart",
+      "size": "default",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d18be66a",
+      "icon": "heart",
+      "size": "large",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d18e724e",
+      "icon": "heart",
+      "size": "large",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d191604c",
+      "icon": "heart",
+      "size": "large",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d193f957",
+      "icon": "heart",
+      "size": "large",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d196b0fc",
+      "icon": "thumbs-up",
+      "size": "small",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1999d99",
+      "icon": "thumbs-up",
+      "size": "small",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d19cfd04",
+      "icon": "thumbs-up",
+      "size": "small",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1a09331",
+      "icon": "thumbs-up",
+      "size": "small",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1a31038",
+      "icon": "thumbs-up",
+      "size": "default",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1a5fdbd",
+      "icon": "thumbs-up",
+      "size": "default",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1a826a7",
+      "icon": "thumbs-up",
+      "size": "default",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1aabaaa",
+      "icon": "thumbs-up",
+      "size": "default",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1ac7a10",
+      "icon": "thumbs-up",
+      "size": "large",
+      "value": "1",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1aef7de",
+      "icon": "thumbs-up",
+      "size": "large",
+      "value": "1",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1b10294",
+      "icon": "thumbs-up",
+      "size": "large",
+      "value": "3",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1b3f0ce",
+      "icon": "thumbs-up",
+      "size": "large",
+      "value": "3",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6d2d1b618bf",
+      "icon": "star",
+      "size": "small",
+      "value": "1",
+      "status": "default"
+    }
+  ]
+}

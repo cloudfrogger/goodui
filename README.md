@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, inputs, date inputs, dropdowns, code blocks, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, ratings, inputs, date inputs, dropdowns, code blocks, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -66,6 +66,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    For one choice from several, use `<good-radio-group label="Plan" [options]="plans" [formControl]="plan" />`. It supports brand and mono appearances, three sizes, and disabled groups. See the [Radio group guide](guides/components/radio-group.md) and `/components/radio-groups` on the homepage.
 
+   For a score, use `<good-rating label="Satisfaction" [formControl]="rating" />`. Add `[readonly]="true"` to display a score, choose `icon="heart"` for red hearts, or pass `[customIcon]` and `selectedColor` for your own symbol and color. See the [Rating guide](guides/components/rating.md) and `/components/ratings` on the homepage.
+
    For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](guides/components/input.md) and the homepage's `/components/inputs` page.
 
    For localized dates, ranges, multiple days, months, years, or time, use `<good-date-input label="Appointment" [formControl]="appointment" />`. See the [Date input guide](guides/components/date-input.md) and `/components/date-inputs` on the homepage.
@@ -100,6 +102,7 @@ The screenshot shows the `homepage` application at 1440 × 620 px in light mode.
 | `good-switch` | Accessible on/off control with three sizes, forms support, brand or mono appearance, and theme-aware error styling |
 | `good-checkbox` | Native three-state checkbox with three sizes, forms support, and brand or mono appearance |
 | `good-radio-group` | Native exclusive selection with three sizes, forms support, and brand or mono appearance |
+| `good-rating` | Whole-number score with native radio selection, read-only display, three sizes, and Lucide symbols |
 | `good-input` | Text and native file controls with optional icons or fixed group text |
 | `good-date-input` | Localized date, range, multiple, month, year, and optional time selection |
 | `good-dropdown` | Button-based popup with optional sections, scrolling, placement, and submenus |
@@ -136,6 +139,7 @@ Open `http://localhost:4200/`. After changing library source, run `npm run build
 - [Badge variant registry](design/badge-variants.json) — Penpot IDs for all 126 color, treatment, shape, and size combinations.
 - [Checkbox variant registry](design/checkbox-variants.json) — Penpot IDs for all 36 appearance, state, size, and disabled combinations.
 - [Radio group variant registry](design/radio-group-variants.json) — Penpot IDs for all 24 appearance, size, selection, and disabled combinations.
+- [Rating variant registry](design/rating-variants.json) — Penpot IDs for 36 symbol, size, score, and disabled combinations.
 - [Card variant registry](design/card-variants.json) — Penpot IDs for Card, Header, and Footer combinations.
 - [Link variant registry](design/link-variants.json) — Penpot IDs for appearance, underline, decoration, and disabled combinations.
 - [Code block variant registry](design/code-block-variants.json) — Penpot IDs for block, numbered, collapsed, and inline presentations.

@@ -62,6 +62,9 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `radio.unchecked.background` / `radio.<appearance>.unchecked.border` | `--good-radio-*` | Radio indicator fill and border | Unselected choices |
 | `radio.<appearance>.selected.color` | `--good-radio-<appearance>-selected-color` | Selected indicator border and dot | Brand or mono selection |
 | `radio.size.<size>.indicator/dot` / `radio.radius` | `--good-radio-size-<size>-*` / `--good-radio-radius` | Radio indicator and dot size and rounded corners | Small, default, and large choices |
+| `rating.selected.color` / `rating.unselected.color` | `--good-rating-selected-color` / `--good-rating-unselected-color` | Linked Lucide path fill/stroke or stroke | Theme-aware selected yellow and unselected gray |
+| `rating.heart.color` / `rating.custom.color` | `--good-rating-heart-color` / `--good-rating-custom-color` | Linked heart fill/stroke and custom smile stroke | Theme-aware red hearts and purple custom icons; `selectedColor` may override either at runtime |
+| `rating.size.<size>.icon/target` / `rating.gap` | `--good-rating-size-<size>-*` / `--good-rating-gap` | Linked icon and hit-target dimensions; rating flex gap | Three rating sizes and spacing |
 | `radio.legend.gap` / `radio.group.gap` / `radio.option.gap` | `--good-radio-*-gap` | Legend, option list, and indicator-to-label spacing | Radio Group flex layout |
 | `radius.switch` | `--good-radius-switch` | Switch track corners | Pill radius |
 | `radius.control` / `radius.compact` | `--good-radius-control` / `--good-radius-compact` | Input outer and file-button corners | Shared 6 px controls and 4 px compact details |

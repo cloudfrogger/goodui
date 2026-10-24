@@ -384,6 +384,17 @@
   --good-date-day-selected-foreground: var(--good-button-default-foreground);
   --good-date-day-range-background: var(--good-color-selected);
   --good-date-time-border: var(--good-color-border);
+  --good-rating-selected-color: #EAB308;
+  --good-rating-heart-color: #E11D48;
+  --good-rating-custom-color: #7C3AED;
+  --good-rating-unselected-color: var(--good-color-icon);
+  --good-rating-gap: 4px;
+  --good-rating-size-small-icon: 16px;
+  --good-rating-size-small-target: 32px;
+  --good-rating-size-default-icon: 20px;
+  --good-rating-size-default-target: 40px;
+  --good-rating-size-large-icon: 24px;
+  --good-rating-size-large-target: 48px;
   --good-canvas: var(--good-color-canvas);
   --good-surface: var(--good-color-surface);
   --good-text: var(--good-color-text);
@@ -440,6 +451,9 @@
   --good-code-syntax-comment: #A1A1AA;
   --good-code-syntax-function: #93C5FD;
   --good-code-syntax-type: #5EEAD4;
+  --good-rating-selected-color: #FACC15;
+  --good-rating-heart-color: #FB7185;
+  --good-rating-custom-color: #C4B5FD;
 }
 
 @theme inline {

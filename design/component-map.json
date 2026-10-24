@@ -39,6 +39,7 @@
     "paragraph",
     "prose",
     "radio-group",
+    "rating",
     "search",
     "section",
     "separator",
@@ -568,6 +569,13 @@
       "state": null
     },
     {
+      "penpotName": "goodui.rating",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6d2d15b06df",
+      "angularSelector": "good-rating",
+      "kind": "component",
+      "state": null
+    },
+    {
       "penpotName": "goodui.search.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f6563524e",
       "angularSelector": "good-search",
@@ -923,6 +931,7 @@
     "design/link-variants.json",
     "design/modal-variants.json",
     "design/radio-group-variants.json",
+    "design/rating-variants.json",
     "design/switch-variants.json",
     "design/typography-components.json"
   ]

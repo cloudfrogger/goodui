@@ -51,6 +51,11 @@ body { margin: 0; }
 .showcase-section-heading { margin-bottom: 20px; }
 .showcase-section-heading h2 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
 .showcase-section-heading p { margin: 0; color: var(--good-muted); }
+.showcase-rating-list { display: grid; gap: var(--good-space-3); }
+.showcase-rating-example { display: flex; flex-wrap: wrap; align-items: center; gap: var(--good-space-4); min-height: 48px; }
+.showcase-rating-example strong { width: 100px; color: var(--good-muted); font-size: 13px; text-transform: capitalize; }
+.showcase-rating-list > p { margin: 0; color: var(--good-muted); font-size: 13px; }
+@media (max-width: 600px) { .showcase-rating-example { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--good-space-1); } .showcase-rating-example strong { width: auto; } }
 .showcase-topbar-menu-preview { display: flex; align-items: center; min-height: 70px; padding: 0 20px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); }
 .showcase-topbar-menu-preview > .good-topbar-menu-container { min-height: 70px; }
 .showcase-topbar-submenu-preview { position: relative; min-height:220px; padding: 8px; }

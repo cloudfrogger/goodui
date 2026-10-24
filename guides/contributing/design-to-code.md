@@ -10,7 +10,7 @@
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, `09 Code`, `10 Modals`, `11 Action Groups`, `12 Typography`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components` through `15 Ratings`; the newer dedicated pages include `13 Images`, `14 Date Inputs`, and `15 Ratings`. The IDs below are Penpot library IDs; preserve the main shape while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -66,6 +66,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.switch` variant group (`state` × `size` × `status` × `appearance`) | Container `521fe58c-da62-80e2-8008-d457ef0aef38`; all 36 IDs in [switch-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/switch-variants.json) |
 | `goodui.checkbox` variant group (`appearance` × `state` × `size` × `status`) | Container `79fa6408-a1e2-80d7-8008-d497977b07fc`; all 36 IDs in [checkbox-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/checkbox-variants.json) |
 | `goodui.radio-group` variant group (`appearance` × `size` × `selection` × `status`) | Container `c0c3286f-e4bf-804c-8008-d527a8bca171`; all 24 IDs in [radio-group-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/radio-group-variants.json) |
+| `goodui.rating` variant group (`icon` × `size` × `value` × `status`) | Container `c0c3286f-e4bf-804c-8008-d6d2d59cd6de`; all 36 IDs in [rating-variants.json](../../design/rating-variants.json) |
 | `goodui.link` (`appearance` × `underline` × `decoration` × `status`) | Container `c0c3286f-e4bf-804c-8008-d52ebed18b43`; all 24 IDs in [link-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/link-variants.json) |
 | `goodui.card` (`header` × `footer`) | Container `c0c3286f-e4bf-804c-8008-d530a53ab97a`; all 20 IDs in [card-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/card-variants.json) |
 | `goodui.card-header` (`tone` × `actions`) / `goodui.card-footer` (`content`) | Containers `c0c3286f-e4bf-804c-8008-d52fb75ce3d8` / `c0c3286f-e4bf-804c-8008-d52ff73e803a`; six Header and four Footer IDs in the same manifest |
@@ -137,6 +138,8 @@ The Angular homepage takes its wordmarks from those SVG exports. Run `npm run br
 | `goodui.checkbox`, `size=small/default/large`, `status=default/disabled` | `good-checkbox [size]` and `[disabled]` or disabled FormControl |
 | `goodui.radio-group`, `appearance=brand/mono`, `size=small/default/large` | `good-radio-group [appearance]` and `[size]` |
 | `goodui.radio-group`, `selection=none/selected`, `status=default/disabled` | `good-radio-group [value]` / `[(value)]` or a FormControl; `[disabled]` or disabled FormControl |
+| `goodui.rating`, `icon=star/heart/thumbs-up`, `size=small/default/large` | `good-rating [icon]` and `[size]`; `[customIcon]` accepts other Lucide artwork, while `[selectedColor]` overrides the theme-aware icon color |
+| `goodui.rating`, `value=1/3`, `status=default/disabled` | `good-rating [value]` / `[(value)]` or a FormControl; `[disabled]` or a disabled FormControl; `[readonly]` changes interaction only |
 | `goodui.link`, `appearance=brand/mono` | `good-link [appearance]`; accent or theme text color |
 | `goodui.link`, `underline=hover/always`, `decoration=solid/dashed/dotted` | `good-link [underline]` and `[decoration]`; hover is a runtime state |
 | `goodui.link`, `status=default/disabled` | `good-link [route]` or `[href]`, optionally `[disabled]`; disabled removes destination and focus |
@@ -165,6 +168,8 @@ The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8
 `goodui.checkbox` publishes 36 variants on `06 Checkboxes`. Its `appearance`, `state`, `size`, and `status` axes map to `good-checkbox` inputs and native form behavior. The mark is a vector in a flex-centered, token-sized board; Penpot cannot size-bind the imported SVG group itself, so its path coordinates are authored per size. [checkbox-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/checkbox-variants.json) records all IDs. The browser supplies native focus and the required indeterminate-to-unchecked transition.
 
 `goodui.radio-group` publishes 24 variants on `07 Radio Groups`. The `selected` specimen selects its second option; a runtime group may select any option through its `value` or form control. Each Penpot specimen has three example options; the Angular `options` array provides runtime labels and count. Its root, option list, and rows use flex layout with token-bound gaps; indicator and dot dimensions, fills, strokes, and radius use semantic `radio.*` tokens. [radio-group-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/radio-group-variants.json) records the library IDs. The browser supplies the native fieldset, legend, arrow-key selection, and form behavior.
+
+`goodui.rating` publishes 36 variants on `15 Ratings`; its container ID is `c0c3286f-e4bf-804c-8008-d6d2d59cd6de`. [rating-variants.json](../../design/rating-variants.json) records every variant ID and axis. Each specimen contains five linked Lucide instances. Star and thumbs-up selection uses `rating.selected.color`; heart selection uses `rating.heart.color`. The non-library `example.rating-custom-icon` shows linked Smile instances with `rating.custom.color` and no fill. `value=1/3` is a representative visual state; `good-rating` accepts any score from one through its runtime `count`. A project-specific icon and color map to `[customIcon]` and `[selectedColor]`. Native radios, focus, read-only semantics, and Angular Forms behavior belong to the Angular component.
 
 `goodui.link` publishes 24 variants on `08 Cards and Links`. The label fill and underline stroke bind to `link.brand.color` or `link.mono.color`; `underline=hover` depicts the resting state. Angular supplies the native anchor, hover, focus, routing, and disabled behavior. [link-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/link-variants.json) records every library ID.
 

@@ -13,6 +13,7 @@ const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadc
 const badgeVariants = JSON.parse(readFileSync(resolve(root, 'design/badge-variants.json'), 'utf8'));
 const checkboxVariants = JSON.parse(readFileSync(resolve(root, 'design/checkbox-variants.json'), 'utf8'));
 const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-group-variants.json'), 'utf8'));
+const ratingVariants = JSON.parse(readFileSync(resolve(root, 'design/rating-variants.json'), 'utf8'));
 const linkVariants = JSON.parse(readFileSync(resolve(root, 'design/link-variants.json'), 'utf8'));
 const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants.json'), 'utf8'));
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
@@ -30,6 +31,22 @@ const names = [...direct, ...internal, ...pending];
 if (new Set(names).size !== names.length) throw new Error('A Penpot family is mapped twice.');
 if (!/^[0-9a-f-]{36}$/.test(map.penpotFileId ?? '')) throw new Error('Missing Penpot file ID in component map.');
 if (!Array.isArray(map.componentMappings) || !map.componentMappings.length) throw new Error('Missing concrete Penpot to Angular mappings.');
+if (ratingVariants.family !== 'goodui.rating' || ratingVariants.selector !== 'good-rating' || ratingVariants.page !== '15 Ratings' || !/^[0-9a-f-]{36}$/.test(ratingVariants.containerId)) throw new Error('Invalid Rating registry.');
+const ratingIds = new Set();
+const ratingKeys = new Set();
+for (const entry of ratingVariants.variants) {
+  if (!/^[0-9a-f-]{36}$/.test(entry.id) || ratingIds.has(entry.id)) throw new Error('Duplicate or missing Rating Penpot ID.');
+  ratingIds.add(entry.id);
+  const key = ['icon', 'size', 'value', 'status'].map(axis => {
+    if (!ratingVariants.axes[axis].includes(entry[axis])) throw new Error(`Unknown Rating ${axis}: ${entry[axis]}`);
+    return entry[axis];
+  }).join('/');
+  if (ratingKeys.has(key)) throw new Error(`Duplicate Rating variant: ${key}`);
+  ratingKeys.add(key);
+}
+for (const icon of ratingVariants.axes.icon) for (const size of ratingVariants.axes.size) for (const value of ratingVariants.axes.value) for (const status of ratingVariants.axes.status) {
+  if (!ratingKeys.has(`${icon}/${size}/${value}/${status}`)) throw new Error(`Missing Rating variant: ${icon}/${size}/${value}/${status}`);
+}
 const mappedNames = new Set();
 const mappedIds = new Set();
 for (const entry of map.componentMappings) {
@@ -268,4 +285,4 @@ for (const [selection, id] of Object.entries(formFieldSelections)) {
 }
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
-console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
+console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

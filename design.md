@@ -34,6 +34,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Switch | 28 × 16 / 36 × 20 / 44 × 24 px track; 44 × 44 px minimum hit area | `Switch` owns state, thumb, focus, disabled/error presentation, and accessible input |
 | Checkbox | 16/20/24 px box; 44 × 44 px minimum hit area | `Checkbox` owns the native input, three-state transition, mark, focus, and disabled presentation |
 | Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
+| Rating | 16/20/24 px Lucide symbols in 32/40/48 px targets; 4 px gap | `Rating` owns a one-through-count score, native radio selection, display-only semantics, and disabled presentation |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
 | Dropdown | Button-sized trigger; 240 px token-based popup with 36 px item rows | `Dropdown` owns sections, placement, scrolling, nested items, and dismissal |
 | Breadcrumbs | 14 px labels, 8 px gaps; optional card border and 12 px radius | `Breadcrumbs` owns hierarchy, separators, overflow menu, and card frame |
@@ -125,6 +126,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.switch` | Accessible on/off setting with three sizes, brand/mono appearance, and disabled/error presentation |
 | `goodui.checkbox` | Native three-state selection with brand/mono appearance, three sizes, and disabled presentation |
 | `goodui.radio-group` | Exclusive native choice group with brand/mono appearance, three sizes, and disabled presentation |
+| `goodui.rating` | Selectable or display-only whole-number score with star, heart, thumbs-up, or custom Lucide artwork |
 | `goodui.form` | Whole-form vertical, left-aligned, or right-aligned label and control columns; Angular `form[goodForm]` directive |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
 | `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
@@ -138,6 +140,8 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
+
+Rating is published on Penpot page `15 Ratings` as 36 `icon` × `size` × representative `value` × `status` variants. Its five linked Lucide instances and flex item containers use `rating.*` color, gap, icon size, and target size tokens; `design/rating-variants.json` records stable library IDs. Stars and thumbs-up use `rating.selected.color` (yellow), hearts use `rating.heart.color` (red), and unselected symbols use `rating.unselected.color` (gray), each with theme-aware values. A separate linked-smile specimen shows `rating.custom.color` (purple) without becoming another published variant. Angular `good-rating` supplies a runtime count, exact integer value, editable native radios, read-only description, disabled state, custom Lucide icon, optional `selectedColor` override, and form control integration. Penpot `value=1/3` represents examples, not a two-value limit. See [Rating](guides/components/rating.md).
 
 DateInput is published on Penpot page `14 Date Inputs` as 30 `mode` × `size` × `status` variants. Each contains linked Input and Calendar Days icon instances. The calendar has six `view` variants and linked five-state DateDay instances; these are internal parts of `good-date-input`. The page also publishes a mobile overlay composition with linked Calendar and Button instances. `design/date-input-variants.json` records every library ID. `layout.date.*` aliases existing surface, text, spacing, and radius roles so the component follows light and dark themes. Angular owns the locale-specific text, selection rules, native mobile modal, focus, and desktop placement. See [Date input](guides/components/date-input.md) for its value contract and API.
 The calendar's flex containers have no hard-coded white fill; the panel and time control use the semantic surface token. In Penpot, a temporary `space.4` change from 16 to 20 moved panel padding, and a `date.day.size` change from 40 to 44 resized day instances after theme reevaluation. Both values were restored and the light and dark calendar exports were checked.
