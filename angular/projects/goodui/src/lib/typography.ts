@@ -3,6 +3,8 @@ import { ChangeDetectionStrategy, Component, contentChild, effect, input, signal
 import { GoodInputComponent } from './input';
 import { GoodCheckboxComponent } from './checkbox';
 import { GoodRadioGroupComponent } from './radio-group';
+import { GoodImageInputComponent } from './image-input';
+import { GoodImagePreviewComponent } from './image-preview';
 
 export type GoodEyebrowAppearance = 'brand' | 'mono';
 export type GoodHeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -114,8 +116,17 @@ export class GoodSeparatorComponent {
 
 @Component({
   selector: 'good-inline-image', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [GoodImagePreviewComponent],
   host: { class: 'good-inline-image', '[attr.data-align]': 'align()' },
-  template: `<figure><img [src]="src()" [alt]="alt()" [attr.loading]="loading()" decoding="async" />@if (caption()) { <figcaption>{{ caption() }}</figcaption> }</figure>`,
+  template: `<figure>
+    @if (previewable()) {
+      <button type="button" class="good-inline-image-preview" [attr.aria-label]="'Preview ' + (alt() || 'image')" (click)="previewOpen.set(true)">
+        <img [src]="src()" alt="" [attr.loading]="loading()" decoding="async" />
+      </button>
+    } @else { <img [src]="src()" [alt]="alt()" [attr.loading]="loading()" decoding="async" /> }
+    @if (caption()) { <figcaption>{{ caption() }}</figcaption> }
+  </figure>
+  @if (previewable()) { <good-image-preview [(open)]="previewOpen" [src]="src()" [alt]="alt()" [caption]="caption()" /> }`,
 })
 export class GoodInlineImageComponent {
   readonly src = input.required<string>();
@@ -123,6 +134,8 @@ export class GoodInlineImageComponent {
   readonly caption = input('');
   readonly align = input<GoodImageAlign>('center');
   readonly loading = input<'lazy' | 'eager'>('lazy');
+  readonly previewable = input(false);
+  readonly previewOpen = signal(false);
 }
 
 @Component({
@@ -153,6 +166,7 @@ export class GoodFormFieldComponent {
   readonly control = contentChild(GoodInputComponent);
   readonly checkbox = contentChild(GoodCheckboxComponent);
   readonly radioGroup = contentChild(GoodRadioGroupComponent);
+  readonly imageInput = contentChild(GoodImageInputComponent);
 
   constructor() {
     effect(() => {
@@ -160,12 +174,14 @@ export class GoodFormFieldComponent {
       const control = this.control();
       const checkbox = this.checkbox();
       const radioGroup = this.radioGroup();
+      const imageInput = this.imageInput();
       const required = this.required();
       label?.inheritedRequired.set(required);
       const effectiveRequired = required || !!label?.required();
       control?.setFieldRequired(effectiveRequired);
       checkbox?.setFieldRequired(effectiveRequired);
       radioGroup?.setFieldRequired(effectiveRequired);
+      imageInput?.setFieldRequired(effectiveRequired);
     });
   }
 }

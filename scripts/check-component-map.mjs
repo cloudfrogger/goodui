@@ -6,6 +6,7 @@ const map = JSON.parse(readFileSync(resolve(root, 'design/component-map.json'), 
 const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-variants.json'), 'utf8'));
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
+const imageInputVariants = JSON.parse(readFileSync(resolve(root, 'design/image-input-variants.json'), 'utf8'));
 const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
 const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadcrumbs-variants.json'), 'utf8'));
 const badgeVariants = JSON.parse(readFileSync(resolve(root, 'design/badge-variants.json'), 'utf8'));
@@ -95,6 +96,17 @@ for (const state of switchVariants.axes.state) for (const size of switchVariants
 }
 if (!selectors.has('switch')) throw new Error('Missing good-switch selector.');
 if (inputVariants.family !== 'goodui.input' || inputVariants.selector !== 'good-input' || !inputVariants.containerId) throw new Error('Input variant family must map to good-input.');
+if (imageInputVariants.family !== 'goodui.image-input' || imageInputVariants.selector !== 'good-image-input' || !imageInputVariants.containerId || imageInputVariants.page !== '13 Images') throw new Error('Image Input variants must map to good-image-input on 13 Images.');
+if (imageInputVariants.preview.family !== 'goodui.image-preview' || imageInputVariants.preview.selector !== 'good-image-preview' || !imageInputVariants.preview.componentId) throw new Error('Image Preview must map to good-image-preview.');
+const imageInputKeys = new Set();
+const imageInputIds = new Set();
+for (const entry of imageInputVariants.variants) {
+  const key = `${entry.shape}/${entry.state}`;
+  if (!imageInputVariants.axes.shape.includes(entry.shape) || !imageInputVariants.axes.state.includes(entry.state) || imageInputKeys.has(key) || !entry.id || imageInputIds.has(entry.id)) throw new Error(`Invalid Image Input variant: ${key}`);
+  imageInputKeys.add(key);
+  imageInputIds.add(entry.id);
+}
+for (const shape of imageInputVariants.axes.shape) for (const state of imageInputVariants.axes.state) if (!imageInputKeys.has(`${shape}/${state}`)) throw new Error(`Missing Image Input variant: ${shape}/${state}`);
 if (inputVariants.addon.family !== 'goodui.input-addon' || inputVariants.addon.owner !== 'good-input' || !inputVariants.addon.containerId) throw new Error('Input addon family must belong to good-input.');
 const inputIds = new Set();
 const checkMatrix = (entries, axes, expected, label, ids = inputIds) => {

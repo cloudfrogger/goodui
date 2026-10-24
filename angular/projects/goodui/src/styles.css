@@ -8,7 +8,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-link, good-card, good-card-header, good-card-footer, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-dropdown, good-breadcrumbs, good-badge,
+good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-link, good-card, good-card-header, good-card-footer, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -42,11 +42,29 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-inline-image { display: flex; justify-content: center; min-width: 0; }
 .good-inline-image[data-align="left"] { justify-content: flex-start; }
 .good-inline-image[data-align="right"] { justify-content: flex-end; }
-.good-inline-image figure { display: flex; flex-direction: column; gap: var(--good-typography-image-caption-gap); width: 100%; max-width: var(--good-typography-image-max-width); margin: 0; }
-.good-inline-image img { display: block; width: 100%; height: auto; border-radius: var(--good-radius-card); }
-.good-inline-image figcaption { color: var(--good-typography-caption-color); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; font-size: var(--good-typography-caption-font-size); line-height: 1.5; text-align: center; }
-.good-inline-image[data-align="left"] figcaption { text-align: left; }
-.good-inline-image[data-align="right"] figcaption { text-align: right; }
+.good-inline-image > figure { display: flex; flex-direction: column; gap: var(--good-typography-image-caption-gap); width: 100%; max-width: var(--good-typography-image-max-width); margin: 0; }
+.good-inline-image > figure img { display: block; width: 100%; height: auto; border-radius: var(--good-radius-card); }
+.good-inline-image > figure figcaption { color: var(--good-typography-caption-color); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; font-size: var(--good-typography-caption-font-size); line-height: 1.5; text-align: center; }
+.good-inline-image[data-align="left"] > figure figcaption { text-align: left; }
+.good-inline-image[data-align="right"] > figure figcaption { text-align: right; }
+.good-inline-image-preview { display: block; width: 100%; padding: 0; border: 0; border-radius: var(--good-radius-card); background: none; cursor: zoom-in; }
+.good-inline-image-preview:focus-visible, .good-image-input-preview:focus-visible, .good-image-input-empty:focus-visible { outline: 2px solid var(--good-color-brand); outline-offset: 3px; }
+.good-image-preview-figure { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--good-typography-image-caption-gap); width: 100%; min-height: 100%; margin: 0; }
+.good-image-preview-figure img { display: block; max-width: 100%; max-height: calc(100dvh - 180px); width: auto; height: auto; object-fit: contain; border-radius: var(--good-radius-card); }
+.good-image-preview-figure figcaption { color: var(--good-typography-caption-color); font-size: var(--good-typography-caption-font-size); text-align: center; }
+.good-image-input { display: inline-flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-image-caption-gap); max-width: 100%; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-image-input-frame { position: relative; width: min(var(--good-image-input-size), 100%); aspect-ratio: 1; overflow: visible; border: 1px solid var(--good-color-border); border-radius: var(--good-radius-card); background: var(--good-color-selected); }
+.good-image-input[data-shape="circle"] .good-image-input-frame { border-radius: var(--good-radius-action); }
+.good-image-input[data-disabled="true"] { opacity: .55; }
+.good-image-input[data-error="true"] .good-image-input-frame { border-color: var(--good-color-error); }
+.good-image-input-image, .good-image-input-preview, .good-image-input-empty { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; overflow: hidden; border: 0; border-radius: inherit; background: transparent; }
+.good-image-input-image, .good-image-input-preview img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.good-image-input-preview { padding: 0; cursor: zoom-in; }
+.good-image-input-replace { cursor: pointer; }
+.good-image-input-empty { flex-direction: column; gap: var(--good-typography-image-caption-gap); padding: var(--good-space-4); color: var(--good-color-muted); font: inherit; font-size: 12px; cursor: pointer; }
+.good-image-input-empty:disabled { cursor: not-allowed; }
+.good-image-input-remove { position: absolute; top: 6px; right: 6px; z-index: 1; }
+.good-image-input-caption { max-width: var(--good-image-input-size); margin: 0; color: var(--good-typography-caption-color); font-size: var(--good-typography-caption-font-size); line-height: 1.5; }
 .good-form-field { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; row-gap: var(--good-typography-field-label-gap); min-width: 0; }
 .good-form-field > good-field-label { grid-column: 1; grid-row: 1; }
 .good-form-field > :not(good-field-label):not(good-hint):not(good-error-text) { grid-column: 1; grid-row: 2; min-width: 0; }

@@ -71,15 +71,17 @@ The [Typography page](../../homepage/src/app/getting-started/typography.html) pl
 
 The separator has `role="separator"` and reserves more space before the division than after it. `good-inline-image` renders a semantic figure and optional figcaption. Its `align` is `center` by default, with `left` and `right` alternatives; the image stays within 420 px and shrinks to fit mobile width. Supply meaningful `alt` text for informative images, or an empty string for decorative ones. `loading` defaults to `lazy`.
 
+Set `[previewable]="true"` to open the shared image modal by mouse or keyboard. The optional caption appears below both the inline image and its fitted modal preview. Escape, backdrop dismissal, and the close button return focus to the image trigger. The same preview is available in [Image input](image-input.md).
+
 In a standalone Angular page, include `GoodInlineImageComponent` in that page's `imports`. Put a local image in the application's `public/` directory and use a root-relative URL such as `src="/framework_concept.png"`; a relative URL without the leading slash resolves under the current route.
 
 ## Form text
 
 `goodForm` is an attribute directive on a native `<form>`. Its `layout` input has three choices: `vertical` (default), `left`, and `right`. Vertical places labels above controls. Left gives all fields one shared, left-aligned label column and one shared control column. Right aligns labels to the right edge of that label column, next to the left-aligned controls. The whole form owns the 160 px label column, 24 px column gap, 420 px maximum control width, and 20 px row gap through `form.*` design tokens. Narrow containers stack the horizontal layouts vertically. `good-form-field` owns one label, one control, and optional `good-hint` or `good-error-text`; help and error text align with the control column. A direct child `good-action-group` aligns with that column too.
 
-Mark `good-field-label` or its `good-form-field` as required. The label shows a theme-aware red star and announces “required” to assistive technology. Within a FormField, the required state reaches a projected `good-input`, `good-checkbox`, or `good-radio-group` and their Angular Reactive Forms validators. Input needs a value, Checkbox must be checked, and RadioGroup needs a selection. Disabled controls are exempt; readonly Inputs are also exempt. A standalone control can use its own `[required]="true"` input. For other projected control types, set their own required attribute or form validator explicitly.
+Mark `good-field-label` or its `good-form-field` as required. The label shows a theme-aware red star and announces “required” to assistive technology. Within a FormField, the required state reaches a projected `good-input`, `good-image-input`, `good-checkbox`, or `good-radio-group` and their Angular Reactive Forms validators. Input needs a value, Image Input needs an existing source or selected file, Checkbox must be checked, and RadioGroup needs a selection. Disabled controls are exempt; readonly Inputs are also exempt. A standalone control can use its own `[required]="true"` input.
 
-For an Input or Checkbox, `good-field-label forId` targets the native control ID. For a RadioGroup in a horizontal form, omit `forId`, give FieldLabel an `id`, and pass that ID through RadioGroup `labelledBy`. FieldLabel then renders non-interactive text in the shared label column, while the radio fieldset receives its accessible name through `aria-labelledby`.
+For an Input, Image Input, or Checkbox, `good-field-label forId` targets the native control ID. For a RadioGroup in a horizontal form, omit `forId`, give FieldLabel an `id`, and pass that ID through RadioGroup `labelledBy`. FieldLabel then renders non-interactive text in the shared label column, while the radio fieldset receives its accessible name through `aria-labelledby`.
 
 ```html
 <form goodForm layout="right" [formGroup]="form">

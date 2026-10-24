@@ -63,6 +63,7 @@ export class TypographyPageComponent {
     src="/card-header-art.svg"
     alt="Abstract blue and teal waves"
     caption="An optional caption stays close to the image."
+    [previewable]="true"
   />
 </good-prose>`;
 

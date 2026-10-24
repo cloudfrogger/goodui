@@ -24,6 +24,8 @@
     "heading",
     "heading-group",
     "hint",
+    "image-input",
+    "image-preview",
     "inline-image",
     "input",
     "link",
@@ -371,6 +373,20 @@
       "angularSelector": "good-inline-image",
       "kind": "internal-part",
       "owner": "goodui.inline-image",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.image-input",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d690fa2f27b1",
+      "angularSelector": "good-image-input",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.image-preview",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d69165c1578d",
+      "angularSelector": "good-image-preview",
+      "kind": "component",
       "state": null
     },
     {
@@ -857,6 +873,7 @@
     "design/checkbox-variants.json",
     "design/code-block-variants.json",
     "design/dropdown-variants.json",
+    "design/image-input-variants.json",
     "design/input-variants.json",
     "design/link-variants.json",
     "design/modal-variants.json",

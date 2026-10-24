@@ -1,0 +1,23 @@
+{
+  "page": "13 Images",
+  "family": "goodui.image-input",
+  "selector": "good-image-input",
+  "containerId": "c0c3286f-e4bf-804c-8008-d6914803417c",
+  "axes": {
+    "shape": ["square", "circle"],
+    "state": ["empty", "filled"]
+  },
+  "variants": [
+    { "shape": "square", "state": "empty", "id": "c0c3286f-e4bf-804c-8008-d690fa2f27b1" },
+    { "shape": "square", "state": "filled", "id": "c0c3286f-e4bf-804c-8008-d690fddbf8d0" },
+    { "shape": "circle", "state": "empty", "id": "c0c3286f-e4bf-804c-8008-d69100078916" },
+    { "shape": "circle", "state": "filled", "id": "c0c3286f-e4bf-804c-8008-d69102a6a0cf" }
+  ],
+  "preview": {
+    "family": "goodui.image-preview",
+    "selector": "good-image-preview",
+    "componentId": "c0c3286f-e4bf-804c-8008-d69165c1578d",
+    "composition": ["goodui.modal", "goodui.image-caption"]
+  },
+  "runtime": ["disabled", "error", "required", "showUploadButton", "showRemoveButton", "previewable", "selected", "removed"]
+}
