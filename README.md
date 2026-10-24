@@ -70,6 +70,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    For records, use `<good-table [data]="rows()" [columns]="columns" />`. Add search, opt-in sortable columns, GoodUI controls in cells, or client, page, and cursor pagination as needed. See the [Table guide](guides/components/table.md) and `/components/tables` on the homepage.
 
+   For choices, use `<good-select label="Plan" [options]="plans" [(value)]="plan" />`. Add search, multiple removable selections, or a maximum count when needed. Use `<good-select-country [(value)]="country" />` for localized country names and flags. See the [Select guide](guides/components/select.md) and `/components/selects` on the homepage.
+
    For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](guides/components/input.md) and the homepage's `/components/inputs` page.
 
    For localized dates, ranges, multiple days, months, years, or time, use `<good-date-input label="Appointment" [formControl]="appointment" />`. See the [Date input guide](guides/components/date-input.md) and `/components/date-inputs` on the homepage.
@@ -106,6 +108,7 @@ The screenshot shows the `homepage` application at 1440 × 620 px in light mode.
 | `good-radio-group` | Native exclusive selection with three sizes, forms support, and brand or mono appearance |
 | `good-rating` | Whole-number score with native radio selection, read-only display, three sizes, and Lucide symbols |
 | `good-table` | TanStack Table columns with optional search, sorting, rich Angular cells, and client, page, or cursor pagination |
+| `good-select`, `good-select-country` | Single or multiple selection, search, rich options, and country flags |
 | `good-input` | Text and native file controls with optional icons or fixed group text |
 | `good-date-input` | Localized date, range, multiple, month, year, and optional time selection |
 | `good-dropdown` | Button-based popup with optional sections, scrolling, placement, and submenus |
@@ -144,6 +147,7 @@ Open `http://localhost:4200/`. After changing library source, run `npm run build
 - [Radio group variant registry](design/radio-group-variants.json) — Penpot IDs for all 24 appearance, size, selection, and disabled combinations.
 - [Rating variant registry](design/rating-variants.json) — Penpot IDs for 36 symbol, size, score, and disabled combinations.
 - [Table variant registry](design/table-variants.json) — Penpot IDs for the four table styles and populated or empty states.
+- [Select variant registry](design/select-variants.json) — Penpot IDs for Select, Country Select, option, and panel presentations.
 - [Card variant registry](design/card-variants.json) — Penpot IDs for Card, Header, and Footer combinations.
 - [Link variant registry](design/link-variants.json) — Penpot IDs for appearance, underline, decoration, and disabled combinations.
 - [Code block variant registry](design/code-block-variants.json) — Penpot IDs for block, numbered, collapsed, and inline presentations.

@@ -17,6 +17,7 @@ export type GoodBadgeSize = 'small' | 'default' | 'large';
     <span class="good-badge-content" [attr.data-color]="color()" [attr.data-variant]="variant()"
       [attr.data-shape]="shape()" [attr.data-size]="size()">
       @if (icon(); as iconData) { <svg class="good-badge-icon" [lucideIcon]="iconData" [size]="iconSize()" aria-hidden="true"></svg> }
+      @else if (iconSrc(); as source) { <img class="good-badge-icon" [src]="source" alt="" /> }
       <span class="good-badge-label">{{ label() }}</span>
       @if (removable()) {
         <button class="good-badge-remove" type="button" [attr.aria-label]="removeLabel() || 'Remove ' + label()"
@@ -32,6 +33,7 @@ export class GoodBadgeComponent {
   readonly shape = input<GoodBadgeShape>('circle');
   readonly size = input<GoodBadgeSize>('default');
   readonly icon = input<GoodButtonIcon>();
+  readonly iconSrc = input<string>();
   readonly removable = input(false);
   readonly removeLabel = input('');
   readonly removed = output<void>();

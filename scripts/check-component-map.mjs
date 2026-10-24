@@ -15,6 +15,7 @@ const checkboxVariants = JSON.parse(readFileSync(resolve(root, 'design/checkbox-
 const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-group-variants.json'), 'utf8'));
 const ratingVariants = JSON.parse(readFileSync(resolve(root, 'design/rating-variants.json'), 'utf8'));
 const tableVariants = JSON.parse(readFileSync(resolve(root, 'design/table-variants.json'), 'utf8'));
+const selectVariants = JSON.parse(readFileSync(resolve(root, 'design/select-variants.json'), 'utf8'));
 const linkVariants = JSON.parse(readFileSync(resolve(root, 'design/link-variants.json'), 'utf8'));
 const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants.json'), 'utf8'));
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
@@ -25,6 +26,24 @@ const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
 if (readFileSync(resolve(source, 'form.ts'), 'utf8').includes("selector: 'form[goodForm]'")) selectors.add('form');
+if (selectVariants.family !== 'goodui.select' || selectVariants.selector !== 'good-select' || selectVariants.page !== '17 Selects' || !selectVariants.containerId) throw new Error('Invalid Select registry.');
+if (selectVariants.country?.family !== 'goodui.select-country' || selectVariants.country?.selector !== 'good-select-country' || !selectVariants.country.containerId) throw new Error('Invalid Country Select registry.');
+const checkSelectVariants = (entries, sizes, states, name) => {
+  const keys = new Set();
+  const ids = new Set();
+  for (const entry of entries) {
+    const key = `${entry.size}/${entry.state}`;
+    if (!/^[0-9a-f-]{36}$/.test(entry.id) || ids.has(entry.id) || !sizes.includes(entry.size) || !states.includes(entry.state) || keys.has(key)) throw new Error(`Invalid ${name} variant: ${key}`);
+    ids.add(entry.id); keys.add(key);
+  }
+  for (const size of sizes) for (const state of states) if (!keys.has(`${size}/${state}`)) throw new Error(`Missing ${name} variant: ${size}/${state}`);
+};
+checkSelectVariants(selectVariants.variants, selectVariants.axes.size, selectVariants.axes.state, 'Select');
+checkSelectVariants(selectVariants.country.variants, selectVariants.country.axes.size, selectVariants.country.axes.state, 'Country Select');
+const selectOption = selectVariants.parts.find(part => part.family === 'goodui.select-option');
+const selectPanel = selectVariants.parts.find(part => part.family === 'goodui.select-panel');
+if (!selectOption?.containerId || !selectPanel?.componentId || selectOption.owner !== 'good-select' || selectPanel.owner !== 'good-select') throw new Error('Missing Select visual parts.');
+if (new Set(selectOption.variants.map(entry => entry.state)).size !== selectOption.axes.state.length || selectOption.variants.some(entry => !selectOption.axes.state.includes(entry.state) || !/^[0-9a-f-]{36}$/.test(entry.id))) throw new Error('Invalid Select option states.');
 const direct = new Set(map.directFamilies);
 const internal = Object.keys(map.internalParts);
 const pending = new Set(map.pendingPenpotFamilies ?? []);
@@ -301,4 +320,4 @@ for (const [selection, id] of Object.entries(formFieldSelections)) {
 }
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
-console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
+console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

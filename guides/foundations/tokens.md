@@ -70,6 +70,10 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `table.cell.padding-*` / `table.compact.padding-*` | `--good-table-*-padding-*` | Header and data cell insets | Normal and compact density |
 | `table.toolbar.*` / `table.footer.*` | `--good-table-toolbar-*` / `--good-table-footer-*` | Search and pagination section spacing | Optional table regions |
 | `table.radius/min-width/search.width/empty.min-height` | `--good-table-*` | Frame corners, horizontal overflow, search width, empty state | Table geometry |
+| `select.background/border/foreground/placeholder` | `--good-select-*` | Select control surface and text, aliased to Input roles | Both themes |
+| `select.panel.*` / `select.option.*` | `--good-select-*` | Popup surface, option spacing and selected state, aliased to Dropdown and shared roles | Searchable and multi selection menus |
+| `select.height.<size>` / `select.padding-inline.<size>` / `select.radius` | `--good-select-*` | Three control sizes and shared rounded corners | Small, default, and large Select and Country Select |
+| `select.disabled.opacity` / `select.option.disabled.opacity` | `--good-select-*` | Separate disabled treatment for the control and an individual choice | Disabled states in Penpot and Angular |
 | `radio.legend.gap` / `radio.group.gap` / `radio.option.gap` | `--good-radio-*-gap` | Legend, option list, and indicator-to-label spacing | Radio Group flex layout |
 | `radius.switch` | `--good-radius-switch` | Switch track corners | Pill radius |
 | `radius.control` / `radius.compact` | `--good-radius-control` / `--good-radius-compact` | Input outer and file-button corners | Shared 6 px controls and 4 px compact details |

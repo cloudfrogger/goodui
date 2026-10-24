@@ -42,6 +42,8 @@
     "rating",
     "search",
     "section",
+    "select",
+    "select-country",
     "separator",
     "settings",
     "sidebar-container",
@@ -71,6 +73,8 @@
     "dropdown-panel": "dropdown",
     "image-caption": "inline-image",
     "input-addon": "input",
+    "select-option": "select",
+    "select-panel": "select",
     "subnav-dropdown": "subnav",
     "subnav-item": "subnav"
   },
@@ -605,6 +609,36 @@
       "state": null
     },
     {
+      "penpotName": "goodui.select",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d71512d8bde3",
+      "angularSelector": "good-select",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.select-country",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d716557cfe0b",
+      "angularSelector": "good-select-country",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.select-option",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d715ad8032a8",
+      "angularSelector": "good-select",
+      "kind": "internal-part",
+      "owner": "goodui.select",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.select-panel",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d715f18ec245",
+      "angularSelector": "good-select",
+      "kind": "internal-part",
+      "owner": "goodui.select",
+      "state": null
+    },
+    {
       "penpotName": "goodui.separator",
       "penpotId": "c0c3286f-e4bf-804c-8008-d58d18952b69",
       "angularSelector": "good-separator",
@@ -942,6 +976,7 @@
     "design/rating-variants.json",
     "design/table-variants.json",
     "design/switch-variants.json",
-    "design/typography-components.json"
+    "design/typography-components.json",
+    "design/select-variants.json"
   ]
 }
