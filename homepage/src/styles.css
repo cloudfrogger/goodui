@@ -104,7 +104,7 @@ body { margin: 0; }
 .showcase-input-table td { min-width: 240px; }
 .showcase-input-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; max-width: 900px; }
 .showcase-select-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 20px; max-width: 980px; }
-.showcase-select-grid > good-select, .showcase-select-grid > good-select-country { min-width: 0; }
+.showcase-select-grid > good-select, .showcase-select-grid > good-select-country, .showcase-select-grid > good-input-phone { min-width: 0; }
 @media (max-width: 850px) { .showcase-select-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .showcase-select-grid { grid-template-columns: minmax(0, 1fr); } }
 .showcase-dropdown-row { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }

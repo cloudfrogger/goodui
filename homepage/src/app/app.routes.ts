@@ -34,6 +34,7 @@ export const routes: Routes = [
   { path: 'components/switches', component: SwitchesPageComponent },
   { path: 'components/inputs', component: InputsPageComponent },
   { path: 'components/selects', loadComponent: () => import('./selects-page').then(module => module.SelectsPageComponent) },
+  { path: 'components/phone-inputs', loadComponent: () => import('./phone-inputs-page').then(module => module.PhoneInputsPageComponent) },
   { path: 'components/date-inputs', loadComponent: () => import('./date-inputs-page').then(module => module.DateInputsPageComponent) },
   { path: 'components/image-inputs', loadComponent: () => import('./image-inputs-page').then(module => module.ImageInputsPageComponent) },
   { path: 'components/labels', loadComponent: () => import('./labels-page').then(module => module.LabelsPageComponent) },

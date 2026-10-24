@@ -5,7 +5,7 @@ import { GoodCheckboxComponent } from './checkbox';
 import { GoodRadioGroupComponent } from './radio-group';
 import { GoodImageInputComponent } from './image-input';
 import { GoodImagePreviewComponent } from './image-preview';
-import { GOOD_DATE_REQUIRED_CONTROL } from './required-control';
+import { GOOD_COMPOSITE_REQUIRED_CONTROL } from './required-control';
 
 export type GoodEyebrowAppearance = 'brand' | 'mono';
 export type GoodHeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -168,7 +168,7 @@ export class GoodFormFieldComponent {
   readonly checkbox = contentChild(GoodCheckboxComponent);
   readonly radioGroup = contentChild(GoodRadioGroupComponent);
   readonly imageInput = contentChild(GoodImageInputComponent);
-  readonly dateInput = contentChild(GOOD_DATE_REQUIRED_CONTROL);
+  readonly compositeInput = contentChild(GOOD_COMPOSITE_REQUIRED_CONTROL);
 
   constructor() {
     effect(() => {
@@ -177,7 +177,7 @@ export class GoodFormFieldComponent {
       const checkbox = this.checkbox();
       const radioGroup = this.radioGroup();
       const imageInput = this.imageInput();
-      const dateInput = this.dateInput();
+      const compositeInput = this.compositeInput();
       const required = this.required();
       label?.inheritedRequired.set(required);
       const effectiveRequired = required || !!label?.required();
@@ -185,7 +185,7 @@ export class GoodFormFieldComponent {
       checkbox?.setFieldRequired(effectiveRequired);
       radioGroup?.setFieldRequired(effectiveRequired);
       imageInput?.setFieldRequired(effectiveRequired);
-      dateInput?.setFieldRequired(effectiveRequired);
+      compositeInput?.setFieldRequired(effectiveRequired);
     });
   }
 }

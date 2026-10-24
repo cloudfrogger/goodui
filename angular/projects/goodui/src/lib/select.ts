@@ -11,6 +11,8 @@ import { GoodButtonIcon, GoodButtonSize } from './models';
 export interface GoodSelectOption {
   value: string;
   label: string;
+  /** Compact text in the closed trigger; the full label remains the accessible name. */
+  triggerLabel?: string;
   description?: string;
   icon?: GoodButtonIcon;
   iconSrc?: string;
@@ -56,7 +58,7 @@ let nextSelectId = 0;
         @if (!multiple() && selectedOptions()[0]; as selected) {
           @if (selected.icon; as icon) { <svg class="good-select-trigger-icon" [lucideIcon]="icon" [size]="iconSize()" aria-hidden="true"></svg> }
           @else if (selected.iconSrc; as source) { <img class="good-select-option-image" [src]="source" alt="" /> }
-          <span class="good-select-trigger-text">{{ selected.label }}</span>
+          <span class="good-select-trigger-text">{{ selected.triggerLabel ?? selected.label }}</span>
         } @else if (!multiple() || !selectedOptions().length) {
           <span class="good-select-placeholder">{{ placeholder() }}</span>
         } @else {

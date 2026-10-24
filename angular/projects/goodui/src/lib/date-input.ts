@@ -5,7 +5,7 @@ import { LucideCalendarDays, LucideChevronLeft, LucideChevronRight, LucideX } fr
 import { GoodButtonComponent } from './button';
 import { GoodInputAddonTone, GoodInputComponent, GoodInputSize } from './input';
 import { GoodButtonIcon } from './models';
-import { GOOD_DATE_REQUIRED_CONTROL } from './required-control';
+import { GOOD_COMPOSITE_REQUIRED_CONTROL } from './required-control';
 
 export type GoodDateMode = 'date' | 'range' | 'multiple' | 'month' | 'year';
 export type GoodDatePlacement = 'bottom-start' | 'bottom-center' | 'bottom-end' | 'top-start' | 'top-center' | 'top-end';
@@ -31,7 +31,7 @@ const withTime = (day: string, time: string): string => `${day}T${time}`;
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodDateInputComponent), multi: true },
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => GoodDateInputComponent), multi: true },
-    { provide: GOOD_DATE_REQUIRED_CONTROL, useExisting: forwardRef(() => GoodDateInputComponent) },
+    { provide: GOOD_COMPOSITE_REQUIRED_CONTROL, useExisting: forwardRef(() => GoodDateInputComponent) },
   ],
   template: `
     <good-input #field [label]="label()" [showLabel]="showLabel()" [size]="size()" [value]="draftText()"

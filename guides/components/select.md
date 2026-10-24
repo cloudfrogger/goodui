@@ -26,6 +26,8 @@ export class PlanField {
 
 Set `value` to a string for an initial selection or `null` to show `placeholder`. Options use stable string `value` keys; duplicate keys are unsupported. `disabled` on an option makes only that choice unavailable. The entire control accepts `[disabled]` and the sizes `small`, `default`, and `large`. `required` adds Angular Forms validation and `aria-required`; pair it with a visible required label when appropriate. The control also works with `formControl` or `formControlName` through `ControlValueAccessor`.
 
+An option may provide `triggerLabel` to show shorter text in the closed control while keeping its full `label` in the popup and accessible name. Phone Input uses this to display `+49` beside the flag while announcing the country name and calling code.
+
 ## Multiple selection and search
 
 ```html

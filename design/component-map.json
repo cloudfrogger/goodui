@@ -29,6 +29,7 @@
     "image-preview",
     "inline-image",
     "input",
+    "input-phone",
     "link",
     "main-menu",
     "main-view",
@@ -73,6 +74,7 @@
     "dropdown-panel": "dropdown",
     "image-caption": "inline-image",
     "input-addon": "input",
+    "phone-country": "input-phone",
     "select-option": "select",
     "select-panel": "select",
     "subnav-dropdown": "subnav",
@@ -476,6 +478,13 @@
       "state": "with-addons"
     },
     {
+      "penpotName": "goodui.input-phone",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d726120bd498",
+      "angularSelector": "good-input-phone",
+      "kind": "component",
+      "state": null
+    },
+    {
       "penpotName": "goodui.link",
       "penpotId": "c0c3286f-e4bf-804c-8008-d52e8d4e0e8e",
       "angularSelector": "good-link",
@@ -557,6 +566,14 @@
       "penpotId": "c0c3286f-e4bf-804c-8008-d58ca09e0594",
       "angularSelector": "good-paragraph",
       "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.phone-country",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d725983665b1",
+      "angularSelector": "good-input-phone",
+      "kind": "internal-part",
+      "owner": "goodui.input-phone",
       "state": null
     },
     {
@@ -977,6 +994,7 @@
     "design/table-variants.json",
     "design/switch-variants.json",
     "design/typography-components.json",
-    "design/select-variants.json"
+    "design/select-variants.json",
+    "design/input-phone-variants.json"
   ]
 }

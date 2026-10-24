@@ -74,6 +74,10 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `select.panel.*` / `select.option.*` | `--good-select-*` | Popup surface, option spacing and selected state, aliased to Dropdown and shared roles | Searchable and multi selection menus |
 | `select.height.<size>` / `select.padding-inline.<size>` / `select.radius` | `--good-select-*` | Three control sizes and shared rounded corners | Small, default, and large Select and Country Select |
 | `select.disabled.opacity` / `select.option.disabled.opacity` | `--good-select-*` | Separate disabled treatment for the control and an individual choice | Disabled states in Penpot and Angular |
+| `phone.background/border/foreground/placeholder` | `--good-phone-*` | Telephone field surface and text, aliased to Input roles | Both themes |
+| `phone.height.<size>` / `phone.radius` / `phone.padding-inline.<size>` | `--good-phone-*` | Three field heights, corners, and number inset | Small, default, and large Phone Input |
+| `phone.country.*` / `phone.flag.*` / `phone.icon-size.<size>` | `--good-phone-*` | Country selector, flag, calling-code text, and chevron | Token-bound internal part |
+| `phone.divider` / `phone.divider-width` / `phone.disabled.opacity` | `--good-phone-*` | Country-number separator and disabled state | Shared field treatment |
 | `radio.legend.gap` / `radio.group.gap` / `radio.option.gap` | `--good-radio-*-gap` | Legend, option list, and indicator-to-label spacing | Radio Group flex layout |
 | `radius.switch` | `--good-radius-switch` | Switch track corners | Pill radius |
 | `radius.control` / `radius.compact` | `--good-radius-control` / `--good-radius-compact` | Input outer and file-button corners | Shared 6 px controls and 4 px compact details |

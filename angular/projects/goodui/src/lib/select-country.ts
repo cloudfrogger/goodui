@@ -1,18 +1,10 @@
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 import { ChangeDetectionStrategy, Component, DestroyRef, computed, effect, forwardRef, inject, input, model, signal } from '@angular/core';
-import { countries as flagCountries } from 'country-flag-icons';
 import { GoodButtonSize } from './models';
 import { GoodSelectComponent, GoodSelectOption, GoodSelectValue } from './select';
+import { GOOD_COUNTRY_CODES, goodCountryFlagUrl, loadGoodCountryFlags } from './country-data';
 
-const nonCountryCodes = new Set(['AC', 'EU', 'IC', 'TA', 'XA', 'XC', 'XO']);
-let flagLoad: Promise<Record<string, string>> | undefined;
-function loadFlags(): Promise<Record<string, string>> {
-  return flagLoad ??= import('country-flag-icons/string/3x2').then(module => module as Record<string, string>);
-}
-
-/** ISO 3166-1 regions plus XK, for which the flag set supplies a widely used code. */
-export const GOOD_COUNTRY_CODES: readonly string[] = flagCountries
-  .filter(code => /^[A-Z]{2}$/.test(code) && !nonCountryCodes.has(code));
+export { GOOD_COUNTRY_CODES } from './country-data';
 
 @Component({
   selector: 'good-select-country',
@@ -66,7 +58,7 @@ export class GoodSelectCountryComponent implements ControlValueAccessor, Validat
         value: code,
         label: displayNames.of(code) ?? code,
         description: code,
-        iconSrc: flags[code] ? `data:image/svg+xml;charset=utf-8,${encodeURIComponent(flags[code])}` : undefined,
+        iconSrc: goodCountryFlagUrl(flags[code]),
       }))
       .sort((left, right) => left.label.localeCompare(right.label, locale));
   });
@@ -75,7 +67,7 @@ export class GoodSelectCountryComponent implements ControlValueAccessor, Validat
   private onValidatorChange: () => void = () => {};
 
   constructor() {
-    void loadFlags().then(flags => { if (!this.destroyRef.destroyed) this.flagMarkup.set(flags); });
+    void loadGoodCountryFlags().then(flags => { if (!this.destroyRef.destroyed) this.flagMarkup.set(flags); });
     effect(() => {
       this.countryOptions();
       this.required();

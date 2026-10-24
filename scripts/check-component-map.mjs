@@ -16,6 +16,7 @@ const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-g
 const ratingVariants = JSON.parse(readFileSync(resolve(root, 'design/rating-variants.json'), 'utf8'));
 const tableVariants = JSON.parse(readFileSync(resolve(root, 'design/table-variants.json'), 'utf8'));
 const selectVariants = JSON.parse(readFileSync(resolve(root, 'design/select-variants.json'), 'utf8'));
+const phoneVariants = JSON.parse(readFileSync(resolve(root, 'design/input-phone-variants.json'), 'utf8'));
 const linkVariants = JSON.parse(readFileSync(resolve(root, 'design/link-variants.json'), 'utf8'));
 const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants.json'), 'utf8'));
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
@@ -40,6 +41,14 @@ const checkSelectVariants = (entries, sizes, states, name) => {
 };
 checkSelectVariants(selectVariants.variants, selectVariants.axes.size, selectVariants.axes.state, 'Select');
 checkSelectVariants(selectVariants.country.variants, selectVariants.country.axes.size, selectVariants.country.axes.state, 'Country Select');
+if (phoneVariants.family !== 'goodui.input-phone' || phoneVariants.selector !== 'good-input-phone' || phoneVariants.page !== '18 Phone Inputs' || !phoneVariants.containerId) throw new Error('Invalid Phone Input registry.');
+checkSelectVariants(phoneVariants.variants, phoneVariants.axes.size, phoneVariants.axes.state, 'Phone Input');
+const phoneCountryPart = phoneVariants.parts.find(part => part.family === 'goodui.phone-country');
+if (!phoneCountryPart?.containerId || phoneCountryPart.owner !== 'good-input-phone' || phoneCountryPart.variants.length !== 3 ||
+  new Set(phoneCountryPart.variants.map(entry => entry.size)).size !== 3 ||
+  phoneCountryPart.variants.some(entry => !phoneCountryPart.axes.size.includes(entry.size) || !/^[0-9a-f-]{36}$/.test(entry.id))) throw new Error('Invalid Phone country selector variants.');
+if (!map.componentMappings.some(entry => entry.penpotName === 'goodui.input-phone' && entry.penpotId === phoneVariants.variants.find(v => v.size === 'default' && v.state === 'empty')?.id) ||
+  !map.componentMappings.some(entry => entry.penpotName === 'goodui.phone-country' && entry.penpotId === phoneCountryPart.variants.find(v => v.size === 'default')?.id)) throw new Error('Phone Input family mapping points to the wrong Penpot variants.');
 const selectOption = selectVariants.parts.find(part => part.family === 'goodui.select-option');
 const selectPanel = selectVariants.parts.find(part => part.family === 'goodui.select-panel');
 if (!selectOption?.containerId || !selectPanel?.componentId || selectOption.owner !== 'good-select' || selectPanel.owner !== 'good-select') throw new Error('Missing Select visual parts.');
@@ -320,4 +329,4 @@ for (const [selection, id] of Object.entries(formFieldSelections)) {
 }
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
-console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
+console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${phoneVariants.variants.length} Phone Input, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

@@ -1,0 +1,109 @@
+{
+  "family": "goodui.input-phone",
+  "selector": "good-input-phone",
+  "page": "18 Phone Inputs",
+  "containerId": "c0c3286f-e4bf-804c-8008-d7266bc26b79",
+  "axes": {
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "state": [
+      "empty",
+      "filled",
+      "disabled",
+      "error"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d725dff01be7",
+      "size": "small",
+      "state": "empty"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d725eb9a6d14",
+      "size": "small",
+      "state": "filled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d725f933b427",
+      "size": "small",
+      "state": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d726058f3305",
+      "size": "small",
+      "state": "error"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d726120bd498",
+      "size": "default",
+      "state": "empty"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d7261ed96a69",
+      "size": "default",
+      "state": "filled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d7262ce77700",
+      "size": "default",
+      "state": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d726393eab56",
+      "size": "default",
+      "state": "error"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d7264555db1e",
+      "size": "large",
+      "state": "empty"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d72651a0af10",
+      "size": "large",
+      "state": "filled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d7265f7ceb89",
+      "size": "large",
+      "state": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d7266bc0eaec",
+      "size": "large",
+      "state": "error"
+    }
+  ],
+  "parts": [
+    {
+      "family": "goodui.phone-country",
+      "owner": "good-input-phone",
+      "containerId": "c0c3286f-e4bf-804c-8008-d725a20e7000",
+      "axes": {
+        "size": [
+          "small",
+          "default",
+          "large"
+        ]
+      },
+      "variants": [
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d7258e7f1181",
+          "size": "small"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d725983665b1",
+          "size": "default"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d725a20d08c4",
+          "size": "large"
+        }
+      ]
+    }
+  ]
+}

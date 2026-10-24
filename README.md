@@ -71,6 +71,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
    For records, use `<good-table [data]="rows()" [columns]="columns" />`. Add search, opt-in sortable columns, GoodUI controls in cells, or client, page, and cursor pagination as needed. See the [Table guide](guides/components/table.md) and `/components/tables` on the homepage.
 
    For choices, use `<good-select label="Plan" [options]="plans" [(value)]="plan" />`. Add search, multiple removable selections, or a maximum count when needed. Use `<good-select-country [(value)]="country" />` for localized country names and flags. See the [Select guide](guides/components/select.md) and `/components/selects` on the homepage.
+   For telephone numbers, use `<good-input-phone country="DE" [(value)]="phone" />` or omit `country` to start from the browser locale. The value is an international `+` number. See the [Phone input guide](guides/components/input-phone.md) and `/components/phone-inputs`.
 
    For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](guides/components/input.md) and the homepage's `/components/inputs` page.
 
@@ -139,6 +140,7 @@ Open `http://localhost:4200/`. After changing library source, run `npm run build
 - [Design contract](design.md) — measurements, component ownership, tokens, and Penpot IDs.
 - [Button variant registry](design/button-variants.json) — one-to-one Penpot IDs and Angular inputs for all 45 combinations.
 - [Input variant registry](design/input-variants.json) — Penpot IDs for 21 Input states, 24 addon options, and two compositions.
+- [Phone input variant registry](design/input-phone-variants.json) — Penpot IDs for 12 phone fields and three linked country selector sizes.
 - [Date input variant registry](design/date-input-variants.json) — Penpot IDs for 30 field variants and linked calendar, day, and icon parts.
 - [Dropdown variant registry](design/dropdown-variants.json) — Penpot IDs for 16 dropdown states, four panels, twelve items, and the submenu composition.
 - [Breadcrumb variant registry](design/breadcrumbs-variants.json) — Penpot IDs for all 16 path, icon, separator, and card combinations.
