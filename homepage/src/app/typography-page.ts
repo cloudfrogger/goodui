@@ -79,13 +79,13 @@ export class TypographyPageComponent {
   readonly hintCode = `<good-form-field>
   <good-field-label forId="email" [required]="true">Email address</good-field-label>
   <good-input inputId="email" label="Email address" type="email"
-    [required]="true" describedBy="email-hint" placeholder="name@example.com" />
+    describedBy="email-hint" placeholder="name@example.com" />
   <good-hint id="email-hint">We use this address for account updates.</good-hint>
 </good-form-field>`;
 
   readonly errorCode = `<good-form-field>
   <good-field-label forId="code" [required]="true">Verification code</good-field-label>
-  <good-input inputId="code" label="Verification code" [required]="true"
+  <good-input inputId="code" label="Verification code"
     [error]="true" describedBy="code-error" placeholder="Enter your code" />
   <good-error-text id="code-error">Enter the six-digit code from your email.</good-error-text>
 </good-form-field>`;

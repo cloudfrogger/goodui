@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, computed, forwardRef, input, model, output, signal, viewChild } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, ElementRef, computed, effect, forwardRef, input, model, output, signal, viewChild } from '@angular/core';
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator, Validators } from '@angular/forms';
 import { LucideDynamicIcon } from '@lucide/angular';
 import { GoodButtonIcon } from './models';
 
@@ -12,10 +12,13 @@ export type GoodInputAddonTone = 'inline' | 'contrast';
   standalone: true,
   imports: [LucideDynamicIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodInputComponent), multi: true }],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodInputComponent), multi: true },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => GoodInputComponent), multi: true },
+  ],
   template: `
     <label class="good-input-field" [attr.data-size]="size()" [attr.data-status]="status()" [attr.data-type]="type()">
-      @if (showLabel()) { <span class="good-input-label">{{ label() }}@if (required()) { <span class="good-required-mark" aria-hidden="true">*</span><span class="good-sr-only"> required</span> }</span> }
+      @if (showLabel()) { <span class="good-input-label">{{ label() }}@if (effectiveRequired()) { <span class="good-required-mark" aria-hidden="true">*</span><span class="good-sr-only"> required</span> }</span> }
       <span class="good-input-shell">
         @if (startText() || startIcon()) {
           <span class="good-input-addon" data-side="start" [attr.data-tone]="startTone()" aria-hidden="true">
@@ -29,12 +32,12 @@ export type GoodInputAddonTone = 'inline' | 'contrast';
             <span class="good-input-file-name" [class.good-input-file-selected]="hasFiles()">{{ fileNames() }}</span>
           </span>
           <input #fileInput class="good-input-native-file" type="file" [disabled]="isDisabled() || readonly()"
-            [required]="required()" [accept]="accept() || null" [multiple]="multiple()" [name]="name()"
+            [required]="effectiveRequired()" [accept]="accept() || null" [multiple]="multiple()" [name]="name()"
             [id]="inputId() || null" [attr.aria-label]="accessibleLabel()" [attr.aria-invalid]="error() ? 'true' : null"
             [attr.aria-describedby]="describedBy() || null" (change)="onFileChange($event)" (blur)="onBlur()" />
         } @else {
           <input class="good-input-native" [type]="type()" [value]="value()" [placeholder]="placeholder()"
-            [disabled]="isDisabled()" [readOnly]="readonly()" [required]="required()" [name]="name()"
+            [disabled]="isDisabled()" [readOnly]="readonly()" [required]="effectiveRequired()" [name]="name()"
             [id]="inputId() || null" [attr.aria-label]="accessibleLabel()" [attr.aria-invalid]="error() ? 'true' : null"
             [attr.aria-describedby]="describedBy() || null" [attr.autocomplete]="autocomplete() || null"
             (input)="onTextInput($event)" (blur)="onBlur()" />
@@ -50,7 +53,7 @@ export type GoodInputAddonTone = 'inline' | 'contrast';
   `,
   host: { class: 'good-input' },
 })
-export class GoodInputComponent implements ControlValueAccessor {
+export class GoodInputComponent implements ControlValueAccessor, Validator {
   readonly label = input.required<string>();
   readonly showLabel = input(false);
   readonly type = input<GoodInputType>('text');
@@ -61,6 +64,8 @@ export class GoodInputComponent implements ControlValueAccessor {
   readonly readonly = input(false);
   readonly error = input(false);
   readonly required = input(false);
+  readonly fieldRequired = signal(false);
+  readonly effectiveRequired = computed(() => this.required() || this.fieldRequired());
   readonly name = input('');
   readonly inputId = input('');
   readonly describedBy = input('');
@@ -84,6 +89,22 @@ export class GoodInputComponent implements ControlValueAccessor {
   private readonly fileInput = viewChild<ElementRef<HTMLInputElement>>('fileInput');
   private onChange: (value: string | FileList | null) => void = () => {};
   private onTouched: () => void = () => {};
+  private onValidatorChange: () => void = () => {};
+
+  constructor() {
+    effect(() => {
+      this.effectiveRequired();
+      this.isDisabled();
+      this.readonly();
+      this.onValidatorChange();
+    });
+  }
+
+  setFieldRequired(required: boolean): void { this.fieldRequired.set(required); }
+  validate(control: AbstractControl): ValidationErrors | null {
+    return this.effectiveRequired() && !this.isDisabled() && !this.readonly() ? Validators.required(control) : null;
+  }
+  registerOnValidatorChange(fn: () => void): void { this.onValidatorChange = fn; }
 
   onTextInput(event: Event): void {
     const next = (event.target as HTMLInputElement).value;

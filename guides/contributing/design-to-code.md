@@ -33,8 +33,10 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.topbar.default` | `521fe58c-da62-80e2-8008-d33f667375d0` |
 | `goodui.topbar.with-brand` | `521fe58c-da62-80e2-8008-d33f66ae31ee` |
 | `goodui.topbar.mobile` | `521fe58c-da62-80e2-8008-d33fc43d443e` |
+| `goodui.topbar.mobile-menu-icon` / `.mobile-menu-popup-open` | `c0c3286f-e4bf-804c-8008-d5e514a9b336` / `c0c3286f-e4bf-804c-8008-d5e5154d923f` |
 | `goodui.brand-icon.default` | `521fe58c-da62-80e2-8008-d33f6648cf58` |
 | `goodui.topbar-menu-container.default` | `521fe58c-da62-80e2-8008-d33f65433040` |
+| `goodui.topbar-menu-container.mobile-icon` / `.mobile-popup-open` | `c0c3286f-e4bf-804c-8008-d5e4dc8469c8` / `c0c3286f-e4bf-804c-8008-d5e4f1abf064` |
 | `goodui.topbar-menu-item.default` | `521fe58c-da62-80e2-8008-d33f65037987` |
 | `goodui.topbar-menu-item.open` | `521fe58c-da62-80e2-8008-d3cb40c02667` |
 | `goodui.topbar-dropdown-item.link` | `521fe58c-da62-80e2-8008-d3caa3b78281` |
@@ -74,6 +76,8 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components`, `02 Lay
 | `goodui.heading-group`, `goodui.heading` (`level=1/2-6`), `goodui.summary`, `goodui.section`, `goodui.prose`, `goodui.paragraph`, `goodui.subheading`, `goodui.citation` | Published IDs and Angular selectors in [typography-components.json](../../design/typography-components.json); Section composes linked Subheading and Prose instances |
 | `goodui.eyebrow` (`appearance=brand/mono`), `goodui.separator` (`style=dots/line`), `goodui.inline-image` (`align=center/left/right`) | Variant IDs and inputs in [typography-components.json](../../design/typography-components.json) |
 | `goodui.form-field` (`state=default/error`), `goodui.field-label` (`required=false/true`), `goodui.hint`, `goodui.error-text` | Linked form compositions and text IDs in [typography-components.json](../../design/typography-components.json) |
+| `goodui.form.vertical` / `.left` / `.right` | `c0c3286f-e4bf-804c-8008-d66c6d6ef862` / `c0c3286f-e4bf-804c-8008-d66c9f9af724` / `c0c3286f-e4bf-804c-8008-d66ca3a385e3`; Angular `form[goodForm]` with matching `layout` input. Each Penpot form contains linked FieldLabel and Input instances. The former `.inline`, `.inline-compact`, and `.inline-spread` FormField specimens were removed; set `layout` once on the form. |
+| `goodui.form-field.checkbox-required` / `.radio-required` | `c0c3286f-e4bf-804c-8008-d6694e0b2387` / `c0c3286f-e4bf-804c-8008-d669672e1467`; linked selection controls with shared `form.label-width` and `form.column-gap` bindings. The radio example has a linked required FieldLabel in the label column and a linked RadioGroup with its legend hidden visually; Angular maps this to `labelledBy`. |
 | `goodui.input` variant group (`kind` × `size` × `status`) | Container `79fa6408-a1e2-80d7-8008-d47eb4e37dc7`; all 21 IDs in [input-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) |
 | `goodui.input-addon` variant group (`side` × `content` × `tone` × `size`) | Container `79fa6408-a1e2-80d7-8008-d47f49489ba6`; all 24 IDs in the same manifest |
 | `goodui.dropdown` variant group (`placement` × `chevron` × `state`) | Container `79fa6408-a1e2-80d7-8008-d4862be1ed43`; all 16 IDs in [dropdown-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/dropdown-variants.json) |

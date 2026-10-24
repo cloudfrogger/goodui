@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, forwardRef, input, model, signal } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, effect, forwardRef, input, model, signal } from '@angular/core';
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator, Validators } from '@angular/forms';
 
 export type GoodRadioSize = 'small' | 'default' | 'large';
 export type GoodRadioAppearance = 'brand' | 'mono';
@@ -17,19 +17,22 @@ let nextRadioGroupId = 0;
   selector: 'good-radio-group',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodRadioGroupComponent), multi: true }],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodRadioGroupComponent), multi: true },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => GoodRadioGroupComponent), multi: true },
+  ],
   host: { class: 'good-radio-group' },
   template: `
     <fieldset class="good-radio-fieldset" [disabled]="isDisabled()" [attr.data-size]="size()"
       [attr.data-appearance]="appearance()" [attr.data-orientation]="orientation()"
-      [attr.aria-describedby]="describedBy() || null">
-      <legend class="good-radio-legend" [class.good-radio-visually-hidden]="!showLabel()">{{ label() }}</legend>
+      [attr.aria-describedby]="describedBy() || null" [attr.aria-labelledby]="labelledBy() || null">
+      <legend class="good-radio-legend" [class.good-radio-visually-hidden]="!showLabel() || !!labelledBy()">{{ label() }}@if (effectiveRequired()) { <span class="good-required-mark" aria-hidden="true">*</span><span class="good-sr-only"> required</span> }</legend>
       <div class="good-radio-options">
         @for (option of options(); track option.value) {
           <label class="good-radio-option" [attr.data-disabled]="option.disabled ? 'true' : null">
             <input class="good-radio-input" type="radio" [name]="groupName()" [value]="option.value"
               [checked]="value() === option.value" [disabled]="option.disabled || isDisabled()"
-              [required]="required()" (change)="select(option.value)" (blur)="onBlur()" />
+              [required]="effectiveRequired()" (change)="select(option.value)" (blur)="onBlur()" />
             <span class="good-radio-indicator" aria-hidden="true"><span class="good-radio-dot"></span></span>
             <span class="good-radio-copy"><span class="good-radio-option-label">{{ option.label }}</span>
               @if (option.description) { <span class="good-radio-description">{{ option.description }}</span> }
@@ -40,7 +43,7 @@ let nextRadioGroupId = 0;
     </fieldset>
   `,
 })
-export class GoodRadioGroupComponent implements ControlValueAccessor {
+export class GoodRadioGroupComponent implements ControlValueAccessor, Validator {
   readonly options = input.required<readonly GoodRadioOption[]>();
   readonly label = input.required<string>();
   readonly showLabel = input(true);
@@ -50,7 +53,10 @@ export class GoodRadioGroupComponent implements ControlValueAccessor {
   readonly orientation = input<'vertical' | 'horizontal'>('vertical');
   readonly disabled = input(false);
   readonly required = input(false);
+  readonly fieldRequired = signal(false);
+  readonly effectiveRequired = computed(() => this.required() || this.fieldRequired());
   readonly name = input('');
+  readonly labelledBy = input('');
   readonly describedBy = input('');
   private readonly defaultName = `good-radio-group-${++nextRadioGroupId}`;
   private readonly formDisabled = signal(false);
@@ -58,6 +64,21 @@ export class GoodRadioGroupComponent implements ControlValueAccessor {
   readonly groupName = computed(() => this.name() || this.defaultName);
   private onChange: (value: string | null) => void = () => {};
   private onTouched: () => void = () => {};
+  private onValidatorChange: () => void = () => {};
+
+  constructor() {
+    effect(() => {
+      this.effectiveRequired();
+      this.isDisabled();
+      this.onValidatorChange();
+    });
+  }
+
+  setFieldRequired(required: boolean): void { this.fieldRequired.set(required); }
+  validate(control: AbstractControl): ValidationErrors | null {
+    return this.effectiveRequired() && !this.isDisabled() ? Validators.required(control) : null;
+  }
+  registerOnValidatorChange(fn: () => void): void { this.onValidatorChange = fn; }
 
   select(value: string): void {
     if (this.isDisabled() || this.options().find(option => option.value === value)?.disabled) return;

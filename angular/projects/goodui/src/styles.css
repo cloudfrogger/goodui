@@ -47,9 +47,34 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-inline-image figcaption { color: var(--good-typography-caption-color); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; font-size: var(--good-typography-caption-font-size); line-height: 1.5; text-align: center; }
 .good-inline-image[data-align="left"] figcaption { text-align: left; }
 .good-inline-image[data-align="right"] figcaption { text-align: right; }
-.good-form-field { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-field-label-gap); min-width: 0; }
-.good-form-field > good-hint, .good-form-field > good-error-text { margin-top: calc(var(--good-typography-field-help-gap) - var(--good-typography-field-label-gap)); }
-.good-field-label label { display: inline-flex; align-items: baseline; gap: var(--good-typography-required-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); line-height: 1.4; cursor: pointer; }
+.good-form-field { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; row-gap: var(--good-typography-field-label-gap); min-width: 0; }
+.good-form-field > good-field-label { grid-column: 1; grid-row: 1; }
+.good-form-field > :not(good-field-label):not(good-hint):not(good-error-text) { grid-column: 1; grid-row: 2; min-width: 0; }
+.good-form-field > good-hint, .good-form-field > good-error-text { grid-column: 1; grid-row: 3; margin-top: calc(var(--good-typography-field-help-gap) - var(--good-typography-field-label-gap)); }
+.good-form-field:not(:has(> good-field-label)) > :not(good-hint):not(good-error-text) { grid-row: 1; }
+.good-form-field:not(:has(> good-field-label)) > good-hint, .good-form-field:not(:has(> good-field-label)) > good-error-text { grid-row: 2; }
+.good-form { display: grid; gap: var(--good-form-row-gap); width: 100%; max-width: var(--good-form-max-width); min-width: 0; container-type: inline-size; }
+.good-form > .good-form-field { width: 100%; }
+.good-form > .good-form-field > :not(good-field-label):not(good-hint):not(good-error-text) { width: 100%; max-width: var(--good-form-control-width); }
+.good-form[data-layout="left"] > .good-form-field, .good-form[data-layout="right"] > .good-form-field { grid-template-columns: var(--good-form-label-width) minmax(0, var(--good-form-control-width)); column-gap: var(--good-form-column-gap); align-items: start; }
+.good-form[data-layout="left"] > .good-form-field > good-field-label, .good-form[data-layout="right"] > .good-form-field > good-field-label { grid-column: 1; grid-row: 1; padding-top: calc((var(--good-control-input-height-default) - var(--good-typography-label-font-size) * 1.4) / 2); }
+.good-form[data-layout="left"] > .good-form-field > :not(good-field-label):not(good-hint):not(good-error-text), .good-form[data-layout="right"] > .good-form-field > :not(good-field-label):not(good-hint):not(good-error-text) { grid-column: 2; grid-row: 1; }
+.good-form[data-layout="left"] > .good-form-field > good-hint, .good-form[data-layout="left"] > .good-form-field > good-error-text, .good-form[data-layout="right"] > .good-form-field > good-hint, .good-form[data-layout="right"] > .good-form-field > good-error-text { grid-column: 2; grid-row: 2; margin-top: 0; }
+.good-form[data-layout="right"] > .good-form-field > good-field-label { text-align: right; justify-self: end; }
+.good-form[data-layout="left"] > .good-form-field:not(:has(> good-field-label)) > :not(good-hint):not(good-error-text), .good-form[data-layout="right"] > .good-form-field:not(:has(> good-field-label)) > :not(good-hint):not(good-error-text) { grid-column: 2; grid-row: 1; }
+.good-form[data-layout="left"] > .good-form-field:not(:has(> good-field-label)) > good-hint, .good-form[data-layout="right"] > .good-form-field:not(:has(> good-field-label)) > good-hint { grid-column: 2; grid-row: 2; }
+.good-form[data-layout="left"] > good-action-group, .good-form[data-layout="right"] > good-action-group { margin-left: calc(var(--good-form-label-width) + var(--good-form-column-gap)); }
+@container (max-width: 540px) {
+  .good-form[data-layout="left"] > .good-form-field, .good-form[data-layout="right"] > .good-form-field { grid-template-columns: minmax(0, 1fr); }
+  .good-form[data-layout="left"] > .good-form-field > good-field-label, .good-form[data-layout="right"] > .good-form-field > good-field-label { grid-column: 1; grid-row: 1; padding-top: 0; text-align: left; justify-self: start; }
+  .good-form[data-layout="left"] > .good-form-field > :not(good-field-label):not(good-hint):not(good-error-text), .good-form[data-layout="right"] > .good-form-field > :not(good-field-label):not(good-hint):not(good-error-text) { grid-column: 1; grid-row: 2; }
+  .good-form[data-layout="left"] > .good-form-field > good-hint, .good-form[data-layout="right"] > .good-form-field > good-hint, .good-form[data-layout="left"] > .good-form-field > good-error-text, .good-form[data-layout="right"] > .good-form-field > good-error-text { grid-column: 1; grid-row: 3; }
+  .good-form[data-layout="left"] > .good-form-field:not(:has(> good-field-label)) > :not(good-hint):not(good-error-text), .good-form[data-layout="right"] > .good-form-field:not(:has(> good-field-label)) > :not(good-hint):not(good-error-text) { grid-column: 1; grid-row: 1; }
+  .good-form[data-layout="left"] > .good-form-field:not(:has(> good-field-label)) > good-hint, .good-form[data-layout="right"] > .good-form-field:not(:has(> good-field-label)) > good-hint { grid-column: 1; grid-row: 2; }
+  .good-form[data-layout="left"] > good-action-group, .good-form[data-layout="right"] > good-action-group { margin-left: 0; }
+}
+.good-field-label label, .good-field-label-text { display: inline-flex; align-items: baseline; gap: var(--good-typography-required-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); line-height: 1.4; }
+.good-field-label label { cursor: pointer; }
 .good-required-mark { color: var(--good-typography-required-color); }
 .good-hint small, .good-error-text small { color: var(--good-typography-hint-color); font-size: var(--good-typography-hint-font-size); line-height: 1.5; }
 .good-error-text small { color: var(--good-typography-error-color); font-size: var(--good-typography-error-font-size); }
@@ -380,6 +405,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-checkbox-box { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; flex: none; width: var(--good-checkbox-box-size); height: var(--good-checkbox-box-size); border: 1px solid var(--good-checkbox-border); border-radius: var(--good-checkbox-radius); background: var(--good-checkbox-unchecked-background); color: var(--good-checkbox-mark-color); transition: background-color .15s ease, border-color .15s ease; }
 .good-checkbox-mark { display: block; width: var(--good-checkbox-mark-size); height: var(--good-checkbox-mark-size); }
 .good-checkbox-label { line-height: 20px; }
+.good-checkbox-label .good-required-mark { margin-left: var(--good-typography-required-gap); }
 .good-checkbox-control[data-size="small"] { --good-checkbox-box-size: var(--good-checkbox-size-small-box); --good-checkbox-mark-size: var(--good-checkbox-size-small-mark); }
 .good-checkbox-control[data-size="default"] { --good-checkbox-box-size: var(--good-checkbox-size-default-box); --good-checkbox-mark-size: var(--good-checkbox-size-default-mark); }
 .good-checkbox-control[data-size="large"] { --good-checkbox-box-size: var(--good-checkbox-size-large-box); --good-checkbox-mark-size: var(--good-checkbox-size-large-mark); }
@@ -394,6 +420,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-radio-group { display: block; }
 .good-radio-fieldset { min-width: 0; margin: 0; padding: 0; border: 0; color: var(--good-text); font: inherit; }
 .good-radio-legend { margin-bottom: var(--good-radio-legend-gap); padding: 0; font-weight: 600; }
+.good-radio-legend .good-required-mark { margin-left: var(--good-typography-required-gap); }
 .good-radio-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .good-radio-options { display: flex; flex-direction: column; gap: var(--good-radio-group-gap); }
 .good-radio-fieldset[data-orientation="horizontal"] .good-radio-options { flex-direction: row; flex-wrap: wrap; column-gap: var(--good-space-5); }

@@ -31,6 +31,7 @@ export const routes: Routes = [
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },
   { path: 'components/inputs', component: InputsPageComponent },
+  { path: 'components/labels', loadComponent: () => import('./labels-page').then(module => module.LabelsPageComponent) },
   { path: 'components/dropdowns', component: DropdownsPageComponent },
   { path: 'components/breadcrumbs', component: BreadcrumbsPageComponent },
   { path: 'components/badges', component: BadgesPageComponent },

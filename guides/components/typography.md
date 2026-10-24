@@ -75,21 +75,30 @@ In a standalone Angular page, include `GoodInlineImageComponent` in that page's 
 
 ## Form text
 
-`good-form-field` owns the vertical relationship between `good-field-label`, a projected control, and `good-hint` or `good-error-text`. `good-field-label [required]` adds a red star and an accessible “required” announcement. `good-input [showLabel]="true"` uses the same tokens and displays the marker when its native `required` input is true. Error text uses the theme-specific error color and `role="alert"`.
+`goodForm` is an attribute directive on a native `<form>`. Its `layout` input has three choices: `vertical` (default), `left`, and `right`. Vertical places labels above controls. Left gives all fields one shared, left-aligned label column and one shared control column. Right aligns labels to the right edge of that label column, next to the left-aligned controls. The whole form owns the 160 px label column, 24 px column gap, 420 px maximum control width, and 20 px row gap through `form.*` design tokens. Narrow containers stack the horizontal layouts vertically. `good-form-field` owns one label, one control, and optional `good-hint` or `good-error-text`; help and error text align with the control column. A direct child `good-action-group` aligns with that column too.
+
+Mark `good-field-label` or its `good-form-field` as required. The label shows a theme-aware red star and announces “required” to assistive technology. Within a FormField, the required state reaches a projected `good-input`, `good-checkbox`, or `good-radio-group` and their Angular Reactive Forms validators. Input needs a value, Checkbox must be checked, and RadioGroup needs a selection. Disabled controls are exempt; readonly Inputs are also exempt. A standalone control can use its own `[required]="true"` input. For other projected control types, set their own required attribute or form validator explicitly.
+
+For an Input or Checkbox, `good-field-label forId` targets the native control ID. For a RadioGroup in a horizontal form, omit `forId`, give FieldLabel an `id`, and pass that ID through RadioGroup `labelledBy`. FieldLabel then renders non-interactive text in the shared label column, while the radio fieldset receives its accessible name through `aria-labelledby`.
 
 ```html
-<good-form-field>
-  <good-field-label forId="email" [required]="true">Email address</good-field-label>
-  <good-input inputId="email" label="Email address" type="email"
-    [required]="true" describedBy="email-hint" />
-  <good-hint id="email-hint">We use this address for account updates.</good-hint>
-</good-form-field>
+<form goodForm layout="right" [formGroup]="form">
+  <good-form-field [required]="true">
+    <good-field-label forId="email">Email address</good-field-label>
+    <good-input inputId="email" label="Email address" type="email"
+      formControlName="email" describedBy="email-hint" />
+    <good-hint id="email-hint">We use this address for account updates.</good-hint>
+  </good-form-field>
+  <good-action-group><good-button type="submit">Continue</good-button></good-action-group>
+</form>
 ```
 
-For validation, set the control's error state, replace the hint with `good-error-text`, and point `describedBy` at the error ID. A separate label should use the same native control ID in `forId` and `inputId`. FormField does not change the control's value or validation state. Penpot's default and error variants are linked compositions, with the underlying Input variant changed to match the message.
+Import `GoodFormDirective` with the projected controls in a standalone page. For validation feedback, set the control's error state, replace the hint with `good-error-text`, and point `describedBy` at the error ID. Match `forId` to the control's native `inputId` so clicking the label focuses the input. Use either FormField or FieldLabel `required` as the source for the marker; you do not need to repeat it on Input. Penpot publishes `goodui.form.vertical`, `.left`, and `.right` with linked FieldLabel and Input instances. The selector `form[goodForm]` maps their visual layout to Angular. Penpot's FormField default/error compositions remain available for message states. The former per-field `labelPosition` input and Penpot inline examples were replaced by whole-form alignment; migrate to `goodForm` on the parent form.
+
+For a Checkbox with a separate FieldLabel, set `forId` and `inputId` to the same ID; the label activates the native checkbox. A Checkbox can instead show its own label beside the box with `[showLabel]="true"`. A RadioGroup uses its native `legend` as the group label. Supply `label` on `good-radio-group`; do not add an external FieldLabel for the group because a fieldset is not a labelable control. The [Control labels page](../../homepage/src/app/labels-page.ts) demonstrates both patterns and their Reactive Forms validity.
 
 ## Tokens and Penpot limits
 
-The Penpot `layout` set is the source for the `--good-typography-*` CSS variables. Font sizes, weights, letter spacing, colors, image corners, flex gaps, and supported padding are bound to tokens in the published Penpot components. Eyebrow, required, error, and muted colors alias the existing semantic colors and follow the active light or dark theme. The repository snapshot is exported to `design-tokens/penpot.tokens.json`; `npm run tokens:generate` builds the CSS.
+The Penpot `layout` set is the source for the generated `--good-*` CSS variables. Font sizes, weights, letter spacing, colors, image corners, flex gaps, and supported padding are bound to tokens in the published Penpot components. Form compositions bind their width and gap properties to `form.*`; `form.column-gap` and `form.row-gap` alias the base spacing scale. Eyebrow, required, error, and muted colors alias the existing semantic colors and follow the active light or dark theme. The repository snapshot is exported to `design-tokens/penpot.tokens.json`; `npm run tokens:generate` builds the CSS.
 
 The current Penpot plugin rejects applying a `fontFamilies` token to text. The specimens retain Inter as their explicit font family; Angular uses the exported `typography.font-family` token. Penpot does not offer a token binding for line height or italic style, so these are explicit properties in Penpot and CSS. Semantic HTML tags, responsive wrapping, image alt text, and live error announcements are verified in Angular.

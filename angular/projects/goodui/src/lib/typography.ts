@@ -1,5 +1,8 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, contentChild, effect, input, signal, computed } from '@angular/core';
+import { GoodInputComponent } from './input';
+import { GoodCheckboxComponent } from './checkbox';
+import { GoodRadioGroupComponent } from './radio-group';
 
 export type GoodEyebrowAppearance = 'brand' | 'mono';
 export type GoodHeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -123,19 +126,48 @@ export class GoodInlineImageComponent {
 }
 
 @Component({
-  selector: 'good-form-field', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-form-field' }, template: `<ng-content />`,
-})
-export class GoodFormFieldComponent {}
-
-@Component({
   selector: 'good-field-label', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgTemplateOutlet],
   host: { class: 'good-field-label' },
-  template: `<label [attr.for]="forId() || null"><ng-content />@if (required()) { <span class="good-required-mark" aria-hidden="true">*</span><span class="good-sr-only"> required</span> }</label>`,
+  template: `@if (forId()) {
+    <label [attr.for]="forId()"><ng-container [ngTemplateOutlet]="content" /></label>
+  } @else {
+    <span class="good-field-label-text"><ng-container [ngTemplateOutlet]="content" /></span>
+  }
+  <ng-template #content><ng-content />@if (isRequired()) { <span class="good-required-mark" aria-hidden="true">*</span><span class="good-sr-only"> required</span> }</ng-template>`,
 })
 export class GoodFieldLabelComponent {
   readonly forId = input('');
   readonly required = input(false);
+  readonly inheritedRequired = signal(false);
+  readonly isRequired = computed(() => this.required() || this.inheritedRequired());
+}
+
+@Component({
+  selector: 'good-form-field', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-form-field' }, template: `<ng-content />`,
+})
+export class GoodFormFieldComponent {
+  readonly required = input(false);
+  readonly label = contentChild(GoodFieldLabelComponent);
+  readonly control = contentChild(GoodInputComponent);
+  readonly checkbox = contentChild(GoodCheckboxComponent);
+  readonly radioGroup = contentChild(GoodRadioGroupComponent);
+
+  constructor() {
+    effect(() => {
+      const label = this.label();
+      const control = this.control();
+      const checkbox = this.checkbox();
+      const radioGroup = this.radioGroup();
+      const required = this.required();
+      label?.inheritedRequired.set(required);
+      const effectiveRequired = required || !!label?.required();
+      control?.setFieldRequired(effectiveRequired);
+      checkbox?.setFieldRequired(effectiveRequired);
+      radioGroup?.setFieldRequired(effectiveRequired);
+    });
+  }
 }
 
 @Component({

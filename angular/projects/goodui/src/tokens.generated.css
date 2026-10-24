@@ -362,6 +362,11 @@
   --good-typography-field-help-gap: 6px;
   --good-typography-required-gap: 2px;
   --good-typography-required-color: var(--good-color-error);
+  --good-form-label-width: 160px;
+  --good-form-control-width: 420px;
+  --good-form-max-width: 760px;
+  --good-form-column-gap: var(--good-space-6);
+  --good-form-row-gap: var(--good-space-5);
   --good-canvas: var(--good-color-canvas);
   --good-surface: var(--good-color-surface);
   --good-text: var(--good-color-text);

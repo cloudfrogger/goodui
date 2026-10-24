@@ -19,6 +19,7 @@
     "error-text",
     "eyebrow",
     "field-label",
+    "form",
     "form-field",
     "heading",
     "heading-group",
@@ -307,6 +308,41 @@
       "angularSelector": "good-form-field",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.form.vertical",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d66c6d6ef862",
+      "angularSelector": "form[goodForm]",
+      "kind": "component",
+      "state": "vertical"
+    },
+    {
+      "penpotName": "goodui.form.left",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d66c9f9af724",
+      "angularSelector": "form[goodForm]",
+      "kind": "component",
+      "state": "left"
+    },
+    {
+      "penpotName": "goodui.form.right",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d66ca3a385e3",
+      "angularSelector": "form[goodForm]",
+      "kind": "component",
+      "state": "right"
+    },
+    {
+      "penpotName": "goodui.form-field.checkbox-required",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6694e0b2387",
+      "angularSelector": "good-form-field",
+      "kind": "component",
+      "state": "checkbox-required"
+    },
+    {
+      "penpotName": "goodui.form-field.radio-required",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d669672e1467",
+      "angularSelector": "good-form-field",
+      "kind": "component",
+      "state": "radio-required"
     },
     {
       "penpotName": "goodui.heading",

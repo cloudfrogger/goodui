@@ -12,11 +12,22 @@
     { "family": "citation", "selector": "good-citation", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a09eb1", "inputs": ["source", "cite"] },
     { "family": "separator", "selector": "good-separator", "containerId": "c0c3286f-e4bf-804c-8008-d58dd6fac624", "penpotAxis": "style", "input": "variant", "variants": { "dots": "c0c3286f-e4bf-804c-8008-d58d18952b69", "line": "c0c3286f-e4bf-804c-8008-d58d1a4464fb" } },
     { "family": "inline-image", "selector": "good-inline-image", "containerId": "c0c3286f-e4bf-804c-8008-d58dd71fab11", "input": "align", "inputs": ["src", "alt", "caption", "loading"], "variants": { "center": "c0c3286f-e4bf-804c-8008-d58d2b885f78", "left": "c0c3286f-e4bf-804c-8008-d58d2cc362c5", "right": "c0c3286f-e4bf-804c-8008-d58d2df9f5e6" } },
-    { "family": "form-field", "selector": "good-form-field", "containerId": "c0c3286f-e4bf-804c-8008-d58dd7440a43", "variants": { "default": "c0c3286f-e4bf-804c-8008-d58d481338f9", "error": "c0c3286f-e4bf-804c-8008-d58d48ff20ee" }, "note": "The state is composed from its control and message; it is not a form-field input." },
+    { "family": "form-field", "selector": "good-form-field", "containerId": "c0c3286f-e4bf-804c-8008-d58dd7440a43", "variants": { "default": "c0c3286f-e4bf-804c-8008-d58d481338f9", "error": "c0c3286f-e4bf-804c-8008-d58d48ff20ee" }, "selectionExamples": { "checkbox-required": "c0c3286f-e4bf-804c-8008-d6694e0b2387", "radio-required": "c0c3286f-e4bf-804c-8008-d669672e1467" }, "note": "Form owns whole-form alignment. FormField owns one label, control, and help or error message. The selection examples use the same token-bound label and control columns; the radio example has a linked required FieldLabel and a linked RadioGroup whose internal legend is hidden visually. Angular RadioGroup labelledBy maps to its external FieldLabel ID." },
     { "family": "field-label", "selector": "good-field-label", "containerId": "c0c3286f-e4bf-804c-8008-d58dd6c6c444", "input": "required", "inputs": ["forId"], "variants": { "false": "c0c3286f-e4bf-804c-8008-d58ca0a37ad8", "true": "c0c3286f-e4bf-804c-8008-d58ccb254713" } },
     { "family": "hint", "selector": "good-hint", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a208d6" },
     { "family": "error-text", "selector": "good-error-text", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a4e2d3" }
   ],
+  "formLayouts": {
+    "family": "form",
+    "selector": "form[goodForm]",
+    "input": "layout",
+    "variants": {
+      "vertical": "c0c3286f-e4bf-804c-8008-d66c6d6ef862",
+      "left": "c0c3286f-e4bf-804c-8008-d66c9f9af724",
+      "right": "c0c3286f-e4bf-804c-8008-d66ca3a385e3"
+    },
+    "tokens": ["form.label-width", "form.control-width", "form.max-width", "form.column-gap", "form.row-gap"]
+  },
   "internalParts": [
     { "family": "image-caption", "owner": "inline-image", "componentId": "c0c3286f-e4bf-804c-8008-d58ca0a60733" }
   ]

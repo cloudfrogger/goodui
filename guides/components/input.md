@@ -1,6 +1,6 @@
 # Input
 
-`good-input` provides a text field or a native file selector in the same visual scale as GoodUI Button. The control owns its border, padding, rounding, focus indicator, optional label, and leading and trailing content. Place it in a flex or grid form layout; the component fills the width its parent provides.
+`good-input` provides a text field or a native file selector in the same visual scale as GoodUI Button. The control owns its border, padding, rounding, focus indicator, optional label, and leading and trailing content. For a complete form, place it inside `good-form-field` in a native `<form goodForm layout="vertical|left|right">`; the form aligns all fields without application CSS. The component fills the width its parent provides.
 
 ## States and sizes
 
@@ -15,7 +15,7 @@
 <p id="email-error">Enter a valid email address.</p>
 ```
 
-`label` is required even when the visible label is hidden. The native input supports Tab, selection, and normal keyboard editing. Focus remains visible in both themes. `name`, `inputId`, `required`, `autocomplete`, and `placeholder` pass through to the native text input. Text values support `[(value)]` or Angular forms through `ControlValueAccessor`; use one source of truth per instance.
+`label` is required even when the visible label is hidden. The native input supports Tab, selection, and normal keyboard editing. Focus remains visible in both themes. `name`, `inputId`, `required`, `autocomplete`, and `placeholder` pass through to the native text input. Text values support `[(value)]` or Angular forms through `ControlValueAccessor`; use one source of truth per instance. `required` also registers an Angular `required` validator for Reactive Forms. When a `good-input` sits inside `good-form-field`, the FormField or its `good-field-label` can supply the required state without repeating `[required]` on the Input. The native field and Angular control are both invalid until filled; disabled and readonly inputs are exempt.
 
 ## Icons and group text
 

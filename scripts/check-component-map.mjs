@@ -20,6 +20,7 @@ const typographyComponents = JSON.parse(readFileSync(resolve(root, 'design/typog
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
+if (readFileSync(resolve(source, 'form.ts'), 'utf8').includes("selector: 'form[goodForm]'")) selectors.add('form');
 const direct = new Set(map.directFamilies);
 const internal = Object.keys(map.internalParts);
 const pending = new Set(map.pendingPenpotFamilies ?? []);
@@ -38,7 +39,7 @@ for (const entry of map.componentMappings) {
     .sort((left, right) => right.length - left.length)[0];
   if (!family) throw new Error(`Unmapped Penpot family: ${entry.penpotName}`);
   const owner = map.internalParts[family];
-  if (entry.angularSelector !== `good-${owner ?? family}` || entry.kind !== (owner ? 'internal-part' : 'component') ||
+  if (entry.angularSelector !== (family === 'form' ? 'form[goodForm]' : `good-${owner ?? family}`) || entry.kind !== (owner ? 'internal-part' : 'component') ||
       (owner ? entry.owner !== `goodui.${owner}` : 'owner' in entry)) throw new Error(`Invalid Angular mapping for ${entry.penpotName}`);
   const state = entry.penpotName === `goodui.${family}` ? null : entry.penpotName.slice(`goodui.${family}.`.length);
   if (entry.state !== state) throw new Error(`Invalid state mapping for ${entry.penpotName}`);
@@ -232,6 +233,15 @@ for (const entry of typographyComponents.families) {
   typographyExpected.delete(entry.family);
 }
 if (typographyExpected.size) throw new Error(`Missing Typography families: ${[...typographyExpected.keys()].join(', ')}`);
+const formLayouts = typographyComponents.formLayouts?.variants;
+if (typographyComponents.formLayouts?.selector !== 'form[goodForm]' || typographyComponents.formLayouts?.input !== 'layout' || !formLayouts || Object.keys(formLayouts).sort().join(',') !== 'left,right,vertical') throw new Error('Incomplete Form layout manifest.');
+for (const [layout, id] of Object.entries(formLayouts)) if (!map.componentMappings.some(entry => entry.penpotName === `goodui.form.${layout}` && entry.penpotId === id && entry.angularSelector === 'form[goodForm]')) throw new Error(`Invalid Form layout mapping: ${layout}`);
+const formFieldSelections = typographyComponents.families.find(entry => entry.family === 'form-field')?.selectionExamples;
+if (!formFieldSelections || Object.keys(formFieldSelections).sort().join(',') !== ['checkbox-required', 'radio-required'].sort().join(',')) throw new Error('Incomplete FormField selection examples.');
+for (const [selection, id] of Object.entries(formFieldSelections)) {
+  if (typographyIds.has(id) || !map.componentMappings.some(entry => entry.penpotName === `goodui.form-field.${selection}` && entry.penpotId === id && entry.angularSelector === 'good-form-field')) throw new Error(`Invalid FormField selection mapping: ${selection}`);
+  typographyIds.add(id);
+}
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
 console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

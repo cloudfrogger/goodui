@@ -1751,6 +1751,28 @@
           "$type": "color"
         }
       }
+    },
+    "form": {
+      "label-width": {
+        "$value": "160",
+        "$type": "sizing"
+      },
+      "control-width": {
+        "$value": "420",
+        "$type": "sizing"
+      },
+      "max-width": {
+        "$value": "760",
+        "$type": "sizing"
+      },
+      "column-gap": {
+        "$value": "{space.6}",
+        "$type": "spacing"
+      },
+      "row-gap": {
+        "$value": "{space.5}",
+        "$type": "spacing"
+      }
     }
   },
   "layout-dark": {
