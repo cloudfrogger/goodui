@@ -1779,6 +1779,82 @@
         "$value": "180",
         "$type": "sizing"
       }
+    },
+    "date": {
+      "panel": {
+        "width": {
+          "$value": "352",
+          "$type": "sizing"
+        },
+        "padding": {
+          "$value": "{space.4}",
+          "$type": "spacing"
+        },
+        "gap": {
+          "$value": "{space.2}",
+          "$type": "spacing"
+        },
+        "radius": {
+          "$value": "{radius.card}",
+          "$type": "borderRadius"
+        },
+        "background": {
+          "$value": "{color.surface}",
+          "$type": "color"
+        },
+        "border": {
+          "$value": "{color.border}",
+          "$type": "color"
+        },
+        "foreground": {
+          "$value": "{color.text}",
+          "$type": "color"
+        }
+      },
+      "day": {
+        "font-size": {
+          "$value": "13",
+          "$type": "fontSizes"
+        },
+        "size": {
+          "$value": "40",
+          "$type": "sizing"
+        },
+        "radius": {
+          "$value": "{radius.item}",
+          "$type": "borderRadius"
+        },
+        "muted": {
+          "$value": "{color.muted}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{color.selected}",
+          "$type": "color"
+        },
+        "selected": {
+          "background": {
+            "$value": "{color.brand}",
+            "$type": "color"
+          },
+          "foreground": {
+            "$value": "{button.default.foreground}",
+            "$type": "color"
+          }
+        },
+        "range": {
+          "background": {
+            "$value": "{color.selected}",
+            "$type": "color"
+          }
+        }
+      },
+      "time": {
+        "border": {
+          "$value": "{color.border}",
+          "$type": "color"
+        }
+      }
     }
   },
   "layout-dark": {

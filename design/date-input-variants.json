@@ -1,0 +1,294 @@
+{
+  "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
+  "page": "14 Date Inputs",
+  "family": "goodui.date-input",
+  "selector": "good-date-input",
+  "containerId": "c0c3286f-e4bf-804c-8008-d6a49f798c44",
+  "axes": {
+    "mode": [
+      "date",
+      "range",
+      "multiple",
+      "month",
+      "year"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "status": [
+      "default",
+      "disabled"
+    ]
+  },
+  "variants": [
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49786afe6",
+      "mode": "date",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a4979a7094",
+      "mode": "date",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a497ad3c9b",
+      "mode": "date",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a497c01557",
+      "mode": "date",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a497d123a1",
+      "mode": "date",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a497e302f8",
+      "mode": "date",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a4982ae448",
+      "mode": "range",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a4983c6d39",
+      "mode": "range",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a4984d9fad",
+      "mode": "range",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a4986023db",
+      "mode": "range",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49873f3cb",
+      "mode": "range",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49885a445",
+      "mode": "range",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a498c037a7",
+      "mode": "multiple",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a498dc3564",
+      "mode": "multiple",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a498f94f0a",
+      "mode": "multiple",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a4990d1af9",
+      "mode": "multiple",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a499205769",
+      "mode": "multiple",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a4993585a3",
+      "mode": "multiple",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a499873e6f",
+      "mode": "month",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a499a6b5f4",
+      "mode": "month",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a499be6b32",
+      "mode": "month",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a499e0c82b",
+      "mode": "month",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a499fcd3dd",
+      "mode": "month",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49a14088d",
+      "mode": "month",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49a50c021",
+      "mode": "year",
+      "size": "small",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49a6a6e8c",
+      "mode": "year",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49a83660d",
+      "mode": "year",
+      "size": "default",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49a9d8ab2",
+      "mode": "year",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49ab63977",
+      "mode": "year",
+      "size": "large",
+      "status": "default"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d6a49acf9e60",
+      "mode": "year",
+      "size": "large",
+      "status": "disabled"
+    }
+  ],
+  "parts": [
+    {
+      "family": "goodui.date-input-addon",
+      "owner": "good-date-input",
+      "containerId": "c0c3286f-e4bf-804c-8008-d6a485d410d1",
+      "variants": [
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a472f74b25",
+          "size": "small"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a4790c3463",
+          "size": "default"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a47f782a6d",
+          "size": "large"
+        }
+      ]
+    },
+    {
+      "family": "goodui.date-day",
+      "owner": "good-date-input",
+      "containerId": "c0c3286f-e4bf-804c-8008-d6a4e2e77d97",
+      "variants": [
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a4c45263b6",
+          "state": "default"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a4c6da4813",
+          "state": "disabled"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a4c9e80c6a",
+          "state": "selected"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a4cd156b31",
+          "state": "in-range"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a4d09087dd",
+          "state": "today"
+        }
+      ]
+    },
+    {
+      "family": "goodui.date-calendar",
+      "owner": "good-date-input",
+      "containerId": "c0c3286f-e4bf-804c-8008-d6a5c83be85d",
+      "variants": [
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a52347f875",
+          "view": "days"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a53103483a",
+          "view": "range"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a541fa3d5e",
+          "view": "multiple"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a55c2c612a",
+          "view": "months"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a578aaf5d2",
+          "view": "years"
+        },
+        {
+          "id": "c0c3286f-e4bf-804c-8008-d6a58fa7ad11",
+          "view": "time"
+        }
+      ]
+    }
+  ],
+  "mobileOverlay": {
+    "family": "goodui.date-calendar-overlay",
+    "owner": "good-date-input",
+    "componentId": "c0c3286f-e4bf-804c-8008-d6ac737576fa",
+    "linkedCalendar": "goodui.date-calendar",
+    "linkedHeader": "goodui.modal-header",
+    "linkedCloseButton": "goodui.button"
+  }
+}

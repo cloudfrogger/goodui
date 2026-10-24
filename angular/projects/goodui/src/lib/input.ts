@@ -39,7 +39,8 @@ export type GoodInputAddonTone = 'inline' | 'contrast';
           <input class="good-input-native" [type]="type()" [value]="value()" [placeholder]="placeholder()"
             [disabled]="isDisabled()" [readOnly]="readonly()" [required]="effectiveRequired()" [name]="name()"
             [id]="inputId() || null" [attr.aria-label]="accessibleLabel()" [attr.aria-invalid]="error() ? 'true' : null"
-            [attr.aria-describedby]="describedBy() || null" [attr.autocomplete]="autocomplete() || null"
+            [attr.aria-describedby]="describedBy() || null" [attr.aria-expanded]="ariaExpanded()"
+            [attr.aria-controls]="ariaControls() || null" [attr.aria-haspopup]="hasPopup() || null" [attr.autocomplete]="autocomplete() || null"
             (input)="onTextInput($event)" (blur)="onBlur()" />
         }
         @if (endText() || endIcon()) {
@@ -70,6 +71,9 @@ export class GoodInputComponent implements ControlValueAccessor, Validator {
   readonly inputId = input('');
   readonly describedBy = input('');
   readonly autocomplete = input('');
+  readonly ariaExpanded = input<boolean | null>(null);
+  readonly ariaControls = input('');
+  readonly hasPopup = input('');
   readonly accept = input('');
   readonly multiple = input(false);
   readonly startIcon = input<GoodButtonIcon>();

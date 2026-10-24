@@ -128,6 +128,8 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.form` | Whole-form vertical, left-aligned, or right-aligned label and control columns; Angular `form[goodForm]` directive |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
 | `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
+| `goodui.date-input` | Locale-aware date, range, multiple, month, or year field with an optional time editor |
+| `goodui.date-input-addon` / `goodui.date-calendar` / `goodui.date-day` / `goodui.date-calendar-overlay` | Internal linked icon, calendar views, day states, and mobile modal owned by DateInput |
 | `goodui.dropdown` | Button-based trigger and positioned popup with click or hover activation |
 | `goodui.dropdown-panel` | Internal header, item list, and footer composition |
 | `goodui.dropdown-item` | Internal action, link, badge, icon, disabled state, or submenu parent |
@@ -136,6 +138,9 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.action-menu` | Compact icon trigger and accessible action list |
 
 ## Naming and Angular API
+
+DateInput is published on Penpot page `14 Date Inputs` as 30 `mode` × `size` × `status` variants. Each contains linked Input and Calendar Days icon instances. The calendar has six `view` variants and linked five-state DateDay instances; these are internal parts of `good-date-input`. The page also publishes a mobile overlay composition with linked Calendar and Button instances. `design/date-input-variants.json` records every library ID. `layout.date.*` aliases existing surface, text, spacing, and radius roles so the component follows light and dark themes. Angular owns the locale-specific text, selection rules, native mobile modal, focus, and desktop placement. See [Date input](guides/components/date-input.md) for its value contract and API.
+The calendar's flex containers have no hard-coded white fill; the panel and time control use the semantic surface token. In Penpot, a temporary `space.4` change from 16 to 20 moved panel padding, and a `date.day.size` change from 40 to 44 resized day instances after theme reevaluation. Both values were restored and the light and dark calendar exports were checked.
 
 - Semantic design ID: `goodui.<kebab-name>`, such as `goodui.sidebar-menu-container`.
 - Penpot main component: `goodui.<kebab-name>.<state-or-variant>`, such as `goodui.sidebar-item.active`.

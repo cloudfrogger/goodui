@@ -17,6 +17,8 @@
 
 `label` is required even when the visible label is hidden. The native input supports Tab, selection, and normal keyboard editing. Focus remains visible in both themes. `name`, `inputId`, `required`, `autocomplete`, and `placeholder` pass through to the native text input. Text values support `[(value)]` or Angular forms through `ControlValueAccessor`; use one source of truth per instance. `required` also registers an Angular `required` validator for Reactive Forms. When a `good-input` sits inside `good-form-field`, the FormField or its `good-field-label` can supply the required state without repeating `[required]` on the Input. The native field and Angular control are both invalid until filled; disabled and readonly inputs are exempt.
 
+Composite controls such as [Date input](date-input.md) may set `ariaExpanded`, `ariaControls`, and `hasPopup` on the underlying native input while reusing the Input shell and adornments.
+
 ## Icons and group text
 
 Pass Lucide icon data to `startIcon` or `endIcon`. Use `startText` or `endText` for a fixed prefix or suffix. If both text and icon are supplied for one side, the icon wins. `startTone` and `endTone` accept `inline` or `contrast`; contrast gives that side a neutral background and separating border. These adornments are display-only, so they cannot be mistaken for an action button.

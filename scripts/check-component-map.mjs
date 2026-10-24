@@ -6,6 +6,7 @@ const map = JSON.parse(readFileSync(resolve(root, 'design/component-map.json'), 
 const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-variants.json'), 'utf8'));
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
+const dateInputVariants = JSON.parse(readFileSync(resolve(root, 'design/date-input-variants.json'), 'utf8'));
 const imageInputVariants = JSON.parse(readFileSync(resolve(root, 'design/image-input-variants.json'), 'utf8'));
 const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
 const breadcrumbsVariants = JSON.parse(readFileSync(resolve(root, 'design/breadcrumbs-variants.json'), 'utf8'));
@@ -124,6 +125,17 @@ const checkMatrix = (entries, axes, expected, label, ids = inputIds) => {
   for (const key of expected) if (!seen.has(key)) throw new Error(`Missing ${label} variant: ${key}`);
   if (seen.size !== expected.length) throw new Error(`Unexpected ${label} variant count: ${seen.size}`);
 };
+if (dateInputVariants.family !== 'goodui.date-input' || dateInputVariants.selector !== 'good-date-input' || dateInputVariants.page !== '14 Date Inputs' || !dateInputVariants.containerId) throw new Error('Date input variants must map to good-date-input on 14 Date Inputs.');
+if (dateInputVariants.mobileOverlay?.family !== 'goodui.date-calendar-overlay' || dateInputVariants.mobileOverlay.owner !== 'good-date-input' || dateInputVariants.mobileOverlay.linkedCalendar !== 'goodui.date-calendar' || dateInputVariants.mobileOverlay.linkedHeader !== 'goodui.modal-header' || dateInputVariants.mobileOverlay.linkedCloseButton !== 'goodui.button' || !dateInputVariants.mobileOverlay.componentId || !map.componentMappings.some(entry => entry.penpotName === 'goodui.date-calendar-overlay' && entry.penpotId === dateInputVariants.mobileOverlay.componentId)) throw new Error('Date input mobile overlay must map to good-date-input.');
+const dateInputIds = new Set();
+const dateInputExpected = [];
+for (const mode of ['date', 'range', 'multiple', 'month', 'year']) for (const size of ['small', 'default', 'large']) for (const status of ['default', 'disabled']) dateInputExpected.push(`${mode}/${size}/${status}`);
+checkMatrix(dateInputVariants.variants, [['mode', dateInputVariants.axes.mode], ['size', dateInputVariants.axes.size], ['status', dateInputVariants.axes.status]], dateInputExpected, 'Date input', dateInputIds);
+for (const [family, axis, values] of [['goodui.date-input-addon', 'size', ['small', 'default', 'large']], ['goodui.date-day', 'state', ['default', 'disabled', 'selected', 'in-range', 'today']], ['goodui.date-calendar', 'view', ['days', 'range', 'multiple', 'months', 'years', 'time']]]) {
+  const part = dateInputVariants.parts.find(item => item.family === family);
+  if (!part || part.owner !== 'good-date-input' || !part.containerId) throw new Error(`Missing Date input part: ${family}`);
+  checkMatrix(part.variants, [[axis, values]], values, family, dateInputIds);
+}
 if (checkboxVariants.family !== 'goodui.checkbox' || checkboxVariants.selector !== 'good-checkbox' || !checkboxVariants.containerId || checkboxVariants.page !== '06 Checkboxes') throw new Error('Checkbox variants must map to good-checkbox on 06 Checkboxes.');
 const checkboxExpected = [];
 for (const appearance of ['brand', 'mono']) for (const state of ['unchecked', 'checked', 'indeterminate']) for (const size of ['small', 'default', 'large']) for (const status of ['default', 'disabled']) checkboxExpected.push(`${appearance}/${state}/${size}/${status}`);
@@ -256,4 +268,4 @@ for (const [selection, id] of Object.entries(formFieldSelections)) {
 }
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
-console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
+console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

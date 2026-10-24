@@ -71,6 +71,11 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `input.background` / `.border` / `.foreground` / `.placeholder` | `--good-input-*` | Input surface, border, and text | Text-field surface, border, text, and hint |
 | `input.readonly.background` / `input.addon.background` / `.foreground` | `--good-input-*-*` | Readonly and contrasted addon surfaces | Theme-aware secondary surfaces |
 | `input.error.border` / `input.focus.border` | `--good-input-error-border` / `--good-input-focus-border` | Error stroke; runtime focus ring | Theme-aware error and focus borders |
+| `date.panel.width/padding/gap/radius` | `--good-date-panel-*` | Calendar flex panel geometry | DateInput popup and mobile sheet |
+| `date.panel.background/border/foreground` | `--good-date-panel-*` | Calendar surface, stroke, and text | Theme-aware calendar panel |
+| `date.day.size/font-size/radius` | `--good-date-day-*` | Linked DateDay board and label | Calendar hit area and type |
+| `date.day.muted/hover/selected.*/range.background` | `--good-date-day-*` | Day state fills and labels | Unavailable, selected, and range days |
+| `date.time.border` | `--good-date-time-border` | Time editor border | Optional local-time control |
 | `dropdown.panel.*` / `dropdown.popup.gap` | `--good-dropdown-panel-*` / `--good-dropdown-popup-gap` | Panel width, spacing, fill, border, and preferred trigger gap | Popup geometry and surface |
 | `dropdown.item.*` / `dropdown.submenu.width` | `--good-dropdown-item-*` / `--good-dropdown-submenu-width` | Row height, padding, icon, text, hover, and child-panel width | Menu rows and nested menus |
 | `dropdown.header.foreground` / `dropdown.badge.*` | `--good-dropdown-header-foreground` / `--good-dropdown-badge-*` | Section text and badge colors | Secondary information |

@@ -1,6 +1,6 @@
 # GoodUI
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, inputs, dropdowns, code blocks, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, inputs, date inputs, dropdowns, code blocks, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
 
 ## How to use
 
@@ -68,6 +68,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](guides/components/input.md) and the homepage's `/components/inputs` page.
 
+   For localized dates, ranges, multiple days, months, years, or time, use `<good-date-input label="Appointment" [formControl]="appointment" />`. See the [Date input guide](guides/components/date-input.md) and `/components/date-inputs` on the homepage.
+
    For structured actions, use `<good-dropdown [items]="actions"><span goodDropdownTrigger>Actions</span></good-dropdown>`. It uses GoodUI Button styling and owns the popup layout, placement, and keyboard behavior. See the [Dropdown guide](guides/components/dropdown.md) and `/components/dropdowns` on the homepage.
 
    For page hierarchy, use `<good-breadcrumbs [items]="path" [maxItems]="4" />`. Long paths keep hidden ancestors in an accessible ellipsis menu. See the [Breadcrumbs guide](guides/components/breadcrumbs.md) and `/components/breadcrumbs` on the homepage.
@@ -99,6 +101,7 @@ The screenshot shows the `homepage` application at 1440 × 620 px in light mode.
 | `good-checkbox` | Native three-state checkbox with three sizes, forms support, and brand or mono appearance |
 | `good-radio-group` | Native exclusive selection with three sizes, forms support, and brand or mono appearance |
 | `good-input` | Text and native file controls with optional icons or fixed group text |
+| `good-date-input` | Localized date, range, multiple, month, year, and optional time selection |
 | `good-dropdown` | Button-based popup with optional sections, scrolling, placement, and submenus |
 | `good-breadcrumbs` | Hierarchical path with optional home icon, custom separator, overflow menu, and card frame |
 | `good-card` | Bordered content with optional title bar, actions, image, and footer |
@@ -127,6 +130,7 @@ Open `http://localhost:4200/`. After changing library source, run `npm run build
 - [Design contract](design.md) — measurements, component ownership, tokens, and Penpot IDs.
 - [Button variant registry](design/button-variants.json) — one-to-one Penpot IDs and Angular inputs for all 45 combinations.
 - [Input variant registry](design/input-variants.json) — Penpot IDs for 21 Input states, 24 addon options, and two compositions.
+- [Date input variant registry](design/date-input-variants.json) — Penpot IDs for 30 field variants and linked calendar, day, and icon parts.
 - [Dropdown variant registry](design/dropdown-variants.json) — Penpot IDs for 16 dropdown states, four panels, twelve items, and the submenu composition.
 - [Breadcrumb variant registry](design/breadcrumbs-variants.json) — Penpot IDs for all 16 path, icon, separator, and card combinations.
 - [Badge variant registry](design/badge-variants.json) — Penpot IDs for all 126 color, treatment, shape, and size combinations.

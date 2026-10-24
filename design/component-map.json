@@ -14,6 +14,7 @@
     "card-header",
     "checkbox",
     "code-block",
+    "date-input",
     "citation",
     "dropdown",
     "error-text",
@@ -60,6 +61,10 @@
   ],
   "internalParts": {
     "avatar-submenu": "avatar-menu",
+    "date-calendar": "date-input",
+    "date-calendar-overlay": "date-input",
+    "date-day": "date-input",
+    "date-input-addon": "date-input",
     "dropdown-item": "dropdown",
     "dropdown-panel": "dropdown",
     "image-caption": "inline-image",
@@ -251,6 +256,45 @@
       "penpotId": "c0c3286f-e4bf-804c-8008-d53b608ac38a",
       "angularSelector": "good-code-block",
       "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.date-input",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a49786afe6",
+      "angularSelector": "good-date-input",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.date-input-addon",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a472f74b25",
+      "angularSelector": "good-date-input",
+      "kind": "internal-part",
+      "owner": "goodui.date-input",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.date-calendar",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a52347f875",
+      "angularSelector": "good-date-input",
+      "kind": "internal-part",
+      "owner": "goodui.date-input",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.date-calendar-overlay",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6ac737576fa",
+      "angularSelector": "good-date-input",
+      "kind": "internal-part",
+      "owner": "goodui.date-input",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.date-day",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a4c45263b6",
+      "angularSelector": "good-date-input",
+      "kind": "internal-part",
+      "owner": "goodui.date-input",
       "state": null
     },
     {
@@ -872,6 +916,7 @@
     "design/card-variants.json",
     "design/checkbox-variants.json",
     "design/code-block-variants.json",
+    "design/date-input-variants.json",
     "design/dropdown-variants.json",
     "design/image-input-variants.json",
     "design/input-variants.json",

@@ -31,6 +31,7 @@ export const routes: Routes = [
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },
   { path: 'components/inputs', component: InputsPageComponent },
+  { path: 'components/date-inputs', loadComponent: () => import('./date-inputs-page').then(module => module.DateInputsPageComponent) },
   { path: 'components/image-inputs', loadComponent: () => import('./image-inputs-page').then(module => module.ImageInputsPageComponent) },
   { path: 'components/labels', loadComponent: () => import('./labels-page').then(module => module.LabelsPageComponent) },
   { path: 'components/dropdowns', component: DropdownsPageComponent },

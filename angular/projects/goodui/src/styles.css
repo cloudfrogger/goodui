@@ -8,7 +8,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-link, good-card, good-card-header, good-card-footer, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge,
+good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-link, good-card, good-card-header, good-card-footer, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -490,6 +490,49 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-input-native-file { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
 .good-input-native-file:disabled { cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .good-input-shell { transition: none; } }
+.good-date-input { display: block; min-width: 0; width: 100%; }
+.good-date-panel { box-sizing: border-box; position: fixed; z-index: 70; display: flex; flex-direction: column; gap: var(--good-date-panel-gap); width: min(var(--good-date-panel-width), calc(100vw - 24px)); max-height: min(620px, calc(100dvh - 24px)); margin: 0; overflow: hidden; overscroll-behavior: contain; padding: var(--good-date-panel-padding); border: 1px solid var(--good-date-panel-border); border-radius: var(--good-date-panel-radius); background: var(--good-date-panel-background); color: var(--good-date-panel-foreground); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; font-size: var(--good-date-day-font-size); box-shadow: 0 18px 48px rgb(0 0 0 / .16); }
+.good-date-panel:not([open]) { display: none; }
+.good-date-panel::backdrop { background: var(--good-modal-backdrop-color); opacity: var(--good-modal-backdrop-opacity); backdrop-filter: blur(var(--good-modal-backdrop-blur)); }
+.good-date-mobile-heading { display: none; }
+.good-date-panel-body { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--good-date-panel-gap); min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.good-date-panel-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 36px; }
+.good-date-period { display: flex; align-items: center; justify-content: center; gap: 4px; font-weight: 600; }
+.good-date-period button, .good-date-period span { min-height: 32px; padding: 6px 8px; border: 0; border-radius: var(--good-date-day-radius); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.good-date-period button:hover { background: var(--good-date-day-hover); }
+.good-date-weekdays, .good-date-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.good-date-weekdays span { display: grid; place-items: center; min-height: 28px; color: var(--good-date-day-muted); font-size: 11px; font-weight: 600; }
+.good-date-grid button { position: relative; display: grid; place-items: center; min-height: var(--good-date-day-size); border: 0; border-radius: var(--good-date-day-radius); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.good-date-grid button:hover:not(:disabled), .good-date-grid button:focus-visible { background: var(--good-date-day-hover); }
+.good-date-grid button:focus-visible, .good-date-period button:focus-visible, .good-date-presets button:focus-visible, .good-date-clear:focus-visible { outline: 2px solid var(--good-date-day-selected-background); outline-offset: -2px; }
+.good-date-grid button:disabled { color: var(--good-date-day-muted); opacity: .5; cursor: not-allowed; }
+.good-date-day[data-outside="true"] { opacity: .25; }
+.good-date-day[data-in-range="true"] { background: var(--good-date-day-range-background); }
+.good-date-grid .good-date-day[data-selected="true"], .good-date-grid .good-date-day[data-selected="true"]:hover { background: var(--good-date-day-selected-background); color: var(--good-date-day-selected-foreground); }
+.good-date-day[data-today="true"]:not([data-selected="true"])::after { position: absolute; bottom: 4px; width: 4px; height: 4px; border-radius: 50%; background: var(--good-date-day-selected-background); content: ''; }
+.good-date-months, .good-date-years { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.good-date-months button, .good-date-years button { min-height: 48px; }
+.good-date-months button[aria-pressed="true"], .good-date-years button[aria-pressed="true"] { background: var(--good-date-day-selected-background); color: var(--good-date-day-selected-foreground); }
+.good-date-time { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px; border-top: 1px solid var(--good-date-panel-border); }
+.good-date-time label { display: flex; flex: 1 1 110px; flex-direction: column; gap: 4px; color: var(--good-date-day-muted); font-size: 12px; }
+.good-date-time input { box-sizing: border-box; width: 100%; min-height: 36px; padding: 4px 8px; border: 1px solid var(--good-date-time-border); border-radius: var(--good-radius-control); background: var(--good-date-panel-background); color: var(--good-date-panel-foreground); font: inherit; font-size: var(--good-date-day-font-size); color-scheme: light; }
+[data-theme="dark"] .good-date-time input { color-scheme: dark; }
+.good-date-presets { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 8px; border-top: 1px solid var(--good-date-panel-border); }
+.good-date-presets button { min-height: 32px; padding: 6px 10px; border: 1px solid var(--good-date-panel-border); border-radius: var(--good-radius-control); background: transparent; color: var(--good-date-panel-foreground); font: inherit; cursor: pointer; }
+.good-date-presets button:hover:not(:disabled) { background: var(--good-date-day-hover); }
+.good-date-presets button:disabled { opacity: .45; cursor: not-allowed; }
+.good-date-panel-footer { display: flex; align-items: center; justify-content: space-between; min-height: 36px; padding-top: 8px; border-top: 1px solid var(--good-date-panel-border); }
+.good-date-clear { min-height: 32px; padding: 5px 8px; border: 0; border-radius: var(--good-radius-control); background: transparent; color: var(--good-date-day-muted); font: inherit; cursor: pointer; }
+.good-date-clear:hover:not(:disabled) { background: var(--good-date-day-hover); color: var(--good-date-panel-foreground); }
+.good-date-clear:disabled { opacity: .4; cursor: not-allowed; }
+@media (max-width: 640px), (pointer: coarse) {
+  .good-date-panel[data-modal="true"] { top: max(var(--good-modal-mobile-margin), env(safe-area-inset-top)) !important; right: auto; bottom: max(var(--good-modal-mobile-margin), env(safe-area-inset-bottom)); left: var(--good-modal-mobile-margin) !important; width: calc(100vw - 2 * var(--good-modal-mobile-margin)); max-width: calc(100vw - 2 * var(--good-modal-mobile-margin)); height: auto; max-height: none; padding: var(--good-date-panel-padding); }
+  .good-date-mobile-heading { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; }
+  .good-date-mobile-heading h2 { margin: 0; font-size: 16px; font-weight: 700; }
+  .good-date-mobile-heading .good-button-control { min-width: 44px; min-height: 44px; }
+  .good-date-panel-header, .good-date-panel-footer { flex: 0 0 auto; }
+  .good-date-grid button { min-height: 44px; }
+}
 .good-action-menu { position: relative; display: inline-flex; }
 .good-action-menu-panel { position: absolute; top: calc(100% + 6px); right: 0; z-index: 40; display: flex; flex-direction: column; min-width: 180px; padding: 6px; border: 1px solid var(--good-border); border-radius: var(--good-radius-item); background: var(--good-surface); box-shadow: 0 12px 30px #0002; }
 .good-action-menu-panel a, .good-action-menu-panel button { display: block; width: 100%; min-height: 36px; padding: 8px 10px; border: 0; border-radius: var(--good-radius-control); background: transparent; color: var(--good-text); font: inherit; font-size: 13px; text-align: left; text-decoration: none; cursor: pointer; }
