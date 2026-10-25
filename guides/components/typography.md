@@ -26,7 +26,7 @@ Keep heading levels in document order. Penpot's `goodui.heading` variants are `l
 
 ## Readable sections
 
-Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, limits text to the shared reading width, and spaces its heading from its body. Adjacent sections receive the shared section gap. Give each section a descriptive `good-subheading`; choose its `level` to preserve heading order. `good-prose` owns paragraph spacing inside the section. Import `GoodSectionComponent`, `GoodSubheadingComponent`, `GoodProseComponent`, and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component.
+Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, grows up to 1024 px, centers itself in wider containers such as `good-main-view`, and spaces its heading from its body. It fills narrower containers without horizontal overflow. Adjacent sections receive the shared section gap. Give each section a descriptive `good-subheading`; choose its `level` to preserve heading order. `good-prose` owns paragraph spacing inside the section and retains its 760 px reading width. Import `GoodSectionComponent`, `GoodSubheadingComponent`, `GoodProseComponent`, and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component.
 
 ```html
 <good-main-view title="Designing" description="Getting Started with GoodUI">
@@ -40,7 +40,9 @@ Use `good-section` for a content section beneath a page heading or beside other 
 </good-main-view>
 ```
 
-`good-main-view` owns the page heading-to-content gap. It aliases the H1 after-gap token, so a page title has the same 16 px spacing whether a Summary follows or content begins immediately. Section owns reading width and heading-to-body spacing; Prose owns the rhythm within the body. No page-specific wrapper or text margins are needed. The Penpot `goodui.section` composition uses linked Subheading and Prose instances and binds its gap to `typography.paragraph.subheading-gap`. Both Section and Prose use `typography.flow.max-width`; adjacent sections use `typography.flow.section-gap`.
+`good-main-view` owns the page heading-to-content gap. It aliases the H1 after-gap token, so a page title has the same 16 px spacing whether a Summary follows or content begins immediately. Section owns the 1024 px content width and heading-to-body spacing; Prose owns the narrower 760 px reading width and rhythm within the body. No page-specific wrapper or text margins are needed. The Penpot `goodui.section` composition uses linked Subheading and Prose instances and binds its gap to `typography.paragraph.subheading-gap`. Its standalone reference board binds Width to `typography.section.max-width`; CSS applies the same token to `max-width` and centers the responsive section with auto inline margins. Penpot cannot show that CSS centering without a containing layout. Prose uses `typography.flow.max-width`; adjacent sections use `typography.flow.section-gap`.
+
+When a `good-heading-group` is a direct child of Section, the following sibling receives additional space from `typography.heading.content-gap`. This keeps a page lead-in separate from a form or other content without adding a page-specific margin. The Penpot Section specimen contains a Subheading and Prose; this HeadingGroup-to-content sibling rule is an Angular composition behavior rather than an extra child in that specimen.
 
 ## Content flow
 

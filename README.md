@@ -71,6 +71,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
    For records, use `<good-table [data]="rows()" [columns]="columns" />`. Add search, opt-in sortable columns, GoodUI controls in cells, or client, page, and cursor pagination as needed. See the [Table guide](guides/components/table.md) and `/components/tables` on the homepage.
 
    For choices, use `<good-select label="Plan" [options]="plans" [(value)]="plan" />`. Add search, multiple removable selections, or a maximum count when needed. Use `<good-select-country [(value)]="country" />` for localized country names and flags. See the [Select guide](guides/components/select.md) and `/components/selects` on the homepage.
+
    For telephone numbers, use `<good-input-phone country="DE" [(value)]="phone" />` or omit `country` to start from the browser locale. The value is an international `+` number. See the [Phone input guide](guides/components/input-phone.md) and `/components/phone-inputs`.
 
    For text and file fields, use `<good-input label="Project name" [showLabel]="true" />` or `<good-input label="Attachment" type="file" />`. See the [Input guide](guides/components/input.md) and the homepage's `/components/inputs` page.
@@ -89,7 +90,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
 ![GoodUI homepage showing the Getting Started introduction and component navigation](assets/homepage.png)
 
-The screenshot shows the `homepage` application at 1440 × 620 px in light mode. Run it to explore the guides, component gallery, responsive navigation, and dark mode.
+The screenshot shows the `homepage` application at 1440 × 620 px in light mode. Run it to explore the guides, component gallery, responsive navigation, and dark mode. The **Examples** menu begins with a [user registration form](homepage/src/app/examples/user-registration/user-registration-form.ts) composed entirely from GoodUI components; its editable Angular classes and templates are separate files, and the page displays their source.
 
 ## What is inside
 

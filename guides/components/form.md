@@ -12,6 +12,8 @@
 
 A container query stacks `left` and `right` as vertical fields when the form's content area is under 540 px wide. The form itself is at most 760 px wide. `form.label-width`, `form.control-width`, `form.max-width`, `form.column-gap`, and `form.row-gap` are shared Penpot/CSS tokens. The width tokens are maximums where space is constrained; the form never forces horizontal scrolling. A direct `good-action-group` aligns with the control column in horizontal layouts and returns to the left edge in the stacked layout.
 
+Set `[fullWidth]="true"` for a form that should fill its container rather than stop at 760 px; direct vertical controls then fill their fields rather than stop at 420 px. Use [FormRow and Group](group.md) for responsive side-by-side fields and lightweight titled sections. FormRow's children fill equal grid tracks; they stack by container width. Keep `layout="left"` and `layout="right"` for the shared label-column layouts, where the aligned control width remains intentionally constrained.
+
 ## Usage
 
 Import `GoodFormDirective`, `GoodFormFieldComponent`, `GoodFieldLabelComponent`, the controls, and `ReactiveFormsModule` into a standalone page.

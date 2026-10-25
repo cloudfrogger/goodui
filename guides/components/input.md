@@ -19,6 +19,10 @@
 
 Composite controls such as [Date input](date-input.md) may set `ariaExpanded`, `ariaControls`, and `hasPopup` on the underlying native input while reusing the Input shell and adornments.
 
+## Password fields
+
+Set `type="password"` to use the browser's native masked input. Pair it with `autocomplete="new-password"` for registration or `autocomplete="current-password"` for sign-in. A confirmation field is another `good-input` with `type="password"`; compare its value in Angular, then pass `[error]` and `describedBy` to display and associate a mismatch message. The homepage's **Inputs → Password inputs** section shows both the running controls and copyable code. The [user registration example](../../homepage/src/app/examples/user-registration/user-registration-form.ts) uses the same control in a complete form.
+
 ## Icons and group text
 
 Pass Lucide icon data to `startIcon` or `endIcon`. Use `startText` or `endText` for a fixed prefix or suffix. If both text and icon are supplied for one side, the icon wins. `startTone` and `endTone` accept `inline` or `contrast`; contrast gives that side a neutral background and separating border. These adornments are display-only, so they cannot be mistaken for an action button.

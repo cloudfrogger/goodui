@@ -103,6 +103,8 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `link.brand.color` / `link.mono.color` | `--good-link-brand-color` / `--good-link-mono-color` | Link label fill and underline stroke | Accent or theme text color |
 | `link.underline.gap` | `--good-link-underline-gap` | Link underline offset | Underline geometry |
 | `card.background` / `card.border` / `card.radius` | `--good-card-background` / `--good-card-border` / `--good-card-radius` | Card surface, outline, outer corners | Shared card frame |
+| `group.border/background/contrast-background/heading-color/radius` | `--good-group-*` | Light group frame and theme-aware contrast surface | Group appearances in both themes |
+| `group.padding-block/padding-inline/gap/heading-gap` / `form-row.gap` | `--good-group-*` / `--good-form-row-gap` | Internal spacing and equal-column gap | Group and FormRow layout |
 | `card.header.default.background` / `.secondary.background` | `--good-card-header-*-background` | Header fill | Default or quiet title bar |
 | `card.header.image-height` / `.image.foreground` | `--good-card-header-image-*` | Image Header height and label color | Full-width image title bar |
 | `card.padding-inline` / `.header.padding-block` / `.body.padding-block` / `.footer.padding-block` | `--good-card-*-padding-*` | Card section flex padding | Header, content, and footer spacing |
@@ -121,6 +123,7 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `action-group.gap.small/default/large` | `--good-action-group-gap-*` | 8/12/16 px flex gap | Spacing between related controls |
 | `typography.heading.*` / `.eyebrow.*` / `.summary.*` | `--good-typography-*` | Page title scale, colors, and vertical gaps | Heading group with optional context |
 | `typography.flow.*` / `.paragraph.*` / `.separator.*` | `--good-typography-*` | Reading width and content rhythm | Prose, subheadings, and divisions |
+| `typography.section.max-width` | `--good-typography-section-max-width` | 1024 px content width | Centered Section in wider containers |
 | `typography.image.*` / `.caption.*` | `--good-typography-*` | Figure width and caption spacing | Inline images in content flow |
 | `typography.field.*` / `.label.*` / `.hint.*` / `.error.*` | `--good-typography-*` | Control labeling and feedback | Form field composition |
 

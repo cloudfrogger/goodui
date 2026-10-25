@@ -53,6 +53,8 @@ GoodUI is intended to be a generic, reusable UI framework. Review every componen
 ## Reference material
 
 - The Angular `homepage/` contains the public Getting Started content and component examples. `guides/` retains plain Markdown reference material; there is no separate documentation application or documentation build.
+- Pages under `Examples` demonstrate complete workflows with only GoodUI layout, control, and content components; Angular form directives and native semantic elements remain appropriate. Every example must show its working template and TypeScript source through GoodUI CodeBlock. If an example needs an app-specific CSS or Tailwind layout rule, stop and identify the missing reusable GoodUI capability before adding that example.
+- Keep each homepage example in `homepage/src/app/examples/<example-name>/`, with Angular component classes and templates in separate `.ts` and `.html` files. For the registration example, `npm --prefix homepage run examples:sync` generates the displayed CodeBlock strings from those files; `examples:check` verifies that the displayed source is current.
 - Edit Getting Started prose and component markup in `homepage/src/app/getting-started/*.html`. Keep page classes focused on Angular bindings and code sample data; update the matching HTML when a chapter changes.
 - The Penpot ID registry is in `guides/contributing/design-to-code.md`. Keep stable IDs and the component mapping accurate when the design or Angular API changes.
 - Verify published Angular examples against `angular/projects/goodui/src/public-api.ts`.
