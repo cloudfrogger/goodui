@@ -23,9 +23,11 @@ FROM nginx/nginx-unprivileged:stable-alpine@sha256:517607ae849a46afbd400616a783e
 COPY deploy/nginx.conf /etc/nginx/nginx.conf
 COPY deploy/security-headers.conf /etc/nginx/security-headers.conf
 COPY --from=build /workspace/homepage/dist/homepage/browser/ /usr/share/nginx/html/
-RUN nginx -t
 
+USER root
+RUN nginx -t
 USER 101
+
 EXPOSE 8080
 ENTRYPOINT ["nginx"]
 CMD ["-g", "daemon off;"]
