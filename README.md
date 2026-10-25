@@ -1,3 +1,5 @@
+[![Build Status](https://drone.cloudfrogger.com/api/badges/cloudfrogger/goodui/status.svg)](https://drone.cloudfrogger.com/cloudfrogger/goodui)
+
 # GoodUI
 
 **A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, ratings, tables, inputs, date inputs, dropdowns, code blocks, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
