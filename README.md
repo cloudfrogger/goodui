@@ -1,8 +1,18 @@
-[![Build Status](https://drone.cloudfrogger.com/api/badges/cloudfrogger/goodui/status.svg)](https://drone.cloudfrogger.com/cloudfrogger/goodui)
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/goodui-logo-dark.svg">
+    <img src="assets/brand/goodui-logo-light.svg" alt="GoodUI" width="340">
+  </picture>
 
-# GoodUI
+  <p><strong>An Angular UI toolkit for consistent SaaS applications.</strong></p>
 
-**A complete Angular application shell, ready for your content.** GoodUI packages a responsive sidebar, topbar, page subnav, buttons, badges, switches, checkboxes, radio groups, ratings, tables, inputs, date inputs, dropdowns, code blocks, nested menus, search, notifications, settings, avatar menu, and main view as reusable standalone components. The visual system is maintained in Penpot, styled with Tailwind CSS 4, and demonstrated in a real Angular app.
+  <p>
+    <a href="https://drone.cloudfrogger.com/cloudfrogger/goodui"><img src="https://drone.cloudfrogger.com/api/badges/cloudfrogger/goodui/status.svg" alt="Build status"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"></a>
+  </p>
+</div>
+
+GoodUI pairs a reusable Penpot component library with standalone Angular components. Its layout and controls own their spacing and composition, so application screens stay consistent with little custom layout work. The package uses Tailwind CSS 4 and includes a working [homepage and component gallery](homepage/).
 
 ## How to use
 
