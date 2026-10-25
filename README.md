@@ -92,6 +92,8 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
 The screenshot shows the `homepage` application at 1440 × 620 px in light mode. Run it to explore the guides, component gallery, responsive navigation, and dark mode. The **Examples** menu begins with a [user registration form](homepage/src/app/examples/user-registration/user-registration-form.ts) composed entirely from GoodUI components; its editable Angular classes and templates are separate files, and the page displays their source.
 
+The [Drone deployment guide](guides/deployment/drone.md) covers the Docker-only homepage build, private registry secrets, the Nginx image, and Cloudflare origin headers.
+
 ## What is inside
 
 | Package | Responsibility |

@@ -1,0 +1,27 @@
+kind: pipeline
+type: docker
+name: homepage
+
+trigger:
+  event:
+    - push
+  branch:
+    - master
+
+steps:
+  - name: build-and-publish
+    image: plugins/kaniko:1.13.13@sha256:f497739d4d9c56783dc031beb8a114c25b360e6cbdfec3fc350b97d2455d2b8a
+    settings:
+      dockerfile: deploy/Dockerfile
+      context: .
+      registry:
+        from_secret: registry_host
+      repo:
+        from_secret: registry_image
+      username:
+        from_secret: registry_username
+      password:
+        from_secret: registry_password
+      tags:
+        - ${DRONE_COMMIT_SHA}
+        - latest
