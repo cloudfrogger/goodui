@@ -1,4 +1,6 @@
 export * from './lib/models';
+export * from './lib/goodui-config';
+export * from './lib/provide-goodui';
 export * from './lib/theme';
 export * from './lib/icon';
 export * from './lib/sidebar';

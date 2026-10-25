@@ -17,10 +17,10 @@
       <good-action-group orientation="responsive">
         <good-button variant="secondary" (click)="requireAcknowledgement()">Wait for acknowledgement</good-button>
         <good-button variant="outline" (click)="showActions()">Toast with actions</good-button>
-        <good-button variant="ghost" (click)="showTemporary()">Temporary toast</good-button>
+        <good-button variant="ghost" (click)="showTemporary()">Toast without history</good-button>
       </good-action-group>
       <good-alert tone="neutral" appearance="light" title="Notification panel"
-        message="Open the bell in the topbar to review saved messages. Dismiss, mark as read, or acknowledge them there." />
+        message="Open the bell to review saved messages. Toast without history uses persist: false and leaves no panel entry." />
       <p role="status">{{ lastAction() }}</p>
     </good-group>
     <good-group title="Use this example" appearance="plain">

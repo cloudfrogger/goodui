@@ -61,6 +61,9 @@ export interface GoodNotification {
   id: string;
   title: string;
   description?: string;
+  /** Creation time in Unix milliseconds. Enables chronological sorting and localized date/time display. */
+  createdAt?: number;
+  /** Legacy display text used when createdAt is unavailable. */
   time?: string;
   read?: boolean;
   route?: string;

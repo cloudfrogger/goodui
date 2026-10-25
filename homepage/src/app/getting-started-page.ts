@@ -38,6 +38,17 @@ npm install ../goodui/angular/dist/goodui`;
 
   readonly stylesCode = `@import "@goodui/angular/styles.css";`;
 
+  readonly providersCode = `import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideGoodUI } from '@goodui/angular';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes), provideGoodUI()],
+};`;
+
+  readonly providerOptionsCode = `provideGoodUI({ notifications: { persistToHistory: false } })`;
+
   readonly helloCode = `import { Component } from '@angular/core';
 import {
   GoodAppLayoutComponent,

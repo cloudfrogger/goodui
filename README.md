@@ -30,7 +30,20 @@ GoodUI currently ships from this repository as a locally built package. It targe
    @import "@goodui/angular/styles.css";
    ```
 
-4. Wrap your routes in the shell. GoodUI positions the sidebar, topbar, mobile drawer, and page area; you supply navigation and page content:
+4. Register GoodUI services in your root `app.config.ts` alongside Angular Router:
+
+   ```ts
+   import { ApplicationConfig } from '@angular/core';
+   import { provideRouter } from '@angular/router';
+   import { provideGoodUI } from '@goodui/angular';
+   import { routes } from './app.routes';
+
+   export const appConfig: ApplicationConfig = {
+     providers: [provideRouter(routes), provideGoodUI()],
+   };
+   ```
+
+5. Wrap your routes in the shell. GoodUI positions the sidebar, topbar, mobile drawer, and page area; you supply navigation and page content:
 
    ```ts
    import { Component } from '@angular/core';
@@ -56,7 +69,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
    }
    ```
 
-   Configure your app with `provideRouter(routes)`. Each routed page can use `<good-main-view title="Home">...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppLayout guide](guides/layout/app-layout.md) for topbar items, user data, and nested menus.
+   Each routed page can use `<good-main-view title="Home">...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppLayout guide](guides/layout/app-layout.md) for topbar items, user data, and nested menus.
 
    Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@goodui/angular`. See the [Button guide](guides/components/button.md) and the homepage's `/components/buttons` page for all variants and sizes.
 

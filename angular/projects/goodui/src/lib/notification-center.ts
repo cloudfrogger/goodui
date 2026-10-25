@@ -1,5 +1,6 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import { GoodAlertAppearance, GoodAlertTone } from './alert';
+import { GOODUI_OPTIONS } from './goodui-config';
 import { GoodButtonIcon } from './models';
 
 export type GoodNotificationDelivery = 'toast' | 'top' | 'inbox';
@@ -19,7 +20,7 @@ export interface GoodNotificationRequest {
   delivery?: GoodNotificationDelivery;
   /** Milliseconds until the visible toast leaves. Zero keeps it until acknowledgement or dismissal. */
   duration?: number;
-  /** Keep the item in the notification panel after its toast leaves. Defaults to true. */
+  /** Keep a toast in notification history. Overrides the provideGoodUI default; inbox delivery always stays in history. */
   persist?: boolean;
   requireAcknowledgement?: boolean;
   actions?: readonly GoodNotificationAction[];
@@ -40,6 +41,7 @@ export interface GoodNotificationEntry extends GoodNotificationRequest {
 
 @Injectable({ providedIn: 'root' })
 export class GoodNotificationCenter {
+  private readonly options = inject(GOODUI_OPTIONS);
   private readonly entriesState = signal<readonly GoodNotificationEntry[]>([]);
   private readonly timers = new Map<string, { started: number; remaining: number; handle: ReturnType<typeof setTimeout> }>();
   private nextId = 0;
@@ -63,7 +65,7 @@ export class GoodNotificationCenter {
       delivery,
       tone: request.tone ?? 'neutral',
       appearance: request.appearance ?? 'default',
-      persist: delivery === 'inbox' ? true : request.persist ?? true,
+      persist: delivery === 'inbox' ? true : request.persist ?? this.options.notifications?.persistToHistory ?? true,
       requireAcknowledgement: request.requireAcknowledgement ?? false,
     };
     this.entriesState.update(entries => [...entries, entry]);

@@ -57,11 +57,14 @@ export class GoodSearchComponent {
     <dialog #dialog class="good-notifications-dialog" aria-label="Notifications" (keydown.escape)="close()" (close)="trigger.focus()" (click)="onDialogClick($event)">
       <div class="good-dialog-heading"><strong>Notifications</strong><button type="button" class="good-action-button" aria-label="Close" (click)="close()"><good-icon name="close" /></button></div>
       <div class="good-notifications-list">
-        @for (item of center.inbox(); track item.id) {
+        @for (row of panelItems(); track row.key) {
+          @if (row.kind === 'managed') {
+          @let item = row.value;
           <div class="good-notification-entry" [attr.data-read]="item.read">
             <good-alert [tone]="item.tone" [appearance]="item.appearance" size="small"
               [title]="item.title" [message]="item.message ?? ''" [icon]="item.icon ?? infoIcon"
               [dismissible]="true" closeLabel="Remove notification" (closed)="center.remove(item.id)">
+              <time class="good-notification-time" [attr.datetime]="isoDate(item.createdAt)">{{ formatDateTime(item.createdAt) }}</time>
               <div goodAlertActions>
                 @for (action of item.actions ?? []; track action.label) {
                   @if (action.route) { <good-link [route]="action.route" (click)="activate(item, action)">{{ action.label }}</good-link> }
@@ -76,10 +79,11 @@ export class GoodSearchComponent {
               </div>
             </good-alert>
           </div>
-        }
-        @for (item of items(); track item.id) {
-          @if (item.route) { <a class="good-notification-item" [routerLink]="item.route" (click)="close()"><strong>{{ item.title }}</strong><span>{{ item.description }}</span><small>{{ item.time }}</small></a> }
-          @else { <div class="good-notification-item"><strong>{{ item.title }}</strong><span>{{ item.description }}</span><small>{{ item.time }}</small></div> }
+          } @else {
+          @let item = row.value;
+          @if (item.route) { <a class="good-notification-item" [routerLink]="item.route" (click)="close()"><strong>{{ item.title }}</strong><span>{{ item.description }}</span>@if (item.createdAt !== undefined) { <time class="good-notification-time" [attr.datetime]="isoDate(item.createdAt)">{{ formatDateTime(item.createdAt) }}</time> } @else if (item.time) { <small>{{ item.time }}</small> }</a> }
+          @else { <div class="good-notification-item"><strong>{{ item.title }}</strong><span>{{ item.description }}</span>@if (item.createdAt !== undefined) { <time class="good-notification-time" [attr.datetime]="isoDate(item.createdAt)">{{ formatDateTime(item.createdAt) }}</time> } @else if (item.time) { <small>{{ item.time }}</small> }</div> }
+          }
         }
         @if (!items().length && !center.inbox().length) { <p class="good-empty-state">No new messages</p> }
       </div>
@@ -93,7 +97,15 @@ export class GoodNotificationsComponent {
   readonly infoIcon = LucideInfo;
   readonly unreadCount = computed(() => this.items().filter(item => !item.read).length + this.center.unreadCount());
   readonly displayCount = computed(() => this.unreadCount() > 99 ? '99+' : String(this.unreadCount()));
+  readonly panelItems = computed(() => [
+    ...this.center.inbox().map(item => ({ kind: 'managed' as const, key: `managed-${item.id}`, timestamp: item.createdAt, value: item })),
+    ...this.items().map(item => ({ kind: 'external' as const, key: `external-${item.id}`, timestamp: item.createdAt ?? Number.NEGATIVE_INFINITY, value: item })),
+  ].sort((a, b) => b.timestamp - a.timestamp));
   private readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
+  formatDateTime(timestamp: number): string {
+    return new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(timestamp);
+  }
+  isoDate(timestamp: number): string { return new Date(timestamp).toISOString(); }
   open(): void { this.dialog().nativeElement.showModal(); }
   close(): void { this.dialog().nativeElement.close(); }
   onDialogClick(event: MouseEvent): void {

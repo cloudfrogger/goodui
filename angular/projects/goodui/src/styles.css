@@ -414,6 +414,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-alert[data-appearance="outline"] .good-alert-title { color: var(--good-alert-tone); }
 .good-notification-entry { margin-block-end: var(--good-alert-toast-gap); }
 .good-notification-entry[data-read="true"] { opacity: .8; }
+.good-notification-time { display: block; color: var(--good-muted); font-size: 12px; line-height: 1.4; font-variant-numeric: tabular-nums; }
 .good-notifications-list { padding-block-start: var(--good-space-3); }
 .good-notification-host { position: fixed; z-index: 1200; pointer-events: none; inset: 0; }
 .good-toast-stack { position: absolute; display: flex; flex-direction: column; gap: var(--good-alert-toast-gap); width: min(var(--good-alert-toast-width), calc(100vw - 2 * var(--good-alert-toast-offset))); max-height: calc(100dvh - 2 * var(--good-alert-toast-offset)); overflow: auto; pointer-events: none; }
