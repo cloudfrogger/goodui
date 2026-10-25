@@ -19,6 +19,19 @@
           <good-code-block [code]="monoHeadingCode" language="html" title="Mono eyebrow" />
         </div>
       </div>
+      <div class="showcase-typography-levels" aria-label="Heading level previews">
+        @for (example of headingLevelPreviews; track example.kind + example.level) {
+          <div class="showcase-typography-level-row">
+            <span class="showcase-typography-level-label">{{ example.name }} <small>{{ example.size }}</small></span>
+            @if (example.kind === 'heading') {
+              <good-heading [level]="example.level">{{ example.text }}</good-heading>
+            } @else {
+              <good-subheading [level]="example.level">{{ example.text }}</good-subheading>
+            }
+            <code>{{ headingLevelCode(example) }}</code>
+          </div>
+        }
+      </div>
     </section>
 
     <section class="showcase-section">

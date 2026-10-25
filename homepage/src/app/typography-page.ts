@@ -18,6 +18,22 @@ import {
   templateUrl: './getting-started/typography.html',
 })
 export class TypographyPageComponent {
+  readonly headingLevelPreviews = [
+    { kind: 'heading', level: 1, name: 'Heading H1', size: '24 px', text: 'Page title' },
+    { kind: 'heading', level: 2, name: 'Heading H2', size: '20 px', text: 'Section title' },
+    { kind: 'subheading', level: 2, name: 'Subheading H2', size: '16 px', text: 'Section heading' },
+    { kind: 'subheading', level: 3, name: 'Subheading H3', size: '16 px', text: 'Nested section' },
+    { kind: 'subheading', level: 4, name: 'Subheading H4', size: '16 px', text: 'Detail heading' },
+    { kind: 'subheading', level: 5, name: 'Subheading H5', size: '16 px', text: 'Small section' },
+    { kind: 'subheading', level: 6, name: 'Subheading H6', size: '16 px', text: 'Fine detail' },
+  ] as const;
+
+  headingLevelCode(example: (typeof this.headingLevelPreviews)[number]): string {
+    const tag = `good-${example.kind}`;
+    const level = example.level === (example.kind === 'heading' ? 1 : 2) ? '' : ` [level]="${example.level}"`;
+    return `<${tag}${level}>${example.text}</${tag}>`;
+  }
+
   readonly headingCode = `<good-heading-group>
   <good-eyebrow>Workspace overview</good-eyebrow>
   <good-heading [level]="3">A clear page title</good-heading>

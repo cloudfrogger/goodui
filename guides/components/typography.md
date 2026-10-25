@@ -24,6 +24,8 @@ Use the standalone components when a heading belongs inside another layout:
 
 Keep heading levels in document order. Penpot's `goodui.heading` variants are `level=1` and `level=2-6`, matching the Angular `level` input and its two weights. Penpot Eyebrow variants are `appearance=brand/mono`. Eyebrow and Summary can be omitted without leaving empty spacing.
 
+The Typography page previews seven common calls: Heading H1 and H2, followed by Subheading H2 through H6. The level changes the native heading tag. The current visual scale has three roles: Heading H1 is 24 px, Heading H2–H6 are 20 px, and Subheading H2–H6 are 16 px. The Subheading levels intentionally share a visual size; choose a level for document structure, not to make its text larger or smaller.
+
 ## Readable sections
 
 Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, grows up to 1024 px, centers itself in wider containers such as `good-main-view`, and spaces its heading from its body. It fills narrower containers without horizontal overflow. Adjacent sections receive the shared section gap. Give each section a descriptive `good-subheading`; choose its `level` to preserve heading order. `good-prose` owns paragraph spacing inside the section and retains its 760 px reading width. Import `GoodSectionComponent`, `GoodSubheadingComponent`, `GoodProseComponent`, and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component.
