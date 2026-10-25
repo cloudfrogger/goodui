@@ -5,6 +5,7 @@ name: homepage
 trigger:
   event:
     - push
+    - custom
   branch:
     - master
 
