@@ -4,8 +4,9 @@ import { Directive, input } from '@angular/core';
 @Directive({
   selector: 'form[goodForm]',
   standalone: true,
-  host: { class: 'good-form', '[attr.data-layout]': 'layout()' },
+  host: { class: 'good-form', '[attr.data-layout]': 'layout()', '[attr.data-full-width]': 'fullWidth()' },
 })
 export class GoodFormDirective {
   readonly layout = input<'vertical' | 'left' | 'right'>('vertical');
+  readonly fullWidth = input(false);
 }

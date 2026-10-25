@@ -22,6 +22,8 @@
     "field-label",
     "form",
     "form-field",
+    "form-row",
+    "group",
     "heading",
     "heading-group",
     "hint",
@@ -397,6 +399,48 @@
       "angularSelector": "good-form-field",
       "kind": "component",
       "state": "radio-required"
+    },
+    {
+      "penpotName": "goodui.form-row.2",
+      "penpotId": "2d089ed4-0973-8065-8008-d7d2293c4e5c",
+      "angularSelector": "good-form-row",
+      "kind": "component",
+      "state": "2"
+    },
+    {
+      "penpotName": "goodui.form-row.3",
+      "penpotId": "2d089ed4-0973-8065-8008-d7d2293ab7a0",
+      "angularSelector": "good-form-row",
+      "kind": "component",
+      "state": "3"
+    },
+    {
+      "penpotName": "goodui.group.outline",
+      "penpotId": "2d089ed4-0973-8065-8008-d7d27136412f",
+      "angularSelector": "good-group",
+      "kind": "component",
+      "state": "outline"
+    },
+    {
+      "penpotName": "goodui.group.outline-no-title",
+      "penpotId": "2d089ed4-0973-8065-8008-d7d2713887f8",
+      "angularSelector": "good-group",
+      "kind": "component",
+      "state": "outline-no-title"
+    },
+    {
+      "penpotName": "goodui.group.plain",
+      "penpotId": "2d089ed4-0973-8065-8008-d7d2713a5630",
+      "angularSelector": "good-group",
+      "kind": "component",
+      "state": "plain"
+    },
+    {
+      "penpotName": "goodui.group.contrast",
+      "penpotId": "2d089ed4-0973-8065-8008-d7d2713c73a1",
+      "angularSelector": "good-group",
+      "kind": "component",
+      "state": "contrast"
     },
     {
       "penpotName": "goodui.heading",

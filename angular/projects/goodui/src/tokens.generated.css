@@ -351,6 +351,7 @@
   --good-typography-flow-gap: var(--good-typography-paragraph-after-gap);
   --good-typography-flow-section-gap: var(--good-space-6);
   --good-typography-flow-max-width: 760px;
+  --good-typography-section-max-width: 1024px;
   --good-typography-separator-before-gap: var(--good-space-6);
   --good-typography-separator-after-gap: var(--good-space-2);
   --good-typography-separator-dot-gap: var(--good-space-2);
@@ -367,6 +368,16 @@
   --good-form-max-width: 760px;
   --good-form-column-gap: var(--good-space-6);
   --good-form-row-gap: var(--good-space-5);
+  --good-group-border: var(--good-color-border);
+  --good-group-background: var(--good-color-canvas);
+  --good-group-contrast-background: var(--good-color-selected);
+  --good-group-heading-color: var(--good-color-text);
+  --good-group-radius: var(--good-radius-item);
+  --good-group-padding-block: var(--good-space-5);
+  --good-group-padding-inline: var(--good-space-6);
+  --good-group-gap: var(--good-space-5);
+  --good-group-heading-gap: var(--good-space-2);
+  --good-form-row-gap: var(--good-space-4);
   --good-image-input-size: 180px;
   --good-date-panel-width: 352px;
   --good-date-panel-padding: var(--good-space-4);

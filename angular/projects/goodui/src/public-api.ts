@@ -7,6 +7,7 @@ export * from './lib/actions';
 export * from './lib/main-view';
 export * from './lib/typography';
 export * from './lib/form';
+export * from './lib/group';
 export * from './lib/subnav';
 export * from './lib/button';
 export * from './lib/action-group';

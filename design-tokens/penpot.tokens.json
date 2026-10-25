@@ -1699,6 +1699,12 @@
           "$type": "sizing"
         }
       },
+      "section": {
+        "max-width": {
+          "$value": "1024",
+          "$type": "sizing"
+        }
+      },
       "separator": {
         "before-gap": {
           "$value": "{space.6}",
@@ -1773,6 +1779,20 @@
         "$value": "{space.5}",
         "$type": "spacing"
       }
+    },
+    "group": {
+      "border": { "$value": "{color.border}", "$type": "color" },
+      "background": { "$value": "{color.canvas}", "$type": "color" },
+      "contrast-background": { "$value": "{color.selected}", "$type": "color" },
+      "heading-color": { "$value": "{color.text}", "$type": "color" },
+      "radius": { "$value": "{radius.item}", "$type": "borderRadius" },
+      "padding-block": { "$value": "{space.5}", "$type": "spacing" },
+      "padding-inline": { "$value": "{space.6}", "$type": "spacing" },
+      "gap": { "$value": "{space.5}", "$type": "spacing" },
+      "heading-gap": { "$value": "{space.2}", "$type": "spacing" }
+    },
+    "form-row": {
+      "gap": { "$value": "{space.4}", "$type": "spacing" }
     },
     "image-input": {
       "size": {

@@ -1,0 +1,27 @@
+{
+  "page": "19 Groups",
+  "families": [
+    {
+      "family": "group",
+      "selector": "good-group",
+      "inputs": ["title", "appearance", "headingLevel", "headingId"],
+      "variants": {
+        "outline": "2d089ed4-0973-8065-8008-d7d27136412f",
+        "outline-no-title": "2d089ed4-0973-8065-8008-d7d2713887f8",
+        "plain": "2d089ed4-0973-8065-8008-d7d2713a5630",
+        "contrast": "2d089ed4-0973-8065-8008-d7d2713c73a1"
+      },
+      "note": "The title is optional. The outline specimen places it in the border; contrast uses a soft surface. Both groups own internal spacing and contain linked FormRow examples."
+    },
+    {
+      "family": "form-row",
+      "selector": "good-form-row",
+      "input": "columns",
+      "variants": {
+        "2": "2d089ed4-0973-8065-8008-d7d2293c4e5c",
+        "3": "2d089ed4-0973-8065-8008-d7d2293ab7a0"
+      },
+      "note": "Equal-width columns use linked FormField instances. Angular stacks them by container width."
+    }
+  ]
+}
