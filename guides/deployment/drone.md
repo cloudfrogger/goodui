@@ -24,7 +24,7 @@ docker run --rm --read-only --tmpfs /tmp:rw,noexec,nosuid,size=16m \
   -p 127.0.0.1:8080:8080 goodui-homepage:local
 ```
 
-Visit `http://127.0.0.1:8080/`. The image exposes port 8080 and includes a `/healthz` probe. Give the container a read-only root filesystem and a writable `/tmp` at deployment, as above. Nginx runs as UID 101 and logs to container stdout/stderr. TLS termination, the public hostname, and port exposure belong to the deployment or reverse proxy configuration.
+Visit `http://127.0.0.1:8080/`. The image listens on IPv4 port 8080 and includes a `/healthz` probe. The IPv4-only listener lets `nginx -t` run in Kaniko environments without IPv6 support; an ingress or reverse proxy may still expose the site over IPv6. Give the container a read-only root filesystem and a writable `/tmp` at deployment, as above. Nginx runs as UID 101 and logs to container stdout/stderr. TLS termination, the public hostname, and port exposure belong to the deployment or reverse proxy configuration.
 
 The builder, runtime, and Kaniko images are pinned by digest for repeatable builds. Update those digests deliberately when applying upstream security updates, then rebuild and test the image.
 
