@@ -56,6 +56,16 @@ if (new Set(selectOption.variants.map(entry => entry.state)).size !== selectOpti
 const direct = new Set(map.directFamilies);
 const internal = Object.keys(map.internalParts);
 const pending = new Set(map.pendingPenpotFamilies ?? []);
+const pendingContracts = map.pendingContracts ?? {};
+for (const family of pending) {
+  const path = pendingContracts[family];
+  if (!path?.startsWith('design/') || !path.endsWith('.json')) throw new Error(`Missing pending design contract: ${family}`);
+  const contract = JSON.parse(readFileSync(resolve(root, path), 'utf8'));
+  if (contract.family !== `goodui.${family}` || contract.selector !== `good-${family}` || contract.penpotStatus !== 'pending-plugin-connection' || contract.publishedIds?.length) {
+    throw new Error(`Invalid pending design contract: ${family}`);
+  }
+}
+for (const family of Object.keys(pendingContracts)) if (!pending.has(family)) throw new Error(`Unexpected pending design contract: ${family}`);
 const names = [...direct, ...internal, ...pending];
 if (new Set(names).size !== names.length) throw new Error('A Penpot family is mapped twice.');
 if (!/^[0-9a-f-]{36}$/.test(map.penpotFileId ?? '')) throw new Error('Missing Penpot file ID in component map.');

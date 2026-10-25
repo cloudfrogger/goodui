@@ -2355,6 +2355,32 @@
           "$type": "sizing"
         }
       }
+    },
+    "pin": {
+      "slot": {
+        "width-small": { "$value": "44", "$type": "sizing" },
+        "width-default": { "$value": "52", "$type": "sizing" },
+        "width-large": { "$value": "60", "$type": "sizing" },
+        "height-small": { "$value": "48", "$type": "sizing" },
+        "height-default": { "$value": "56", "$type": "sizing" },
+        "height-large": { "$value": "64", "$type": "sizing" },
+        "gap-small": { "$value": "{input.gap-small}", "$type": "spacing" },
+        "gap-default": { "$value": "{input.gap-default}", "$type": "spacing" },
+        "gap-large": { "$value": "{input.gap-large}", "$type": "spacing" },
+        "radius": { "$value": "{radius.control}", "$type": "borderRadius" },
+        "background-empty": { "$value": "{color.selected}", "$type": "color" },
+        "background-filled": { "$value": "{input.background}", "$type": "color" },
+        "border": { "$value": "{input.border}", "$type": "color" },
+        "foreground-brand": { "$value": "{color.brand}", "$type": "color" },
+        "foreground-mono": { "$value": "{color.text}", "$type": "color" },
+        "placeholder": { "$value": "{input.placeholder}", "$type": "color" },
+        "font-size-small": { "$value": "16", "$type": "fontSizes" },
+        "font-size-default": { "$value": "20", "$type": "fontSizes" },
+        "font-size-large": { "$value": "24", "$type": "fontSizes" }
+      },
+      "disabled": {
+        "opacity": { "$value": "{select.disabled.opacity}", "$type": "opacity" }
+      }
     }
   },
   "layout-dark": {

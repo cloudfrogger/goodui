@@ -8,7 +8,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge,
+good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -568,6 +568,24 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-input-native-file { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
 .good-input-native-file:disabled { cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .good-input-shell { transition: none; } }
+
+.good-pin-input { display: block; min-width: 0; max-width: 100%; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-pin-label { display: inline-flex; align-items: baseline; gap: var(--good-typography-required-gap); margin-block-end: var(--good-typography-field-label-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }
+.good-pin-control { --good-pin-accent: var(--good-pin-slot-foreground-brand); --good-pin-width: var(--good-pin-slot-width-default); --good-pin-height: var(--good-pin-slot-height-default); --good-pin-gap: var(--good-pin-slot-gap-default); --good-pin-font-size: var(--good-pin-slot-font-size-default); position: relative; width: fit-content; max-width: 100%; }
+.good-pin-control[data-size="small"] { --good-pin-width: var(--good-pin-slot-width-small); --good-pin-height: var(--good-pin-slot-height-small); --good-pin-gap: var(--good-pin-slot-gap-small); --good-pin-font-size: var(--good-pin-slot-font-size-small); }
+.good-pin-control[data-size="large"] { --good-pin-width: var(--good-pin-slot-width-large); --good-pin-height: var(--good-pin-slot-height-large); --good-pin-gap: var(--good-pin-slot-gap-large); --good-pin-font-size: var(--good-pin-slot-font-size-large); }
+.good-pin-control[data-appearance="mono"] { --good-pin-accent: var(--good-pin-slot-foreground-mono); }
+.good-pin-control[data-disabled="true"] { opacity: var(--good-pin-disabled-opacity); }
+.good-pin-native { position: absolute; width: 1px; height: 1px; padding: 0; opacity: 0; border: 0; }
+.good-pin-viewport { max-width: 100%; overflow-x: auto; padding: 3px; scrollbar-width: thin; }
+.good-pin-row { display: flex; align-items: center; gap: var(--good-pin-gap); width: max-content; }
+.good-pin-slot { box-sizing: border-box; display: inline-flex; flex: none; align-items: center; justify-content: center; width: var(--good-pin-width); height: var(--good-pin-height); border: 1px solid var(--good-pin-slot-border); border-radius: var(--good-pin-slot-radius); background: var(--good-pin-slot-background-empty); color: var(--good-pin-accent); font-size: var(--good-pin-font-size); font-weight: 700; line-height: 1; cursor: text; user-select: none; transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease; }
+.good-pin-slot[data-filled="true"] { background: var(--good-pin-slot-background-filled); }
+.good-pin-slot[data-active="true"] { border-color: var(--good-pin-accent); outline: 2px solid var(--good-pin-accent); outline-offset: 1px; }
+.good-pin-placeholder, .good-pin-placeholder-icon { color: var(--good-pin-slot-placeholder); }
+.good-pin-placeholder-icon { display: block; }
+.good-pin-control[data-disabled="true"] .good-pin-slot { cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) { .good-pin-slot { transition: none; } }
 .good-date-input { display: block; min-width: 0; width: 100%; }
 .good-date-panel { box-sizing: border-box; position: fixed; z-index: 70; display: flex; flex-direction: column; gap: var(--good-date-panel-gap); width: min(var(--good-date-panel-width), calc(100vw - 24px)); max-height: min(620px, calc(100dvh - 24px)); margin: 0; overflow: hidden; overscroll-behavior: contain; padding: var(--good-date-panel-padding); border: 1px solid var(--good-date-panel-border); border-radius: var(--good-date-panel-radius); background: var(--good-date-panel-background); color: var(--good-date-panel-foreground); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; font-size: var(--good-date-day-font-size); box-shadow: 0 18px 48px rgb(0 0 0 / .16); }
 .good-date-panel:not([open]) { display: none; }

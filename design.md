@@ -37,6 +37,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
 | Rating | 16/20/24 px Lucide symbols in 32/40/48 px targets; 4 px gap | `Rating` owns a one-through-count score, native radio selection, display-only semantics, and disabled presentation |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
+| PIN input | 44 × 48 / 52 × 56 / 60 × 64 px slots by size; 6 px radius | `PinInput` owns code slots, keyboard and paste editing, character filtering, masking, focus, and disabled presentation |
 | Phone input | 32/40/48 px high, with flag and calling-code selector beside a native telephone field | `InputPhone` owns country selection, national digits, international value, and field states |
 | Dropdown | Button-sized trigger; 240 px token-based popup with 36 px item rows | `Dropdown` owns sections, placement, scrolling, nested items, and dismissal |
 | Breadcrumbs | 14 px labels, 8 px gaps; optional card border and 12 px radius | `Breadcrumbs` owns hierarchy, separators, overflow menu, and card frame |
@@ -134,6 +135,7 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.group` | Light, reusable content group with outline, contrast, or plain appearance and optional heading |
 | `goodui.form-row` | Two or three equal-width FormField columns that stack in narrow containers |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
+| `goodui.pin-input` | Planned single-field code control with three sizes, brand/mono appearance, and empty/filled/masked/disabled presentations; pending live Penpot publication |
 | `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
 | `goodui.input-phone` | Country-aware telephone field in three sizes and empty, filled, disabled, or error states |
 | `goodui.phone-country` | Internal flag, calling code, and chevron selector part of InputPhone |
@@ -255,6 +257,12 @@ Penpot publishes 24 `goodui.radio-group` variants on `07 Radio Groups` with axes
 `good-input` supports `small`, `default`, and `large` at the same 32/40/48 px control heights as Button. `type=file` uses a native file input with a fixed File action and filename text; other supported types use a native text-like input. `disabled` prevents interaction, `readonly` keeps text selectable with a neutral surface, and `error` uses a theme-specific red border. Start and end slots each accept a Lucide icon or fixed text, with `inline` or `contrast` presentation. Icons and fixed text are display-only. The shell uses flex layout so addons and the editable area align without absolute offsets. Only the invisible native file input overlays the shell to retain native file activation.
 
 The published Penpot `goodui.input` family uses `kind=text/file`, `size=small/default/large`, and `status=default/disabled/readonly/error` where valid. The internal `goodui.input-addon` family supplies optional start/end icon or text content with inline or contrast treatment. The 21 Input and 24 addon library IDs and their Angular mapping are recorded in `design/input-variants.json`. The two example compositions retain linked addon instances. The Angular component and demo use the same state and size semantics.
+
+### PIN input contract
+
+`good-pin-input` is one native text or password field with a visual row of individually clickable slots. The default length is six; `length` accepts 1–64. `allowedCharacters` is a comma-separated set of literal characters and inclusive ranges, defaulting to `0-9,a-z,A-Z`. Input, paste, model writes, and later rule changes are filtered to that set and capped at the configured length. A numeric-only set selects the mobile number keypad. `masked` shows an asterisk in each filled slot and uses a native password field. Empty slots use a neutral surface and optionally show `placeholder` characters or a Lucide `placeholderIcon`. The brand appearance colors entered characters and focus with the brand role; `mono` uses the theme text role. `size=small/default/large` maps to 44 × 48, 52 × 56, and 60 × 64 px slots. Long codes scroll horizontally inside the control instead of overflowing the page. The control supports Angular forms, required state inherited from FormField, completion events, and a full-length validator for nonempty values.
+
+The proposed `goodui.pin-input` Penpot family maps directly to `good-pin-input`; `size`, `appearance`, and representative `state=empty/filled/masked/disabled` are design axes. Code length, characters, placeholder content, browser focus, and editing are runtime properties. Its exact mapping is in `design/pin-input-contract.json`. The `20 PIN Inputs` page and semantic `pin.*` tokens were created through MCP. The plugin disconnected while the first variant was being constructed, so this family has **no verified published Penpot component or IDs yet** and remains in `pendingPenpotFamilies`. The token values in the repository were copied from the MCP creation result, but a live catalog recheck is still required after reconnection. `pin.*` aliases existing Input, brand/text, spacing, and control-radius roles so light and dark themes follow the same base colors.
 
 ### Breadcrumbs contract
 

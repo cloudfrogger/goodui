@@ -82,7 +82,10 @@
     "subnav-dropdown": "subnav",
     "subnav-item": "subnav"
   },
-  "pendingPenpotFamilies": [],
+  "pendingPenpotFamilies": ["pin-input"],
+  "pendingContracts": {
+    "pin-input": "design/pin-input-contract.json"
+  },
   "penpotFileId": "a552d28a-7556-80e4-8008-d3392c96c899",
   "componentMappings": [
     {

@@ -114,6 +114,7 @@ The [Drone deployment guide](guides/deployment/drone.md) covers the Docker-only 
 | `good-table` | TanStack Table columns with optional search, sorting, rich Angular cells, and client, page, or cursor pagination |
 | `good-select`, `good-select-country` | Single or multiple selection, search, rich options, and country flags |
 | `good-input` | Text and native file controls with optional icons or fixed group text |
+| `good-pin-input` | Configurable code slots with character filtering, masking, three sizes, and brand or mono appearance |
 | `good-date-input` | Localized date, range, multiple, month, year, and optional time selection |
 | `good-dropdown` | Button-based popup with optional sections, scrolling, placement, and submenus |
 | `good-breadcrumbs` | Hierarchical path with optional home icon, custom separator, overflow menu, and card frame |

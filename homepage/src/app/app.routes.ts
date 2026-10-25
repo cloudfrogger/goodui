@@ -33,6 +33,7 @@ export const routes: Routes = [
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },
   { path: 'components/inputs', component: InputsPageComponent },
+  { path: 'components/pin-inputs', loadComponent: () => import('./pin-inputs-page').then(module => module.PinInputsPageComponent) },
   { path: 'components/selects', loadComponent: () => import('./selects-page').then(module => module.SelectsPageComponent) },
   { path: 'components/phone-inputs', loadComponent: () => import('./phone-inputs-page').then(module => module.PhoneInputsPageComponent) },
   { path: 'components/date-inputs', loadComponent: () => import('./date-inputs-page').then(module => module.DateInputsPageComponent) },

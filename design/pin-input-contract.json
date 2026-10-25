@@ -1,0 +1,23 @@
+{
+  "family": "goodui.pin-input",
+  "selector": "good-pin-input",
+  "penpotStatus": "pending-plugin-connection",
+  "proposedPage": "20 PIN Inputs",
+  "axes": {
+    "size": ["small", "default", "large"],
+    "appearance": ["brand", "mono"],
+    "state": ["empty", "filled", "masked", "disabled"]
+  },
+  "mapping": {
+    "size": "size",
+    "appearance": "appearance",
+    "state.empty": "value is empty",
+    "state.filled": "value contains characters",
+    "state.masked": "masked=true",
+    "state.disabled": "disabled=true",
+    "slotCount": "length (default 6; runtime data)",
+    "acceptedCharacters": "allowedCharacters (default 0-9,a-z,A-Z; runtime rule)",
+    "placeholder": "placeholder or placeholderIcon (runtime content)"
+  },
+  "publishedIds": []
+}
