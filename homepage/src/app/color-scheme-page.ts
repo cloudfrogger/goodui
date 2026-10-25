@@ -23,7 +23,7 @@ const semanticRoles: readonly ColorRole[] = [
   { name: 'Brand', token: 'brand', purpose: 'Primary actions and brand emphasis.' },
   { name: 'Accent', token: 'accent', purpose: 'Active navigation and focus emphasis.' },
   { name: 'Error', token: 'error', purpose: 'Validation and destructive feedback.' },
-  { name: 'Warning', token: 'warning', purpose: 'Caution and attention.' },
+  { name: 'Warning', token: 'warning', purpose: 'Vivid yellow for caution; a separate foreground token keeps small text readable.' },
   { name: 'Success', token: 'success', purpose: 'Completed and positive states.' },
   { name: 'Info', token: 'info', purpose: 'Informational states.' },
 ];

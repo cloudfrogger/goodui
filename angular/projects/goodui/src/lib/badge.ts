@@ -4,8 +4,8 @@ import { GoodButtonIcon } from './models';
 
 export type GoodBadgeColor = 'primary' | 'secondary' | 'destructive' | 'warning' | 'success' | 'info' | 'text';
 export type GoodBadgeVariant = 'solid' | 'outline' | 'light';
-export type GoodBadgeShape = 'circle' | 'square';
-export type GoodBadgeSize = 'small' | 'default' | 'large';
+export type GoodBadgeShape = 'pill' | 'square' | 'circle';
+export type GoodBadgeSize = 'small' | 'medium' | 'default' | 'large';
 
 @Component({
   selector: 'good-badge',
@@ -30,7 +30,7 @@ export class GoodBadgeComponent {
   readonly label = input.required<string>();
   readonly color = input<GoodBadgeColor>('primary');
   readonly variant = input<GoodBadgeVariant>('solid');
-  readonly shape = input<GoodBadgeShape>('circle');
+  readonly shape = input<GoodBadgeShape>('pill');
   readonly size = input<GoodBadgeSize>('default');
   readonly icon = input<GoodButtonIcon>();
   readonly iconSrc = input<string>();
@@ -38,7 +38,7 @@ export class GoodBadgeComponent {
   readonly removeLabel = input('');
   readonly removed = output<void>();
   readonly removeIcon = LucideX;
-  readonly iconSize = computed(() => ({ small: 12, default: 14, large: 16 })[this.size()]);
+  readonly iconSize = computed(() => ({ small: 12, medium: 14, default: 14, large: 16 })[this.size()]);
 
   onRemove(event: MouseEvent): void {
     event.stopPropagation();

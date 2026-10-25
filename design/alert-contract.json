@@ -1,0 +1,478 @@
+{
+  "family": "goodui.alert",
+  "selector": "good-alert",
+  "penpotStatus": "published",
+  "page": "21 Alerts",
+  "variantContainerId": "5fd6a355-e255-80dc-8008-d8168ed984a7",
+  "axes": {
+    "tone": [
+      "neutral",
+      "info",
+      "success",
+      "brand",
+      "destructive",
+      "warning"
+    ],
+    "appearance": [
+      "default",
+      "mono",
+      "outline",
+      "light"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ]
+  },
+  "mapping": {
+    "tone": "tone",
+    "appearance": "appearance",
+    "size": "size",
+    "icon": "icon or showIcon (runtime option)",
+    "actions": "content projected into [goodAlertActions]",
+    "dismissal": "dismissible input and closed output",
+    "content": "title, message, and projected content"
+  },
+  "composition": {
+    "family": "goodui.alert-composition",
+    "id": "5fd6a355-e255-80dc-8008-d817fbfd2cd3",
+    "owner": "good-alert",
+    "state": "actions-dismissible",
+    "linkedParts": ["goodui.button", "lucide.info", "lucide.x"]
+  },
+  "variants": [
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816845dc3f4",
+      "tone": "brand",
+      "appearance": "default",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816845b1999",
+      "tone": "brand",
+      "appearance": "default",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684611ca5",
+      "tone": "brand",
+      "appearance": "default",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816843faaaa",
+      "tone": "brand",
+      "appearance": "light",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816843c54c9",
+      "tone": "brand",
+      "appearance": "light",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684426d59",
+      "tone": "brand",
+      "appearance": "light",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684544d7f",
+      "tone": "brand",
+      "appearance": "mono",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684501622",
+      "tone": "brand",
+      "appearance": "mono",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168457d199",
+      "tone": "brand",
+      "appearance": "mono",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684487dd3",
+      "tone": "brand",
+      "appearance": "outline",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168445a7e5",
+      "tone": "brand",
+      "appearance": "outline",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816844bb46f",
+      "tone": "brand",
+      "appearance": "outline",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168434b79c",
+      "tone": "destructive",
+      "appearance": "default",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168431ae8b",
+      "tone": "destructive",
+      "appearance": "default",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684391fd3",
+      "tone": "destructive",
+      "appearance": "default",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816840c0ece",
+      "tone": "destructive",
+      "appearance": "light",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168406eebc",
+      "tone": "destructive",
+      "appearance": "light",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684126ebd",
+      "tone": "destructive",
+      "appearance": "light",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816842bdf4f",
+      "tone": "destructive",
+      "appearance": "mono",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816842858ed",
+      "tone": "destructive",
+      "appearance": "mono",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816842ec320",
+      "tone": "destructive",
+      "appearance": "mono",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168420e06a",
+      "tone": "destructive",
+      "appearance": "outline",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816841b822b",
+      "tone": "destructive",
+      "appearance": "outline",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816842528e6",
+      "tone": "destructive",
+      "appearance": "outline",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684a34fab",
+      "tone": "info",
+      "appearance": "default",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684a080d7",
+      "tone": "info",
+      "appearance": "default",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684a71f21",
+      "tone": "info",
+      "appearance": "default",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168489a086",
+      "tone": "info",
+      "appearance": "light",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168486ea07",
+      "tone": "info",
+      "appearance": "light",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816848cbcb4",
+      "tone": "info",
+      "appearance": "light",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816849a18cb",
+      "tone": "info",
+      "appearance": "mono",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684972efe",
+      "tone": "info",
+      "appearance": "mono",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816849d4b9f",
+      "tone": "info",
+      "appearance": "mono",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168491deaf",
+      "tone": "info",
+      "appearance": "outline",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816848f219f",
+      "tone": "info",
+      "appearance": "outline",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684946c61",
+      "tone": "info",
+      "appearance": "outline",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167b26a15b",
+      "tone": "neutral",
+      "appearance": "default",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684c0c769",
+      "tone": "neutral",
+      "appearance": "default",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684c32057",
+      "tone": "neutral",
+      "appearance": "default",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684ac5494",
+      "tone": "neutral",
+      "appearance": "light",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684a9d370",
+      "tone": "neutral",
+      "appearance": "light",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684af0010",
+      "tone": "neutral",
+      "appearance": "light",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684bbcab6",
+      "tone": "neutral",
+      "appearance": "mono",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684b960e8",
+      "tone": "neutral",
+      "appearance": "mono",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684be46ea",
+      "tone": "neutral",
+      "appearance": "mono",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684b41288",
+      "tone": "neutral",
+      "appearance": "outline",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684b1f689",
+      "tone": "neutral",
+      "appearance": "outline",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684b6e814",
+      "tone": "neutral",
+      "appearance": "outline",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168480d6ef",
+      "tone": "success",
+      "appearance": "default",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816847d6e68",
+      "tone": "success",
+      "appearance": "default",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684841903",
+      "tone": "success",
+      "appearance": "default",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168466e37d",
+      "tone": "success",
+      "appearance": "light",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8168463b4f1",
+      "tone": "success",
+      "appearance": "light",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816846a5954",
+      "tone": "success",
+      "appearance": "light",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684780c1c",
+      "tone": "success",
+      "appearance": "mono",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684750a54",
+      "tone": "success",
+      "appearance": "mono",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816847b1b72",
+      "tone": "success",
+      "appearance": "mono",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816846fd110",
+      "tone": "success",
+      "appearance": "outline",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816846cfb49",
+      "tone": "success",
+      "appearance": "outline",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d81684725e07",
+      "tone": "success",
+      "appearance": "outline",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e9a5004",
+      "tone": "warning",
+      "appearance": "default",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e959dfc",
+      "tone": "warning",
+      "appearance": "default",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e9eddf8",
+      "tone": "warning",
+      "appearance": "default",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e7541d9",
+      "tone": "warning",
+      "appearance": "light",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e6fdcec",
+      "tone": "warning",
+      "appearance": "light",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e79c6a5",
+      "tone": "warning",
+      "appearance": "light",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e8d2e75",
+      "tone": "warning",
+      "appearance": "mono",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e8983ac",
+      "tone": "warning",
+      "appearance": "mono",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e918161",
+      "tone": "warning",
+      "appearance": "mono",
+      "size": "small"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e814e0e",
+      "tone": "warning",
+      "appearance": "outline",
+      "size": "default"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e7deba6",
+      "tone": "warning",
+      "appearance": "outline",
+      "size": "large"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d8167e8567f3",
+      "tone": "warning",
+      "appearance": "outline",
+      "size": "small"
+    }
+  ]
+}

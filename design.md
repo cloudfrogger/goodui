@@ -38,6 +38,8 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Rating | 16/20/24 px Lucide symbols in 32/40/48 px targets; 4 px gap | `Rating` owns a one-through-count score, native radio selection, display-only semantics, and disabled presentation |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
 | PIN input | 44 × 48 / 52 × 56 / 60 × 64 px slots by size; 6 px radius | `PinInput` owns code slots, keyboard and paste editing, character filtering, masking, focus, and disabled presentation |
+| Alert | Three token-scaled sizes, 12 px card radius, tone-aware surface and icon | `Alert` owns message flow, projected actions, and optional close button |
+| Notifications | Three visible toasts in a top-right or top-center stack; overflow waits its turn; 16 px count on the bell | `NotificationHost` owns placement and animation; `Notifications` owns the bell, unread Badge, and panel |
 | Phone input | 32/40/48 px high, with flag and calling-code selector beside a native telephone field | `InputPhone` owns country selection, national digits, international value, and field states |
 | Dropdown | Button-sized trigger; 240 px token-based popup with 36 px item rows | `Dropdown` owns sections, placement, scrolling, nested items, and dismissal |
 | Breadcrumbs | 14 px labels, 8 px gaps; optional card border and 12 px radius | `Breadcrumbs` owns hierarchy, separators, overflow menu, and card frame |
@@ -93,6 +95,14 @@ AppLayout
 
 The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppLayout` feed the desktop sidebar, mobile topbar, and drawer. `brand` is the image's accessible name; text and the generic accent mark are the fallback when no logo is supplied. The dark logo URL is optional; if absent, the light URL remains visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI homepage uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers.
 
+### Alerts and notifications
+
+`good-alert` has `tone=neutral/info/success/brand/destructive/warning`, `appearance=default/mono/outline/light`, and `size=small/default/large`. Default uses a tone-tinted surface, light uses a quieter tint, outline uses the base surface and border with tone-colored text, and mono leaves only its optional icon tone-colored. The neutral surface aliases the application gray. Warning, Badge, and Rating share `color.warning` (`#EAB308` light, `#FACC15` dark); small Warning text and Alert icon strokes use the companion `color.warning-foreground` for contrast. The `alert.*` Penpot tokens alias existing GoodUI color and spacing roles, including theme-specific badge tints, so no separate dark value list is maintained. Content, actions, the optional X, and the custom Lucide icon are runtime options. `good-alert` owns the action row and responsive wrapping; callers project Buttons and Links through `[goodAlertActions]`.
+
+`GoodNotificationCenter` publishes the same alert content to a top-right toast, a centered top-entry toast, or the notification side panel only. AppLayout includes `good-notification-host`; standalone layouts place one host near their root. Three toasts are visible at once, with later messages queued and timed only after display. Focus and hover pause timeouts. Acknowledgement messages wait for action and remain in the panel as read; the panel also offers mark-as-read and removal. The bell displays unread count through `good-badge`, sized by `notification.count.*` tokens to 16 px. The published `goodui.notifications.unread` Penpot composition links the bell and Badge; its single-digit label is centered as a local instance override because Penpot does not reflow that copied Badge label after the width override. Angular uses regular flex centering. The drawer closes on backdrop clicks, Escape, or the close button and returns focus to the bell. Session memory is the library default; application persistence is a separate integration. See [Alert](guides/components/alert.md), [Notifications](guides/components/notifications.md), and [design/alert-contract.json](design/alert-contract.json).
+
+Penpot page `21 Alerts` publishes 72 `goodui.alert` variants and four `goodui.notification-host` arrangements. All Alert variants retain linked Lucide Info artwork and bind their surface, text, padding, and icon size to `alert.*` tokens. The action/dismiss composition is a separate reusable component with a detached Alert frame, linked GoodUI Button, and linked Lucide X: Penpot does not permit adding children inside a component copy. The manifests record every published ID. The light and dark renders were inspected, and Penpot was restored to light on `02 Layout`.
+
 ## Public components
 
 | Design ID | Responsibility |
@@ -112,7 +122,9 @@ The shell owns the brand image placement, while the consuming app owns the actua
 | `goodui.topbar-submenu` | Next menu level using the same row components |
 | `goodui.main-menu` | Search, notifications, settings, avatar in fixed order |
 | `goodui.search` | Trigger and search dialog with input, results, empty state |
-| `goodui.notifications` | Trigger and notification dialog; filters, tabs, and footer actions remain design goals |
+| `goodui.notifications` | Bell, unread Badge, and dismissible drawer; `default`, `unread`, and `open` design states |
+| `goodui.alert` | Inline or delivered message with six semantic tones, four appearances, three sizes, actions, and optional dismissal |
+| `goodui.notification-host` | Toast placement and stacking; in-memory delivery is controlled by `GoodNotificationCenter` |
 | `goodui.settings` | Trigger and app-configured settings menu |
 | `goodui.avatar-menu` | Avatar trigger and account menu with identity, nested actions, appearance switch, and sign-out area |
 | `goodui.avatar-menu-item` | Reusable account link, action, or expandable parent row |
@@ -270,7 +282,7 @@ The proposed `goodui.pin-input` Penpot family maps directly to `good-pin-input`;
 
 ### Badge
 
-`good-badge` is an inline label for status and metadata. `color` is `primary`, `secondary`, `destructive`, `warning`, `success`, `info`, or `text`; `secondary` aliases the secondary Button color and `text` follows the current theme text role. `variant` is `solid` (default), `outline` (a light tint with a role-colored border), or `light` (a softened fill). `shape` is `circle` (default) or `square`; `size` is `small`, `default`, or `large`. The optional leading `icon` accepts the same Lucide or custom icon data as Button. `removable` adds a real trailing button; its `removed` output lets the owner remove the item. The owner supplies `label` and may override the button's accessible `removeLabel`.
+`good-badge` is an inline label for status and metadata. `color` is `primary`, `secondary`, `destructive`, `warning`, `success`, `info`, or `text`; `secondary` aliases the secondary Button color and `text` follows the current theme text role. `variant` is `solid` (default), `outline` (a light tint with a role-colored border), or `light` (a softened fill). `shape` is `pill` (default) or `square`; `circle` remains an Angular alias for older consumers. `size` is `small`, `default`, or `large`; Angular also accepts `medium` as an alias for `default`. The optional leading `icon` accepts the same Lucide or custom icon data as Button. `removable` adds a real trailing button; its `removed` output lets the owner remove the item. The owner supplies `label` and may override the button's accessible `removeLabel`.
 
 The `goodui.badge` Penpot variant group is on `05 Badges` with all 126 `color × variant × shape × size` combinations. Four linked example instances show plain text, a leading icon, an X, and both content options. The component owns flex alignment, spacing, icon sizing, and pill or compact corners; consuming layouts only place the finished Badge. Hidden Lucide icon slots in every Penpot variant can be revealed in an instance. `design/badge-variants.json` records the exact published variant IDs. Token-bound heights are 24/28/32 px; inline padding is 8/10/12 px, gap is 4/6/8 px, and icon sizes are 12/14/16 px. Color roles, typography, radii, and spacing are semantic tokens shared with the generated CSS. Penpot examples show the X visually; click, keyboard focus, and event emission belong to Angular.
 

@@ -12,6 +12,7 @@ import { RatingsPageComponent } from './ratings-page';
 import { TablesPageComponent } from './tables-page';
 import { CardsPageComponent } from './cards-page';
 import { LinksPageComponent } from './links-page';
+import { AlertsPageComponent } from './alerts-page';
 
 const page = (title: string, description: string, landing = false) => ({
   component: ShowcasePageComponent,
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: 'getting-started/license', loadComponent: () => import('./getting-started-page').then(module => module.LicensePageComponent) },
   { path: 'dashboard', ...page('Dashboard', 'Overview and key metrics') },
   { path: 'components/buttons', component: ButtonsPageComponent },
+  { path: 'components/alerts', component: AlertsPageComponent },
   { path: 'components/typography', redirectTo: 'getting-started/typography' },
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },
@@ -54,6 +56,7 @@ export const routes: Routes = [
   { path: 'components/code-blocks', loadComponent: () => import('./code-blocks-page').then(module => module.CodeBlocksPageComponent) },
   { path: 'components/modals', loadComponent: () => import('./modals-page').then(module => module.ModalsPageComponent) },
   { path: 'examples/user-registration', loadComponent: () => import('./examples/user-registration/user-registration-example-page').then(module => module.UserRegistrationExamplePageComponent) },
+  { path: 'examples/notifications', loadComponent: () => import('./examples/notifications/notifications-page').then(module => module.NotificationsPageComponent) },
   { path: 'profile', ...page('Public Profile', 'Public profile') },
   { path: 'account/home/get-started', ...page('Account', 'Get Started', true) },
   { path: 'account/home/user-profile', ...page('User Profile', 'Account and personal information') },

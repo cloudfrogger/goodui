@@ -1,0 +1,45 @@
+{
+  "family": "goodui.notification-host",
+  "selector": "good-notification-host",
+  "penpotStatus": "published",
+  "page": "21 Alerts",
+  "variantContainerId": "5fd6a355-e255-80dc-8008-d816c690a560",
+  "axes": {
+    "placement": [
+      "top-right",
+      "top"
+    ],
+    "state": [
+      "single",
+      "stacked"
+    ]
+  },
+  "mapping": {
+    "placement": "GoodNotificationCenter delivery toast or top",
+    "content": "linked goodui.alert instances",
+    "timing": "runtime service behavior",
+    "panel": "existing goodui.notifications component"
+  },
+  "variants": [
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816c154e317",
+      "placement": "top-right",
+      "state": "single"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816c18fe9a3",
+      "placement": "top-right",
+      "state": "stacked"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816c1bd1716",
+      "placement": "top",
+      "state": "single"
+    },
+    {
+      "id": "5fd6a355-e255-80dc-8008-d816c1f5d73b",
+      "placement": "top",
+      "state": "stacked"
+    }
+  ]
+}

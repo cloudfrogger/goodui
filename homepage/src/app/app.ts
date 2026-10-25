@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoodAppLayoutComponent, GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@goodui/angular';
+import { GoodAppLayoutComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@goodui/angular';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { GoodAppLayoutComponent, GoodMenuAction, GoodNotification, GoodSearchIte
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup"
-      [user]="user" [notifications]="notifications" [searchItems]="searchItems" [avatarActions]="avatarActions()">
+      [user]="user" [searchItems]="searchItems" [avatarActions]="avatarActions()">
       <router-outlet />
     </good-app-layout>
   `,
@@ -61,6 +61,7 @@ export class App {
     { id: 'dashboards', items: [{ id: 'dashboard', label: 'Dashboards', icon: 'dashboard', route: '/dashboard' }] },
     { id: 'components', heading: 'COMPONENTS', items: [
       { id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' },
+      { id: 'alerts', label: 'Alerts', icon: 'bell', route: '/components/alerts' },
       { id: 'action-groups', label: 'Action groups', icon: 'menu', route: '/components/action-groups' },
       { id: 'switches', label: 'Switches', icon: 'settings', route: '/components/switches' },
       { id: 'checkboxes', label: 'Checkboxes', icon: 'check', route: '/components/checkboxes' },
@@ -87,6 +88,7 @@ export class App {
     ] },
     { id: 'examples', heading: 'EXAMPLES', items: [
       { id: 'user-registration', label: 'User registration', icon: 'account', route: '/examples/user-registration' },
+      { id: 'notifications-example', label: 'Notifications', icon: 'bell', route: '/examples/notifications' },
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
       { id: 'account', label: 'My Account', icon: 'settings', children: [
         { id: 'account-home', label: 'Account Home', children: [
@@ -129,9 +131,6 @@ export class App {
       { id: 'contact', label: 'Contact Us', icon: 'contact', route: '/help/contact', separatorBefore: true },
     ] },
   ];
-  readonly notifications: readonly GoodNotification[] = [
-    { id: 'welcome', title: 'Welcome to GoodUI', description: 'Notifications are provided by a reusable library component.', time: 'Today', read: false },
-  ];
   readonly searchItems: readonly GoodSearchItem[] = [
     { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
     { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
@@ -140,6 +139,8 @@ export class App {
     { id: 'developing', label: 'Developing', description: 'Getting Started', route: '/getting-started/developing' },
     { id: 'license', label: 'License', description: 'Getting Started', route: '/getting-started/license' },
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
+    { id: 'alerts', label: 'Alerts', description: 'Tones, appearances, sizes, actions, and dismissal', route: '/components/alerts' },
+    { id: 'notifications-example', label: 'Notifications', description: 'Example · toasts and notification panel', route: '/examples/notifications' },
     { id: 'action-groups', label: 'Action groups', description: 'Horizontal, vertical, and responsive arrangements', route: '/components/action-groups' },
     { id: 'switches', label: 'Switches', description: 'States and form example', route: '/components/switches' },
     { id: 'checkboxes', label: 'Checkboxes', description: 'Tri-state brand and mono controls', route: '/components/checkboxes' },

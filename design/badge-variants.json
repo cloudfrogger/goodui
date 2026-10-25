@@ -20,7 +20,7 @@
       "light"
     ],
     "shape": [
-      "circle",
+      "pill",
       "square"
     ],
     "size": [
@@ -34,7 +34,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494408275ff",
       "color": "primary",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -48,7 +48,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440929b9e",
       "color": "text",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -62,7 +62,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494409a6263",
       "color": "text",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -76,7 +76,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440a1e6a8",
       "color": "text",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -90,7 +90,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440a854a6",
       "color": "info",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -104,7 +104,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440afa0f5",
       "color": "info",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -118,7 +118,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440b6c911",
       "color": "info",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -132,7 +132,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440bba0aa",
       "color": "success",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -146,7 +146,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440c19f7d",
       "color": "success",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -160,7 +160,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440c7f5f8",
       "color": "success",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -174,7 +174,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440cd6cff",
       "color": "warning",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -188,7 +188,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440d24ca1",
       "color": "warning",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -202,7 +202,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440d8f7f2",
       "color": "warning",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -216,7 +216,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440de0659",
       "color": "destructive",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -230,7 +230,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440e31731",
       "color": "destructive",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -244,7 +244,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440e97d37",
       "color": "destructive",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -258,7 +258,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440f11d6a",
       "color": "secondary",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -272,7 +272,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440f752be",
       "color": "secondary",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -286,7 +286,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49440fd157b",
       "color": "secondary",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -300,7 +300,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944102c89a",
       "color": "primary",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -314,7 +314,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494410ab131",
       "color": "primary",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "default"
     },
     {
@@ -328,7 +328,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49443dced7d",
       "color": "primary",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -342,7 +342,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49443e2de36",
       "color": "text",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -356,7 +356,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49443e76d98",
       "color": "text",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -370,7 +370,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49443ecbebf",
       "color": "text",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -384,7 +384,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49443f313fd",
       "color": "info",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -398,7 +398,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49443f9a570",
       "color": "info",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -412,7 +412,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944400d1c9",
       "color": "info",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -426,7 +426,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49444093208",
       "color": "success",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -440,7 +440,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944410700b",
       "color": "success",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -454,7 +454,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49444155c26",
       "color": "success",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -468,7 +468,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49444199542",
       "color": "warning",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -482,7 +482,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494441e0fe0",
       "color": "warning",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -496,7 +496,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944423306a",
       "color": "warning",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -510,7 +510,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49444275e8b",
       "color": "destructive",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -524,7 +524,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494442c2dac",
       "color": "destructive",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -538,7 +538,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944430b0bd",
       "color": "destructive",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -552,7 +552,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944435b03e",
       "color": "secondary",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -566,7 +566,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494443a0b88",
       "color": "secondary",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -580,7 +580,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494443dfd61",
       "color": "secondary",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -594,7 +594,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49444430ee7",
       "color": "primary",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -608,7 +608,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944446eef7",
       "color": "primary",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "large"
     },
     {
@@ -622,7 +622,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446d91e8b",
       "color": "primary",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -636,7 +636,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446dd9278",
       "color": "text",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -650,7 +650,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446e2d458",
       "color": "text",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -664,7 +664,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446e785ae",
       "color": "text",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -678,7 +678,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446ebfe06",
       "color": "info",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -692,7 +692,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446f06ec2",
       "color": "info",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -706,7 +706,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446f513db",
       "color": "info",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -720,7 +720,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49446fb24ba",
       "color": "success",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -734,7 +734,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49447003fb1",
       "color": "success",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -748,7 +748,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49447040bf7",
       "color": "success",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -762,7 +762,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944707c7c2",
       "color": "warning",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -776,7 +776,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494470c70d1",
       "color": "warning",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -790,7 +790,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494471098ae",
       "color": "warning",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -804,7 +804,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d4944714317c",
       "color": "destructive",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -818,7 +818,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49447186298",
       "color": "destructive",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -832,7 +832,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494471bdbd6",
       "color": "destructive",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -846,7 +846,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49447204671",
       "color": "secondary",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -860,7 +860,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49447240a28",
       "color": "secondary",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -874,7 +874,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d49447277812",
       "color": "secondary",
       "variant": "solid",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -888,7 +888,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494472ae0c8",
       "color": "primary",
       "variant": "light",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {
@@ -902,7 +902,7 @@
       "id": "79fa6408-a1e2-80d7-8008-d494472fb377",
       "color": "primary",
       "variant": "outline",
-      "shape": "circle",
+      "shape": "pill",
       "size": "small"
     },
     {

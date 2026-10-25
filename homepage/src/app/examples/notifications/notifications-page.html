@@ -1,0 +1,33 @@
+<good-main-view title="Notifications" description="Try alerts, timed toasts, acknowledgement, and the notification panel.">
+  <good-section>
+    <good-breadcrumbs [items]="breadcrumbs" />
+    <good-group title="Inline alerts" appearance="plain">
+      <good-alert tone="info" title="Always in context" message="An inline alert remains in the page until your application removes it." />
+      <good-alert tone="warning" appearance="mono" title="Quiet visual style"
+        message="Mono keeps the message neutral and uses color only on the icon." />
+      <good-alert tone="destructive" appearance="light" title="Dismissible"
+        message="Close this example with its accessible button." [dismissible]="true" />
+    </good-group>
+    <good-group title="Send a notification" appearance="plain">
+      <good-action-group orientation="responsive">
+        <good-button (click)="show('toast')">Toast at top right</good-button>
+        <good-button variant="secondary" (click)="show('top')">Slide from top</good-button>
+        <good-button variant="outline" (click)="show('inbox')">Inbox only</good-button>
+      </good-action-group>
+      <good-action-group orientation="responsive">
+        <good-button variant="secondary" (click)="requireAcknowledgement()">Wait for acknowledgement</good-button>
+        <good-button variant="outline" (click)="showActions()">Toast with actions</good-button>
+        <good-button variant="ghost" (click)="showTemporary()">Temporary toast</good-button>
+      </good-action-group>
+      <good-alert tone="neutral" appearance="light" title="Notification panel"
+        message="Open the bell in the topbar to review saved messages. Dismiss, mark as read, or acknowledge them there." />
+      <p role="status">{{ lastAction() }}</p>
+    </good-group>
+    <good-group title="Use this example" appearance="plain">
+      <good-code-block [code]="htmlSource" language="html" title="notifications-page.html"
+        [collapsible]="true" [collapsedLines]="20" />
+      <good-code-block [code]="typescriptSource" language="typescript" title="notifications-page.ts"
+        [collapsible]="true" [collapsedLines]="20" />
+    </good-group>
+  </good-section>
+</good-main-view>

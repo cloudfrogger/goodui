@@ -17,6 +17,8 @@ const ratingVariants = JSON.parse(readFileSync(resolve(root, 'design/rating-vari
 const tableVariants = JSON.parse(readFileSync(resolve(root, 'design/table-variants.json'), 'utf8'));
 const selectVariants = JSON.parse(readFileSync(resolve(root, 'design/select-variants.json'), 'utf8'));
 const phoneVariants = JSON.parse(readFileSync(resolve(root, 'design/input-phone-variants.json'), 'utf8'));
+const alertContract = JSON.parse(readFileSync(resolve(root, 'design/alert-contract.json'), 'utf8'));
+const notificationHostContract = JSON.parse(readFileSync(resolve(root, 'design/notification-host-contract.json'), 'utf8'));
 const linkVariants = JSON.parse(readFileSync(resolve(root, 'design/link-variants.json'), 'utf8'));
 const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants.json'), 'utf8'));
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
@@ -27,6 +29,28 @@ const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
 if (readFileSync(resolve(source, 'form.ts'), 'utf8').includes("selector: 'form[goodForm]'")) selectors.add('form');
+for (const [contract, family, selector, page, axes] of [
+  [alertContract, 'goodui.alert', 'good-alert', '21 Alerts', ['tone', 'appearance', 'size']],
+  [notificationHostContract, 'goodui.notification-host', 'good-notification-host', '21 Alerts', ['placement', 'state']],
+]) {
+  if (contract.family !== family || contract.selector !== selector || contract.page !== page || contract.penpotStatus !== 'published' ||
+      !/^[0-9a-f-]{36}$/.test(contract.variantContainerId ?? '')) throw new Error(`Invalid published ${family} contract.`);
+  const keys = new Set(); const ids = new Set();
+  for (const entry of contract.variants) {
+    const key = axes.map(axis => {
+      if (!contract.axes[axis].includes(entry[axis])) throw new Error(`Unknown ${family} ${axis}: ${entry[axis]}`);
+      return entry[axis];
+    }).join('/');
+    if (keys.has(key) || ids.has(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.id)) throw new Error(`Invalid ${family} variant: ${key}`);
+    keys.add(key); ids.add(entry.id);
+  }
+  const expected = axes.reduce((n, axis) => n * contract.axes[axis].length, 1);
+  if (keys.size !== expected) throw new Error(`Incomplete ${family} variant matrix.`);
+  if (!map.componentMappings.some(entry => entry.penpotName === family && ids.has(entry.penpotId) && entry.angularSelector === selector))
+    throw new Error(`Missing ${family} direct mapping.`);
+}
+if (alertContract.composition?.id !== map.componentMappings.find(entry => entry.penpotName === 'goodui.alert-composition.actions-dismissible')?.penpotId ||
+    alertContract.composition.owner !== 'good-alert') throw new Error('Alert action composition is not mapped.');
 if (selectVariants.family !== 'goodui.select' || selectVariants.selector !== 'good-select' || selectVariants.page !== '17 Selects' || !selectVariants.containerId) throw new Error('Invalid Select registry.');
 if (selectVariants.country?.family !== 'goodui.select-country' || selectVariants.country?.selector !== 'good-select-country' || !selectVariants.country.containerId) throw new Error('Invalid Country Select registry.');
 const checkSelectVariants = (entries, sizes, states, name) => {
@@ -61,7 +85,8 @@ for (const family of pending) {
   const path = pendingContracts[family];
   if (!path?.startsWith('design/') || !path.endsWith('.json')) throw new Error(`Missing pending design contract: ${family}`);
   const contract = JSON.parse(readFileSync(resolve(root, path), 'utf8'));
-  if (contract.family !== `goodui.${family}` || contract.selector !== `good-${family}` || contract.penpotStatus !== 'pending-plugin-connection' || contract.publishedIds?.length) {
+  if (contract.family !== `goodui.${family}` || contract.selector !== `good-${family}` ||
+      !['pending-plugin-connection', 'pending-variant-publication'].includes(contract.penpotStatus) || contract.publishedIds?.length) {
     throw new Error(`Invalid pending design contract: ${family}`);
   }
 }
@@ -298,11 +323,11 @@ checkMatrix(breadcrumbsVariants.variants, [
 ], breadcrumbExpected, 'Breadcrumbs', new Set());
 if (badgeVariants.family !== 'goodui.badge' || badgeVariants.selector !== 'good-badge' || !badgeVariants.containerId || badgeVariants.page !== '05 Badges') throw new Error('Badge variants must map to good-badge on 05 Badges.');
 const badgeExpected = [];
-for (const color of ['primary', 'secondary', 'destructive', 'warning', 'success', 'info', 'text']) for (const variant of ['solid', 'outline', 'light']) for (const shape of ['circle', 'square']) for (const size of ['small', 'default', 'large']) badgeExpected.push(`${color}/${variant}/${shape}/${size}`);
+for (const color of ['primary', 'secondary', 'destructive', 'warning', 'success', 'info', 'text']) for (const variant of ['solid', 'outline', 'light']) for (const shape of ['pill', 'square']) for (const size of ['small', 'default', 'large']) badgeExpected.push(`${color}/${variant}/${shape}/${size}`);
 checkMatrix(badgeVariants.variants, [
   ['color', ['primary', 'secondary', 'destructive', 'warning', 'success', 'info', 'text']],
   ['variant', ['solid', 'outline', 'light']],
-  ['shape', ['circle', 'square']],
+  ['shape', ['pill', 'square']],
   ['size', ['small', 'default', 'large']],
 ], badgeExpected, 'Badge', new Set());
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');

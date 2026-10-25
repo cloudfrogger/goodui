@@ -6,11 +6,12 @@ import { GoodSidebarContainerComponent } from './sidebar';
 import { GoodTopbarComponent, GoodTopbarMenuContainerComponent, GoodTopbarMobileMenuMode } from './topbar';
 import { GoodMainViewComponent } from './main-view';
 import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, GoodTopbarItem, GoodUser } from './models';
+import { GoodNotificationHostComponent } from './notification-host';
 
 @Component({
   selector: 'good-app-layout',
   standalone: true,
-  imports: [GoodSidebarContainerComponent, GoodTopbarComponent, GoodTopbarMenuContainerComponent, GoodMainViewComponent],
+  imports: [GoodSidebarContainerComponent, GoodTopbarComponent, GoodTopbarMenuContainerComponent, GoodMainViewComponent, GoodNotificationHostComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-sidebar-container class="good-desktop-sidebar" [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
@@ -29,6 +30,7 @@ import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodSidebarSection, G
       }
       <button type="button" class="good-drawer-close" aria-label="Close sidebar" (click)="closeDrawer()">Close</button>
     </dialog>
+    <good-notification-host />
   `,
   host: { class: 'good-app-layout' },
 })

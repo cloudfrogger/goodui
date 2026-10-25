@@ -24,7 +24,7 @@ import { GoodBadgeColor, GoodBadgeComponent, GoodBadgeSize, GoodMainViewComponen
       </section>
 
       <section class="showcase-section">
-        <div class="showcase-section-heading"><h2>Size, shape, and icon</h2><p>The circle shape is the default. Icons use Lucide Angular; custom icon data is accepted too.</p></div>
+        <div class="showcase-section-heading"><h2>Size, shape, and icon</h2><p>The pill shape is the default. Icons use Lucide Angular; custom icon data is accepted too.</p></div>
         <div class="showcase-badge-size-grid">
           @for (size of sizes; track size) {
             <div class="showcase-badge-size-row">
@@ -53,7 +53,7 @@ import { GoodBadgeColor, GoodBadgeComponent, GoodBadgeSize, GoodMainViewComponen
 })
 export class BadgesPageComponent {
   readonly colors: readonly GoodBadgeColor[] = ['primary', 'secondary', 'destructive', 'warning', 'success', 'info', 'text'];
-  readonly sizes: readonly GoodBadgeSize[] = ['small', 'default', 'large'];
+  readonly sizes: readonly GoodBadgeSize[] = ['small', 'medium', 'large'];
   readonly sparklesIcon = LucideSparkles;
   readonly tags = signal(['Design', 'Angular', 'Penpot']);
   readonly status = signal('Select a close button to remove a badge.');

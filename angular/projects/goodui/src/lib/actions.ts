@@ -3,6 +3,12 @@ import { RouterLink } from '@angular/router';
 import { GoodIconComponent } from './icon';
 import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodUser } from './models';
 import { GoodThemeService } from './theme';
+import { GoodAlertComponent } from './alert';
+import { GoodBadgeComponent } from './badge';
+import { GoodButtonComponent } from './button';
+import { GoodLinkComponent } from './link';
+import { GoodNotificationAction, GoodNotificationCenter, GoodNotificationEntry } from './notification-center';
+import { LucideInfo } from '@lucide/angular';
 
 @Component({
   selector: 'good-search',
@@ -40,19 +46,42 @@ export class GoodSearchComponent {
 @Component({
   selector: 'good-notifications',
   standalone: true,
-  imports: [GoodIconComponent, RouterLink],
+  imports: [GoodIconComponent, RouterLink, GoodAlertComponent, GoodBadgeComponent, GoodButtonComponent, GoodLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button #trigger type="button" class="good-action-button" aria-label="Notifications" (click)="open()">
-      <good-icon name="bell" />@if (unreadCount()) { <span class="good-notification-dot"></span> }
+    <button #trigger type="button" class="good-action-button" [attr.aria-label]="unreadCount() ? 'Notifications, ' + unreadCount() + ' unread' : 'Notifications'" (click)="open()">
+      <good-icon name="bell" />@if (unreadCount()) {
+        <good-badge class="good-notification-count" color="destructive" size="small" [label]="displayCount()" aria-hidden="true" />
+      }
     </button>
-    <dialog #dialog class="good-notifications-dialog" aria-label="Notifications" (keydown.escape)="close()" (close)="trigger.focus()">
+    <dialog #dialog class="good-notifications-dialog" aria-label="Notifications" (keydown.escape)="close()" (close)="trigger.focus()" (click)="onDialogClick($event)">
       <div class="good-dialog-heading"><strong>Notifications</strong><button type="button" class="good-action-button" aria-label="Close" (click)="close()"><good-icon name="close" /></button></div>
       <div class="good-notifications-list">
+        @for (item of center.inbox(); track item.id) {
+          <div class="good-notification-entry" [attr.data-read]="item.read">
+            <good-alert [tone]="item.tone" [appearance]="item.appearance" size="small"
+              [title]="item.title" [message]="item.message ?? ''" [icon]="item.icon ?? infoIcon"
+              [dismissible]="true" closeLabel="Remove notification" (closed)="center.remove(item.id)">
+              <div goodAlertActions>
+                @for (action of item.actions ?? []; track action.label) {
+                  @if (action.route) { <good-link [route]="action.route" (click)="activate(item, action)">{{ action.label }}</good-link> }
+                  @else { <good-button size="small" variant="secondary" (click)="activate(item, action)">{{ action.label }}</good-button> }
+                }
+                @if (item.requireAcknowledgement && !item.read) {
+                  <good-button size="small" (click)="center.acknowledge(item.id)">Acknowledge</good-button>
+                }
+                @else if (!item.read) {
+                  <good-button size="small" variant="ghost" (click)="center.markRead(item.id)">Mark as read</good-button>
+                }
+              </div>
+            </good-alert>
+          </div>
+        }
         @for (item of items(); track item.id) {
           @if (item.route) { <a class="good-notification-item" [routerLink]="item.route" (click)="close()"><strong>{{ item.title }}</strong><span>{{ item.description }}</span><small>{{ item.time }}</small></a> }
           @else { <div class="good-notification-item"><strong>{{ item.title }}</strong><span>{{ item.description }}</span><small>{{ item.time }}</small></div> }
-        } @empty { <p class="good-empty-state">No notifications</p> }
+        }
+        @if (!items().length && !center.inbox().length) { <p class="good-empty-state">No new messages</p> }
       </div>
     </dialog>
   `,
@@ -60,10 +89,24 @@ export class GoodSearchComponent {
 })
 export class GoodNotificationsComponent {
   readonly items = input<readonly GoodNotification[]>([]);
-  readonly unreadCount = computed(() => this.items().filter(item => !item.read).length);
+  readonly center = inject(GoodNotificationCenter);
+  readonly infoIcon = LucideInfo;
+  readonly unreadCount = computed(() => this.items().filter(item => !item.read).length + this.center.unreadCount());
+  readonly displayCount = computed(() => this.unreadCount() > 99 ? '99+' : String(this.unreadCount()));
   private readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
   open(): void { this.dialog().nativeElement.showModal(); }
   close(): void { this.dialog().nativeElement.close(); }
+  onDialogClick(event: MouseEvent): void {
+    const dialog = this.dialog().nativeElement;
+    if (event.target !== dialog) return;
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) this.close();
+  }
+  activate(item: GoodNotificationEntry, action: GoodNotificationAction): void {
+    action.run?.();
+    this.center.acknowledge(item.id);
+    if (action.route) this.close();
+  }
 }
 
 @Component({
