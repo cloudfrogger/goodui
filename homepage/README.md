@@ -11,6 +11,14 @@ AI agents write great code, but they often guess at the UI. GoodUI gives them a 
 
 Explore the [live site](https://goodui.cloudfrogger.com/) or the [source documentation](../guides/README.md).
 
+You can also run the demos locally with the container image:
+
+```bash
+docker run --rm -p 127.0.0.1:8080:8080 cloudfrogger/goodui:latest
+```
+
+Open `http://127.0.0.1:8080/` in your browser.
+
 ## Use the library
 
 The package is currently built from this repository. To add it to an existing Angular project, build the library and install the resulting local package:
