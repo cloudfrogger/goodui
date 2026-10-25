@@ -53,6 +53,7 @@ GoodUI is intended to be a generic, reusable UI framework. Review every componen
 - Inspect actual Penpot instances and rendered/exported states. Report status and limitations accurately.
 - After changing tokens, check light and dark themes, nested shell exports, and text contrast. Leave Penpot on light and the `02 Layout` page.
 - Refresh `design-tokens/penpot.tokens.json` from the Penpot token export after token edits, run `npm run tokens:generate` and `npm run tokens:check`, and verify the snapshot against the live Penpot catalog. Do not hand-edit `tokens.generated.css` or claim live synchronization.
+- At the end of every completed change, export the entire GoodUI Penpot file as a native `.penpot` archive with shared libraries and save it as `design/penpot/goodui.penpot` through `npm run penpot:save`. Run `npm run penpot:check` and include the snapshot with the next user-approved commit. Token JSON and page images are not substitutes. The Penpot 2.17 plugin `File.export()` currently fails (issue #11554), so use the Penpot UI export until fixed. If export access is unavailable, report the missing snapshot explicitly rather than claiming it was refreshed. Follow `design/penpot/README.md`.
 
 ## Reference material
 

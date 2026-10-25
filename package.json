@@ -6,6 +6,8 @@
     "check:mapping": "node scripts/check-component-map.mjs",
     "tokens:generate": "node scripts/generate-tokens.mjs",
     "tokens:check": "node scripts/generate-tokens.mjs --check",
+    "penpot:save": "node scripts/save-penpot-export.mjs",
+    "penpot:check": "node scripts/save-penpot-export.mjs --check",
     "brand:sync": "node scripts/sync-homepage-brand.mjs",
     "setup": "npm --prefix angular ci --legacy-peer-deps && npm run build:lib && npm --prefix homepage ci --legacy-peer-deps && npm run link:homepage",
     "build:lib": "npm --prefix angular run build:lib",
