@@ -68,6 +68,7 @@ export class App {
       { id: 'ratings', label: 'Ratings', icon: 'star', route: '/components/ratings' },
       { id: 'tables', label: 'Tables', icon: 'grid', route: '/components/tables' },
       { id: 'cards', label: 'Cards', icon: 'card', route: '/components/cards' },
+      { id: 'groups', label: 'Groups', icon: 'grid', route: '/components/groups' },
       { id: 'links', label: 'Links', icon: 'globe', route: '/components/links' },
       { id: 'code-blocks', label: 'Code blocks', icon: 'book', route: '/components/code-blocks' },
       { id: 'modals', label: 'Modals', icon: 'grid', route: '/components/modals' },
@@ -83,7 +84,8 @@ export class App {
       { id: 'topbar-menu', label: 'Topbar menu', icon: 'menu', route: '/components/topbar-menu' },
       { id: 'topbar-submenu', label: 'Topbar submenu', icon: 'chevron-right', route: '/components/topbar-submenu' },
     ] },
-    { id: 'user', heading: 'USER', items: [
+    { id: 'examples', heading: 'EXAMPLES', items: [
+      { id: 'user-registration', label: 'User registration', icon: 'account', route: '/examples/user-registration' },
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
       { id: 'account', label: 'My Account', icon: 'settings', children: [
         { id: 'account-home', label: 'Account Home', children: [
@@ -144,6 +146,7 @@ export class App {
     { id: 'ratings', label: 'Ratings', description: 'Selectable and display-only scores', route: '/components/ratings' },
     { id: 'tables', label: 'Tables', description: 'Search, sorting, rich cells, and pagination', route: '/components/tables' },
     { id: 'cards', label: 'Cards', description: 'Headers, actions, images, and footers', route: '/components/cards' },
+    { id: 'groups', label: 'Groups', description: 'Lightweight content groups and responsive field rows', route: '/components/groups' },
     { id: 'links', label: 'Links', description: 'Underlines, styles, and mono appearance', route: '/components/links' },
     { id: 'code-blocks', label: 'Code blocks', description: 'Highlighted source, copy, and expandable previews', route: '/components/code-blocks' },
     { id: 'modals', label: 'Modals', description: 'Focused dialogs, flexible layouts, and nested flows', route: '/components/modals' },
@@ -158,6 +161,7 @@ export class App {
     { id: 'topbar-menu', label: 'Topbar menu', description: 'Responsive navigation and mobile popup', route: '/components/topbar-menu' },
     { id: 'topbar-submenu', label: 'Topbar submenu', description: 'Nested navigation and keyboard behavior', route: '/components/topbar-submenu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
+    { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },
     { id: 'profile', label: 'User Profile', description: 'Personal information', route: '/account/home/user-profile' },
     { id: 'network', label: 'Network', description: 'Kontakte', route: '/network' },

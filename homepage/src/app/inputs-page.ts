@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, LucideSearch, LucideShieldCheck } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodErrorTextComponent, GoodHintComponent, GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, LucideSearch, LucideShieldCheck } from '@goodui/angular';
 
 @Component({
   selector: 'app-inputs-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodInputComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodInputComponent, GoodHintComponent, GoodErrorTextComponent, GoodCodeBlockComponent, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Inputs" description="Text and file controls with shared sizes, themes, and states.">
@@ -44,6 +44,23 @@ import { GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, L
         </div>
         <p class="showcase-button-feedback" role="status">{{ chosenFiles() }}</p>
       </section>
+      <section class="showcase-section" aria-labelledby="input-password-title">
+        <div class="showcase-section-heading"><h2 id="input-password-title">Password inputs</h2><p>Use the native password type to mask characters. Compare two values in your form logic.</p></div>
+        <div class="showcase-input-grid">
+          <good-input label="Password" [showLabel]="true" type="password" autocomplete="new-password"
+            placeholder="Enter a password" [(value)]="password" />
+          <good-input label="Confirm password" [showLabel]="true" type="password" autocomplete="new-password"
+            placeholder="Enter it again" [(value)]="passwordConfirmation"
+            [error]="passwordMismatch()" describedBy="input-password-mismatch" />
+        </div>
+        @if (passwordMismatch()) {
+          <good-error-text id="input-password-mismatch">Passwords must match.</good-error-text>
+        } @else {
+          <good-hint>Both fields keep the entered characters hidden.</good-hint>
+        }
+        <good-code-block [code]="passwordTemplateCode" language="html" title="Password fields · Angular template" />
+        <good-code-block [code]="passwordLogicCode" language="typescript" title="Password comparison · component class" />
+      </section>
       <section class="showcase-section" aria-labelledby="input-form-title">
         <div class="showcase-section-heading"><h2 id="input-form-title">Angular form control</h2><p>The text input implements ControlValueAccessor.</p></div>
         <div class="showcase-input-grid"><good-input label="Workspace name" [showLabel]="true" [formControl]="workspaceName" /></div>
@@ -57,6 +74,24 @@ export class InputsPageComponent {
   readonly mailIcon = LucideMail;
   readonly verifiedIcon = LucideShieldCheck;
   readonly chosenFiles = signal('No files selected');
+  readonly password = signal('');
+  readonly passwordConfirmation = signal('');
+  readonly passwordMismatch = computed(() => !!this.passwordConfirmation() && this.password() !== this.passwordConfirmation());
+  readonly passwordTemplateCode = `<good-input label="Password" [showLabel]="true" type="password"
+  autocomplete="new-password" [(value)]="password" />
+<good-input label="Confirm password" [showLabel]="true" type="password"
+  autocomplete="new-password" [(value)]="passwordConfirmation"
+  [error]="passwordMismatch()" describedBy="password-error" />
+@if (passwordMismatch()) {
+  <good-error-text id="password-error">Passwords must match.</good-error-text>
+}`;
+  readonly passwordLogicCode = `import { computed, signal } from '@angular/core';
+
+readonly password = signal('');
+readonly passwordConfirmation = signal('');
+readonly passwordMismatch = computed(() =>
+  !!this.passwordConfirmation() && this.password() !== this.passwordConfirmation()
+);`;
   readonly workspaceName = new FormControl('GoodUI homepage', { nonNullable: true });
 
   onFiles(files: FileList | null): void {

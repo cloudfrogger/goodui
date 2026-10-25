@@ -1,0 +1,103 @@
+<form goodForm layout="vertical" [fullWidth]="true" [formGroup]="form" (ngSubmit)="createUser()" novalidate>
+  <good-group title="Personal details" [headingLevel]="2">
+    <good-radio-group label="Title" orientation="horizontal" [options]="salutations"
+      formControlName="salutation" />
+    <good-form-row [columns]="3">
+      <good-form-field [required]="true">
+        <good-field-label forId="registration-first-name">First name</good-field-label>
+        <good-input inputId="registration-first-name" label="First name" autocomplete="given-name"
+          formControlName="firstName" [error]="isInvalid('firstName')" />
+        @if (isInvalid('firstName')) { <good-error-text>Enter your first name.</good-error-text> }
+      </good-form-field>
+      <good-form-field>
+        <good-field-label forId="registration-middle-name">Middle name</good-field-label>
+        <good-input inputId="registration-middle-name" label="Middle name" autocomplete="additional-name"
+          formControlName="middleName" />
+      </good-form-field>
+      <good-form-field [required]="true">
+        <good-field-label forId="registration-last-name">Last name</good-field-label>
+        <good-input inputId="registration-last-name" label="Last name" autocomplete="family-name"
+          formControlName="lastName" [error]="isInvalid('lastName')" />
+        @if (isInvalid('lastName')) { <good-error-text>Enter your last name.</good-error-text> }
+      </good-form-field>
+    </good-form-row>
+  </good-group>
+  <good-group title="Address" [headingLevel]="2">
+    <good-form-field [required]="true">
+      <good-field-label forId="registration-street">Street address</good-field-label>
+      <good-input inputId="registration-street" label="Street address" autocomplete="street-address"
+        formControlName="streetAddress" [error]="isInvalid('streetAddress')" />
+      @if (isInvalid('streetAddress')) { <good-error-text>Enter your street address.</good-error-text> }
+    </good-form-field>
+    <good-form-row [columns]="3">
+      <good-form-field [required]="true">
+        <good-field-label forId="registration-postal-code">Postal code</good-field-label>
+        <good-input inputId="registration-postal-code" label="Postal code" autocomplete="postal-code"
+          formControlName="postalCode" [error]="isInvalid('postalCode')" />
+        @if (isInvalid('postalCode')) { <good-error-text>Enter your postal code.</good-error-text> }
+      </good-form-field>
+      <good-form-field [required]="true">
+        <good-field-label forId="registration-city">City</good-field-label>
+        <good-input inputId="registration-city" label="City" autocomplete="address-level2"
+          formControlName="city" [error]="isInvalid('city')" />
+        @if (isInvalid('city')) { <good-error-text>Enter your city.</good-error-text> }
+      </good-form-field>
+      <good-form-field>
+        <good-select-country label="Country" [showLabel]="true" [required]="true"
+          formControlName="country" [error]="isInvalid('country')" />
+        @if (isInvalid('country')) { <good-error-text>Select a country.</good-error-text> }
+      </good-form-field>
+    </good-form-row>
+  </good-group>
+  <good-group title="Contact details" appearance="contrast" [headingLevel]="2">
+    <good-form-row>
+      <good-form-field>
+        <good-field-label forId="registration-phone">Phone number</good-field-label>
+        <good-input-phone inputId="registration-phone" label="Phone number" formControlName="phone"
+          [country]="form.controls.country.value" [error]="isInvalid('phone')" />
+        <good-hint>Optional landline number.</good-hint>
+      </good-form-field>
+      <good-form-field [required]="true">
+        <good-field-label forId="registration-mobile">Mobile number</good-field-label>
+        <good-input-phone inputId="registration-mobile" label="Mobile number" formControlName="mobile"
+          [country]="form.controls.country.value" [error]="isInvalid('mobile')" />
+        @if (isInvalid('mobile')) { <good-error-text>Enter a mobile number.</good-error-text> }
+      </good-form-field>
+    </good-form-row>
+    <good-form-field [required]="true">
+      <good-field-label forId="registration-email">Email address</good-field-label>
+      <good-input inputId="registration-email" label="Email address" type="email" autocomplete="email"
+        formControlName="email" [error]="isInvalid('email')" />
+      @if (isInvalid('email')) { <good-error-text>Enter a valid email address.</good-error-text> }
+    </good-form-field>
+  </good-group>
+  <good-group title="Account security" [headingLevel]="2">
+    <good-form-row>
+      <good-form-field [required]="true">
+        <good-field-label forId="registration-password">Password</good-field-label>
+        <good-input inputId="registration-password" label="Password" type="password" autocomplete="new-password"
+          formControlName="password" [error]="isInvalid('password')" />
+        @if (isInvalid('password')) { <good-error-text>Enter a password.</good-error-text> }
+      </good-form-field>
+      <good-form-field [required]="true">
+        <good-field-label forId="registration-confirm-password">Confirm password</good-field-label>
+        <good-input inputId="registration-confirm-password" label="Confirm password" type="password"
+          autocomplete="new-password" formControlName="confirmPassword"
+          [error]="isInvalid('confirmPassword') || confirmationMismatch()" />
+        @if (confirmationMismatch()) { <good-error-text>Passwords must match.</good-error-text> }
+        @else if (isInvalid('confirmPassword')) { <good-error-text>Confirm your password.</good-error-text> }
+      </good-form-field>
+    </good-form-row>
+  </good-group>
+  <good-action-group><good-button type="submit">Create user</good-button></good-action-group>
+  @if (submitted() && form.invalid) {
+    <good-error-text>Review the highlighted fields before creating a user.</good-error-text>
+  }
+</form>
+@if (createdUser(); as user) {
+  <good-card>
+    <good-card-header title="User created in this demo" />
+    <good-paragraph>{{ user.name }} · {{ user.email }}</good-paragraph>
+    <good-hint>This example validates locally and does not save the user to a server.</good-hint>
+  </good-card>
+}
