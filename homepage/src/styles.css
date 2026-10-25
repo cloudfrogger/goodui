@@ -18,11 +18,6 @@ body { margin: 0; }
 @media (max-width: 900px) { .showcase-typography-recipe { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 760px) { .showcase-typography-heading-examples { grid-template-columns: 1fr; } }
 
-.homepage-guide { display: grid; gap: 24px; width: min(100%, 980px); }
-.homepage-prose { display: grid; gap: 16px; line-height: 1.7; }
-.homepage-prose p { margin: 0; }
-.homepage-prose code { overflow-wrap: anywhere; font-size: .92em; }
-.homepage-prose good-code-block { display: block; min-width: 0; }
 
 .foundation-color-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--good-space-3); min-width: 0; }
 .foundation-color-row { display: flex; align-items: flex-start; gap: var(--good-space-3); min-width: 0; padding: var(--good-space-3); border: 1px solid var(--good-color-border); border-radius: var(--good-radius-card); background: var(--good-color-surface); }

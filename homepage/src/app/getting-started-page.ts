@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent } from '@goodui/angular';
+import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, type GoodBreadcrumbItem } from '@goodui/angular';
 
 @Component({
   selector: 'app-introduction-page',
@@ -13,20 +13,29 @@ export class IntroductionPageComponent {}
 @Component({
   selector: 'app-designing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/designing.html',
 })
-export class DesigningPageComponent {}
+export class DesigningPageComponent {
+  readonly breadcrumbs: readonly GoodBreadcrumbItem[] = [
+    { label: 'Getting Started', route: '/getting-started/introduction' },
+    { label: 'Designing' },
+  ];
+}
 
 @Component({
   selector: 'app-developing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent, GoodSubheadingComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/developing.html',
 })
 export class DevelopingPageComponent {
+  readonly breadcrumbs: readonly GoodBreadcrumbItem[] = [
+    { label: 'Getting Started', route: '/getting-started/introduction' },
+    { label: 'Developing' },
+  ];
   readonly setupCode = `git clone https://github.com/cloudfrogger/goodui.git
 cd goodui
 npm --prefix angular ci --legacy-peer-deps

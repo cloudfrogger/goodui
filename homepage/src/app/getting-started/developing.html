@@ -1,41 +1,38 @@
-<good-main-view title="Developing" description="Getting Started with GoodUI">
-  <div class="homepage-guide">
-    <good-card>
-      <good-card-header title="Install and style GoodUI" />
-      <div class="homepage-prose">
-        <p>GoodUI currently ships as a locally built package and targets Angular 21.2. You need Node.js 20.19 or newer. From a directory where you want both projects, build GoodUI and create an Angular app:</p>
-        <good-code-block [code]="setupCode" language="bash" title="terminal" />
-        <p>Add the compiled GoodUI stylesheet to <code>src/styles.css</code>:</p>
-        <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
-      </div>
-    </good-card>
-    <good-card>
-      <good-card-header title="Initialize GoodUI services" />
-      <div class="homepage-prose">
-        <p>Add <code>provideGoodUI()</code> once to your root <code>app.config.ts</code>, alongside Angular Router. This is the shared provider entry point for GoodUI services, including notifications and theme handling. Components and services can then use Angular's <code>inject()</code> normally.</p>
-        <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />
-        <p>The notification service is <code>GoodNotificationCenter</code>. Its <code>publish()</code> method accepts <code>persist: false</code> for a toast that must not enter notification history. You can turn history off by default in the provider options:</p>
-        <good-code-block [code]="providerOptionsCode" language="typescript" title="Optional app default" />
-        <p>A message's own <code>persist</code> value takes precedence. Inbox-only messages always appear in the panel.</p>
-      </div>
-    </good-card>
-    <good-card>
-      <good-card-header title="Render your first page" />
-      <div class="homepage-prose">
-        <p>Replace <code>src/app/app.ts</code> with a small page:</p>
-        <good-code-block [code]="helloCode" language="typescript" title="src/app/app.ts" />
-        <p>The <code>--routing</code> option creates the router configuration required by <code>good-app-layout</code>. Start the app with <code>npm start</code> and open <code>http://localhost:4200/</code>. GoodUI's compiled CSS works without Tailwind in the consuming app.</p>
-      </div>
-    </good-card>
-    <good-card>
-      <good-card-header title="Add GoodUI to an existing Angular app" />
-      <div class="homepage-prose">
-        <p>Build GoodUI with the first four commands above. In your Angular 21.2 project, run <code>npm install /path/to/goodui/angular/dist/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</p>
-        <p>Add <code>provideGoodUI()</code> to your existing root providers and keep <code>provideRouter(routes)</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</p>
-        <p>To run this repository's website and component examples:</p>
-        <good-code-block [code]="homepageCode" language="bash" title="terminal" />
-        <p>Open <code>http://localhost:4200/</code>. Explore the <good-link href="https://github.com/cloudfrogger/goodui/tree/master/guides" target="_blank">component and layout guides</good-link> for more examples.</p>
-      </div>
-    </good-card>
-  </div>
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-breadcrumbs [items]="breadcrumbs" />
+
+      <good-heading-group>
+        <good-eyebrow>Getting started</good-eyebrow>
+        <good-heading [level]="1">Developing</good-heading>
+        <good-summary>Get started with developing using GoodUI in Angular.</good-summary>
+      </good-heading-group>
+
+      <good-subheading>Install and style GoodUI</good-subheading>
+      <good-paragraph>GoodUI currently ships as a locally built package and targets Angular 21.2. You need Node.js 20.19 or newer. From a directory where you want both projects, build GoodUI and create an Angular app:</good-paragraph>
+      <good-code-block [code]="setupCode" language="bash" title="terminal" />
+      <good-paragraph>Add the compiled GoodUI stylesheet to <code>src/styles.css</code>:</good-paragraph>
+      <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
+
+      <good-subheading>Initialize GoodUI services</good-subheading>
+      <good-paragraph>Add <code>provideGoodUI()</code> once to your root <code>app.config.ts</code>, alongside Angular Router. This is the shared provider entry point for GoodUI services, including notifications and theme handling. Components and services can then use Angular's <code>inject()</code> normally.</good-paragraph>
+      <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />
+      <good-paragraph>The notification service is <code>GoodNotificationCenter</code>. Its <code>publish()</code> method accepts <code>persist: false</code> for a toast that must not enter notification history. You can turn history off by default in the provider options:</good-paragraph>
+      <good-code-block [code]="providerOptionsCode" language="typescript" title="Optional app default" />
+      <good-paragraph>A message's own <code>persist</code> value takes precedence. Inbox-only messages always appear in the panel.</good-paragraph>
+
+      <good-subheading>Render your first page</good-subheading>
+      <good-paragraph>Replace <code>src/app/app.ts</code> with a small page:</good-paragraph>
+      <good-code-block [code]="helloCode" language="typescript" title="src/app/app.ts" />
+      <good-paragraph>The <code>--routing</code> option creates the router configuration required by <code>good-app-layout</code>. Start the app with <code>npm start</code> and open <code>http://localhost:4200/</code>. GoodUI's compiled CSS works without Tailwind in the consuming app.</good-paragraph>
+
+      <good-subheading>Add GoodUI to an existing Angular app</good-subheading>
+      <good-paragraph>Build GoodUI with the first four commands above. In your Angular 21.2 project, run <code>npm install /path/to/goodui/angular/dist/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</good-paragraph>
+      <good-paragraph>Add <code>provideGoodUI()</code> to your existing root providers and keep <code>provideRouter(routes)</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</good-paragraph>
+      <good-paragraph>To run this repository's website and component examples:</good-paragraph>
+      <good-code-block [code]="homepageCode" language="bash" title="terminal" />
+      <good-paragraph>Open <code>http://localhost:4200/</code>. Explore the <good-link href="https://github.com/cloudfrogger/goodui/tree/master/guides" target="_blank">component and layout guides</good-link> for more examples.</good-paragraph>
+    </good-prose>
+  </good-section>
 </good-main-view>
