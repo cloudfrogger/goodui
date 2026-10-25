@@ -355,7 +355,7 @@ export class GoodTopbarMenuContainerComponent {
       @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" [mobileMode]="mobileMenuMode()" /> }
       <ng-content select="good-topbar-menu-container" />
     </div>
-    @if (!projectedMainMenu()) { <good-main-menu [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" /> }
+    @if (!projectedMainMenu()) { <good-main-menu [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()" /> }
     <ng-content select="good-main-menu" />
   `,
   host: { class: 'good-topbar', '[attr.data-mobile-menu]': 'mobileMenuMode()' },
@@ -372,6 +372,8 @@ export class GoodTopbarComponent {
   readonly notifications = input<readonly GoodNotification[]>([]);
   readonly searchItems = input<readonly GoodSearchItem[]>([]);
   readonly settingsActions = input<readonly GoodMenuAction[]>([]);
+  readonly showThemeToggle = input(true);
+  readonly showSettings = input(false);
   readonly avatarActions = input<readonly GoodMenuAction[]>([]);
   readonly menuToggle = output<void>();
   readonly projectedMenu = contentChild(GoodTopbarMenuContainerComponent);

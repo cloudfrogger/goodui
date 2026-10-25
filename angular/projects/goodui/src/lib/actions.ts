@@ -122,6 +122,22 @@ export class GoodNotificationsComponent {
 }
 
 @Component({
+  selector: 'good-theme-toggle',
+  standalone: true,
+  imports: [GoodIconComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `<button type="button" class="good-action-button" [attr.aria-label]="label()" [attr.title]="label()" (click)="theme.cycle()">
+    <good-icon [name]="icon()" />
+  </button>`,
+  host: { class: 'good-theme-toggle' },
+})
+export class GoodThemeToggleComponent {
+  readonly theme = inject(GoodThemeService);
+  readonly icon = computed(() => ({ light: 'sun', system: 'monitor', dark: 'moon' } as const)[this.theme.preference()]);
+  readonly label = computed(() => `Appearance: ${this.theme.preference()}. Switch to ${{ light: 'system', system: 'dark', dark: 'light' }[this.theme.preference()]} mode`);
+}
+
+@Component({
   selector: 'good-settings',
   standalone: true,
   imports: [GoodIconComponent, RouterLink],
@@ -134,7 +150,6 @@ export class GoodNotificationsComponent {
         @if (action.route) { <a role="menuitem" [routerLink]="action.route" (click)="open.set(false)">{{ action.label }}</a> }
         @else { <button role="menuitem" type="button" (click)="run(action)">{{ action.label }}</button> }
       }
-      <button role="menuitem" type="button" (click)="theme.toggle(); closeMenu()">Appearance: {{ theme.theme() === 'light' ? 'Dark' : 'Light' }}</button>
     </div> }
   `,
   host: { class: 'good-settings' },
@@ -142,7 +157,6 @@ export class GoodNotificationsComponent {
 export class GoodSettingsComponent {
   readonly actions = input<readonly GoodMenuAction[]>([]);
   readonly open = signal(false);
-  readonly theme = inject(GoodThemeService);
   private readonly element: ElementRef<HTMLElement> = inject(ElementRef);
 
   toggleMenu(): void {
@@ -241,7 +255,7 @@ export class GoodAvatarMenuItemComponent {
         @if (action.variant !== 'sign-out') { <good-avatar-menu-item [action]="action" [path]="action.id" (closed)="closeMenu()" /> }
       }
       <span class="good-avatar-separator" role="separator"></span>
-      <label class="good-avatar-theme-row"><span>Dark Mode</span><input type="checkbox" role="switch" [checked]="theme.theme() === 'dark'" (change)="theme.toggle()" /><span class="good-avatar-switch" aria-hidden="true"></span></label>
+      <label class="good-avatar-theme-row"><span>Dark Mode</span><input type="checkbox" role="switch" [checked]="theme.preference() === 'dark'" (change)="theme.setTheme($any($event.target).checked ? 'dark' : 'light')" /><span class="good-avatar-switch" aria-hidden="true"></span></label>
       @for (action of actions(); track action.id) {
         @if (action.variant === 'sign-out') { <good-avatar-menu-item [action]="action" [path]="action.id" (closed)="closeMenu()" /> }
       }
@@ -270,11 +284,12 @@ export class GoodAvatarMenuComponent {
 @Component({
   selector: 'good-main-menu',
   standalone: true,
-  imports: [GoodSearchComponent, GoodNotificationsComponent, GoodSettingsComponent, GoodAvatarMenuComponent],
+  imports: [GoodSearchComponent, GoodNotificationsComponent, GoodThemeToggleComponent, GoodSettingsComponent, GoodAvatarMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (showSearch()) { <good-search [items]="searchItems()" /> }
     @if (showNotifications()) { <good-notifications [items]="notifications()" /> }
+    @if (showThemeToggle()) { <good-theme-toggle /> }
     @if (showSettings()) { <good-settings [actions]="settingsActions()" /> }
     @if (showAvatar()) { <good-avatar-menu [user]="user()" [actions]="avatarActions()" /> }
   `,
@@ -288,6 +303,7 @@ export class GoodMainMenuComponent {
   readonly avatarActions = input<readonly GoodMenuAction[]>([]);
   readonly showSearch = input(true);
   readonly showNotifications = input(true);
-  readonly showSettings = input(true);
+  readonly showThemeToggle = input(true);
+  readonly showSettings = input(false);
   readonly showAvatar = input(true);
 }

@@ -2,6 +2,8 @@
 
 **Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.
 
+The optional [Theme toggle](./theme-toggle.md) in MainMenu changes appearance with one click and no submenu.
+
 The topbar places an optional brand icon and navigation on the left, with [MainMenu](./main-menu.md) on the right. It is 70 px tall on desktop with 30 px horizontal padding. On mobile, a drawer trigger appears. The default `hidden` mode places navigation in the AppLayout drawer; `popup` mode replaces the horizontal row with a topbar icon that opens a separate navigation popup. Penpot contains default, `with-brand`, mobile, mobile icon, and mobile popup states.
 
 On mobile, `brandLogoSrc` and optional `brandLogoDarkSrc` display the application wordmark; `brand` supplies its accessible name. With no logo URL, the mobile topbar displays the brand text. `good-app-layout` forwards these inputs from one place to the topbar and both sidebar presentations.

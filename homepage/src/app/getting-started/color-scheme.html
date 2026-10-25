@@ -7,11 +7,11 @@
         <code>layout-dark</code> set overrides colors that need a different value in dark mode. Components refer to
         semantic roles such as <code>color.brand</code> or <code>color.error</code>, so changing a role updates its
         linked uses.</good-paragraph>
-      <good-paragraph>The swatches below read the active CSS variables. Use the button to switch themes; the values
+      <good-paragraph>The swatches below read the active CSS variables. Use the button to cycle Light, System, and Dark; the values
         also respond to color overrides in a consuming app.</good-paragraph>
     </good-prose>
-    <good-button variant="secondary" size="small" (click)="theme.toggle()">
-      Switch to {{ theme.theme() === 'dark' ? 'light' : 'dark' }} theme
+    <good-button variant="secondary" size="small" (click)="theme.cycle()">
+      Appearance: {{ theme.preference() }}
     </good-button>
   </good-section>
 
@@ -62,7 +62,7 @@
         component colors, such as the primary Button hover color, can be overridden separately.</good-paragraph>
       <good-code-block [code]="overridesCode" language="css" title="styles.css" />
       <good-paragraph><code>GoodThemeService</code> selects the appearance. It uses a saved choice first and the
-        system preference when there is no saved choice. Calling <code>setTheme</code> stores the new choice.</good-paragraph>
+        system preference when there is no saved choice. Calling <code>setTheme('light' | 'system' | 'dark')</code> stores the new choice; System follows operating system changes.</good-paragraph>
       <good-code-block [code]="themeCode" language="typescript" title="Theme selection" />
     </good-prose>
   </good-section>

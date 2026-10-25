@@ -6,7 +6,7 @@ The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`. Ref
 
 1. Read `design.md` and the affected component guide. Inspect the GoodUI Penpot components and rendered homepage for visual questions.
 2. Find the Penpot main component through MCP. Preserve its shape and library IDs; keep children as actual component instances.
-3. Export and visually inspect desktop, mobile, and open states. Check the four topbar actions and their panels individually.
+3. Export and visually inspect desktop, mobile, and open states. Check the four default topbar actions individually; verify all three ThemeToggle icons and the optional Settings panel.
 4. Keep the Penpot mapping and homepage API examples in sync.
 5. Run `npm run build:homepage`. Check shell, menus, and drawer on desktop and mobile, including keyboard and screen reader behavior.
 
@@ -51,6 +51,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components` through 
 | `goodui.topbar.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb522ee751` |
 | `goodui.app-layout.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb84e00368` |
 | `goodui.main-menu.default` | `521fe58c-da62-80e2-8008-d33f6619a524` |
+| `goodui.theme-toggle.light` / `.system` / `.dark` | `f52a309e-8b45-80e4-8008-d86c7ab97196` / `f52a309e-8b45-80e4-8008-d86c7bab8421` / `f52a309e-8b45-80e4-8008-d86c7c8f020f` |
 | `goodui.search.default` / `.open` | `521fe58c-da62-80e2-8008-d33f6563524e` / `521fe58c-da62-80e2-8008-d33ffe1c4f79` |
 | `goodui.notifications.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65811a2c` / `521fe58c-da62-80e2-8008-d33fff9a20ba` |
 | `goodui.notifications.unread` | `5fd6a355-e255-80dc-8008-d81d121a0160` (linked bell and destructive Badge with 16 px `notification.count.*` overrides) |

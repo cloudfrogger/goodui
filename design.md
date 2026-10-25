@@ -70,7 +70,8 @@ AppLayout
    │  └─ MainMenu
    │     ├─ Search
    │     ├─ Notifications
-   │     ├─ Settings
+   │     ├─ ThemeToggle (optional; direct Light → System → Dark cycle)
+   │     ├─ Settings (optional menu)
    │     └─ AvatarMenu
    │        ├─ identity (avatar, name, email, optional badge)
    │        ├─ AvatarMenuItem (repeatable link or parent)
@@ -363,7 +364,7 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 - The mobile sidebar opens from the topbar trigger and closes through the scrim or Escape. Desktop sidebar collapse exists as a design variant but is not yet exposed as an Angular API state.
 - `MainView` accepts page content without imposing a card layout. The heading and actions are optional; content grows and scrolls.
 - `Subnav` owns its horizontal viewport and child menu. Apps provide route data and do not add custom wrapping or page offsets.
-- `MainMenu` can hide each of its four actions. Apps may project a custom `good-main-menu` into `Topbar`; the container still owns spacing and hit areas.
+- `MainMenu` can hide its ThemeToggle and other actions independently. ThemeToggle is shown by default; Settings is a separate optional menu. Apps may project a custom `good-main-menu` into `Topbar`; the container still owns spacing and hit areas.
 - Tailwind CSS 4 theme variables provide colors; the shipped component CSS provides geometry. Apps do not add `margin-left` or `padding-top` to align the shell.
 
 ## Maintenance workflow

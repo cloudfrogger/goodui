@@ -17,7 +17,7 @@ import { GoodNotificationHostComponent } from './notification-host';
     <good-sidebar-container class="good-desktop-sidebar" [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
     <div class="good-app-main">
       <good-topbar [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [showBrandIcon]="showBrandIcon()" [items]="topbarItems()" [activeRoute]="activeRoute()" [mobileMenuMode]="mobileTopbarMenuMode()"
-        [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()"
+        [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()"
         (menuToggle)="openDrawer()" />
       <div class="good-app-page"><ng-content /></div>
     </div>
@@ -50,6 +50,8 @@ export class GoodAppLayoutComponent {
   readonly notifications = input<readonly GoodNotification[]>([]);
   readonly searchItems = input<readonly GoodSearchItem[]>([]);
   readonly settingsActions = input<readonly GoodMenuAction[]>([]);
+  readonly showThemeToggle = input(true);
+  readonly showSettings = input(false);
   readonly avatarActions = input<readonly GoodMenuAction[]>([]);
   readonly activeRoute = signal('/');
 

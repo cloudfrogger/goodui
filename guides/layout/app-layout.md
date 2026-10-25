@@ -9,7 +9,7 @@ AppLayout
 ├─ SidebarContainer → SidebarMenuContainer → SidebarItem
 │                                           → SidebarSubmenuGroup → SidebarSubmenuItem
 └─ Topbar → TopbarMenuContainer → TopbarMenuItem
-          → MainMenu → Search | Notifications | Settings | AvatarMenu
+          → MainMenu → Search | Notifications | ThemeToggle | AvatarMenu
    MainView → page heading | page content
 ```
 

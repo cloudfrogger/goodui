@@ -2,7 +2,29 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { vi } from 'vitest';
 import { provideGoodUI } from './provide-goodui';
-import { GoodNotificationsComponent } from './actions';
+import { GoodNotificationsComponent, GoodThemeToggleComponent } from './actions';
+import { GoodThemeService } from './theme';
+
+describe('GoodThemeToggleComponent', () => {
+  it('changes mode on each click without opening a menu', () => {
+    TestBed.configureTestingModule({ imports: [GoodThemeToggleComponent] });
+    const fixture = TestBed.createComponent(GoodThemeToggleComponent);
+    const theme = TestBed.inject(GoodThemeService);
+    theme.setTheme('light');
+    fixture.detectChanges();
+    const button = fixture.nativeElement.querySelector('button') as HTMLButtonElement;
+    button.click();
+    fixture.detectChanges();
+    expect(theme.preference()).toBe('system');
+    expect(button.getAttribute('aria-label')).toContain('Switch to dark mode');
+    expect(fixture.nativeElement.querySelector('[role="menu"]')).toBeNull();
+    button.click();
+    expect(theme.preference()).toBe('dark');
+    button.click();
+    expect(theme.preference()).toBe('light');
+    localStorage.removeItem('goodui-theme');
+  });
+});
 
 describe('GoodNotificationsComponent', () => {
   afterEach(() => vi.useRealTimers());

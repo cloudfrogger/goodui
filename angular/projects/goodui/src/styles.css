@@ -8,7 +8,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
+good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -336,7 +336,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-mobile-menu-button, .good-mobile-brand { display: none !important; }
 
 .good-main-menu { display: flex; align-items: center; gap: var(--good-main-menu-gap); flex: none; }
-.good-search, .good-notifications, .good-settings, .good-avatar-menu { position: relative; display: inline-flex; }
+.good-search, .good-notifications, .good-theme-toggle, .good-settings, .good-avatar-menu { position: relative; display: inline-flex; }
 .good-action-button, .good-avatar-button { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; width: var(--good-control-action-size); height: var(--good-control-action-size); padding: 0; border: 0; border-radius: var(--good-radius-action); background: transparent; color: var(--good-icon); cursor: pointer; }
 .good-action-button:hover, .good-avatar-button:hover { background: var(--good-selected); color: var(--good-text); }
 .good-avatar-button { overflow: hidden; background: var(--good-selected); color: var(--good-text); font-size: 11px; font-weight: 700; }

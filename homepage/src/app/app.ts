@@ -84,6 +84,7 @@ export class App {
       { id: 'breadcrumbs', label: 'Breadcrumbs', icon: 'chevron-right', route: '/components/breadcrumbs' },
       { id: 'badges', label: 'Badges', icon: 'star', route: '/components/badges' },
       { id: 'topbar-menu', label: 'Topbar menu', icon: 'menu', route: '/components/topbar-menu' },
+      { id: 'theme-toggle', label: 'Theme toggle', icon: 'sun', route: '/components/theme-toggle' },
       { id: 'topbar-submenu', label: 'Topbar submenu', icon: 'chevron-right', route: '/components/topbar-submenu' },
     ] },
     { id: 'examples', heading: 'EXAMPLES', items: [
@@ -162,6 +163,7 @@ export class App {
     { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },
     { id: 'badges', label: 'Badges', description: 'Colors, sizes, shapes, and removable labels', route: '/components/badges' },
     { id: 'topbar-menu', label: 'Topbar menu', description: 'Responsive navigation and mobile popup', route: '/components/topbar-menu' },
+    { id: 'theme-toggle', label: 'Theme toggle', description: 'Direct Light, System, and Dark cycling', route: '/components/theme-toggle' },
     { id: 'topbar-submenu', label: 'Topbar submenu', description: 'Nested navigation and keyboard behavior', route: '/components/topbar-submenu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },

@@ -22,7 +22,8 @@ import { GoodIconName } from './models';
         @case ('chevron-down') { <path d="m6 9 6 6 6-6"/> }
         @case ('chevron-right') { <path d="m9 6 6 6-6 6"/> }
         @case ('sun') { <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/> }
-        @case ('moon') { <path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5Z"/> }
+        @case ('moon') { <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/> }
+        @case ('monitor') { <rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8m-4-4v4"/> }
         @case ('logout') { <path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5M16 17l5-5-5-5m5 5H9"/> }
         @case ('calendar') { <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/> }
         @case ('question') { <circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 0 1 4.8 1c0 1.8-2.4 2-2.4 3.5M12 17h.01"/> }

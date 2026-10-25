@@ -61,6 +61,7 @@
     "summary",
     "switch",
     "table",
+    "theme-toggle",
     "topbar",
     "topbar-dropdown-item",
     "topbar-dropdown-menu",
@@ -754,6 +755,27 @@
       "angularSelector": "good-settings",
       "kind": "component",
       "state": "open"
+    },
+    {
+      "penpotName": "goodui.theme-toggle.light",
+      "penpotId": "f52a309e-8b45-80e4-8008-d86c7ab97196",
+      "angularSelector": "good-theme-toggle",
+      "kind": "component",
+      "state": "light"
+    },
+    {
+      "penpotName": "goodui.theme-toggle.system",
+      "penpotId": "f52a309e-8b45-80e4-8008-d86c7bab8421",
+      "angularSelector": "good-theme-toggle",
+      "kind": "component",
+      "state": "system"
+    },
+    {
+      "penpotName": "goodui.theme-toggle.dark",
+      "penpotId": "f52a309e-8b45-80e4-8008-d86c7c8f020f",
+      "angularSelector": "good-theme-toggle",
+      "kind": "component",
+      "state": "dark"
     },
     {
       "penpotName": "goodui.sidebar-container.default",
