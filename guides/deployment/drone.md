@@ -1,6 +1,6 @@
 # Build and publish the homepage with Drone
 
-The root `.drone.yml` builds the Angular library and homepage inside a multistage Docker image, then publishes the static homepage in an unprivileged Nginx image. A Kaniko step performs the build and registry push without a Docker socket or a privileged Drone repository. The pipeline runs only for pushes to `master`.
+The root `.drone.yml` builds the Angular library and homepage inside a multistage Docker image, then publishes the static homepage in an unprivileged Nginx image. A Kaniko step performs the build and registry push without a Docker socket or a privileged Drone repository. On a push to `master`, a second step updates one existing Kubernetes Deployment after the image push succeeds. A custom Drone run still builds and publishes the image, but does not deploy it.
 
 ## Configure the private registry
 
@@ -13,9 +13,37 @@ Create these repository secrets in Drone before pushing the pipeline:
 | `registry_username` | A dedicated CI account | Account with push access to this image only. |
 | `registry_password` | A registry token | Password or scoped token for that account. |
 
-Use a TLS-enabled registry trusted by the Drone runner. For a self-hosted registry, the host portion of `registry_image` must equal `registry_host`. Docker Hub is the exception: the Kaniko plugin authenticates against `https://index.docker.io/v1/` and publishes a repository such as `cloudfrogger/goodui-homepage`. Keep credentials in Drone secrets, never in YAML, build arguments, or the Git repository. Scope the secrets to push events if your Drone installation supports event restrictions. Protect `master` in the source repository, since code on that branch controls the image build. Kaniko publishes both `:latest` and an immutable `:<full commit SHA>` tag. Deploy by SHA when a stable rollback target matters.
+Use a TLS-enabled registry trusted by the Drone runner. For a self-hosted registry, the host portion of `registry_image` must equal `registry_host`. Docker Hub is the exception: the Kaniko plugin authenticates against `https://index.docker.io/v1/` and publishes a repository such as `cloudfrogger/goodui-homepage`. Keep credentials in Drone secrets, never in YAML, build arguments, or the Git repository. Registry secrets must be available for push and custom builds; restrict Kubernetes secrets to push events if your Drone installation supports event restrictions. Protect `master` in the source repository, since code on that branch controls the image build. Kaniko publishes both `:latest` and a `:<full commit SHA>` tag. Enable tag immutability in the registry if available.
 
-The pipeline publishes an image; it does not update a running service. To build the same image locally without publishing:
+## Configure the Kubernetes rollout
+
+Create these additional Drone repository secrets. The deployment step receives them only at runtime; no cluster credentials or manifests are committed:
+
+| Secret | Value |
+| --- | --- |
+| `k8s_api_server` | Bare HTTPS origin of the Kubernetes API, such as `https://kubernetes.example.com:6443` |
+| `k8s_ca_pem_b64` | Single-line base64-encoded PEM CA certificate used to verify that API server |
+| `k8s_token` | Token for a dedicated, namespace-scoped ServiceAccount |
+| `k8s_namespace` | Namespace containing the existing homepage Deployment |
+| `k8s_deployment` | Name of that existing Deployment |
+
+The ServiceAccount needs only `get` and `patch` on the named Deployment. For example, an administrator can bind it to a Role with this rule in the target namespace:
+
+```yaml
+rules:
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    resourceNames: ["goodui"]
+    verbs: ["get", "patch"]
+```
+
+Replace `goodui` with `k8s_deployment` when creating the Role. No cluster-wide role, pod access, `create`, `delete`, or `scale` permission is needed. Rotate the ServiceAccount token using your normal secret-management process. The existing Deployment must already have the appropriate image pull credentials, readiness probe, and rolling-update strategy; this pipeline does not create or change them.
+
+`k8s_token` is the raw bearer token for that dedicated ServiceAccount, not a kubeconfig or a base64 value. For an initial test, an administrator can request one with `kubectl -n <namespace> create token goodui-deployer --duration=24h` and enter the returned string as the Drone secret. The API server may grant a different lifetime; check its expiry and arrange rotation before relying on unattended deployments. Do not use a personal or cluster-admin token, and do not commit the token. Long-lived ServiceAccount token Secrets are discouraged by Kubernetes.
+
+The deploy step first runs its safety tests, then reads the named Deployment. It selects the sole application container automatically and refuses to guess if the Deployment has more than one. It also refuses a different image repository, a paused or `Recreate` Deployment, or a Deployment scaled to zero. It patches only that container image to the `${DRONE_COMMIT_SHA}` tag, conditioned on the Deployment's resource version, and checks readiness for up to five minutes. A concurrent change causes a conflict instead of overwriting it. A failed rollout fails the Drone step but does not delete resources or automatically roll back; inspect the Deployment and choose a rollback explicitly. The deployment step runs only after Kaniko has published the image successfully.
+
+To build the same image locally without publishing or deploying:
 
 ```sh
 docker build -f deploy/Dockerfile -t goodui-homepage:local .
