@@ -8,12 +8,12 @@ Create these repository secrets in Drone before pushing the pipeline:
 
 | Secret | Example | Purpose |
 | --- | --- | --- |
-| `registry_host` | `registry.example.com:5000` | Registry host and optional port, without `https://` or an image path. |
-| `registry_image` | `registry.example.com:5000/cloudfrogger/goodui-homepage` | Full image repository, without a tag. |
+| `registry_host` | `registry.example.com:5000` | Registry address used for authentication. For Docker Hub, use `https://index.docker.io/v1/`. |
+| `registry_image` | `registry.example.com:5000/cloudfrogger/goodui-homepage` | Image repository without a tag. For Docker Hub, use `cloudfrogger/goodui-homepage`. |
 | `registry_username` | A dedicated CI account | Account with push access to this image only. |
 | `registry_password` | A registry token | Password or scoped token for that account. |
 
-Use a TLS-enabled registry trusted by the Drone runner. The host portion of `registry_image` must equal `registry_host`. Keep credentials in Drone secrets, never in YAML, build arguments, or the Git repository. Scope the secrets to push events if your Drone installation supports event restrictions. Protect `master` in the source repository, since code on that branch controls the image build. Kaniko publishes both `:latest` and an immutable `:<full commit SHA>` tag. Deploy by SHA when a stable rollback target matters.
+Use a TLS-enabled registry trusted by the Drone runner. For a self-hosted registry, the host portion of `registry_image` must equal `registry_host`. Docker Hub is the exception: the Kaniko plugin authenticates against `https://index.docker.io/v1/` and publishes a repository such as `cloudfrogger/goodui-homepage`. Keep credentials in Drone secrets, never in YAML, build arguments, or the Git repository. Scope the secrets to push events if your Drone installation supports event restrictions. Protect `master` in the source repository, since code on that branch controls the image build. Kaniko publishes both `:latest` and an immutable `:<full commit SHA>` tag. Deploy by SHA when a stable rollback target matters.
 
 The pipeline publishes an image; it does not update a running service. To build the same image locally without publishing:
 
