@@ -19,12 +19,12 @@ The pipeline publishes an image; it does not update a running service. To build 
 
 ```sh
 docker build -f deploy/Dockerfile -t goodui-homepage:local .
-docker run --rm --read-only --tmpfs /tmp:rw,noexec,nosuid,size=16m \
+docker run --rm --read-only \
   --cap-drop ALL --security-opt no-new-privileges \
   -p 127.0.0.1:8080:8080 goodui-homepage:local
 ```
 
-Visit `http://127.0.0.1:8080/`. The image listens on IPv4 port 8080 and includes a `/healthz` probe. The IPv4-only listener lets `nginx -t` run in Kaniko environments without IPv6 support; an ingress or reverse proxy may still expose the site over IPv6. Give the container a read-only root filesystem and a writable `/tmp` at deployment, as above. Nginx runs as UID 101 and logs to container stdout/stderr. TLS termination, the public hostname, and port exposure belong to the deployment or reverse proxy configuration.
+Visit `http://127.0.0.1:8080/`. The image listens on IPv4 port 8080 and includes a `/healthz` probe. The IPv4-only listener lets `nginx -t` run in Kaniko environments without IPv6 support; an ingress or reverse proxy may still expose the site over IPv6. Nginx stores its PID and temporary files in the container's writable `/dev/shm`, so it can run as UID 101 with a read-only root filesystem even when `/tmp` is not writable. Keep `/dev/shm` writable in the deployment. Nginx logs to container stdout/stderr. TLS termination, the public hostname, and port exposure belong to the deployment or reverse proxy configuration.
 
 The builder, runtime, and Kaniko images are pinned by digest for repeatable builds. Update those digests deliberately when applying upstream security updates, then rebuild and test the image.
 
