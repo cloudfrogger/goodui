@@ -12,7 +12,7 @@ The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`. Ref
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages include `01 Components` through `24 Progress`; dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, and `24 Progress`. The IDs below are Penpot main shape IDs; preserve them while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages include `01 Components` through `25 PDF Preview`; dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, `24 Progress`, and `25 PDF Preview`. The IDs below are Penpot main shape IDs; preserve them while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -56,6 +56,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages include `01 Components` t
 | `goodui.notifications.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65811a2c` / `521fe58c-da62-80e2-8008-d33fff9a20ba` |
 | `goodui.notifications.unread` | `5fd6a355-e255-80dc-8008-d81d121a0160` (linked bell and destructive Badge with 16 px `notification.count.*` overrides) |
 | `goodui.progress` (`mode` × `appearance` × `size`) | Container `bf5e7a26-ff29-80d7-8008-d9b649158136`; all 18 published IDs and Angular inputs in [progress-variants.json](../../design/progress-variants.json) |
+| `goodui.pdf-preview` | `bf5e7a26-ff29-80d7-8008-d9c818647115` on `25 PDF Preview`; maps to `good-pdf-preview` (loaded specimen). Toolbar buttons remain linked GoodUI Button instances; page content is illustrative. |
 | `goodui.alert-composition.progress` | `bf5e7a26-ff29-80d7-8008-d9b857795ba5`; linked Progress instance inside a detached, token-bound Alert frame for composition reference |
 | `goodui.settings.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65a3839a` / `521fe58c-da62-80e2-8008-d340005398c5` |
 | `goodui.avatar-menu.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65e8aeea` / `521fe58c-da62-80e2-8008-d3400143c866` |

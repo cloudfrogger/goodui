@@ -63,6 +63,7 @@ export class App {
       { id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' },
       { id: 'alerts', label: 'Alerts', icon: 'bell', route: '/components/alerts' },
       { id: 'progress', label: 'Progress', icon: 'grid', route: '/components/progress' },
+      { id: 'pdf-preview', label: 'PDF preview', icon: 'book', route: '/components/pdf-preview' },
       { id: 'action-groups', label: 'Action groups', icon: 'menu', route: '/components/action-groups' },
       { id: 'switches', label: 'Switches', icon: 'settings', route: '/components/switches' },
       { id: 'checkboxes', label: 'Checkboxes', icon: 'check', route: '/components/checkboxes' },
@@ -92,6 +93,7 @@ export class App {
     { id: 'examples', heading: 'EXAMPLES', items: [
       { id: 'user-registration', label: 'User registration', icon: 'account', route: '/examples/user-registration' },
       { id: 'notifications-example', label: 'Notifications', icon: 'bell', route: '/examples/notifications' },
+      { id: 'pdf-reader-example', label: 'PDF reader', icon: 'book', route: '/examples/pdf-reader' },
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
       { id: 'account', label: 'My Account', icon: 'settings', children: [
         { id: 'account-home', label: 'Account Home', children: [
@@ -144,7 +146,9 @@ export class App {
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
     { id: 'alerts', label: 'Alerts', description: 'Tones, appearances, sizes, actions, and dismissal', route: '/components/alerts' },
     { id: 'progress', label: 'Progress', description: 'Determinate, indeterminate, and timed progress bars', route: '/components/progress' },
+    { id: 'pdf-preview', label: 'PDF preview', description: 'Responsive PDF rendering and reader controls', route: '/components/pdf-preview' },
     { id: 'notifications-example', label: 'Notifications', description: 'Example · toasts and notification panel', route: '/examples/notifications' },
+    { id: 'pdf-reader-example', label: 'PDF reader', description: 'Example · browse multiple local PDF documents', route: '/examples/pdf-reader' },
     { id: 'action-groups', label: 'Action groups', description: 'Horizontal, vertical, and responsive arrangements', route: '/components/action-groups' },
     { id: 'switches', label: 'Switches', description: 'States and form example', route: '/components/switches' },
     { id: 'checkboxes', label: 'Checkboxes', description: 'Tri-state brand and mono controls', route: '/components/checkboxes' },

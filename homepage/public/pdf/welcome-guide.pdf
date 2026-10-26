@@ -1,0 +1,61 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 614 >>
+stream
+0.12 0.31 0.57 rg
+40 790 532 2 re f
+BT /F1 22 Tf 0.08 0.16 0.28 rg 40 742 Td (Welcome to GoodUI) Tj ET
+BT /F1 11 Tf 0.32 0.40 0.49 rg 40 714 Td (A short guide for the PDF reader example) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 650 Td (GoodUI provides reusable controls and application layout.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 623 Td (Use the toolbar to move between pages, zoom, rotate, or download.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 596 Td (This example is stored locally and does not require a remote service.) Tj ET
+BT /F1 9 Tf 0.43 0.48 0.55 rg 40 40 Td (GoodUI sample document  |  Page 1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 548 >>
+stream
+0.12 0.31 0.57 rg
+40 790 532 2 re f
+BT /F1 22 Tf 0.08 0.16 0.28 rg 40 742 Td (Reading documents) Tj ET
+BT /F1 11 Tf 0.32 0.40 0.49 rg 40 714 Td (Page 2 of the welcome guide) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 650 Td (PDF text remains selectable in the preview.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 623 Td (The viewer adapts to narrow and wide containers.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 596 Td (Applications can also pass a File or PDF bytes.) Tj ET
+BT /F1 9 Tf 0.43 0.48 0.55 rg 40 40 Td (GoodUI sample document  |  Page 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Title (Welcome guide) /Producer (GoodUI examples) >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000000856 00000 n 
+0000000982 00000 n 
+0000001581 00000 n 
+0000001707 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R /Info 8 0 R >>
+startxref
+1779
+%%EOF

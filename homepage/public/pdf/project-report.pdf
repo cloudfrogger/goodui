@@ -1,0 +1,79 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 565 >>
+stream
+0.12 0.31 0.57 rg
+40 790 532 2 re f
+BT /F1 22 Tf 0.08 0.16 0.28 rg 40 742 Td (Project report) Tj ET
+BT /F1 11 Tf 0.32 0.40 0.49 rg 40 714 Td (Sample status report) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 650 Td (Overview: three milestones were delivered this quarter.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 623 Td (Design system: components and tokens are aligned.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 596 Td (Accessibility: keyboard and screen-reader checks are ongoing.) Tj ET
+BT /F1 9 Tf 0.43 0.48 0.55 rg 40 40 Td (GoodUI sample document  |  Page 1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 486 >>
+stream
+0.12 0.31 0.57 rg
+40 790 532 2 re f
+BT /F1 22 Tf 0.08 0.16 0.28 rg 40 742 Td (Progress) Tj ET
+BT /F1 11 Tf 0.32 0.40 0.49 rg 40 714 Td (Milestones and delivery) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 650 Td (01  Reusable controls completed) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 623 Td (02  Example applications updated) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 596 Td (03  Documentation reviewed) Tj ET
+BT /F1 9 Tf 0.43 0.48 0.55 rg 40 40 Td (GoodUI sample document  |  Page 2) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 503 >>
+stream
+0.12 0.31 0.57 rg
+40 790 532 2 re f
+BT /F1 22 Tf 0.08 0.16 0.28 rg 40 742 Td (Next steps) Tj ET
+BT /F1 11 Tf 0.32 0.40 0.49 rg 40 714 Td (Planned work) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 650 Td (Gather feedback from application teams.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 623 Td (Refine layouts on smaller screens.) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 596 Td (Keep Penpot and Angular contracts aligned.) Tj ET
+BT /F1 9 Tf 0.43 0.48 0.55 rg 40 40 Td (GoodUI sample document  |  Page 3) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Title (Project report) /Producer (GoodUI examples) >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000127 00000 n 
+0000000197 00000 n 
+0000000813 00000 n 
+0000000939 00000 n 
+0000001476 00000 n 
+0000001602 00000 n 
+0000002156 00000 n 
+0000002282 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R /Info 10 0 R >>
+startxref
+2356
+%%EOF

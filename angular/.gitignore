@@ -3,6 +3,8 @@
 # Compiled output
 /dist
 /projects/goodui/assets/styles.css
+/projects/goodui/assets/pdf.worker.min.mjs
+/projects/goodui/src/lib/pdf-worker.generated.ts
 /tmp
 /out-tsc
 /bazel-out

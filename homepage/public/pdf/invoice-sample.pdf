@@ -1,0 +1,45 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 637 >>
+stream
+0.12 0.31 0.57 rg
+40 790 532 2 re f
+BT /F1 22 Tf 0.08 0.16 0.28 rg 40 742 Td (Sample invoice) Tj ET
+BT /F1 11 Tf 0.32 0.40 0.49 rg 40 714 Td (Illustrative document only) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 650 Td (Invoice number: SAMPLE-2026-001) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 623 Td (Service: UI toolkit consultation) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 596 Td (Quantity: 2) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 569 Td (Total: $240.00) Tj ET
+BT /F1 12 Tf 0.13 0.19 0.27 rg 40 542 Td (This is a sample PDF for the GoodUI reader.) Tj ET
+BT /F1 9 Tf 0.43 0.48 0.55 rg 40 40 Td (GoodUI sample document  |  Page 1) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Title (Sample invoice) /Producer (GoodUI examples) >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000185 00000 n 
+0000000873 00000 n 
+0000000999 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R /Info 6 0 R >>
+startxref
+1072
+%%EOF

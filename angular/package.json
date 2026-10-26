@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "npm run build:lib",
     "build:css": "node ../scripts/generate-tokens.mjs && tailwindcss -i projects/goodui/src/styles.css -o projects/goodui/assets/styles.css --minify",
-    "build:lib": "npm run build:css && ng build goodui && node ../scripts/copy-license.mjs",
+    "build:lib": "npm run build:css && node ../scripts/generate-pdf-worker.mjs && ng build goodui && node ../scripts/copy-license.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -24,6 +24,7 @@
     "country-flag-icons": "^1.6.20",
     "highlight.js": "^11.12.0",
     "libphonenumber-js": "^1.13.15",
+    "pdfjs-dist": "5.4.624",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

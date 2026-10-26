@@ -2,7 +2,7 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/goodui",
   "assets": [{"glob": "styles.css", "input": "assets", "output": "."}],
-  "allowedNonPeerDependencies": ["@lucide/angular", "@tanstack/angular-table", "country-flag-icons", "libphonenumber-js", "highlight.js", "tslib"],
+  "allowedNonPeerDependencies": ["@lucide/angular", "@tanstack/angular-table", "country-flag-icons", "libphonenumber-js", "highlight.js", "pdfjs-dist", "tslib"],
   "lib": {
     "entryFile": "src/public-api.ts"
   }

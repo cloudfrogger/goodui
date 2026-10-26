@@ -43,6 +43,7 @@
     "notification-host",
     "notifications",
     "paragraph",
+    "pdf-preview",
     "prose",
     "progress",
     "radio-group",
@@ -797,6 +798,13 @@
       "angularSelector": "good-input-phone",
       "kind": "internal-part",
       "owner": "goodui.input-phone",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.pdf-preview",
+      "penpotId": "bf5e7a26-ff29-80d7-8008-d9c818647115",
+      "angularSelector": "good-pdf-preview",
+      "kind": "component",
       "state": null
     },
     {

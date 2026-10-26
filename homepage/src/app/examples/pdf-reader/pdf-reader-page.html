@@ -1,0 +1,27 @@
+<good-main-view title="PDF reader" description="Open several local PDFs with the reusable GoodUI preview.">
+  <good-section>
+    <good-breadcrumbs [items]="breadcrumbs" />
+    <good-group title="Choose a document" appearance="plain">
+      <good-action-group orientation="responsive">
+        @for (sample of samples; track sample.file) {
+          <good-button [variant]="selected().file === sample.file ? 'default' : 'outline'"
+            (click)="choose(sample)">{{ sample.name }}</good-button>
+        }
+      </good-action-group>
+      <good-alert tone="neutral" appearance="light" [title]="selected().name"
+        [message]="selected().description + (pageCount() ? ' · ' + pageCount() + (pageCount() === 1 ? ' page ready' : ' pages ready') : '')" />
+    </good-group>
+    <good-group title="Preview" appearance="plain">
+      <good-pdf-preview [source]="selected().file" [title]="selected().name" workerUrl="/pdf.worker.min.mjs"
+        [downloadName]="selected().file.split('/').at(-1) ?? 'document.pdf'"
+        (loaded)="pageCount.set($event)" (loadError)="error.set($event)" />
+      @if (error()) { <good-alert tone="destructive" [message]="error()" /> }
+    </good-group>
+    <good-group title="Use this example" appearance="plain">
+      <good-code-block [code]="htmlSource" language="html" title="pdf-reader-page.html"
+        [collapsible]="true" [collapsedLines]="20" />
+      <good-code-block [code]="typescriptSource" language="typescript" title="pdf-reader-page.ts"
+        [collapsible]="true" [collapsedLines]="20" />
+    </good-group>
+  </good-section>
+</good-main-view>

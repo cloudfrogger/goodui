@@ -14,6 +14,10 @@ const examples = [
     ['notificationsHtml', 'notifications-page.html'],
     ['notificationsTs', 'notifications-page.ts'],
   ]],
+  ['pdf-reader', [
+    ['pdfReaderHtml', 'pdf-reader-page.html'],
+    ['pdfReaderTs', 'pdf-reader-page.ts'],
+  ]],
 ];
 
 for (const [directory, files] of examples) {
