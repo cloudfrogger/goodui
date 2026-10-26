@@ -171,5 +171,5 @@
 </section>
 
 @if (dragPreview(); as preview) {
-  <div class="good-calendar-drag-preview" [style.left.px]="preview.x" [style.top.px]="preview.y" aria-hidden="true">{{ preview.title }}</div>
+  <div class="good-calendar-drag-preview" [attr.data-marker]="preview.marker" [style.left.px]="preview.x" [style.top.px]="preview.y" aria-hidden="true">{{ preview.title }}</div>
 }

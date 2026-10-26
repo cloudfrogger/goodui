@@ -288,7 +288,8 @@
       "angularSelector": "good-calendar",
       "kind": "internal-part",
       "owner": "goodui.calendar",
-      "state": "all-day"
+      "state": "all-day",
+      "runtimeInputs": ["events[].marker", "events[].tone"]
     },
     {
       "penpotName": "goodui.calendar-event.all-day-resizable",
@@ -296,7 +297,8 @@
       "angularSelector": "good-calendar",
       "kind": "internal-part",
       "owner": "goodui.calendar",
-      "state": "all-day-resizable"
+      "state": "all-day-resizable",
+      "runtimeInputs": ["events[].marker", "events[].tone", "events[].resizable"]
     },
     {
       "penpotName": "goodui.calendar-event.timed",
@@ -304,7 +306,8 @@
       "angularSelector": "good-calendar",
       "kind": "internal-part",
       "owner": "goodui.calendar",
-      "state": "timed"
+      "state": "timed",
+      "runtimeInputs": ["events[].marker", "events[].tone"]
     },
     {
       "penpotName": "goodui.calendar-event.timed-resizable",
@@ -312,7 +315,8 @@
       "angularSelector": "good-calendar",
       "kind": "internal-part",
       "owner": "goodui.calendar",
-      "state": "timed-resizable"
+      "state": "timed-resizable",
+      "runtimeInputs": ["events[].marker", "events[].tone", "events[].resizable"]
     },
     {
       "penpotName": "goodui.calendar.nonworking-band",

@@ -80,7 +80,7 @@ export class GoodCalendarComponent {
     { value: 'month', label: 'Month' }, { value: 'week', label: 'Week' },
     { value: 'day', label: 'Day' }, { value: 'list', label: 'List' },
   ];
-  readonly dragPreview = signal<{ title: string; x: number; y: number } | null>(null);
+  readonly dragPreview = signal<{ title: string; x: number; y: number; marker?: GoodCalendarEvent['marker'] } | null>(null);
   readonly dragTarget = signal<CalendarTarget | null>(null);
   readonly resizePreview = signal<{ id: string; end: Date } | null>(null);
   readonly now = signal(new Date());
@@ -306,7 +306,7 @@ export class GoodCalendarComponent {
       const candidate = this.resizeTarget(event.clientX, event.clientY, resize);
       this.resizePreview.set(candidate ? { id: resize.event.id, end: candidate.end } : null);
       this.dragTarget.set(candidate?.target ?? null);
-      this.dragPreview.set(candidate ? { title: `Ends ${this.resizeEndLabel(candidate.end, resize.allDay)}`, x: event.clientX + 12, y: event.clientY + 12 } : null);
+      this.dragPreview.set(candidate ? { title: `Ends ${this.resizeEndLabel(candidate.end, resize.allDay)}`, x: event.clientX + 12, y: event.clientY + 12, marker: resize.event.marker } : null);
       return;
     }
     const drag = this.activeDrag;
@@ -314,7 +314,7 @@ export class GoodCalendarComponent {
     if (!drag.moved && Math.hypot(event.clientX - drag.x, event.clientY - drag.y) < 5) return;
     drag.moved = true;
     event.preventDefault();
-    this.dragPreview.set({ title: drag.event.title, x: event.clientX + 12, y: event.clientY + 12 });
+    this.dragPreview.set({ title: drag.event.title, x: event.clientX + 12, y: event.clientY + 12, marker: drag.event.marker });
     const target = this.calendarTarget(event.clientX, event.clientY);
     this.dragTarget.set(target);
   }

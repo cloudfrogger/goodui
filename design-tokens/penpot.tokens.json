@@ -2813,6 +2813,16 @@
           "$type": "spacing"
         }
       },
+      "marker": {
+        "text": {
+          "$value": "{color.text}",
+          "$type": "color"
+        },
+        "text-on-deep": {
+          "$value": "{color.surface}",
+          "$type": "color"
+        }
+      },
       "radius": {
         "$value": "{radius.card}",
         "$type": "borderRadius"
@@ -3237,6 +3247,16 @@
             "$value": "#BFDBFE",
             "$type": "color"
           }
+        }
+      },
+      "marker": {
+        "text": {
+          "$value": "{color.surface}",
+          "$type": "color"
+        },
+        "text-on-deep": {
+          "$value": "{color.surface}",
+          "$type": "color"
         }
       }
     }

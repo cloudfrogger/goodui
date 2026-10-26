@@ -589,6 +589,8 @@
   --good-calendar-event-brand-foreground: #1E40AF;
   --good-calendar-event-radius: var(--good-radius-compact);
   --good-calendar-event-gap: var(--good-space-1);
+  --good-calendar-marker-text: var(--good-color-text);
+  --good-calendar-marker-text-on-deep: var(--good-color-surface);
   --good-calendar-radius: var(--good-radius-card);
   --good-calendar-toolbar-gap: var(--good-space-3);
   --good-calendar-cell-padding: var(--good-space-2);
@@ -697,6 +699,7 @@
   --good-rating-custom-color: #C4B5FD;
   --good-calendar-event-brand-background: #172554;
   --good-calendar-event-brand-foreground: #BFDBFE;
+  --good-calendar-marker-text: var(--good-color-surface);
 }
 
 @theme inline {

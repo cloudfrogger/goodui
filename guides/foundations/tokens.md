@@ -6,7 +6,7 @@ The interactive [Color Scheme page](../../homepage/src/app/getting-started/color
 
 ## Marker and highlight palette
 
-The 16 names are `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `teal`, and `cyan`. They are published as `color.marker.<name>` in Penpot, `--good-color-marker-<name>` in CSS, and `--color-good-marker-<name>` in Tailwind 4. The light and dark sets have separate values. Penpot page `23 Marker Colors` displays token-bound swatches; calendar events accept `marker: '<name>'` and use a quiet tinted fill with a stronger stripe. Applications can also use the variables for their own labeled markers or highlights. Color alone should not convey a required distinction; keep category text or another cue available.
+The 16 names are `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `teal`, and `cyan`. They are published as `color.marker.<name>` in Penpot, `--good-color-marker-<name>` in CSS, and `--color-good-marker-<name>` in Tailwind 4. The light and dark sets have separate values. Penpot page `23 Marker Colors` displays token-bound swatches; calendar events accept `marker: '<name>'` and use that exact token for their fill. `calendar.marker.text` and `.text-on-deep` provide contrasting text on the marker fills. Applications can also use the variables for their own labeled markers or highlights. Color alone should not convey a required distinction; keep category text or another cue available.
 
 ## Customizing a consuming app
 
@@ -39,6 +39,7 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `color.surface` | `--good-color-surface`; public `--good-surface` | Board/panel fill | Topbar, sidebar, panels |
 | `color.accent` | `--good-color-accent`; public `--good-accent` | Active text and underline fills | Active navigation, focus |
 | `color.marker.<name>` | `--good-color-marker-<name>` | 16 swatches on `23 Marker Colors` | Calendar categories and domain highlights |
+| `calendar.marker.text` / `.text-on-deep` | `--good-calendar-marker-text*` | Linked calendar event text in marker-colored specimens | Contrasting text on exact marker-color fills in both themes |
 | `calendar.now.color/line.height/dot.size` | `--good-calendar-now-*` | Linked current-time line and dot in week/day specimens | Live current-time line across the full week/day grid |
 | `calendar.holiday.marker.size` | `--good-calendar-holiday-marker-size` | Linked holiday label marker in all four calendar specimens | Compact holiday marker; text and surface use existing semantic color tokens |
 | `space.7_5` | `--good-space-7-5` | Alias target | Shared 30 px spacing value |
