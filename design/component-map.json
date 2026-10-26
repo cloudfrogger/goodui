@@ -10,6 +10,7 @@
     "brand-icon",
     "breadcrumbs",
     "button",
+    "calendar",
     "card",
     "card-footer",
     "card-header",
@@ -72,6 +73,11 @@
   "internalParts": {
     "alert-composition": "alert",
     "avatar-submenu": "avatar-menu",
+    "calendar-event": "calendar",
+    "calendar.nonworking-band": "calendar",
+    "calendar.now-indicator": "calendar",
+    "calendar.holiday-label": "calendar",
+    "calendar-toolbar": "calendar",
     "date-calendar": "date-input",
     "date-calendar-overlay": "date-input",
     "date-day": "date-input",
@@ -247,6 +253,130 @@
       "angularSelector": "good-button",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.calendar.day",
+      "penpotId": "f52a309e-8b45-80e4-8008-d878a2dd876c",
+      "angularSelector": "good-calendar",
+      "kind": "component",
+      "state": "day"
+    },
+    {
+      "penpotName": "goodui.calendar.list",
+      "penpotId": "f52a309e-8b45-80e4-8008-d878c1de4bca",
+      "angularSelector": "good-calendar",
+      "kind": "component",
+      "state": "list"
+    },
+    {
+      "penpotName": "goodui.calendar.month",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87a4a69a83b",
+      "angularSelector": "good-calendar",
+      "kind": "component",
+      "state": "month"
+    },
+    {
+      "penpotName": "goodui.calendar.week",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8784cd0967f",
+      "angularSelector": "good-calendar",
+      "kind": "component",
+      "state": "week"
+    },
+    {
+      "penpotName": "goodui.calendar-event.all-day",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87684cbe1f0",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "all-day"
+    },
+    {
+      "penpotName": "goodui.calendar-event.all-day-resizable",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8cdc4447454",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "all-day-resizable"
+    },
+    {
+      "penpotName": "goodui.calendar-event.timed",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87684025b2b",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "timed"
+    },
+    {
+      "penpotName": "goodui.calendar-event.timed-resizable",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8cdc19c5a8c",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "timed-resizable"
+    },
+    {
+      "penpotName": "goodui.calendar.nonworking-band",
+      "penpotId": "67db336f-622c-80dd-8008-d8d4374f980d",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.calendar.nonworking-band.labeled",
+      "penpotId": "67db336f-622c-80dd-8008-d8d94a111acc",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "labeled"
+    },
+    {
+      "penpotName": "goodui.calendar.now-indicator",
+      "penpotId": "67db336f-622c-80dd-8008-d8dc65d002a3",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.calendar.holiday-label",
+      "penpotId": "67db336f-622c-80dd-8008-d8e0536243ea",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.day",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8773156ed96",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "day"
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.list",
+      "penpotId": "f52a309e-8b45-80e4-8008-d877558e4c95",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "list"
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.month",
+      "penpotId": "f52a309e-8b45-80e4-8008-d876ecbd6a96",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "month"
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.week",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87710964835",
+      "angularSelector": "good-calendar",
+      "kind": "internal-part",
+      "owner": "goodui.calendar",
+      "state": "week"
     },
     {
       "penpotName": "goodui.card",

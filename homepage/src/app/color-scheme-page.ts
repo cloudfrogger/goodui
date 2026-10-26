@@ -4,6 +4,7 @@ import {
   GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent,
   GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
   GoodSubheadingComponent, GoodThemeService,
+  GOOD_MARKER_COLORS,
 } from '@goodui/angular';
 
 type ColorRole = { name: string; token: string; purpose: string };
@@ -28,6 +29,11 @@ const semanticRoles: readonly ColorRole[] = [
   { name: 'Info', token: 'info', purpose: 'Informational states.' },
 ];
 
+const markerRoles: readonly ColorRole[] = GOOD_MARKER_COLORS.map(name => ({
+  name: name[0].toUpperCase() + name.slice(1), token: `marker-${name}`,
+  purpose: `Category marker and domain highlight (${name}).`,
+}));
+
 @Component({
   selector: 'showcase-color-scheme-page',
   standalone: true,
@@ -43,14 +49,15 @@ export class ColorSchemePageComponent {
   private readonly colors = computed(() => {
     this.theme.theme();
     const style = this.document.defaultView?.getComputedStyle(this.document.documentElement);
-    return [...coreRoles, ...semanticRoles].map(role => ({
+    return [...coreRoles, ...semanticRoles, ...markerRoles].map(role => ({
       ...role,
       css: `--good-color-${role.token}`,
       value: style?.getPropertyValue(`--good-color-${role.token}`).trim() || '—',
     }));
   });
   readonly coreColors = computed(() => this.colors().slice(0, coreRoles.length));
-  readonly semanticColors = computed(() => this.colors().slice(coreRoles.length));
+  readonly semanticColors = computed(() => this.colors().slice(coreRoles.length, coreRoles.length + semanticRoles.length));
+  readonly markerColors = computed(() => this.colors().slice(coreRoles.length + semanticRoles.length));
 
   readonly overridesCode = `/* app/src/styles.css — after the GoodUI stylesheet */
 @import "@goodui/angular/styles.css";

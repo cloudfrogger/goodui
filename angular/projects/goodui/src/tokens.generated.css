@@ -15,6 +15,22 @@
   --good-color-warning-foreground: #713F12;
   --good-color-success: #15803D;
   --good-color-info: #0369A1;
+  --good-color-marker-sky: #1682B8;
+  --good-color-marker-blue: #3D70D4;
+  --good-color-marker-indigo: #5D62C7;
+  --good-color-marker-violet: #805FC8;
+  --good-color-marker-purple: #9B59BE;
+  --good-color-marker-fuchsia: #BE52AE;
+  --good-color-marker-pink: #CE5A98;
+  --good-color-marker-rose: #D25B7D;
+  --good-color-marker-red: #D45E63;
+  --good-color-marker-orange: #D8784E;
+  --good-color-marker-amber: #C58C39;
+  --good-color-marker-yellow: #AA982C;
+  --good-color-marker-lime: #79A33B;
+  --good-color-marker-green: #459C66;
+  --good-color-marker-teal: #2D9787;
+  --good-color-marker-cyan: #268FA5;
   --good-space-1: 4px;
   --good-space-2: 8px;
   --good-space-3: 12px;
@@ -562,6 +578,32 @@
   --good-alert-toast-width: 360px;
   --good-alert-toast-gap: var(--good-space-3);
   --good-alert-toast-offset: var(--good-space-4);
+  --good-calendar-surface: var(--good-color-surface);
+  --good-calendar-border: var(--good-color-border);
+  --good-calendar-text: var(--good-color-text);
+  --good-calendar-muted: var(--good-color-muted);
+  --good-calendar-subtle-surface: var(--good-color-selected);
+  --good-calendar-today-background: var(--good-color-brand);
+  --good-calendar-today-foreground: var(--good-button-default-foreground);
+  --good-calendar-event-brand-background: #DBEAFE;
+  --good-calendar-event-brand-foreground: #1E40AF;
+  --good-calendar-event-radius: var(--good-radius-compact);
+  --good-calendar-event-gap: var(--good-space-1);
+  --good-calendar-radius: var(--good-radius-card);
+  --good-calendar-toolbar-gap: var(--good-space-3);
+  --good-calendar-cell-padding: var(--good-space-2);
+  --good-calendar-header-height: 64px;
+  --good-calendar-day-header-height: 48px;
+  --good-calendar-month-cell-min-height: 112px;
+  --good-calendar-gutter-width: 64px;
+  --good-calendar-day-min-width: 126px;
+  --good-calendar-hour-height: 64px;
+  --good-calendar-resize-handle-size: 16px;
+  --good-calendar-nonworking-background: var(--good-color-selected);
+  --good-calendar-now-color: var(--good-color-accent);
+  --good-calendar-now-line-height: 2px;
+  --good-calendar-now-dot-size: 8px;
+  --good-calendar-holiday-marker-size: 4px;
   --good-canvas: var(--good-color-canvas);
   --good-surface: var(--good-color-surface);
   --good-text: var(--good-color-text);
@@ -577,6 +619,22 @@
   --good-warning-foreground: var(--good-color-warning-foreground);
   --good-success: var(--good-color-success);
   --good-info: var(--good-color-info);
+  --good-marker-sky: var(--good-color-marker-sky);
+  --good-marker-blue: var(--good-color-marker-blue);
+  --good-marker-indigo: var(--good-color-marker-indigo);
+  --good-marker-violet: var(--good-color-marker-violet);
+  --good-marker-purple: var(--good-color-marker-purple);
+  --good-marker-fuchsia: var(--good-color-marker-fuchsia);
+  --good-marker-pink: var(--good-color-marker-pink);
+  --good-marker-rose: var(--good-color-marker-rose);
+  --good-marker-red: var(--good-color-marker-red);
+  --good-marker-orange: var(--good-color-marker-orange);
+  --good-marker-amber: var(--good-color-marker-amber);
+  --good-marker-yellow: var(--good-color-marker-yellow);
+  --good-marker-lime: var(--good-color-marker-lime);
+  --good-marker-green: var(--good-color-marker-green);
+  --good-marker-teal: var(--good-color-marker-teal);
+  --good-marker-cyan: var(--good-color-marker-cyan);
 }
 
 [data-theme="dark"] {
@@ -593,6 +651,22 @@
   --good-color-warning-foreground: var(--good-color-warning);
   --good-color-success: #4ADE80;
   --good-color-info: #38BDF8;
+  --good-color-marker-sky: #69BDE2;
+  --good-color-marker-blue: #83A9ED;
+  --good-color-marker-indigo: #A2A5EC;
+  --good-color-marker-violet: #B8A0ED;
+  --good-color-marker-purple: #CEA1E5;
+  --good-color-marker-fuchsia: #E39ADB;
+  --good-color-marker-pink: #EC9DC5;
+  --good-color-marker-rose: #EE9BAD;
+  --good-color-marker-red: #EF9A9D;
+  --good-color-marker-orange: #F0AB87;
+  --good-color-marker-amber: #E4BC7D;
+  --good-color-marker-yellow: #D8CB78;
+  --good-color-marker-lime: #B5D37D;
+  --good-color-marker-green: #8BCDA2;
+  --good-color-marker-teal: #7BCABB;
+  --good-color-marker-cyan: #7DC4D5;
   --good-button-secondary-hover: #27272A;
   --good-switch-off-background: #52525B;
   --good-switch-on-background: #3B82F6;
@@ -621,6 +695,8 @@
   --good-code-syntax-type: #5EEAD4;
   --good-rating-heart-color: #FB7185;
   --good-rating-custom-color: #C4B5FD;
+  --good-calendar-event-brand-background: #172554;
+  --good-calendar-event-brand-foreground: #BFDBFE;
 }
 
 @theme inline {
@@ -639,4 +715,20 @@
   --color-good-warning-foreground: var(--good-warning-foreground);
   --color-good-success: var(--good-success);
   --color-good-info: var(--good-info);
+  --color-good-marker-sky: var(--good-marker-sky);
+  --color-good-marker-blue: var(--good-marker-blue);
+  --color-good-marker-indigo: var(--good-marker-indigo);
+  --color-good-marker-violet: var(--good-marker-violet);
+  --color-good-marker-purple: var(--good-marker-purple);
+  --color-good-marker-fuchsia: var(--good-marker-fuchsia);
+  --color-good-marker-pink: var(--good-marker-pink);
+  --color-good-marker-rose: var(--good-marker-rose);
+  --color-good-marker-red: var(--good-marker-red);
+  --color-good-marker-orange: var(--good-marker-orange);
+  --color-good-marker-amber: var(--good-marker-amber);
+  --color-good-marker-yellow: var(--good-marker-yellow);
+  --color-good-marker-lime: var(--good-marker-lime);
+  --color-good-marker-green: var(--good-marker-green);
+  --color-good-marker-teal: var(--good-marker-teal);
+  --color-good-marker-cyan: var(--good-marker-cyan);
 }

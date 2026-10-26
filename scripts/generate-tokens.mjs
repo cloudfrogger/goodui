@@ -85,8 +85,9 @@ const lightLines = [...lightTokens].map(([name]) => `  ${cssName(name)}: ${valid
 const darkLines = [...darkTokens].filter(([name, token]) => lightTokens.get(name)?.$value !== token.$value)
   .map(([name]) => `  ${cssName(name)}: ${validateAndFormat(darkTokens, name)};`);
 const colorNames = [...lightTokens].filter(([name, token]) => name.startsWith('color.') && token.$type === 'color').map(([name]) => name.slice('color.'.length));
-const publicColors = colorNames.map(name => `  --good-${name}: var(${cssName(`color.${name}`)});`);
-const tailwindColors = colorNames.map(name => `  --color-good-${name}: var(--good-${name});`);
+const publicName = name => name.replaceAll('.', '-').replaceAll('_', '-');
+const publicColors = colorNames.map(name => `  --good-${publicName(name)}: var(${cssName(`color.${name}`)});`);
+const tailwindColors = colorNames.map(name => `  --color-good-${publicName(name)}: var(--good-${publicName(name)});`);
 const css = `/* Generated from design-tokens/penpot.tokens.json. Run npm run tokens:generate. */\n:root {\n${[...lightLines, ...publicColors].join('\n')}\n}\n\n[data-theme="dark"] {\n${darkLines.join('\n')}\n}\n\n@theme inline {\n${tailwindColors.join('\n')}\n}\n`;
 
 if (process.argv.includes('--check')) {

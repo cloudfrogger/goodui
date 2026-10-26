@@ -50,6 +50,26 @@
   </good-section>
 
   <good-section>
+    <good-subheading>Marker and highlight colors</good-subheading>
+    <good-prose>
+      <good-paragraph>These 16 colors identify appointment categories and other domain-specific highlights. They carry less visual weight than Brand and do not imply Success, Warning, or Error. Pair color with a label or icon whenever the category must be understood without color.</good-paragraph>
+    </good-prose>
+    <div class="foundation-color-grid" aria-label="Marker and highlight color tokens">
+      @for (color of markerColors(); track color.token) {
+        <div class="foundation-color-row">
+          <span class="foundation-color-chip" [style.background-color]="color.value" aria-hidden="true"></span>
+          <div class="foundation-color-copy">
+            <strong>{{ color.name }}</strong>
+            <code>{{ color.css }}</code>
+            <span>{{ color.purpose }}</span>
+          </div>
+          <code class="foundation-color-value">{{ color.value }}</code>
+        </div>
+      }
+    </div>
+  </good-section>
+
+  <good-section>
     <good-subheading>Customize colors in your app</good-subheading>
     <good-prose>
       <good-paragraph>Penpot <code>color.*</code> roles become CSS <code>--good-color-*</code> variables. The

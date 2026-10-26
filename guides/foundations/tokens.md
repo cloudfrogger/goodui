@@ -2,7 +2,11 @@
 
 GoodUI uses the connected Penpot file's `layout` and `layout-dark` token sets. The `appearance/light` theme activates `layout`; `appearance/dark` activates both sets so dark colors override the shared values. The repository keeps a Penpot-format snapshot at `design-tokens/penpot.tokens.json` and generates CSS from it. The JSON holds the values; this guide explains their roles and bindings.
 
-The interactive [Color Scheme page](../../homepage/src/app/getting-started/color-scheme.html) shows the current light and dark values for the 14 core `color.*` roles as swatches. Canvas, surface, text, muted, icon, border, selected, and overlay form the neutral layer. Brand and accent are separate roles even when they share a light value; error, warning, success, and info express state. Component tokens such as `button.default.background` alias these roles where appropriate. Overlay opacity is a separate component token.
+The interactive [Color Scheme page](../../homepage/src/app/getting-started/color-scheme.html) shows the current light and dark values for the 14 core `color.*` roles and 16 `color.marker.*` roles as swatches. Canvas, surface, text, muted, icon, border, selected, and overlay form the neutral layer. Brand and accent are separate roles even when they share a light value; error, warning, success, and info express state. Marker colors represent domain categories and highlights without status or brand meaning. Component tokens such as `button.default.background` alias these roles where appropriate. Overlay opacity is a separate component token.
+
+## Marker and highlight palette
+
+The 16 names are `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `teal`, and `cyan`. They are published as `color.marker.<name>` in Penpot, `--good-color-marker-<name>` in CSS, and `--color-good-marker-<name>` in Tailwind 4. The light and dark sets have separate values. Penpot page `23 Marker Colors` displays token-bound swatches; calendar events accept `marker: '<name>'` and use a quiet tinted fill with a stronger stripe. Applications can also use the variables for their own labeled markers or highlights. Color alone should not convey a required distinction; keep category text or another cue available.
 
 ## Customizing a consuming app
 
@@ -34,6 +38,9 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | --- | --- | --- | --- |
 | `color.surface` | `--good-color-surface`; public `--good-surface` | Board/panel fill | Topbar, sidebar, panels |
 | `color.accent` | `--good-color-accent`; public `--good-accent` | Active text and underline fills | Active navigation, focus |
+| `color.marker.<name>` | `--good-color-marker-<name>` | 16 swatches on `23 Marker Colors` | Calendar categories and domain highlights |
+| `calendar.now.color/line.height/dot.size` | `--good-calendar-now-*` | Linked current-time line and dot in week/day specimens | Live current-time line across the full week/day grid |
+| `calendar.holiday.marker.size` | `--good-calendar-holiday-marker-size` | Linked holiday label marker in all four calendar specimens | Compact holiday marker; text and surface use existing semantic color tokens |
 | `space.7_5` | `--good-space-7-5` | Alias target | Shared 30 px spacing value |
 | `topbar.padding-inline` | `--good-topbar-padding-inline` | Desktop Topbar left/right flex padding | Desktop topbar padding |
 | `main-menu.gap` | `--good-main-menu-gap` | MainMenu flex column gap | Action spacing |

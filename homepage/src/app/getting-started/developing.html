@@ -16,7 +16,7 @@
       <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
 
       <good-subheading>Initialize GoodUI services</good-subheading>
-      <good-paragraph>Add <code>provideGoodUI()</code> once to your root <code>app.config.ts</code>, alongside Angular Router. This is the shared provider entry point for GoodUI services, including notifications and theme handling. Components and services can then use Angular's <code>inject()</code> normally.</good-paragraph>
+      <good-paragraph>Add <code>provideGoodUI()</code> once to your root <code>app.config.ts</code>, alongside Angular Router. This is the shared provider entry point for GoodUI services, including notifications, calendar events, and theme handling. Components and services can then use Angular's <code>inject()</code> normally.</good-paragraph>
       <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />
       <good-paragraph>The notification service is <code>GoodNotificationCenter</code>. Its <code>publish()</code> method accepts <code>persist: false</code> for a toast that must not enter notification history. You can turn history off by default in the provider options:</good-paragraph>
       <good-code-block [code]="providerOptionsCode" language="typescript" title="Optional app default" />

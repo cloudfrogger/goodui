@@ -1,0 +1,175 @@
+<section class="good-calendar-frame" [attr.aria-label]="label()">
+  <header class="good-calendar-toolbar">
+    <div class="good-calendar-period">
+      <strong>{{ monthLabel() }}</strong>
+      @if (view() !== 'month') { <span>{{ periodLabel() }}</span> }
+    </div>
+    <div class="good-calendar-toolbar-actions">
+      <div class="good-calendar-navigation" role="group" aria-label="Calendar navigation">
+        <good-button variant="outline" size="small" [icon]="chevronLeft" [iconOnly]="true" [disabled]="disabled()" ariaLabel="Previous period" (click)="navigate(-1)" />
+        <good-button variant="outline" size="small" [disabled]="disabled()" (click)="goToday()">Today</good-button>
+        <good-button variant="outline" size="small" [icon]="chevronRight" [iconOnly]="true" [disabled]="disabled()" ariaLabel="Next period" (click)="navigate(1)" />
+      </div>
+      <div class="good-calendar-view-switch" role="group" aria-label="Calendar view">
+        @for (choice of views; track choice.value) {
+          <button type="button" [disabled]="disabled()" [attr.aria-pressed]="view() === choice.value" [class.good-is-active]="view() === choice.value"
+            (click)="setView(choice.value)">{{ choice.label }}</button>
+        }
+      </div>
+      <ng-content select="[goodCalendarActions]" />
+    </div>
+  </header>
+
+  @if (view() === 'month') {
+    <div class="good-calendar-month-scroll" role="region" [attr.aria-label]="monthLabel() + ' month view'" tabindex="0">
+      <div class="good-calendar-month">
+        @for (weekday of weekdayLabels(); track $index) { <div class="good-calendar-weekday">{{ weekday }}</div> }
+        @for (day of monthDays(); track day.key) {
+          <div class="good-calendar-month-day" [attr.data-calendar-day]="day.key" [attr.data-outside]="!day.inMonth"
+            [class.good-calendar-fully-nonworking]="day.fullyNonWorking"
+            [class.good-calendar-drop-target]="dragTarget()?.key === day.key"
+            (dblclick)="onEmptyDoubleClick($event, day.date)">
+            <button type="button" class="good-calendar-day-number" [disabled]="disabled()" [class.good-is-today]="day.today"
+              [attr.aria-label]="'Show ' + dateLabel(day.date)" (click)="showDay(day.date)">{{ dayNumber(day.date) }}</button>
+            @for (holiday of day.holidays; track $index) { <span class="good-calendar-holiday" [title]="holiday">{{ holiday }}</span> }
+            <div class="good-calendar-month-events">
+              @for (event of day.events.slice(0, monthLimit()); track event.id) {
+                <div class="good-calendar-date-event-wrap" [attr.data-resizable]="canResizeAllDay(event, day.date)">
+                  <button type="button" class="good-calendar-event good-calendar-month-event" [disabled]="disabled()"
+                    [attr.data-tone]="eventTone(event)" [attr.data-marker]="event.marker" [attr.data-selected]="selectedEventId() === event.id"
+                    [attr.aria-current]="selectedEventId() === event.id ? 'true' : null" [attr.aria-label]="eventLabel(event)" [title]="eventLabel(event)"
+                    [attr.data-draggable]="editable() && event.draggable !== false && !disabled()"
+                    (click)="onEventClick($event, event)" (dblclick)="onEventDoubleClick($event, event)"
+                    (pointerdown)="onEventPointerDown($event, event)" (keydown)="onEventKeydown($event, event)">
+                    @if (!event.allDay) { <time>{{ eventTimeOnDay(event, day.date) }}</time> }
+                    <span>{{ event.title }}</span>
+                  </button>
+                  @if (canResizeAllDay(event, day.date)) {
+                    <button type="button" class="good-calendar-resize-handle good-calendar-resize-handle-date"
+                      [attr.aria-label]="'Resize ' + event.title + ' by day; use left or right arrow keys'"
+                      (pointerdown)="onResizePointerDown($event, event)" (keydown)="onResizeHandleKeydown($event, event)"
+                      (click)="$event.stopPropagation()"><span aria-hidden="true"></span></button>
+                  }
+                </div>
+              }
+              @if (day.events.length > monthLimit()) {
+                <button type="button" class="good-calendar-more" [disabled]="disabled()" (click)="showDay(day.date)">+{{ day.events.length - monthLimit() }} more</button>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  } @else if (view() === 'week' || view() === 'day') {
+    <div #timeScroll class="good-calendar-time-scroll" role="region" [attr.aria-label]="periodLabel() + ' time grid'" tabindex="0">
+      <div class="good-calendar-time-grid" [style.--good-calendar-columns]="timeDays().length" [style.min-width.px]="gridMinWidth()"
+        [style.--good-calendar-hour-height.px]="effectiveHourHeight()">
+        <div class="good-calendar-time-corner" aria-hidden="true"></div>
+        @for (day of timeDays(); track day.key) {
+          <button type="button" class="good-calendar-time-heading" [disabled]="disabled()" [class.good-is-today]="day.today"
+            [attr.aria-label]="'Show ' + dateLabel(day.date) + (day.holidays.length ? ', ' + day.holidays.join(', ') : '')" (click)="showDay(day.date)">
+            <span>{{ dayHeader(day.date) }}</span>
+            @for (holiday of day.holidays; track $index) { <span class="good-calendar-holiday" [title]="holiday">{{ holiday }}</span> }
+          </button>
+        }
+        <div class="good-calendar-all-day-label">All day</div>
+        @for (day of timeDays(); track day.key) {
+          <div class="good-calendar-all-day-cell" [attr.data-calendar-day]="day.key"
+            [class.good-calendar-fully-nonworking]="day.fullyNonWorking"
+            [class.good-calendar-drop-target]="dragTarget()?.key === day.key && dragTarget()?.minute === null"
+            (dblclick)="onEmptyDoubleClick($event, day.date)">
+            @for (event of day.allDay; track event.id) {
+              <div class="good-calendar-date-event-wrap" [attr.data-resizable]="view() === 'week' && canResizeAllDay(event, day.date)">
+                <button type="button" class="good-calendar-event good-calendar-all-day-event" [disabled]="disabled()" [attr.data-tone]="eventTone(event)"
+                  [attr.data-marker]="event.marker" [attr.data-selected]="selectedEventId() === event.id"
+                  [attr.aria-current]="selectedEventId() === event.id ? 'true' : null"
+                  [attr.aria-label]="eventLabel(event)" [title]="eventLabel(event)"
+                  [attr.data-draggable]="editable() && event.draggable !== false && !disabled()"
+                  (click)="onEventClick($event, event)" (dblclick)="onEventDoubleClick($event, event)"
+                  (pointerdown)="onEventPointerDown($event, event)" (keydown)="onEventKeydown($event, event)">{{ event.title }}</button>
+                @if (view() === 'week' && canResizeAllDay(event, day.date)) {
+                  <button type="button" class="good-calendar-resize-handle good-calendar-resize-handle-date"
+                    [attr.aria-label]="'Resize ' + event.title + ' by day; use left or right arrow keys'"
+                    (pointerdown)="onResizePointerDown($event, event)" (keydown)="onResizeHandleKeydown($event, event)"
+                    (click)="$event.stopPropagation()"><span aria-hidden="true"></span></button>
+                }
+              </div>
+            }
+          </div>
+        }
+        <div class="good-calendar-hour-rail" [style.height.px]="gridHeight()" aria-hidden="true">
+          @for (hour of hours; track hour) { <span [style.top.px]="hour * effectiveHourHeight()">{{ hourLabel(hour) }}</span> }
+        </div>
+        @for (day of timeDays(); track day.key) {
+          <div class="good-calendar-time-day" [attr.data-calendar-day]="day.key" [style.height.px]="gridHeight()" [style.grid-column]="$index + 2"
+            [class.good-calendar-drop-target]="dragTarget()?.key === day.key && dragTarget()?.minute !== null"
+            (dblclick)="onEmptyDoubleClick($event, day.date, true)">
+            @for (period of day.nonWorking; track period.startMinute) {
+              <div class="good-calendar-nonworking-band" aria-hidden="true"
+                [style.top.px]="period.startMinute / 60 * effectiveHourHeight()"
+                [style.height.px]="(period.endMinute - period.startMinute) / 60 * effectiveHourHeight()">
+                @if (period.label) { <span>{{ period.label }}</span> }
+              </div>
+            }
+            @for (event of day.timed; track event.event.id) {
+              <div class="good-calendar-timed-placement" [style.top.px]="top(event)" [style.height.px]="previewHeight(event, day.date)"
+                [style.left.%]="left(event)" [style.width.%]="width(event)"
+                [attr.data-resizable]="!event.continuesAfter && canResize(event.event)">
+                <button type="button" class="good-calendar-event good-calendar-timed-event" [disabled]="disabled()" [attr.data-tone]="eventTone(event.event)"
+                  [attr.data-marker]="event.event.marker" [attr.data-selected]="selectedEventId() === event.event.id"
+                  [attr.aria-current]="selectedEventId() === event.event.id ? 'true' : null"
+                  [attr.aria-label]="eventLabel(event.event)" [title]="eventLabel(event.event)"
+                  [attr.data-draggable]="editable() && event.event.draggable !== false && !disabled()"
+                  (click)="onEventClick($event, event.event)" (dblclick)="onEventDoubleClick($event, event.event)"
+                  (pointerdown)="onEventPointerDown($event, event.event)" (keydown)="onEventKeydown($event, event.event)">
+                  <strong>{{ event.event.title }}</strong>
+                  <span>{{ event.continuesBefore ? 'Continued · ' : '' }}{{ minuteLabel(event.startMinute) }}</span>
+                </button>
+                @if (!event.continuesAfter && canResize(event.event)) {
+                  <button type="button" class="good-calendar-resize-handle good-calendar-resize-handle-time"
+                    [attr.aria-label]="'Resize ' + event.event.title + ' by time; use up or down arrow keys'"
+                    (pointerdown)="onResizePointerDown($event, event.event)" (keydown)="onResizeHandleKeydown($event, event.event)"
+                    (click)="$event.stopPropagation()"><span aria-hidden="true"></span></button>
+                }
+              </div>
+            }
+            @if (dragTarget()?.key === day.key && dragTarget()?.minute !== null) {
+              <span class="good-calendar-drop-line" [style.top.px]="dragTarget()!.minute! / 60 * effectiveHourHeight()" aria-hidden="true"></span>
+            }
+          </div>
+        }
+        @if (showCurrentTime()) {
+          <div class="good-calendar-now-layer" [style.height.px]="gridHeight()" role="note"
+            [attr.aria-label]="'Current time ' + timeLabel(now())">
+            <span class="good-calendar-now-indicator" [style.top.px]="nowPosition()" aria-hidden="true"></span>
+          </div>
+        }
+      </div>
+    </div>
+  } @else {
+    <div class="good-calendar-list" role="region" [attr.aria-label]="periodLabel() + ' list view'" tabindex="0">
+      @for (day of agendaDays(); track day.key) {
+        <section class="good-calendar-list-day" [attr.aria-label]="dateLabel(day.date)">
+          <h3><span [class.good-is-today]="day.today">{{ dayNumber(day.date) }}</span>{{ dateLabel(day.date) }}
+            @for (holiday of day.holidays; track $index) { <span class="good-calendar-holiday" [title]="holiday">{{ holiday }}</span> }
+          </h3>
+          @for (event of day.events; track event.id) {
+            <button type="button" class="good-calendar-list-event" [disabled]="disabled()" [attr.aria-label]="eventLabel(event)"
+              [attr.data-selected]="selectedEventId() === event.id" [attr.aria-current]="selectedEventId() === event.id ? 'true' : null"
+              (click)="onEventClick($event, event)" (dblclick)="onEventDoubleClick($event, event)"
+              (keydown)="onEventKeydown($event, event)">
+              <span class="good-calendar-list-time">{{ eventTimeOnDay(event, day.date) }}</span>
+              <span class="good-calendar-list-dot" [attr.data-tone]="eventTone(event)" [attr.data-marker]="event.marker" aria-hidden="true"></span>
+              <span class="good-calendar-list-title">{{ event.title }}</span>
+              @if (event.description) { <span class="good-calendar-list-description">{{ event.description }}</span> }
+            </button>
+          } @empty { <p class="good-calendar-list-empty">No events</p> }
+        </section>
+      }
+    </div>
+  }
+</section>
+
+@if (dragPreview(); as preview) {
+  <div class="good-calendar-drag-preview" [style.left.px]="preview.x" [style.top.px]="preview.y" aria-hidden="true">{{ preview.title }}</div>
+}
