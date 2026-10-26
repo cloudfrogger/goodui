@@ -1,0 +1,38 @@
+.good-progress { --good-progress-fill-color: var(--good-color-brand); --good-progress-height: var(--good-progress-height-default); --good-progress-label-size: var(--good-progress-label-font-size-default); display: flex; flex-direction: column; gap: var(--good-progress-label-gap); width: 100%; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-progress[data-size="small"] { --good-progress-height: var(--good-progress-height-small); --good-progress-label-size: var(--good-progress-label-font-size-small); }
+.good-progress[data-size="large"] { --good-progress-height: var(--good-progress-height-large); --good-progress-label-size: var(--good-progress-label-font-size-large); }
+.good-progress-label { display: flex; align-items: baseline; justify-content: space-between; gap: var(--good-progress-label-gap); min-width: 0; font-size: var(--good-progress-label-size); line-height: 1.35; }
+.good-progress-title { overflow: hidden; color: var(--good-progress-label-color); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.good-progress-value { flex: none; color: var(--good-progress-value-color); font-variant-numeric: tabular-nums; }
+.good-progress-value:first-child { margin-inline-start: auto; }
+.good-progress-track { position: relative; width: 100%; height: var(--good-progress-height); overflow: hidden; border-radius: var(--good-progress-radius); background: var(--good-progress-track-background); }
+.good-progress-fill { position: absolute; inset-block: 0; left: 0; width: 0; border-radius: inherit; background: var(--good-progress-fill-color); }
+.good-progress[data-appearance="segmented"] .good-progress-track::after { position: absolute; z-index: 2; inset: 0; background: repeating-linear-gradient(to right, transparent 0 calc(var(--good-progress-segment-width) - var(--good-progress-segment-gap)), var(--good-progress-track-divider) calc(var(--good-progress-segment-width) - var(--good-progress-segment-gap)) var(--good-progress-segment-width)); content: ''; pointer-events: none; }
+.good-progress[data-mode="indeterminate"] .good-progress-fill { width: 36%; animation: good-progress-sweep 1.6s ease-in-out infinite; }
+.good-progress[data-mode="indeterminate"][data-appearance="segmented"] .good-progress-fill::after { position: absolute; inset-block: 0; left: -65%; width: 65%; background: linear-gradient(to right, transparent, rgb(255 255 255 / .85), transparent); content: ''; animation: good-progress-sheen 1s linear infinite; }
+.good-progress[data-color="accent"] { --good-progress-fill-color: var(--good-color-accent); }
+.good-progress[data-color="secondary"] { --good-progress-fill-color: var(--good-color-muted); }
+.good-progress[data-color="destructive"] { --good-progress-fill-color: var(--good-color-error); }
+.good-progress[data-color="warning"] { --good-progress-fill-color: var(--good-color-warning); }
+.good-progress[data-color="success"] { --good-progress-fill-color: var(--good-color-success); }
+.good-progress[data-color="info"] { --good-progress-fill-color: var(--good-color-info); }
+.good-progress[data-color="text"] { --good-progress-fill-color: var(--good-color-text); }
+.good-progress[data-color="sky"] { --good-progress-fill-color: var(--good-color-marker-sky); }
+.good-progress[data-color="blue"] { --good-progress-fill-color: var(--good-color-marker-blue); }
+.good-progress[data-color="indigo"] { --good-progress-fill-color: var(--good-color-marker-indigo); }
+.good-progress[data-color="violet"] { --good-progress-fill-color: var(--good-color-marker-violet); }
+.good-progress[data-color="purple"] { --good-progress-fill-color: var(--good-color-marker-purple); }
+.good-progress[data-color="fuchsia"] { --good-progress-fill-color: var(--good-color-marker-fuchsia); }
+.good-progress[data-color="pink"] { --good-progress-fill-color: var(--good-color-marker-pink); }
+.good-progress[data-color="rose"] { --good-progress-fill-color: var(--good-color-marker-rose); }
+.good-progress[data-color="red"] { --good-progress-fill-color: var(--good-color-marker-red); }
+.good-progress[data-color="orange"] { --good-progress-fill-color: var(--good-color-marker-orange); }
+.good-progress[data-color="amber"] { --good-progress-fill-color: var(--good-color-marker-amber); }
+.good-progress[data-color="yellow"] { --good-progress-fill-color: var(--good-color-marker-yellow); }
+.good-progress[data-color="lime"] { --good-progress-fill-color: var(--good-color-marker-lime); }
+.good-progress[data-color="green"] { --good-progress-fill-color: var(--good-color-marker-green); }
+.good-progress[data-color="teal"] { --good-progress-fill-color: var(--good-color-marker-teal); }
+.good-progress[data-color="cyan"] { --good-progress-fill-color: var(--good-color-marker-cyan); }
+@keyframes good-progress-sweep { from { left: -36%; } to { left: 100%; } }
+@keyframes good-progress-sheen { from { left: -65%; } to { left: 100%; } }
+@media (prefers-reduced-motion: reduce) { .good-progress[data-mode="indeterminate"] .good-progress-fill { left: 32%; animation: none; } .good-progress[data-mode="indeterminate"][data-appearance="segmented"] .good-progress-fill::after { display: none; } }

@@ -37,7 +37,27 @@ export class SaveService {
 | `requireAcknowledgement` | Disables the timeout and shows an Acknowledge action |
 | `persist` | Per-message history choice. `false` shows the toast without adding it to the bell panel; overrides the application default |
 | `actions` | Optional route links or callback buttons |
+| `progress` | Optional `good-progress` configuration shown in the toast and its panel entry; omitted when no progress is needed |
 | `tone`, `appearance`, `icon` | Same presentation choices as Alert |
+
+For a real job, publish once and update the same notification ID as work advances. A determinate Progress bar receives its percentage from the job; the notification service does not invent progress. Set `duration: 0` while the job is running so a toast does not disappear mid-task. `delivery: 'inbox'` shows the job only in the bell panel.
+
+```ts
+const id = notifications.publish({
+  title: 'Generating report', delivery: 'toast', duration: 0, persist: true,
+  tone: 'info', progress: { value: 0, color: 'info', showPercent: true },
+});
+
+// Call this from actual job progress events:
+notifications.update(id, { progress: { value: 60, color: 'info', showPercent: true } });
+notifications.update(id, {
+  title: 'Report ready', tone: 'success',
+  progress: { value: 100, color: 'success', showPercent: true },
+});
+notifications.dismissToast(id); // The saved panel entry remains.
+```
+
+`update(id, changes)` can change title, message, tone, appearance, icon, and progress without changing the delivery, creation time, or read state. A Progress configuration accepts the same mode, appearance, size, color, timing, title, and percentage options as [`good-progress`](progress.md). The example page includes a report job visible inline and in a toast, plus an inbox-only job whose progress appears only under the bell.
 
 Up to three toasts are visible at once. Later toasts wait in order, and their timer starts only when they become visible. Hovering or focusing a toast pauses its timer. Closing a saved toast leaves its panel copy in place; Acknowledge hides it and marks that copy as read. A toast with `persist: false` never enters the panel and is removed after dismissal. Inbox-only delivery always stays in the panel. The default history choice is true, or set `provideGoodUI({ notifications: { persistToHistory: false } })` once at bootstrap; `publish({ persist: true })` can save an individual toast in that case. The bell shows a compact 16 px destructive `good-badge` with the unread count, capped visually at `99+`; its accessible name includes the full count. The `notification.count.*` tokens size this application of Badge without changing Badge's normal small/medium/large scale. The panel supports removal, mark as read, and acknowledgement. When empty, it says “No new messages.” Clicking outside the drawer or pressing Escape closes it and returns focus to the bell. The center is in memory for the current page session; applications that need persistence can save and restore their own notification data.
 

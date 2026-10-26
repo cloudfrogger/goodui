@@ -78,4 +78,22 @@ describe('GoodNotificationCenter', () => {
     center.dismissToast(transient);
     expect(center.entries().some(item => item.id === transient)).toBe(false);
   });
+
+  it('updates a running job in the toast and panel without changing its identity or read state', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-10-26T09:00:00Z'));
+    const center = TestBed.inject(GoodNotificationCenter);
+    const id = center.publish({ title: 'Generating report', delivery: 'toast', duration: 0,
+      progress: { value: 0, color: 'info', showPercent: true } });
+    const createdAt = center.inbox()[0].createdAt;
+
+    center.markRead(id);
+    center.update(id, { title: 'Report ready', tone: 'success', progress: { value: 100, color: 'success', showPercent: true } });
+
+    expect(center.toasts()[0].progress?.value).toBe(100);
+    expect(center.inbox()[0]).toMatchObject({ id, createdAt, read: true, title: 'Report ready', tone: 'success' });
+    expect(center.unreadCount()).toBe(0);
+    center.dismissToast(id);
+    expect(center.inbox()[0].progress?.value).toBe(100);
+  });
 });

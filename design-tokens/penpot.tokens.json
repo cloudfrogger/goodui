@@ -2915,6 +2915,34 @@
           }
         }
       }
+    },
+    "progress": {
+      "track": {
+        "background": { "$value": "{color.selected}", "$type": "color" },
+        "divider": { "$value": "{color.surface}", "$type": "color" }
+      },
+      "label": {
+        "color": { "$value": "{color.text}", "$type": "color" },
+        "gap": { "$value": "{space.2}", "$type": "spacing" },
+        "font-size": {
+          "small": { "$value": "12", "$type": "fontSizes" },
+          "default": { "$value": "13", "$type": "fontSizes" },
+          "large": { "$value": "14", "$type": "fontSizes" }
+        }
+      },
+      "value": {
+        "color": { "$value": "{color.muted}", "$type": "color" }
+      },
+      "radius": { "$value": "{radius.switch}", "$type": "borderRadius" },
+      "height": {
+        "small": { "$value": "6", "$type": "sizing" },
+        "default": { "$value": "10", "$type": "sizing" },
+        "large": { "$value": "14", "$type": "sizing" }
+      },
+      "segment": {
+        "width": { "$value": "14", "$type": "sizing" },
+        "gap": { "$value": "3", "$type": "sizing" }
+      }
     }
   },
   "layout-dark": {

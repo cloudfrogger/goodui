@@ -2,6 +2,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { GoodAlertAppearance, GoodAlertTone } from './alert';
 import { GOODUI_OPTIONS } from './goodui-config';
 import { GoodButtonIcon } from './models';
+import type { GoodProgressAppearance, GoodProgressColor, GoodProgressMode, GoodProgressSize } from './progress';
 
 export type GoodNotificationDelivery = 'toast' | 'top' | 'inbox';
 
@@ -9,6 +10,19 @@ export interface GoodNotificationAction {
   label: string;
   route?: string;
   run?: () => void;
+}
+
+export interface GoodNotificationProgress {
+  mode?: GoodProgressMode;
+  appearance?: GoodProgressAppearance;
+  size?: GoodProgressSize;
+  value?: number;
+  durationMs?: number;
+  loop?: boolean;
+  title?: string;
+  showPercent?: boolean;
+  color?: GoodProgressColor | string;
+  ariaLabel?: string;
 }
 
 export interface GoodNotificationRequest {
@@ -24,7 +38,12 @@ export interface GoodNotificationRequest {
   persist?: boolean;
   requireAcknowledgement?: boolean;
   actions?: readonly GoodNotificationAction[];
+  /** Optional Progress shown in the toast and its saved panel entry. */
+  progress?: GoodNotificationProgress;
 }
+
+export type GoodNotificationUpdate = Partial<Pick<GoodNotificationRequest,
+  'title' | 'message' | 'tone' | 'appearance' | 'icon' | 'progress'>>;
 
 export interface GoodNotificationEntry extends GoodNotificationRequest {
   id: string;
@@ -71,6 +90,11 @@ export class GoodNotificationCenter {
     this.entriesState.update(entries => [...entries, entry]);
     if (visible) this.startTimer(entry);
     return id;
+  }
+
+  /** Update a published message without changing its delivery, timestamp, or read state. */
+  update(id: string, changes: GoodNotificationUpdate): void {
+    this.entriesState.update(entries => entries.map(entry => entry.id === id ? { ...entry, ...changes } : entry));
   }
 
   dismissToast(id: string): void {

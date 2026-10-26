@@ -1,0 +1,175 @@
+{
+  "family": "goodui.progress",
+  "selector": "good-progress",
+  "page": "24 Progress",
+  "pageId": "ed9655bf-f6cb-8073-8008-d9b2108a8674",
+  "containerId": "bf5e7a26-ff29-80d7-8008-d9b649158136",
+  "axes": {
+    "mode": [
+      "determinate",
+      "indeterminate",
+      "timed"
+    ],
+    "appearance": [
+      "solid",
+      "segmented"
+    ],
+    "size": [
+      "small",
+      "default",
+      "large"
+    ]
+  },
+  "colorInputs": {
+    "brand": "color.brand",
+    "accent": "color.accent",
+    "secondary": "color.muted",
+    "destructive": "color.error",
+    "warning": "color.warning",
+    "success": "color.success",
+    "info": "color.info",
+    "text": "color.text",
+    "markers": "color.marker.<name>",
+    "custom": "CSS color override on a linked instance"
+  },
+  "penpotBindings": {
+    "track.fill": "color.selected (progress.track.background alias in CSS)",
+    "title.fill": "color.text (progress.label.color alias in CSS)",
+    "value.fill": "color.muted (progress.value.color alias in CSS)",
+    "divider.fill": "color.surface (progress.track.divider alias in CSS)",
+    "track.height": "progress.height.<size>",
+    "fill.height": "progress.height.<size>",
+    "title.fontSize": "progress.label.font-size.<size>",
+    "value.fontSize": "progress.label.font-size.<size>",
+    "labelRow.columnGap": "progress.label.gap",
+    "root.rowGap": "progress.label.gap",
+    "divider.width": "progress.segment.gap",
+    "track.radius": "progress.radius",
+    "divider.pitch": "14 px position; Penpot has no repeated pitch binding; CSS uses progress.segment.width"
+  },
+  "runtimeInputs": [
+    "value",
+    "durationMs",
+    "loop",
+    "title",
+    "showPercent",
+    "color",
+    "ariaLabel"
+  ],
+  "variants": [
+    {
+      "mode": "determinate",
+      "appearance": "solid",
+      "size": "small",
+      "id": "ed9655bf-f6cb-8073-8008-d9b343f34c60"
+    },
+    {
+      "mode": "determinate",
+      "appearance": "solid",
+      "size": "default",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b64931f5a7"
+    },
+    {
+      "mode": "determinate",
+      "appearance": "solid",
+      "size": "large",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b6676f3a37"
+    },
+    {
+      "mode": "determinate",
+      "appearance": "segmented",
+      "size": "small",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c710ed2"
+    },
+    {
+      "mode": "determinate",
+      "appearance": "segmented",
+      "size": "default",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c72db84"
+    },
+    {
+      "mode": "determinate",
+      "appearance": "segmented",
+      "size": "large",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c74e360"
+    },
+    {
+      "mode": "indeterminate",
+      "appearance": "solid",
+      "size": "small",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c77099e"
+    },
+    {
+      "mode": "indeterminate",
+      "appearance": "solid",
+      "size": "default",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c791c54"
+    },
+    {
+      "mode": "indeterminate",
+      "appearance": "solid",
+      "size": "large",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c7b9fd0"
+    },
+    {
+      "mode": "indeterminate",
+      "appearance": "segmented",
+      "size": "small",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c7e2877"
+    },
+    {
+      "mode": "indeterminate",
+      "appearance": "segmented",
+      "size": "default",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c80b90b"
+    },
+    {
+      "mode": "indeterminate",
+      "appearance": "segmented",
+      "size": "large",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c83b3f7"
+    },
+    {
+      "mode": "timed",
+      "appearance": "solid",
+      "size": "small",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c86a1de"
+    },
+    {
+      "mode": "timed",
+      "appearance": "solid",
+      "size": "default",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c895bcb"
+    },
+    {
+      "mode": "timed",
+      "appearance": "solid",
+      "size": "large",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c8b94f7"
+    },
+    {
+      "mode": "timed",
+      "appearance": "segmented",
+      "size": "small",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c8e1e04"
+    },
+    {
+      "mode": "timed",
+      "appearance": "segmented",
+      "size": "default",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c9029eb"
+    },
+    {
+      "mode": "timed",
+      "appearance": "segmented",
+      "size": "large",
+      "id": "bf5e7a26-ff29-80d7-8008-d9b66c92876f"
+    }
+  ],
+  "alertComposition": {
+    "name": "goodui.alert-composition.progress",
+    "id": "bf5e7a26-ff29-80d7-8008-d9b857795ba5",
+    "owner": "good-alert",
+    "linkedSelector": "good-progress"
+  }
+}

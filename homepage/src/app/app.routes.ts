@@ -31,6 +31,7 @@ export const routes: Routes = [
   { path: 'dashboard', ...page('Dashboard', 'Overview and key metrics') },
   { path: 'components/buttons', component: ButtonsPageComponent },
   { path: 'components/alerts', component: AlertsPageComponent },
+  { path: 'components/progress', loadComponent: () => import('./progress-page').then(module => module.ProgressPageComponent) },
   { path: 'components/typography', redirectTo: 'getting-started/typography' },
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },

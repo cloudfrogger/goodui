@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   GoodAlertAppearance, GoodAlertComponent, GoodAlertSize, GoodAlertTone,
-  GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodSectionComponent,
+  GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodProgressComponent, GoodSectionComponent,
   LucideCircleCheck, LucideInfo, LucideOctagonAlert, LucideTriangleAlert,
 } from '@goodui/angular';
 
@@ -9,7 +9,7 @@ import {
   selector: 'showcase-alerts-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodAlertComponent,
-    GoodButtonComponent, GoodLinkComponent, GoodCodeBlockComponent],
+    GoodButtonComponent, GoodLinkComponent, GoodCodeBlockComponent, GoodProgressComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Alerts" description="Reusable messages with six tones, four appearances, three sizes, actions, and dismissal.">
@@ -40,6 +40,13 @@ import {
             </div>
           </good-alert>
         }
+      </good-group>
+      </good-section>
+      <good-section>
+      <good-group title="Progress in an alert" appearance="plain">
+        <good-alert tone="info" title="Preparing export" message="Your download is being assembled.">
+          <good-progress mode="timed" [durationMs]="6000" color="info" [showPercent]="true" ariaLabel="Export progress" />
+        </good-alert>
       </good-group>
       </good-section>
       <good-section>

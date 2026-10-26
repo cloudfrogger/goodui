@@ -63,6 +63,8 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `alert.<tone>.color/background/light` | `--good-alert-<tone>-*` | Bound Alert icon, text, and surface fills | Six semantic Alert tones in both themes |
 | `alert.padding-x/y.*`, `alert.icon-size.*` | `--good-alert-padding-*`, `--good-alert-icon-size-*` | Bound Alert flex padding and linked Lucide size | Small, default, and large Alerts |
 | `alert.radius`, `alert.border-width` | `--good-alert-radius`, `--good-alert-border-width` | Alert board radius and stroke width | Shared card corners and border |
+| `progress.track.background/divider`, `progress.radius` | `--good-progress-track-*`, `--good-progress-radius` | Progress CSS track and segmented dividers; Penpot binds base color tokens directly and binds its radius to `progress.radius` | Theme surface and shared control radius |
+| `progress.height.*`, `progress.label.*`, `progress.segment.*` | `--good-progress-height-*`, `--good-progress-label-*`, `--good-progress-segment-*` | Progress size, label rhythm, and segmented appearance | Three sizes and a common 14 px segment pitch |
 | `notification.count.size/padding-inline/font-size` | `--good-notification-count-*` | Compact unread Badge on the 36 px bell | 16 px count without changing regular Badge sizes |
 | `control.switch-width-*` / `control.switch-height-*` | `--good-control-switch-width-*` / `--good-control-switch-height-*` | Switch track dimensions | Small, default, large tracks |
 | `control.switch-thumb-size-*` | `--good-control-switch-thumb-size-*` | Switch thumb dimensions | Small, default, large thumbs |
@@ -195,3 +197,7 @@ Image Input adds `image-input.size` (180 px) to the `layout` set. Its Penpot pre
 This is a **manual Penpot-to-repository export** followed by automatic CSS generation. The build regenerates CSS from the saved JSON, not from live Penpot. The generated file is `angular/projects/goodui/src/tokens.generated.css`; the package stylesheet imports it and exposes Tailwind CSS 4 `--color-good-*` mappings through `@theme inline`. GoodUI does not ship Tailwind Preflight to consuming apps.
 
 For app-level theming, set `data-theme="light"` or `data-theme="dark"` on a common root. `GoodThemeService` stores the preference (`light`, `system`, or `dark`) under `goodui-theme` and writes the resolved light/dark value to `data-theme`. With no saved choice, it follows the system preference and responds to later system changes. Apps can override public `--good-*` variables at runtime; these overrides are application-specific and do not write back to Penpot.
+
+## Progress tokens
+
+`progress.*` tokens define the track surface, divider color, radius, size-specific heights and label type, and segment dimensions. The color roles alias selected, text, and surface colors in the active Penpot theme. Penpot 2.17 did not repaint those aliases on this variant family, so the live track, label, and dividers bind directly to their corresponding base color tokens; the aliases remain the CSS source. The Angular selector also supports the semantic palette and all 16 marker colors through existing color tokens. A consumer-supplied RGB value overrides only that instance. The CSS values are generated from `design-tokens/penpot.tokens.json`; refresh that snapshot from Penpot after visual token changes.

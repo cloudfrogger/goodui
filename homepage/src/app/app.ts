@@ -62,6 +62,7 @@ export class App {
     { id: 'components', heading: 'COMPONENTS', items: [
       { id: 'buttons', label: 'Buttons', icon: 'grid', route: '/components/buttons' },
       { id: 'alerts', label: 'Alerts', icon: 'bell', route: '/components/alerts' },
+      { id: 'progress', label: 'Progress', icon: 'grid', route: '/components/progress' },
       { id: 'action-groups', label: 'Action groups', icon: 'menu', route: '/components/action-groups' },
       { id: 'switches', label: 'Switches', icon: 'settings', route: '/components/switches' },
       { id: 'checkboxes', label: 'Checkboxes', icon: 'check', route: '/components/checkboxes' },
@@ -142,6 +143,7 @@ export class App {
     { id: 'license', label: 'License', description: 'Getting Started', route: '/getting-started/license' },
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
     { id: 'alerts', label: 'Alerts', description: 'Tones, appearances, sizes, actions, and dismissal', route: '/components/alerts' },
+    { id: 'progress', label: 'Progress', description: 'Determinate, indeterminate, and timed progress bars', route: '/components/progress' },
     { id: 'notifications-example', label: 'Notifications', description: 'Example · toasts and notification panel', route: '/examples/notifications' },
     { id: 'action-groups', label: 'Action groups', description: 'Horizontal, vertical, and responsive arrangements', route: '/components/action-groups' },
     { id: 'switches', label: 'Switches', description: 'States and form example', route: '/components/switches' },

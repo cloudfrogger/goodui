@@ -1,4 +1,4 @@
-<good-main-view title="Notifications" description="Try alerts, timed toasts, acknowledgement, and the notification panel.">
+<good-main-view title="Notifications" description="Try alerts, job progress, timed toasts, acknowledgement, and the notification panel.">
   <good-section>
     <good-breadcrumbs [items]="breadcrumbs" />
     <good-group title="Inline alerts" appearance="plain">
@@ -22,6 +22,22 @@
       <good-alert tone="neutral" appearance="light" title="Notification panel"
         message="Open the bell to review saved messages. Toast without history uses persist: false and leaves no panel entry." />
       <p role="status">{{ lastAction() }}</p>
+    </good-group>
+    <good-group title="Jobs with progress" appearance="plain">
+      <good-action-group orientation="responsive">
+        <good-button (click)="startJob('top')" [disabled]="toastJobRunning()">Run report job</good-button>
+        <good-button variant="outline" (click)="startJob('inbox')" [disabled]="inboxJobRunning()">Run inbox-only job</good-button>
+      </good-action-group>
+      @if (inlineProgress() !== null) {
+        <good-alert [tone]="inlineProgress() === 100 ? 'success' : 'info'"
+          [title]="inlineProgress() === 100 ? 'Report ready' : 'Generating report'"
+          message="This job updates here and in its notification.">
+          <good-progress title="Report generation" [value]="inlineProgress() ?? 0"
+            [showPercent]="true" [color]="inlineProgress() === 100 ? 'success' : 'info'" />
+        </good-alert>
+      }
+      <good-alert tone="neutral" appearance="light" title="Inbox-only job"
+        message="The second job has no toast or inline status. Open the bell to follow its progress." />
     </good-group>
     <good-group title="Use this example" appearance="plain">
       <good-code-block [code]="htmlSource" language="html" title="notifications-page.html"

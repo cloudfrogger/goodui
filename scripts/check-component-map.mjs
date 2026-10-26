@@ -24,6 +24,7 @@ const cardVariants = JSON.parse(readFileSync(resolve(root, 'design/card-variants
 const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-block-variants.json'), 'utf8'));
 const modalVariants = JSON.parse(readFileSync(resolve(root, 'design/modal-variants.json'), 'utf8'));
 const actionGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/action-group-variants.json'), 'utf8'));
+const progressVariants = JSON.parse(readFileSync(resolve(root, 'design/progress-variants.json'), 'utf8'));
 const typographyComponents = JSON.parse(readFileSync(resolve(root, 'design/typography-components.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
@@ -51,6 +52,23 @@ for (const [contract, family, selector, page, axes] of [
 }
 if (alertContract.composition?.id !== map.componentMappings.find(entry => entry.penpotName === 'goodui.alert-composition.actions-dismissible')?.penpotId ||
     alertContract.composition.owner !== 'good-alert') throw new Error('Alert action composition is not mapped.');
+if (progressVariants.family !== 'goodui.progress' || progressVariants.selector !== 'good-progress' || progressVariants.page !== '24 Progress' ||
+    !/^[0-9a-f-]{36}$/.test(progressVariants.containerId ?? '')) throw new Error('Invalid Progress registry.');
+const progressKeys = new Set();
+const progressIds = new Set();
+for (const entry of progressVariants.variants) {
+  const key = ['mode', 'appearance', 'size'].map(axis => {
+    if (!progressVariants.axes[axis].includes(entry[axis])) throw new Error(`Unknown Progress ${axis}: ${entry[axis]}`);
+    return entry[axis];
+  }).join('/');
+  if (progressKeys.has(key) || progressIds.has(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.id)) throw new Error(`Invalid Progress variant: ${key}`);
+  progressKeys.add(key); progressIds.add(entry.id);
+}
+if (progressKeys.size !== 18) throw new Error('Incomplete Progress variant matrix.');
+const progressDefault = progressVariants.variants.find(entry => entry.mode === 'determinate' && entry.appearance === 'solid' && entry.size === 'default');
+if (map.componentMappings.find(entry => entry.penpotName === 'goodui.progress')?.penpotId !== progressDefault?.id ||
+    map.componentMappings.find(entry => entry.penpotName === 'goodui.alert-composition.progress')?.penpotId !== progressVariants.alertComposition.id)
+  throw new Error('Progress Penpot mapping does not match the published default and Alert composition.');
 if (selectVariants.family !== 'goodui.select' || selectVariants.selector !== 'good-select' || selectVariants.page !== '17 Selects' || !selectVariants.containerId) throw new Error('Invalid Select registry.');
 if (selectVariants.country?.family !== 'goodui.select-country' || selectVariants.country?.selector !== 'good-select-country' || !selectVariants.country.containerId) throw new Error('Invalid Country Select registry.');
 const checkSelectVariants = (entries, sizes, states, name) => {

@@ -3,12 +3,13 @@ import { LucideInfo } from '@lucide/angular';
 import { GoodAlertComponent } from './alert';
 import { GoodButtonComponent } from './button';
 import { GoodLinkComponent } from './link';
+import { GoodProgressComponent } from './progress';
 import { GoodNotificationAction, GoodNotificationCenter, GoodNotificationEntry } from './notification-center';
 
 @Component({
   selector: 'good-notification-host',
   standalone: true,
-  imports: [GoodAlertComponent, GoodButtonComponent, GoodLinkComponent],
+  imports: [GoodAlertComponent, GoodButtonComponent, GoodLinkComponent, GoodProgressComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'good-notification-host' },
   template: `
@@ -20,6 +21,14 @@ import { GoodNotificationAction, GoodNotificationCenter, GoodNotificationEntry }
             <good-alert [tone]="item.tone" [appearance]="item.appearance" [title]="item.title"
               [message]="item.message ?? ''" [icon]="item.icon ?? infoIcon"
               [dismissible]="!item.requireAcknowledgement" (closed)="center.dismissToast(item.id)">
+              @if (item.progress; as progress) {
+                <good-progress [mode]="progress.mode ?? 'determinate'" [appearance]="progress.appearance ?? 'solid'"
+                  [size]="progress.size ?? 'small'" [value]="progress.value ?? 0"
+                  [durationMs]="progress.durationMs ?? 5000" [loop]="progress.loop ?? true"
+                  [title]="progress.title ?? ''" [showPercent]="progress.showPercent ?? true"
+                  [color]="progress.color ?? (item.tone === 'neutral' ? 'secondary' : item.tone)"
+                  [ariaLabel]="progress.ariaLabel ?? (item.title + ' progress')" />
+              }
               <div goodAlertActions>
                 @for (action of item.actions ?? []; track action.label) {
                   @if (action.route) { <good-link [route]="action.route" (click)="activate(item, action)">{{ action.label }}</good-link> }
@@ -40,6 +49,14 @@ import { GoodNotificationAction, GoodNotificationCenter, GoodNotificationEntry }
             <good-alert [tone]="item.tone" [appearance]="item.appearance" [title]="item.title"
               [message]="item.message ?? ''" [icon]="item.icon ?? infoIcon"
               [dismissible]="!item.requireAcknowledgement" (closed)="center.dismissToast(item.id)">
+              @if (item.progress; as progress) {
+                <good-progress [mode]="progress.mode ?? 'determinate'" [appearance]="progress.appearance ?? 'solid'"
+                  [size]="progress.size ?? 'small'" [value]="progress.value ?? 0"
+                  [durationMs]="progress.durationMs ?? 5000" [loop]="progress.loop ?? true"
+                  [title]="progress.title ?? ''" [showPercent]="progress.showPercent ?? true"
+                  [color]="progress.color ?? (item.tone === 'neutral' ? 'secondary' : item.tone)"
+                  [ariaLabel]="progress.ariaLabel ?? (item.title + ' progress')" />
+              }
               <div goodAlertActions>
                 @for (action of item.actions ?? []; track action.label) {
                   @if (action.route) { <good-link [route]="action.route" (click)="activate(item, action)">{{ action.label }}</good-link> }

@@ -3,13 +3,14 @@
 @import "tailwindcss/utilities.css" layer(utilities) source(none);
 @import "./tokens.generated.css";
 @import "./calendar.css";
+@import "./progress.css";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
+good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-progress, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -404,6 +405,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-alert-content { display: flex; flex: 1; flex-direction: column; gap: var(--good-space-1); min-width: 0; font-size: var(--good-alert-font-size); line-height: 1.5; overflow-wrap: anywhere; }
 .good-alert-title { color: var(--good-alert-tone); font-size: var(--good-alert-title-size); font-weight: 700; line-height: 1.35; }
 .good-alert-message { margin: 0; }
+.good-alert-content > good-progress { margin-block-start: var(--good-space-2); }
 .good-alert-actions:not(:empty) { display: flex; align-items: center; flex-wrap: wrap; gap: var(--good-space-2); margin-block-start: var(--good-space-2); }
 .good-alert-close { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 28px; height: 28px; margin: -4px -6px -4px 0; padding: 0; border: 0; border-radius: var(--good-radius-button); background: transparent; color: var(--good-alert-text); cursor: pointer; }
 .good-alert-close:hover { background: color-mix(in srgb, var(--good-alert-tone) 12%, transparent); }

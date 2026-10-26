@@ -44,6 +44,7 @@
     "notifications",
     "paragraph",
     "prose",
+    "progress",
     "radio-group",
     "rating",
     "search",
@@ -133,6 +134,14 @@
       "kind": "internal-part",
       "owner": "goodui.alert",
       "state": "actions-dismissible"
+    },
+    {
+      "penpotName": "goodui.alert-composition.progress",
+      "penpotId": "bf5e7a26-ff29-80d7-8008-d9b857795ba5",
+      "angularSelector": "good-alert",
+      "kind": "internal-part",
+      "owner": "goodui.alert",
+      "state": "progress"
     },
     {
       "penpotName": "goodui.app-layout.desktop",
@@ -798,6 +807,13 @@
       "state": null
     },
     {
+      "penpotName": "goodui.progress",
+      "penpotId": "bf5e7a26-ff29-80d7-8008-d9b64931f5a7",
+      "angularSelector": "good-progress",
+      "kind": "component",
+      "state": null
+    },
+    {
       "penpotName": "goodui.radio-group",
       "penpotId": "c0c3286f-e4bf-804c-8008-d52762ebe541",
       "angularSelector": "good-radio-group",
@@ -1225,6 +1241,7 @@
     "design/input-variants.json",
     "design/link-variants.json",
     "design/modal-variants.json",
+    "design/progress-variants.json",
     "design/notification-host-contract.json",
     "design/radio-group-variants.json",
     "design/rating-variants.json",

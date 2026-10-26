@@ -125,6 +125,7 @@ Penpot page `21 Alerts` publishes 72 `goodui.alert` variants and four `goodui.no
 | `goodui.search` | Trigger and search dialog with input, results, empty state |
 | `goodui.notifications` | Bell, unread Badge, and dismissible drawer; `default`, `unread`, and `open` design states |
 | `goodui.alert` | Inline or delivered message with six semantic tones, four appearances, three sizes, actions, and optional dismissal |
+| `goodui.progress` | Determinate, indeterminate, or timed progress with solid or segmented fill, three sizes, theme colors, optional title and percentage |
 | `goodui.notification-host` | Toast placement and stacking; in-memory delivery is controlled by `GoodNotificationCenter` |
 | `goodui.settings` | Trigger and app-configured settings menu |
 | `goodui.avatar-menu` | Avatar trigger and account menu with identity, nested actions, appearance switch, and sign-out area |
@@ -384,3 +385,9 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 3. Export and visually review desktop, mobile, and open states.
 4. Update the homepage examples and the Penpot-to-Angular mapping when behavior or APIs change.
 5. When implementation is requested, build Angular/Tailwind and verify behavior, accessibility, and visual alignment.
+
+## Progress
+
+`good-progress` is the generic progress indicator. `mode=determinate` displays the clamped `[value]`; `indeterminate` shows motion without asserting a numerical value; `timed` fills over `[durationMs]` and repeats by default, with `[loop]="false"` stopping at 100%. `appearance=solid/segmented`, `size=small/default/large`, optional `title` and `showPercent`, and semantic, marker, or CSS colors cover common task states. The track owns its radius, height, label spacing, and segment spacing through `progress.*` tokens in the Penpot `layout` set. Penpot 2.17 did not repaint bound `progress.*` color aliases on these variants when the theme changed, so the live shapes bind directly to their base tokens: `color.selected` for track, `color.text` for label, and `color.surface` for dividers. The semantic aliases retain the same relationships for generated CSS. Penpot cannot bind the repeated divider pitch, so its 14 px positions mirror `progress.segment.width`; CSS consumes that token directly. Custom RGB is a local consumer override. Progress projects directly into Alert content, where Alert owns the vertical spacing. See [Progress](guides/components/progress.md).
+
+`GoodNotificationCenter.publish()` accepts an optional Progress configuration. `update(id, changes)` replaces message presentation fields without changing delivery, creation time, or read state. NotificationHost and the bell panel render the same `good-progress` state from the entry. A running job uses `duration: 0` until the application reports completion; `delivery: 'inbox'` keeps the progress entirely in the panel. The Notifications example shows both a report job with inline and toast progress and an inbox-only job. This behavior uses the existing linked `goodui.alert-composition.progress` reference on Penpot page `24 Progress`; no new visual family is introduced.

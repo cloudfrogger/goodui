@@ -7,6 +7,7 @@ import { GoodAlertComponent } from './alert';
 import { GoodBadgeComponent } from './badge';
 import { GoodButtonComponent } from './button';
 import { GoodLinkComponent } from './link';
+import { GoodProgressComponent } from './progress';
 import { GoodNotificationAction, GoodNotificationCenter, GoodNotificationEntry } from './notification-center';
 import { LucideInfo } from '@lucide/angular';
 
@@ -46,7 +47,7 @@ export class GoodSearchComponent {
 @Component({
   selector: 'good-notifications',
   standalone: true,
-  imports: [GoodIconComponent, RouterLink, GoodAlertComponent, GoodBadgeComponent, GoodButtonComponent, GoodLinkComponent],
+  imports: [GoodIconComponent, RouterLink, GoodAlertComponent, GoodBadgeComponent, GoodButtonComponent, GoodLinkComponent, GoodProgressComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <button #trigger type="button" class="good-action-button" [attr.aria-label]="unreadCount() ? 'Notifications, ' + unreadCount() + ' unread' : 'Notifications'" (click)="open()">
@@ -64,6 +65,14 @@ export class GoodSearchComponent {
             <good-alert [tone]="item.tone" [appearance]="item.appearance" size="small"
               [title]="item.title" [message]="item.message ?? ''" [icon]="item.icon ?? infoIcon"
               [dismissible]="true" closeLabel="Remove notification" (closed)="center.remove(item.id)">
+              @if (item.progress; as progress) {
+                <good-progress [mode]="progress.mode ?? 'determinate'" [appearance]="progress.appearance ?? 'solid'"
+                  [size]="progress.size ?? 'small'" [value]="progress.value ?? 0"
+                  [durationMs]="progress.durationMs ?? 5000" [loop]="progress.loop ?? true"
+                  [title]="progress.title ?? ''" [showPercent]="progress.showPercent ?? true"
+                  [color]="progress.color ?? (item.tone === 'neutral' ? 'secondary' : item.tone)"
+                  [ariaLabel]="progress.ariaLabel ?? (item.title + ' progress')" />
+              }
               <time class="good-notification-time" [attr.datetime]="isoDate(item.createdAt)">{{ formatDateTime(item.createdAt) }}</time>
               <div goodAlertActions>
                 @for (action of item.actions ?? []; track action.label) {

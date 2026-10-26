@@ -12,7 +12,7 @@ The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`. Ref
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components` through `18 Phone Inputs`; dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, and `18 Phone Inputs`. The IDs below are Penpot library IDs; preserve the main shape while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages include `01 Components` through `24 Progress`; dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, and `24 Progress`. The IDs below are Penpot main shape IDs; preserve them while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -55,6 +55,8 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages: `01 Components` through 
 | `goodui.search.default` / `.open` | `521fe58c-da62-80e2-8008-d33f6563524e` / `521fe58c-da62-80e2-8008-d33ffe1c4f79` |
 | `goodui.notifications.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65811a2c` / `521fe58c-da62-80e2-8008-d33fff9a20ba` |
 | `goodui.notifications.unread` | `5fd6a355-e255-80dc-8008-d81d121a0160` (linked bell and destructive Badge with 16 px `notification.count.*` overrides) |
+| `goodui.progress` (`mode` × `appearance` × `size`) | Container `bf5e7a26-ff29-80d7-8008-d9b649158136`; all 18 published IDs and Angular inputs in [progress-variants.json](../../design/progress-variants.json) |
+| `goodui.alert-composition.progress` | `bf5e7a26-ff29-80d7-8008-d9b857795ba5`; linked Progress instance inside a detached, token-bound Alert frame for composition reference |
 | `goodui.settings.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65a3839a` / `521fe58c-da62-80e2-8008-d340005398c5` |
 | `goodui.avatar-menu.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65e8aeea` / `521fe58c-da62-80e2-8008-d3400143c866` |
 | `goodui.avatar-menu-item.default` / `.parent` / `.sign-out` | `521fe58c-da62-80e2-8008-d3dff07e8b0c` / `521fe58c-da62-80e2-8008-d3e02020206b` / `521fe58c-da62-80e2-8008-d3e020759afe` |
