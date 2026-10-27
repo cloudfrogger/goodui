@@ -12,7 +12,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-progress, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
+good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-progress, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -614,6 +614,35 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-input-native-file { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
 .good-input-native-file:disabled { cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .good-input-shell { transition: none; } }
+
+.good-number-input { display: inline-flex; flex-direction: column; max-width: 100%; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-number-label { margin-block-end: var(--good-typography-field-label-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }
+.good-number-control { --good-number-height: var(--good-control-input-height-default); --good-number-font-size: 14px; --good-number-center-width: 80px; --good-number-icon-size: var(--good-control-input-icon-size-default); box-sizing: border-box; display: inline-flex; align-items: stretch; width: fit-content; max-width: 100%; height: var(--good-number-height); overflow: hidden; border: 1px solid var(--good-input-border); border-radius: var(--good-radius-control); background: var(--good-input-background); color: var(--good-input-foreground); }
+.good-number-control[data-size="small"] { --good-number-height: var(--good-control-input-height-small); --good-number-font-size: 12px; --good-number-center-width: 64px; --good-number-icon-size: var(--good-control-input-icon-size-small); }
+.good-number-control[data-size="large"] { --good-number-height: var(--good-control-input-height-large); --good-number-font-size: 16px; --good-number-center-width: 96px; --good-number-icon-size: var(--good-control-input-icon-size-large); }
+.good-number-control[data-disabled="true"] { opacity: .5; }
+.good-number-control:focus-within { border-color: var(--good-input-focus-border); outline: 2px solid var(--good-input-focus-border); outline-offset: 2px; }
+.good-number-button { display: inline-flex; flex: none; align-items: center; justify-content: center; width: var(--good-number-height); height: 100%; padding: 0; border: 0; background: var(--good-input-addon-background); color: var(--good-input-foreground); cursor: pointer; }
+.good-number-button:first-child { border-right: 1px solid var(--good-input-border); }
+.good-number-button:last-child { border-left: 1px solid var(--good-input-border); }
+.good-number-button:hover:not(:disabled) { background: var(--good-input-readonly-background); }
+.good-number-button:disabled { opacity: .42; cursor: not-allowed; }
+.good-number-button:focus-visible { outline: 2px solid var(--good-input-focus-border); outline-offset: -3px; }
+.good-number-center { position: relative; display: flex; flex: 1 1 auto; align-items: center; justify-content: center; gap: 6px; min-width: var(--good-number-center-width); padding: 0 10px; cursor: text; }
+.good-number-icon { position: relative; z-index: 1; display: block; flex: none; width: var(--good-number-icon-size); height: var(--good-number-icon-size); pointer-events: none; }
+.good-number-display { position: relative; display: grid; flex: none; place-items: center; min-width: 1ch; height: 1.4em; overflow: hidden; font-size: var(--good-number-font-size); font-variant-numeric: tabular-nums; font-weight: 600; line-height: 1.4; pointer-events: none; }
+.good-number-digits { display: inline-flex; grid-area: 1 / 1; justify-content: center; white-space: nowrap; }
+.good-number-digits > span { display: inline-block; min-width: .58ch; text-align: center; }
+.good-number-digits-enter > span { animation: good-number-enter .28s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--digit-index) * 18ms); }
+.good-number-digits-exit > span { animation: good-number-exit .24s ease-in both; animation-delay: calc(var(--digit-index) * 12ms); }
+.good-number-native { position: absolute; inset: 0; box-sizing: border-box; width: 100%; height: 100%; padding: 0 8px; border: 0; outline: 0; opacity: 0; background: var(--good-input-background); color: var(--good-input-foreground); font: inherit; font-size: var(--good-number-font-size); text-align: center; cursor: text; appearance: textfield; }
+.good-number-native::-webkit-inner-spin-button, .good-number-native::-webkit-outer-spin-button { margin: 0; appearance: none; }
+.good-number-native:focus { opacity: 1; }
+.good-number-center:has(.good-number-icon) .good-number-native { padding-left: calc(var(--good-number-icon-size) + 10px); }
+.good-number-control[data-editing="true"] .good-number-display { visibility: hidden; }
+@keyframes good-number-enter { 0% { transform: translateY(110%); opacity: .2; filter: brightness(1.5); } 55% { opacity: 1; filter: brightness(1.18); } 100% { transform: translateY(0); opacity: 1; filter: brightness(1); } }
+@keyframes good-number-exit { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-110%); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .good-number-digits-enter > span, .good-number-digits-exit > span { animation: none; } .good-number-digits-exit { display: none; } }
 
 .good-pin-input { display: block; min-width: 0; max-width: 100%; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-pin-label { display: inline-flex; align-items: baseline; gap: var(--good-typography-required-gap); margin-block-end: var(--good-typography-field-label-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }

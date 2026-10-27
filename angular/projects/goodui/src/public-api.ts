@@ -24,6 +24,7 @@ export * from './lib/card';
 export * from './lib/code-block';
 export * from './lib/modal';
 export * from './lib/input';
+export * from './lib/number-input';
 export * from './lib/pin-input';
 export * from './lib/alert';
 export * from './lib/notification-center';

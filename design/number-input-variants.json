@@ -1,0 +1,36 @@
+{
+  "family": "goodui.number-input",
+  "selector": "good-number-input",
+  "page": "27 Number Inputs",
+  "pageId": "9ec30947-b9fa-809b-8008-db1ebbcca2cd",
+  "containerId": "9ec30947-b9fa-809b-8008-db1f10bc6cf8",
+  "axes": {
+    "size": ["small", "default", "large"],
+    "status": ["default", "disabled"],
+    "icon": ["no", "yes"]
+  },
+  "variants": [
+    { "id": "9ec30947-b9fa-809b-8008-db1ed0a1d84d", "size": "small", "status": "default", "icon": "no" },
+    { "id": "9ec30947-b9fa-809b-8008-db1ed57731cd", "size": "small", "status": "default", "icon": "yes" },
+    { "id": "9ec30947-b9fa-809b-8008-db1eda486570", "size": "small", "status": "disabled", "icon": "no" },
+    { "id": "9ec30947-b9fa-809b-8008-db1edf2e79fc", "size": "small", "status": "disabled", "icon": "yes" },
+    { "id": "9ec30947-b9fa-809b-8008-db1ee40f79e1", "size": "default", "status": "default", "icon": "no" },
+    { "id": "9ec30947-b9fa-809b-8008-db1ee8f7a2ee", "size": "default", "status": "default", "icon": "yes" },
+    { "id": "9ec30947-b9fa-809b-8008-db1eedd45f89", "size": "default", "status": "disabled", "icon": "no" },
+    { "id": "9ec30947-b9fa-809b-8008-db1ef2cf9924", "size": "default", "status": "disabled", "icon": "yes" },
+    { "id": "9ec30947-b9fa-809b-8008-db1ef91f1ab8", "size": "large", "status": "default", "icon": "no" },
+    { "id": "9ec30947-b9fa-809b-8008-db1eff95698d", "size": "large", "status": "default", "icon": "yes" },
+    { "id": "9ec30947-b9fa-809b-8008-db1f058121cf", "size": "large", "status": "disabled", "icon": "no" },
+    { "id": "9ec30947-b9fa-809b-8008-db1f0b50f528", "size": "large", "status": "disabled", "icon": "yes" }
+  ],
+  "runtimeInputs": ["value", "min", "max", "step", "icon", "label", "disabled"],
+  "animation": "Digits move upward on value change; reduced-motion users see a static value",
+  "linkedIcons": ["minus", "plus", "gauge"],
+  "tokenBindings": {
+    "frame.fill": "input.background",
+    "frame.stroke": "input.border",
+    "frame.radius": "radius.control",
+    "button.fill": "input.addon.background",
+    "value.fill": "input.foreground"
+  }
+}

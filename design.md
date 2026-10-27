@@ -38,6 +38,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
 | Rating | 16/20/24 px Lucide symbols in 32/40/48 px targets; 4 px gap | `Rating` owns a one-through-count score, native radio selection, display-only semantics, and disabled presentation |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
+| Number input | 32/40/48 px high by size, 6 px radius; minus, animated value, and plus | `NumberInput` owns finite step and bounds, native numeric editing, optional Lucide icon, focus, and disabled state |
 | PIN input | 44 × 48 / 52 × 56 / 60 × 64 px slots by size; 6 px radius | `PinInput` owns code slots, keyboard and paste editing, character filtering, masking, focus, and disabled presentation |
 | Alert | Three token-scaled sizes, 12 px card radius, tone-aware surface and icon | `Alert` owns message flow, projected actions, and optional close button |
 | Notifications | Three visible toasts in a top-right or top-center stack; overflow waits its turn; 16 px count on the bell | `NotificationHost` owns placement and animation; `Notifications` owns the bell, unread Badge, and panel |
@@ -152,6 +153,7 @@ Penpot page `21 Alerts` publishes 72 `goodui.alert` variants and four `goodui.no
 | `goodui.group` | Light, reusable content group with outline, contrast, or plain appearance and optional heading |
 | `goodui.form-row` | Two or three equal-width FormField columns that stack in narrow containers |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
+| `goodui.number-input` | Editable numeric stepper with three sizes, disabled state, and optional Lucide icon |
 | `goodui.pin-input` | Planned single-field code control with three sizes, brand/mono appearance, and empty/filled/masked/disabled presentations; pending live Penpot publication |
 | `goodui.input-addon` | Internal start/end icon or text part with inline and contrast treatments |
 | `goodui.input-phone` | Country-aware telephone field in three sizes and empty, filled, disabled, or error states |

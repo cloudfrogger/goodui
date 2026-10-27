@@ -41,6 +41,7 @@
     "modal",
     "modal-footer",
     "modal-header",
+    "number-input",
     "notification-host",
     "notifications",
     "paragraph",
@@ -681,6 +682,13 @@
       "state": null
     },
     {
+      "penpotName": "goodui.number-input",
+      "penpotId": "9ec30947-b9fa-809b-8008-db1ee40f79e1",
+      "angularSelector": "good-number-input",
+      "kind": "component",
+      "state": null
+    },
+    {
       "penpotName": "goodui.input-addon",
       "penpotId": "79fa6408-a1e2-80d7-8008-d47f2ff77da1",
       "angularSelector": "good-input",
@@ -1263,6 +1271,7 @@
     "design/error-page-variants.json",
     "design/image-input-variants.json",
     "design/input-variants.json",
+    "design/number-input-variants.json",
     "design/link-variants.json",
     "design/modal-variants.json",
     "design/progress-variants.json",

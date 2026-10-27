@@ -6,6 +6,7 @@ const map = JSON.parse(readFileSync(resolve(root, 'design/component-map.json'), 
 const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-variants.json'), 'utf8'));
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
+const numberInputVariants = JSON.parse(readFileSync(resolve(root, 'design/number-input-variants.json'), 'utf8'));
 const dateInputVariants = JSON.parse(readFileSync(resolve(root, 'design/date-input-variants.json'), 'utf8'));
 const imageInputVariants = JSON.parse(readFileSync(resolve(root, 'design/image-input-variants.json'), 'utf8'));
 const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
@@ -30,6 +31,27 @@ const typographyComponents = JSON.parse(readFileSync(resolve(root, 'design/typog
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
+if (numberInputVariants.family !== 'goodui.number-input' || numberInputVariants.selector !== 'good-number-input' ||
+    numberInputVariants.page !== '27 Number Inputs' || !/^[0-9a-f-]{36}$/.test(numberInputVariants.containerId)) {
+  throw new Error('Invalid Number Input registry.');
+}
+const numberKeys = new Set();
+const numberIds = new Set();
+for (const entry of numberInputVariants.variants) {
+  const key = ['size', 'status', 'icon'].map(axis => {
+    if (!numberInputVariants.axes[axis].includes(entry[axis])) throw new Error(`Unknown Number Input ${axis}: ${entry[axis]}`);
+    return entry[axis];
+  }).join('/');
+  if (numberKeys.has(key) || numberIds.has(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.id)) throw new Error(`Invalid Number Input variant: ${key}`);
+  numberKeys.add(key); numberIds.add(entry.id);
+}
+for (const size of numberInputVariants.axes.size) for (const status of numberInputVariants.axes.status) for (const icon of numberInputVariants.axes.icon) {
+  if (!numberKeys.has(`${size}/${status}/${icon}`)) throw new Error(`Missing Number Input variant: ${size}/${status}/${icon}`);
+}
+if (map.componentMappings.find(entry => entry.penpotName === 'goodui.number-input')?.penpotId !==
+    numberInputVariants.variants.find(entry => entry.size === 'default' && entry.status === 'default' && entry.icon === 'no')?.id) {
+  throw new Error('Number Input mapping does not point to its default variant.');
+}
 if (errorPageVariants.family !== 'goodui.error-page' || errorPageVariants.selector !== 'good-error-page' ||
     errorPageVariants.page !== '26 Error Pages' || !/^[0-9a-f-]{36}$/.test(errorPageVariants.containerId) ||
     errorPageVariants.variants.length !== 2 ||

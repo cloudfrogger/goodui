@@ -77,6 +77,7 @@ export class App {
       { id: 'code-blocks', label: 'Code blocks', icon: 'book', route: '/components/code-blocks' },
       { id: 'modals', label: 'Modals', icon: 'grid', route: '/components/modals' },
       { id: 'inputs', label: 'Inputs', icon: 'grid', route: '/components/inputs' },
+      { id: 'number-inputs', label: 'Number inputs', icon: 'grid', route: '/components/number-inputs' },
       { id: 'pin-inputs', label: 'PIN inputs', icon: 'grid', route: '/components/pin-inputs' },
       { id: 'selects', label: 'Selects', icon: 'chevron-right', route: '/components/selects' },
       { id: 'phone-inputs', label: 'Phone inputs', icon: 'contact', route: '/components/phone-inputs' },
