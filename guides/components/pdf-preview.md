@@ -33,4 +33,6 @@ By default, the library lazily loads a bundled PDF.js worker and creates a `blob
 
 The Penpot library publishes `goodui.pdf-preview` on `25 PDF Preview`. It maps directly to `good-pdf-preview`. The displayed loaded page is a design specimen; loading, empty, error, pagination, zoom, rotation, download, and file contents are runtime states or data. The toolbar contains linked GoodUI Button instances; the frame and viewport use existing surface, border, spacing, text, and radius tokens. The component owns its toolbar, frame, page fitting, overflow, and responsive wrapping. Applications do not need custom layout for the reader.
 
+The toolbar's six Lucide instances have 14 px outer bounds **and** 14 px scaled internal paths. Their strokes bind to `button.ghost.foreground` in both themes. When replacing one of these icons in Penpot, check the child paths after `swapComponent()`; Penpot may keep the replacement's original 24 px path geometry even when the instance frame remains 14 px.
+
 See the [PDF reader example](../../homepage/src/app/examples/pdf-reader/pdf-reader-page.html) for three local documents and its displayed Angular source.
