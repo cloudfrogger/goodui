@@ -19,6 +19,7 @@
     "date-input",
     "citation",
     "dropdown",
+    "error-page",
     "error-text",
     "eyebrow",
     "field-label",
@@ -143,6 +144,20 @@
       "kind": "internal-part",
       "owner": "goodui.alert",
       "state": "progress"
+    },
+    {
+      "penpotName": "goodui.error-page.404",
+      "penpotId": "9ec30947-b9fa-809b-8008-db17c123fdc7",
+      "angularSelector": "good-error-page",
+      "kind": "component",
+      "state": "404"
+    },
+    {
+      "penpotName": "goodui.error-page.500",
+      "penpotId": "9ec30947-b9fa-809b-8008-db17c12580ce",
+      "angularSelector": "good-error-page",
+      "kind": "component",
+      "state": "500"
     },
     {
       "penpotName": "goodui.app-layout.desktop",
@@ -1245,6 +1260,7 @@
     "design/code-block-variants.json",
     "design/date-input-variants.json",
     "design/dropdown-variants.json",
+    "design/error-page-variants.json",
     "design/image-input-variants.json",
     "design/input-variants.json",
     "design/link-variants.json",

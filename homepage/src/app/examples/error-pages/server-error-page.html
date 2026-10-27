@@ -1,0 +1,8 @@
+<good-main-view>
+  <good-error-page statusCode="500" tone="destructive" title="We hit a rough patch."
+    imageSrc="/error-pages/puppy-500.webp" imageAlt="Gentle cream-colored puppy"
+    description="We couldn't complete your request right now. Please try again in a moment. If it keeps happening, contact support.">
+    <good-button [icon]="retryIcon" (click)="retry()">Try again</good-button>
+    <good-button variant="outline" [icon]="homeIcon" (click)="goHome()">Back to dashboard</good-button>
+  </good-error-page>
+</good-main-view>

@@ -1,0 +1,27 @@
+<good-main-view title="Error pages" description="Try the 404 and 500 recovery flows, then copy their complete Angular source.">
+  <good-section>
+    <good-breadcrumbs [items]="breadcrumbs" />
+    <good-group title="Preview" appearance="plain">
+      <good-action-group orientation="responsive">
+        <good-button (click)="open('/404')">Open 404 page</good-button>
+        <good-button variant="outline" (click)="open('/500')">Open 500 page</good-button>
+      </good-action-group>
+    </good-group>
+    <good-group title="404 · Page not found" appearance="plain">
+      <good-code-block [code]="notFoundHtml" language="html" title="not-found-page.html" />
+      <good-code-block [code]="notFoundTs" language="typescript" title="not-found-page.ts"
+        [collapsible]="true" [collapsedLines]="14" />
+    </good-group>
+    <good-group title="500 · Server error" appearance="plain">
+      <good-code-block [code]="serverErrorHtml" language="html" title="server-error-page.html" />
+      <good-code-block [code]="serverErrorTs" language="typescript" title="server-error-page.ts"
+        [collapsible]="true" [collapsedLines]="14" />
+    </good-group>
+    <good-group title="Example index source" appearance="plain">
+      <good-code-block [code]="exampleHtml" language="html" title="error-pages-example-page.html"
+        [collapsible]="true" [collapsedLines]="14" />
+      <good-code-block [code]="exampleTs" language="typescript" title="error-pages-example-page.ts"
+        [collapsible]="true" [collapsedLines]="14" />
+    </good-group>
+  </good-section>
+</good-main-view>

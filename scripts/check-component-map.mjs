@@ -25,10 +25,20 @@ const codeBlockVariants = JSON.parse(readFileSync(resolve(root, 'design/code-blo
 const modalVariants = JSON.parse(readFileSync(resolve(root, 'design/modal-variants.json'), 'utf8'));
 const actionGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/action-group-variants.json'), 'utf8'));
 const progressVariants = JSON.parse(readFileSync(resolve(root, 'design/progress-variants.json'), 'utf8'));
+const errorPageVariants = JSON.parse(readFileSync(resolve(root, 'design/error-page-variants.json'), 'utf8'));
 const typographyComponents = JSON.parse(readFileSync(resolve(root, 'design/typography-components.json'), 'utf8'));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
   .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
+if (errorPageVariants.family !== 'goodui.error-page' || errorPageVariants.selector !== 'good-error-page' ||
+    errorPageVariants.page !== '26 Error Pages' || !/^[0-9a-f-]{36}$/.test(errorPageVariants.containerId) ||
+    errorPageVariants.variants.length !== 2 ||
+    new Set(errorPageVariants.variants.map(entry => entry.status)).size !== 2 ||
+    errorPageVariants.variants.some(entry => !errorPageVariants.axes.status.includes(entry.status) ||
+      !/^[0-9a-f-]{36}$/.test(entry.id) ||
+      map.componentMappings.find(mapping => mapping.penpotName === `goodui.error-page.${entry.status}`)?.penpotId !== entry.id)) {
+  throw new Error('Invalid Error Page variant mapping.');
+}
 if (readFileSync(resolve(source, 'form.ts'), 'utf8').includes("selector: 'form[goodForm]'")) selectors.add('form');
 for (const [contract, family, selector, page, axes] of [
   [alertContract, 'goodui.alert', 'good-alert', '21 Alerts', ['tone', 'appearance', 'size']],

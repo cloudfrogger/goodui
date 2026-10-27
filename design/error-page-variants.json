@@ -1,0 +1,23 @@
+{
+  "family": "goodui.error-page",
+  "selector": "good-error-page",
+  "page": "26 Error Pages",
+  "pageId": "9ec30947-b9fa-809b-8008-db16ccbf2b4c",
+  "containerId": "9ec30947-b9fa-809b-8008-db17cc868a9c",
+  "axes": { "status": ["404", "500"] },
+  "variants": [
+    { "status": "404", "id": "9ec30947-b9fa-809b-8008-db17c123fdc7", "tone": "brand", "icon": "file-question" },
+    { "status": "500", "id": "9ec30947-b9fa-809b-8008-db17c12580ce", "tone": "destructive", "icon": "server-crash" }
+  ],
+  "runtimeInputs": ["statusCode", "title", "description", "tone", "icon", "reference", "imageSrc", "imageAlt"],
+  "projectedContent": "Action controls, typically good-button",
+  "tokenBindings": {
+    "canvas.fill": "color.canvas",
+    "illustration.fill": "color.selected",
+    "illustration.border": "color.border",
+    "illustration.radius": "radius.card",
+    "404.accent": "color.brand",
+    "500.accent": "color.error",
+    "description.fill": "color.muted"
+  }
+}

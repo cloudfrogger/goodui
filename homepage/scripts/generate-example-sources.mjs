@@ -18,6 +18,14 @@ const examples = [
     ['pdfReaderHtml', 'pdf-reader-page.html'],
     ['pdfReaderTs', 'pdf-reader-page.ts'],
   ]],
+  ['error-pages', [
+    ['errorPagesExampleHtml', 'error-pages-example-page.html'],
+    ['errorPagesExampleTs', 'error-pages-example-page.ts'],
+    ['notFoundHtml', 'not-found-page.html'],
+    ['notFoundTs', 'not-found-page.ts'],
+    ['serverErrorHtml', 'server-error-page.html'],
+    ['serverErrorTs', 'server-error-page.ts'],
+  ]],
 ];
 
 for (const [directory, files] of examples) {

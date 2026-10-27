@@ -57,6 +57,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages include `01 Components` t
 | `goodui.notifications.unread` | `5fd6a355-e255-80dc-8008-d81d121a0160` (linked bell and destructive Badge with 16 px `notification.count.*` overrides) |
 | `goodui.progress` (`mode` × `appearance` × `size`) | Container `bf5e7a26-ff29-80d7-8008-d9b649158136`; all 18 published IDs and Angular inputs in [progress-variants.json](../../design/progress-variants.json) |
 | `goodui.pdf-preview` | `bf5e7a26-ff29-80d7-8008-d9c818647115` on `25 PDF Preview`; maps to `good-pdf-preview` (loaded specimen). Toolbar buttons remain linked GoodUI Button instances; page content is illustrative. |
+| `goodui.error-page` (`status=404/500`) | Container `9ec30947-b9fa-809b-8008-db17cc868a9c` on `26 Error Pages`; both published IDs and Angular inputs are in [error-page-variants.json](../../design/error-page-variants.json). Actions and Lucide icons are linked library instances. |
 | `goodui.alert-composition.progress` | `bf5e7a26-ff29-80d7-8008-d9b857795ba5`; linked Progress instance inside a detached, token-bound Alert frame for composition reference |
 | `goodui.settings.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65a3839a` / `521fe58c-da62-80e2-8008-d340005398c5` |
 | `goodui.avatar-menu.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65e8aeea` / `521fe58c-da62-80e2-8008-d3400143c866` |

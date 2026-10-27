@@ -1,0 +1,8 @@
+<good-main-view>
+  <good-error-page statusCode="404" title="This page took a wrong turn."
+    imageSrc="/error-pages/puppy-404.webp" imageAlt="Curious golden retriever puppy"
+    description="The address may have changed, or this page may no longer be here. Let's get you back to something useful.">
+    <good-button [icon]="homeIcon" (click)="goTo('/dashboard')">Back to dashboard</good-button>
+    <good-button variant="outline" [icon]="exploreIcon" (click)="goTo('/components/buttons')">Explore components</good-button>
+  </good-error-page>
+</good-main-view>
