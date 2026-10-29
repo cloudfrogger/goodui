@@ -9,7 +9,7 @@ import { GoodAppLayoutComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSect
   imports: [RouterOutlet, GoodAppLayoutComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup"
+    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" brandMarkSrc="goodui-mark.svg" brandMarkDarkSrc="goodui-mark-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup"
       [user]="user" [searchItems]="searchItems" [avatarActions]="avatarActions()">
       <router-outlet />
     </good-app-layout>
@@ -55,6 +55,7 @@ export class App {
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
     ] },
     { id: 'foundation', heading: 'FOUNDATION', items: [
+      { id: 'layout', label: 'Layout', icon: 'grid', route: '/getting-started/layout' },
       { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
       { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
     ] },
@@ -121,6 +122,7 @@ export class App {
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
       { id: 'foundation', label: 'Foundation', children: [
+        { id: 'layout', label: 'Layout', icon: 'grid', route: '/getting-started/layout' },
         { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
         { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
       ] },
@@ -142,6 +144,7 @@ export class App {
     ] },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
+    { id: 'layout', label: 'Layout', description: 'Foundation · application shell, navigation, branding, and responsive drawer', route: '/getting-started/layout' },
     { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
     { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
     { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },

@@ -24,6 +24,7 @@ export const routes: Routes = [
   { path: 'getting-started', redirectTo: 'getting-started/introduction', pathMatch: 'full' },
   { path: 'getting-started/introduction', loadComponent: () => import('./getting-started-page').then(module => module.IntroductionPageComponent) },
   { path: 'getting-started/designing', loadComponent: () => import('./getting-started-page').then(module => module.DesigningPageComponent) },
+  { path: 'getting-started/layout', loadComponent: () => import('./layout-page').then(module => module.LayoutPageComponent) },
   { path: 'getting-started/typography', loadComponent: () => import('./typography-page').then(module => module.TypographyPageComponent) },
   { path: 'getting-started/color-scheme', loadComponent: () => import('./color-scheme-page').then(module => module.ColorSchemePageComponent) },
   { path: 'getting-started/developing', loadComponent: () => import('./getting-started-page').then(module => module.DevelopingPageComponent) },

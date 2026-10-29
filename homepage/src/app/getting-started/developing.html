@@ -27,6 +27,10 @@
       <good-code-block [code]="helloCode" language="typescript" title="src/app/app.ts" />
       <good-paragraph>The <code>--routing</code> option creates the router configuration required by <code>good-app-layout</code>. Start the app with <code>npm start</code> and open <code>http://localhost:4200/</code>. GoodUI's compiled CSS works without Tailwind in the consuming app.</good-paragraph>
 
+      <good-subheading>Add your application branding</good-subheading>
+      <good-paragraph>Pass your own wordmarks to the desktop sidebar and mobile drawer. Pass separate symbol assets for the mobile topbar. Each dark image is optional; the light image remains visible when it is omitted. Existing apps that only pass a wordmark continue to show it in the mobile topbar.</good-paragraph>
+      <good-code-block [code]="brandCode" language="html" title="Application shell" />
+
       <good-subheading>Add GoodUI to an existing Angular app</good-subheading>
       <good-paragraph>Build GoodUI with the first four commands above. In your Angular 21.2 project, run <code>npm install /path/to/goodui/angular/dist/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</good-paragraph>
       <good-paragraph>Add <code>provideGoodUI()</code> to your existing root providers and keep <code>provideRouter(routes)</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</good-paragraph>

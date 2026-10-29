@@ -3,6 +3,8 @@ import { copyFile } from 'node:fs/promises';
 const assets = [
   ['goodui-logo-light.svg', 'goodui-logo-light.svg'],
   ['goodui-logo-dark.svg', 'goodui-logo-dark.svg'],
+  ['goodui-mark.svg', 'goodui-mark.svg'],
+  ['goodui-mark-dark.svg', 'goodui-mark-dark.svg'],
   ['goodui-mark.svg', 'favicon.svg'],
   ['goodui-mark-dark.svg', 'favicon-dark.svg'],
 ];

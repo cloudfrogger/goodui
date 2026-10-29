@@ -1,0 +1,60 @@
+<good-main-view title="Layout" eyebrow="FOUNDATION"
+  description="Build a responsive application frame with navigation, branding, and a page content slot.">
+  <good-section>
+    <good-subheading>See the application frame</good-subheading>
+    <good-prose>
+      <good-paragraph>This screenshot shows the GoodUI shell around the <good-link route="/examples/user-registration">registration example</good-link>. The sidebar holds primary navigation, the topbar holds global navigation and actions, and the page renders inside the remaining space. Select the image to inspect it at full size.</good-paragraph>
+    </good-prose>
+    <good-inline-image src="/foundation/layout-app-shell.png" style="--good-typography-image-max-width: 100%"
+      alt="GoodUI desktop application frame showing the sidebar, topbar, and registration page content"
+      caption="A real Angular page inside good-app-layout at 1440 × 900 px. Open the image for a closer look."
+      [previewable]="true" loading="eager" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>The shell around this page</good-subheading>
+    <good-prose>
+      <good-paragraph>This documentation page runs inside <code>good-app-layout</code>. On desktop, it places a 280 px sidebar beside the topbar and page area. At 900 px and below, the sidebar becomes a drawer and the topbar becomes 60 px tall. The shell owns offsets, scrolling, the drawer backdrop, and focus restoration.</good-paragraph>
+      <good-paragraph>Put the shell once in your root component. Route components render inside its <code>&lt;router-outlet /&gt;</code>; each page can use <code>good-main-view</code> for its heading and content padding. The navigation data supplies labels and routes, and the active item follows Angular Router.</good-paragraph>
+    </good-prose>
+    <good-inline-image src="/foundation/layout-anatomy.svg" style="--good-typography-image-max-width: 100%"
+      alt="Diagram of the AppLayout: desktop sidebar, topbar, and MainView; mobile topbar with closed and open navigation drawer"
+      caption="AppLayout owns the frame. MainView and the routed page own the content; the drawer replaces the fixed sidebar on narrow screens."
+      [previewable]="true" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>1. Define the root component</good-subheading>
+    <good-prose>
+      <good-paragraph>Import <code>GoodAppLayoutComponent</code> and <code>RouterOutlet</code>. Give each navigation item a stable ID and a route. The example shows one sidebar group, one topbar link, and a user for the avatar action.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="rootCode" language="typescript" title="src/app/app.ts" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>2. Compose the frame</good-subheading>
+    <good-prose>
+      <good-paragraph>Place <code>good-app-layout</code> around the outlet. The application supplies its own wordmark for the desktop sidebar and mobile drawer, and its symbol for the mobile topbar. Store those image files in <code>public/brand/</code>. The dark URLs are optional; without them, the light artwork is reused.</good-paragraph>
+      <good-paragraph><code>mobileTopbarMenuMode="popup"</code> keeps topbar links in a separate mobile popup. Omit it to place those links in the sidebar drawer. No page-level CSS is needed for sidebar offsets or topbar height.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="shellCode" language="html" title="src/app/app.html" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>3. Connect a route and render a page</good-subheading>
+    <good-prose>
+      <good-paragraph>Register the route used by the navigation item. Its component renders <code>good-main-view</code> inside the outlet. The title becomes the page heading; the section and prose components provide the content width and reading rhythm.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="routesCode" language="typescript" title="src/app/app.routes.ts" />
+    <good-code-block [code]="pageComponentCode" language="typescript" title="src/app/overview-page.ts" />
+    <good-code-block [code]="pageCode" language="html" title="src/app/overview-page.html" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>4. Register the providers</good-subheading>
+    <good-prose>
+      <good-paragraph>Angular Router is needed for active navigation and page loading. Register <code>provideGoodUI()</code> once for shared theme and notification services. The <good-link route="/getting-started/developing">Developing chapter</good-link> covers package installation and stylesheet setup.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />
+  </good-section>
+</good-main-view>

@@ -275,9 +275,9 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-app-page { min-width: 0; min-height: 0; flex: 1; overflow: auto; }
 
 .good-sidebar-container { display: flex; flex-direction: column; flex: none; width: var(--good-size-sidebar); min-height: 0; height: 100%; background: var(--good-surface); border-right: 1px solid var(--good-border); }
-.good-sidebar-brand { display: flex; align-items: center; gap: 6px; flex: none; height: var(--good-size-topbar); padding: 0 10px; }
+.good-sidebar-brand { display: flex; align-items: center; gap: 6px; flex: none; height: var(--good-size-topbar); padding: 0 24px; }
 .good-brand-name { font-weight: 700; font-size: 18px; line-height: 1; letter-spacing: -.025em; }
-.good-brand-logo { display: block; width: auto; max-width: 100%; height: 28px; object-fit: contain; object-position: left center; }
+.good-brand-logo { display: block; width: auto; max-width: 100%; height: 35px; object-fit: contain; object-position: left center; }
 .good-brand-logo-dark { display: none; }
 [data-theme="dark"] .good-has-dark-logo .good-brand-logo-light { display: none; }
 [data-theme="dark"] .good-has-dark-logo .good-brand-logo-dark { display: block; }
@@ -309,7 +309,10 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 
 .good-topbar { position: relative; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex: none; height: var(--good-size-topbar); padding: 0 var(--good-topbar-padding-inline); border-bottom: 1px solid var(--good-border); background: var(--good-surface); }
 .good-topbar-left { display: flex; align-items: center; min-width: 0; height: 100%; gap: 18px; }
-.good-brand-icon { display: inline-flex; align-items: center; flex: none; }
+.good-brand-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 36px; height: 36px; }
+.good-brand-icon-art { display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+.good-brand-icon .good-brand-logo { width: 30px; height: 28px; }
+.good-mobile-brand-icon { display: none; }
 .good-topbar-menu-container { position: relative; display: flex; align-items: center; min-width: 0; height: 100%; }
 .good-topbar-menu-items { display: flex; align-items: center; min-width: 0; height: 100%; gap: 26px; }
 .good-topbar-mobile-trigger.good-action-button { display: none; }
@@ -818,6 +821,8 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-sidebar-drawer[open] { display: flex; flex-direction: column; }
 .good-sidebar-drawer::backdrop { background: color-mix(in srgb, var(--good-overlay) 35%, transparent); }
 .good-sidebar-drawer .good-sidebar-container { width: 100%; flex: 1; overflow: hidden; border-right: 0; }
+.good-sidebar-drawer .good-sidebar-brand { padding-left: 32px; }
+.good-sidebar-drawer .good-brand-logo { height: 32px; }
 .good-drawer-topbar-nav { flex: 0 1 auto; min-height: 0; max-height: 48dvh; overflow-y: auto; padding: 12px 20px; border-top: 1px solid var(--good-border); }
 .good-drawer-topbar-nav strong { display: block; margin-bottom: 6px; color: var(--good-muted); font-size: 12px; font-weight: 500; text-transform: uppercase; }
 .good-drawer-topbar-nav .good-topbar-menu-container { display: block; height: auto; }
@@ -863,8 +868,9 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
   .good-topbar-menu-popup-open .good-topbar-submenu .good-dropdown-panel { width: 100%; padding-left: 12px; }
   .good-topbar-menu-popup-open .good-dropdown-label { white-space: normal; }
   .good-topbar[data-mobile-menu="popup"] { gap: 4px; }
-  .good-topbar[data-mobile-menu="popup"] .good-topbar-left { gap: 8px; }
-  .good-topbar-left > .good-brand-icon { display: none; }
+  .good-topbar-left { gap: 8px; }
+  .good-topbar-left > .good-desktop-brand-icon { display: none; }
+  .good-topbar-left > .good-mobile-brand-icon { display: inline-flex; }
   .good-mobile-menu-button, .good-mobile-brand { display: inline-flex !important; }
   .good-mobile-brand { align-items: center; font-size: 15px; font-weight: 700; }
   .good-mobile-brand .good-brand-logo { max-width: min(140px, 34vw); height: 22px; }

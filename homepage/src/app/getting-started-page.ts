@@ -58,6 +58,15 @@ export const appConfig: ApplicationConfig = {
 
   readonly providerOptionsCode = `provideGoodUI({ notifications: { persistToHistory: false } })`;
 
+  readonly brandCode = `<good-app-layout
+  brand="Your product"
+  brandLogoSrc="/brand/wordmark-light.svg"
+  brandLogoDarkSrc="/brand/wordmark-dark.svg"
+  brandMarkSrc="/brand/symbol-light.svg"
+  brandMarkDarkSrc="/brand/symbol-dark.svg">
+  <router-outlet />
+</good-app-layout>`;
+
   readonly helloCode = `import { Component } from '@angular/core';
 import {
   GoodAppLayoutComponent,

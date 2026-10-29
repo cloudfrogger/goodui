@@ -12,10 +12,22 @@ export type GoodTopbarMobileMenuMode = 'hidden' | 'popup';
   selector: 'good-brand-icon',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<span class="good-brand-mark" aria-hidden="true"></span><ng-content />`,
+  template: `
+    @if (src()) {
+      <span class="good-brand-icon-art" [class.good-has-dark-logo]="!!darkSrc()">
+        <img class="good-brand-logo good-brand-logo-light" [src]="src()" [alt]="label()" />
+        @if (darkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="darkSrc()" [alt]="label()" /> }
+      </span>
+    } @else { <span class="good-brand-mark" aria-hidden="true"></span> }
+    <ng-content />
+  `,
   host: { class: 'good-brand-icon' },
 })
-export class GoodBrandIconComponent {}
+export class GoodBrandIconComponent {
+  readonly src = input('');
+  readonly darkSrc = input('');
+  readonly label = input('');
+}
 
 @Component({
   selector: 'good-topbar-dropdown-item',
@@ -344,14 +356,18 @@ export class GoodTopbarMenuContainerComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="good-topbar-left">
+      @if (brandMarkSrc()) {
+        <good-brand-icon class="good-mobile-brand-icon" [src]="brandMarkSrc()" [darkSrc]="brandMarkDarkSrc()" [label]="brand()" />
+      } @else {
+        <span class="good-mobile-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
+          @if (brandLogoSrc()) {
+            <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
+            @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
+          } @else { {{ brand() }} }
+        </span>
+      }
       <button type="button" class="good-mobile-menu-button good-action-button" aria-label="Open sidebar" (click)="menuToggle.emit()"><good-icon name="menu" /></button>
-      @if (showBrandIcon()) { <good-brand-icon /> }
-      <span class="good-mobile-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
-        @if (brandLogoSrc()) {
-          <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
-          @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
-        } @else { {{ brand() }} }
-      </span>
+      @if (showBrandIcon()) { <good-brand-icon class="good-desktop-brand-icon" [src]="brandMarkSrc()" [darkSrc]="brandMarkDarkSrc()" [label]="brand()" /> }
       @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" [mobileMode]="mobileMenuMode()" /> }
       <ng-content select="good-topbar-menu-container" />
     </div>
@@ -364,6 +380,8 @@ export class GoodTopbarComponent {
   readonly brand = input('GOODUI');
   readonly brandLogoSrc = input('');
   readonly brandLogoDarkSrc = input('');
+  readonly brandMarkSrc = input('');
+  readonly brandMarkDarkSrc = input('');
   readonly showBrandIcon = input(false);
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly activeRoute = input('');
