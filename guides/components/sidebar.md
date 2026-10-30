@@ -26,4 +26,22 @@ The homepage's Account / Get Started navigation shows two expansion levels. Good
 
 For most apps, `good-app-layout` builds the same structure from `sidebarSections`. A section has `id`, optional `heading`, and `items`. Each item has `id`, `label`, and optional `icon`, `badge`, `disabled`, `route`, or recursive `children`. GoodUI calculates spacing, indentation, guide lines, and scroll height.
 
+For a large catalog, use a small number of named parents instead of placing every page directly under the section heading. The homepage groups its component pages under Controls, Inputs, Content and data, Feedback, and Navigation. For example:
+
+```ts
+import { type GoodSidebarSection } from '@goodui/angular';
+
+readonly navigation: readonly GoodSidebarSection[] = [
+  { id: 'components', heading: 'COMPONENTS', items: [
+    { id: 'inputs-category', label: 'Inputs', icon: 'card', children: [
+      { id: 'text-inputs', label: 'Text and file', route: '/components/inputs' },
+      { id: 'number-inputs', label: 'Number inputs', route: '/components/number-inputs' },
+      { id: 'date-inputs', label: 'Date inputs', route: '/components/date-inputs' },
+    ] },
+  ] },
+];
+```
+
+The parent is an expandable button; its smaller child rows are links. Keep routes on the leaves so the active route opens its parent automatically. The same hierarchy works in the mobile drawer.
+
 Parents and nested groups are buttons with `aria-expanded` and `aria-controls`; only leaf nodes are links. Enter and Space expand groups, and Tab follows the visible menu order. Hidden children cannot receive focus. An active link gets `aria-current="page"`, and its ancestors open when its route loads. One group per level can be open; clicking it again closes it. Long nested menus remain independently scrollable in the mobile drawer.
