@@ -35,6 +35,7 @@
     "inline-image",
     "input",
     "input-phone",
+    "listbox",
     "link",
     "main-menu",
     "main-view",
@@ -887,6 +888,34 @@
       "state": null
     },
     {
+      "penpotName": "goodui.listbox.checkbox-multiple",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfadb6a08d7",
+      "angularSelector": "good-listbox",
+      "kind": "component",
+      "state": "checkbox-multiple"
+    },
+    {
+      "penpotName": "goodui.listbox.default",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfd35d08b52",
+      "angularSelector": "good-listbox",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.listbox.grouped-search",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfadb6e6c5c",
+      "angularSelector": "good-listbox",
+      "kind": "component",
+      "state": "grouped-search"
+    },
+    {
+      "penpotName": "goodui.listbox.single-highlight",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfadb66bdfc",
+      "angularSelector": "good-listbox",
+      "kind": "component",
+      "state": "single-highlight"
+    },
+    {
       "penpotName": "goodui.select",
       "penpotId": "c0c3286f-e4bf-804c-8008-d71512d8bde3",
       "angularSelector": "good-select",
@@ -1273,6 +1302,7 @@
     "design/input-variants.json",
     "design/number-input-variants.json",
     "design/link-variants.json",
+    "design/listbox-contract.json",
     "design/modal-variants.json",
     "design/progress-variants.json",
     "design/notification-host-contract.json",

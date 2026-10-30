@@ -12,7 +12,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-progress, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
+good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-progress, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -753,6 +753,41 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-select-check { display: block; flex: none; margin-left: auto; color: var(--good-select-check); }
 .good-select-empty { padding: 18px 12px; color: var(--good-select-muted); font-size: 13px; text-align: center; }
 .good-select-limit { flex: none; padding: 8px var(--good-select-search-padding) 4px; border-top: 1px solid var(--good-select-panel-border); color: var(--good-select-muted); font-size: 12px; }
+
+.good-listbox { --good-listbox-background: var(--good-select-panel-background); --good-listbox-border: var(--good-select-panel-border); --good-listbox-foreground: var(--good-select-foreground); --good-listbox-muted: var(--good-select-muted); --good-listbox-hover: var(--good-select-option-hover); --good-listbox-selected: var(--good-select-option-selected); --good-listbox-focus: var(--good-select-focus-border); display: block; min-width: 0; color: var(--good-listbox-foreground); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-listbox-label { margin-bottom: var(--good-typography-field-label-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }
+.good-listbox-frame { box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid var(--good-listbox-border); border-radius: var(--good-radius-card); background: var(--good-listbox-background); }
+.good-listbox[data-disabled="true"] { opacity: var(--good-select-disabled-opacity); }
+.good-listbox-search { display: flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 12px; border-bottom: 1px solid var(--good-listbox-border); color: var(--good-listbox-muted); }
+.good-listbox-search:focus-within { box-shadow: inset 0 -2px var(--good-listbox-focus); }
+.good-listbox-search svg, .good-listbox-search img { display: block; flex: none; width: 16px; height: 16px; object-fit: contain; }
+.good-listbox-search input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--good-listbox-foreground); font: inherit; font-size: 13px; }
+.good-listbox-search input::placeholder { color: var(--good-select-placeholder); }
+.good-listbox-list { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 5px; outline: 0; }
+.good-listbox-list:focus-visible { box-shadow: inset 0 0 0 2px var(--good-listbox-focus); }
+.good-listbox-group + .good-listbox-group { margin-top: 5px; padding-top: 6px; border-top: 1px solid var(--good-listbox-border); }
+.good-listbox-group-label { padding: 8px 10px 5px; color: var(--good-listbox-muted); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.good-listbox-group-items-named { margin-left: 20px; padding-left: 12px; border-left: 1px solid var(--good-listbox-border); }
+.good-listbox-option { box-sizing: border-box; display: flex; align-items: center; gap: 10px; min-height: var(--good-select-option-height); padding: 8px 10px; border-radius: var(--good-radius-item); cursor: pointer; }
+.good-listbox-option:is(button) { width: 100%; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; }
+.good-listbox-option:is(button):focus-visible { outline: 2px solid var(--good-listbox-focus); outline-offset: -2px; }
+.good-listbox-option:is(button):disabled { opacity: var(--good-select-option-disabled-opacity); cursor: not-allowed; }
+.good-listbox-option + .good-listbox-option { margin-top: 2px; }
+.good-listbox-group [role="listitem"] + [role="listitem"] { margin-top: 2px; }
+.good-listbox-option:hover, .good-listbox-option[data-active="true"] { background: var(--good-listbox-hover); }
+.good-listbox-option[data-selected="true"] { background: var(--good-listbox-selected); color: var(--good-select-check); }
+.good-listbox-option[data-selected="true"][data-active="true"] { box-shadow: inset 0 0 0 1px var(--good-listbox-focus); }
+.good-listbox-option[aria-disabled="true"] { opacity: var(--good-select-option-disabled-opacity); cursor: not-allowed; }
+.good-listbox-checkbox { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; flex: none; width: 18px; height: 18px; border: 1px solid var(--good-listbox-border); border-radius: var(--good-radius-compact); background: var(--good-listbox-background); }
+.good-listbox-checkbox[data-checked="true"] { border-color: var(--good-select-check); background: var(--good-select-check); }
+.good-listbox-checkmark { width: 9px; height: 5px; margin-top: -2px; transform: rotate(-45deg); border-bottom: 2px solid var(--good-listbox-background); border-left: 2px solid var(--good-listbox-background); }
+.good-listbox-icon { display: block; flex: none; width: 18px; height: 18px; object-fit: contain; color: var(--good-listbox-muted); }
+.good-listbox-copy { display: flex; flex: 1 1 auto; flex-direction: column; gap: 2px; min-width: 0; }
+.good-listbox-item-label { overflow: hidden; font-size: 13px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.good-listbox-description { overflow: hidden; color: var(--good-listbox-muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.good-listbox-tags { display: flex; flex: none; flex-wrap: wrap; gap: 4px; }
+.good-listbox-tag { padding: 2px 5px; border-radius: var(--good-radius-compact); background: var(--good-listbox-hover); color: var(--good-listbox-muted); font-size: 11px; }
+.good-listbox-empty { padding: 24px 12px; color: var(--good-listbox-muted); font-size: 13px; text-align: center; }
 .good-input-phone { display: block; width: 100%; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; color: var(--good-phone-foreground); }
 .good-phone-label { display: block; margin-bottom: var(--good-typography-field-label-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }
 .good-phone-shell { box-sizing: border-box; display: flex; align-items: stretch; width: 100%; min-width: 0; min-height: var(--good-phone-height); border: 1px solid var(--good-phone-border); border-radius: var(--good-phone-radius); background: var(--good-phone-background); transition: border-color .15s ease, box-shadow .15s ease; }

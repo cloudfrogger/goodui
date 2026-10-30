@@ -1,0 +1,62 @@
+{
+  "family": "goodui.listbox",
+  "selector": "good-listbox",
+  "page": "28 Listboxes",
+  "pageId": "9ec30947-b9fa-809b-8008-ddfa2e6a1293",
+  "publishedStates": [
+    {
+      "name": "goodui.listbox.default",
+      "id": "9ec30947-b9fa-809b-8008-ddfd35d08b52",
+      "selectionMode": "none",
+      "appearance": "highlight",
+      "searchable": false,
+      "grouped": false
+    },
+    {
+      "name": "goodui.listbox.single-highlight",
+      "id": "9ec30947-b9fa-809b-8008-ddfadb66bdfc",
+      "selectionMode": "single",
+      "appearance": "highlight",
+      "searchable": false,
+      "grouped": false
+    },
+    {
+      "name": "goodui.listbox.checkbox-multiple",
+      "id": "9ec30947-b9fa-809b-8008-ddfadb6a08d7",
+      "selectionMode": "multiple",
+      "appearance": "checkbox",
+      "searchable": false,
+      "grouped": false
+    },
+    {
+      "name": "goodui.listbox.grouped-search",
+      "id": "9ec30947-b9fa-809b-8008-ddfadb6e6c5c",
+      "selectionMode": "multiple",
+      "appearance": "highlight",
+      "searchable": true,
+      "grouped": true
+    }
+  ],
+  "runtimeOptions": {
+    "items": "Flat items with stable id and accessible label",
+    "groups": "Named sections with stable id and nested items; flat items render first when both inputs are supplied",
+    "selectedIds": "Readonly array of selected item IDs, including single selection",
+    "selectionMode": ["none", "single", "multiple"],
+    "appearance": ["highlight", "checkbox"],
+    "searchable": "Optional inline search filters items and removes empty groups",
+    "searchIcon": "Lucide icon data; default magnifier",
+    "searchIconSrc": "Optional image URL overrides the Lucide search icon",
+    "goodListboxItem": "Optional Angular item template; Listbox keeps option semantics and selection",
+    "events": ["itemActivated", "itemSelectionChange", "selectionChange"]
+  },
+  "visualTokens": [
+    "select.panel.background",
+    "select.panel.border",
+    "select.foreground",
+    "select.muted",
+    "select.option.hover",
+    "select.option.selected",
+    "select.check",
+    "radius.card"
+  ]
+}

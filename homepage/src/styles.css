@@ -106,6 +106,20 @@ body { margin: 0; }
 .showcase-input-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; max-width: 900px; }
 .showcase-select-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 20px; max-width: 980px; }
 .showcase-select-grid > good-select, .showcase-select-grid > good-select-country, .showcase-select-grid > good-input-phone { min-width: 0; }
+.showcase-listbox-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 20px; max-width: 980px; }
+.showcase-listbox-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.showcase-listbox-grid > *, .showcase-listbox-grid > div > good-listbox { min-width: 0; }
+.showcase-listbox-item-copy { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; gap: 3px; }
+.showcase-listbox-item-copy strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.showcase-listbox-item-copy small { color: var(--good-muted); font-size: 12px; }
+.showcase-listbox-item-meta, .showcase-listbox-item-selected { color: var(--good-muted); font-size: 11px; white-space: nowrap; }
+.showcase-listbox-flag { display: block; flex: none; width: 25px; height: 18px; border-radius: 2px; object-fit: cover; }
+.showcase-listbox-item-selected { color: var(--good-accent); }
+.showcase-listbox-explanation { padding: 16px 18px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); font-size: 13px; }
+.showcase-listbox-explanation h3 { margin: 0 0 10px; font-size: 15px; }
+.showcase-listbox-explanation p { margin: 0 0 12px; line-height: 1.5; }
+@media (max-width: 850px) { .showcase-listbox-grid-three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .showcase-listbox-grid, .showcase-listbox-grid-three { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 850px) { .showcase-select-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .showcase-select-grid { grid-template-columns: minmax(0, 1fr); } }
 .showcase-dropdown-row { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }

@@ -71,6 +71,11 @@
       @if (isInvalid('email')) { <good-error-text>Enter a valid email address.</good-error-text> }
     </good-form-field>
   </good-group>
+  <good-group title="Preferences" [headingLevel]="2">
+    <good-listbox label="Interests" [showLabel]="true" [groups]="interestGroups"
+      selectionMode="multiple" appearance="checkbox" formControlName="interests" />
+    <good-hint>Optional. Select any interests you would like to share.</good-hint>
+  </good-group>
   <good-group title="Account security" [headingLevel]="2">
     <good-form-row>
       <good-form-field [required]="true">
@@ -98,6 +103,7 @@
   <good-card>
     <good-card-header title="User created in this demo" />
     <good-paragraph>{{ user.name }} · {{ user.email }}</good-paragraph>
+    @if (user.interests.length) { <good-paragraph>Interests: {{ user.interests.join(', ') }}</good-paragraph> }
     <good-hint>This example validates locally and does not save the user to a server.</good-hint>
   </good-card>
 }

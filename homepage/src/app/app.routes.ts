@@ -42,6 +42,7 @@ export const routes: Routes = [
   { path: 'components/number-inputs', loadComponent: () => import('./number-inputs-page').then(module => module.NumberInputsPageComponent) },
   { path: 'components/pin-inputs', loadComponent: () => import('./pin-inputs-page').then(module => module.PinInputsPageComponent) },
   { path: 'components/selects', loadComponent: () => import('./selects-page').then(module => module.SelectsPageComponent) },
+  { path: 'components/listboxes', loadComponent: () => import('./listboxes-page').then(module => module.ListboxesPageComponent) },
   { path: 'components/phone-inputs', loadComponent: () => import('./phone-inputs-page').then(module => module.PhoneInputsPageComponent) },
   { path: 'components/date-inputs', loadComponent: () => import('./date-inputs-page').then(module => module.DateInputsPageComponent) },
   { path: 'components/calendar', loadComponent: () => import('./calendar-page').then(module => module.CalendarPageComponent) },

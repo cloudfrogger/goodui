@@ -17,6 +17,7 @@ const radioGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/radio-g
 const ratingVariants = JSON.parse(readFileSync(resolve(root, 'design/rating-variants.json'), 'utf8'));
 const tableVariants = JSON.parse(readFileSync(resolve(root, 'design/table-variants.json'), 'utf8'));
 const selectVariants = JSON.parse(readFileSync(resolve(root, 'design/select-variants.json'), 'utf8'));
+const listboxContract = JSON.parse(readFileSync(resolve(root, 'design/listbox-contract.json'), 'utf8'));
 const phoneVariants = JSON.parse(readFileSync(resolve(root, 'design/input-phone-variants.json'), 'utf8'));
 const alertContract = JSON.parse(readFileSync(resolve(root, 'design/alert-contract.json'), 'utf8'));
 const notificationHostContract = JSON.parse(readFileSync(resolve(root, 'design/notification-host-contract.json'), 'utf8'));
@@ -127,6 +128,16 @@ const selectOption = selectVariants.parts.find(part => part.family === 'goodui.s
 const selectPanel = selectVariants.parts.find(part => part.family === 'goodui.select-panel');
 if (!selectOption?.containerId || !selectPanel?.componentId || selectOption.owner !== 'good-select' || selectPanel.owner !== 'good-select') throw new Error('Missing Select visual parts.');
 if (new Set(selectOption.variants.map(entry => entry.state)).size !== selectOption.axes.state.length || selectOption.variants.some(entry => !selectOption.axes.state.includes(entry.state) || !/^[0-9a-f-]{36}$/.test(entry.id))) throw new Error('Invalid Select option states.');
+if (listboxContract.family !== 'goodui.listbox' || listboxContract.selector !== 'good-listbox' || listboxContract.page !== '28 Listboxes' ||
+    !/^[0-9a-f-]{36}$/.test(listboxContract.pageId) || listboxContract.publishedStates.length !== 4 ||
+    new Set(listboxContract.publishedStates.map(entry => entry.id)).size !== 4 ||
+    new Set(listboxContract.publishedStates.map(entry => entry.name)).size !== 4 ||
+    listboxContract.publishedStates.some(entry =>
+      !/^[0-9a-f-]{36}$/.test(entry.id) || !['none', 'single', 'multiple'].includes(entry.selectionMode) ||
+      !['highlight', 'checkbox'].includes(entry.appearance) ||
+      map.componentMappings.find(mapping => mapping.penpotName === entry.name)?.penpotId !== entry.id)) {
+  throw new Error('Invalid Listbox design contract or Penpot mapping.');
+}
 const direct = new Set(map.directFamilies);
 const internal = Object.keys(map.internalParts);
 const pending = new Set(map.pendingPenpotFamilies ?? []);

@@ -30,6 +30,7 @@ export * from './lib/alert';
 export * from './lib/notification-center';
 export * from './lib/notification-host';
 export * from './lib/select';
+export * from './lib/listbox';
 export * from './lib/select-country';
 export * from './lib/input-phone';
 export * from './lib/image-input';
