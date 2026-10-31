@@ -30,6 +30,8 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Group and FormRow | Light outline, plain, or contrast group with optional inset title; equal-width two or three column fields | `Group` owns frame, heading, padding, and vertical rhythm; `FormRow` owns responsive horizontal field layout |
 | Card | 1 px border, 12 px outer radius; optional 64 px header, 144 px image header, and footer | `Card` owns frame, clipping, content padding, and section dividers; Header and Footer own their internal flow |
 | Mobile Card and framed Group | 12 px inner side padding at 640 px and below; 16 px Group and Card body vertical padding; optional 8 px bleed on both sides | `Card` and `Group` own their compact spacing and opt-in `mobileBleed`; `MainView` keeps its 24 px mobile side margins |
+| StatusIcon | Six semantic states; flat, LED, clock, circle, mono, and symbol treatments in three sizes | `StatusIcon` owns the visual indicator, accessible name, disabled presentation, semantic colors, and theme text color for mono |
+| Expandable | Full-width disclosure with 48 px trigger, optional rich heading, four icon choices, and projected body | `Expandable` owns toggle state, disabled behavior, accessible relationships, and user-activation events |
 | Text columns | Two, three, or four equal columns, 24 px gap, stacked by container width | `Columns` owns responsive distribution; each `Column` owns the existing Prose rhythm and optional breakpoint visibility |
 | Link | Inline text with hover or persistent underline | `Link` owns appearance, decoration style, disabled presentation, and navigation behavior |
 | Code block | Proportional source text, optional line numbers, copy, collapsed preview, and inline mode | `CodeBlock` owns source formatting, scrolling, toolbar, and expansion |
@@ -130,6 +132,8 @@ Penpot page `21 Alerts` publishes 72 `goodui.alert` variants and four `goodui.no
 | `goodui.notifications` | Bell, unread Badge, and dismissible drawer; `default`, `unread`, and `open` design states |
 | `goodui.alert` | Inline or delivered message with six semantic tones, four appearances, three sizes, actions, and optional dismissal |
 | `goodui.progress` | Determinate, indeterminate, or timed progress with solid or segmented fill, three sizes, theme colors, optional title and percentage |
+| `goodui.status-icon` | Compact status indicator with six states, seven appearances, three runtime sizes, disabled state, and an accessible name |
+| `goodui.expandable` | Full-width disclosure with projected heading and body, four icon choices, expanded/collapsed variants, and a linked disabled specimen |
 | `goodui.pdf-preview` | A loaded document specimen; `good-pdf-preview` owns runtime source, loading, error, page, zoom, rotation, and download states |
 | `goodui.error-page` | Reusable recovery layout with 404 and 500 specimens; status, tone, text, icon, reference, and actions are runtime inputs/content |
 | `goodui.notification-host` | Toast placement and stacking; in-memory delivery is controlled by `GoodNotificationCenter` |

@@ -47,6 +47,8 @@ export * from './lib/error-page';
 export * from './lib/dropdown';
 export * from './lib/breadcrumbs';
 export * from './lib/badge';
+export * from './lib/status-icon';
+export * from './lib/expandable';
 export * from '@lucide/angular';
 export * from './lib/action-menu';
 export * from './lib/app-layout';

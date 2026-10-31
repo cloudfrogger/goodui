@@ -1,0 +1,252 @@
+{
+  "page": "30 Status Icons",
+  "pageId": "3b81f0ef-6814-8039-8008-dfe17cec9506",
+  "family": "goodui.status-icon",
+  "selector": "good-status-icon",
+  "variantContainerId": "3b81f0ef-6814-8039-8008-dfe23c66b611",
+  "penpotStatus": "published",
+  "axes": {
+    "status": [
+      "completed",
+      "pending",
+      "progressing",
+      "revising",
+      "dismissed",
+      "error"
+    ],
+    "appearance": [
+      "plain",
+      "led",
+      "clock",
+      "clock-mono",
+      "circle",
+      "circle-mono",
+      "symbol"
+    ]
+  },
+  "variants": [
+    {
+      "status": "completed",
+      "appearance": "plain",
+      "id": "3b81f0ef-6814-8039-8008-dfe17dfc2893"
+    },
+    {
+      "status": "completed",
+      "appearance": "led",
+      "id": "3b81f0ef-6814-8039-8008-dfe21b316273"
+    },
+    {
+      "status": "completed",
+      "appearance": "clock",
+      "id": "3b81f0ef-6814-8039-8008-dfe21b55a396"
+    },
+    {
+      "status": "completed",
+      "appearance": "clock-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe1bed21ed5"
+    },
+    {
+      "status": "completed",
+      "appearance": "circle",
+      "id": "3b81f0ef-6814-8039-8008-dfe21b6d4f20"
+    },
+    {
+      "status": "completed",
+      "appearance": "circle-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe21b80b624"
+    },
+    {
+      "status": "completed",
+      "appearance": "symbol",
+      "id": "3b81f0ef-6814-8039-8008-dfe21ba2e9e2"
+    },
+    {
+      "status": "pending",
+      "appearance": "plain",
+      "id": "3b81f0ef-6814-8039-8008-dfe222e62000"
+    },
+    {
+      "status": "pending",
+      "appearance": "led",
+      "id": "3b81f0ef-6814-8039-8008-dfe222fe48cb"
+    },
+    {
+      "status": "pending",
+      "appearance": "clock",
+      "id": "3b81f0ef-6814-8039-8008-dfe2231bdfa4"
+    },
+    {
+      "status": "pending",
+      "appearance": "clock-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe223337f65"
+    },
+    {
+      "status": "pending",
+      "appearance": "circle",
+      "id": "3b81f0ef-6814-8039-8008-dfe2234545bd"
+    },
+    {
+      "status": "pending",
+      "appearance": "circle-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe223568dc8"
+    },
+    {
+      "status": "pending",
+      "appearance": "symbol",
+      "id": "3b81f0ef-6814-8039-8008-dfe223805f54"
+    },
+    {
+      "status": "progressing",
+      "appearance": "plain",
+      "id": "3b81f0ef-6814-8039-8008-dfe226ab949a"
+    },
+    {
+      "status": "progressing",
+      "appearance": "led",
+      "id": "3b81f0ef-6814-8039-8008-dfe226c615a9"
+    },
+    {
+      "status": "progressing",
+      "appearance": "clock",
+      "id": "3b81f0ef-6814-8039-8008-dfe226e2d0df"
+    },
+    {
+      "status": "progressing",
+      "appearance": "clock-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe226fcc1bd"
+    },
+    {
+      "status": "progressing",
+      "appearance": "circle",
+      "id": "3b81f0ef-6814-8039-8008-dfe227103e29"
+    },
+    {
+      "status": "progressing",
+      "appearance": "circle-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe22723d1a7"
+    },
+    {
+      "status": "progressing",
+      "appearance": "symbol",
+      "id": "3b81f0ef-6814-8039-8008-dfe227478464"
+    },
+    {
+      "status": "revising",
+      "appearance": "plain",
+      "id": "3b81f0ef-6814-8039-8008-dfe22c227756"
+    },
+    {
+      "status": "revising",
+      "appearance": "led",
+      "id": "3b81f0ef-6814-8039-8008-dfe22c3d88a8"
+    },
+    {
+      "status": "revising",
+      "appearance": "clock",
+      "id": "3b81f0ef-6814-8039-8008-dfe22c5c72a7"
+    },
+    {
+      "status": "revising",
+      "appearance": "clock-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe22c7846e9"
+    },
+    {
+      "status": "revising",
+      "appearance": "circle",
+      "id": "3b81f0ef-6814-8039-8008-dfe22c8c287a"
+    },
+    {
+      "status": "revising",
+      "appearance": "circle-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe22ca05a38"
+    },
+    {
+      "status": "revising",
+      "appearance": "symbol",
+      "id": "3b81f0ef-6814-8039-8008-dfe22cca027a"
+    },
+    {
+      "status": "dismissed",
+      "appearance": "plain",
+      "id": "3b81f0ef-6814-8039-8008-dfe230ced78e"
+    },
+    {
+      "status": "dismissed",
+      "appearance": "led",
+      "id": "3b81f0ef-6814-8039-8008-dfe230eae96c"
+    },
+    {
+      "status": "dismissed",
+      "appearance": "clock",
+      "id": "3b81f0ef-6814-8039-8008-dfe2310c639c"
+    },
+    {
+      "status": "dismissed",
+      "appearance": "clock-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe23125ec8c"
+    },
+    {
+      "status": "dismissed",
+      "appearance": "circle",
+      "id": "3b81f0ef-6814-8039-8008-dfe2313947f7"
+    },
+    {
+      "status": "dismissed",
+      "appearance": "circle-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe2314d4f3b"
+    },
+    {
+      "status": "dismissed",
+      "appearance": "symbol",
+      "id": "3b81f0ef-6814-8039-8008-dfe2316eebb0"
+    },
+    {
+      "status": "error",
+      "appearance": "plain",
+      "id": "3b81f0ef-6814-8039-8008-dfe2342ae30a"
+    },
+    {
+      "status": "error",
+      "appearance": "led",
+      "id": "3b81f0ef-6814-8039-8008-dfe2344b00db"
+    },
+    {
+      "status": "error",
+      "appearance": "clock",
+      "id": "3b81f0ef-6814-8039-8008-dfe234746759"
+    },
+    {
+      "status": "error",
+      "appearance": "clock-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe23493a63b"
+    },
+    {
+      "status": "error",
+      "appearance": "circle",
+      "id": "3b81f0ef-6814-8039-8008-dfe234aa4438"
+    },
+    {
+      "status": "error",
+      "appearance": "circle-mono",
+      "id": "3b81f0ef-6814-8039-8008-dfe234c2bc86"
+    },
+    {
+      "status": "error",
+      "appearance": "symbol",
+      "id": "3b81f0ef-6814-8039-8008-dfe234eeba84"
+    }
+  ],
+  "runtimeInputs": [
+    "size",
+    "disabled",
+    "decorative",
+    "ariaLabel"
+  ],
+  "sizeSpecimenBoardId": "3b81f0ef-6814-8039-8008-dfe282ea0014",
+  "notes": [
+    "Published variants show enabled default size. The linked specimen board demonstrates small, default, large, and disabled runtime states.",
+    "Status colors bind existing light and dark semantic tokens. Pending uses color.marker.orange as its orange hue; the StatusIcon API owns the pending meaning.",
+    "All clock-mono and circle-mono strokes bind color.text in both themes, regardless of status. Use adjacent visible text to distinguish these states.",
+    "The glossy LED adds a fixed white highlight over a token-bound color. The progressing clock uses a local dark hand in Penpot because color.warning-foreground becomes yellow in the dark theme; Angular uses the dark canvas color for contrast."
+  ]
+}

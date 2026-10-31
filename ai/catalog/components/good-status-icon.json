@@ -1,0 +1,425 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-status-icon",
+  "className": "GoodStatusIconComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodStatusIconComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/status-icon.ts",
+  "inputs": [
+    {
+      "name": "status",
+      "type": "GoodStatusIconStatus",
+      "required": true,
+      "default": null,
+      "allowedValues": [
+        "completed",
+        "pending",
+        "progressing",
+        "revising",
+        "dismissed",
+        "error"
+      ],
+      "source": "angular/projects/goodui/src/lib/status-icon.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodStatusIconAppearance",
+      "required": false,
+      "default": "plain",
+      "allowedValues": [
+        "symbol",
+        "plain",
+        "circle",
+        "led",
+        "clock",
+        "clock-mono",
+        "circle-mono"
+      ],
+      "source": "angular/projects/goodui/src/lib/status-icon.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodStatusIconSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/status-icon.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/status-icon.ts",
+      "kind": "input"
+    },
+    {
+      "name": "decorative",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/status-icon.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/status-icon.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "status": [
+      "completed",
+      "pending",
+      "progressing",
+      "revising",
+      "dismissed",
+      "error"
+    ],
+    "appearance": [
+      "symbol",
+      "plain",
+      "circle",
+      "led",
+      "clock",
+      "clock-mono",
+      "circle-mono"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/status-icon.md",
+  "usage": {
+    "summary": "`good-status-icon` is a compact, non-interactive status indicator. Set its required `status` and use the default flat dot (`appearance=\"plain\"`) unless the surrounding UI needs a stronger visual cue. The component owns its shape, color, size, and accessible name; it does not change application state or emit events.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.status-icon.completed.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe17dfc2893",
+      "kind": "component",
+      "state": "completed.plain",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b316273",
+      "kind": "component",
+      "state": "completed.led",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b55a396",
+      "kind": "component",
+      "state": "completed.clock",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe1bed21ed5",
+      "kind": "component",
+      "state": "completed.clock-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b6d4f20",
+      "kind": "component",
+      "state": "completed.circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b80b624",
+      "kind": "component",
+      "state": "completed.circle-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21ba2e9e2",
+      "kind": "component",
+      "state": "completed.symbol",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe222e62000",
+      "kind": "component",
+      "state": "pending.plain",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe222fe48cb",
+      "kind": "component",
+      "state": "pending.led",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2231bdfa4",
+      "kind": "component",
+      "state": "pending.clock",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe223337f65",
+      "kind": "component",
+      "state": "pending.clock-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2234545bd",
+      "kind": "component",
+      "state": "pending.circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe223568dc8",
+      "kind": "component",
+      "state": "pending.circle-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe223805f54",
+      "kind": "component",
+      "state": "pending.symbol",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226ab949a",
+      "kind": "component",
+      "state": "progressing.plain",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226c615a9",
+      "kind": "component",
+      "state": "progressing.led",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226e2d0df",
+      "kind": "component",
+      "state": "progressing.clock",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226fcc1bd",
+      "kind": "component",
+      "state": "progressing.clock-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe227103e29",
+      "kind": "component",
+      "state": "progressing.circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22723d1a7",
+      "kind": "component",
+      "state": "progressing.circle-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe227478464",
+      "kind": "component",
+      "state": "progressing.symbol",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c227756",
+      "kind": "component",
+      "state": "revising.plain",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c3d88a8",
+      "kind": "component",
+      "state": "revising.led",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c5c72a7",
+      "kind": "component",
+      "state": "revising.clock",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c7846e9",
+      "kind": "component",
+      "state": "revising.clock-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c8c287a",
+      "kind": "component",
+      "state": "revising.circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22ca05a38",
+      "kind": "component",
+      "state": "revising.circle-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22cca027a",
+      "kind": "component",
+      "state": "revising.symbol",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe230ced78e",
+      "kind": "component",
+      "state": "dismissed.plain",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe230eae96c",
+      "kind": "component",
+      "state": "dismissed.led",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2310c639c",
+      "kind": "component",
+      "state": "dismissed.clock",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe23125ec8c",
+      "kind": "component",
+      "state": "dismissed.clock-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2313947f7",
+      "kind": "component",
+      "state": "dismissed.circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2314d4f3b",
+      "kind": "component",
+      "state": "dismissed.circle-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2316eebb0",
+      "kind": "component",
+      "state": "dismissed.symbol",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.error.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2342ae30a",
+      "kind": "component",
+      "state": "error.plain",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.error.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2344b00db",
+      "kind": "component",
+      "state": "error.led",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.error.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234746759",
+      "kind": "component",
+      "state": "error.clock",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.error.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe23493a63b",
+      "kind": "component",
+      "state": "error.clock-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.error.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234aa4438",
+      "kind": "component",
+      "state": "error.circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.error.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234c2bc86",
+      "kind": "component",
+      "state": "error.circle-mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.status-icon.error.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234eeba84",
+      "kind": "component",
+      "state": "error.symbol",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

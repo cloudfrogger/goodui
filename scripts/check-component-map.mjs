@@ -19,6 +19,8 @@ const tableVariants = JSON.parse(readFileSync(resolve(root, 'design/table-varian
 const selectVariants = JSON.parse(readFileSync(resolve(root, 'design/select-variants.json'), 'utf8'));
 const listboxContract = JSON.parse(readFileSync(resolve(root, 'design/listbox-contract.json'), 'utf8'));
 const tabsContract = JSON.parse(readFileSync(resolve(root, 'design/tabs-contract.json'), 'utf8'));
+const statusIconVariants = JSON.parse(readFileSync(resolve(root, 'design/status-icon-variants.json'), 'utf8'));
+const expandableContract = JSON.parse(readFileSync(resolve(root, 'design/expandable-contract.json'), 'utf8'));
 const phoneVariants = JSON.parse(readFileSync(resolve(root, 'design/input-phone-variants.json'), 'utf8'));
 const alertContract = JSON.parse(readFileSync(resolve(root, 'design/alert-contract.json'), 'utf8'));
 const notificationHostContract = JSON.parse(readFileSync(resolve(root, 'design/notification-host-contract.json'), 'utf8'));
@@ -145,6 +147,44 @@ if (tabsContract.page !== '29 Tabs' || !/^[0-9a-f-]{36}$/.test(tabsContract.page
       map.componentMappings.find(mapping => mapping.penpotName === entry.name)?.penpotId !== entry.id ||
       map.componentMappings.find(mapping => mapping.penpotName === entry.name)?.angularSelector !== entry.selector)) {
   throw new Error('Invalid Tabs design contract or Penpot mapping.');
+}
+if (statusIconVariants.page !== '30 Status Icons' || statusIconVariants.family !== 'goodui.status-icon' ||
+    statusIconVariants.selector !== 'good-status-icon' || statusIconVariants.penpotStatus !== 'published' ||
+    !/^[0-9a-f-]{36}$/.test(statusIconVariants.pageId) ||
+    !/^[0-9a-f-]{36}$/.test(statusIconVariants.variantContainerId) ||
+    !/^[0-9a-f-]{36}$/.test(statusIconVariants.sizeSpecimenBoardId)) throw new Error('Invalid StatusIcon design contract.');
+const statusKeys = new Set(), statusIds = new Set();
+for (const variant of statusIconVariants.variants) {
+  const key = `${variant.status}/${variant.appearance}`;
+  if (!statusIconVariants.axes.status.includes(variant.status) ||
+      !statusIconVariants.axes.appearance.includes(variant.appearance) ||
+      statusKeys.has(key) || statusIds.has(variant.id) || !/^[0-9a-f-]{36}$/.test(variant.id) ||
+      !map.componentMappings.some(entry => entry.penpotName === `goodui.status-icon.${variant.status}.${variant.appearance}` &&
+        entry.penpotId === variant.id && entry.angularSelector === 'good-status-icon' && entry.state === `${variant.status}.${variant.appearance}`)) {
+    throw new Error(`Invalid StatusIcon variant: ${key}`);
+  }
+  statusKeys.add(key); statusIds.add(variant.id);
+}
+for (const status of statusIconVariants.axes.status) for (const appearance of statusIconVariants.axes.appearance) {
+  if (!statusKeys.has(`${status}/${appearance}`)) throw new Error(`Missing StatusIcon variant: ${status}/${appearance}`);
+}
+if (expandableContract.page !== '31 Expandables' || expandableContract.family !== 'goodui.expandable' ||
+    expandableContract.selector !== 'good-expandable' || !/^[0-9a-f-]{36}$/.test(expandableContract.pageId) ||
+    !/^[0-9a-f-]{36}$/.test(expandableContract.containerId) ||
+    !/^[0-9a-f-]{36}$/.test(expandableContract.disabledSpecimenId)) throw new Error('Invalid Expandable design contract.');
+const expandableKeys = new Set(), expandableIds = new Set();
+for (const variant of expandableContract.variants) {
+  const key = `${variant.icon}/${variant.state}`;
+  if (!expandableContract.axes.icon.includes(variant.icon) || !expandableContract.axes.state.includes(variant.state) ||
+      expandableKeys.has(key) || expandableIds.has(variant.id) || !/^[0-9a-f-]{36}$/.test(variant.id) ||
+      !map.componentMappings.some(entry => entry.penpotName === `goodui.expandable.${variant.icon}.${variant.state}` &&
+        entry.penpotId === variant.id && entry.angularSelector === 'good-expandable' && entry.state === `${variant.icon}.${variant.state}`)) {
+    throw new Error(`Invalid Expandable variant: ${key}`);
+  }
+  expandableKeys.add(key); expandableIds.add(variant.id);
+}
+for (const icon of expandableContract.axes.icon) for (const state of expandableContract.axes.state) {
+  if (!expandableKeys.has(`${icon}/${state}`)) throw new Error(`Missing Expandable variant: ${icon}/${state}`);
 }
 const direct = new Set(map.directFamilies);
 const internal = Object.keys(map.internalParts);

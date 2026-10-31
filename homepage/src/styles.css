@@ -52,6 +52,11 @@ body { margin: 0; }
 .showcase-section-heading { margin-bottom: 20px; }
 .showcase-section-heading h2 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
 .showcase-section-heading p { margin: 0; color: var(--good-muted); }
+.showcase-status-appearance { padding-block: var(--good-space-4); border-top: 1px solid var(--good-border); }
+.showcase-status-appearance h3 { margin: 0 0 var(--good-space-3); color: var(--good-text); font-size: 14px; font-weight: 600; text-transform: capitalize; }
+.showcase-status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: var(--good-space-3) var(--good-space-5); }
+.showcase-status-item { display: flex; align-items: center; gap: var(--good-space-2); min-width: 0; color: var(--good-text); font-size: 13px; text-transform: capitalize; }
+.showcase-status-item good-status-icon { flex: none; }
 .showcase-rating-list { display: grid; gap: var(--good-space-3); }
 .showcase-rating-example { display: flex; flex-wrap: wrap; align-items: center; gap: var(--good-space-4); min-height: 48px; }
 .showcase-rating-example strong { width: 100px; color: var(--good-muted); font-size: 13px; text-transform: capitalize; }

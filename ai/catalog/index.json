@@ -38,6 +38,17 @@
       "penpotCount": 0
     },
     {
+      "selector": "[goodExpandableHeader]",
+      "className": "GoodExpandableHeaderDirective",
+      "file": "components/goodExpandableHeader.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodExpandableHeaderDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
+    },
+    {
       "selector": "form[goodForm]",
       "className": "GoodFormDirective",
       "file": "components/form-goodForm.json",
@@ -300,6 +311,17 @@
       },
       "usageGuide": null,
       "penpotCount": 1
+    },
+    {
+      "selector": "good-expandable",
+      "className": "GoodExpandableComponent",
+      "file": "components/good-expandable.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodExpandableComponent"
+      },
+      "usageGuide": "guides/components/expandable.md",
+      "penpotCount": 8
     },
     {
       "selector": "good-eyebrow",
@@ -762,6 +784,17 @@
       },
       "usageGuide": null,
       "penpotCount": 2
+    },
+    {
+      "selector": "good-status-icon",
+      "className": "GoodStatusIconComponent",
+      "file": "components/good-status-icon.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodStatusIconComponent"
+      },
+      "usageGuide": "guides/components/status-icon.md",
+      "penpotCount": 42
     },
     {
       "selector": "good-subheading",

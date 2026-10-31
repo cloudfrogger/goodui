@@ -3,6 +3,8 @@
     <good-breadcrumbs [items]="breadcrumbs" />
     <good-group title="Inline alerts" appearance="plain">
       <good-alert tone="info" title="Always in context" message="An inline alert remains in the page until your application removes it." />
+      <good-alert tone="success" appearance="light" title="Changes saved"
+        message="Your preferences were saved successfully." />
       <good-alert tone="warning" appearance="mono" title="Quiet visual style"
         message="Mono keeps the message neutral and uses color only on the icon." />
       <good-alert tone="destructive" appearance="light" title="Dismissible"
@@ -10,7 +12,7 @@
     </good-group>
     <good-group title="Send a notification" appearance="plain">
       <good-action-group orientation="responsive">
-        <good-button (click)="show('toast')">Toast at top right</good-button>
+        <good-button (click)="show('toast')">Success toast at top right</good-button>
         <good-button variant="secondary" (click)="show('top')">Slide from top</good-button>
         <good-button variant="outline" (click)="show('inbox')">Inbox only</good-button>
       </good-action-group>

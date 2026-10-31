@@ -21,6 +21,7 @@
     "date-input",
     "citation",
     "dropdown",
+    "expandable",
     "error-page",
     "error-text",
     "eyebrow",
@@ -67,6 +68,7 @@
     "sidebar-submenu-group",
     "sidebar-submenu-item",
     "subnav",
+    "status-icon",
     "subheading",
     "summary",
     "switch",
@@ -551,6 +553,62 @@
       "angularSelector": "good-dropdown",
       "kind": "component",
       "state": "submenu-open"
+    },
+    {
+      "penpotName": "goodui.expandable.plus.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff89ac5116",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "plus.collapsed"
+    },
+    {
+      "penpotName": "goodui.expandable.plus.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff91fb6f9b",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "plus.expanded"
+    },
+    {
+      "penpotName": "goodui.expandable.chevron.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff9200f64c",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "chevron.collapsed"
+    },
+    {
+      "penpotName": "goodui.expandable.chevron.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff91fe440e",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "chevron.expanded"
+    },
+    {
+      "penpotName": "goodui.expandable.arrow.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff920582ac",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "arrow.collapsed"
+    },
+    {
+      "penpotName": "goodui.expandable.arrow.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff9203ab36",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "arrow.expanded"
+    },
+    {
+      "penpotName": "goodui.expandable.caret.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff9208c99d",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "caret.collapsed"
+    },
+    {
+      "penpotName": "goodui.expandable.caret.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff9207000a",
+      "angularSelector": "good-expandable",
+      "kind": "component",
+      "state": "caret.expanded"
     },
     {
       "penpotName": "goodui.error-text",
@@ -1109,6 +1167,300 @@
       "angularSelector": "good-sidebar-submenu-item",
       "kind": "component",
       "state": "default"
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe17dfc2893",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "completed.plain"
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b316273",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "completed.led"
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b55a396",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "completed.clock"
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe1bed21ed5",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "completed.clock-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b6d4f20",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "completed.circle"
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21b80b624",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "completed.circle-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.completed.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe21ba2e9e2",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "completed.symbol"
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe222e62000",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "pending.plain"
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe222fe48cb",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "pending.led"
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2231bdfa4",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "pending.clock"
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe223337f65",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "pending.clock-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2234545bd",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "pending.circle"
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe223568dc8",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "pending.circle-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.pending.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe223805f54",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "pending.symbol"
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226ab949a",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "progressing.plain"
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226c615a9",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "progressing.led"
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226e2d0df",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "progressing.clock"
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe226fcc1bd",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "progressing.clock-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe227103e29",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "progressing.circle"
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22723d1a7",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "progressing.circle-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.progressing.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe227478464",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "progressing.symbol"
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c227756",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "revising.plain"
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c3d88a8",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "revising.led"
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c5c72a7",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "revising.clock"
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c7846e9",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "revising.clock-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22c8c287a",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "revising.circle"
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22ca05a38",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "revising.circle-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.revising.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe22cca027a",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "revising.symbol"
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe230ced78e",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "dismissed.plain"
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe230eae96c",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "dismissed.led"
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2310c639c",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "dismissed.clock"
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe23125ec8c",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "dismissed.clock-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2313947f7",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "dismissed.circle"
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2314d4f3b",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "dismissed.circle-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.dismissed.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2316eebb0",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "dismissed.symbol"
+    },
+    {
+      "penpotName": "goodui.status-icon.error.plain",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2342ae30a",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "error.plain"
+    },
+    {
+      "penpotName": "goodui.status-icon.error.led",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe2344b00db",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "error.led"
+    },
+    {
+      "penpotName": "goodui.status-icon.error.clock",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234746759",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "error.clock"
+    },
+    {
+      "penpotName": "goodui.status-icon.error.clock-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe23493a63b",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "error.clock-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.error.circle",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234aa4438",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "error.circle"
+    },
+    {
+      "penpotName": "goodui.status-icon.error.circle-mono",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234c2bc86",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "error.circle-mono"
+    },
+    {
+      "penpotName": "goodui.status-icon.error.symbol",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfe234eeba84",
+      "angularSelector": "good-status-icon",
+      "kind": "component",
+      "state": "error.symbol"
     },
     {
       "penpotName": "goodui.subheading",

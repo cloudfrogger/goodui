@@ -9,6 +9,7 @@ These Markdown guides document the Angular library and its Penpot mapping. The [
 - [Typography](components/typography.md)
 - [PIN input](components/pin-input.md)
 - [Alerts](components/alert.md) and [Notifications](components/notifications.md)
+- [Expandable](components/expandable.md)
 - [User registration example](examples/user-registration.md)
 - [Penpot to Angular mapping and artwork registry](contributing/design-to-code.md)
 

@@ -1,0 +1,159 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-expandable",
+  "className": "GoodExpandableComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodExpandableComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/expandable.ts",
+  "inputs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Details",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/expandable.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodExpandableIcon",
+      "required": false,
+      "default": "plus",
+      "allowedValues": [
+        "plus",
+        "chevron",
+        "arrow",
+        "caret"
+      ],
+      "source": "angular/projects/goodui/src/lib/expandable.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/expandable.ts",
+      "kind": "input"
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/expandable.ts",
+      "kind": "model"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "expandedChange",
+      "type": "boolean",
+      "source": "angular/projects/goodui/src/lib/expandable.ts",
+      "implicit": true
+    },
+    {
+      "name": "opened",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/expandable.ts"
+    },
+    {
+      "name": "closed",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/expandable.ts"
+    }
+  ],
+  "variants": {
+    "icon": [
+      "plus",
+      "chevron",
+      "arrow",
+      "caret"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "[goodExpandableHeader]",
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/expandable.md",
+  "usage": {
+    "summary": "`good-expandable` reveals optional content across the full available width. Use one for a short answer or a related block of details. The default is collapsed with a plus icon. The header is a native button, so Enter and Space toggle it without extra keyboard code.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.expandable.plus.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff89ac5116",
+      "kind": "component",
+      "state": "plus.collapsed",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.expandable.plus.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff91fb6f9b",
+      "kind": "component",
+      "state": "plus.expanded",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.expandable.chevron.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff9200f64c",
+      "kind": "component",
+      "state": "chevron.collapsed",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.expandable.chevron.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff91fe440e",
+      "kind": "component",
+      "state": "chevron.expanded",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.expandable.arrow.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff920582ac",
+      "kind": "component",
+      "state": "arrow.collapsed",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.expandable.arrow.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff9203ab36",
+      "kind": "component",
+      "state": "arrow.expanded",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.expandable.caret.collapsed",
+      "penpotId": "8c729319-5265-802b-8008-dfff9208c99d",
+      "kind": "component",
+      "state": "caret.collapsed",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.expandable.caret.expanded",
+      "penpotId": "8c729319-5265-802b-8008-dfff9207000a",
+      "kind": "component",
+      "state": "caret.expanded",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

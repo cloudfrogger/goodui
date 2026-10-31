@@ -1,0 +1,30 @@
+{
+  "family": "goodui.expandable",
+  "selector": "good-expandable",
+  "page": "31 Expandables",
+  "pageId": "8c729319-5265-802b-8008-dfe8c2d128c9",
+  "containerId": "8c729319-5265-802b-8008-dfff9ab66723",
+  "axes": {
+    "icon": ["plus", "chevron", "arrow", "caret"],
+    "state": ["collapsed", "expanded"]
+  },
+  "variants": [
+    { "icon": "plus", "state": "collapsed", "id": "8c729319-5265-802b-8008-dfff89ac5116" },
+    { "icon": "plus", "state": "expanded", "id": "8c729319-5265-802b-8008-dfff91fb6f9b" },
+    { "icon": "chevron", "state": "collapsed", "id": "8c729319-5265-802b-8008-dfff9200f64c" },
+    { "icon": "chevron", "state": "expanded", "id": "8c729319-5265-802b-8008-dfff91fe440e" },
+    { "icon": "arrow", "state": "collapsed", "id": "8c729319-5265-802b-8008-dfff920582ac" },
+    { "icon": "arrow", "state": "expanded", "id": "8c729319-5265-802b-8008-dfff9203ab36" },
+    { "icon": "caret", "state": "collapsed", "id": "8c729319-5265-802b-8008-dfff9208c99d" },
+    { "icon": "caret", "state": "expanded", "id": "8c729319-5265-802b-8008-dfff9207000a" }
+  ],
+  "disabledSpecimenId": "8c729319-5265-802b-8008-dfffd1b30932",
+  "runtimeInputs": ["label", "expanded", "disabled"],
+  "projectedContent": ["goodExpandableHeader", "body"],
+  "outputs": ["opened", "closed", "expandedChange"],
+  "notes": [
+    "The eight published variants demonstrate icon and open state; label, projected content, and disabled behavior are runtime options.",
+    "The disabled specimen is a linked plus/collapsed component copy with muted text and reduced opacity.",
+    "Border, surface, text, muted text, and divider use existing theme-aware GoodUI tokens."
+  ]
+}
