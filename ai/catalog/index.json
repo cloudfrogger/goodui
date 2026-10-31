@@ -236,6 +236,28 @@
       "penpotCount": 1
     },
     {
+      "selector": "good-column",
+      "className": "GoodColumnComponent",
+      "file": "components/good-column.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodColumnComponent"
+      },
+      "usageGuide": "guides/components/column.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-columns",
+      "className": "GoodColumnsComponent",
+      "file": "components/good-columns.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodColumnsComponent"
+      },
+      "usageGuide": "guides/components/columns.md",
+      "penpotCount": 3
+    },
+    {
       "selector": "good-date-input",
       "className": "GoodDateInputComponent",
       "file": "components/good-date-input.json",

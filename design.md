@@ -30,6 +30,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Group and FormRow | Light outline, plain, or contrast group with optional inset title; equal-width two or three column fields | `Group` owns frame, heading, padding, and vertical rhythm; `FormRow` owns responsive horizontal field layout |
 | Card | 1 px border, 12 px outer radius; optional 64 px header, 144 px image header, and footer | `Card` owns frame, clipping, content padding, and section dividers; Header and Footer own their internal flow |
 | Mobile Card and framed Group | 12 px inner side padding at 640 px and below; 16 px Group and Card body vertical padding; optional 8 px bleed on both sides | `Card` and `Group` own their compact spacing and opt-in `mobileBleed`; `MainView` keeps its 24 px mobile side margins |
+| Text columns | Two, three, or four equal columns, 24 px gap, stacked by container width | `Columns` owns responsive distribution; each `Column` owns the existing Prose rhythm and optional breakpoint visibility |
 | Link | Inline text with hover or persistent underline | `Link` owns appearance, decoration style, disabled presentation, and navigation behavior |
 | Code block | Proportional source text, optional line numbers, copy, collapsed preview, and inline mode | `CodeBlock` owns source formatting, scrolling, toolbar, and expansion |
 | PDF preview | Responsive document frame with toolbar, page controls, zoom, rotation, text layer, and scrollable viewport | `PdfPreview` owns document rendering, page fitting, controls, loading and error states |

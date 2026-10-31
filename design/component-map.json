@@ -16,6 +16,8 @@
     "card-header",
     "checkbox",
     "code-block",
+    "column",
+    "columns",
     "date-input",
     "citation",
     "dropdown",
@@ -452,6 +454,34 @@
       "angularSelector": "good-code-block",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.column",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfd8f3c082d6",
+      "angularSelector": "good-column",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.columns.2",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfd93ae53d86",
+      "angularSelector": "good-columns",
+      "kind": "component",
+      "state": "2"
+    },
+    {
+      "penpotName": "goodui.columns.3",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfd93b11f97c",
+      "angularSelector": "good-columns",
+      "kind": "component",
+      "state": "3"
+    },
+    {
+      "penpotName": "goodui.columns.4",
+      "penpotId": "3b81f0ef-6814-8039-8008-dfd93b4251d9",
+      "angularSelector": "good-columns",
+      "kind": "component",
+      "state": "4"
     },
     {
       "penpotName": "goodui.date-input",

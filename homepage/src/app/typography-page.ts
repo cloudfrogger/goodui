@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
-  GoodCitationComponent, GoodCodeBlockComponent, GoodErrorTextComponent, GoodEyebrowComponent,
+  GoodCitationComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodErrorTextComponent, GoodEyebrowComponent,
   GoodFieldLabelComponent, GoodFormFieldComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodHintComponent, GoodInlineImageComponent, GoodInputComponent, GoodMainViewComponent,
   GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSeparatorComponent, GoodSubheadingComponent,
@@ -12,7 +12,7 @@ import {
   standalone: true,
   imports: [GoodMainViewComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent,
     GoodSummaryComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodSubheadingComponent,
-    GoodCitationComponent, GoodSeparatorComponent, GoodInlineImageComponent, GoodFormFieldComponent,
+    GoodCitationComponent, GoodColumnComponent, GoodColumnsComponent, GoodSeparatorComponent, GoodInlineImageComponent, GoodFormFieldComponent,
     GoodFieldLabelComponent, GoodHintComponent, GoodErrorTextComponent, GoodInputComponent, GoodCodeBlockComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/typography.html',
@@ -49,6 +49,51 @@ export class TypographyPageComponent {
   <good-paragraph>GoodUI gives paragraphs a consistent reading rhythm.</good-paragraph>
   <good-paragraph>Place related paragraphs directly inside a prose container.</good-paragraph>
 </good-prose>`;
+
+  readonly twoColumnCode = `<good-columns>
+  <good-column>
+    <good-subheading [level]="4">Plan</good-subheading>
+    <good-paragraph>Write the first part of your content here.</good-paragraph>
+  </good-column>
+  <good-column>
+    <good-subheading [level]="4">Build</good-subheading>
+    <good-paragraph>Write the second part here. Both columns stack on narrow screens.</good-paragraph>
+  </good-column>
+</good-columns>`;
+
+  readonly threeColumnCode = `<good-columns [columns]="3">
+  <good-column>
+    <good-subheading [level]="4">Discover</good-subheading>
+    <good-paragraph>Find the need.</good-paragraph>
+  </good-column>
+  <good-column>
+    <good-subheading [level]="4">Design</good-subheading>
+    <good-paragraph>Make a clear path.</good-paragraph>
+  </good-column>
+  <good-column>
+    <good-subheading [level]="4">Deliver</good-subheading>
+    <good-paragraph>Check the result.</good-paragraph>
+  </good-column>
+</good-columns>`;
+
+  readonly fourColumnCode = `<good-columns [columns]="4">
+  <good-column>
+    <good-subheading [level]="4">Overview</good-subheading>
+    <good-paragraph>Visible everywhere.</good-paragraph>
+  </good-column>
+  <good-column>
+    <good-subheading [level]="4">Status</good-subheading>
+    <good-paragraph>Visible everywhere.</good-paragraph>
+  </good-column>
+  <good-column [visibleAt]="['sm', 'md', 'lg', 'xl']">
+    <good-subheading [level]="4">Details</good-subheading>
+    <good-paragraph>Hidden only in xs.</good-paragraph>
+  </good-column>
+  <good-column [visibleAt]="['lg', 'xl']">
+    <good-subheading [level]="4">Context</good-subheading>
+    <good-paragraph>Appears when four columns fit.</good-paragraph>
+  </good-column>
+</good-columns>`;
 
   readonly sectionCode = `<good-section>
   <good-subheading>Design with reusable components</good-subheading>
@@ -113,6 +158,7 @@ export class TypographyPageComponent {
   readonly importsCode = `import { Component } from '@angular/core';
 import {
   GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
+  GoodColumnsComponent, GoodColumnComponent,
   GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent,
 } from '@goodui/angular';
 
@@ -120,7 +166,8 @@ import {
   selector: 'app-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
-    GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent],
+    GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent,
+    GoodColumnsComponent, GoodColumnComponent],
   templateUrl: './page.html',
 })
 export class PageComponent {}`;

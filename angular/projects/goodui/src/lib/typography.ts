@@ -12,6 +12,7 @@ export type GoodHeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 export type GoodSubheadingLevel = 2 | 3 | 4 | 5 | 6;
 export type GoodSeparatorVariant = 'dots' | 'line';
 export type GoodImageAlign = 'center' | 'left' | 'right';
+export type GoodColumnBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 @Component({
   selector: 'good-heading-group', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
@@ -66,6 +67,36 @@ export class GoodSectionComponent {}
   host: { class: 'good-prose' }, template: `<ng-content />`,
 })
 export class GoodProseComponent {}
+
+@Component({
+  selector: 'good-columns', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-columns', '[attr.data-columns]': 'columns()' },
+  template: `<div class="good-columns-grid"><ng-content select="good-column" /></div>`,
+})
+export class GoodColumnsComponent {
+  readonly columns = input<2 | 3 | 4>(2);
+}
+
+@Component({
+  selector: 'good-column', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'good-column',
+    '[attr.data-visible-xs]': "isVisibleAt('xs')",
+    '[attr.data-visible-sm]': "isVisibleAt('sm')",
+    '[attr.data-visible-md]': "isVisibleAt('md')",
+    '[attr.data-visible-lg]': "isVisibleAt('lg')",
+    '[attr.data-visible-xl]': "isVisibleAt('xl')",
+  },
+  template: `<div class="good-prose good-column-content"><ng-content /></div>`,
+})
+export class GoodColumnComponent {
+  readonly visibleAt = input<readonly GoodColumnBreakpoint[] | 'all'>('all');
+
+  isVisibleAt(breakpoint: GoodColumnBreakpoint): boolean {
+    const visibleAt = this.visibleAt();
+    return visibleAt === 'all' || visibleAt.includes(breakpoint);
+  }
+}
 
 @Component({
   selector: 'good-paragraph', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,

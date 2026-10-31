@@ -13,7 +13,7 @@ good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sideb
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
 good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-progress, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-tabs, good-tab, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
-good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
+good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-columns, good-column, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-heading-group-text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-summary-gap); min-width: 0; }
@@ -29,6 +29,24 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-section > section { display: flex; flex-direction: column; align-items: stretch; gap: var(--good-typography-paragraph-subheading-gap); min-width: 0; }
 .good-section > section > .good-heading-group + * { margin-block-start: var(--good-typography-heading-content-gap); }
 .good-prose { display: flex; flex-direction: column; align-items: stretch; min-width: 0; max-width: var(--good-typography-flow-max-width); }
+.good-columns { display: block; width: 100%; min-width: 0; container-type: inline-size; }
+.good-columns-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--good-typography-flow-section-gap) var(--good-space-6); min-width: 0; }
+.good-column { display: block; min-width: 0; }
+.good-column-content { max-width: none; }
+@container (min-width: 480px) {
+  .good-columns-grid { grid-template-columns: repeat(auto-fit, minmax(calc((100% - var(--good-space-6)) / 2), 1fr)); }
+}
+@container (min-width: 700px) {
+  .good-columns[data-columns="3"] .good-columns-grid, .good-columns[data-columns="4"] .good-columns-grid { grid-template-columns: repeat(auto-fit, minmax(calc((100% - 2 * var(--good-space-6)) / 3), 1fr)); }
+}
+@container (min-width: 960px) {
+  .good-columns[data-columns="4"] .good-columns-grid { grid-template-columns: repeat(auto-fit, minmax(calc((100% - 3 * var(--good-space-6)) / 4), 1fr)); }
+}
+@container (max-width: 479.98px) { .good-column[data-visible-xs="false"] { display: none; } }
+@container (min-width: 480px) and (max-width: 699.98px) { .good-column[data-visible-sm="false"] { display: none; } }
+@container (min-width: 700px) and (max-width: 959.98px) { .good-column[data-visible-md="false"] { display: none; } }
+@container (min-width: 960px) and (max-width: 1279.98px) { .good-column[data-visible-lg="false"] { display: none; } }
+@container (min-width: 1280px) { .good-column[data-visible-xl="false"] { display: none; } }
 .good-paragraph { margin-block-end: var(--good-typography-paragraph-after-gap); }
 .good-prose > .good-paragraph { margin-block-end: 0; }
 .good-prose > * + * { margin-block-start: var(--good-typography-flow-gap); }

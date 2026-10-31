@@ -46,6 +46,31 @@ Use `good-section` for a content section beneath a page heading or beside other 
 
 When a `good-heading-group` is a direct child of Section, the following sibling receives additional space from `typography.heading.content-gap`. This keeps a page lead-in separate from a form or other content without adding a page-specific margin. The Penpot Section specimen contains a Subheading and Prose; this HeadingGroup-to-content sibling rule is an Angular composition behavior rather than an extra child in that specimen.
 
+## Text columns
+
+Use `good-columns` for two to four parallel pieces of page content. Put each piece in a `good-column`; it applies the same text rhythm as Prose to its projected headings, paragraphs, and other content. Two columns are the default. Set `[columns]="3"` or `[columns]="4"` when the content needs more. Columns use the width available to their own container: below 480 px they stack, from 480 px they use up to two columns, from 700 px up to three, and from 960 px up to four. Empty grid tracks collapse when fewer columns are visible. The 24 px gap follows the shared spacing tokens.
+
+```html
+<good-columns [columns]="3">
+  <good-column>
+    <good-subheading [level]="3">Discover</good-subheading>
+    <good-paragraph>Find the need.</good-paragraph>
+  </good-column>
+  <good-column>
+    <good-subheading [level]="3">Design</good-subheading>
+    <good-paragraph>Make a clear path.</good-paragraph>
+  </good-column>
+  <good-column>
+    <good-subheading [level]="3">Deliver</good-subheading>
+    <good-paragraph>Check the result.</good-paragraph>
+  </good-column>
+</good-columns>
+```
+
+Every column is visible at every size unless its `visibleAt` input says otherwise. Set `[visibleAt]="['sm', 'md', 'lg', 'xl']"` to hide one column only at xs. The bands refer to **container width**, not the browser window: xs below 480 px, sm 480–699 px, md 700–959 px, lg 960–1279 px, and xl 1280 px and above. You can list any combination; an empty list hides the column at all sizes. Keep essential information visible at every size, or supply it elsewhere when a column is hidden. The container keeps source order when columns stack, so put content in reading order. Import `GoodColumnsComponent` and `GoodColumnComponent` from `@goodui/angular`.
+
+Penpot page `12 Typography` publishes a `goodui.columns` variant group with `columns=2/3/4` and a linked `goodui.column` component. Its specimens show desktop composition; the container breakpoints and per-column visibility are Angular runtime behavior. Their published IDs are in [typography-components.json](../../design/typography-components.json).
+
 ## Content flow
 
 `good-prose` provides a readable 760 px maximum width and owns the vertical rhythm of its children. `good-paragraph` renders a paragraph with 20 px of following space when used on its own. Within Prose, the container uses the same semantic token for its standard child gap and removes the paragraph's own margin, so adjacent blocks retain one consistent gap. `good-subheading` renders a semantic H2–H6 (`level=2` by default); `good-citation` renders a blockquote with optional `source` and `cite`; and `good-separator` defaults to three quiet dots or accepts `variant="line"`. Penpot's `style` axis maps to the Angular `variant` input because `style` is reserved for HTML/CSS. Subheadings belong between paragraphs as siblings, keeping the HTML valid. A leading Subheading or Separator has no artificial top margin.

@@ -402,7 +402,7 @@ checkMatrix(badgeVariants.variants, [
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
 const typographyExpected = new Map([
   ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', ['1', '2-6']], ['summary', null],
-  ['section', null], ['prose', null], ['paragraph', null], ['subheading', null], ['citation', null],
+  ['section', null], ['prose', null], ['columns', ['2', '3', '4']], ['column', null], ['paragraph', null], ['subheading', null], ['citation', null],
   ['separator', ['dots', 'line']], ['inline-image', ['center', 'left', 'right']],
   ['form-field', ['default', 'error']], ['field-label', ['false', 'true']],
   ['hint', null], ['error-text', null],
@@ -414,6 +414,9 @@ for (const entry of typographyComponents.families) {
   const expected = typographyExpected.get(entry.family);
   if (expected) {
     if (!entry.containerId || !entry.variants || expected.some(value => !entry.variants[value]) || Object.keys(entry.variants).length !== expected.length) throw new Error(`Incomplete Typography variants: ${entry.family}`);
+    if (entry.family === 'columns' && expected.some(value => !map.componentMappings.some(mapping =>
+      mapping.penpotName === `goodui.columns.${value}` && mapping.penpotId === entry.variants[value] &&
+      mapping.angularSelector === 'good-columns' && mapping.state === value))) throw new Error('Columns variants are not mapped to Angular.');
   } else if (!entry.componentId || entry.variants) throw new Error(`Invalid Typography component: ${entry.family}`);
   for (const id of [entry.componentId, entry.containerId, ...Object.values(entry.variants ?? {})].filter(Boolean)) {
     if (typographyIds.has(id)) throw new Error(`Duplicate Typography Penpot ID: ${id}`);
