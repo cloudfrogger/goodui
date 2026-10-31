@@ -1,0 +1,19 @@
+{
+  "page": "29 Tabs",
+  "pageId": "9ec30947-b9fa-809b-8008-deeca4caaf1e",
+  "families": [
+    { "name": "goodui.tabs.default", "id": "9ec30947-b9fa-809b-8008-deecf3c88ff5", "selector": "good-tabs", "state": "default" },
+    { "name": "goodui.tabs.icons-badges", "id": "9ec30947-b9fa-809b-8008-deed077cf1a7", "selector": "good-tabs", "state": "icons-badges" },
+    { "name": "goodui.tabs.overflow", "id": "9ec30947-b9fa-809b-8008-deed1a56fcd6", "selector": "good-tabs", "state": "overflow" },
+    { "name": "goodui.tab", "id": "9ec30947-b9fa-809b-8008-deed26bb3746", "selector": "good-tab", "state": null }
+  ],
+  "runtime": {
+    "initialSelection": "The first enabled tab, unless a good-tab is marked selected or activeId is supplied",
+    "selection": "activeId is a two-way model; tabActivated reports pointer and keyboard selection",
+    "content": "Each good-tab projects its own panel content",
+    "overflow": "Header arrows appear only when tabs do not fit; mouse dragging and touch swiping also scroll the tab row without activating a tab",
+    "optionalContent": ["icon", "badge", "badgeColor"],
+    "accessibility": "Tablist, tab, and tabpanel roles with ARIA relationships and arrow-key navigation"
+  },
+  "visualTokens": ["color.surface", "color.border", "color.selected", "color.accent", "color.text", "color.muted", "radius.card"]
+}

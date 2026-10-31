@@ -18,6 +18,7 @@ const ratingVariants = JSON.parse(readFileSync(resolve(root, 'design/rating-vari
 const tableVariants = JSON.parse(readFileSync(resolve(root, 'design/table-variants.json'), 'utf8'));
 const selectVariants = JSON.parse(readFileSync(resolve(root, 'design/select-variants.json'), 'utf8'));
 const listboxContract = JSON.parse(readFileSync(resolve(root, 'design/listbox-contract.json'), 'utf8'));
+const tabsContract = JSON.parse(readFileSync(resolve(root, 'design/tabs-contract.json'), 'utf8'));
 const phoneVariants = JSON.parse(readFileSync(resolve(root, 'design/input-phone-variants.json'), 'utf8'));
 const alertContract = JSON.parse(readFileSync(resolve(root, 'design/alert-contract.json'), 'utf8'));
 const notificationHostContract = JSON.parse(readFileSync(resolve(root, 'design/notification-host-contract.json'), 'utf8'));
@@ -137,6 +138,13 @@ if (listboxContract.family !== 'goodui.listbox' || listboxContract.selector !== 
       !['highlight', 'checkbox'].includes(entry.appearance) ||
       map.componentMappings.find(mapping => mapping.penpotName === entry.name)?.penpotId !== entry.id)) {
   throw new Error('Invalid Listbox design contract or Penpot mapping.');
+}
+if (tabsContract.page !== '29 Tabs' || !/^[0-9a-f-]{36}$/.test(tabsContract.pageId) ||
+    tabsContract.families.length !== 4 || new Set(tabsContract.families.map(entry => entry.id)).size !== 4 ||
+    tabsContract.families.some(entry => !/^[0-9a-f-]{36}$/.test(entry.id) ||
+      map.componentMappings.find(mapping => mapping.penpotName === entry.name)?.penpotId !== entry.id ||
+      map.componentMappings.find(mapping => mapping.penpotName === entry.name)?.angularSelector !== entry.selector)) {
+  throw new Error('Invalid Tabs design contract or Penpot mapping.');
 }
 const direct = new Set(map.directFamilies);
 const internal = Object.keys(map.internalParts);

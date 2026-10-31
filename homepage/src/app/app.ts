@@ -68,6 +68,7 @@ export class App {
         { id: 'checkboxes', label: 'Checkboxes', route: '/components/checkboxes' },
         { id: 'radio-groups', label: 'Radio groups', route: '/components/radio-groups' },
         { id: 'ratings', label: 'Ratings', route: '/components/ratings' },
+        { id: 'tabs', label: 'Tabs', route: '/components/tabs' },
         { id: 'theme-toggle', label: 'Theme toggle', route: '/components/theme-toggle' },
       ] },
       { id: 'inputs-category', label: 'Inputs', icon: 'card', children: [
@@ -187,6 +188,7 @@ export class App {
     { id: 'pin-inputs', label: 'PIN inputs', description: 'Code slots, masking, and character sets', route: '/components/pin-inputs' },
     { id: 'selects', label: 'Selects', description: 'Single, multiple, and country selection', route: '/components/selects' },
     { id: 'listboxes', label: 'Listboxes', description: 'Visible lists with groups, search, and selection', route: '/components/listboxes' },
+    { id: 'tabs', label: 'Tabs', description: 'Switchable content panels with icons, badges, and overflow scrolling', route: '/components/tabs' },
     { id: 'phone-inputs', label: 'Phone inputs', description: 'Country codes, flags, and international numbers', route: '/components/phone-inputs' },
     { id: 'date-inputs', label: 'Date inputs', description: 'Dates, ranges, months, years, and time', route: '/components/date-inputs' },
     { id: 'calendar', label: 'Calendar', description: 'Month, week, day, and list scheduling', route: '/components/calendar' },

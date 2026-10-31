@@ -37,6 +37,8 @@
     "input-phone",
     "listbox",
     "link",
+    "tab",
+    "tabs",
     "main-menu",
     "main-view",
     "modal",
@@ -1284,6 +1286,34 @@
       "angularSelector": "good-topbar",
       "kind": "component",
       "state": "with-brand"
+    },
+    {
+      "penpotName": "goodui.tab",
+      "penpotId": "9ec30947-b9fa-809b-8008-deed26bb3746",
+      "angularSelector": "good-tab",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.tabs.default",
+      "penpotId": "9ec30947-b9fa-809b-8008-deecf3c88ff5",
+      "angularSelector": "good-tabs",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.tabs.icons-badges",
+      "penpotId": "9ec30947-b9fa-809b-8008-deed077cf1a7",
+      "angularSelector": "good-tabs",
+      "kind": "component",
+      "state": "icons-badges"
+    },
+    {
+      "penpotName": "goodui.tabs.overflow",
+      "penpotId": "9ec30947-b9fa-809b-8008-deed1a56fcd6",
+      "angularSelector": "good-tabs",
+      "kind": "component",
+      "state": "overflow"
     }
   ],
   "variantManifests": [
@@ -1310,6 +1340,7 @@
     "design/rating-variants.json",
     "design/table-variants.json",
     "design/switch-variants.json",
+    "design/tabs-contract.json",
     "design/typography-components.json",
     "design/select-variants.json",
     "design/input-phone-variants.json"
