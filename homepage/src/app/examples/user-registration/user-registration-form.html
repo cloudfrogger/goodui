@@ -1,5 +1,5 @@
 <form goodForm layout="vertical" [fullWidth]="true" [formGroup]="form" (ngSubmit)="createUser()" novalidate>
-  <good-group title="Personal details" [headingLevel]="2">
+  <good-group title="Personal details" [headingLevel]="2" [mobileBleed]="true">
     <good-radio-group label="Title" orientation="horizontal" [options]="salutations"
       formControlName="salutation" />
     <good-form-row [columns]="3">
@@ -22,7 +22,7 @@
       </good-form-field>
     </good-form-row>
   </good-group>
-  <good-group title="Address" [headingLevel]="2">
+  <good-group title="Address" [headingLevel]="2" [mobileBleed]="true">
     <good-form-field [required]="true">
       <good-field-label forId="registration-street">Street address</good-field-label>
       <good-input inputId="registration-street" label="Street address" autocomplete="street-address"
@@ -49,7 +49,7 @@
       </good-form-field>
     </good-form-row>
   </good-group>
-  <good-group title="Contact details" appearance="contrast" [headingLevel]="2">
+  <good-group title="Contact details" appearance="contrast" [headingLevel]="2" [mobileBleed]="true">
     <good-form-row>
       <good-form-field>
         <good-field-label forId="registration-phone">Phone number</good-field-label>
@@ -71,12 +71,12 @@
       @if (isInvalid('email')) { <good-error-text>Enter a valid email address.</good-error-text> }
     </good-form-field>
   </good-group>
-  <good-group title="Preferences" [headingLevel]="2">
+  <good-group title="Preferences" [headingLevel]="2" [mobileBleed]="true">
     <good-listbox label="Interests" [showLabel]="true" [groups]="interestGroups"
       selectionMode="multiple" appearance="checkbox" formControlName="interests" />
     <good-hint>Optional. Select any interests you would like to share.</good-hint>
   </good-group>
-  <good-group title="Account security" [headingLevel]="2">
+  <good-group title="Account security" [headingLevel]="2" [mobileBleed]="true">
     <good-form-row>
       <good-form-field [required]="true">
         <good-field-label forId="registration-password">Password</good-field-label>
@@ -100,7 +100,7 @@
   }
 </form>
 @if (createdUser(); as user) {
-  <good-card>
+  <good-card [mobileBleed]="true">
     <good-card-header title="User created in this demo" />
     <good-paragraph>{{ user.name }} · {{ user.email }}</good-paragraph>
     @if (user.interests.length) { <good-paragraph>Interests: {{ user.interests.join(', ') }}</good-paragraph> }

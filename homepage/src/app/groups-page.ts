@@ -16,8 +16,8 @@ import {
     <good-main-view eyebrow="COMPONENTS" title="Groups"
       description="Lightweight structure for related content and responsive form rows.">
       <good-section>
-        <good-group title="Outline group">
-          <good-prose><good-paragraph>The heading sits in the frame. The group owns its padding and the space between its children.</good-paragraph></good-prose>
+        <good-group title="Outline group" [mobileBleed]="true">
+          <good-prose><good-paragraph>The heading sits in the frame. On mobile, this group uses compact inner padding and opts into an equal 8 px extension on both sides.</good-paragraph></good-prose>
           <good-form-row [columns]="3">
             <good-form-field><good-field-label forId="group-first">First name</good-field-label><good-input inputId="group-first" label="First name" /></good-form-field>
             <good-form-field><good-field-label forId="group-middle">Middle name</good-field-label><good-input inputId="group-middle" label="Middle name" /></good-form-field>
@@ -43,7 +43,7 @@ import {
   `,
 })
 export class GroupsPageComponent {
-  readonly outlineCode = `<good-group title="Personal details">
+  readonly outlineCode = `<good-group title="Personal details" [mobileBleed]="true">
   <good-form-row [columns]="3">
     <good-form-field><good-field-label forId="first">First name</good-field-label><good-input inputId="first" label="First name" /></good-form-field>
     <good-form-field><good-field-label forId="middle">Middle name</good-field-label><good-input inputId="middle" label="Middle name" /></good-form-field>

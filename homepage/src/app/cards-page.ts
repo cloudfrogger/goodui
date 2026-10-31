@@ -14,9 +14,9 @@ import {
   template: `
     <good-main-view title="Cards" description="Bordered content with optional headers, actions, images, and footers">
       <div class="showcase-card-showcase-grid">
-        <good-card>
+        <good-card [mobileBleed]="true">
           <h2>Border-only card</h2>
-          <p>The card owns its border, corners, surface, and content padding. Add only the content your page needs.</p>
+          <p>The card owns its border, corners, surface, and content padding. This example opts into a symmetric 8 px extension on mobile.</p>
         </good-card>
 
         <good-card>

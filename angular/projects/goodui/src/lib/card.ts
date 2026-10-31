@@ -4,14 +4,16 @@ import { ChangeDetectionStrategy, Component, Directive, input } from '@angular/c
   selector: 'good-card',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-card' },
+  host: { class: 'good-card', '[attr.data-mobile-bleed]': 'mobileBleed()' },
   template: `
     <ng-content select="good-card-header" />
     <div class="good-card-body"><ng-content /></div>
     <ng-content select="good-card-footer" />
   `,
 })
-export class GoodCardComponent {}
+export class GoodCardComponent {
+  readonly mobileBleed = input(false);
+}
 
 @Directive({
   selector: '[goodCardActions]',

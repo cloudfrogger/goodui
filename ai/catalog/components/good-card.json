@@ -8,7 +8,17 @@
     "symbol": "GoodCardComponent"
   },
   "source": "angular/projects/goodui/src/lib/card.ts",
-  "inputs": [],
+  "inputs": [
+    {
+      "name": "mobileBleed",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/card.ts",
+      "kind": "input"
+    }
+  ],
   "outputs": [],
   "variants": {},
   "composition": {

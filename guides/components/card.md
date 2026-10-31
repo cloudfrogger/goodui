@@ -2,6 +2,10 @@
 
 `good-card` is a bordered content container. It owns the surface, one-pixel border, 12 px corners, content padding, and separators. Add a header or footer only when the content needs one. `good-card-header` owns the title area and right-side actions; `good-card-footer` owns the bottom row.
 
+At viewport widths of 640 px or less, Card header, body, and footer use 12 px side padding; the body uses 16 px vertical padding. This keeps more room for content inside a mobile MainView without changing its 24 px page margins, Card border, radius, or header/footer structure. Penpot's Card variants show the desktop 24 px side padding; the mobile reduction is a responsive runtime rule, not another variant.
+
+Set `[mobileBleed]="true"` when a Card should extend 8 px beyond both sides of its parent content column on mobile. The input defaults to `false` and has no effect above 640 px. Use it for page-level Cards, not Cards nested in another bounded surface. The Penpot Card variants keep their existing IDs; this is a runtime layout option.
+
 ```ts
 import {
   GoodActionMenuComponent, GoodButtonComponent, GoodCardActionsDirective,

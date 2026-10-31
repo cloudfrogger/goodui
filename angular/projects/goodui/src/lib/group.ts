@@ -7,7 +7,7 @@ export type GoodGroupAppearance = 'plain' | 'outline' | 'contrast';
   selector: 'good-group',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-group', '[attr.data-appearance]': 'appearance()' },
+  host: { class: 'good-group', '[attr.data-appearance]': 'appearance()', '[attr.data-mobile-bleed]': 'mobileBleed()' },
   template: `
     <section class="good-group-frame" [attr.aria-labelledby]="title() ? headingId() : null">
       @if (title()) {
@@ -25,6 +25,7 @@ export class GoodGroupComponent {
   private static nextId = 0;
   readonly title = input('');
   readonly appearance = input<GoodGroupAppearance>('outline');
+  readonly mobileBleed = input(false);
   readonly headingLevel = input<2 | 3 | 4>(2);
   readonly headingId = input(`good-group-heading-${++GoodGroupComponent.nextId}`);
 }

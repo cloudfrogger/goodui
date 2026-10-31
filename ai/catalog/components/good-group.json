@@ -32,6 +32,15 @@
       "kind": "input"
     },
     {
+      "name": "mobileBleed",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/group.ts",
+      "kind": "input"
+    },
+    {
       "name": "headingLevel",
       "type": "2 | 3 | 4",
       "required": false,
