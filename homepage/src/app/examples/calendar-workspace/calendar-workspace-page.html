@@ -1,0 +1,22 @@
+<good-main-view title="Calendar workspace" description="One schedule, with a collapsible month navigator and a focused day view on small screens.">
+  <good-group title="Plan your week" appearance="plain">
+    <good-calendar label="Example schedule" [events]="visibleEvents()" [(date)]="date" [showCurrentTime]="false" [showDayStrip]="true"
+      [view]="view()" (viewChange)="setView($event)" [sidebarEnabled]="true"
+      [sidebarOpen]="sidebarOpen()" (sidebarOpenChange)="setSidebarOpen($event)"
+      (eventSelected)="selectEvent($event)" (eventMoved)="moveEvent($event)" (eventResized)="resizeEvent($event)">
+      <div goodCalendarSidebar>
+        <good-month-calendar [month]="monthKey()" [selected]="selectedDay()" (selectionChange)="pickDay($event)" />
+        <good-listbox label="My calendars" [showLabel]="true" [items]="calendars"
+          selectionMode="multiple" appearance="checkbox" [(selectedIds)]="visibleCalendars" />
+      </div>
+      <good-button goodCalendarActions size="small" (click)="createEvent()">New event</good-button>
+    </good-calendar>
+    <p role="status">{{ feedback() }}</p>
+  </good-group>
+  <good-group title="Build this page" appearance="plain">
+    <good-code-block [code]="htmlSource" language="html" title="calendar-workspace-page.html"
+      [collapsible]="true" [collapsedLines]="24" />
+    <good-code-block [code]="typescriptSource" language="typescript" title="calendar-workspace-page.ts"
+      [collapsible]="true" [collapsedLines]="26" />
+  </good-group>
+</good-main-view>

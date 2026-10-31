@@ -62,7 +62,10 @@ To open your own editor or persist a move, add output handlers to the template:
 | `marker` | Optional category color from the 16 `GoodMarkerColor` names; it takes precedence over `tone` and fills the event with the exact `color.marker.*` token used by the Color Scheme swatch. The list dot and drag preview use the same token. |
 | `[(selectedEventId)]` / `(eventSelected)` | The selected event ID and selection output. Clicking an event or activating its button with the keyboard selects it. `eventClicked` remains available for callers using the original click output. |
 | `[(view)]` | `month`, `week` (default), `day`, or `list`. |
+| `[sidebarEnabled]` / `[(sidebarOpen)]` | Optional collapsible side panel for projected tools. Disabled and closed by default. The calendar toolbar supplies its accessible toggle; the panel stacks above the grid in a narrow container. |
+| `[sidebarLabel]` | Accessible name for the panel and its toggle; defaults to `Calendar tools`. |
 | `[showCurrentTime]` | `true` by default. Draws a live time line in today's column of week and day views; set `false` to hide it. |
+| `[showDayStrip]` | `false` by default. When enabled, shows a seven-day picker above the day grid in narrow containers; selecting a date updates `date`. |
 | `[(date)]` | The date around which the visible period is built. Prev/next moves by the current view's period; Today returns to the current date. |
 | `[events]` | Optional externally managed event list. When supplied, dragging emits `eventMoved` without changing that input; update your data after saving. |
 | `(eventClicked)` / `(eventDoubleClicked)` | Emits the normalized event. Double-click can open an application-owned editor. |
@@ -141,6 +144,17 @@ readonly holidays: readonly GoodCalendarHoliday[] = [
 ```
 
 Project an optional `[goodCalendarActions]` element into the toolbar for application actions such as “New event.” The calendar owns toolbar placement and wrapping.
+
+For a scheduling workspace, project a compact `good-month-calendar` and optional filters into `[goodCalendarSidebar]`. Bind its selected day to the main calendar's `date` and choose `day` view when a date is picked. Use `good-listbox` with multiple checkbox selection for a short, keyboard-accessible list of visible calendars; filter the event input by its `selectedIds`. The side panel is an optional runtime composition of `good-calendar`; it does not replace or duplicate the appointment grid. The [calendar workspace example](../../homepage/src/app/examples/calendar-workspace/calendar-workspace-page.html) shows the complete pattern, including a day view on narrow screens and working event filters.
+
+```html
+<good-calendar [(date)]="date" [(view)]="view" [sidebarEnabled]="true" [(sidebarOpen)]="sidebarOpen">
+  <div goodCalendarSidebar>
+    <good-month-calendar [month]="monthKey()" [selected]="selectedDay()"
+      (selectionChange)="pickDay($event)" />
+  </div>
+</good-calendar>
+```
 
 ## Design mapping
 

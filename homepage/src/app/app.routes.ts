@@ -71,6 +71,7 @@ export const routes: Routes = [
   { path: 'examples/user-registration', loadComponent: () => import('./examples/user-registration/user-registration-example-page').then(module => module.UserRegistrationExamplePageComponent) },
   { path: 'examples/notifications', loadComponent: () => import('./examples/notifications/notifications-page').then(module => module.NotificationsPageComponent) },
   { path: 'examples/pdf-reader', loadComponent: () => import('./examples/pdf-reader/pdf-reader-page').then(module => module.PdfReaderPageComponent) },
+  { path: 'examples/calendar-workspace', loadComponent: () => import('./examples/calendar-workspace/calendar-workspace-page').then(module => module.CalendarWorkspacePageComponent) },
   { path: 'examples/error-pages', loadComponent: () => import('./examples/error-pages/error-pages-example-page').then(module => module.ErrorPagesExamplePageComponent) },
   { path: 'profile', ...page('Public Profile', 'Public profile') },
   { path: 'account/home/get-started', ...page('Account', 'Get Started', true) },

@@ -13,6 +13,8 @@ export interface GoodCalendarEmptyAction { date: Date; start: Date; end: Date; }
 /** A date-only string is interpreted in the calendar's local time zone. */
 export interface GoodCalendarHoliday { date: Date | string; name: string; }
 
+let nextCalendarSidebarId = 0;
+
 interface CalendarDay {
   date: Date;
   key: string;
@@ -62,9 +64,16 @@ export class GoodCalendarComponent {
   readonly nonWorkingLabels = input<readonly GoodCalendarNonWorkingLabel[]>(GOOD_CALENDAR_DEFAULT_NON_WORKING_LABELS);
   readonly maxMonthEvents = input(3);
   readonly showCurrentTime = input(true);
+  /** Show a compact seven-day picker above the day grid in narrow containers. */
+  readonly showDayStrip = input(false);
   readonly editable = input(true);
   readonly disabled = input(false);
   readonly label = input('Calendar');
+  /** Enables a collapsible panel for projected [goodCalendarSidebar] tools. */
+  readonly sidebarEnabled = input(false);
+  readonly sidebarOpen = model(false);
+  readonly sidebarLabel = input('Calendar tools');
+  readonly sidebarId = `good-calendar-sidebar-${++nextCalendarSidebarId}`;
 
   readonly eventClicked = output<GoodCalendarEvent>();
   readonly eventSelected = output<GoodCalendarEvent>();
@@ -85,6 +94,7 @@ export class GoodCalendarComponent {
   readonly resizePreview = signal<{ id: string; end: Date } | null>(null);
   readonly now = signal(new Date());
   readonly nowDayKey = computed(() => goodCalendarDayKey(this.now()));
+  readonly todayDay = computed(() => goodCalendarStartOfDay(this.now()).getTime());
   private readonly angularLocale = inject(LOCALE_ID);
   readonly effectiveLocale = computed(() => this.locale() || (this.angularLocale !== 'en-US' ? this.angularLocale : undefined)
     || (typeof navigator !== 'undefined' ? navigator.language : 'en-US'));
@@ -138,6 +148,10 @@ export class GoodCalendarComponent {
     const start = this.view() === 'week' ? goodCalendarStartOfWeek(this.date(), this.weekStartsOn()) : this.currentDay();
     return Array.from({ length: this.view() === 'week' ? 7 : 1 }, (_, index) => this.makeDay(goodCalendarAddDays(start, index)));
   });
+  readonly dayStripDays = computed(() => {
+    const start = goodCalendarStartOfWeek(this.date(), this.weekStartsOn());
+    return Array.from({ length: 7 }, (_, index) => goodCalendarAddDays(start, index));
+  });
   readonly agendaDays = computed(() => Array.from({ length: this.agendaLength() }, (_, index) => this.makeDay(goodCalendarAddDays(this.currentDay(), index))));
   readonly visibleRange = computed<GoodCalendarRange>(() => {
     const view = this.view();
@@ -148,7 +162,7 @@ export class GoodCalendarComponent {
     return { start, end: goodCalendarAddDays(start, count), view };
   });
   readonly hours = Array.from({ length: 24 }, (_, index) => index);
-  readonly gridMinWidth = computed(() => this.view() === 'week' ? 64 + 7 * 126 : 360);
+  readonly gridMinWidth = computed(() => this.view() === 'week' ? 64 + 7 * 126 : 300);
   readonly gridHeight = computed(() => 24 * this.effectiveHourHeight());
 
   constructor() {

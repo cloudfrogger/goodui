@@ -18,6 +18,10 @@ const examples = [
     ['pdfReaderHtml', 'pdf-reader-page.html'],
     ['pdfReaderTs', 'pdf-reader-page.ts'],
   ]],
+  ['calendar-workspace', [
+    ['calendarWorkspaceHtml', 'calendar-workspace-page.html'],
+    ['calendarWorkspaceTs', 'calendar-workspace-page.ts'],
+  ]],
   ['error-pages', [
     ['errorPagesExampleHtml', 'error-pages-example-page.html'],
     ['errorPagesExampleTs', 'error-pages-example-page.ts'],

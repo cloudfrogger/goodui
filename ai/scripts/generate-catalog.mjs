@@ -47,7 +47,10 @@ for (const modulePath of modules) {
     if (!selectorProp || !ts.isStringLiteral(selectorProp.initializer)) continue;
     const selector = selectorProp.initializer.text;
     const templateProp = meta.properties.find(prop => ts.isPropertyAssignment(prop) && prop.name.getText() === 'template');
-    const template = templateProp && ts.isPropertyAssignment(templateProp) ? templateProp.initializer.getText() : '';
+    const templateUrlProp = meta.properties.find(prop => ts.isPropertyAssignment(prop) && prop.name.getText() === 'templateUrl');
+    const template = templateProp && ts.isPropertyAssignment(templateProp) ? templateProp.initializer.getText()
+      : templateUrlProp && ts.isPropertyAssignment(templateUrlProp) && ts.isStringLiteral(templateUrlProp.initializer)
+        ? fs.readFileSync(path.resolve(path.dirname(modulePath), templateUrlProp.initializer.text), 'utf8') : '';
     const projections = [...template.matchAll(/<ng-content(?:\s+select="([^"]+)")?/g)].map(match => match[1] ?? '*');
     const relatedSelectors = [...new Set([...template.matchAll(/<good-([a-z-]+)/g)].map(match => `good-${match[1]}`))].filter(value => value !== selector);
     const inputs = [], outputs = [];

@@ -113,6 +113,7 @@ export class App {
       { id: 'user-registration', label: 'User registration', icon: 'account', route: '/examples/user-registration' },
       { id: 'notifications-example', label: 'Notifications', icon: 'bell', route: '/examples/notifications' },
       { id: 'pdf-reader-example', label: 'PDF reader', icon: 'book', route: '/examples/pdf-reader' },
+      { id: 'calendar-workspace-example', label: 'Calendar workspace', icon: 'calendar', route: '/examples/calendar-workspace' },
       { id: 'error-pages-example', label: 'Error pages', icon: 'question', route: '/examples/error-pages' },
       { id: 'not-found-example', label: '404 · Page not found', icon: 'question', route: '/404' },
       { id: 'server-error-example', label: '500 · Server error', icon: 'question', route: '/500' },

@@ -149,6 +149,15 @@
       "kind": "input"
     },
     {
+      "name": "showDayStrip",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
       "name": "editable",
       "type": "boolean",
       "required": false,
@@ -174,6 +183,33 @@
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/calendar.ts",
       "kind": "input"
+    },
+    {
+      "name": "sidebarEnabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "sidebarOpen",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "model"
+    },
+    {
+      "name": "sidebarLabel",
+      "type": "string",
+      "required": false,
+      "default": "Calendar tools",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
     }
   ],
   "outputs": [
@@ -192,6 +228,12 @@
     {
       "name": "selectedEventIdChange",
       "type": "string",
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "implicit": true
+    },
+    {
+      "name": "sidebarOpenChange",
+      "type": "boolean",
       "source": "angular/projects/goodui/src/lib/calendar.ts",
       "implicit": true
     },
@@ -240,9 +282,14 @@
     ]
   },
   "composition": {
-    "projectedContent": [],
-    "relatedSelectors": [],
-    "notes": null
+    "projectedContent": [
+      "[goodCalendarSidebar]",
+      "[goodCalendarActions]"
+    ],
+    "relatedSelectors": [
+      "good-button"
+    ],
+    "notes": "See source template and component guide for projection slots."
   },
   "forms": {
     "controlValueAccessor": false,

@@ -1,3 +1,9 @@
+<div class="good-calendar-workspace" [attr.data-sidebar-open]="sidebarEnabled() && sidebarOpen()">
+  @if (sidebarEnabled()) {
+    <aside class="good-calendar-sidebar" [id]="sidebarId" [hidden]="!sidebarOpen()" [attr.aria-label]="sidebarLabel()">
+      <ng-content select="[goodCalendarSidebar]" />
+    </aside>
+  }
 <section class="good-calendar-frame" [attr.aria-label]="label()">
   <header class="good-calendar-toolbar">
     <div class="good-calendar-period">
@@ -5,6 +11,11 @@
       @if (view() !== 'month') { <span>{{ periodLabel() }}</span> }
     </div>
     <div class="good-calendar-toolbar-actions">
+      @if (sidebarEnabled()) {
+        <good-button variant="outline" size="small" [disabled]="disabled()" [attr.aria-expanded]="sidebarOpen()"
+          [attr.aria-controls]="sidebarId" [ariaLabel]="sidebarOpen() ? 'Hide ' + sidebarLabel() : 'Show ' + sidebarLabel()"
+          (click)="sidebarOpen.set(!sidebarOpen())">{{ sidebarOpen() ? 'Hide tools' : 'Tools' }}</good-button>
+      }
       <div class="good-calendar-navigation" role="group" aria-label="Calendar navigation">
         <good-button variant="outline" size="small" [icon]="chevronLeft" [iconOnly]="true" [disabled]="disabled()" ariaLabel="Previous period" (click)="navigate(-1)" />
         <good-button variant="outline" size="small" [disabled]="disabled()" (click)="goToday()">Today</good-button>
@@ -61,6 +72,19 @@
       </div>
     </div>
   } @else if (view() === 'week' || view() === 'day') {
+    @if (view() === 'day' && showDayStrip()) {
+      <nav class="good-calendar-day-strip" aria-label="Choose day">
+        @for (day of dayStripDays(); track $index) {
+          <button type="button" [disabled]="disabled()" [attr.aria-label]="'Show ' + dateLabel(day)"
+            [attr.aria-current]="day.getTime() === currentDay().getTime() ? 'date' : null"
+            [class.good-is-selected]="day.getTime() === currentDay().getTime()"
+            [class.good-is-today]="day.getTime() === todayDay()"
+            (click)="showDay(day)">
+            <span>{{ weekdayLabels()[$index] }}</span><strong>{{ dayNumber(day) }}</strong>
+          </button>
+        }
+      </nav>
+    }
     <div #timeScroll class="good-calendar-time-scroll" role="region" [attr.aria-label]="periodLabel() + ' time grid'" tabindex="0">
       <div class="good-calendar-time-grid" [style.--good-calendar-columns]="timeDays().length" [style.min-width.px]="gridMinWidth()"
         [style.--good-calendar-hour-height.px]="effectiveHourHeight()">
@@ -169,6 +193,7 @@
     </div>
   }
 </section>
+</div>
 
 @if (dragPreview(); as preview) {
   <div class="good-calendar-drag-preview" [attr.data-marker]="preview.marker" [style.left.px]="preview.x" [style.top.px]="preview.y" aria-hidden="true">{{ preview.title }}</div>
