@@ -21,6 +21,7 @@ const listboxContract = JSON.parse(readFileSync(resolve(root, 'design/listbox-co
 const tabsContract = JSON.parse(readFileSync(resolve(root, 'design/tabs-contract.json'), 'utf8'));
 const statusIconVariants = JSON.parse(readFileSync(resolve(root, 'design/status-icon-variants.json'), 'utf8'));
 const expandableContract = JSON.parse(readFileSync(resolve(root, 'design/expandable-contract.json'), 'utf8'));
+const monthCalendarContract = JSON.parse(readFileSync(resolve(root, 'design/month-calendar-contract.json'), 'utf8'));
 const phoneVariants = JSON.parse(readFileSync(resolve(root, 'design/input-phone-variants.json'), 'utf8'));
 const alertContract = JSON.parse(readFileSync(resolve(root, 'design/alert-contract.json'), 'utf8'));
 const notificationHostContract = JSON.parse(readFileSync(resolve(root, 'design/notification-host-contract.json'), 'utf8'));
@@ -187,6 +188,17 @@ for (const icon of expandableContract.axes.icon) for (const state of expandableC
   if (!expandableKeys.has(`${icon}/${state}`)) throw new Error(`Missing Expandable variant: ${icon}/${state}`);
 }
 const direct = new Set(map.directFamilies);
+if (monthCalendarContract.family !== 'goodui.month-calendar' || monthCalendarContract.selector !== 'good-month-calendar' ||
+    monthCalendarContract.page !== '32 Month Calendars' || monthCalendarContract.penpotStatus !== 'published' ||
+    !/^[0-9a-f-]{36}$/.test(monthCalendarContract.pageId) ||
+    !/^[0-9a-f-]{36}$/.test(monthCalendarContract.variantContainerId) ||
+    monthCalendarContract.axes.selection.join('/') !== 'day/week' || monthCalendarContract.variants.length !== 2 ||
+    monthCalendarContract.variants.some(entry => !monthCalendarContract.axes.selection.includes(entry.selection) ||
+      !/^[0-9a-f-]{36}$/.test(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.mainShapeId) ||
+      map.componentMappings.find(mapping => mapping.penpotName === `goodui.month-calendar.${entry.selection}`)?.penpotId !== entry.id) ||
+    new Set(monthCalendarContract.variants.map(entry => entry.id)).size !== 2) {
+  throw new Error('Invalid Month Calendar design contract or Penpot mapping.');
+}
 const internal = Object.keys(map.internalParts);
 const pending = new Set(map.pendingPenpotFamilies ?? []);
 const pendingContracts = map.pendingContracts ?? {};

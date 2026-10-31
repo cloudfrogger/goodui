@@ -93,6 +93,7 @@ export class App {
         { id: 'code-blocks', label: 'Code blocks', route: '/components/code-blocks' },
         { id: 'pdf-preview', label: 'PDF preview', route: '/components/pdf-preview' },
         { id: 'calendar', label: 'Calendar', route: '/components/calendar' },
+        { id: 'month-calendar', label: 'Month calendar', route: '/components/month-calendar' },
       ] },
       { id: 'feedback-category', label: 'Feedback', icon: 'bell', children: [
         { id: 'alerts', label: 'Alerts', route: '/components/alerts' },
@@ -199,6 +200,7 @@ export class App {
     { id: 'phone-inputs', label: 'Phone inputs', description: 'Country codes, flags, and international numbers', route: '/components/phone-inputs' },
     { id: 'date-inputs', label: 'Date inputs', description: 'Dates, ranges, months, years, and time', route: '/components/date-inputs' },
     { id: 'calendar', label: 'Calendar', description: 'Month, week, day, and list scheduling', route: '/components/calendar' },
+    { id: 'month-calendar', label: 'Month calendar', description: 'Compact day or week picking across one or more months', route: '/components/month-calendar' },
     { id: 'image-inputs', label: 'Image inputs', description: 'Upload, preview, and remove images', route: '/components/image-inputs' },
     { id: 'dropdowns', label: 'Dropdowns', description: 'Button-based menus and placement', route: '/components/dropdowns' },
     { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },

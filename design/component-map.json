@@ -44,6 +44,7 @@
     "tabs",
     "main-menu",
     "main-view",
+    "month-calendar",
     "modal",
     "modal-footer",
     "modal-header",
@@ -849,6 +850,20 @@
       "angularSelector": "good-main-view",
       "kind": "component",
       "state": "mobile"
+    },
+    {
+      "penpotName": "goodui.month-calendar.day",
+      "penpotId": "0f7b0071-4660-806f-8008-e00909d6eb75",
+      "angularSelector": "good-month-calendar",
+      "kind": "component",
+      "state": "day"
+    },
+    {
+      "penpotName": "goodui.month-calendar.week",
+      "penpotId": "0f7b0071-4660-806f-8008-e0090e22243d",
+      "angularSelector": "good-month-calendar",
+      "kind": "component",
+      "state": "week"
     },
     {
       "penpotName": "goodui.modal",
@@ -1715,6 +1730,7 @@
     "design/number-input-variants.json",
     "design/link-variants.json",
     "design/listbox-contract.json",
+    "design/month-calendar-contract.json",
     "design/modal-variants.json",
     "design/progress-variants.json",
     "design/notification-host-contract.json",

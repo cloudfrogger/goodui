@@ -555,6 +555,17 @@
       "penpotCount": 1
     },
     {
+      "selector": "good-month-calendar",
+      "className": "GoodMonthCalendarComponent",
+      "file": "components/good-month-calendar.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodMonthCalendarComponent"
+      },
+      "usageGuide": "guides/components/month-calendar.md",
+      "penpotCount": 2
+    },
+    {
       "selector": "good-notification-host",
       "className": "GoodNotificationHostComponent",
       "file": "components/good-notification-host.json",

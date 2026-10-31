@@ -78,6 +78,7 @@ Week and day views show 00:00–24:00 in a vertically scrollable grid. They init
 ## Working hours
 
 The calendar softly shades non-working time in week and day views. By default, working time is Monday–Friday from 08:00–12:00 and 13:00–17:00. The 12:00–13:00 band is labeled **Lunch break**; nights and weekends are also gray. A month cell and all-day cell are shaded when the entire day has no working period. Shading is visual guidance only: creating, moving, and resizing appointments remains possible there.
+The hourly grid lines remain visible over shaded periods, including fully shaded day columns, so time boundaries stay readable.
 
 Pass `[workingHours]` to define your own weekly schedule. Each period has `daysOfWeek` (JavaScript weekdays: Sunday `0` through Saturday `6`), local `start`, and exclusive `end` in `HH:mm` format. Multiple periods can describe lunch breaks or different shifts; overlapping periods are merged. Use `24:00` for an end at midnight, or an empty array to shade every hour. Overnight shifts are expressed as two periods on consecutive days. `[nonWorkingLabels]` optionally names exact gaps; the default label applies only when a 12:00–13:00 gap exists. Pass `[]` to remove captions.
 

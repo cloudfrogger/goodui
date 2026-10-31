@@ -1,0 +1,170 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-month-calendar",
+  "className": "GoodMonthCalendarComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodMonthCalendarComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+  "inputs": [
+    {
+      "name": "month",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "monthIso(new Date())"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "model"
+    },
+    {
+      "name": "selected",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "model"
+    },
+    {
+      "name": "selectionMode",
+      "type": "GoodMonthCalendarSelectionMode",
+      "required": false,
+      "default": "day",
+      "allowedValues": [
+        "week",
+        "day"
+      ],
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "months",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "orientation",
+      "type": "GoodMonthCalendarOrientation",
+      "required": false,
+      "default": "horizontal",
+      "allowedValues": [
+        "vertical",
+        "horizontal"
+      ],
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "highlights",
+      "type": "readonly GoodMonthCalendarHighlight[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "monthChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "implicit": true
+    },
+    {
+      "name": "selectedChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts",
+      "implicit": true
+    },
+    {
+      "name": "selectionChange",
+      "type": "GoodMonthCalendarSelection",
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts"
+    },
+    {
+      "name": "monthChanged",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/month-calendar.ts"
+    }
+  ],
+  "variants": {
+    "selectionMode": [
+      "week",
+      "day"
+    ],
+    "orientation": [
+      "vertical",
+      "horizontal"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/month-calendar.md",
+  "usage": {
+    "summary": "`good-month-calendar` is a compact month picker. Use it to choose one day or one whole week. For appointments, time grids, and event editing, use [`good-calendar`](calendar.md).",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.month-calendar.day",
+      "penpotId": "0f7b0071-4660-806f-8008-e00909d6eb75",
+      "kind": "component",
+      "state": "day",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.month-calendar.week",
+      "penpotId": "0f7b0071-4660-806f-8008-e0090e22243d",
+      "kind": "component",
+      "state": "week",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,47 @@
+.good-month-calendar { --good-month-calendar-block-width: calc(var(--good-space-6) * 10 + var(--good-space-5) * 2); --good-month-calendar-block-gap: var(--good-space-3); display: block; width: min(100%, calc(var(--good-month-calendar-block-width) * var(--good-month-calendar-count) + var(--good-month-calendar-block-gap) * (var(--good-month-calendar-count) - 1))); min-width: 0; color: var(--good-date-panel-foreground); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-month-calendar[data-orientation="vertical"] { width: min(100%, var(--good-month-calendar-block-width)); }
+.good-month-calendar-frame { min-width: 0; }
+.good-month-calendar-toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--good-space-2); min-height: 44px; margin-bottom: var(--good-space-2); }
+.good-month-calendar-nav, .good-month-calendar-year { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; padding: var(--good-space-1); border: 0; border-radius: var(--good-radius-item); background: transparent; color: var(--good-color-text); font: inherit; cursor: pointer; }
+.good-month-calendar-nav:hover:not(:disabled), .good-month-calendar-year:hover:not(:disabled) { background: var(--good-date-day-hover); }
+.good-month-calendar-nav:focus-visible, .good-month-calendar-year:focus-visible, .good-month-calendar-day:focus-visible, .good-month-calendar-year-dialog button:focus-visible, .good-month-calendar-year-dialog input:focus-visible { outline: 2px solid var(--good-color-brand); outline-offset: 2px; }
+.good-month-calendar-nav:disabled, .good-month-calendar-year:disabled { opacity: .45; cursor: not-allowed; }
+.good-month-calendar-nav svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.good-month-calendar-year { min-width: 80px; font-size: 15px; font-weight: 700; }
+.good-month-calendar-blocks { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--good-month-calendar-block-gap); }
+.good-month-calendar[data-orientation="vertical"] .good-month-calendar-blocks { flex-direction: column; }
+.good-month-calendar-block { box-sizing: border-box; flex: 0 0 var(--good-month-calendar-block-width); min-width: min(100%, var(--good-month-calendar-block-width)); padding: var(--good-space-3); border: 1px solid var(--good-date-panel-border); border-radius: var(--good-date-panel-radius); background: var(--good-date-panel-background); }
+.good-month-calendar[data-orientation="vertical"] .good-month-calendar-block { width: 100%; }
+.good-month-calendar-month { margin: 0 0 var(--good-space-2); color: var(--good-color-text); font-size: 14px; font-weight: 600; line-height: 1.4; text-align: center; }
+.good-month-calendar-weekdays, .good-month-calendar-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.good-month-calendar-weekdays { margin-bottom: var(--good-space-1); color: var(--good-date-day-muted); font-size: 11px; font-weight: 600; text-align: center; }
+.good-month-calendar-weekdays span { padding-block: var(--good-space-1); }
+.good-month-calendar-day { position: relative; box-sizing: border-box; display: flex; align-items: center; justify-content: center; width: 100%; min-width: 0; aspect-ratio: 1; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--good-color-text); font: inherit; font-size: var(--good-date-day-font-size); cursor: pointer; }
+.good-month-calendar-day[data-outside="true"] { color: var(--good-date-day-muted); }
+.good-month-calendar-day[data-today="true"] { box-shadow: inset 0 0 0 1px var(--good-color-brand); }
+.good-month-calendar-day:hover:not(:disabled) { background: var(--good-date-day-hover); }
+.good-month-calendar-day[data-highlight="true"] { background: color-mix(in srgb, var(--good-month-calendar-marker) 14%, transparent); }
+.good-month-calendar-day[data-selected="true"] { background: var(--good-date-day-selected-background); color: var(--good-date-day-selected-foreground); box-shadow: none; }
+.good-month-calendar[data-selection-mode="week"] .good-month-calendar-day[data-selected="true"] { border-radius: 0; background: var(--good-date-day-range-background); color: var(--good-color-text); }
+.good-month-calendar[data-selection-mode="week"] .good-month-calendar-day:nth-child(7n + 1)[data-selected="true"] { border-radius: var(--good-radius-item) 0 0 var(--good-radius-item); }
+.good-month-calendar[data-selection-mode="week"] .good-month-calendar-day:nth-child(7n)[data-selected="true"] { border-radius: 0 var(--good-radius-item) var(--good-radius-item) 0; }
+.good-month-calendar-day:disabled { cursor: not-allowed; }
+.good-month-calendar[data-disabled="true"] { opacity: .6; }
+.good-month-calendar-number { line-height: 1; }
+.good-month-calendar-dot { position: absolute; bottom: 2px; left: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--good-month-calendar-marker); transform: translateX(-50%); }
+.good-month-calendar-day[data-selected="true"] .good-month-calendar-dot { background: currentColor; }
+.good-month-calendar-year-dialog { box-sizing: border-box; width: min(360px, calc(100vw - 32px)); max-height: min(80dvh, 520px); padding: 0; overflow: auto; border: 1px solid var(--good-color-border); border-radius: var(--good-radius-card); background: var(--good-color-surface); color: var(--good-color-text); box-shadow: 0 16px 48px color-mix(in srgb, black 22%, transparent); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-month-calendar-year-dialog::backdrop { background: color-mix(in srgb, black 48%, transparent); }
+.good-month-calendar-year-content { display: flex; flex-direction: column; gap: var(--good-space-4); padding: var(--good-space-5); }
+.good-month-calendar-year-content h2 { margin: 0; font-size: 18px; font-weight: 700; }
+.good-month-calendar-year-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--good-space-2); }
+.good-month-calendar-year-options button, .good-month-calendar-year-entry button, .good-month-calendar-year-cancel { min-height: 40px; padding: var(--good-space-2); border: 1px solid var(--good-color-border); border-radius: var(--good-radius-item); background: var(--good-color-surface); color: var(--good-color-text); font: inherit; cursor: pointer; }
+.good-month-calendar-year-options button:hover, .good-month-calendar-year-entry button:hover, .good-month-calendar-year-cancel:hover { background: var(--good-color-selected); }
+.good-month-calendar-year-options button[aria-current="date"] { border-color: var(--good-color-brand); color: var(--good-color-brand); font-weight: 700; }
+.good-month-calendar-year-content form { display: flex; flex-direction: column; gap: var(--good-space-2); }
+.good-month-calendar-year-content label { font-size: 13px; font-weight: 600; }
+.good-month-calendar-year-entry { display: flex; gap: var(--good-space-2); }
+.good-month-calendar-year-entry input { box-sizing: border-box; flex: 1; min-width: 0; min-height: 40px; padding: var(--good-space-2) var(--good-space-3); border: 1px solid var(--good-color-border); border-radius: var(--good-radius-item); background: var(--good-color-surface); color: var(--good-color-text); font: inherit; }
+.good-month-calendar-year-entry button { min-width: 64px; background: var(--good-color-brand); color: var(--good-date-day-selected-foreground); }
+.good-month-calendar-year-cancel { align-self: flex-end; }
+@media (max-width: 640px) { .good-month-calendar { width: 100%; } .good-month-calendar-block { flex-basis: 100%; } .good-month-calendar-day { min-height: 36px; } }

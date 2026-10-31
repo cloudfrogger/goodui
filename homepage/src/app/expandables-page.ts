@@ -1,20 +1,31 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import {
   GoodButtonComponent, GoodCodeBlockComponent, GoodExpandableComponent,
-  GoodExpandableHeaderDirective, GoodMainViewComponent, GoodParagraphComponent,
-  GoodProseComponent, GoodSectionComponent,
+  GoodExpandableHeaderDirective, GoodEyebrowComponent, GoodHeadingComponent,
+  GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent,
+  GoodProseComponent, GoodSectionComponent, GoodSummaryComponent,
 } from '@goodui/angular';
 
 @Component({
   selector: 'showcase-expandables-page',
   standalone: true,
   imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodExpandableComponent,
-    GoodExpandableHeaderDirective, GoodMainViewComponent, GoodParagraphComponent,
-    GoodProseComponent, GoodSectionComponent],
+    GoodExpandableHeaderDirective, GoodEyebrowComponent, GoodHeadingComponent,
+    GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent,
+    GoodProseComponent, GoodSectionComponent, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view eyebrow="COMPONENTS" title="Expandables"
-      description="Full-width disclosures for short answers, details, and rich content.">
+    <good-main-view>
+      <good-section>
+        <good-prose>
+          <good-heading-group>
+            <good-eyebrow>Components</good-eyebrow>
+            <good-heading [level]="1">Expandables</good-heading>
+            <good-summary>Full-width disclosures for short answers, details, and rich content.</good-summary>
+          </good-heading-group>
+        </good-prose>
+      </good-section>
+
       <good-section>
         <good-expandable label="What does GoodUI provide?">
           <good-prose><good-paragraph>Reusable Angular components backed by a matching Penpot design library.</good-paragraph></good-prose>

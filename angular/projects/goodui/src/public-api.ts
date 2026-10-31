@@ -41,6 +41,7 @@ export * from './lib/calendar-service';
 export * from './lib/marker-colors';
 export * from './lib/calendar-working-hours';
 export * from './lib/calendar';
+export * from './lib/month-calendar';
 export * from './lib/progress';
 export * from './lib/pdf-preview';
 export * from './lib/error-page';

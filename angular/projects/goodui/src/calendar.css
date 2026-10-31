@@ -76,10 +76,11 @@
 .good-calendar-hour-rail { position: relative; left: 0; grid-column: 1; grid-row: 3; border-right: 1px solid var(--good-calendar-border); background: var(--good-calendar-surface); }
 .good-calendar-hour-rail span { position: absolute; right: var(--good-space-2); transform: translateY(-50%); color: var(--good-calendar-muted); font-size: 10px; white-space: nowrap; }
 .good-calendar-hour-rail span:first-child { transform: none; }
-.good-calendar-time-day { position: relative; grid-row: 3; min-width: 0; border-left: 1px solid var(--good-calendar-border); background: repeating-linear-gradient(to bottom, var(--good-calendar-border) 0 1px, transparent 1px var(--good-calendar-hour-height)), var(--good-calendar-surface); }
+.good-calendar-time-day { position: relative; grid-row: 3; min-width: 0; border-left: 1px solid var(--good-calendar-border); background: var(--good-calendar-surface); }
+.good-calendar-time-day::before { position: absolute; z-index: 1; inset: 0; background: repeating-linear-gradient(to bottom, var(--good-calendar-border) 0 1px, transparent 1px var(--good-calendar-hour-height)); content: ''; pointer-events: none; }
 .good-calendar-nonworking-band { position: absolute; z-index: 0; right: 0; left: 0; background: var(--good-calendar-nonworking-background); pointer-events: none; }
 .good-calendar-nonworking-band span { display: block; padding: var(--good-space-1) var(--good-space-2); color: var(--good-calendar-muted); font-size: 10px; font-weight: 600; line-height: 1.2; text-align: center; }
-.good-calendar-timed-placement { position: absolute; z-index: 1; box-sizing: border-box; min-width: 0; }
+.good-calendar-timed-placement { position: absolute; z-index: 2; box-sizing: border-box; min-width: 0; }
 .good-calendar-timed-event { box-sizing: border-box; flex-direction: column; gap: 2px; width: 100%; height: 100%; padding: 5px 6px; overflow: hidden; border-right: 2px solid var(--good-calendar-surface); font-size: 11px; }
 .good-calendar-timed-placement[data-resizable="true"] .good-calendar-timed-event { padding-bottom: var(--good-calendar-resize-handle-size); }
 .good-calendar-resize-handle { position: absolute; z-index: 2; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: inherit; touch-action: none; user-select: none; }

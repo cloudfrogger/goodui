@@ -1,0 +1,18 @@
+{
+  "family": "goodui.month-calendar",
+  "selector": "good-month-calendar",
+  "page": "32 Month Calendars",
+  "pageId": "0f7b0071-4660-806f-8008-e00778dba58e",
+  "penpotStatus": "published",
+  "variantContainerId": "0f7b0071-4660-806f-8008-e00913a6277d",
+  "axes": {
+    "selection": ["day", "week"]
+  },
+  "variants": [
+    { "selection": "day", "id": "0f7b0071-4660-806f-8008-e00909d6eb75", "mainShapeId": "0f7b0071-4660-806f-8008-e0079670b642" },
+    { "selection": "week", "id": "0f7b0071-4660-806f-8008-e0090e22243d", "mainShapeId": "0f7b0071-4660-806f-8008-e00852fe7036" }
+  ],
+  "runtimeInputs": ["month", "selected", "months", "orientation", "weekStartsOn", "locale", "highlights", "disabled"],
+  "runtimeStates": ["today", "highlighted day", "year picker", "multiple months"],
+  "note": "Month count, arrangement, date labels, highlights, and the year dialog are data-driven runtime states, not variant axes."
+}
