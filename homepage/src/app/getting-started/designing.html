@@ -2,30 +2,79 @@
   <good-section>
     <good-prose>
       <good-breadcrumbs [items]="breadcrumbs" />
-
       <good-heading-group>
         <good-eyebrow>Getting started</good-eyebrow>
-        <good-heading [level]="1">Designing</good-heading>
-        <good-summary>GoodUI components are designed with Penpot by using an AI and MCP workflow and then
-          used to literally generate the Angular implementation from that thus reducing ideation to delivery time.</good-summary>
+        <good-heading [level]="1">Designing with GoodUI and an AI agent</good-heading>
+        <good-summary>Prompt your own screen in Penpot with the GoodUI design library. Then prompt Codex or Claude to implement that design with the GoodUI Angular library.</good-summary>
       </good-heading-group>
+      <good-paragraph>This workflow has two creative steps: first describe the screen you want and review your linked Penpot design; then ask the agent to turn that exact design into a working Angular page. The GoodUI skill and catalog connect the design components to real Angular APIs.</good-paragraph>
+    </good-prose>
+    <good-inline-image src="/foundation/designing-workflow.svg" style="--good-typography-image-max-width: 100%"
+      alt="Two-step workflow: prompt a Penpot screen with linked GoodUI design components, then prompt its Angular implementation with the GoodUI Angular library"
+      caption="Prompt the Penpot design first. Use that design and the GoodUI Angular library for the implementation prompt." [previewable]="true" loading="eager" />
+  </good-section>
 
-      <good-inline-image src="/framework_concept.png" alt="GoodUI framework concept"
-        caption="Reliable generation of an Angular application with GoodUI"></good-inline-image>
-      <good-paragraph>Start with the reusable GoodUI components in Penpot. Compose screens from the application shell,
-        navigation, cards,
-        menus, and controls; choose the published variants and use shared design tokens for light and dark
-        themes.</good-paragraph>
-      <good-paragraph>When working with AI, ask it to use GoodUI component names and variants in the design. The
-        component map connects
-        each published Penpot family to its Angular selector, inputs, and states. That gives designers and developers
-        the
-        same vocabulary and makes a design straightforward to implement as a useful frontend.</good-paragraph>
-      <good-paragraph>Keep the Penpot component instances linked, then check responsive behavior, interaction states,
-        and accessibility
-        in the Angular implementation. <good-link
-          href="https://github.com/cloudfrogger/goodui/blob/master/guides/contributing/design-to-code.md"
-          target="_blank">Read the design-to-code guide</good-link>.</good-paragraph>
+  <good-section>
+    <good-subheading>1. Prepare an Angular app and matching references</good-subheading>
+    <good-prose>
+      <good-paragraph>Follow <good-link route="/getting-started/developing">Developing</good-link> to install the locally built <code>@goodui/angular</code> package and import <code>@goodui/angular/styles.css</code>. Then use the AI package from the <strong>same GoodUI version and source revision</strong>. The full package gives the agent local component details and examples, so it can read only what this page needs.</good-paragraph>
+      <good-paragraph>When a matching <good-link href="https://github.com/cloudfrogger/goodui/releases" target="_blank">GoodUI release</good-link> provides <code>goodui-ai-&lt;version&gt;.zip</code>, download that archive and extract it into <code>.goodui/</code> in your app. If you installed GoodUI from a source checkout as shown in Developing, create the same archive from that checkout. This example assumes sibling folders named <code>goodui/</code> and <code>hello-goodui/</code>:</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="prepareReferencesCode" language="bash" title="Prepare local GoodUI references" />
+    <good-prose>
+      <good-paragraph>Check that the version printed by the command matches the archive name. If it does not, get the matching package instead of using newer <code>master</code> documentation for an older installation. The small release ZIP contains only the skill; the full ZIP is the useful choice when you want quick, low-context prompting with local references.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>2. Make the skill available to your agent</good-subheading>
+    <good-prose>
+      <good-paragraph>Run the command for the agent you use from your Angular app's root. Keeping the skill in the project makes the setup visible beside the app and easy to update with GoodUI. Start a new agent session after copying it, and mention <code>.goodui/ai</code> in your first prompt so it finds the local catalog.</good-paragraph>
+      <good-paragraph><strong>Codex:</strong> place the skill at <code>.agents/skills/goodui/SKILL.md</code>.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="codexSkillCode" language="bash" title="Install for Codex" />
+    <good-prose>
+      <good-paragraph><strong>Claude Code:</strong> place the same skill at <code>.claude/skills/goodui/SKILL.md</code>. Copy both if your team uses both agents.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="claudeSkillCode" language="bash" title="Install for Claude Code" />
+    <good-prose>
+      <good-paragraph>The skill is the entry point, not a copy of every component manual. It first checks the installed GoodUI version and then loads only the relevant catalog files, guides, and examples. See the <good-link href="https://github.com/cloudfrogger/goodui/blob/master/ai/README.md" target="_blank">AI package instructions</good-link> when updating the package.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>3. Make the GoodUI Penpot library available</good-subheading>
+    <good-prose>
+      <good-paragraph>Get access to the live GoodUI Penpot file in your workspace. Publish or enable it as a library in your target design file, then choose its components from the asset library. Start with the application shell, then add linked cards, tables, fields, and actions. Select published variants and shared tokens for light and dark appearances; keep instances linked so later library updates remain traceable.</good-paragraph>
+      <good-paragraph>Connect your agent's Penpot MCP integration and give it access to the target file and GoodUI library. <strong>The skill does not connect Penpot by itself.</strong> Ask the agent to inspect the live components before editing and to report the component names it used. The AI ZIP contains mapping references, not a native <code>.penpot</code> library archive. If access is missing, establish the connection before asking for the design.</good-paragraph>
+      <good-paragraph>The <good-link href="https://github.com/cloudfrogger/goodui/blob/master/guides/contributing/design-to-code.md" target="_blank">design-to-code guide</good-link> records the published Penpot families and their Angular owners.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>4. Prompt your own Penpot screen</good-subheading>
+    <good-prose>
+      <good-paragraph>Give the agent a user task, the information to show, and the interaction you expect. Ask it to compose your screen with linked GoodUI Penpot components and to show desktop and mobile states. Review this design before requesting code.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="designPrompt" title="Prompt 1 · Design the screen" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>5. Prompt the Angular implementation of that design</good-subheading>
+    <good-prose>
+      <good-paragraph>Give the agent the Penpot screen from step 4 and ask it to implement that screen in your Angular app, primarily with the GoodUI Angular library. The catalog supplies exact imports, selectors, inputs, outputs, and form behavior. GoodUI layout components provide the application frame and spacing.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="implementationPrompt" title="Prompt 2 · Build the Angular page" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>6. Review the rendered result and refine it</good-subheading>
+    <good-prose>
+      <good-paragraph>Open the page and check the actual content, not just a successful build. Look at mobile and desktop widths, light and dark themes, keyboard focus, and the main interaction. Give the agent one concrete correction at a time. Reusing a small set of GoodUI components and local references keeps each iteration focused and avoids repeatedly sending the entire design system to the agent.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="refinePrompt" title="Prompt 3 · Improve the rendered page" />
+    <good-prose>
+      <good-paragraph>Repeat this screen-by-screen. The <good-link route="/examples/user-registration">registration example</good-link> shows how a complete form uses the same GoodUI controls, layout, validation, and displayed source code.</good-paragraph>
     </good-prose>
   </good-section>
 </good-main-view>
