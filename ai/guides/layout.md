@@ -2,6 +2,8 @@
 
 Use `good-app-layout` for a full application shell. Its composition is AppLayout → SidebarContainer / Topbar / MainView. `good-main-view` owns the page title, description, eyebrow, actions, and content flow. Use `good-heading-group` only when building an independent heading composition; do not nest it around a `good-main-view` title.
 
+Choose one page pattern. For a centered content page, put `good-section` elements directly inside `good-main-view`; MainView aligns its heading and entire content area to the same 1024 px width. For a free full-width page, use no `good-section`; heading and content then begin at the same left edge. Do not mix direct Sections and free page content. A standard page title belongs in MainView's `title` input in either pattern.
+
 For forms, use native `<form goodForm>` with Angular forms, `good-group` for sections, `good-form-row` for two or three responsive fields, and `good-action-group` for buttons. For bounded content, use `good-card` with `good-card-header` and `good-card-footer`; project content into the documented slots. Avoid app-specific CSS or Tailwind layout rules in examples. If a layout need cannot be expressed with GoodUI components, verify the library capability before adding a local workaround.
 
 For parallel text content, use `<good-columns [columns]="3">` with one `<good-column>` per piece. Two columns are the default; three and four are optional. Each Column supplies Prose spacing to projected headings and paragraphs. Columns stack as their container narrows. All are visible by default; use a Column's `[visibleAt]="['sm', 'md', 'lg', 'xl']"` only when that content may be omitted at xs. The bands are container widths, documented in `guides/components/typography.md`.

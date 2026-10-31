@@ -54,6 +54,7 @@
     <good-subheading>3. Connect a route and render a page</good-subheading>
     <good-prose>
       <good-paragraph>Register the route used by the navigation item. Its component renders <code>good-main-view</code> inside the outlet. The title becomes the page heading; the section and prose components provide the content width and reading rhythm.</good-paragraph>
+      <good-paragraph>Choose one layout for each page. Put all top-level content in direct <code>good-section</code> children for a centered page: MainView aligns its title, description, and content to the same width. For a free full-width page, omit Sections and put content directly in MainView. Its heading and content then share the left edge. Avoid mixing the two layouts on one page.</good-paragraph>
     </good-prose>
     <good-code-block [code]="routesCode" language="typescript" title="src/app/app.routes.ts" />
     <good-code-block [code]="pageComponentCode" language="typescript" title="src/app/overview-page.ts" />

@@ -33,10 +33,14 @@ AppLayout
   [user]="currentUser"
   [notifications]="notifications">
   <good-main-view title="Dashboard" description="Overview">
-    <!-- Put your page content here. -->
+    <good-section>
+      <!-- Put the page's centered content here. -->
+    </good-section>
   </good-main-view>
 </good-app-layout>
 ```
+
+Choose one MainView layout per page. Direct `good-section` children give the heading and all content the same centered 1024 px maximum width; put every top-level content block in a Section. For a full-width page, omit Sections and place content directly in MainView; its heading and content then share the left edge. Keep the two patterns separate.
 
 The simple input API creates the component hierarchy internally. You can compose the exported containers directly for special cases. Navigation requires `provideRouter(...)`; the active path comes from Angular Router.
 The homepage's **Foundation → Layout** chapter shows a complete root component, shell template, route, page, and provider setup.

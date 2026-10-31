@@ -1,5 +1,23 @@
 # Page patterns
 
+Pick the page width before composing controls:
+
+```html
+<!-- Centered content: heading and sections share one width. -->
+<good-main-view title="Settings" description="Manage your preferences">
+  <good-section>
+    <good-group title="Notifications">...</good-group>
+  </good-section>
+</good-main-view>
+
+<!-- Free content: heading and content both start at the page edge. -->
+<good-main-view title="Schedule" description="Upcoming work">
+  <good-calendar />
+</good-main-view>
+```
+
+Keep one pattern per page. In the centered pattern, put each top-level content block inside a direct `good-section`; do not insert a free sibling between sections. MainView centers both its heading and content area automatically. The free pattern uses the full page width.
+
 | Need | GoodUI composition | Example |
 | --- | --- | --- |
 | Sign in | MainView → Card → native form + Input + Button | `ai/examples/login.ts` and `.html` |

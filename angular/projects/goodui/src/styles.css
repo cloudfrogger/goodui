@@ -941,6 +941,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-subnav-dropdown-link:hover { background: var(--good-selected); }
 .good-subnav-dropdown-link.good-is-active { color: var(--good-accent); background: var(--good-selected); }
 .good-main-view-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--good-typography-heading-actions-gap); margin-bottom: var(--good-typography-heading-content-gap); }
+.good-main-view:has(> .good-main-view-content > .good-section) > :is(.good-main-view-heading, .good-main-view-content) { width: 100%; max-width: var(--good-typography-section-max-width); margin-inline: auto; }
 .good-main-view-content { min-width: 0; flex: 1; }
 
 .good-sidebar-drawer { position: fixed; inset: 0 auto 0 0; width: min(280px, 90vw); height: 100dvh; max-height: 100dvh; margin: 0; padding: 0; border: 0; background: var(--good-surface); color: var(--good-text); }
