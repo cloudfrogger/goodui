@@ -1,0 +1,190 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-image-input",
+  "className": "GoodImageInputComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodImageInputComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/image-input.ts",
+  "inputs": [
+    {
+      "name": "shape",
+      "type": "GoodImageInputShape",
+      "required": false,
+      "default": "square",
+      "allowedValues": [
+        "square",
+        "circle"
+      ],
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "src",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Image",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showUploadButton",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showRemoveButton",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "previewable",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-input.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "selected",
+      "type": "File",
+      "source": "angular/projects/goodui/src/lib/image-input.ts"
+    },
+    {
+      "name": "removed",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/image-input.ts"
+    }
+  ],
+  "variants": {
+    "shape": [
+      "square",
+      "circle"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-button",
+      "good-image-preview"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/image-input.md",
+  "usage": {
+    "summary": "`good-image-input` accepts one image. Its square shape uses the shared card radius; `shape=\"circle\"` uses the shared round radius. An empty tile opens the native file picker. A selected image fills the tile with `object-fit: cover`. Without preview mode, activating the filled tile also opens the file picker. The optional upload button replaces the image, while the optional X removes it and emits `(removed)` so the application can persist the deletion.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.image-input",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d690fa2f27b1",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

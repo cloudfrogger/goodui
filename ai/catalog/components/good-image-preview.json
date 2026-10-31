@@ -1,0 +1,97 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-image-preview",
+  "className": "GoodImagePreviewComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodImagePreviewComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/image-preview.ts",
+  "inputs": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-preview.ts",
+      "kind": "model"
+    },
+    {
+      "name": "src",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "Image preview",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/image-preview.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "openChange",
+      "type": "boolean",
+      "source": "angular/projects/goodui/src/lib/image-preview.ts",
+      "implicit": true
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-modal",
+      "good-modal-header"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.image-preview",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d69165c1578d",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

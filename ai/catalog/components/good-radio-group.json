@@ -1,0 +1,181 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-radio-group",
+  "className": "GoodRadioGroupComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodRadioGroupComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/radio-group.ts",
+  "inputs": [
+    {
+      "name": "options",
+      "type": "readonly GoodRadioOption[]",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "model"
+    },
+    {
+      "name": "size",
+      "type": "GoodRadioSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodRadioAppearance",
+      "required": false,
+      "default": "brand",
+      "allowedValues": [
+        "brand",
+        "mono"
+      ],
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "orientation",
+      "type": "\"vertical\" | \"horizontal\"",
+      "required": false,
+      "default": "vertical",
+      "allowedValues": [
+        "vertical",
+        "horizontal"
+      ],
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "labelledBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/radio-group.ts",
+      "implicit": true
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "appearance": [
+      "brand",
+      "mono"
+    ],
+    "orientation": [
+      "vertical",
+      "horizontal"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/radio-group.md",
+  "usage": {
+    "summary": "`good-radio-group` presents one choice from a set of options. It owns the group label, spacing, selection indicator, and disabled presentation. It uses a native `fieldset`, `legend`, and radio inputs, so keyboard users can Tab into the group and use arrow keys to change the selection.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.radio-group",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d52762ebe541",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

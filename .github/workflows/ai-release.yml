@@ -1,0 +1,31 @@
+name: GoodUI AI release assets
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: angular/package-lock.json
+      - run: npm --prefix angular ci --legacy-peer-deps
+      - run: npm run build:lib
+      - run: node ai/scripts/generate-catalog.mjs --check
+      - run: node ai/scripts/check-catalog.mjs
+      - run: node ai/scripts/build-examples.mjs
+      - run: node ai/scripts/package.mjs
+      - name: Attach both archives to the version release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" ai/artifacts/*.zip --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" ai/artifacts/*.zip --title "$GITHUB_REF_NAME" --notes "GoodUI AI support files for $GITHUB_REF_NAME" --verify-tag
+          fi

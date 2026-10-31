@@ -1,0 +1,10 @@
+<good-main-view title="Settings" description="Choose how you receive updates.">
+  <form goodForm [formGroup]="form" (ngSubmit)="save()">
+    <good-group title="Notifications">
+      <good-switch label="Email updates" [showLabel]="true" formControlName="emailUpdates" />
+      <good-switch label="Activity alerts" [showLabel]="true" formControlName="activityAlerts" />
+    </good-group>
+    <good-action-group><good-button type="submit">Save settings</good-button></good-action-group>
+  </form>
+  @if (saved()) { <good-paragraph>Settings saved in this demo.</good-paragraph> }
+</good-main-view>

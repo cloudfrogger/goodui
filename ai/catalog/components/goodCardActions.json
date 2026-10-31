@@ -1,0 +1,33 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "[goodCardActions]",
+  "className": "GoodCardActionsDirective",
+  "kind": "directive",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodCardActionsDirective"
+  },
+  "source": "angular/projects/goodui/src/lib/card.ts",
+  "inputs": [],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": true
+  }
+}

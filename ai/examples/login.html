@@ -1,0 +1,11 @@
+<good-main-view title="Sign in" description="Access your account.">
+  <good-card>
+    <good-card-header title="Welcome back" />
+    <form goodForm [formGroup]="form" (ngSubmit)="submit()">
+      <good-input label="Email address" type="email" autocomplete="email" formControlName="email" [showLabel]="true" [error]="form.controls.email.touched && form.controls.email.invalid" />
+      <good-input label="Password" type="password" autocomplete="current-password" formControlName="password" [showLabel]="true" [error]="form.controls.password.touched && form.controls.password.invalid" />
+      <good-action-group><good-button type="submit">Sign in</good-button></good-action-group>
+    </form>
+    @if (signedIn()) { <good-paragraph>Demo sign-in completed locally.</good-paragraph> }
+  </good-card>
+</good-main-view>

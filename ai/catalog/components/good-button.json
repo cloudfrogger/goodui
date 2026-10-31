@@ -1,0 +1,183 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-button",
+  "className": "GoodButtonComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodButtonComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/button.ts",
+  "inputs": [
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "iconOnly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "variant",
+      "type": "GoodButtonVariant",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "outline",
+        "default",
+        "secondary",
+        "destructive",
+        "ghost"
+      ],
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodButtonSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "type",
+      "type": "\"button\" | \"submit\" | \"reset\"",
+      "required": false,
+      "default": "button",
+      "allowedValues": [
+        "button",
+        "submit",
+        "reset"
+      ],
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaExpanded",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaControls",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
+      "name": "hasPopup",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "variant": [
+      "outline",
+      "default",
+      "secondary",
+      "destructive",
+      "ghost"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "type": [
+      "button",
+      "submit",
+      "reset"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/button.md",
+  "usage": {
+    "summary": "`good-button` owns the action's dimensions, padding, icon alignment, focus ring, disabled state, and native button behavior. It accepts text, a leading Lucide icon, an optional trailing `endIcon`, or an icon alone. An icon-only button is square at every size, whether its empty label is inferred or `iconOnly` is set explicitly.",
+    "examples": [
+      "ai/examples/edit-form.html",
+      "ai/examples/login.html",
+      "ai/examples/settings.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.button",
+      "penpotId": "521fe58c-da62-80e2-8008-d423817384e6",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

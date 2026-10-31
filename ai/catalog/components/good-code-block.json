@@ -1,0 +1,116 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-code-block",
+  "className": "GoodCodeBlockComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodCodeBlockComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/code-block.ts",
+  "inputs": [
+    {
+      "name": "code",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    },
+    {
+      "name": "language",
+      "type": "string",
+      "required": false,
+      "default": "plaintext",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inline",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    },
+    {
+      "name": "lineNumbers",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    },
+    {
+      "name": "copyable",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    },
+    {
+      "name": "collapsible",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    },
+    {
+      "name": "collapsedLines",
+      "type": "number",
+      "required": false,
+      "default": "6",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/code-block.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/code-block.md",
+  "usage": {
+    "summary": "`good-code-block` displays selectable source text with syntax highlighting. It owns the frame, toolbar, copy action, optional line-number gutter, horizontal scrolling, and optional expandable preview. Set `inline` for a short snippet inside a sentence; inline mode removes the frame, toolbar, line numbers, and expand control.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.code-block",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d53b608ac38a",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

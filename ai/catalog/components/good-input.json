@@ -1,0 +1,350 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-input",
+  "className": "GoodInputComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodInputComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/input.ts",
+  "inputs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "type",
+      "type": "GoodInputType",
+      "required": false,
+      "default": "text",
+      "allowedValues": [
+        "number",
+        "search",
+        "text",
+        "email",
+        "password",
+        "tel",
+        "url",
+        "file"
+      ],
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodInputSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "model"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "autocomplete",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaExpanded",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaControls",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "hasPopup",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "accept",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "startIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "startText",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endText",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "startTone",
+      "type": "GoodInputAddonTone",
+      "required": false,
+      "default": "inline",
+      "allowedValues": [
+        "contrast",
+        "inline"
+      ],
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endTone",
+      "type": "GoodInputAddonTone",
+      "required": false,
+      "default": "inline",
+      "allowedValues": [
+        "contrast",
+        "inline"
+      ],
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "implicit": true
+    },
+    {
+      "name": "filesChange",
+      "type": "FileList",
+      "source": "angular/projects/goodui/src/lib/input.ts"
+    }
+  ],
+  "variants": {
+    "type": [
+      "number",
+      "search",
+      "text",
+      "email",
+      "password",
+      "tel",
+      "url",
+      "file"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "startTone": [
+      "contrast",
+      "inline"
+    ],
+    "endTone": [
+      "contrast",
+      "inline"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/input.md",
+  "usage": {
+    "summary": "`good-input` provides a text field or a native file selector in the same visual scale as GoodUI Button. The control owns its border, padding, rounding, focus indicator, optional label, and leading and trailing content. For a complete form, place it inside `good-form-field` in a native `<form goodForm layout=\"vertical|left|right\">`; the form aligns all fields without application CSS. The component fills the width its parent provides.",
+    "examples": [
+      "ai/examples/edit-form.html",
+      "ai/examples/login.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.input",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d47e20b0dda6",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.input-addon",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d47f2ff77da1",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.input"
+    },
+    {
+      "penpotName": "goodui.input.file-with-addon",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d4803cf6fbee",
+      "kind": "component",
+      "state": "file-with-addon",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.input.with-addons",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d4801e49f71b",
+      "kind": "component",
+      "state": "with-addons",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

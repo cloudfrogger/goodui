@@ -1,0 +1,138 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-main-menu",
+  "className": "GoodMainMenuComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodMainMenuComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/actions.ts",
+  "inputs": [
+    {
+      "name": "user",
+      "type": "GoodUser",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "notifications",
+      "type": "readonly GoodNotification[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchItems",
+      "type": "readonly GoodSearchItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "settingsActions",
+      "type": "readonly GoodMenuAction[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "avatarActions",
+      "type": "readonly GoodMenuAction[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showSearch",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showNotifications",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showThemeToggle",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showSettings",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showAvatar",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-search",
+      "good-notifications",
+      "good-theme-toggle",
+      "good-settings",
+      "good-avatar-menu"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/main-menu.md",
+  "usage": {
+    "summary": "`goodui.main-menu` is the topbar's right-hand action group. Its default composition contains [Search](./search.md), [Notifications](./notifications.md), [Theme toggle](./theme-toggle.md), and [Avatar menu](./avatar-menu.md), in that order. [Settings](./settings.md) is an additional optional action. Each action is a separate Penpot library component with a 36 × 36 px hit area. MainMenu owns spacing and alignment; individual actions have no external margins.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.main-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f6619a524",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

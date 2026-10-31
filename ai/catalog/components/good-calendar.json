@@ -1,0 +1,374 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-calendar",
+  "className": "GoodCalendarComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodCalendarComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/calendar.ts",
+  "inputs": [
+    {
+      "name": "view",
+      "type": "GoodCalendarView",
+      "required": false,
+      "default": "week",
+      "allowedValues": [
+        "month",
+        "week",
+        "day",
+        "list"
+      ],
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "model"
+    },
+    {
+      "name": "date",
+      "type": "Date",
+      "required": false,
+      "default": {
+        "expression": "new Date()"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "model"
+    },
+    {
+      "name": "selectedEventId",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "model"
+    },
+    {
+      "name": "events",
+      "type": "readonly GoodCalendarEventInput[]",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "holidays",
+      "type": "readonly GoodCalendarHoliday[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "listDays",
+      "type": "number",
+      "required": false,
+      "default": "14",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "snapMinutes",
+      "type": "number",
+      "required": false,
+      "default": "15",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "hourHeight",
+      "type": "number",
+      "required": false,
+      "default": "64",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "workingHours",
+      "type": "readonly GoodCalendarWorkingPeriod[]",
+      "required": false,
+      "default": {
+        "expression": "GOOD_CALENDAR_DEFAULT_WORKING_HOURS"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "nonWorkingLabels",
+      "type": "readonly GoodCalendarNonWorkingLabel[]",
+      "required": false,
+      "default": {
+        "expression": "GOOD_CALENDAR_DEFAULT_NON_WORKING_LABELS"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "maxMonthEvents",
+      "type": "number",
+      "required": false,
+      "default": "3",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showCurrentTime",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "editable",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Calendar",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "viewChange",
+      "type": "GoodCalendarView",
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "implicit": true
+    },
+    {
+      "name": "dateChange",
+      "type": "Date",
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "implicit": true
+    },
+    {
+      "name": "selectedEventIdChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "implicit": true
+    },
+    {
+      "name": "eventClicked",
+      "type": "GoodCalendarEvent",
+      "source": "angular/projects/goodui/src/lib/calendar.ts"
+    },
+    {
+      "name": "eventSelected",
+      "type": "GoodCalendarEvent",
+      "source": "angular/projects/goodui/src/lib/calendar.ts"
+    },
+    {
+      "name": "eventDoubleClicked",
+      "type": "GoodCalendarEvent",
+      "source": "angular/projects/goodui/src/lib/calendar.ts"
+    },
+    {
+      "name": "emptyDoubleClicked",
+      "type": "GoodCalendarEmptyAction",
+      "source": "angular/projects/goodui/src/lib/calendar.ts"
+    },
+    {
+      "name": "eventMoved",
+      "type": "GoodCalendarMove",
+      "source": "angular/projects/goodui/src/lib/calendar.ts"
+    },
+    {
+      "name": "eventResized",
+      "type": "GoodCalendarResize",
+      "source": "angular/projects/goodui/src/lib/calendar.ts"
+    },
+    {
+      "name": "rangeChanged",
+      "type": "GoodCalendarRange",
+      "source": "angular/projects/goodui/src/lib/calendar.ts"
+    }
+  ],
+  "variants": {
+    "view": [
+      "month",
+      "week",
+      "day",
+      "list"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/calendar.md",
+  "usage": {
+    "summary": "`good-calendar` presents appointments in **month, week, day, and list** views. It owns period navigation, today navigation, view switching, the 24-hour time grid, overlapping appointment lanes, all-day rows, scrolling, responsive layout, and event presentation. The week starts on Monday by default. The four views use the same event data and local browser time zone.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.calendar.day",
+      "penpotId": "f52a309e-8b45-80e4-8008-d878a2dd876c",
+      "kind": "component",
+      "state": "day",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.calendar.list",
+      "penpotId": "f52a309e-8b45-80e4-8008-d878c1de4bca",
+      "kind": "component",
+      "state": "list",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.calendar.month",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87a4a69a83b",
+      "kind": "component",
+      "state": "month",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.calendar.week",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8784cd0967f",
+      "kind": "component",
+      "state": "week",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.calendar-event.all-day",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87684cbe1f0",
+      "kind": "internal-part",
+      "state": "all-day",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar-event.all-day-resizable",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8cdc4447454",
+      "kind": "internal-part",
+      "state": "all-day-resizable",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar-event.timed",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87684025b2b",
+      "kind": "internal-part",
+      "state": "timed",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar-event.timed-resizable",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8cdc19c5a8c",
+      "kind": "internal-part",
+      "state": "timed-resizable",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar.nonworking-band",
+      "penpotId": "67db336f-622c-80dd-8008-d8d4374f980d",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar.nonworking-band.labeled",
+      "penpotId": "67db336f-622c-80dd-8008-d8d94a111acc",
+      "kind": "internal-part",
+      "state": "labeled",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar.now-indicator",
+      "penpotId": "67db336f-622c-80dd-8008-d8dc65d002a3",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar.holiday-label",
+      "penpotId": "67db336f-622c-80dd-8008-d8e0536243ea",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.day",
+      "penpotId": "f52a309e-8b45-80e4-8008-d8773156ed96",
+      "kind": "internal-part",
+      "state": "day",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.list",
+      "penpotId": "f52a309e-8b45-80e4-8008-d877558e4c95",
+      "kind": "internal-part",
+      "state": "list",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.month",
+      "penpotId": "f52a309e-8b45-80e4-8008-d876ecbd6a96",
+      "kind": "internal-part",
+      "state": "month",
+      "owner": "goodui.calendar"
+    },
+    {
+      "penpotName": "goodui.calendar-toolbar.week",
+      "penpotId": "f52a309e-8b45-80e4-8008-d87710964835",
+      "kind": "internal-part",
+      "state": "week",
+      "owner": "goodui.calendar"
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

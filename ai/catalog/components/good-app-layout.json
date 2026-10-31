@@ -1,0 +1,236 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-app-layout",
+  "className": "GoodAppLayoutComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodAppLayoutComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/app-layout.ts",
+  "inputs": [
+    {
+      "name": "brand",
+      "type": "string",
+      "required": false,
+      "default": "GOODUI",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "brandLogoSrc",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "brandLogoDarkSrc",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "brandMarkSrc",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "brandMarkDarkSrc",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showBrandIcon",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "sidebarSections",
+      "type": "readonly GoodSidebarSection[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "topbarItems",
+      "type": "readonly GoodTopbarItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "mobileTopbarMenuMode",
+      "type": "GoodTopbarMobileMenuMode",
+      "required": false,
+      "default": "hidden",
+      "allowedValues": [
+        "hidden",
+        "popup"
+      ],
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "user",
+      "type": "GoodUser",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "notifications",
+      "type": "readonly GoodNotification[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchItems",
+      "type": "readonly GoodSearchItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "settingsActions",
+      "type": "readonly GoodMenuAction[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showThemeToggle",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showSettings",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
+      "name": "avatarActions",
+      "type": "readonly GoodMenuAction[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "mobileTopbarMenuMode": [
+      "hidden",
+      "popup"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [
+      "good-sidebar-container",
+      "good-topbar",
+      "good-topbar-menu-container",
+      "good-notification-host"
+    ],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.app-layout.desktop",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f7af79de1",
+      "kind": "component",
+      "state": "desktop",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.app-layout.help-submenu-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb84e00368",
+      "kind": "component",
+      "state": "help-submenu-open",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.app-layout.mobile",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fc5601fd6",
+      "kind": "component",
+      "state": "mobile",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.app-layout.mobile-drawer-expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d345fc71d6ee",
+      "kind": "component",
+      "state": "mobile-drawer-expanded",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.app-layout.mobile-drawer-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fc5a77074",
+      "kind": "component",
+      "state": "mobile-drawer-open",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.app-layout.sidebar-expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d34591f8da80",
+      "kind": "component",
+      "state": "sidebar-expanded",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

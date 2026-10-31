@@ -1,0 +1,46 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-notification-host",
+  "className": "GoodNotificationHostComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodNotificationHostComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/notification-host.ts",
+  "inputs": [],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-alert",
+      "good-progress",
+      "good-link",
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.notification-host",
+      "penpotId": "5fd6a355-e255-80dc-8008-d816c154e317",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-listbox",
+  "className": "GoodListboxComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodListboxComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/listbox.ts",
+  "inputs": [
+    {
+      "name": "items",
+      "type": "readonly GoodListboxItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "groups",
+      "type": "readonly GoodListboxGroup[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "selectedIds",
+      "type": "readonly string[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "model"
+    },
+    {
+      "name": "selectionMode",
+      "type": "GoodListboxSelectionMode",
+      "required": false,
+      "default": "none",
+      "allowedValues": [
+        "none",
+        "single",
+        "multiple"
+      ],
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodListboxAppearance",
+      "required": false,
+      "default": "highlight",
+      "allowedValues": [
+        "highlight",
+        "checkbox"
+      ],
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Items",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchPlaceholder",
+      "type": "string",
+      "required": false,
+      "default": "Search items",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "LucideSearch"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchIconSrc",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "required": false,
+      "default": "No items found",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    },
+    {
+      "name": "maxHeight",
+      "type": "number",
+      "required": false,
+      "default": "320",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "selectedIdsChange",
+      "type": "readonly string[]",
+      "source": "angular/projects/goodui/src/lib/listbox.ts",
+      "implicit": true
+    },
+    {
+      "name": "itemActivated",
+      "type": "GoodListboxItem",
+      "source": "angular/projects/goodui/src/lib/listbox.ts"
+    },
+    {
+      "name": "itemSelectionChange",
+      "type": "GoodListboxItemSelectionChange",
+      "source": "angular/projects/goodui/src/lib/listbox.ts"
+    },
+    {
+      "name": "selectionChange",
+      "type": "readonly string[]",
+      "source": "angular/projects/goodui/src/lib/listbox.ts"
+    }
+  ],
+  "variants": {
+    "selectionMode": [
+      "none",
+      "single",
+      "multiple"
+    ],
+    "appearance": [
+      "highlight",
+      "checkbox"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": false
+  },
+  "usageGuide": "guides/components/listbox.md",
+  "usage": {
+    "summary": "`good-listbox` is an always visible list of items. By default it is an action list: activating an item emits `itemActivated` without changing selection. Set `selectionMode=\"single\"` or `\"multiple\"` when the list should own selection. Use `good-select` when choices should open from a form field, or `good-dropdown` for commands and navigation. Selection is a set of item IDs; even single selection uses an array with zero or one ID. This keeps the event and Angular Forms value shape consistent when an app switches between single and multiple selection.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.listbox.checkbox-multiple",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfadb6a08d7",
+      "kind": "component",
+      "state": "checkbox-multiple",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.listbox.default",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfd35d08b52",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.listbox.grouped-search",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfadb6e6c5c",
+      "kind": "component",
+      "state": "grouped-search",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.listbox.single-highlight",
+      "penpotId": "9ec30947-b9fa-809b-8008-ddfadb66bdfc",
+      "kind": "component",
+      "state": "single-highlight",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

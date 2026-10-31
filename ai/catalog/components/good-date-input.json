@@ -1,0 +1,386 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-date-input",
+  "className": "GoodDateInputComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodDateInputComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/date-input.ts",
+  "inputs": [
+    {
+      "name": "value",
+      "type": "GoodDateValue",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "model"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Date",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodInputSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "mode",
+      "type": "GoodDateMode",
+      "required": false,
+      "default": "date",
+      "allowedValues": [
+        "multiple",
+        "date",
+        "range",
+        "month",
+        "year"
+      ],
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "firstDayOfWeek",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabledWeekdays",
+      "type": "readonly number[]",
+      "required": false,
+      "default": {
+        "expression": "[0, 6]"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disablePast",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "min",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "max",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showTime",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "presets",
+      "type": "readonly GoodDatePreset[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "placement",
+      "type": "GoodDatePlacement",
+      "required": false,
+      "default": "bottom-start",
+      "allowedValues": [
+        "bottom-start",
+        "bottom-center",
+        "bottom-end",
+        "top-start",
+        "top-center",
+        "top-end"
+      ],
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "startIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "startText",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endText",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "startTone",
+      "type": "GoodInputAddonTone",
+      "required": false,
+      "default": "inline",
+      "allowedValues": [
+        "contrast",
+        "inline"
+      ],
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endTone",
+      "type": "GoodInputAddonTone",
+      "required": false,
+      "default": "inline",
+      "allowedValues": [
+        "contrast",
+        "inline"
+      ],
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "GoodDateValue",
+      "source": "angular/projects/goodui/src/lib/date-input.ts",
+      "implicit": true
+    },
+    {
+      "name": "selectionChange",
+      "type": "GoodDateValue",
+      "source": "angular/projects/goodui/src/lib/date-input.ts"
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "mode": [
+      "multiple",
+      "date",
+      "range",
+      "month",
+      "year"
+    ],
+    "placement": [
+      "bottom-start",
+      "bottom-center",
+      "bottom-end",
+      "top-start",
+      "top-center",
+      "top-end"
+    ],
+    "startTone": [
+      "contrast",
+      "inline"
+    ],
+    "endTone": [
+      "contrast",
+      "inline"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-input",
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/date-input.md",
+  "usage": {
+    "summary": "`good-date-input` combines the existing GoodUI Input with a calendar. It accepts typed dates in the current browser locale and stores values in stable local ISO strings. It supports a single day, a range, multiple days, a month, or a year. The popover provides day, month, and year views; at narrow widths or on coarse-pointer devices it becomes a near-full-screen modal overlay.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.date-input",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a49786afe6",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.date-input-addon",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a472f74b25",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.date-input"
+    },
+    {
+      "penpotName": "goodui.date-calendar",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a52347f875",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.date-input"
+    },
+    {
+      "penpotName": "goodui.date-calendar-overlay",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6ac737576fa",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.date-input"
+    },
+    {
+      "penpotName": "goodui.date-day",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6a4c45263b6",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.date-input"
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

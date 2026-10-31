@@ -1,0 +1,60 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-search",
+  "className": "GoodSearchComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSearchComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/actions.ts",
+  "inputs": [
+    {
+      "name": "items",
+      "type": "readonly GoodSearchItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-icon"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/search.md",
+  "usage": {
+    "summary": "`goodui.search` has a round trigger and a centered search dialog. The app supplies searchable links. The dialog filters labels and descriptions locally; tabs and external search are not currently part of the API.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.search.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f6563524e",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.search.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d33ffe1c4f79",
+      "kind": "component",
+      "state": "open",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

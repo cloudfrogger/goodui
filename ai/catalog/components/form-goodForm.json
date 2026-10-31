@@ -1,0 +1,84 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "form[goodForm]",
+  "className": "GoodFormDirective",
+  "kind": "directive",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodFormDirective"
+  },
+  "source": "angular/projects/goodui/src/lib/form.ts",
+  "inputs": [
+    {
+      "name": "layout",
+      "type": "\"left\" | \"right\" | \"vertical\"",
+      "required": false,
+      "default": "vertical",
+      "allowedValues": [
+        "left",
+        "right",
+        "vertical"
+      ],
+      "source": "angular/projects/goodui/src/lib/form.ts",
+      "kind": "input"
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/form.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "layout": [
+      "left",
+      "right",
+      "vertical"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.form.vertical",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d66c6d6ef862",
+      "kind": "component",
+      "state": "vertical",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.form.left",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d66c9f9af724",
+      "kind": "component",
+      "state": "left",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.form.right",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d66ca3a385e3",
+      "kind": "component",
+      "state": "right",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

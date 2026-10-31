@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "package", "version", "generatedFrom", "components"],
+  "properties": {
+    "$schema": { "const": "index.schema.json" },
+    "package": { "const": "@goodui/angular" },
+    "version": { "type": "string" },
+    "generatedFrom": { "type": "string" },
+    "components": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["selector", "className", "file", "import", "usageGuide", "penpotCount"], "properties": { "selector": { "type": "string" }, "className": { "type": "string" }, "file": { "type": "string" }, "import": { "type": "object", "required": ["package", "symbol"], "properties": { "package": { "const": "@goodui/angular" }, "symbol": { "type": "string" } } }, "usageGuide": { "type": ["string", "null"] }, "penpotCount": { "type": "integer", "minimum": 0 } } } }
+  }
+}

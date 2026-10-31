@@ -1,0 +1,121 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-action-menu",
+  "className": "GoodActionMenuComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodActionMenuComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/action-menu.ts",
+  "inputs": [
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "LucideEllipsis"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/action-menu.ts",
+      "kind": "input"
+    },
+    {
+      "name": "variant",
+      "type": "GoodButtonVariant",
+      "required": false,
+      "default": "outline",
+      "allowedValues": [
+        "outline",
+        "default",
+        "secondary",
+        "destructive",
+        "ghost"
+      ],
+      "source": "angular/projects/goodui/src/lib/action-menu.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodButtonSize",
+      "required": false,
+      "default": "small",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/action-menu.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "More actions",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/action-menu.ts",
+      "kind": "input"
+    },
+    {
+      "name": "items",
+      "type": "readonly GoodMenuAction[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/action-menu.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "variant": [
+      "outline",
+      "default",
+      "secondary",
+      "destructive",
+      "ghost"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/action-menu.md",
+  "usage": {
+    "summary": "`good-action-menu` is a compact icon button with an action list. It fits an optional action area in Subnav and can be used anywhere a small secondary menu is needed. It uses `good-button` for the trigger.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.action-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d41a7659d7eb",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.action-menu.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d41a76a2c06d",
+      "kind": "component",
+      "state": "open",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

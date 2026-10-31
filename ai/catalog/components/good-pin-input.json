@@ -1,0 +1,211 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-pin-input",
+  "className": "GoodPinInputComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodPinInputComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/pin-input.ts",
+  "inputs": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "model"
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "required": false,
+      "default": "6",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "allowedCharacters",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "DEFAULT_CHARACTERS"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "masked",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "placeholderIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodPinInputSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodPinInputAppearance",
+      "required": false,
+      "default": "brand",
+      "allowedValues": [
+        "brand",
+        "mono"
+      ],
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "PIN code",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "autocomplete",
+      "type": "string",
+      "required": false,
+      "default": "one-time-code",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/pin-input.ts",
+      "implicit": true
+    },
+    {
+      "name": "completed",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/pin-input.ts"
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "appearance": [
+      "brand",
+      "mono"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/pin-input.md",
+  "usage": {
+    "summary": "`good-pin-input` collects a short code in a row of large slots. It uses one native input behind the slots, so keyboard selection, paste, browser one-time-code autofill, and mobile keyboards work as one field. Clicking a slot moves the caret to that position. A long code scrolls horizontally inside the control.",
+    "examples": []
+  },
+  "penpot": [],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": true
+  }
+}

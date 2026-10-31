@@ -1,0 +1,133 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-error-page",
+  "className": "GoodErrorPageComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodErrorPageComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/error-page.ts",
+  "inputs": [
+    {
+      "name": "statusCode",
+      "type": "string | number",
+      "required": false,
+      "default": "404",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "Page not found",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "default": "The page you requested could not be found.",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    },
+    {
+      "name": "tone",
+      "type": "GoodErrorPageTone",
+      "required": false,
+      "default": "brand",
+      "allowedValues": [
+        "brand",
+        "destructive",
+        "neutral"
+      ],
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    },
+    {
+      "name": "reference",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    },
+    {
+      "name": "imageSrc",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    },
+    {
+      "name": "imageAlt",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/error-page.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "tone": [
+      "brand",
+      "destructive",
+      "neutral"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/error-page.md",
+  "usage": {
+    "summary": "`good-error-page` provides the responsive recovery layout for missing pages and server failures. It accepts any status code and message; the published Penpot variants show 404 and 500. The component owns the typography, illustration, spacing, and mobile stacking, so a consuming page only supplies its message and useful actions.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.error-page.404",
+      "penpotId": "9ec30947-b9fa-809b-8008-db17c123fdc7",
+      "kind": "component",
+      "state": "404",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.error-page.500",
+      "penpotId": "9ec30947-b9fa-809b-8008-db17c12580ce",
+      "kind": "component",
+      "state": "500",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-avatar-menu",
+  "className": "GoodAvatarMenuComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodAvatarMenuComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/actions.ts",
+  "inputs": [
+    {
+      "name": "user",
+      "type": "GoodUser",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "actions",
+      "type": "readonly GoodMenuAction[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-avatar-menu-item"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/avatar-menu.md",
+  "usage": {
+    "summary": "`good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.avatar-menu.account-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e0a9a60899",
+      "kind": "component",
+      "state": "account-open",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65e8aeea",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar-menu.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3400143c866",
+      "kind": "component",
+      "state": "open",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar-submenu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e0a96714b4",
+      "kind": "internal-part",
+      "state": "default",
+      "owner": "goodui.avatar-menu"
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-settings",
+  "className": "GoodSettingsComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSettingsComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/actions.ts",
+  "inputs": [
+    {
+      "name": "actions",
+      "type": "readonly GoodMenuAction[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-icon"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/settings.md",
+  "usage": {
+    "summary": "`goodui.settings` has a round trigger and an anchored menu. Apps can supply action buttons and links. The independent [Theme toggle](./theme-toggle.md) handles appearance from a single topbar click.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.settings.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65a3839a",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.settings.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d340005398c5",
+      "kind": "component",
+      "state": "open",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

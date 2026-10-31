@@ -1,0 +1,160 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-rating",
+  "className": "GoodRatingComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodRatingComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/rating.ts",
+  "inputs": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "model"
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "required": false,
+      "default": "5",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodRatingIcon",
+      "required": false,
+      "default": "star",
+      "allowedValues": [
+        "star",
+        "heart",
+        "thumbs-up"
+      ],
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "customIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "selectedColor",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodRatingSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Rating",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/rating.ts",
+      "implicit": true
+    }
+  ],
+  "variants": {
+    "icon": [
+      "star",
+      "heart",
+      "thumbs-up"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": false
+  },
+  "usageGuide": "guides/components/rating.md",
+  "usage": {
+    "summary": "`good-rating` displays or collects a whole-number score. It uses five Lucide stars by default. Selected stars and thumbs-up are yellow, selected hearts are red, and custom icons default to purple. Unselected symbols are gray. The score is always between one and `count`.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.rating",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d6d2d15b06df",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

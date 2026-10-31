@@ -1,0 +1,13 @@
+<good-main-view title="Edit profile" description="Update a person's details.">
+  <form goodForm [formGroup]="form" (ngSubmit)="save()">
+    <good-group title="Personal information">
+      <good-form-row>
+        <good-input label="Full name" [showLabel]="true" formControlName="name" [error]="form.controls.name.touched && form.controls.name.invalid" />
+        <good-input label="Email address" type="email" [showLabel]="true" formControlName="email" [error]="form.controls.email.touched && form.controls.email.invalid" />
+      </good-form-row>
+      <good-select label="Role" [showLabel]="true" [options]="roles" formControlName="role" />
+    </good-group>
+    <good-action-group><good-button type="submit">Save changes</good-button></good-action-group>
+  </form>
+  @if (saved()) { <good-paragraph>Changes saved in this demo.</good-paragraph> }
+</good-main-view>

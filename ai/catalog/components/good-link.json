@@ -1,0 +1,147 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-link",
+  "className": "GoodLinkComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodLinkComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/link.ts",
+  "inputs": [
+    {
+      "name": "href",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    },
+    {
+      "name": "route",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    },
+    {
+      "name": "target",
+      "type": "\"_self\" | \"_blank\"",
+      "required": false,
+      "default": "_self",
+      "allowedValues": [
+        "_self",
+        "_blank"
+      ],
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    },
+    {
+      "name": "rel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodLinkAppearance",
+      "required": false,
+      "default": "brand",
+      "allowedValues": [
+        "brand",
+        "mono"
+      ],
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    },
+    {
+      "name": "underline",
+      "type": "GoodLinkUnderline",
+      "required": false,
+      "default": "hover",
+      "allowedValues": [
+        "hover",
+        "always"
+      ],
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    },
+    {
+      "name": "decoration",
+      "type": "GoodLinkDecoration",
+      "required": false,
+      "default": "solid",
+      "allowedValues": [
+        "solid",
+        "dashed",
+        "dotted"
+      ],
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/link.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "target": [
+      "_self",
+      "_blank"
+    ],
+    "appearance": [
+      "brand",
+      "mono"
+    ],
+    "underline": [
+      "hover",
+      "always"
+    ],
+    "decoration": [
+      "solid",
+      "dashed",
+      "dotted"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/link.md",
+  "usage": {
+    "summary": "`good-link` is a navigational text control. It defaults to the brand accent and shows a solid underline on hover. Use `appearance=\"mono\"` when the link should follow the theme text color, or `underline=\"always\"` when the line should remain visible.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.link",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d52e8d4e0e8e",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

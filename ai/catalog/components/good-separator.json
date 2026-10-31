@@ -1,0 +1,59 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-separator",
+  "className": "GoodSeparatorComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSeparatorComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/typography.ts",
+  "inputs": [
+    {
+      "name": "variant",
+      "type": "GoodSeparatorVariant",
+      "required": false,
+      "default": "dots",
+      "allowedValues": [
+        "dots",
+        "line"
+      ],
+      "source": "angular/projects/goodui/src/lib/typography.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "variant": [
+      "dots",
+      "line"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.separator",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58d18952b69",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

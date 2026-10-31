@@ -1,0 +1,115 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-topbar-dropdown-item",
+  "className": "GoodTopbarDropdownItemComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodTopbarDropdownItemComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/topbar.ts",
+  "inputs": [
+    {
+      "name": "item",
+      "type": "GoodTopbarItem",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "activeRoute",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "panelId",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "hover",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/topbar.ts"
+    },
+    {
+      "name": "focused",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/topbar.ts"
+    },
+    {
+      "name": "toggle",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/topbar.ts"
+    },
+    {
+      "name": "navigate",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/topbar.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-icon"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.topbar-dropdown-item.link",
+      "penpotId": "521fe58c-da62-80e2-8008-d3caa3b78281",
+      "kind": "component",
+      "state": "link",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-item.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3caf0167256",
+      "kind": "component",
+      "state": "open",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-item.parent",
+      "penpotId": "521fe58c-da62-80e2-8008-d3caefc179e0",
+      "kind": "component",
+      "state": "parent",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,22 @@
+name: GoodUI AI checks
+on:
+  push:
+    branches: [master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: angular/package-lock.json
+      - run: npm --prefix angular ci --legacy-peer-deps
+      - run: npm run build:lib
+      - run: node ai/scripts/generate-catalog.mjs --check
+      - run: node ai/scripts/check-catalog.mjs
+      - run: node ai/scripts/build-examples.mjs

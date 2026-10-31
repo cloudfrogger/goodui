@@ -1,0 +1,167 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-switch",
+  "className": "GoodSwitchComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSwitchComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/switch.ts",
+  "inputs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "model"
+    },
+    {
+      "name": "size",
+      "type": "GoodSwitchSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodSwitchAppearance",
+      "required": false,
+      "default": "brand",
+      "allowedValues": [
+        "brand",
+        "mono"
+      ],
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "checkedChange",
+      "type": "boolean",
+      "source": "angular/projects/goodui/src/lib/switch.ts",
+      "implicit": true
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "appearance": [
+      "brand",
+      "mono"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": false
+  },
+  "usageGuide": "guides/components/switch.md",
+  "usage": {
+    "summary": "`good-switch` is a reusable on/off control for a setting that takes effect immediately. Its visible track and thumb come from the Penpot `goodui.switch` component. The component keeps the label, hit area, focus ring, and input behavior together, so pages do not need custom alignment or click handling.",
+    "examples": [
+      "ai/examples/settings.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.switch",
+      "penpotId": "521fe58c-da62-80e2-8008-d457dad10b7f",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

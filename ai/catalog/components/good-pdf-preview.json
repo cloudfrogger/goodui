@@ -1,0 +1,153 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-pdf-preview",
+  "className": "GoodPdfPreviewComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodPdfPreviewComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+  "inputs": [
+    {
+      "name": "source",
+      "type": "GoodPdfSource",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "PDF preview",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "height",
+      "type": "string",
+      "required": false,
+      "default": "min(70vh, 800px)",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showToolbar",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "allowDownload",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "workerUrl",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "downloadName",
+      "type": "string",
+      "required": false,
+      "default": "document.pdf",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "input"
+    },
+    {
+      "name": "zoom",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "model"
+    },
+    {
+      "name": "pageNumber",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "kind": "model"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "zoomChange",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "implicit": true
+    },
+    {
+      "name": "pageNumberChange",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts",
+      "implicit": true
+    },
+    {
+      "name": "pageChange",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts"
+    },
+    {
+      "name": "loaded",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts"
+    },
+    {
+      "name": "loadError",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/pdf-preview.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/pdf-preview.md",
+  "usage": {
+    "summary": "`good-pdf-preview` displays one PDF page at a time inside a responsive GoodUI frame. Its toolbar owns page navigation, zoom (50–300% of fitted width), clockwise rotation, and an optional download action. The document viewport scrolls when a zoomed page exceeds its width. PDF.js renders the page and a selectable text layer; page count updates are announced to assistive technology. `PageUp` and `PageDown` work while the viewport has focus.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.pdf-preview",
+      "penpotId": "bf5e7a26-ff29-80d7-8008-d9c818647115",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

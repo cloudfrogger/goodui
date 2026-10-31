@@ -1,0 +1,85 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-topbar-dropdown-menu",
+  "className": "GoodTopbarDropdownMenuComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodTopbarDropdownMenuComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/topbar.ts",
+  "inputs": [
+    {
+      "name": "items",
+      "type": "readonly GoodTopbarItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Menu",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "activeRoute",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "navigate",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/topbar.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-topbar-dropdown-item",
+      "good-topbar-submenu"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.topbar-dropdown-menu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb1bfe9de3",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.topbar-dropdown-menu.nested-open",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb41079b9e",
+      "kind": "component",
+      "state": "nested-open",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

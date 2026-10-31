@@ -1,0 +1,72 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-notifications",
+  "className": "GoodNotificationsComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodNotificationsComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/actions.ts",
+  "inputs": [
+    {
+      "name": "items",
+      "type": "readonly GoodNotification[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-icon",
+      "good-badge",
+      "good-alert",
+      "good-progress",
+      "good-link",
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/notifications.md",
+  "usage": {
+    "summary": "`good-notifications` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.notifications.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f65811a2c",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.notifications.open",
+      "penpotId": "521fe58c-da62-80e2-8008-d33fff9a20ba",
+      "kind": "component",
+      "state": "open",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.notifications.unread",
+      "penpotId": "5fd6a355-e255-80dc-8008-d81d121a0160",
+      "kind": "component",
+      "state": "unread",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

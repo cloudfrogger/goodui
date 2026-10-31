@@ -1,0 +1,180 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-badge",
+  "className": "GoodBadgeComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodBadgeComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/badge.ts",
+  "inputs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "GoodBadgeColor",
+      "required": false,
+      "default": "primary",
+      "allowedValues": [
+        "secondary",
+        "destructive",
+        "text",
+        "info",
+        "success",
+        "warning",
+        "primary"
+      ],
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "variant",
+      "type": "GoodBadgeVariant",
+      "required": false,
+      "default": "solid",
+      "allowedValues": [
+        "outline",
+        "solid",
+        "light"
+      ],
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "shape",
+      "type": "GoodBadgeShape",
+      "required": false,
+      "default": "pill",
+      "allowedValues": [
+        "square",
+        "circle",
+        "pill"
+      ],
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodBadgeSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large",
+        "medium"
+      ],
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "iconSrc",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "removable",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    },
+    {
+      "name": "removeLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/badge.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "removed",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/badge.ts"
+    }
+  ],
+  "variants": {
+    "color": [
+      "secondary",
+      "destructive",
+      "text",
+      "info",
+      "success",
+      "warning",
+      "primary"
+    ],
+    "variant": [
+      "outline",
+      "solid",
+      "light"
+    ],
+    "shape": [
+      "square",
+      "circle",
+      "pill"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large",
+      "medium"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/badge.md",
+  "usage": {
+    "summary": "`good-badge` displays compact status or metadata text. It owns its spacing, icon alignment, colors, and rounded shape, so a page only needs to place the component.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.badge",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d494408275ff",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-breadcrumbs",
+  "className": "GoodBreadcrumbsComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodBreadcrumbsComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",
+  "inputs": [
+    {
+      "name": "items",
+      "type": "readonly GoodBreadcrumbItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",
+      "kind": "input"
+    },
+    {
+      "name": "homeIcon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",
+      "kind": "input"
+    },
+    {
+      "name": "separator",
+      "type": "string | GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "LucideChevronRight"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",
+      "kind": "input"
+    },
+    {
+      "name": "maxItems",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",
+      "kind": "input"
+    },
+    {
+      "name": "card",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "required": false,
+      "default": "Breadcrumb",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-dropdown"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/breadcrumbs.md",
+  "usage": {
+    "summary": "`good-breadcrumbs` shows a page's position in a hierarchy. Pass the path in order, from the first level to the current page. Earlier levels with a `route` become Angular links; the final level is always current and has `aria-current=\"page\"`.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.breadcrumbs",
+      "penpotId": "79fa6408-a1e2-80d7-8008-d48e4adf33b5",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

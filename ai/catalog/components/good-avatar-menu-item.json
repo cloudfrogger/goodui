@@ -1,0 +1,82 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-avatar-menu-item",
+  "className": "GoodAvatarMenuItemComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodAvatarMenuItemComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/actions.ts",
+  "inputs": [
+    {
+      "name": "action",
+      "type": "GoodMenuAction",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    },
+    {
+      "name": "path",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "closed",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/actions.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-icon"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.avatar-menu-item.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3dff07e8b0c",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar-menu-item.parent",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e02020206b",
+      "kind": "component",
+      "state": "parent",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar-menu-item.sign-out",
+      "penpotId": "521fe58c-da62-80e2-8008-d3e020759afe",
+      "kind": "component",
+      "state": "sign-out",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

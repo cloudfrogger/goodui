@@ -1,0 +1,194 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-sidebar-item",
+  "className": "GoodSidebarItemComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSidebarItemComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/sidebar.ts",
+  "inputs": [
+    {
+      "name": "item",
+      "type": "GoodNavItem",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodIconName",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": [
+        "dashboard",
+        "account",
+        "network",
+        "home",
+        "settings",
+        "search",
+        "bell",
+        "menu",
+        "close",
+        "chevron-down",
+        "chevron-right",
+        "sun",
+        "moon",
+        "monitor",
+        "grid",
+        "logout",
+        "calendar",
+        "question",
+        "card",
+        "book",
+        "contact",
+        "star",
+        "message",
+        "globe",
+        "check"
+      ],
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "route",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "badge",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "active",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "activeRoute",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "icon": [
+      "dashboard",
+      "account",
+      "network",
+      "home",
+      "settings",
+      "search",
+      "bell",
+      "menu",
+      "close",
+      "chevron-down",
+      "chevron-right",
+      "sun",
+      "moon",
+      "monitor",
+      "grid",
+      "logout",
+      "calendar",
+      "question",
+      "card",
+      "book",
+      "contact",
+      "star",
+      "message",
+      "globe",
+      "check"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [
+      "good-icon",
+      "good-sidebar-submenu-group",
+      "good-sidebar-submenu-item"
+    ],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.sidebar-item.active",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f4a133c70",
+      "kind": "component",
+      "state": "active",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.sidebar-item.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d33f49ccaa46",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.sidebar-item.expanded",
+      "penpotId": "521fe58c-da62-80e2-8008-d34552e9bc72",
+      "kind": "component",
+      "state": "expanded",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

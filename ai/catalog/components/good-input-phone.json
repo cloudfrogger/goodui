@@ -1,0 +1,226 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-input-phone",
+  "className": "GoodInputPhoneComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodInputPhoneComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/input-phone.ts",
+  "inputs": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "model"
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "countries",
+      "type": "readonly string[]",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Phone number",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "default": "Phone number",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodInputSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "validateNumber",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    },
+    {
+      "name": "autocomplete",
+      "type": "string",
+      "required": false,
+      "default": "tel-national",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/input-phone.ts",
+      "implicit": true
+    },
+    {
+      "name": "countryChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/input-phone.ts"
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-select"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/input-phone.md",
+  "usage": {
+    "summary": "`good-input-phone` combines a searchable country selector with a native telephone field. It displays a flag and international calling code, and exposes one international value such as `+4915112345678`. Use the same value with `[(value)]` or Angular Forms.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.input-phone",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d726120bd498",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.phone-country",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d725983665b1",
+      "kind": "internal-part",
+      "state": null,
+      "owner": "goodui.input-phone"
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

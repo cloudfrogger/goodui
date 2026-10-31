@@ -1,0 +1,158 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-progress",
+  "className": "GoodProgressComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodProgressComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/progress.ts",
+  "inputs": [
+    {
+      "name": "mode",
+      "type": "GoodProgressMode",
+      "required": false,
+      "default": "determinate",
+      "allowedValues": [
+        "determinate",
+        "indeterminate",
+        "timed"
+      ],
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodProgressAppearance",
+      "required": false,
+      "default": "solid",
+      "allowedValues": [
+        "solid",
+        "segmented"
+      ],
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodProgressSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "default": "0",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "durationMs",
+      "type": "number",
+      "required": false,
+      "default": "5000",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "loop",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showPercent",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "default": "brand",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "required": false,
+      "default": "Progress",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/progress.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "mode": [
+      "determinate",
+      "indeterminate",
+      "timed"
+    ],
+    "appearance": [
+      "solid",
+      "segmented"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/progress.md",
+  "usage": {
+    "summary": "`good-progress` shows a known percentage, ongoing work, or a timed cycle. It owns its label, percentage, track, fill, and responsive width, so callers do not need a custom wrapper. It can be placed directly in page content or inside `good-alert`.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.progress",
+      "penpotId": "bf5e7a26-ff29-80d7-8008-d9b64931f5a7",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-alert",
+  "className": "GoodAlertComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodAlertComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/alert.ts",
+  "inputs": [
+    {
+      "name": "tone",
+      "type": "GoodAlertTone",
+      "required": false,
+      "default": "neutral",
+      "allowedValues": [
+        "brand",
+        "destructive",
+        "neutral",
+        "info",
+        "success",
+        "warning"
+      ],
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "GoodAlertAppearance",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "mono",
+        "outline",
+        "default",
+        "light"
+      ],
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodAlertSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "LucideInfo"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showIcon",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "dismissible",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    },
+    {
+      "name": "closeLabel",
+      "type": "string",
+      "required": false,
+      "default": "Dismiss alert",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/alert.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "closed",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/alert.ts"
+    }
+  ],
+  "variants": {
+    "tone": [
+      "brand",
+      "destructive",
+      "neutral",
+      "info",
+      "success",
+      "warning"
+    ],
+    "appearance": [
+      "mono",
+      "outline",
+      "default",
+      "light"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*",
+      "[goodAlertActions]"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/alert.md",
+  "usage": {
+    "summary": "`good-alert` presents a message in a page, a notification panel, or a toast. It owns its icon, spacing, border, content flow, action row, and dismiss button. The default Lucide icon is Info; pass another Lucide icon through `icon`, or set `showIcon` to false. The same component renders all three sizes and both GoodUI themes.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.alert",
+      "penpotId": "5fd6a355-e255-80dc-8008-d8167b26a15b",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.alert-composition.actions-dismissible",
+      "penpotId": "5fd6a355-e255-80dc-8008-d817fbfd2cd3",
+      "kind": "internal-part",
+      "state": "actions-dismissible",
+      "owner": "goodui.alert"
+    },
+    {
+      "penpotName": "goodui.alert-composition.progress",
+      "penpotId": "bf5e7a26-ff29-80d7-8008-d9b857795ba5",
+      "kind": "internal-part",
+      "state": "progress",
+      "owner": "goodui.alert"
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

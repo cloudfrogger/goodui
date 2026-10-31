@@ -1,0 +1,910 @@
+{
+  "$schema": "index.schema.json",
+  "package": "@goodui/angular",
+  "version": "0.0.1",
+  "generatedFrom": "angular/projects/goodui/src/public-api.ts",
+  "components": [
+    {
+      "selector": "[goodCardActions]",
+      "className": "GoodCardActionsDirective",
+      "file": "components/goodCardActions.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCardActionsDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
+    },
+    {
+      "selector": "[goodDropdownFooter]",
+      "className": "GoodDropdownFooterDirective",
+      "file": "components/goodDropdownFooter.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodDropdownFooterDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
+    },
+    {
+      "selector": "[goodDropdownHeader]",
+      "className": "GoodDropdownHeaderDirective",
+      "file": "components/goodDropdownHeader.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodDropdownHeaderDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
+    },
+    {
+      "selector": "form[goodForm]",
+      "className": "GoodFormDirective",
+      "file": "components/form-goodForm.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodFormDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-action-group",
+      "className": "GoodActionGroupComponent",
+      "file": "components/good-action-group.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodActionGroupComponent"
+      },
+      "usageGuide": "guides/components/action-group.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-action-menu",
+      "className": "GoodActionMenuComponent",
+      "file": "components/good-action-menu.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodActionMenuComponent"
+      },
+      "usageGuide": "guides/components/action-menu.md",
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-alert",
+      "className": "GoodAlertComponent",
+      "file": "components/good-alert.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAlertComponent"
+      },
+      "usageGuide": "guides/components/alert.md",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-app-layout",
+      "className": "GoodAppLayoutComponent",
+      "file": "components/good-app-layout.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAppLayoutComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 6
+    },
+    {
+      "selector": "good-avatar-menu",
+      "className": "GoodAvatarMenuComponent",
+      "file": "components/good-avatar-menu.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAvatarMenuComponent"
+      },
+      "usageGuide": "guides/components/avatar-menu.md",
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-avatar-menu-item",
+      "className": "GoodAvatarMenuItemComponent",
+      "file": "components/good-avatar-menu-item.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAvatarMenuItemComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-badge",
+      "className": "GoodBadgeComponent",
+      "file": "components/good-badge.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodBadgeComponent"
+      },
+      "usageGuide": "guides/components/badge.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-brand-icon",
+      "className": "GoodBrandIconComponent",
+      "file": "components/good-brand-icon.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodBrandIconComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-breadcrumbs",
+      "className": "GoodBreadcrumbsComponent",
+      "file": "components/good-breadcrumbs.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodBreadcrumbsComponent"
+      },
+      "usageGuide": "guides/components/breadcrumbs.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-button",
+      "className": "GoodButtonComponent",
+      "file": "components/good-button.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodButtonComponent"
+      },
+      "usageGuide": "guides/components/button.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-calendar",
+      "className": "GoodCalendarComponent",
+      "file": "components/good-calendar.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCalendarComponent"
+      },
+      "usageGuide": "guides/components/calendar.md",
+      "penpotCount": 16
+    },
+    {
+      "selector": "good-card",
+      "className": "GoodCardComponent",
+      "file": "components/good-card.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCardComponent"
+      },
+      "usageGuide": "guides/components/card.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-card-footer",
+      "className": "GoodCardFooterComponent",
+      "file": "components/good-card-footer.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCardFooterComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-card-header",
+      "className": "GoodCardHeaderComponent",
+      "file": "components/good-card-header.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCardHeaderComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-checkbox",
+      "className": "GoodCheckboxComponent",
+      "file": "components/good-checkbox.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCheckboxComponent"
+      },
+      "usageGuide": "guides/components/checkbox.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-citation",
+      "className": "GoodCitationComponent",
+      "file": "components/good-citation.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCitationComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-code-block",
+      "className": "GoodCodeBlockComponent",
+      "file": "components/good-code-block.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodCodeBlockComponent"
+      },
+      "usageGuide": "guides/components/code-block.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-date-input",
+      "className": "GoodDateInputComponent",
+      "file": "components/good-date-input.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodDateInputComponent"
+      },
+      "usageGuide": "guides/components/date-input.md",
+      "penpotCount": 5
+    },
+    {
+      "selector": "good-dropdown",
+      "className": "GoodDropdownComponent",
+      "file": "components/good-dropdown.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodDropdownComponent"
+      },
+      "usageGuide": "guides/components/dropdown.md",
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-error-page",
+      "className": "GoodErrorPageComponent",
+      "file": "components/good-error-page.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodErrorPageComponent"
+      },
+      "usageGuide": "guides/components/error-page.md",
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-error-text",
+      "className": "GoodErrorTextComponent",
+      "file": "components/good-error-text.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodErrorTextComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-eyebrow",
+      "className": "GoodEyebrowComponent",
+      "file": "components/good-eyebrow.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodEyebrowComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-field-label",
+      "className": "GoodFieldLabelComponent",
+      "file": "components/good-field-label.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodFieldLabelComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-form-field",
+      "className": "GoodFormFieldComponent",
+      "file": "components/good-form-field.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodFormFieldComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-form-row",
+      "className": "GoodFormRowComponent",
+      "file": "components/good-form-row.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodFormRowComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-group",
+      "className": "GoodGroupComponent",
+      "file": "components/good-group.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodGroupComponent"
+      },
+      "usageGuide": "guides/components/group.md",
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-heading",
+      "className": "GoodHeadingComponent",
+      "file": "components/good-heading.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodHeadingComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-heading-group",
+      "className": "GoodHeadingGroupComponent",
+      "file": "components/good-heading-group.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodHeadingGroupComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-hint",
+      "className": "GoodHintComponent",
+      "file": "components/good-hint.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodHintComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-icon",
+      "className": "GoodIconComponent",
+      "file": "components/good-icon.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodIconComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
+    },
+    {
+      "selector": "good-image-input",
+      "className": "GoodImageInputComponent",
+      "file": "components/good-image-input.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodImageInputComponent"
+      },
+      "usageGuide": "guides/components/image-input.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-image-preview",
+      "className": "GoodImagePreviewComponent",
+      "file": "components/good-image-preview.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodImagePreviewComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-inline-image",
+      "className": "GoodInlineImageComponent",
+      "file": "components/good-inline-image.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodInlineImageComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-input",
+      "className": "GoodInputComponent",
+      "file": "components/good-input.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodInputComponent"
+      },
+      "usageGuide": "guides/components/input.md",
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-input-phone",
+      "className": "GoodInputPhoneComponent",
+      "file": "components/good-input-phone.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodInputPhoneComponent"
+      },
+      "usageGuide": "guides/components/input-phone.md",
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-link",
+      "className": "GoodLinkComponent",
+      "file": "components/good-link.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodLinkComponent"
+      },
+      "usageGuide": "guides/components/link.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-listbox",
+      "className": "GoodListboxComponent",
+      "file": "components/good-listbox.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodListboxComponent"
+      },
+      "usageGuide": "guides/components/listbox.md",
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-main-menu",
+      "className": "GoodMainMenuComponent",
+      "file": "components/good-main-menu.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodMainMenuComponent"
+      },
+      "usageGuide": "guides/components/main-menu.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-main-view",
+      "className": "GoodMainViewComponent",
+      "file": "components/good-main-view.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodMainViewComponent"
+      },
+      "usageGuide": "guides/components/main-view.md",
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-modal",
+      "className": "GoodModalComponent",
+      "file": "components/good-modal.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodModalComponent"
+      },
+      "usageGuide": "guides/components/modal.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-modal-footer",
+      "className": "GoodModalFooterComponent",
+      "file": "components/good-modal-footer.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodModalFooterComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-modal-header",
+      "className": "GoodModalHeaderComponent",
+      "file": "components/good-modal-header.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodModalHeaderComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-notification-host",
+      "className": "GoodNotificationHostComponent",
+      "file": "components/good-notification-host.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodNotificationHostComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-notifications",
+      "className": "GoodNotificationsComponent",
+      "file": "components/good-notifications.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodNotificationsComponent"
+      },
+      "usageGuide": "guides/components/notifications.md",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-number-input",
+      "className": "GoodNumberInputComponent",
+      "file": "components/good-number-input.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodNumberInputComponent"
+      },
+      "usageGuide": "guides/components/number-input.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-paragraph",
+      "className": "GoodParagraphComponent",
+      "file": "components/good-paragraph.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodParagraphComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-pdf-preview",
+      "className": "GoodPdfPreviewComponent",
+      "file": "components/good-pdf-preview.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodPdfPreviewComponent"
+      },
+      "usageGuide": "guides/components/pdf-preview.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-pin-input",
+      "className": "GoodPinInputComponent",
+      "file": "components/good-pin-input.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodPinInputComponent"
+      },
+      "usageGuide": "guides/components/pin-input.md",
+      "penpotCount": 0
+    },
+    {
+      "selector": "good-progress",
+      "className": "GoodProgressComponent",
+      "file": "components/good-progress.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodProgressComponent"
+      },
+      "usageGuide": "guides/components/progress.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-prose",
+      "className": "GoodProseComponent",
+      "file": "components/good-prose.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodProseComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-radio-group",
+      "className": "GoodRadioGroupComponent",
+      "file": "components/good-radio-group.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodRadioGroupComponent"
+      },
+      "usageGuide": "guides/components/radio-group.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-rating",
+      "className": "GoodRatingComponent",
+      "file": "components/good-rating.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodRatingComponent"
+      },
+      "usageGuide": "guides/components/rating.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-search",
+      "className": "GoodSearchComponent",
+      "file": "components/good-search.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSearchComponent"
+      },
+      "usageGuide": "guides/components/search.md",
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-section",
+      "className": "GoodSectionComponent",
+      "file": "components/good-section.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSectionComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-select",
+      "className": "GoodSelectComponent",
+      "file": "components/good-select.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSelectComponent"
+      },
+      "usageGuide": "guides/components/select.md",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-select-country",
+      "className": "GoodSelectCountryComponent",
+      "file": "components/good-select-country.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSelectCountryComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-separator",
+      "className": "GoodSeparatorComponent",
+      "file": "components/good-separator.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSeparatorComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-settings",
+      "className": "GoodSettingsComponent",
+      "file": "components/good-settings.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSettingsComponent"
+      },
+      "usageGuide": "guides/components/settings.md",
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-sidebar-container",
+      "className": "GoodSidebarContainerComponent",
+      "file": "components/good-sidebar-container.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSidebarContainerComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-sidebar-item",
+      "className": "GoodSidebarItemComponent",
+      "file": "components/good-sidebar-item.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSidebarItemComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-sidebar-menu-container",
+      "className": "GoodSidebarMenuContainerComponent",
+      "file": "components/good-sidebar-menu-container.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSidebarMenuContainerComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-sidebar-submenu-group",
+      "className": "GoodSidebarSubmenuGroupComponent",
+      "file": "components/good-sidebar-submenu-group.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSidebarSubmenuGroupComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-sidebar-submenu-item",
+      "className": "GoodSidebarSubmenuItemComponent",
+      "file": "components/good-sidebar-submenu-item.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSidebarSubmenuItemComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-subheading",
+      "className": "GoodSubheadingComponent",
+      "file": "components/good-subheading.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSubheadingComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-subnav",
+      "className": "GoodSubnavComponent",
+      "file": "components/good-subnav.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSubnavComponent"
+      },
+      "usageGuide": "guides/components/subnav.md",
+      "penpotCount": 8
+    },
+    {
+      "selector": "good-summary",
+      "className": "GoodSummaryComponent",
+      "file": "components/good-summary.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSummaryComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-switch",
+      "className": "GoodSwitchComponent",
+      "file": "components/good-switch.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSwitchComponent"
+      },
+      "usageGuide": "guides/components/switch.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-tab",
+      "className": "GoodTabComponent",
+      "file": "components/good-tab.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTabComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-table",
+      "className": "GoodTableComponent",
+      "file": "components/good-table.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTableComponent"
+      },
+      "usageGuide": "guides/components/table.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-tabs",
+      "className": "GoodTabsComponent",
+      "file": "components/good-tabs.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTabsComponent"
+      },
+      "usageGuide": "guides/components/tabs.md",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-theme-toggle",
+      "className": "GoodThemeToggleComponent",
+      "file": "components/good-theme-toggle.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodThemeToggleComponent"
+      },
+      "usageGuide": "guides/components/theme-toggle.md",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-topbar",
+      "className": "GoodTopbarComponent",
+      "file": "components/good-topbar.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTopbarComponent"
+      },
+      "usageGuide": "guides/components/topbar.md",
+      "penpotCount": 7
+    },
+    {
+      "selector": "good-topbar-dropdown-item",
+      "className": "GoodTopbarDropdownItemComponent",
+      "file": "components/good-topbar-dropdown-item.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTopbarDropdownItemComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-topbar-dropdown-menu",
+      "className": "GoodTopbarDropdownMenuComponent",
+      "file": "components/good-topbar-dropdown-menu.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTopbarDropdownMenuComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-topbar-menu-container",
+      "className": "GoodTopbarMenuContainerComponent",
+      "file": "components/good-topbar-menu-container.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTopbarMenuContainerComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-topbar-menu-item",
+      "className": "GoodTopbarMenuItemComponent",
+      "file": "components/good-topbar-menu-item.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTopbarMenuItemComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-topbar-submenu",
+      "className": "GoodTopbarSubmenuComponent",
+      "file": "components/good-topbar-submenu.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTopbarSubmenuComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "ng-template[goodListboxItem]",
+      "className": "GoodListboxItemDirective",
+      "file": "components/ng-template-goodListboxItem.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodListboxItemDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-topbar-submenu",
+  "className": "GoodTopbarSubmenuComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodTopbarSubmenuComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/topbar.ts",
+  "inputs": [
+    {
+      "name": "items",
+      "type": "readonly GoodTopbarItem[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Submenu",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "activeRoute",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "navigate",
+      "type": "void",
+      "source": "angular/projects/goodui/src/lib/topbar.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-topbar-dropdown-menu"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.topbar-submenu.default",
+      "penpotId": "521fe58c-da62-80e2-8008-d3cb2ae3b496",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

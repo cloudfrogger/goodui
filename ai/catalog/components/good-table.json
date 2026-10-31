@@ -1,0 +1,199 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-table",
+  "className": "GoodTableComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodTableComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/table.ts",
+  "inputs": [
+    {
+      "name": "data",
+      "type": "readonly TData[]",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "columns",
+      "type": "readonly GoodTableColumn<TData>[]",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Records",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "style",
+      "type": "GoodTableStyle",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "bordered",
+        "striped",
+        "compact"
+      ],
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchable",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchPlaceholder",
+      "type": "string",
+      "required": false,
+      "default": "Search records",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "pagination",
+      "type": "GoodTablePagination",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "sortingMode",
+      "type": "\"client\" | \"manual\"",
+      "required": false,
+      "default": "client",
+      "allowedValues": [
+        "client",
+        "manual"
+      ],
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchMode",
+      "type": "\"client\" | \"manual\"",
+      "required": false,
+      "default": "client",
+      "allowedValues": [
+        "client",
+        "manual"
+      ],
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "getRowId",
+      "type": "(row: TData, index: number) => string",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "required": false,
+      "default": "NO records found",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "sortingChange",
+      "type": "SortingState",
+      "source": "angular/projects/goodui/src/lib/table.ts"
+    },
+    {
+      "name": "searchChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/table.ts"
+    },
+    {
+      "name": "request",
+      "type": "GoodTableRequest",
+      "source": "angular/projects/goodui/src/lib/table.ts"
+    }
+  ],
+  "variants": {
+    "style": [
+      "default",
+      "bordered",
+      "striped",
+      "compact"
+    ],
+    "sortingMode": [
+      "client",
+      "manual"
+    ],
+    "searchMode": [
+      "client",
+      "manual"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-input",
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/table.md",
+  "usage": {
+    "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
+    "examples": [
+      "ai/examples/table-view.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.table",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d7049380955e",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

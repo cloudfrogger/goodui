@@ -1,0 +1,171 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-number-input",
+  "className": "GoodNumberInputComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodNumberInputComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/number-input.ts",
+  "inputs": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "default": "0",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "model"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "default": "0",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "default": {
+        "expression": "Infinity"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodNumberInputSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Number",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "implicit": true
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/number-input.md",
+  "usage": {
+    "summary": "`good-number-input` is a numeric field with a minus button on the left and a plus button on the right. It starts at `0`, moves in steps of `1`, and has a minimum of `0` and no maximum unless configured. Set `min`, `max`, and `step` to finite numbers; a nonpositive or nonfinite step falls back to `1`. If `max` is below `min`, the effective maximum equals the minimum.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.number-input",
+      "penpotId": "9ec30947-b9fa-809b-8008-db1ee40f79e1",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}
