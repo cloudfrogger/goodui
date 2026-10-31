@@ -45,7 +45,7 @@ interface CalendarTarget { key: string; minute: number | null; }
   imports: [GoodButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.html',
-  host: { class: 'good-calendar', '[attr.data-view]': 'view()', '[attr.data-disabled]': 'disabled()' },
+  host: { class: 'good-calendar', '[attr.data-view]': 'view()', '[attr.data-disabled]': 'disabled()', '[attr.data-fill-height]': 'fillHeight()' },
 })
 export class GoodCalendarComponent {
   readonly calendar = inject(GoodCalendarService);
@@ -69,6 +69,7 @@ export class GoodCalendarComponent {
   readonly editable = input(true);
   readonly disabled = input(false);
   readonly label = input('Calendar');
+  readonly fillHeight = input(false);
   /** Enables a collapsible panel for projected [goodCalendarSidebar] tools. */
   readonly sidebarEnabled = input(false);
   readonly sidebarOpen = model(false);

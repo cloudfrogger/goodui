@@ -14,9 +14,14 @@ Pick the page width before composing controls:
 <good-main-view title="Schedule" description="Upcoming work">
   <good-calendar />
 </good-main-view>
+
+<!-- Fill the remaining shell area; the calendar scrolls inside its frame. -->
+<good-main-view layout="fill">
+  <good-calendar [fillHeight]="true" />
+</good-main-view>
 ```
 
-Keep one pattern per page. In the centered pattern, put each top-level content block inside a direct `good-section`; do not insert a free sibling between sections. MainView centers both its heading and content area automatically. The free pattern uses the full page width.
+Keep one pattern per page. In the centered pattern, put each top-level content block inside a direct `good-section`; do not insert a free sibling between sections. MainView centers both its heading and content area automatically. The first two patterns use the default `layout="page"` and let the page scroll. The fill pattern reserves the remaining height for one primary child, which owns its scrollbars.
 
 | Need | GoodUI composition | Example |
 | --- | --- | --- |

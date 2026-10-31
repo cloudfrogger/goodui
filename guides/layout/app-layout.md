@@ -40,7 +40,19 @@ AppLayout
 </good-app-layout>
 ```
 
-Choose one MainView layout per page. Direct `good-section` children give the heading and all content the same centered 1024 px maximum width; put every top-level content block in a Section. For a full-width page, omit Sections and place content directly in MainView; its heading and content then share the left edge. Keep the two patterns separate.
+Choose `layout="page"` (the default) for a scrolling page. Direct `good-section` children give the heading and all content the same centered 1024 px maximum width; put every top-level content block in a Section. For a full-width scrolling page, omit Sections and place content directly in MainView; its heading and content then share the left edge. Keep the two patterns separate.
+
+Choose `layout="fill"` when a single workspace must occupy all remaining height below the topbar. MainView removes its outer padding so the projected child meets the edges of the application area; the application page no longer scrolls. The child must own its internal scrolling. For the calendar, opt in with `[fillHeight]="true"` to make its frame flush and its views scroll inside:
+
+```html
+<good-main-view layout="fill">
+  <good-calendar [fillHeight]="true" [sidebarEnabled]="true">
+    <div goodCalendarSidebar><good-month-calendar /></div>
+  </good-calendar>
+</good-main-view>
+```
+
+The [calendar workspace example](../../homepage/src/app/examples/calendar-workspace/calendar-workspace-page.html) shows a routed page using this layout without a page heading.
 
 The simple input API creates the component hierarchy internally. You can compose the exported containers directly for special cases. Navigation requires `provideRouter(...)`; the active path comes from Angular Router.
 The homepage's **Foundation → Layout** chapter shows a complete root component, shell template, route, page, and provider setup.

@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, afterNextRender, computed, inject, signal } from '@angular/core';
 import {
-  GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent, GoodGroupComponent,
-  GoodListboxComponent, GoodMainViewComponent, GoodMonthCalendarComponent, type GoodListboxItem,
+  GoodActionGroupComponent, GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent,
+  GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent,
+  GoodMonthCalendarComponent, type GoodListboxItem,
   type GoodCalendarEvent, type GoodCalendarEventInput, type GoodCalendarMove, type GoodCalendarResize,
   type GoodCalendarView, type GoodMonthCalendarSelection,
   goodCalendarStartOfWeek,
@@ -23,8 +24,8 @@ const dayKey = (date: Date): string =>
 @Component({
   selector: 'example-calendar-workspace-page',
   standalone: true,
-  imports: [GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent, GoodGroupComponent,
-    GoodListboxComponent, GoodMainViewComponent, GoodMonthCalendarComponent],
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent,
+    GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodMonthCalendarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar-workspace-page.html',
 })
@@ -59,6 +60,7 @@ export class CalendarWorkspacePageComponent {
   readonly visibleEvents = computed(() => this.events().filter(event =>
     this.visibleCalendars().includes(event.calendar)));
   readonly feedback = signal('Choose a date, switch views, or select an event.');
+  readonly sourceOpen = signal(false);
   readonly htmlSource = calendarWorkspaceHtml;
   readonly typescriptSource = calendarWorkspaceTs;
 

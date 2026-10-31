@@ -185,6 +185,15 @@
       "kind": "input"
     },
     {
+      "name": "fillHeight",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/calendar.ts",
+      "kind": "input"
+    },
+    {
       "name": "sidebarEnabled",
       "type": "boolean",
       "required": false,

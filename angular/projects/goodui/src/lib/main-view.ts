@@ -3,6 +3,8 @@ import { GoodSubnavComponent } from './subnav';
 import { GoodEyebrowComponent, GoodEyebrowAppearance, GoodHeadingComponent, GoodHeadingGroupComponent, GoodSummaryComponent } from './typography';
 import { GoodSubnavAction, GoodSubnavItem } from './models';
 
+export type GoodMainViewLayout = 'page' | 'fill';
+
 @Component({
   selector: 'good-main-view',
   standalone: true,
@@ -22,9 +24,10 @@ import { GoodSubnavAction, GoodSubnavItem } from './models';
     }
     <div class="good-main-view-content"><ng-content /></div>
   `,
-  host: { class: 'good-main-view' },
+  host: { class: 'good-main-view', '[attr.data-layout]': 'layout()' },
 })
 export class GoodMainViewComponent {
+  readonly layout = input<GoodMainViewLayout>('page');
   readonly subnavItems = input<readonly GoodSubnavItem[]>([]);
   readonly subnavActions = input<readonly GoodSubnavAction[]>([]);
   readonly subnavLabel = input('Subnav');

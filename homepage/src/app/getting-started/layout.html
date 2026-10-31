@@ -54,7 +54,7 @@
     <good-subheading>3. Connect a route and render a page</good-subheading>
     <good-prose>
       <good-paragraph>Register the route used by the navigation item. Its component renders <code>good-main-view</code> inside the outlet. The title becomes the page heading; the section and prose components provide the content width and reading rhythm.</good-paragraph>
-      <good-paragraph>Choose one layout for each page. Put all top-level content in direct <code>good-section</code> children for a centered page: MainView aligns its title, description, and content to the same width. For a free full-width page, omit Sections and put content directly in MainView. Its heading and content then share the left edge. Avoid mixing the two layouts on one page.</good-paragraph>
+      <good-paragraph>For a reading page, use <code>layout="page"</code> (the default). Put all top-level content in direct <code>good-section</code> children to align the title and content to the same centered width. Omit Sections for a full-width page whose heading and content begin at the same left edge.</good-paragraph>
     </good-prose>
     <good-code-block [code]="routesCode" language="typescript" title="src/app/app.routes.ts" />
     <good-code-block [code]="pageComponentCode" language="typescript" title="src/app/overview-page.ts" />
@@ -67,5 +67,17 @@
       <good-paragraph>Angular Router is needed for active navigation and page loading. Register <code>provideGoodUI()</code> once for shared theme and notification services. The <good-link route="/getting-started/developing">Developing chapter</good-link> covers package installation and stylesheet setup.</good-paragraph>
     </good-prose>
     <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>Choose the MainView layout</good-subheading>
+    <good-prose>
+      <good-paragraph><code>layout="page"</code> lets the page scroll. Direct Sections make a centered reading page, as shown above; without Sections, content uses the available width. Use this for documents, forms, tables, and ordinary component pages.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="freePageCode" language="html" title="Full-width scrolling page" />
+    <good-prose>
+      <good-paragraph><code>layout="fill"</code> makes MainView occupy the available application area without outer padding. Place one primary child in it; the child meets the edges and owns its scrollbars. The calendar also needs <code>[fillHeight]="true"</code> for a flush frame whose time grid, month view, list, and optional tool panel scroll internally. The <good-link route="/examples/calendar-workspace">calendar workspace example</good-link> shows the running result and its complete source.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="fillPageCode" language="html" title="Fill the available area" />
   </good-section>
 </good-main-view>

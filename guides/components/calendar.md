@@ -66,6 +66,7 @@ To open your own editor or persist a move, add output handlers to the template:
 | `[sidebarLabel]` | Accessible name for the panel and its toggle; defaults to `Calendar tools`. |
 | `[showCurrentTime]` | `true` by default. Draws a live time line in today's column of week and day views; set `false` to hide it. |
 | `[showDayStrip]` | `false` by default. When enabled, shows a seven-day picker above the day grid in narrow containers; selecting a date updates `date`. |
+| `[fillHeight]` | `false` by default. In a height-constrained parent such as `good-main-view layout="fill"`, fills the available height with a flush outer frame and scrolls the time grid, month, list, and optional sidebar within the calendar. |
 | `[(date)]` | The date around which the visible period is built. Prev/next moves by the current view's period; Today returns to the current date. |
 | `[events]` | Optional externally managed event list. When supplied, dragging emits `eventMoved` without changing that input; update your data after saving. |
 | `(eventClicked)` / `(eventDoubleClicked)` | Emits the normalized event. Double-click can open an application-owned editor. |

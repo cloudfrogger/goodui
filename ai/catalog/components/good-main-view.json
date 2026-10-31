@@ -10,6 +10,18 @@
   "source": "angular/projects/goodui/src/lib/main-view.ts",
   "inputs": [
     {
+      "name": "layout",
+      "type": "GoodMainViewLayout",
+      "required": false,
+      "default": "page",
+      "allowedValues": [
+        "page",
+        "fill"
+      ],
+      "source": "angular/projects/goodui/src/lib/main-view.ts",
+      "kind": "input"
+    },
+    {
       "name": "subnavItems",
       "type": "readonly GoodSubnavItem[]",
       "required": false,
@@ -78,6 +90,10 @@
   ],
   "outputs": [],
   "variants": {
+    "layout": [
+      "page",
+      "fill"
+    ],
     "eyebrowAppearance": [
       "brand",
       "mono"

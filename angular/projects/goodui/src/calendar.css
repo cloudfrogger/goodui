@@ -1,4 +1,9 @@
 .good-calendar { display: block; min-width: 0; container-type: inline-size; color: var(--good-calendar-text); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-calendar[data-fill-height="true"] { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.good-calendar[data-fill-height="true"] .good-calendar-workspace { flex: 1; min-height: 0; }
+.good-calendar[data-fill-height="true"] .good-calendar-sidebar { min-height: 0; overflow: auto; }
+.good-calendar[data-fill-height="true"] .good-calendar-frame { display: flex; flex-direction: column; min-height: 0; }
+.good-calendar[data-fill-height="true"] :is(.good-calendar-time-scroll, .good-calendar-month-scroll, .good-calendar-list) { flex: 1; min-height: 0; max-height: none; overflow: auto; }
 .good-calendar-workspace { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; }
 .good-calendar-workspace[data-sidebar-open="true"] { grid-template-columns: minmax(0, 256px) minmax(0, 1fr); }
 .good-calendar-sidebar { min-width: 0; padding: var(--good-space-4); border: 1px solid var(--good-calendar-border); border-right: 0; border-radius: var(--good-calendar-radius) 0 0 var(--good-calendar-radius); background: var(--good-calendar-surface); }
@@ -8,6 +13,7 @@
 .good-calendar-workspace[data-sidebar-open="true"] .good-calendar-frame { border-radius: 0 var(--good-calendar-radius) var(--good-calendar-radius) 0; }
 @container (max-width: 760px) {
   .good-calendar-workspace[data-sidebar-open="true"] { grid-template-columns: minmax(0, 1fr); }
+  .good-calendar[data-fill-height="true"] .good-calendar-workspace[data-sidebar-open="true"] { grid-template-rows: minmax(0, 45%) minmax(0, 1fr); }
   .good-calendar-sidebar { border-right: 1px solid var(--good-calendar-border); border-bottom: 0; border-radius: var(--good-calendar-radius) var(--good-calendar-radius) 0 0; }
   .good-calendar-sidebar .good-month-calendar { --good-month-calendar-block-width: min(100%, 280px); }
   .good-calendar-workspace[data-sidebar-open="true"] .good-calendar-frame { border-radius: 0 0 var(--good-calendar-radius) var(--good-calendar-radius); }
@@ -146,3 +152,10 @@
 .good-calendar-list-empty { margin: 0; padding: var(--good-space-1) var(--good-space-2); font-size: 12px; }
 .good-calendar[data-disabled="true"] .good-calendar-event { cursor: default; opacity: .65; }
 @media (max-width: 760px) { .good-calendar-toolbar { align-items: stretch; padding: var(--good-space-3); } .good-calendar-toolbar-actions { justify-content: space-between; width: 100%; } .good-calendar-list-event { grid-template-columns: 76px 8px minmax(0, 1fr); } .good-calendar-list-description { display: none; } }
+
+.good-calendar[data-fill-height="true"] :is(.good-calendar-frame, .good-calendar-sidebar) { border-radius: 0; }
+.good-calendar[data-fill-height="true"] .good-calendar-frame { border: 0; }
+.good-calendar[data-fill-height="true"] .good-calendar-sidebar { border: 0; border-right: 1px solid var(--good-calendar-border); }
+@container (max-width: 760px) {
+  .good-calendar[data-fill-height="true"] .good-calendar-sidebar { border-right: 0; border-bottom: 1px solid var(--good-calendar-border); }
+}

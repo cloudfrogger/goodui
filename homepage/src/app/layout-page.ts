@@ -63,12 +63,24 @@ export const routes: Routes = [
       import('./overview-page').then(m => m.OverviewPageComponent) },
 ];`;
 
-  readonly pageCode = `<good-main-view title="Overview" description="A quick view of your workspace.">
+  readonly pageCode = `<good-main-view layout="page" title="Overview" description="A quick view of your workspace.">
   <good-section>
     <good-prose>
       <good-paragraph>Your page content goes here.</good-paragraph>
     </good-prose>
   </good-section>
+</good-main-view>`;
+
+  readonly freePageCode = `<good-main-view layout="page" title="Schedule">
+  <good-calendar />
+</good-main-view>`;
+
+  readonly fillPageCode = `<good-main-view layout="fill">
+  <good-calendar [fillHeight]="true" [sidebarEnabled]="true">
+    <div goodCalendarSidebar>
+      <good-month-calendar />
+    </div>
+  </good-calendar>
 </good-main-view>`;
 
   readonly pageComponentCode = `import { Component } from '@angular/core';
