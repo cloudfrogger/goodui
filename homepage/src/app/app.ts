@@ -56,7 +56,11 @@ export class App {
       { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
     ] },
     { id: 'foundation', heading: 'FOUNDATION', items: [
-      { id: 'layout', label: 'Layout', icon: 'grid', route: '/getting-started/layout' },
+      { id: 'layout', label: 'Layout', icon: 'grid', children: [
+        { id: 'layout-general', label: 'General', route: '/getting-started/layout/general' },
+        { id: 'layout-default', label: 'Default view', route: '/getting-started/layout/default' },
+        { id: 'layout-fill', label: 'Fill view', route: '/getting-started/layout/fill' },
+      ] },
       { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
       { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
     ] },
@@ -140,7 +144,11 @@ export class App {
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
       { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
       { id: 'foundation', label: 'Foundation', children: [
-        { id: 'layout', label: 'Layout', icon: 'grid', route: '/getting-started/layout' },
+        { id: 'layout', label: 'Layout', icon: 'grid', children: [
+          { id: 'layout-general', label: 'General', route: '/getting-started/layout/general' },
+          { id: 'layout-default', label: 'Default view', route: '/getting-started/layout/default' },
+          { id: 'layout-fill', label: 'Fill view', route: '/getting-started/layout/fill' },
+        ] },
         { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
         { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
       ] },
@@ -162,7 +170,9 @@ export class App {
     ] },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
-    { id: 'layout', label: 'Layout', description: 'Foundation · application shell, navigation, branding, and responsive drawer', route: '/getting-started/layout' },
+    { id: 'layout-general', label: 'Layout · General', description: 'Foundation · application shell, navigation, and providers', route: '/getting-started/layout/general' },
+    { id: 'layout-default', label: 'Layout · Default view', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default' },
+    { id: 'layout-fill', label: 'Layout · Fill view', description: 'Foundation · full-height workspace without page scrolling', route: '/getting-started/layout/fill' },
     { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
     { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
     { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },

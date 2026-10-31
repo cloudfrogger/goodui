@@ -1,0 +1,56 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Foundation · Layout</good-eyebrow>
+        <good-heading [level]="1">Fill view</good-heading>
+        <good-summary>Give one workspace the full main area, with no outer padding or page scrolling.</good-summary>
+      </good-heading-group>
+      <good-paragraph>Use this layout when the content is an application workspace, such as a calendar or editor. Set up the shell first as shown in <good-link route="/getting-started/layout/general">General</good-link>.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>See the filled workspace</good-subheading>
+    <good-prose>
+      <good-paragraph>The calendar meets the topbar, sidebar, and viewport edges. Its time grid scrolls within the workspace, while the application frame remains fixed. Select the screenshot for a closer look.</good-paragraph>
+    </good-prose>
+    <good-inline-image src="/foundation/layout-fill-workspace.png" style="--good-typography-image-max-width: 100%"
+      alt="GoodUI calendar workspace filling the main view, with a fixed application frame and an internal time grid"
+      caption="A full-height Angular calendar workspace at 1440 × 900 px. The blue line marks the current time."
+      [previewable]="true" loading="eager" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>What fills the screen?</good-subheading>
+    <good-prose>
+      <good-paragraph>The sidebar and topbar stay in place. <code>good-main-view layout="fill"</code> takes the remaining space below the topbar and removes its own padding. The application page does not scroll; the projected workspace owns its internal scroll areas.</good-paragraph>
+      <good-paragraph>Place one primary component directly inside MainView. Do not wrap it in a Section or Card when it should touch the edges. A MainView title or description also uses space, so leave them out for a fully flush workspace.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>1. Add a workspace route</good-subheading>
+    <good-prose>
+      <good-paragraph>Use the <code>good-app-layout</code> and <code>&lt;router-outlet /&gt;</code> from General. Route to the component that renders the workspace.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="routeCode" language="typescript" title="src/app/app.routes.ts" />
+    <good-code-block [code]="componentCode" language="typescript" title="src/app/calendar-page.ts" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>2. Fill the main area</good-subheading>
+    <good-prose>
+      <good-paragraph><code>layout="fill"</code> controls MainView. For Calendar, <code>[fillHeight]="true"</code> makes the calendar fill that view and keeps its time grid, month view, and list scrolling inside the component. Other workspace components must likewise provide their own internal scrolling.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="pageCode" language="html" title="src/app/calendar-page.html" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>See it in use</good-subheading>
+    <good-prose>
+      <good-paragraph>Open the <good-link route="/examples/calendar-workspace">calendar workspace example</good-link> on desktop or mobile. It fills the client area, while its calendar grid and optional sidebar scroll independently. Use its “View source” action to inspect the complete working Angular page.</good-paragraph>
+      <good-paragraph>For content that should grow and scroll as a page instead, use <good-link route="/getting-started/layout/default">Default view</good-link>.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>

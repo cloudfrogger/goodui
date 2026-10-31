@@ -6,15 +6,15 @@ import {
 } from '@goodui/angular';
 
 @Component({
-  selector: 'showcase-layout-page',
+  selector: 'showcase-layout-general-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodSubheadingComponent,
     GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent,
     GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './getting-started/layout.html',
+  templateUrl: './getting-started/layout-general.html',
 })
-export class LayoutPageComponent {
+export class LayoutGeneralPageComponent {
   readonly rootCode = `import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
@@ -54,49 +54,6 @@ export class App {
   mobileTopbarMenuMode="popup">
   <router-outlet />
 </good-app-layout>`;
-
-  readonly routesCode = `import { Routes } from '@angular/router';
-
-export const routes: Routes = [
-  { path: '', redirectTo: 'overview', pathMatch: 'full' },
-  { path: 'overview', loadComponent: () =>
-      import('./overview-page').then(m => m.OverviewPageComponent) },
-];`;
-
-  readonly pageCode = `<good-main-view layout="page" title="Overview" description="A quick view of your workspace.">
-  <good-section>
-    <good-prose>
-      <good-paragraph>Your page content goes here.</good-paragraph>
-    </good-prose>
-  </good-section>
-</good-main-view>`;
-
-  readonly freePageCode = `<good-main-view layout="page" title="Schedule">
-  <good-calendar />
-</good-main-view>`;
-
-  readonly fillPageCode = `<good-main-view layout="fill">
-  <good-calendar [fillHeight]="true" [sidebarEnabled]="true">
-    <div goodCalendarSidebar>
-      <good-month-calendar />
-    </div>
-  </good-calendar>
-</good-main-view>`;
-
-  readonly pageComponentCode = `import { Component } from '@angular/core';
-import {
-  GoodMainViewComponent, GoodParagraphComponent,
-  GoodProseComponent, GoodSectionComponent,
-} from '@goodui/angular';
-
-@Component({
-  selector: 'app-overview-page',
-  standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent,
-    GoodProseComponent, GoodParagraphComponent],
-  templateUrl: './overview-page.html',
-})
-export class OverviewPageComponent {}`;
 
   readonly providersCode = `import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';

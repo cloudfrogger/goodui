@@ -1,0 +1,51 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Foundation · Layout</good-eyebrow>
+        <good-heading [level]="1">Default view</good-heading>
+        <good-summary>Make a page that grows with its content and scrolls in the main area.</good-summary>
+      </good-heading-group>
+      <good-paragraph>The <good-link route="/getting-started/layout/general">General</good-link> chapter sets up the application shell. Use this page layout for forms, documents, tables, and other content that should scroll normally.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>See the default view</good-subheading>
+    <good-prose>
+      <good-paragraph>The <good-link route="/examples/user-registration">user registration example</good-link> shows a complete form in the default MainView. The page has its own padding and scrolls as its content grows. Select the screenshot for a closer look.</good-paragraph>
+    </good-prose>
+    <good-inline-image src="/foundation/layout-app-shell.png" style="--good-typography-image-max-width: 100%"
+      alt="GoodUI user registration page inside a normally scrolling MainView with sidebar and topbar"
+      caption="User registration in the default view at 1440 × 900 px."
+      [previewable]="true" loading="eager" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>1. Connect a page route</good-subheading>
+    <good-prose>
+      <good-paragraph>Register the route used by the shell's navigation item. Its component renders MainView inside the existing <code>&lt;router-outlet /&gt;</code>.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="routesCode" language="typescript" title="src/app/app.routes.ts" />
+    <good-code-block [code]="pageComponentCode" language="typescript" title="src/app/overview-page.ts" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>2. Render a scrolling page</good-subheading>
+    <good-prose>
+      <good-paragraph><code>layout="page"</code> is the default. MainView adds page padding and lets the content scroll. Put every top-level content block in a direct <code>good-section</code> to align the heading and content to one centered reading width.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="pageCode" language="html" title="src/app/overview-page.html" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>Use the available width</good-subheading>
+    <good-prose>
+      <good-paragraph>Direct Sections make a centered reading page, as shown above. For a scrolling page that uses the available width, put the content directly inside MainView. Its heading and content then start at the same left edge. The <code>layout="page"</code> value can be omitted because it is the default.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="freePageCode" language="html" title="Full-width scrolling page" />
+    <good-prose>
+      <good-paragraph>Need the content to meet all four edges without page scrolling? Continue with <good-link route="/getting-started/layout/fill">Fill view</good-link>.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>

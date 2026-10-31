@@ -1,0 +1,54 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Foundation · Layout</good-eyebrow>
+        <good-heading [level]="1">General</good-heading>
+        <good-summary>Set up the application shell once, then choose how each routed page uses the main area.</good-summary>
+      </good-heading-group>
+      <good-paragraph><code>good-app-layout</code> owns the sidebar, topbar, and responsive navigation. Routed pages render inside its <code>&lt;router-outlet /&gt;</code>. Each page then chooses <good-link route="/getting-started/layout/default">Default view</good-link> or <good-link route="/getting-started/layout/fill">Fill view</good-link>.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>How the frame works</good-subheading>
+    <good-prose>
+      <good-paragraph>On desktop, a 280 px sidebar sits beside the topbar and main area. At 900 px and below, the sidebar becomes a drawer. The shell handles offsets, navigation state, the drawer backdrop, and focus restoration. Group related links under expandable navigation items when the menu grows.</good-paragraph>
+    </good-prose>
+    <good-inline-image src="/foundation/layout-anatomy.svg" style="--good-typography-image-max-width: 100%"
+      alt="Diagram of AppLayout with desktop sidebar, topbar, MainView, and the mobile navigation drawer"
+      caption="AppLayout owns the frame; each route chooses its MainView layout."
+      [previewable]="true" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>1. Define the root component</good-subheading>
+    <good-prose>
+      <good-paragraph>Import <code>GoodAppLayoutComponent</code> and <code>RouterOutlet</code>. Give navigation items stable IDs and routes. The active route highlights its link and opens its parent group.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="rootCode" language="typescript" title="src/app/app.ts" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>2. Compose the shell</good-subheading>
+    <good-prose>
+      <good-paragraph>Place <code>good-app-layout</code> around the outlet. Supply your application's wordmark and symbol from <code>public/brand/</code>. Dark artwork is optional; without it, the light image is reused. <code>mobileTopbarMenuMode="popup"</code> keeps topbar links in a separate mobile menu.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="shellCode" language="html" title="src/app/app.html" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>3. Register the providers</good-subheading>
+    <good-prose>
+      <good-paragraph>Register Angular Router and <code>provideGoodUI()</code> once. The <good-link route="/getting-started/developing">Developing chapter</good-link> covers package installation and styles.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />
+  </good-section>
+
+  <good-section>
+    <good-subheading>Choose the page behavior</good-subheading>
+    <good-prose>
+      <good-paragraph>Continue with <good-link route="/getting-started/layout/default">Default view</good-link> for a normal scrolling page, or <good-link route="/getting-started/layout/fill">Fill view</good-link> for a workspace with its own scroll areas.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>

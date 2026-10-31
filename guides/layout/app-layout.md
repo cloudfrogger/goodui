@@ -55,7 +55,7 @@ Choose `layout="fill"` when a single workspace must occupy all remaining height 
 The [calendar workspace example](../../homepage/src/app/examples/calendar-workspace/calendar-workspace-page.html) shows a routed page using this layout without a page heading.
 
 The simple input API creates the component hierarchy internally. You can compose the exported containers directly for special cases. Navigation requires `provideRouter(...)`; the active path comes from Angular Router.
-The homepage's **Foundation → Layout** chapter shows a complete root component, shell template, route, page, and provider setup.
+The homepage's **Foundation → Layout** chapter starts with **General** for the root component, shell, and providers. **Default view** shows a scrolling route and the user registration example; **Fill view** shows a full-height workspace.
 
 `brand` is the accessible name for optional logo artwork. `brandLogoSrc` and `brandLogoDarkSrc` supply the light and dark wordmarks for the desktop sidebar and mobile drawer. `brandMarkSrc` and `brandMarkDarkSrc` supply the light and dark symbols for the mobile topbar and optional desktop BrandIcon. When a dark URL is omitted, the light image is used in both themes. Without a mark URL, the mobile topbar continues to show the wordmark or text, preserving existing application behavior. Without a wordmark URL, the sidebar and drawer show the text brand and generic accent mark. Put the files in your Angular application's `public/` directory (or use your own hosted URLs). GoodUI does not package an application logo or favicon.
 
