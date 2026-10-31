@@ -106,3 +106,12 @@ npm run start:homepage`;
   templateUrl: './getting-started/license.html',
 })
 export class LicensePageComponent {}
+
+@Component({
+  selector: 'app-changelog-page',
+  standalone: true,
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './getting-started/changelog.html',
+})
+export class ChangelogPageComponent {}

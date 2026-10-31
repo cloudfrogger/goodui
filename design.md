@@ -321,7 +321,7 @@ The switch track and thumb dimensions have their own semantic sizing tokens. `sw
 
 ### Nested topbar menus
 
-The homepage has a top-level “Getting Started” menu with Introduction, Designing, Developing, and License routes. Its separate Help menu has “Support Forum,” “Licenses & FAQ,” “Documentation,” and “Contact Us” after a divider. “Support Forum” reveals “All Questions,” “Popular Questions,” and “Ask Question.” Parents show a chevron; only leaves navigate. The selected parent uses `color.selected`; text, icons, borders, and surfaces use semantic color roles.
+The homepage has a top-level “Getting Started” menu with Introduction, Designing, Developing, License, and Changelog routes. Its separate Help menu has “Support Forum,” “Licenses & FAQ,” “Documentation,” and “Contact Us” after a divider. “Support Forum” reveals “All Questions,” “Popular Questions,” and “Ask Question.” Parents show a chevron; only leaves navigate. The selected parent uses `color.selected`; text, icons, borders, and surfaces use semantic color roles.
 
 `TopbarMenuItem` owns the trigger and first open state. `TopbarDropdownMenu` arranges the first level; `TopbarDropdownItem` renders a link or parent; `TopbarSubmenu` arranges the next level. Further levels reuse these components. Desktop supports hover, click, and keyboard focus. On mobile, `mobileTopbarMenuMode` selects the default drawer placement (`hidden`) or a topbar icon and popup (`popup`). Both stack nested levels vertically. Escape closes the deepest level first and returns focus to its trigger; outside clicks close the chain. Submenus flip toward available viewport space.
 

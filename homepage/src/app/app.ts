@@ -53,6 +53,7 @@ export class App {
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
+      { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
     ] },
     { id: 'foundation', heading: 'FOUNDATION', items: [
       { id: 'layout', label: 'Layout', icon: 'grid', route: '/getting-started/layout' },
@@ -133,6 +134,7 @@ export class App {
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
+      { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
       { id: 'foundation', label: 'Foundation', children: [
         { id: 'layout', label: 'Layout', icon: 'grid', route: '/getting-started/layout' },
         { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
@@ -163,6 +165,7 @@ export class App {
     { id: 'designing', label: 'Designing', description: 'Getting Started', route: '/getting-started/designing' },
     { id: 'developing', label: 'Developing', description: 'Getting Started', route: '/getting-started/developing' },
     { id: 'license', label: 'License', description: 'Getting Started', route: '/getting-started/license' },
+    { id: 'changelog', label: 'Changelog', description: 'Getting Started · user-facing changes and commit references', route: '/getting-started/changelog' },
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
     { id: 'alerts', label: 'Alerts', description: 'Tones, appearances, sizes, actions, and dismissal', route: '/components/alerts' },
     { id: 'progress', label: 'Progress', description: 'Determinate, indeterminate, and timed progress bars', route: '/components/progress' },
