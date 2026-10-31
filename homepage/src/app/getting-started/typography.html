@@ -1,5 +1,16 @@
-<good-main-view title="Typography" eyebrow="FOUNDATION" description="Reusable text elements with consistent rhythm for pages and forms.">
-  <div class="showcase-typography-layout">
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Foundation</good-eyebrow>
+        <good-heading [level]="1">Typography</good-heading>
+        <good-summary>Reusable text elements with consistent rhythm for pages and forms.</good-summary>
+      </good-heading-group>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <div class="showcase-typography-layout">
     <section class="showcase-section">
       <div class="showcase-section-heading"><h2>Page headings</h2><p>Eyebrow and summary are optional. The heading remains a real HTML heading.</p></div>
       <div class="showcase-typography-heading-examples">
@@ -158,5 +169,6 @@
       <good-code-block [code]="importsCode" language="typescript" title="page.ts" />
       <good-code-block [code]="exampleCode" language="html" title="page.html" />
     </section>
-  </div>
+    </div>
+  </good-section>
 </good-main-view>

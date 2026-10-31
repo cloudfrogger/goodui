@@ -1,9 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import {
-  GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent,
-  GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodThemeService,
+  GoodButtonComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent,
+  GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
+  GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, GoodThemeService,
   GOOD_MARKER_COLORS,
 } from '@goodui/angular';
 
@@ -38,6 +38,7 @@ const markerRoles: readonly ColorRole[] = GOOD_MARKER_COLORS.map(name => ({
   selector: 'showcase-color-scheme-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodSubheadingComponent,
+    GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent,
     GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/color-scheme.html',

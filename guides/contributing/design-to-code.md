@@ -1,6 +1,6 @@
 # From Penpot to Angular
 
-The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`. Refresh and validate it after each completed change with the workflow in [`design/penpot/README.md`](../../design/penpot/README.md); the token JSON below is a separate CSS generation input. Check that the archive exists before claiming a snapshot is available.
+The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`, but its export workflow is suspended while [Penpot issue #11554](https://github.com/penpot/penpot/issues/11554) remains unresolved. See [`design/penpot/README.md`](../../design/penpot/README.md) before resuming it. The token JSON below is a separate CSS generation input; live Penpot inspection and component mapping checks continue during the suspension. Check that the archive exists before claiming a snapshot is available.
 
 ## Workflow
 

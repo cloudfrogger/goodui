@@ -4,7 +4,7 @@ GoodUI Typography supplies content structure and spacing without page-specific m
 
 ## Page heading
 
-`good-heading-group` arranges an optional `good-eyebrow`, a `good-heading`, and an optional `good-summary`. Eyebrow defaults to the brand color and accepts `appearance="mono"`. The Summary uses 15 px text, weight 700, and 0.75 px letter spacing (0.05em at this fixed size) so it reads as a distinct lead-in above 14 px paragraphs without overpowering the title in multi-line copy. `good-heading` renders a real heading tag according to `level` (1–6, default 1). H1 uses 24 px and weight 800, with a 16 px gap below it when followed by Summary in a HeadingGroup or by page content in MainView; H2–H6 use 20 px and weight 600 with the compact 4 px gap. `good-main-view` already composes these elements for its `eyebrow`, `title`, and `description` inputs.
+`good-heading-group` arranges an optional `good-eyebrow`, a `good-heading`, and an optional `good-summary`. Eyebrow defaults to the brand appearance, whose text color follows `color.accent` in both themes, and accepts `appearance="mono"`. The Summary uses 15 px text, weight 700, and 0.75 px letter spacing (0.05em at this fixed size) so it reads as a distinct lead-in above 14 px paragraphs without overpowering the title in multi-line copy. `good-heading` renders a real heading tag according to `level` (1–6, default 1). H1 uses 24 px and weight 800, with a 16 px gap below it when followed by Summary in a HeadingGroup or by page content in MainView; H2–H6 use 20 px and weight 600 with the compact 4 px gap. `good-main-view` already composes these elements for its `eyebrow`, `title`, and `description` inputs.
 
 ```html
 <good-main-view eyebrow="WORKSPACE" title="Reports" description="A concise page summary">

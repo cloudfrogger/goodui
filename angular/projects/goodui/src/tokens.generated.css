@@ -340,7 +340,7 @@
   --good-typography-heading-actions-gap: var(--good-space-6);
   --good-typography-eyebrow-font-size: 12px;
   --good-typography-eyebrow-font-weight: 600;
-  --good-typography-eyebrow-brand-color: var(--good-color-brand);
+  --good-typography-eyebrow-brand-color: var(--good-color-accent);
   --good-typography-eyebrow-mono-color: var(--good-color-text);
   --good-typography-summary-font-size: 15px;
   --good-typography-summary-font-weight: 700;

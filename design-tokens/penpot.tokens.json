@@ -1641,7 +1641,7 @@
           "$type": "fontWeights"
         },
         "brand-color": {
-          "$value": "{color.brand}",
+          "$value": "{color.accent}",
           "$type": "color"
         },
         "mono-color": {
