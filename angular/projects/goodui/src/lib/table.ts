@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, input, output, signal, untracked } from '@angular/core';
+import { ChangeDetectionStrategy, Component, booleanAttribute, computed, effect, input, model, output, signal, untracked } from '@angular/core';
 import { LucideArrowDown, LucideArrowDownUp, LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideSearch, LucideSearchX } from '@lucide/angular';
 import { FlexRender, ColumnDef, Column, RowData, SortingState, PaginationState, injectTable, tableFeatures,
   rowSortingFeature, createSortedRowModel, sortFn_alphanumeric, sortFn_text, sortFn_datetime,
@@ -90,7 +90,13 @@ export interface GoodTableRequest {
           </thead>
           <tbody>
             @for (row of table.getRowModel().rows; track row.id) {
-              <tr>
+              <tr [attr.data-row-id]="selectable() ? row.id : null"
+                [attr.data-selected]="selectable() && row.id === selectedRowId() ? 'true' : null"
+                [attr.aria-selected]="selectable() ? row.id === selectedRowId() : null"
+                [attr.tabindex]="selectable() ? (row.id === activeRowId() ? 0 : -1) : null"
+                (click)="onRowClick($event, row.id, row.original)"
+                (focus)="onRowFocus($event, row.id)"
+                (keydown)="onRowKeydown($event, row.id, row.original)">
                 @for (cell of row.getAllCells(); track cell.id) {
                   <td [attr.data-align]="columnMeta(cell.column).align || null"
                     [attr.data-nowrap]="columnMeta(cell.column).noWrap ? 'true' : null">
@@ -153,6 +159,12 @@ export class GoodTableComponent<TData extends RowData> {
   readonly getRowId = input<(row: TData, index: number) => string>();
   readonly loading = input(false);
   readonly emptyMessage = input('NO records found');
+  /** Opt in to single-row selection. Supply getRowId for stable selection across sorting and updates. */
+  readonly selectable = input(false, { transform: booleanAttribute });
+  /** ID of the selected record; supports [(selectedRowId)] and programmatic changes. */
+  readonly selectedRowId = model<string | null>(null);
+  /** Emits the selected record only when a user chooses a different row. */
+  readonly rowSelected = output<TData>();
   readonly sortingChange = output<SortingState>();
   readonly searchChange = output<string>();
   readonly request = output<GoodTableRequest>();
@@ -160,6 +172,7 @@ export class GoodTableComponent<TData extends RowData> {
   readonly sorting = signal<SortingState>([]);
   readonly pageState = signal<PaginationState>({ pageIndex: 0, pageSize: 10 });
   readonly cursorHistory = signal<(string | null)[]>([null]);
+  private readonly focusedRowId = signal<string | null>(null);
   readonly searchIcon = LucideSearch;
   readonly previousIcon = LucideChevronLeft;
   readonly nextIcon = LucideChevronRight;
@@ -196,6 +209,15 @@ export class GoodTableComponent<TData extends RowData> {
         if (server) this.emitRequest();
       },
     };
+  });
+
+  /** One tab stop for the table body; arrow keys move focus between visible rows. */
+  readonly activeRowId = computed(() => {
+    const rows = this.table.getRowModel().rows;
+    const focused = this.focusedRowId();
+    if (focused && rows.some(row => row.id === focused)) return focused;
+    const selected = this.selectedRowId();
+    return rows.find(row => row.id === selected)?.id ?? rows[0]?.id ?? null;
   });
 
   readonly pageSizeChoices = computed(() => {
@@ -257,6 +279,42 @@ export class GoodTableComponent<TData extends RowData> {
   sortLabel(column: Column<typeof goodTableFeatures, TData, unknown>): string {
     const title = typeof column.columnDef.header === 'string' ? column.columnDef.header : column.id;
     return `Sort ${title}${column.getIsSorted() === 'asc' ? ' descending' : ' ascending'}`;
+  }
+  onRowClick(event: MouseEvent, id: string, record: TData): void {
+    if (!this.selectable() || this.isInteractiveTarget(event)) return;
+    this.chooseRow(id, record);
+  }
+  onRowFocus(event: FocusEvent, id: string): void {
+    if (event.target === event.currentTarget) this.focusedRowId.set(id);
+  }
+  onRowKeydown(event: KeyboardEvent, id: string, record: TData): void {
+    if (!this.selectable() || event.target !== event.currentTarget) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.chooseRow(id, record);
+      return;
+    }
+    const rows = this.table.getRowModel().rows;
+    const index = rows.findIndex(row => row.id === id);
+    const next = event.key === 'ArrowDown' ? index + 1 : event.key === 'ArrowUp' ? index - 1
+      : event.key === 'Home' ? 0 : event.key === 'End' ? rows.length - 1 : -1;
+    if (next < 0 || next >= rows.length || next === index) return;
+    event.preventDefault();
+    const target = (event.currentTarget as HTMLTableRowElement).parentElement?.children.item(next);
+    if (target instanceof HTMLElement) target.focus();
+  }
+  private chooseRow(id: string, record: TData): void {
+    this.focusedRowId.set(id);
+    if (this.selectedRowId() === id) return;
+    this.selectedRowId.set(id);
+    this.rowSelected.emit(record);
+  }
+  private isInteractiveTarget(event: MouseEvent): boolean {
+    const row = event.currentTarget as HTMLElement;
+    const target = event.target;
+    if (!(target instanceof Element)) return false;
+    const interactive = target.closest('a, button, input, select, textarea, summary, [contenteditable="true"], [role="button"], [role="link"], [role="checkbox"], [role="switch"], [tabindex]');
+    return !!interactive && interactive !== row && row.contains(interactive);
   }
   setSearch(value: string): void {
     if (this.search() === value) return;

@@ -129,9 +129,38 @@
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/table.ts",
       "kind": "input"
+    },
+    {
+      "name": "selectable",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "selectedRowId",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "model"
     }
   ],
   "outputs": [
+    {
+      "name": "selectedRowIdChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "implicit": true
+    },
+    {
+      "name": "rowSelected",
+      "type": "TData",
+      "source": "angular/projects/goodui/src/lib/table.ts"
+    },
     {
       "name": "sortingChange",
       "type": "SortingState",

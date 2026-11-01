@@ -1,0 +1,18 @@
+{
+  "page": "40 Resizable",
+  "pageId": "2f4a7d00-3514-8040-8008-e1676a36f139",
+  "selector": "good-resizable",
+  "published": [
+    { "name": "goodui.resizable.grip", "componentId": "2f4a7d00-3514-8040-8008-e1677af4eea7", "shapeId": "2f4a7d00-3514-8040-8008-e1677ab3611a", "handle": "grip", "orientation": "horizontal" },
+    { "name": "goodui.resizable.line", "componentId": "2f4a7d00-3514-8040-8008-e167f6729afd", "shapeId": "2f4a7d00-3514-8040-8008-e167f0100797", "handle": "line", "orientation": "horizontal" },
+    { "name": "goodui.resizable.dots", "componentId": "2f4a7d00-3514-8040-8008-e167fe86e8c9", "shapeId": "2f4a7d00-3514-8040-8008-e167f67487ad", "handle": "dots", "orientation": "horizontal" },
+    { "name": "goodui.resizable.chevrons", "componentId": "2f4a7d00-3514-8040-8008-e16804cbbd5b", "shapeId": "2f4a7d00-3514-8040-8008-e167fe8ae607", "handle": "chevrons", "orientation": "horizontal" },
+    { "name": "goodui.resizable.vertical", "componentId": "2f4a7d00-3514-8040-8008-e1680d2ed757", "shapeId": "2f4a7d00-3514-8040-8008-e16804cdbe07", "handle": "grip", "orientation": "vertical" },
+    { "name": "goodui.resizable.disabled", "componentId": "2f4a7d00-3514-8040-8008-e1681679215c", "shapeId": "2f4a7d00-3514-8040-8008-e1680d31052c", "handle": "grip", "disabled": true },
+    { "name": "goodui.resizable-pane", "componentId": "2f4a7d00-3514-8040-8008-e1682a05bb5c", "shapeId": "2f4a7d00-3514-8040-8008-e16829de9a34", "selector": "good-resizable-pane" }
+  ],
+  "runtimeInputs": ["split", "orientation", "handle", "height", "minSplit", "maxSplit", "disabled", "ariaLabel"],
+  "paneInputs": ["padding"],
+  "runtimeOutputs": ["splitChange", "splitChangeEnd"],
+  "notes": "The boards show representative handle, stacked, and disabled states. The pane component represents projected content; side=start/end is a static projection attribute. Auto orientation stacks below 680 px of component width. Split is a percentage of available space after the 12 px separator. Pointer and keyboard operation and independent pane scrolling are runtime behaviors."
+}

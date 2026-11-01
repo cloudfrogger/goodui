@@ -1,0 +1,50 @@
+<good-main-view title="Resizable" description="Divide a workspace into two areas and let people choose how much room each area gets.">
+  <good-section>
+    <good-group title="A split view that adapts" appearance="plain">
+      <good-paragraph>Place one <code>good-resizable-pane</code> on each side. Drag the divider, use the arrow keys while it has focus, or set <code>split</code> in code. Below 680 px of available width, the two areas stack and the same divider moves vertically. Each area scrolls on its own.</good-paragraph>
+      <good-resizable [(split)]="split" (splitChangeEnd)="settled.set($event)" ariaLabel="Resize folders and preview">
+        <good-resizable-pane side="start">
+          <good-subheading [level]="3">Folders</good-subheading>
+          <good-paragraph>Inbox</good-paragraph><good-paragraph>Projects</good-paragraph><good-paragraph>Archive</good-paragraph>
+        </good-resizable-pane>
+        <good-resizable-pane side="end">
+          <good-subheading [level]="3">Preview</good-subheading>
+          <good-paragraph>Drag the divider to make this area wider. The first area currently has {{ split() }}% of the available space.</good-paragraph>
+          <good-paragraph>Last completed adjustment: {{ settled() }}%.</good-paragraph>
+        </good-resizable-pane>
+      </good-resizable>
+      <good-action-group ariaLabel="Set split programmatically">
+        <good-button size="small" variant="outline" (click)="split.set(30)">30% first area</good-button>
+        <good-button size="small" variant="outline" (click)="split.set(50)">Equal areas</good-button>
+        <good-button size="small" variant="outline" (click)="split.set(70)">70% first area</good-button>
+      </good-action-group>
+      <good-code-block [code]="basicCode" language="typescript" title="Page class" />
+      <good-code-block [code]="basicTemplate" language="html" title="Split view template" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Choose the handle" appearance="plain">
+      <good-paragraph><code>grip</code> is the quiet default: three dots in a small pill. Choose <code>line</code> for the lightest mark, <code>dots</code> for a bare dotted grip, or <code>chevrons</code> when the direction should be especially clear. The entire divider remains the touch and keyboard target in every style.</good-paragraph>
+      @for (style of handles; track style) {
+        <good-subheading [level]="3">{{ style }}</good-subheading>
+        <good-resizable [handle]="style" height="140px" [split]="35" [ariaLabel]="'Resize ' + style + ' example'">
+          <good-resizable-pane side="start">First area</good-resizable-pane>
+          <good-resizable-pane side="end">Second area</good-resizable-pane>
+        </good-resizable>
+      }
+      <good-subheading [level]="3">Disabled</good-subheading>
+      <good-resizable height="140px" [split]="35" disabled ariaLabel="Disabled split view">
+        <good-resizable-pane side="start">First area</good-resizable-pane>
+        <good-resizable-pane side="end">Second area</good-resizable-pane>
+      </good-resizable>
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Options and behavior" appearance="plain">
+      <good-paragraph><code>orientation="auto"</code> is the default. Use <code>horizontal</code> to keep areas side by side or <code>vertical</code> to keep them stacked. <code>height</code> defaults to <code>min(70dvh, 560px)</code>; set <code>height="100%"</code> inside a full-height workspace. Use <code>padding="none"</code> on a pane for a map, canvas, or calendar that reaches its edges.</good-paragraph>
+      <good-paragraph><code>split</code> defaults to 50%. <code>minSplit</code> and <code>maxSplit</code> default to 20 and 80; they keep both areas usable. <code>disabled</code> stops resizing while preserving the layout. <code>splitChange</code> fires as the divider moves; <code>splitChangeEnd</code> fires when a drag or keyboard step finishes, which is useful for saving the preference.</good-paragraph>
+      <good-paragraph>Keyboard: Left/Right in a side-by-side view, Up/Down in a stacked view, Shift plus an arrow for larger steps, Home/End for the allowed bounds. Double-click the divider to return to 50%.</good-paragraph>
+      <good-code-block [code]="optionsTemplate" language="html" title="All common options" />
+    </good-group>
+  </good-section>
+</good-main-view>

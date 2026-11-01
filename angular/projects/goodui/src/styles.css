@@ -5,6 +5,7 @@
 @import "./calendar.css";
 @import "./progress.css";
 @import "./timeline.css";
+@import "./resizable.css";
 @import "./range-slider.css";
 @import "./signature-pad.css";
 @import "./color-picker.css";
@@ -649,6 +650,10 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-table-frame[data-style="bordered"] .good-table-scroll :is(th, td) + :is(th, td) { border-left: 1px solid var(--good-table-border); }
 .good-table-frame[data-style="striped"] .good-table-scroll tbody tr:nth-child(even):not(.good-table-empty-row) { background: var(--good-table-row-striped); }
 .good-table-frame[data-style="striped"] .good-table-scroll tbody tr:nth-child(even):not(.good-table-empty-row):hover { background: var(--good-table-row-hover); }
+.good-table-scroll tbody tr[data-selected="true"] td, .good-table-frame[data-style="striped"] .good-table-scroll tbody tr[data-selected="true"] td { background: var(--good-color-selected); }
+.good-table-scroll tbody tr[data-selected="true"] td:first-child { box-shadow: inset 3px 0 0 var(--good-color-accent); }
+.good-table-scroll tbody tr[data-row-id] { cursor: pointer; }
+.good-table-scroll tbody tr[data-row-id]:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: -2px; }
 .good-table-frame[data-style="compact"] .good-table-scroll :is(th, td) { padding: var(--good-table-compact-padding-block) var(--good-table-compact-padding-inline); }
 .good-table-frame[data-style="compact"] .good-table-scroll td { height: var(--good-table-compact-row-height); }
 .good-table-empty { display: flex; min-height: var(--good-table-empty-min-height); flex-direction: column; align-items: center; justify-content: center; gap: var(--good-space-2); color: var(--good-table-muted); text-align: center; }

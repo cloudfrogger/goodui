@@ -53,6 +53,7 @@ export const routes: Routes = [
   { path: 'components/range-sliders', loadComponent: () => import('./range-sliders-page').then(module => module.RangeSlidersPageComponent) },
   { path: 'components/signature-pads', loadComponent: () => import('./signature-pads-page').then(module => module.SignaturePadsPageComponent) },
   { path: 'components/timelines', loadComponent: () => import('./timelines-page').then(module => module.TimelinesPageComponent) },
+  { path: 'components/resizable', loadComponent: () => import('./resizables-page').then(module => module.ResizablesPageComponent) },
   { path: 'components/pin-inputs', loadComponent: () => import('./pin-inputs-page').then(module => module.PinInputsPageComponent) },
   { path: 'components/selects', loadComponent: () => import('./selects-page').then(module => module.SelectsPageComponent) },
   { path: 'components/listboxes', loadComponent: () => import('./listboxes-page').then(module => module.ListboxesPageComponent) },

@@ -60,6 +60,8 @@
     "prose",
     "progress",
     "range-slider",
+    "resizable",
+    "resizable-pane",
     "rich-text-editor",
     "radio-group",
     "rating",
@@ -1846,6 +1848,55 @@
       "angularSelector": "good-timeline-step",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.resizable.grip",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1677af4eea7",
+      "angularSelector": "good-resizable",
+      "kind": "component",
+      "state": "grip"
+    },
+    {
+      "penpotName": "goodui.resizable.line",
+      "penpotId": "2f4a7d00-3514-8040-8008-e167f6729afd",
+      "angularSelector": "good-resizable",
+      "kind": "component",
+      "state": "line"
+    },
+    {
+      "penpotName": "goodui.resizable.dots",
+      "penpotId": "2f4a7d00-3514-8040-8008-e167fe86e8c9",
+      "angularSelector": "good-resizable",
+      "kind": "component",
+      "state": "dots"
+    },
+    {
+      "penpotName": "goodui.resizable.chevrons",
+      "penpotId": "2f4a7d00-3514-8040-8008-e16804cbbd5b",
+      "angularSelector": "good-resizable",
+      "kind": "component",
+      "state": "chevrons"
+    },
+    {
+      "penpotName": "goodui.resizable.vertical",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1680d2ed757",
+      "angularSelector": "good-resizable",
+      "kind": "component",
+      "state": "vertical"
+    },
+    {
+      "penpotName": "goodui.resizable.disabled",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1681679215c",
+      "angularSelector": "good-resizable",
+      "kind": "component",
+      "state": "disabled"
+    },
+    {
+      "penpotName": "goodui.resizable-pane",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1682a05bb5c",
+      "angularSelector": "good-resizable-pane",
+      "kind": "component",
+      "state": null
     }
   ],
   "variantManifests": [
@@ -1869,6 +1920,7 @@
     "design/modal-variants.json",
     "design/progress-variants.json",
     "design/range-slider-variants.json",
+    "design/resizable-contract.json",
     "design/signature-pad-contract.json",
     "design/timeline-contract.json",
     "design/notification-host-contract.json",

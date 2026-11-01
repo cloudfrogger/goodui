@@ -99,6 +99,7 @@ export class App {
         { id: 'groups', label: 'Groups', route: '/components/groups' },
         { id: 'expandables', label: 'Expandables', route: '/components/expandables' },
         { id: 'timelines', label: 'Timelines', route: '/components/timelines' },
+        { id: 'resizable', label: 'Resizable', route: '/components/resizable' },
         { id: 'links', label: 'Links', route: '/components/links' },
         { id: 'badges', label: 'Badges', route: '/components/badges' },
         { id: 'code-blocks', label: 'Code blocks', route: '/components/code-blocks' },

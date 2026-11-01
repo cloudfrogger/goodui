@@ -709,6 +709,28 @@
       "penpotCount": 1
     },
     {
+      "selector": "good-resizable",
+      "className": "GoodResizableComponent",
+      "file": "components/good-resizable.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodResizableComponent"
+      },
+      "usageGuide": "guides/components/resizable.md",
+      "penpotCount": 6
+    },
+    {
+      "selector": "good-resizable-pane",
+      "className": "GoodResizablePaneComponent",
+      "file": "components/good-resizable-pane.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodResizablePaneComponent"
+      },
+      "usageGuide": "guides/components/resizable-pane.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-rich-text-editor",
       "className": "GoodRichTextEditorComponent",
       "file": "components/good-rich-text-editor.json",

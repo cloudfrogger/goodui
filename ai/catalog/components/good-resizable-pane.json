@@ -1,0 +1,61 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-resizable-pane",
+  "className": "GoodResizablePaneComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodResizablePaneComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/resizable.ts",
+  "inputs": [
+    {
+      "name": "padding",
+      "type": "\"default\" | \"none\"",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "none"
+      ],
+      "source": "angular/projects/goodui/src/lib/resizable.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "padding": [
+      "default",
+      "none"
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/resizable-pane.md",
+  "usage": {
+    "summary": "`good-resizable-pane` is one of the two content areas inside [Resizable](resizable.md). Use it once with `side=\"start\"` and once with `side=\"end\"`; the parent positions them around its divider. The pane scrolls independently and adds responsive content padding by default. Set `padding=\"none\"` when its content should reach the edges.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.resizable-pane",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1682a05bb5c",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

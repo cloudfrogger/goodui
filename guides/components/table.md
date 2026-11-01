@@ -28,6 +28,30 @@ export class PeoplePage {
 
 Sorting is opt-in for each column. Client sorting and search operate on the supplied rows. Pass a stable `getRowId` when cells contain stateful controls or records can be reordered. Column definitions use TanStack's `accessorKey`, `accessorFn`, `header`, `cell`, `enableSorting`, sorting functions, and `meta`. GoodUI recognizes `meta: { align: 'start' | 'center' | 'end', noWrap: boolean }` for cell alignment and wrapping.
 
+## Select one row
+
+Add the `selectable` attribute to opt in. Bind `selectedRowId` when the selection must be read or changed by the page. `rowSelected` gives the complete record when the user chooses a different row; programmatic changes do not emit that interaction event.
+
+```html
+<good-table label="Choose a person" [data]="people()" [columns]="columns"
+  [getRowId]="rowId" selectable [(selectedRowId)]="selectedRowId"
+  (rowSelected)="onRowSelected($event)" />
+```
+
+```ts
+readonly rowId = (person: Person) => person.id;
+readonly selectedRowId = signal<string | null>(null);
+
+onRowSelected(person: Person): void {
+  // Open details, update another panel, or use the selected record.
+}
+
+selectInCode(id: string): void { this.selectedRowId.set(id); }
+clearSelection(): void { this.selectedRowId.set(null); }
+```
+
+Use a stable `getRowId` whenever data can be searched, sorted, paged, or replaced. The highlight follows the ID through those changes. If the selected row is not on the current page, its ID is retained and no visible row is highlighted until it returns. Selection is single and stays selected on a second click; set the ID to `null` to clear it. The table keeps one keyboard tab stop in its body: Up/Down moves focus among visible rows, Home/End jumps to the first/last row, and Enter/Space selects the focused row. Buttons, links, switches, and inputs inside a row keep their own actions and do not select the row.
+
 ## Render GoodUI components in cells
 
 TanStack's Angular `flexRenderComponent` is the direct route from a cell definition to an Angular component. GoodUI re-exports it, so an app using `good-table` can import everything from `@goodui/angular`. Its `inputs` object accepts the row's values; the component can expose its usual outputs. A Badge needs no wrapper:
@@ -110,6 +134,9 @@ For cursor mode, pass the backend's opaque `nextCursor` and `hasNextPage` with e
 | `sortingMode`, `searchMode` | `client` | `client` or `manual`; page and cursor modes are manual. |
 | `loading` | `false` | Busy state during a backend request. |
 | `emptyMessage` | `NO records found` | Message for zero rows. |
+| `selectable` | `false` | Enables single-row selection from the table body. |
+| `selectedRowId` / `selectedRowIdChange` | `null` | Controlled selected ID; use `[(selectedRowId)]` for two-way binding. |
+| `rowSelected` | — | Complete selected record from a user action. |
 | `sortingChange`, `searchChange` | — | Current table interaction state. |
 | `request` | — | Complete request for manual search, sorting, or pagination. |
 

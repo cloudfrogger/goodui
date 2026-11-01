@@ -19,6 +19,7 @@
     { "id": "c0c3286f-e4bf-804c-8008-d70493afc6c7", "style": "compact", "state": "empty" }
   ],
   "examples": [
-    { "name": "example.table-search-pagination", "id": "c0c3286f-e4bf-804c-8008-d704ca622feb", "published": false }
+    { "name": "example.table-search-pagination", "id": "c0c3286f-e4bf-804c-8008-d704ca622feb", "published": false },
+    { "name": "example.table-selected-row", "id": "2f4a7d00-3514-8040-8008-e16a8a6c64d2", "published": false, "state": "selected", "note": "Linked default Table with row-2 selected via color.selected and color.accent token-bound rail; selection is runtime state." }
   ]
 }

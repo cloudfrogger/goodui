@@ -16,11 +16,11 @@
       "default": null,
       "allowedValues": [
         "completed",
+        "error",
         "pending",
         "progressing",
         "revising",
-        "dismissed",
-        "error"
+        "dismissed"
       ],
       "source": "angular/projects/goodui/src/lib/status-icon.ts",
       "kind": "input"
@@ -87,11 +87,11 @@
   "variants": {
     "status": [
       "completed",
+      "error",
       "pending",
       "progressing",
       "revising",
-      "dismissed",
-      "error"
+      "dismissed"
     ],
     "appearance": [
       "symbol",

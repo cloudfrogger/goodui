@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import {
-  GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodMainViewComponent, GoodSwitchComponent,
+  GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodSwitchComponent,
   GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent,
   LucideTrash2,
 } from '@goodui/angular';
@@ -76,7 +76,7 @@ class TableDeleteCellComponent {
 @Component({
   selector: 'showcase-tables-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodTableComponent],
+  imports: [GoodMainViewComponent, GoodTableComponent, GoodButtonComponent, GoodCodeBlockComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Tables" description="Searchable records, rich cells, and client or server pagination">
@@ -90,6 +90,17 @@ class TableDeleteCellComponent {
         <div class="showcase-section-heading"><h2>Direct row action</h2><p>Sort by Name; Owner, Status, and Actions are intentionally not sortable. The last column renders an accessible icon-only Delete button.</p></div>
         <good-table label="Records with direct delete actions" [data]="directRows()" [columns]="deleteColumns" [getRowId]="rowId" />
         <p class="showcase-table-feedback" role="status">{{ directActionFeedback() }}</p>
+      </section>
+      <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Choose one row</h2><p>Add <code>selectable</code> in HTML. A click or Enter/Space selects the row; the selected ID can also be set in code. The event gives you the complete record.</p></div>
+        <good-table label="Choose a workspace" [data]="rows().slice(0, 5)" [columns]="simpleColumns"
+          [getRowId]="rowId" selectable [(selectedRowId)]="selectedRowId"
+          (rowSelected)="onRowSelected($event)" />
+        <p class="showcase-table-feedback" role="status">Selected ID: {{ selectedRowId() ?? 'none' }}. {{ selectionFeedback() }}</p>
+        <good-button size="small" variant="outline" (click)="selectedRowId.set('4')">Select row 4 in code</good-button>
+        <good-button size="small" variant="outline" (click)="selectedRowId.set(null)">Clear selection</good-button>
+        <good-code-block [code]="selectionTemplate" language="html" title="Selectable table template" />
+        <good-code-block [code]="selectionCode" language="typescript" title="Selection state and event" />
       </section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Styles</h2><p>Connected rows are the default. Bordered, striped, and compact layouts use the same columns and cells.</p></div>
@@ -131,6 +142,22 @@ export class TablesPageComponent {
   readonly feedback = signal('Use a row action to view or delete a record.');
   readonly directActionFeedback = signal('Delete a record to see the table update.');
   readonly rowId = (row: RecordRow) => row.id;
+  readonly selectedRowId = signal<string | null>('2');
+  readonly selectionFeedback = signal('Row 2 is initially selected.');
+  onRowSelected(row: RecordRow): void { this.selectionFeedback.set(`You selected ${row.name}.`); }
+  readonly selectionTemplate = `<good-table label="Choose a workspace" [data]="rows()" [columns]="columns"
+  [getRowId]="rowId" selectable [(selectedRowId)]="selectedRowId"
+  (rowSelected)="onRowSelected($event)" />`;
+  readonly selectionCode = `readonly selectedRowId = signal<string | null>(null);
+readonly rowId = (row: RecordRow) => row.id;
+
+onRowSelected(row: RecordRow): void {
+  // Use the complete selected record here.
+  console.log(row.name);
+}
+
+// Programmatic selection: selectedRowId.set('4');
+// Clear: selectedRowId.set(null);`;
   readonly clientPagination: GoodTablePagination = { mode: 'client', pageSize: 3, pageSizeOptions: [3, 6], maxPageSize: 6 };
   readonly serverRows = signal<RecordRow[]>(initialRows.slice(0, 3));
   readonly serverPagination = signal<GoodTablePagination>({ mode: 'pages', pageSize: 3, totalRows: initialRows.length, pageSizeOptions: [3, 6], maxPageSize: 6 });

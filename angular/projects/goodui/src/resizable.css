@@ -1,0 +1,31 @@
+.good-resizable { display: grid; box-sizing: border-box; container-type: inline-size; min-width: 0; min-height: 0; width: 100%; overflow: hidden; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); color: var(--good-text); }
+.good-resizable[data-direction="horizontal"] { grid-template-columns: minmax(0, var(--good-resizable-start)) 12px minmax(0, var(--good-resizable-end)); grid-template-rows: minmax(0, 1fr); }
+.good-resizable[data-direction="vertical"] { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, var(--good-resizable-start)) 12px minmax(0, var(--good-resizable-end)); }
+.good-resizable-region { min-width: 0; min-height: 0; overflow: hidden; }
+.good-resizable-pane { display: block; box-sizing: border-box; width: 100%; height: 100%; overflow: auto; padding: var(--good-space-4); overscroll-behavior: contain; }
+.good-resizable-pane[data-padding="none"] { padding: 0; }
+@container (max-width: 480px) { .good-resizable-pane:not([data-padding="none"]) { padding: var(--good-space-3); } }
+.good-resizable-separator { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; outline: none; background: var(--good-selected); touch-action: none; user-select: none; }
+.good-resizable-separator::before { position: absolute; content: ''; }
+.good-resizable[data-direction="horizontal"] .good-resizable-separator::before { inset: 0 -16px; }
+.good-resizable[data-direction="vertical"] .good-resizable-separator::before { inset: -16px 0; }
+.good-resizable[data-direction="horizontal"] .good-resizable-separator { cursor: col-resize; border-inline: 1px solid var(--good-border); }
+.good-resizable[data-direction="vertical"] .good-resizable-separator { cursor: row-resize; border-block: 1px solid var(--good-border); }
+.good-resizable-separator:hover, .good-resizable-dragging .good-resizable-separator { background: color-mix(in srgb, var(--good-accent) 12%, var(--good-selected)); }
+.good-resizable-separator:focus-visible { box-shadow: inset 0 0 0 2px var(--good-accent); }
+.good-resizable-handle { display: flex; align-items: center; justify-content: center; gap: 3px; flex: none; color: var(--good-muted); }
+.good-resizable[data-direction="horizontal"] .good-resizable-handle { flex-direction: column; }
+.good-resizable[data-direction="vertical"] .good-resizable-handle { flex-direction: row; }
+.good-resizable[data-handle="grip"] .good-resizable-handle { width: 8px; height: 32px; border: 1px solid var(--good-border); border-radius: var(--good-radius-pill); background: var(--good-surface); }
+.good-resizable[data-direction="vertical"][data-handle="grip"] .good-resizable-handle { width: 32px; height: 8px; }
+.good-resizable[data-handle="grip"] .good-resizable-handle span, .good-resizable[data-handle="dots"] .good-resizable-handle span { width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.good-resizable[data-handle="line"] .good-resizable-handle { width: 2px; height: 24px; border-radius: var(--good-radius-pill); background: var(--good-muted); opacity: .65; }
+.good-resizable[data-direction="vertical"][data-handle="line"] .good-resizable-handle { width: 24px; height: 2px; }
+.good-resizable[data-handle="chevrons"] .good-resizable-handle { gap: 1px; }
+.good-resizable-chevron { width: 5px; height: 5px; border-top: 1.5px solid currentColor; border-left: 1.5px solid currentColor; }
+.good-resizable[data-direction="horizontal"] .good-resizable-chevron-first { transform: rotate(-45deg); }
+.good-resizable[data-direction="horizontal"] .good-resizable-chevron-last { transform: rotate(135deg); }
+.good-resizable[data-direction="vertical"] .good-resizable-chevron-first { transform: rotate(45deg); }
+.good-resizable[data-direction="vertical"] .good-resizable-chevron-last { transform: rotate(225deg); }
+.good-resizable[data-disabled="true"] .good-resizable-separator { cursor: default; opacity: .45; }
+.good-resizable[data-disabled="true"] .good-resizable-separator:hover { background: var(--good-selected); }
