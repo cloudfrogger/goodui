@@ -1,0 +1,37 @@
+{
+  "family": "goodui.textarea",
+  "selector": "good-textarea",
+  "page": "34 Textareas",
+  "pageId": "5f52067e-ed89-8049-8008-e07ff631a1de",
+  "containerId": "5f52067e-ed89-8049-8008-e080bcd2b586",
+  "axes": {
+    "size": ["small", "default", "large"],
+    "status": ["default", "readonly", "disabled", "error"]
+  },
+  "variants": [
+    { "id": "5f52067e-ed89-8049-8008-e08073134f23", "size": "small", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e0807771eadd", "size": "default", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e0807b5cd1bc", "size": "large", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e0808443d119", "size": "small", "status": "readonly" },
+    { "id": "5f52067e-ed89-8049-8008-e08088677868", "size": "default", "status": "readonly" },
+    { "id": "5f52067e-ed89-8049-8008-e0808ce1c52f", "size": "large", "status": "readonly" },
+    { "id": "5f52067e-ed89-8049-8008-e080963f6c69", "size": "small", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e0809e104bf8", "size": "default", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e080a3b4ea0d", "size": "large", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e080adc72a70", "size": "small", "status": "error" },
+    { "id": "5f52067e-ed89-8049-8008-e080b1f9b0ed", "size": "default", "status": "error" },
+    { "id": "5f52067e-ed89-8049-8008-e080b66df0b8", "size": "large", "status": "error" }
+  ],
+  "runtimeInputs": ["label", "showLabel", "value", "placeholder", "rows", "resizable", "disabled", "readonly", "error", "required", "name", "inputId", "describedBy", "autocomplete"],
+  "resizableSpecimenId": "5f52067e-ed89-8049-8008-e080e04aa629",
+  "tokenBindings": {
+    "field.fill": "input.background",
+    "field.readonly.fill": "input.readonly.background",
+    "field.stroke": "input.border",
+    "field.error.stroke": "input.error.border",
+    "field.radius": "radius.control",
+    "field.height": "control.textarea-min-height-*",
+    "text.placeholder.fill": "input.placeholder",
+    "text.value.fill": "input.foreground"
+  }
+}

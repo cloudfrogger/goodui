@@ -1,0 +1,44 @@
+<good-main-view title="Textareas" description="A multiline companion to Input for notes, descriptions, and feedback.">
+  <good-section>
+    <good-group title="Write longer text" appearance="plain">
+      <good-textarea label="Notes" [showLabel]="true" placeholder="Write a few sentences"
+        [(value)]="notes" />
+      <good-hint>Use <code>[(value)]</code> for a simple value or an Angular form control inside a form.</good-hint>
+      <good-textarea label="Long description" [showLabel]="true" [rows]="6"
+        [resizable]="true" placeholder="Drag the lower-right corner to make this field taller" />
+      <good-code-block [code]="basicCode" language="html" title="Basic and resizable textareas" />
+    </good-group>
+  </good-section>
+
+  <good-section>
+    <good-group title="Sizes and states" appearance="plain">
+      @for (size of sizes; track size) {
+        <good-textarea [label]="size + ' textarea'" [showLabel]="true" [size]="size"
+          [placeholder]="size + ' multiline text'" />
+      }
+      <good-textarea label="Read-only note" [showLabel]="true" value="This note can be selected but not changed."
+        [readonly]="true" />
+      <good-textarea label="Unavailable note" [showLabel]="true" value="Editing is unavailable."
+        [disabled]="true" />
+      <good-textarea label="Invalid note" [showLabel]="true" [error]="true"
+        describedBy="textarea-error-example" placeholder="Add the missing details" />
+      <good-error-text id="textarea-error-example">This field needs a value.</good-error-text>
+      <good-code-block [code]="statesCode" language="html" title="Sizes and states" />
+    </good-group>
+  </good-section>
+
+  <good-section>
+    <good-group title="Form validation" appearance="plain">
+      <good-form-field [required]="true">
+        <good-field-label forId="textarea-feedback">Feedback</good-field-label>
+        <good-textarea inputId="textarea-feedback" label="Feedback" [formControl]="feedback"
+          [error]="feedback.invalid && (feedback.touched || submitted())" describedBy="textarea-feedback-error" />
+        @if (feedback.invalid && (feedback.touched || submitted())) {
+          <good-error-text id="textarea-feedback-error">Enter your feedback.</good-error-text>
+        }
+      </good-form-field>
+      <good-button size="small" (click)="markSubmitted()">Check field</good-button>
+      <good-code-block [code]="formCode" language="html" title="Required field in a form" />
+    </good-group>
+  </good-section>
+</good-main-view>

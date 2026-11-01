@@ -42,6 +42,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Radio group | 16/20/24 px circular indicators; 44 px minimum choice height | `RadioGroup` owns the native fieldset, legend, exclusive selection, option flow, focus, and disabled presentation |
 | Rating | 16/20/24 px Lucide symbols in 32/40/48 px targets; 4 px gap | `Rating` owns a one-through-count score, native radio selection, display-only semantics, and disabled presentation |
 | Input | 32/40/48 px high by size, 6 px radius; native text or file input | `Input` owns label, field, optional adornments, focus, readonly/disabled/error states, and file selection |
+| Textarea | 96/120/144 px minimum height by size, 6 px radius; native multiline field | `Textarea` owns value, optional vertical resize grip, focus, required/readonly/disabled/error states, and form validation |
 | Number input | 32/40/48 px high by size, 6 px radius; minus, animated value, and plus | `NumberInput` owns finite step and bounds, native numeric editing, optional Lucide icon, focus, and disabled state |
 | Range slider | 32/40/48 px touch targets by size; token-colored rail, selected interval, and circular thumb | `RangeSlider` owns snapping, one or two slider handles, keyboard/pointer movement, optional ticks, bounds, and step buttons |
 | PIN input | 44 × 48 / 52 × 56 / 60 × 64 px slots by size; 6 px radius | `PinInput` owns code slots, keyboard and paste editing, character filtering, masking, focus, and disabled presentation |
@@ -161,6 +162,7 @@ Penpot page `21 Alerts` publishes 72 `goodui.alert` variants and four `goodui.no
 | `goodui.group` | Light, reusable content group with outline, contrast, or plain appearance and optional heading |
 | `goodui.form-row` | Two or three equal-width FormField columns that stack in narrow containers |
 | `goodui.input` | Text and file fields with three sizes and applicable default, readonly, disabled, and error states |
+| `goodui.textarea` | Multiline text field with three sizes and default, readonly, disabled, and error states; vertical resizing is optional |
 | `goodui.number-input` | Editable numeric stepper with three sizes, disabled state, and optional Lucide icon |
 | `goodui.range-slider` | Single-value or interval slider with limits, ticks, optional bounds and step buttons; twelve Penpot variants cover mode, size, and disabled status |
 | `goodui.listbox` | Always-visible, grouped single or multiple selection with optional search, checkbox presentation, and rich item content |
@@ -306,6 +308,8 @@ Penpot publishes 24 `goodui.radio-group` variants on `07 Radio Groups` with axes
 `good-input` supports `small`, `default`, and `large` at the same 32/40/48 px control heights as Button. `type=file` uses a native file input with a fixed File action and filename text; other supported types use a native text-like input. `disabled` prevents interaction, `readonly` keeps text selectable with a neutral surface, and `error` uses a theme-specific red border. Start and end slots each accept a Lucide icon or fixed text, with `inline` or `contrast` presentation. Icons and fixed text are display-only. The shell uses flex layout so addons and the editable area align without absolute offsets. Only the invisible native file input overlays the shell to retain native file activation.
 
 The published Penpot `goodui.input` family uses `kind=text/file`, `size=small/default/large`, and `status=default/disabled/readonly/error` where valid. The internal `goodui.input-addon` family supplies optional start/end icon or text content with inline or contrast treatment. The 21 Input and 24 addon library IDs and their Angular mapping are recorded in `design/input-variants.json`. The two example compositions retain linked addon instances. The Angular component and demo use the same state and size semantics.
+
+`good-textarea` follows Input's label, value, required, error, readonly, disabled, and Angular Forms behavior with a native multiline field. Its `small/default/large` minimum heights are 96/120/144 px in `control.textarea-min-height-*`; `rows` may increase the initial height and `[resizable]` enables vertical resizing. The published `goodui.textarea` Penpot family on `34 Textareas` has twelve `size × status` variants; `design/textarea-variants.json` records the IDs. Values, line count, and the optional grip are runtime choices, with a separate resize specimen. The same Input color and radius tokens drive both themes.
 
 ### PIN input contract
 

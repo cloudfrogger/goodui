@@ -7,6 +7,7 @@ import {
   GoodFormRowComponent, GoodGroupComponent, GoodHintComponent, GoodInputComponent,
   GoodInputPhoneComponent, GoodListboxComponent, GoodListboxGroup, GoodParagraphComponent,
   GoodRadioGroupComponent, GoodSelectCountryComponent,
+  GoodTextareaComponent,
 } from '@goodui/angular';
 
 const passwordsMatch: ValidatorFn = form => {
@@ -21,7 +22,7 @@ const passwordsMatch: ValidatorFn = form => {
     GoodCardHeaderComponent, GoodErrorTextComponent, GoodFieldLabelComponent, GoodFormDirective,
     GoodFormFieldComponent, GoodFormRowComponent, GoodGroupComponent, GoodHintComponent,
     GoodInputComponent, GoodInputPhoneComponent, GoodListboxComponent, GoodParagraphComponent, GoodRadioGroupComponent,
-    GoodSelectCountryComponent],
+    GoodSelectCountryComponent, GoodTextareaComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-registration-form.html',
 })
@@ -39,6 +40,7 @@ export class UserRegistrationFormExampleComponent {
     mobile: new FormControl('', { nonNullable: true, validators: Validators.required }),
     email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
     interests: new FormControl<readonly string[]>([], { nonNullable: true }),
+    bio: new FormControl('', { nonNullable: true }),
     password: new FormControl('', { nonNullable: true, validators: Validators.required }),
     confirmPassword: new FormControl('', { nonNullable: true, validators: Validators.required }),
   }, { validators: passwordsMatch });
@@ -58,7 +60,7 @@ export class UserRegistrationFormExampleComponent {
       { id: 'gardening', label: 'Gardening' },
     ] },
   ];
-  readonly createdUser = signal<{ name: string; email: string; interests: readonly string[] } | null>(null);
+  readonly createdUser = signal<{ name: string; email: string; interests: readonly string[]; bio: string } | null>(null);
 
   constructor() {
     this.form.valueChanges.pipe(takeUntilDestroyed()).subscribe(() => this.createdUser.set(null));
@@ -85,6 +87,7 @@ export class UserRegistrationFormExampleComponent {
       name: [user.firstName, user.middleName, user.lastName].filter(Boolean).join(' '),
       email: user.email,
       interests: interestLabels,
+      bio: user.bio.trim(),
     });
   }
 }

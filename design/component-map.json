@@ -75,6 +75,7 @@
     "summary",
     "switch",
     "table",
+    "textarea",
     "theme-toggle",
     "topbar",
     "topbar-dropdown-item",
@@ -771,6 +772,13 @@
       "penpotName": "goodui.input",
       "penpotId": "79fa6408-a1e2-80d7-8008-d47e20b0dda6",
       "angularSelector": "good-input",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.textarea",
+      "penpotId": "5f52067e-ed89-8049-8008-e0807771eadd",
+      "angularSelector": "good-textarea",
       "kind": "component",
       "state": null
     },
@@ -1746,6 +1754,7 @@
     "design/radio-group-variants.json",
     "design/rating-variants.json",
     "design/table-variants.json",
+    "design/textarea-variants.json",
     "design/switch-variants.json",
     "design/tabs-contract.json",
     "design/typography-components.json",

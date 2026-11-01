@@ -309,6 +309,18 @@
         "$value": "{control.button-height-large}",
         "$type": "sizing"
       },
+      "textarea-min-height-small": {
+        "$value": "96",
+        "$type": "sizing"
+      },
+      "textarea-min-height-default": {
+        "$value": "120",
+        "$type": "sizing"
+      },
+      "textarea-min-height-large": {
+        "$value": "144",
+        "$type": "sizing"
+      },
       "input-icon-size-small": {
         "$value": "{control.button-icon-size-small}",
         "$type": "sizing"

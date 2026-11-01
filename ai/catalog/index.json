@@ -896,6 +896,17 @@
       "penpotCount": 3
     },
     {
+      "selector": "good-textarea",
+      "className": "GoodTextareaComponent",
+      "file": "components/good-textarea.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTextareaComponent"
+      },
+      "usageGuide": "guides/components/textarea.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-theme-toggle",
       "className": "GoodThemeToggleComponent",
       "file": "components/good-theme-toggle.json",

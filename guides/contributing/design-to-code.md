@@ -12,7 +12,7 @@ The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`, but
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, `24 Progress`, `25 PDF Preview`, `27 Number Inputs`, `28 Listboxes`, `29 Tabs`, and `33 Range Sliders`. The IDs below are Penpot main shape IDs; preserve them while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, `24 Progress`, `25 PDF Preview`, `27 Number Inputs`, `28 Listboxes`, `29 Tabs`, `33 Range Sliders`, and `34 Textareas`. The IDs below are Penpot main shape IDs; preserve them while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -95,6 +95,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include
 | `goodui.group.outline` / `.outline-no-title` / `.contrast` / `.plain` | `good-group [appearance]`, optional `[title]`, `[headingLevel]`, `[headingId]`; four published IDs and linked FormRow content in [group-components.json](../../design/group-components.json). Group owns its surface and child gap; outline title crosses the frame. |
 | `goodui.form-row.2` / `.3` | `good-form-row [columns]`; two published IDs in [group-components.json](../../design/group-components.json). Linked FormField instances; Angular stacks columns by container width. |
 | `goodui.input` variant group (`kind` × `size` × `status`) | Container `79fa6408-a1e2-80d7-8008-d47eb4e37dc7`; all 21 IDs in [input-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/input-variants.json) |
+| `goodui.textarea` (`size` × `status`) | Container `5f52067e-ed89-8049-8008-e080bcd2b586` on `34 Textareas`; all 12 published IDs and the optional resize specimen in [textarea-variants.json](../../design/textarea-variants.json) |
 | `goodui.input-addon` variant group (`side` × `content` × `tone` × `size`) | Container `79fa6408-a1e2-80d7-8008-d47f49489ba6`; all 24 IDs in the same manifest |
 | `goodui.date-input` (`mode` × `size` × `status`) | Container `c0c3286f-e4bf-804c-8008-d6a49f798c44`; 30 variants in [date-input-variants.json](../../design/date-input-variants.json) map to `good-date-input` |
 | `goodui.date-input-addon` / `goodui.date-day` / `goodui.date-calendar` | Internal families owned by `good-date-input`; containers `c0c3286f-e4bf-804c-8008-d6a485d410d1`, `c0c3286f-e4bf-804c-8008-d6a4e2e77d97`, and `c0c3286f-e4bf-804c-8008-d6a5c83be85d`; 3, 5, and 6 variants in the same manifest |

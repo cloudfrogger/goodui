@@ -7,6 +7,7 @@ const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-vari
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
 const numberInputVariants = JSON.parse(readFileSync(resolve(root, 'design/number-input-variants.json'), 'utf8'));
+const textareaVariants = JSON.parse(readFileSync(resolve(root, 'design/textarea-variants.json'), 'utf8'));
 const rangeSliderVariants = JSON.parse(readFileSync(resolve(root, 'design/range-slider-variants.json'), 'utf8'));
 const dateInputVariants = JSON.parse(readFileSync(resolve(root, 'design/date-input-variants.json'), 'utf8'));
 const imageInputVariants = JSON.parse(readFileSync(resolve(root, 'design/image-input-variants.json'), 'utf8'));
@@ -57,6 +58,27 @@ for (const size of numberInputVariants.axes.size) for (const status of numberInp
 if (map.componentMappings.find(entry => entry.penpotName === 'goodui.number-input')?.penpotId !==
     numberInputVariants.variants.find(entry => entry.size === 'default' && entry.status === 'default' && entry.icon === 'no')?.id) {
   throw new Error('Number Input mapping does not point to its default variant.');
+}
+if (textareaVariants.family !== 'goodui.textarea' || textareaVariants.selector !== 'good-textarea' ||
+    textareaVariants.page !== '34 Textareas' || !/^[0-9a-f-]{36}$/.test(textareaVariants.containerId)) {
+  throw new Error('Invalid Textarea registry.');
+}
+const textareaKeys = new Set();
+const textareaIds = new Set();
+for (const entry of textareaVariants.variants) {
+  const key = ['size', 'status'].map(axis => {
+    if (!textareaVariants.axes[axis].includes(entry[axis])) throw new Error(`Unknown Textarea ${axis}: ${entry[axis]}`);
+    return entry[axis];
+  }).join('/');
+  if (textareaKeys.has(key) || textareaIds.has(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.id)) throw new Error(`Invalid Textarea variant: ${key}`);
+  textareaKeys.add(key); textareaIds.add(entry.id);
+}
+for (const size of textareaVariants.axes.size) for (const status of textareaVariants.axes.status) {
+  if (!textareaKeys.has(`${size}/${status}`)) throw new Error(`Missing Textarea variant: ${size}/${status}`);
+}
+if (map.componentMappings.find(entry => entry.penpotName === 'goodui.textarea')?.penpotId !==
+    textareaVariants.variants.find(entry => entry.size === 'default' && entry.status === 'default')?.id) {
+  throw new Error('Textarea mapping does not point to its default variant.');
 }
 if (rangeSliderVariants.family !== 'goodui.range-slider' || rangeSliderVariants.selector !== 'good-range-slider' ||
     rangeSliderVariants.page !== '33 Range Sliders' || !/^[0-9a-f-]{36}$/.test(rangeSliderVariants.containerId)) {

@@ -45,6 +45,7 @@ export const routes: Routes = [
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },
   { path: 'components/inputs', component: InputsPageComponent },
+  { path: 'components/textareas', loadComponent: () => import('./textareas-page').then(module => module.TextareasPageComponent) },
   { path: 'components/number-inputs', loadComponent: () => import('./number-inputs-page').then(module => module.NumberInputsPageComponent) },
   { path: 'components/range-sliders', loadComponent: () => import('./range-sliders-page').then(module => module.RangeSlidersPageComponent) },
   { path: 'components/pin-inputs', loadComponent: () => import('./pin-inputs-page').then(module => module.PinInputsPageComponent) },

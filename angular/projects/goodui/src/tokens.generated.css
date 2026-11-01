@@ -73,6 +73,9 @@
   --good-control-input-height-small: var(--good-control-button-height-small);
   --good-control-input-height-default: var(--good-control-button-height-default);
   --good-control-input-height-large: var(--good-control-button-height-large);
+  --good-control-textarea-min-height-small: 96px;
+  --good-control-textarea-min-height-default: 120px;
+  --good-control-textarea-min-height-large: 144px;
   --good-control-input-icon-size-small: var(--good-control-button-icon-size-small);
   --good-control-input-icon-size-default: var(--good-control-button-icon-size-default);
   --good-control-input-icon-size-large: var(--good-control-button-icon-size-large);

@@ -75,6 +75,12 @@
     <good-listbox label="Interests" [showLabel]="true" [groups]="interestGroups"
       selectionMode="multiple" appearance="checkbox" formControlName="interests" />
     <good-hint>Optional. Select any interests you would like to share.</good-hint>
+    <good-form-field>
+      <good-field-label forId="registration-bio">About you</good-field-label>
+      <good-textarea inputId="registration-bio" label="About you" formControlName="bio"
+        placeholder="Share a little about yourself" [resizable]="true" />
+      <good-hint>Optional. A short introduction for your profile.</good-hint>
+    </good-form-field>
   </good-group>
   <good-group title="Account security" [headingLevel]="2" [mobileBleed]="true">
     <good-form-row>
@@ -104,6 +110,7 @@
     <good-card-header title="User created in this demo" />
     <good-paragraph>{{ user.name }} · {{ user.email }}</good-paragraph>
     @if (user.interests.length) { <good-paragraph>Interests: {{ user.interests.join(', ') }}</good-paragraph> }
+    @if (user.bio) { <good-paragraph>About: {{ user.bio }}</good-paragraph> }
     <good-hint>This example validates locally and does not save the user to a server.</good-hint>
   </good-card>
 }

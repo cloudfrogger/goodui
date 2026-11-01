@@ -78,6 +78,7 @@ export class App {
       ] },
       { id: 'inputs-category', label: 'Inputs', icon: 'card', children: [
         { id: 'inputs', label: 'Text and file', route: '/components/inputs' },
+        { id: 'textareas', label: 'Textareas', route: '/components/textareas' },
         { id: 'number-inputs', label: 'Number inputs', route: '/components/number-inputs' },
         { id: 'range-sliders', label: 'Range sliders', route: '/components/range-sliders' },
         { id: 'pin-inputs', label: 'PIN inputs', route: '/components/pin-inputs' },
@@ -171,6 +172,7 @@ export class App {
     ] },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
+    { id: 'textareas', label: 'Textareas', description: 'Multiline text, resizing, and form states', route: '/components/textareas' },
     { id: 'range-sliders', label: 'Range sliders', description: 'Single values, intervals, ticks, and step buttons', route: '/components/range-sliders' },
     { id: 'layout-general', label: 'Layout · General', description: 'Foundation · application shell, navigation, and providers', route: '/getting-started/layout/general' },
     { id: 'layout-default', label: 'Layout · Default view', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default' },

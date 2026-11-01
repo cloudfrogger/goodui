@@ -14,7 +14,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-month-calendar, good-progress, good-range-slider, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-expandable, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-tabs, good-tab, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
+good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-month-calendar, good-progress, good-range-slider, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-expandable, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-textarea, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-tabs, good-tab, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-columns, good-column, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -694,6 +694,21 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-input-native-file { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
 .good-input-native-file:disabled { cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .good-input-shell { transition: none; } }
+
+.good-textarea { display: block; width: 100%; min-width: 0; }
+.good-textarea-field { display: flex; flex-direction: column; gap: var(--good-typography-field-label-gap); min-width: 0; color: var(--good-input-foreground); font: inherit; }
+.good-textarea-label { display: inline-flex; align-items: baseline; gap: var(--good-typography-required-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }
+.good-textarea-native { box-sizing: border-box; display: block; width: 100%; min-width: 0; min-height: var(--good-control-textarea-min-height-default); padding: var(--good-space-3) var(--good-input-padding-inline-default); border: 1px solid var(--good-input-border); border-radius: var(--good-radius-control); outline: 0; background: var(--good-input-background); color: var(--good-input-foreground); font: inherit; font-size: 14px; line-height: 1.5; resize: none; transition: border-color .15s ease, box-shadow .15s ease; }
+.good-textarea-native::placeholder { color: var(--good-input-placeholder); opacity: 1; }
+.good-textarea-field[data-size="small"] .good-textarea-native { min-height: var(--good-control-textarea-min-height-small); padding: var(--good-space-2) var(--good-input-padding-inline-small); font-size: 12px; }
+.good-textarea-field[data-size="large"] .good-textarea-native { min-height: var(--good-control-textarea-min-height-large); padding: var(--good-space-4) var(--good-input-padding-inline-large); font-size: 16px; }
+.good-textarea-field[data-resizable="true"] .good-textarea-native { resize: vertical; overflow: auto; }
+.good-textarea-field[data-status="readonly"] .good-textarea-native { background: var(--good-input-readonly-background); }
+.good-textarea-field[data-status="disabled"] { opacity: .5; }
+.good-textarea-field[data-status="disabled"] .good-textarea-native { cursor: not-allowed; resize: none; }
+.good-textarea-field[data-status="error"] .good-textarea-native { border-color: var(--good-input-error-border); }
+.good-textarea-native:focus-visible { border-color: var(--good-input-focus-border); outline: 2px solid var(--good-input-focus-border); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .good-textarea-native { transition: none; } }
 
 .good-number-input { display: inline-flex; flex-direction: column; max-width: 100%; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-number-label { margin-block-end: var(--good-typography-field-label-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }
