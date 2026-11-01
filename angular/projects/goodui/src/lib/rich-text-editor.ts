@@ -22,6 +22,24 @@ import { GoodRichTextHistory, GoodRichTextMutationCommand, GoodRichTextSnapshotC
 import { safeRichTextUrl, sanitizeRichText } from './rich-text-sanitize';
 
 export type GoodRichTextAlignment = 'left' | 'center' | 'right' | 'justify';
+/** Omit `features` for every tool; pass an array to allow only its entries. */
+export type GoodRichTextFeature =
+  | 'undo' | 'redo'
+  | 'heading1' | 'heading2' | 'heading3' | 'heading4' | 'heading5' | 'heading6'
+  | 'bold' | 'italic' | 'underline' | 'strikethrough' | 'superscript' | 'subscript' | 'code'
+  | 'paragraph' | 'blockquote' | 'div' | 'pre'
+  | 'alignment' | 'smallcaps' | 'subtitle' | 'highlight'
+  | 'fontfamily' | 'fontsize' | 'textcolor' | 'background'
+  | 'link' | 'image' | 'bullets' | 'numbering' | 'table' | 'clearformatting';
+
+const formatFeatures: Readonly<Record<string, GoodRichTextFeature>> = {
+  'inline-bold': 'bold', 'inline-italic': 'italic', 'inline-underline': 'underline',
+  'inline-strike': 'strikethrough', 'inline-super': 'superscript', 'inline-sub': 'subscript',
+  'inline-code': 'code', 'block-p': 'paragraph', 'block-quote': 'blockquote',
+  'block-div': 'div', 'block-pre': 'pre', 'align-left': 'alignment',
+  'align-center': 'alignment', 'align-right': 'alignment', 'align-justify': 'alignment',
+  'style-small-caps': 'smallcaps', 'style-subtitle': 'subtitle', 'style-highlight': 'highlight',
+};
 export type GoodRichTextTableAction = 'properties' | 'delete-table' | 'row-before' | 'row-after' | 'delete-row' |
   'column-before' | 'column-after' | 'delete-column' | 'header-cell' | 'body-cell';
 
@@ -74,11 +92,17 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   readonly readonly = input(false);
   readonly minHeight = input(320);
   readonly fillHeight = input(false);
+  readonly features = input<readonly GoodRichTextFeature[] | null>(null);
   readonly showAssistant = input(false);
   readonly assistantOpen = model(false);
   readonly assistantTitle = input('Assistant');
   readonly commandExecuted = output<string>();
   readonly isDisabled = computed(() => this.disabled() || this.formDisabled());
+  hasFeature(feature: GoodRichTextFeature): boolean {
+    const features = this.features();
+    return features === null || features.includes(feature);
+  }
+  readonly hasToolbar = computed(() => this.features() === null || this.features()!.length > 0 || this.showAssistant());
   readonly canUndo = signal(false);
   readonly canRedo = signal(false);
   readonly fontSize = signal(14);
@@ -143,7 +167,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   readonly orderedListIcon = LucideListOrdered;
   readonly alignIcon = LucideTextAlignStart;
 
-  readonly formatItems: readonly GoodDropdownItem[] = [
+  private readonly allFormatItems: readonly GoodDropdownItem[] = [
     { id: 'headings', label: 'Headings', children: Array.from({ length: 6 }, (_, index) => ({
       id: `heading-${index + 1}`, label: `Heading ${index + 1}`, action: () => this.block(`h${index + 1}`),
     })) },
@@ -174,6 +198,11 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
       { id: 'style-highlight', label: 'Highlight', action: () => this.wrapInline('span', 'Highlight', { backgroundColor: '#FFFF00' }) },
     ] },
   ];
+  readonly formatItems = computed<readonly GoodDropdownItem[]>(() => this.allFormatItems.map(group => ({
+    ...group,
+    children: group.children?.filter(item => this.hasFeature(item.id.startsWith('heading-')
+      ? `heading${item.id.slice(8)}` as GoodRichTextFeature : formatFeatures[item.id])),
+  })).filter(group => group.children?.length));
   readonly alignmentItems: readonly GoodDropdownItem[] = [
     { id: 'left', label: 'Left', icon: LucideTextAlignStart, action: () => this.align('left') },
     { id: 'center', label: 'Center', icon: LucideTextAlignCenter, action: () => this.align('center') },
@@ -195,6 +224,20 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   ];
 
   constructor() {
+    effect(() => {
+      if (this.hasFeature('table')) return;
+      this.tableGridOpen.set(false);
+      this.tableMenuOpen.set(false);
+      this.tablePropertiesOpen.set(false);
+      this.tableActionVisible.set(false);
+      this.columnGripVisible.set(false);
+      this.rowGripVisible.set(false);
+      this.clearCellSelection();
+    });
+    effect(() => {
+      if (!this.hasFeature('link')) this.linkOpen.set(false);
+      if (!this.hasFeature('image')) this.imageOpen.set(false);
+    });
     effect(() => {
       const root = this.editor()?.nativeElement;
       const html = sanitizeRichText(this.document, this.value());
@@ -258,12 +301,21 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     if (changed) { this.publish(); this.commandExecuted.emit(name); }
     this.updateHistoryState();
   }
-  undo(): void { if (this.isDisabled() || this.readonly()) return; const command = this.history.undo(this); if (command) this.commandExecuted.emit(`undo:${command.name}`); this.updateHistoryState(); }
-  redo(): void { if (this.isDisabled() || this.readonly()) return; const command = this.history.redo(this); if (command) this.commandExecuted.emit(`redo:${command.name}`); this.updateHistoryState(); }
+  undo(): void { if (!this.hasFeature('undo') || this.isDisabled() || this.readonly()) return; const command = this.history.undo(this); if (command) this.commandExecuted.emit(`undo:${command.name}`); this.updateHistoryState(); }
+  redo(): void { if (!this.hasFeature('redo') || this.isDisabled() || this.readonly()) return; const command = this.history.redo(this); if (command) this.commandExecuted.emit(`redo:${command.name}`); this.updateHistoryState(); }
   private exec(command: string, value?: string): void { this.document.execCommand(command, false, value); }
-  native(command: string, name = command): void { this.run(name, () => this.exec(command)); }
-  block(tag: string): void { this.run(`block:${tag}`, () => this.exec('formatBlock', tag)); }
+  native(command: string, name = command): void {
+    const feature = ({ strikeThrough: 'strikethrough' } as Record<string, GoodRichTextFeature>)[command] ?? command as GoodRichTextFeature;
+    if (!this.hasFeature(feature)) return;
+    this.run(name, () => this.exec(command));
+  }
+  block(tag: string): void {
+    const feature = tag.startsWith('h') && /^h[1-6]$/.test(tag) ? `heading${tag[1]}` : ({ p: 'paragraph', blockquote: 'blockquote', div: 'div', pre: 'pre' } as Record<string, string>)[tag];
+    if (!feature || !this.hasFeature(feature as GoodRichTextFeature)) return;
+    this.run(`block:${tag}`, () => this.exec('formatBlock', tag));
+  }
   align(alignment: GoodRichTextAlignment): void {
+    if (!this.hasFeature('alignment')) return;
     this.run(`align:${alignment}`, () => {
       const root = this.editor()?.nativeElement;
       const selection = this.document.getSelection();
@@ -277,6 +329,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     });
   }
   list(kind: 'ol' | 'ul', style: string): void {
+    if (!this.hasFeature(kind === 'ul' ? 'bullets' : 'numbering')) return;
     this.run(`list:${style}`, () => {
       const existing = this.closestSelection(kind) as HTMLOListElement | HTMLUListElement | null;
       if (!existing) this.exec(kind === 'ol' ? 'insertOrderedList' : 'insertUnorderedList');
@@ -285,19 +338,23 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     });
   }
   clearFormatting(): void {
+    if (!this.hasFeature('clearformatting')) return;
     this.run('clear-formatting', () => { this.exec('removeFormat'); this.exec('formatBlock', 'p'); });
   }
   fontSizeChanged(size: number): void {
+    if (!this.hasFeature('fontsize')) return;
     this.fontSize.set(size);
     this.wrapInline('span', `font-size:${size}`, { fontSize: `${size}px` });
   }
   fontFamilyChanged(family: string): void {
+    if (!this.hasFeature('fontfamily')) return;
     const css = goodFontFamilyCss(family);
     if (!css) return;
     this.fontFamily.set(family);
     this.wrapInline('span', `font-family:${family}`, { fontFamily: css });
   }
   applyColor(kind: 'text' | 'background', color: string): void {
+    if (!this.hasFeature(kind === 'text' ? 'textcolor' : 'background')) return;
     this.run(`${kind}-color:${color}`, () => {
       this.exec('styleWithCSS', 'true');
       this.exec(kind === 'text' ? 'foreColor' : 'hiliteColor', color);
@@ -305,6 +362,8 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     });
   }
   wrapInline(tag: 'code' | 'span' | 'small', name: string, style?: Partial<CSSStyleDeclaration>): void {
+    const feature = ({ Code: 'code', 'Small caps': 'smallcaps', Subtitle: 'subtitle', Highlight: 'highlight' } as Record<string, GoodRichTextFeature>)[name];
+    if (feature && !this.hasFeature(feature)) return;
     this.run(name, () => {
       const selection = this.document.getSelection();
       if (!selection?.rangeCount) return;
@@ -327,6 +386,9 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     if (event.inputType === 'historyUndo' || event.inputType === 'historyRedo') {
       event.preventDefault(); event.inputType === 'historyUndo' ? this.undo() : this.redo(); return;
     }
+    const nativeFeature = ({ formatBold: 'bold', formatItalic: 'italic', formatUnderline: 'underline',
+      formatStrikeThrough: 'strikethrough', insertOrderedList: 'numbering', insertUnorderedList: 'bullets' } as Record<string, GoodRichTextFeature>)[event.inputType];
+    if (nativeFeature && !this.hasFeature(nativeFeature)) { event.preventDefault(); return; }
     if (!this.applying) this.pendingInput = this.capture();
   }
   onInput(): void {
@@ -348,6 +410,8 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   onDrop(event: DragEvent): void { event.preventDefault(); }
   onKeydown(event: KeyboardEvent): void {
     if ((event.ctrlKey || event.metaKey) && !event.altKey) {
+      const shortcut = ({ b: 'bold', i: 'italic', u: 'underline' } as Record<string, GoodRichTextFeature>)[event.key.toLowerCase()];
+      if (shortcut && !this.hasFeature(shortcut)) { event.preventDefault(); return; }
       if (event.key.toLowerCase() === 'z') { event.preventDefault(); event.shiftKey ? this.redo() : this.undo(); }
       else if (event.key.toLowerCase() === 'y') { event.preventDefault(); this.redo(); }
     }
@@ -400,12 +464,14 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   }
 
   openLink(): void {
+    if (!this.hasFeature('link')) return;
     this.saveSelection();
     const selection = this.document.getSelection();
     this.linkText.set(selection?.toString() || '');
     this.linkUrl.set(''); this.linkTarget.set('current'); this.linkError.set(''); this.linkOpen.set(true);
   }
   saveLink(): void {
+    if (!this.hasFeature('link')) return;
     const url = safeRichTextUrl(this.linkUrl());
     if (!url) { this.linkError.set('Enter a valid web address, email link, or in-app path.'); return; }
     const text = this.linkText().trim() || url;
@@ -415,7 +481,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     this.linkOpen.set(false);
     this.run('insert-link', () => this.insertHtml(link.outerHTML));
   }
-  openImage(): void { this.saveSelection(); this.imageFile.set(null); this.imageAlt.set(''); this.imageError.set(''); this.imageOpen.set(true); }
+  openImage(): void { if (!this.hasFeature('image')) return; this.saveSelection(); this.imageFile.set(null); this.imageAlt.set(''); this.imageError.set(''); this.imageOpen.set(true); }
   chooseImage(files: FileList | null): void {
     const file = files?.item(0) ?? null;
     if (file && (!/^image\/(png|jpeg|gif|webp)$/.test(file.type) || file.size > 5 * 1024 * 1024)) {
@@ -424,10 +490,12 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     this.imageError.set(''); this.imageFile.set(file);
   }
   insertImage(): void {
+    if (!this.hasFeature('image')) return;
     const file = this.imageFile();
     if (!file) { this.imageError.set('Choose an image first.'); return; }
     const reader = new FileReader();
     reader.onload = () => {
+      if (!this.hasFeature('image')) return;
       const source = String(reader.result ?? '');
       if (!safeRichTextUrl(source, true)) { this.imageError.set('The image could not be read.'); return; }
       const image = this.document.createElement('img');
@@ -440,6 +508,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   }
 
   toggleTableGrid(event: MouseEvent): void {
+    if (!this.hasFeature('table')) return;
     const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
     const width = 233, height = 245;
     this.tableGridPosition.set({
@@ -449,7 +518,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     this.tableGridOpen.update(open => !open); this.tableMenuOpen.set(false);
   }
   openTableMenuFromCell(event: MouseEvent): void {
-    if (!this.activeTable || this.isDisabled() || this.readonly()) return;
+    if (!this.hasFeature('table') || !this.activeTable || this.isDisabled() || this.readonly()) return;
     if (this.tableMenuOpen()) { this.tableMenuOpen.set(false); return; }
     const bounds = (event.currentTarget as HTMLElement).getBoundingClientRect();
     this.tableGridOpen.set(false);
@@ -526,7 +595,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     const root = this.editor()?.nativeElement;
     const canvas = root?.parentElement;
     const anchor = this.activeCell?.isConnected ? this.activeCell : this.activeTable?.isConnected ? this.activeTable : null;
-    if (!root || !canvas || !anchor || !root.contains(anchor) || this.isDisabled() || this.readonly()) {
+    if (!this.hasFeature('table') || !root || !canvas || !anchor || !root.contains(anchor) || this.isDisabled() || this.readonly()) {
       this.tableActionVisible.set(false);
       this.columnGripVisible.set(false); this.rowGripVisible.set(false);
       return;
@@ -563,6 +632,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     this.tableActionButton()?.nativeElement.querySelector('button')?.focus();
   }
   startTableResize(event: PointerEvent, axis: TableResizeAxis): void {
+    if (!this.hasFeature('table')) return;
     const cell = this.activeCell, table = this.activeTable;
     if (!cell || !table || this.isDisabled() || this.readonly() || (event.pointerType === 'mouse' && event.button !== 0)) return;
     if (axis === 'column' && !this.canResizeColumns(table)) return;
@@ -632,13 +702,14 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   }
   previewTable(rows: number, columns: number): void { this.gridRows.set(rows); this.gridColumns.set(columns); }
   insertTable(rows = this.gridRows(), columns = this.gridColumns()): void {
+    if (!this.hasFeature('table')) return;
     const cells = '<td><p><br></p></td>'.repeat(columns);
     const html = `<table><tbody>${`<tr>${cells}</tr>`.repeat(rows)}</tbody></table><p><br></p>`;
     this.tableGridOpen.set(false);
     this.run(`insert-table:${rows}x${columns}`, () => this.insertHtml(html));
   }
   onContextMenu(event: MouseEvent): void {
-    if (this.isDisabled() || this.readonly()) return;
+    if (!this.hasFeature('table') || this.isDisabled() || this.readonly()) return;
     const target = event.target as Element;
     const table = target.closest('table');
     if (!table) return;
@@ -652,6 +723,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     this.tableMenuOpen.set(true);
   }
   onEditorClick(event: MouseEvent): void {
+    if (!this.hasFeature('table')) return;
     const target = event.target as Element;
     this.activeCell = target.closest('td, th') as HTMLTableCellElement | null;
     this.activeTable = target.closest('table') as HTMLTableElement | null;
@@ -660,11 +732,13 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     this.updateTableActionPosition();
   }
   onEditorPointerDown(event: PointerEvent): void {
+    if (!this.hasFeature('table')) return;
     if ((event.shiftKey || event.ctrlKey || event.metaKey || this.selectingCells()) && (event.target as Element).closest('td,th')) {
       event.preventDefault();
     }
   }
   openTableProperties(): void {
+    if (!this.hasFeature('table')) return;
     const table = this.activeTable;
     if (!table) return;
     const width = table.style.width.endsWith('px')
@@ -676,6 +750,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     this.tableMenuOpen.set(false); this.tableGridOpen.set(false); this.tablePropertiesOpen.set(true);
   }
   saveTableProperties(): void {
+    if (!this.hasFeature('table')) return;
     const table = this.activeTable;
     if (!table) return;
     this.tablePropertiesOpen.set(false);
@@ -691,6 +766,7 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
     });
   }
   tableAction(action: GoodRichTextTableAction): void {
+    if (!this.hasFeature('table')) return;
     if (action === 'properties') { this.openTableProperties(); return; }
     const table = this.activeTable, cell = this.activeCell;
     this.tableMenuOpen.set(false); this.tableGridOpen.set(false);
@@ -776,6 +852,11 @@ export class GoodRichTextEditorComponent implements ControlValueAccessor, GoodRi
   }
 
   writeValue(value: string | null): void { this.value.set(value ?? '<p><br></p>'); }
+  /** Returns the currently rendered text, including browser-rendered line breaks. */
+  getPlainText(): string {
+    const root = this.editor()?.nativeElement;
+    return (root?.innerText ?? root?.textContent ?? '').trim();
+  }
   registerOnChange(fn: (value: string) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
   setDisabledState(disabled: boolean): void { this.formDisabled.set(disabled); }

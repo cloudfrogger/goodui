@@ -1,7 +1,43 @@
+import { Component, signal } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { describe, expect, it } from 'vitest';
 import { hexToRgb, hslToRgb, normalizeHex, rgbToHex, rgbToHsl, rgbToHsv, hsvToRgb } from './color-utils';
 import { GoodRichTextHistory, GoodRichTextMutationCommand, type GoodRichTextCommandContext, type GoodRichTextSnapshot } from './rich-text-command';
 import { sanitizeRichText } from './rich-text-sanitize';
+import { GoodRichTextEditorComponent, type GoodRichTextFeature } from './rich-text-editor';
+
+@Component({
+  standalone: true,
+  imports: [GoodRichTextEditorComponent],
+  template: '<good-rich-text-editor [features]="features()" />',
+})
+class FeatureHost {
+  readonly features = signal<readonly GoodRichTextFeature[] | null>(null);
+}
+
+describe('rich text feature allowlist', () => {
+  it('shows all tools by default, filters the Format menu, and keeps an empty list editable', () => {
+    const fixture = TestBed.configureTestingModule({ imports: [FeatureHost] }).createComponent(FeatureHost);
+    fixture.detectChanges();
+    const host = fixture.nativeElement as HTMLElement;
+    const editor = fixture.debugElement.children[0].componentInstance as GoodRichTextEditorComponent;
+    expect(host.querySelector('[aria-label="Insert table"]')).not.toBeNull();
+    expect(editor.formatItems().some(group => group.id === 'headings')).toBe(true);
+
+    fixture.componentInstance.features.set(['bold', 'textcolor', 'alignment']);
+    fixture.detectChanges();
+    expect(host.querySelector('[aria-label="Bold"]')).not.toBeNull();
+    expect(host.querySelector('[aria-label="Insert table"]')).toBeNull();
+    expect(host.querySelector('[aria-label="Insert link"]')).toBeNull();
+    expect(editor.formatItems().map(group => group.id)).toEqual(['inline', 'align']);
+    expect(editor.formatItems()[0].children?.map(item => item.id)).toEqual(['inline-bold']);
+
+    fixture.componentInstance.features.set([]);
+    fixture.detectChanges();
+    expect(host.querySelector('[role="toolbar"]')).toBeNull();
+    expect(host.querySelector('[contenteditable="true"]')).not.toBeNull();
+  });
+});
 
 describe('rich text color models', () => {
   it('normalizes hex and round-trips common colors through HSL and HSV', () => {

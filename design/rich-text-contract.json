@@ -6,6 +6,6 @@
   ],
   "linkedComponentFamilies": ["goodui.select-font"],
   "runtimeState": {
-    "goodui.rich-text-editor": ["content", "selection", "history", "font family", "block alignment", "list marker placement", "readonly", "disabled", "assistant pane", "dialogs", "contextual table actions", "table cell multi-selection", "table column and row resizing", "table header and body cells", "fillHeight", "header slot", "footer slot"]
+    "goodui.rich-text-editor": ["HTML content", "plain text readback", "selection", "history", "editing feature allowlist", "font family", "block alignment", "list marker placement", "readonly", "disabled", "assistant pane", "dialogs", "contextual table actions", "table cell multi-selection", "table column and row resizing", "table header and body cells", "fillHeight", "header slot", "footer slot"]
   }
 }

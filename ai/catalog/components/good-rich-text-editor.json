@@ -64,6 +64,15 @@
       "kind": "input"
     },
     {
+      "name": "features",
+      "type": "readonly GoodRichTextFeature[]",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    },
+    {
       "name": "showAssistant",
       "type": "boolean",
       "required": false,

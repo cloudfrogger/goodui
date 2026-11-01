@@ -8,6 +8,31 @@
     </good-group>
   </good-section>
   <good-section>
+    <good-group title="Choose the available tools" appearance="plain">
+      <p>Leave <code>features</code> out to show every editing tool. Once you pass an array, only its entries are available; an empty array leaves a plain writing area. This example keeps bold, italic, both color pickers, and alignment. The Format menu also shows only those commands.</p>
+      <good-rich-text-editor label="Note with selected tools" [(value)]="compactContent" [features]="compactFeatures" [minHeight]="160" />
+      <p>Copy this complete list, then delete the tools your page does not need. Headings and blocks name the elements they create. <code>alignment</code> includes left, center, right, and justify; <code>bullets</code> and <code>numbering</code> include their marker styles. <code>table</code> includes insertion, cell actions, and resizing.</p>
+      <good-code-block [code]="featuresTemplateCode" language="html" title="Editor with selected tools" />
+      <good-code-block [code]="featuresTypeScriptCode" language="typescript" title="Complete feature list to copy and trim" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Load and read content" appearance="plain">
+      <p>Bind an HTML string to <code>[(value)]</code>. Setting that signal loads existing HTML into the editor. GoodUI parses the markup, keeps supported formatting, and removes unsupported or unsafe elements and attributes. Edit the loaded content normally; the bound signal then contains the sanitized HTML. For text without markup, call <code>getPlainText()</code> on the rendered editor.</p>
+      <good-action-group>
+        <good-button (click)="loadHtml()">Load sample HTML</good-button>
+        <good-button variant="outline" (click)="readContent()">Read content</good-button>
+      </good-action-group>
+      @if (savedHtml() || savedText()) {
+        <good-code-block [code]="savedHtml()" language="html" title="Current HTML" />
+        <good-code-block [code]="savedText()" language="plaintext" title="Current plain text" />
+      }
+      <good-code-block [code]="dataTemplateCode" language="html" title="Bind, load, and read" />
+      <good-code-block [code]="dataTypeScriptCode" language="typescript" title="Component state" />
+      <p>For reactive forms, bind <code>formControlName</code> instead of <code>[(value)]</code>. Load HTML with <code>control.setValue(savedHtml)</code> and read it from <code>control.value</code>; use one value source per editor. Incoming headings, paragraphs, lists, links, tables, and supported inline formatting remain editable. Unsupported markup is simplified, so importing a complete page or a word processor document cannot preserve every style.</p>
+    </good-group>
+  </good-section>
+  <good-section>
     <good-group title="Forms and assistant" appearance="plain">
       <p>The editor is an Angular form control. Set <code>showAssistant</code> to reserve an optional side pane; on mobile it opens over the editor. Project your own content into that pane.</p>
       <good-code-block [code]="formsCode" language="html" title="Form control with optional assistant" />

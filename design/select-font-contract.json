@@ -5,10 +5,15 @@
   "selector": "good-select-font",
   "componentId": "5f52067e-ed89-8049-8008-e0d847bafee0",
   "mainShapeId": "5f52067e-ed89-8049-8008-e0d841f9f051",
+  "guideBoardId": "5f52067e-ed89-8049-8008-e0f5805a55e9",
   "specimens": {
     "openTrigger": "5f52067e-ed89-8049-8008-e0d859adce9c",
-    "openList": "5f52067e-ed89-8049-8008-e0d859bbb38b"
+    "openList": "5f52067e-ed89-8049-8008-e0d859bbb38b",
+    "small": "5f52067e-ed89-8049-8008-e0f5e76f5ccd",
+    "large": "5f52067e-ed89-8049-8008-e0f5e778e235",
+    "disabled": "5f52067e-ed89-8049-8008-e0f5e77f4f52",
+    "keyboardFocus": "5f52067e-ed89-8049-8008-e0f6cb2fdfdb"
   },
   "runtimeState": ["available families", "selected family", "open", "keyboard focus", "small", "default", "large", "disabled"],
-  "notes": "The Penpot list depicts generic families. The browser detects named local families at runtime; Penpot cannot reproduce each user's installed fonts."
+  "notes": "The guide board retains the published master and linked small, large, disabled, focus, and open-trigger instances. The open-list specimen depicts generic families and its selected check; Noto Serif and Fira Mono are representative Penpot preview faces. The browser detects named local families at runtime; Penpot cannot reproduce each user's installed fonts."
 }

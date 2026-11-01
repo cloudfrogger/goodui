@@ -1,31 +1,79 @@
 <div class="good-rich-editor-shell" [attr.data-readonly]="readonly() || isDisabled()">
   <div class="good-rich-editor-header"><ng-content select="[goodRichTextHeader]" /></div>
+  @if (hasToolbar()) {
   <div class="good-rich-editor-toolbar" role="toolbar" [attr.aria-label]="label() + ' formatting'">
+    @if (hasFeature('undo') || hasFeature('redo')) {
     <div class="good-rich-editor-tools">
+      @if (hasFeature('undo')) {
       <good-button variant="ghost" size="small" [icon]="undoIcon" [iconOnly]="true" ariaLabel="Undo" [disabled]="!canUndo() || isDisabled() || readonly()" (click)="undo()" />
+      }
+      @if (hasFeature('redo')) {
       <good-button variant="ghost" size="small" [icon]="redoIcon" [iconOnly]="true" ariaLabel="Redo" [disabled]="!canRedo() || isDisabled() || readonly()" (click)="redo()" />
+      }
     </div>
+    }
+    @if ((hasFeature('undo') || hasFeature('redo')) && (formatItems().length || hasFeature('fontfamily') || hasFeature('fontsize'))) {
     <span class="good-rich-editor-divider" aria-hidden="true"></span>
-    <good-dropdown class="good-rich-editor-format" size="small" variant="outline" [items]="formatItems" [disabled]="isDisabled() || readonly()" menuLabel="Text format"><span goodDropdownTrigger>Format</span></good-dropdown>
+    }
+    @if (formatItems().length) {
+    <good-dropdown class="good-rich-editor-format" size="small" variant="outline" [items]="formatItems()" [disabled]="isDisabled() || readonly()" menuLabel="Text format"><span goodDropdownTrigger>Format</span></good-dropdown>
+    }
+    @if (hasFeature('fontfamily')) {
     <good-select-font class="good-rich-editor-font" size="small" label="Font family" [value]="fontFamily()" (fontSelected)="fontFamilyChanged($event)" [disabled]="isDisabled() || readonly()" />
+    }
+    @if (hasFeature('fontsize')) {
     <good-number-input class="good-rich-editor-font-size" size="small" label="Font size in pixels" [min]="8" [max]="72" [step]="1" [value]="fontSize()" (valueChange)="fontSizeChanged($event)" [disabled]="isDisabled() || readonly()" />
+    }
+    @if (hasFeature('bold') || hasFeature('italic') || hasFeature('underline')) {
+    @if (hasFeature('undo') || hasFeature('redo') || formatItems().length || hasFeature('fontfamily') || hasFeature('fontsize')) {
     <span class="good-rich-editor-divider" aria-hidden="true"></span>
+    }
     <div class="good-rich-editor-tools">
+      @if (hasFeature('bold')) {
       <good-button variant="ghost" size="small" [icon]="boldIcon" [iconOnly]="true" ariaLabel="Bold" [disabled]="isDisabled() || readonly()" (click)="native('bold', 'Bold')" />
+      }
+      @if (hasFeature('italic')) {
       <good-button variant="ghost" size="small" [icon]="italicIcon" [iconOnly]="true" ariaLabel="Italic" [disabled]="isDisabled() || readonly()" (click)="native('italic', 'Italic')" />
+      }
+      @if (hasFeature('underline')) {
       <good-button variant="ghost" size="small" [icon]="underlineIcon" [iconOnly]="true" ariaLabel="Underline" [disabled]="isDisabled() || readonly()" (click)="native('underline', 'Underline')" />
+      }
     </div>
+    }
+    @if (hasFeature('textcolor') || hasFeature('background')) {
+    @if (hasFeature('undo') || hasFeature('redo') || formatItems().length || hasFeature('fontfamily') || hasFeature('fontsize') || hasFeature('bold') || hasFeature('italic') || hasFeature('underline')) {
     <span class="good-rich-editor-divider" aria-hidden="true"></span>
+    }
+    @if (hasFeature('textcolor')) {
     <good-color-picker label="Text color" icon="text" size="small" [value]="textColor()" (colorSelected)="textColor.set($event); applyColor('text', $event)" [disabled]="isDisabled() || readonly()" />
+    }
+    @if (hasFeature('background')) {
     <good-color-picker label="Background color" icon="background" size="small" [value]="backgroundColor()" (colorSelected)="backgroundColor.set($event); applyColor('background', $event)" [disabled]="isDisabled() || readonly()" />
+    }
+    }
+    @if (hasFeature('link') || hasFeature('image')) {
+    @if (hasFeature('undo') || hasFeature('redo') || formatItems().length || hasFeature('fontfamily') || hasFeature('fontsize') || hasFeature('bold') || hasFeature('italic') || hasFeature('underline') || hasFeature('textcolor') || hasFeature('background')) {
     <span class="good-rich-editor-divider" aria-hidden="true"></span>
+    }
     <div class="good-rich-editor-tools">
+      @if (hasFeature('link')) {
       <good-button variant="ghost" size="small" [icon]="linkIcon" [iconOnly]="true" ariaLabel="Insert link" [disabled]="isDisabled() || readonly()" (click)="openLink()" />
+      }
+      @if (hasFeature('image')) {
       <good-button variant="ghost" size="small" [icon]="imageIcon" [iconOnly]="true" ariaLabel="Insert image" [disabled]="isDisabled() || readonly()" (click)="openImage()" />
+      }
     </div>
+    }
+    @if (hasFeature('alignment')) {
     <good-dropdown size="small" variant="ghost" [icon]="alignIcon" [iconOnly]="true" ariaLabel="Alignment" [items]="alignmentItems" [disabled]="isDisabled() || readonly()" />
+    }
+    @if (hasFeature('bullets')) {
     <good-dropdown size="small" variant="ghost" [icon]="listIcon" [iconOnly]="true" ariaLabel="Bulleted list" [items]="unorderedItems" [disabled]="isDisabled() || readonly()" />
+    }
+    @if (hasFeature('numbering')) {
     <good-dropdown size="small" variant="ghost" [icon]="orderedListIcon" [iconOnly]="true" ariaLabel="Numbered list" [items]="orderedItems" [disabled]="isDisabled() || readonly()" />
+    }
+    @if (hasFeature('table')) {
     <div class="good-rich-editor-table-control">
       <good-button variant="ghost" size="small" [icon]="tableIcon" [iconOnly]="true" ariaLabel="Insert table" [disabled]="isDisabled() || readonly()" [ariaExpanded]="tableGridOpen()" (click)="toggleTableGrid($event)" />
       @if (tableGridOpen()) {
@@ -43,12 +91,16 @@
         </div>
       }
     </div>
+    }
+    @if (hasFeature('clearformatting')) {
     <good-button variant="ghost" size="small" [icon]="clearIcon" [iconOnly]="true" ariaLabel="Clear formatting" [disabled]="isDisabled() || readonly()" (click)="clearFormatting()" />
+    }
     @if (showAssistant()) {
       <span class="good-rich-editor-spacer"></span>
       <good-button variant="ghost" size="small" [icon]="assistantIcon" [iconOnly]="true" ariaLabel="Toggle assistant" [ariaExpanded]="assistantOpen()" (click)="assistantOpen.set(!assistantOpen())" />
     }
   </div>
+  }
   <div class="good-rich-editor-workspace">
     <div class="good-rich-editor-canvas" (scroll)="onEditorScroll()">
       <div #editor class="good-rich-editor-content" [style.min-height.px]="minHeight()" [attr.contenteditable]="!isDisabled() && !readonly() && !selectingCells() ? 'true' : 'false'"
@@ -69,26 +121,26 @@
 @for (box of selectedCellBoxes(); track $index) {
   <div class="good-rich-editor-cell-selection" aria-hidden="true" [style.left.px]="box.left" [style.top.px]="box.top" [style.width.px]="box.width" [style.height.px]="box.height"></div>
 }
-@if (tableActionVisible()) {
+@if (hasFeature('table') && tableActionVisible()) {
   <good-button #tableActionTrigger class="good-rich-editor-table-trigger" variant="outline" size="small" [icon]="tableActionIcon" [iconOnly]="true" title="Table actions"
     [ariaLabel]="selectedCellCount() > 1 ? 'Table actions for ' + selectedCellCount() + ' cells' : 'Table actions'" [ariaExpanded]="tableMenuOpen()" [ariaControls]="tableMenuId" hasPopup="menu"
     [style.left.px]="tableActionPosition().left" [style.top.px]="tableActionPosition().top" (click)="openTableMenuFromCell($event)" />
 }
-@if (tableActionVisible() && hasActiveCell() && !selectingCells() && columnGripVisible()) {
+@if (hasFeature('table') && tableActionVisible() && hasActiveCell() && !selectingCells() && columnGripVisible()) {
   <button type="button" class="good-rich-editor-resize-grip" data-axis="column" aria-label="Resize table column" title="Drag to resize column; use Left and Right arrow keys"
     [style.left.px]="tableGripPosition().columnLeft" [style.top.px]="tableGripPosition().columnTop"
     (pointerdown)="startTableResize($event, 'column')" (pointermove)="moveTableResize($event)" (pointerup)="finishTableResize($event)" (pointercancel)="finishTableResize($event, true)" (keydown)="onTableResizeKeydown($event, 'column')">
     <svg [lucideIcon]="columnGripIcon" [size]="16" aria-hidden="true"></svg>
   </button>
 }
-@if (tableActionVisible() && hasActiveCell() && !selectingCells() && rowGripVisible()) {
+@if (hasFeature('table') && tableActionVisible() && hasActiveCell() && !selectingCells() && rowGripVisible()) {
   <button type="button" class="good-rich-editor-resize-grip" data-axis="row" aria-label="Resize table row" title="Drag to resize row; use Up and Down arrow keys"
     [style.left.px]="tableGripPosition().rowLeft" [style.top.px]="tableGripPosition().rowTop"
     (pointerdown)="startTableResize($event, 'row')" (pointermove)="moveTableResize($event)" (pointerup)="finishTableResize($event)" (pointercancel)="finishTableResize($event, true)" (keydown)="onTableResizeKeydown($event, 'row')">
     <svg [lucideIcon]="rowGripIcon" [size]="16" aria-hidden="true"></svg>
   </button>
 }
-@if (tableMenuOpen()) {
+@if (hasFeature('table') && tableMenuOpen()) {
   <div [id]="tableMenuId" class="good-rich-editor-table-menu" role="menu" aria-label="Table actions" [style.left.px]="tableMenuPosition().left" [style.top.px]="tableMenuPosition().top">
     <button type="button" role="menuitem" (click)="tableAction('properties')"><svg [lucideIcon]="tablePropertiesIcon" [size]="16" aria-hidden="true"></svg>Table properties</button>
     @if (hasActiveCell()) {
