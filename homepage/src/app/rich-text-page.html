@@ -1,0 +1,19 @@
+<good-main-view title="Rich text editor" description="Compose formatted HTML with GoodUI controls and a command-based undo history.">
+  <good-section>
+    <good-group title="Write and format" appearance="plain">
+      <p>Select text before applying an inline format. The font menu previews locally available families; use Format for headings and blocks. The table grid inserts rows and columns. Tap a cell for its nearby actions and resize grips. Drag the right grip to resize its column or the bottom grip to resize its row. Use Shift-click, Ctrl/Command-click, or the menu's touch-friendly selection mode to choose several cells before changing them all to header or body cells.</p>
+      <good-rich-text-editor label="Article body" [(value)]="content" (commandExecuted)="command.set($event)" />
+      <p role="status">Last command: {{ command() }}</p>
+      <good-code-block [code]="editorCode" language="html" title="Basic editor" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Forms and assistant" appearance="plain">
+      <p>The editor is an Angular form control. Set <code>showAssistant</code> to reserve an optional side pane; on mobile it opens over the editor. Project your own content into that pane.</p>
+      <good-code-block [code]="formsCode" language="html" title="Form control with optional assistant" />
+      <p>For a page-sized writing workspace, pair <code>layout="fill"</code> on MainView with <code>fillHeight</code> on the editor. Optional header and footer slots keep fields and actions in place while the writing area scrolls.</p>
+      <good-code-block [code]="workspaceCode" language="html" title="Fill the application workspace" />
+      <p>See <a href="/examples/mail-compose">Compose mail</a> for a complete page.</p>
+    </good-group>
+  </good-section>
+</good-main-view>

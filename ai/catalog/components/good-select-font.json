@@ -1,0 +1,111 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-select-font",
+  "className": "GoodSelectFontComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSelectFontComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/select-font.ts",
+  "inputs": [
+    {
+      "name": "options",
+      "type": "readonly GoodFontOption[]",
+      "required": false,
+      "default": {
+        "expression": "GOOD_FONT_OPTIONS"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/select-font.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": "sans-serif",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/select-font.ts",
+      "kind": "model"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Font family",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/select-font.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodButtonSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/select-font.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/select-font.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/select-font.ts",
+      "implicit": true
+    },
+    {
+      "name": "fontSelected",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/select-font.ts"
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": false
+  },
+  "usageGuide": "guides/components/select-font.md",
+  "usage": {
+    "summary": "`good-select-font` shows familiar web font families with each option rendered in its own typeface. It tries to load each named family from the current browser's local fonts and omits names that fail. Sans serif, serif, monospace, and system UI are always offered.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.select-font",
+      "penpotId": "5f52067e-ed89-8049-8008-e0d847bafee0",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

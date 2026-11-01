@@ -1,0 +1,155 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-rich-text-editor",
+  "className": "GoodRichTextEditorComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodRichTextEditorComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+  "inputs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Rich text editor",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": "<p><br></p>",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "model"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    },
+    {
+      "name": "minHeight",
+      "type": "number",
+      "required": false,
+      "default": "320",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    },
+    {
+      "name": "fillHeight",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showAssistant",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    },
+    {
+      "name": "assistantOpen",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "model"
+    },
+    {
+      "name": "assistantTitle",
+      "type": "string",
+      "required": false,
+      "default": "Assistant",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "implicit": true
+    },
+    {
+      "name": "assistantOpenChange",
+      "type": "boolean",
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",
+      "implicit": true
+    },
+    {
+      "name": "commandExecuted",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/rich-text-editor.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [
+      "[goodRichTextHeader]",
+      "[goodRichTextAssistant]",
+      "[goodRichTextFooter]"
+    ],
+    "relatedSelectors": [
+      "good-button",
+      "good-dropdown",
+      "good-select-font",
+      "good-number-input",
+      "good-color-picker",
+      "good-modal",
+      "good-modal-header",
+      "good-input",
+      "good-modal-footer"
+    ],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": false
+  },
+  "usageGuide": "guides/components/rich-text-editor.md",
+  "usage": {
+    "summary": "`good-rich-text-editor` is a full-width HTML editor. It provides a toolbar, a scrollable writing area, undo and redo commands, and an optional assistant pane. The assistant is intentionally empty until an application projects content through `[goodRichTextAssistant]`. On narrow screens the pane overlays the editor.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.rich-text-editor",
+      "penpotId": "5f52067e-ed89-8049-8008-e08fc607a358",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-color-picker",
+  "className": "GoodColorPickerComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodColorPickerComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/color-picker.ts",
+  "inputs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Color",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodColorPickerIcon",
+      "required": false,
+      "default": "swatch",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodButtonSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "kind": "input"
+    },
+    {
+      "name": "allowCustomColors",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": "#000000",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "kind": "model"
+    },
+    {
+      "name": "customColors",
+      "type": "readonly string[]",
+      "required": false,
+      "default": {
+        "expression": "['', '', '', '']"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "kind": "model"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "implicit": true
+    },
+    {
+      "name": "customColorsChange",
+      "type": "readonly string[]",
+      "source": "angular/projects/goodui/src/lib/color-picker.ts",
+      "implicit": true
+    },
+    {
+      "name": "colorSelected",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/color-picker.ts"
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-modal",
+      "good-modal-header",
+      "good-color-controls",
+      "good-modal-footer",
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.color-picker",
+      "penpotId": "5f52067e-ed89-8049-8008-e094ea62f927",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

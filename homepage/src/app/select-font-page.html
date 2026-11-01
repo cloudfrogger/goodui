@@ -1,0 +1,21 @@
+<good-main-view title="Font select" description="Choose a font that the current browser can actually render, with a live preview of each available family.">
+  <good-section>
+    <good-group title="Choose a font" appearance="plain">
+      <p>Open the list to compare each name in its own typeface. Generic CSS families are always available; named fonts appear only when the browser detects them locally.</p>
+      <good-select-font label="Font family" [(value)]="font" (fontSelected)="selected.set($event)" />
+      <p role="status">Current value: {{ font() }} · Last choice: {{ selected() }}</p>
+      <good-code-block [code]="basicCode" language="html" title="Basic selection" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Sizes and forms" appearance="plain">
+      <p>The component supports small, default, and large sizes, a disabled state, two-way value binding, and Angular Forms.</p>
+      <good-select-font size="small" [(value)]="font" />
+      <good-select-font size="large" [(value)]="font" />
+      <good-select-font [disabled]="true" />
+      <good-code-block [code]="sizesCode" language="html" title="Size and disabled states" />
+      <good-code-block [code]="formsCode" language="html" title="Angular form control" />
+      <p>The rich text editor uses the same picker to format selected text.</p>
+    </good-group>
+  </good-section>
+</good-main-view>

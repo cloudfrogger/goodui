@@ -1,0 +1,23 @@
+{
+  "page": "36 Color Controls",
+  "pageId": "5f52067e-ed89-8049-8008-e094abe6aea8",
+  "components": [
+    { "name": "goodui.color-picker", "id": "5f52067e-ed89-8049-8008-e094ea62f927", "mainShapeId": "5f52067e-ed89-8049-8008-e094e14db7ae", "selector": "good-color-picker" },
+    { "name": "goodui.color-controls", "id": "5f52067e-ed89-8049-8008-e094ea67d958", "mainShapeId": "5f52067e-ed89-8049-8008-e094e16310e7", "selector": "good-color-controls" }
+  ],
+  "runtimeState": {
+    "goodui.color-picker": ["small", "default", "large", "disabled", "open", "selected color", "custom slots enabled by default", "preset-only with allowCustomColors=false", "swatch icon", "text icon", "background icon", "palette icon", "pipette icon", "custom Lucide icon"],
+    "goodui.color-controls": ["RGB or HSL", "saturation", "brightness", "hue", "hex value"]
+  },
+  "specimens": {
+    "openPalette": "5f52067e-ed89-8049-8008-e097dd7d78e7",
+    "small": "5f52067e-ed89-8049-8008-e097de56c4d5",
+    "default": "5f52067e-ed89-8049-8008-e097de6ac033",
+    "large": "5f52067e-ed89-8049-8008-e097de796775",
+    "disabled": "5f52067e-ed89-8049-8008-e097de8e5fd5"
+  },
+  "replacedIds": {
+    "goodui.color-picker": "5f52067e-ed89-8049-8008-e08fc5943953",
+    "goodui.color-controls": "5f52067e-ed89-8049-8008-e08fc5ca78f9"
+  }
+}

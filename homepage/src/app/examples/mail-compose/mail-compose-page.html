@@ -1,0 +1,25 @@
+<good-main-view layout="fill">
+  <good-rich-text-editor label="Message" [(value)]="body" [fillHeight]="true"
+    [showAssistant]="true" [(assistantOpen)]="assistantOpen">
+    <form goodForm goodRichTextHeader layout="left" [fullWidth]="true" (submit)="$event.preventDefault()">
+      <good-form-field>
+        <good-field-label forId="compose-to">To</good-field-label>
+        <good-input inputId="compose-to" label="To" type="email" placeholder="recipient@example.com" [(value)]="to" />
+      </good-form-field>
+      <good-form-field>
+        <good-field-label forId="compose-cc">Cc</good-field-label>
+        <good-input inputId="compose-cc" label="Cc" type="email" placeholder="Optional" [(value)]="cc" />
+      </good-form-field>
+      <good-form-field>
+        <good-field-label forId="compose-subject">Subject</good-field-label>
+        <good-input inputId="compose-subject" label="Subject" placeholder="What is this about?" [(value)]="subject" />
+      </good-form-field>
+    </form>
+    <div goodRichTextAssistant></div>
+    <good-action-group goodRichTextFooter orientation="responsive">
+      <good-button (click)="send()">Send</good-button>
+      <good-button variant="outline" (click)="feedback.set('Draft saved locally for this session.')">Save draft</good-button>
+    </good-action-group>
+    @if (feedback()) { <p goodRichTextFooter role="status">{{ feedback() }}</p> }
+  </good-rich-text-editor>
+</good-main-view>

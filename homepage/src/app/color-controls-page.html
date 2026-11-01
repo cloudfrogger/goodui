@@ -1,0 +1,23 @@
+<good-main-view title="Color controls" description="Choose a color quickly or edit its RGB, HSL, and hex values precisely.">
+  <good-section>
+    <good-group title="Color controls" appearance="plain">
+      <p>The detailed controls work on their own. Drag in the color area, adjust hue, or enter RGB, HSL, or hex values. Switch models without losing the chosen color.</p>
+      <good-color-controls [(value)]="color" />
+      <p role="status">Selected color: {{ color() }}</p>
+      <good-code-block [code]="controlsCode" language="html" title="Precise color editing" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Color picker" appearance="plain">
+      <p>The compact picker shows a color swatch by default. Open its menu for 25 classic colors and four editable custom slots. Set <code>[allowCustomColors]="false"</code> when users should choose from the preset palette only. Choose a built-in icon for text or background color, or pass any Lucide icon.</p>
+      <good-color-picker label="Accent color" [(value)]="color" />
+      <good-color-picker label="Text color" icon="text" size="small" [(value)]="color" />
+      <good-color-picker label="Highlight" icon="background" size="large" [(value)]="highlight" [(customColors)]="savedColors" />
+      <good-color-picker label="Favorite color" [icon]="customIcon" [(value)]="color" />
+      <good-color-picker label="Preset colors only" [allowCustomColors]="false" [(value)]="color" />
+      <good-color-picker label="Unavailable color" [disabled]="true" />
+      <good-code-block [code]="pickerCode" language="html" title="Dropdown color picker" />
+      <good-code-block [code]="customIconCode" language="typescript" title="Custom icon" />
+    </good-group>
+  </good-section>
+</good-main-view>

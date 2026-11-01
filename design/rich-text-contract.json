@@ -1,0 +1,11 @@
+{
+  "page": "35 Rich Text",
+  "pageId": "5f52067e-ed89-8049-8008-e08faac6265d",
+  "components": [
+    { "name": "goodui.rich-text-editor", "id": "5f52067e-ed89-8049-8008-e08fc607a358", "mainShapeId": "5f52067e-ed89-8049-8008-e08fc5cbb1f4", "selector": "good-rich-text-editor" }
+  ],
+  "linkedComponentFamilies": ["goodui.select-font"],
+  "runtimeState": {
+    "goodui.rich-text-editor": ["content", "selection", "history", "font family", "block alignment", "list marker placement", "readonly", "disabled", "assistant pane", "dialogs", "contextual table actions", "table cell multi-selection", "table column and row resizing", "table header and body cells", "fillHeight", "header slot", "footer slot"]
+  }
+}

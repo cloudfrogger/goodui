@@ -1,0 +1,141 @@
+<div class="good-rich-editor-shell" [attr.data-readonly]="readonly() || isDisabled()">
+  <div class="good-rich-editor-header"><ng-content select="[goodRichTextHeader]" /></div>
+  <div class="good-rich-editor-toolbar" role="toolbar" [attr.aria-label]="label() + ' formatting'">
+    <div class="good-rich-editor-tools">
+      <good-button variant="ghost" size="small" [icon]="undoIcon" [iconOnly]="true" ariaLabel="Undo" [disabled]="!canUndo() || isDisabled() || readonly()" (click)="undo()" />
+      <good-button variant="ghost" size="small" [icon]="redoIcon" [iconOnly]="true" ariaLabel="Redo" [disabled]="!canRedo() || isDisabled() || readonly()" (click)="redo()" />
+    </div>
+    <span class="good-rich-editor-divider" aria-hidden="true"></span>
+    <good-dropdown class="good-rich-editor-format" size="small" variant="outline" [items]="formatItems" [disabled]="isDisabled() || readonly()" menuLabel="Text format"><span goodDropdownTrigger>Format</span></good-dropdown>
+    <good-select-font class="good-rich-editor-font" size="small" label="Font family" [value]="fontFamily()" (fontSelected)="fontFamilyChanged($event)" [disabled]="isDisabled() || readonly()" />
+    <good-number-input class="good-rich-editor-font-size" size="small" label="Font size in pixels" [min]="8" [max]="72" [step]="1" [value]="fontSize()" (valueChange)="fontSizeChanged($event)" [disabled]="isDisabled() || readonly()" />
+    <span class="good-rich-editor-divider" aria-hidden="true"></span>
+    <div class="good-rich-editor-tools">
+      <good-button variant="ghost" size="small" [icon]="boldIcon" [iconOnly]="true" ariaLabel="Bold" [disabled]="isDisabled() || readonly()" (click)="native('bold', 'Bold')" />
+      <good-button variant="ghost" size="small" [icon]="italicIcon" [iconOnly]="true" ariaLabel="Italic" [disabled]="isDisabled() || readonly()" (click)="native('italic', 'Italic')" />
+      <good-button variant="ghost" size="small" [icon]="underlineIcon" [iconOnly]="true" ariaLabel="Underline" [disabled]="isDisabled() || readonly()" (click)="native('underline', 'Underline')" />
+    </div>
+    <span class="good-rich-editor-divider" aria-hidden="true"></span>
+    <good-color-picker label="Text color" icon="text" size="small" [value]="textColor()" (colorSelected)="textColor.set($event); applyColor('text', $event)" [disabled]="isDisabled() || readonly()" />
+    <good-color-picker label="Background color" icon="background" size="small" [value]="backgroundColor()" (colorSelected)="backgroundColor.set($event); applyColor('background', $event)" [disabled]="isDisabled() || readonly()" />
+    <span class="good-rich-editor-divider" aria-hidden="true"></span>
+    <div class="good-rich-editor-tools">
+      <good-button variant="ghost" size="small" [icon]="linkIcon" [iconOnly]="true" ariaLabel="Insert link" [disabled]="isDisabled() || readonly()" (click)="openLink()" />
+      <good-button variant="ghost" size="small" [icon]="imageIcon" [iconOnly]="true" ariaLabel="Insert image" [disabled]="isDisabled() || readonly()" (click)="openImage()" />
+    </div>
+    <good-dropdown size="small" variant="ghost" [icon]="alignIcon" [iconOnly]="true" ariaLabel="Alignment" [items]="alignmentItems" [disabled]="isDisabled() || readonly()" />
+    <good-dropdown size="small" variant="ghost" [icon]="listIcon" [iconOnly]="true" ariaLabel="Bulleted list" [items]="unorderedItems" [disabled]="isDisabled() || readonly()" />
+    <good-dropdown size="small" variant="ghost" [icon]="orderedListIcon" [iconOnly]="true" ariaLabel="Numbered list" [items]="orderedItems" [disabled]="isDisabled() || readonly()" />
+    <div class="good-rich-editor-table-control">
+      <good-button variant="ghost" size="small" [icon]="tableIcon" [iconOnly]="true" ariaLabel="Insert table" [disabled]="isDisabled() || readonly()" [ariaExpanded]="tableGridOpen()" (click)="toggleTableGrid($event)" />
+      @if (tableGridOpen()) {
+        <div class="good-rich-editor-grid-popup" role="dialog" aria-label="Insert table" [style.left.px]="tableGridPosition().left" [style.top.px]="tableGridPosition().top">
+          <strong>Insert table</strong>
+          <div class="good-rich-editor-grid" role="grid" aria-label="Choose rows and columns">
+            @for (row of tableRows; track row) {
+              @for (column of tableColumns; track column) {
+                <button type="button" role="gridcell" [class.is-active]="row <= gridRows() && column <= gridColumns()"
+                  [attr.aria-label]="row + ' rows, ' + column + ' columns'" (pointerenter)="previewTable(row, column)" (focus)="previewTable(row, column)" (click)="insertTable(row, column)"></button>
+              }
+            }
+          </div>
+          <span>{{ gridColumns() }} columns × {{ gridRows() }} rows</span>
+        </div>
+      }
+    </div>
+    <good-button variant="ghost" size="small" [icon]="clearIcon" [iconOnly]="true" ariaLabel="Clear formatting" [disabled]="isDisabled() || readonly()" (click)="clearFormatting()" />
+    @if (showAssistant()) {
+      <span class="good-rich-editor-spacer"></span>
+      <good-button variant="ghost" size="small" [icon]="assistantIcon" [iconOnly]="true" ariaLabel="Toggle assistant" [ariaExpanded]="assistantOpen()" (click)="assistantOpen.set(!assistantOpen())" />
+    }
+  </div>
+  <div class="good-rich-editor-workspace">
+    <div class="good-rich-editor-canvas" (scroll)="onEditorScroll()">
+      <div #editor class="good-rich-editor-content" [style.min-height.px]="minHeight()" [attr.contenteditable]="!isDisabled() && !readonly() && !selectingCells() ? 'true' : 'false'"
+        [attr.aria-label]="label()" role="textbox" aria-multiline="true" [attr.aria-readonly]="readonly() || selectingCells() || null" [attr.aria-disabled]="isDisabled() || null"
+        (beforeinput)="onBeforeInput($event)" (input)="onInput()" (paste)="onPaste($event)" (drop)="onDrop($event)" (keydown)="onKeydown($event)" (blur)="onBlur()" (pointerdown)="onEditorPointerDown($event)" (click)="onEditorClick($event)" (contextmenu)="onContextMenu($event)"></div>
+    </div>
+    @if (showAssistant() && assistantOpen()) {
+      <div class="good-rich-editor-assistant-backdrop" (click)="assistantOpen.set(false)"></div>
+      <aside class="good-rich-editor-assistant" [attr.aria-label]="assistantTitle()">
+        <div class="good-rich-editor-assistant-head"><strong>{{ assistantTitle() }}</strong><good-button variant="ghost" size="small" ariaLabel="Close assistant" (click)="assistantOpen.set(false)">×</good-button></div>
+        <div class="good-rich-editor-assistant-body"><ng-content select="[goodRichTextAssistant]" /></div>
+      </aside>
+    }
+  </div>
+  <div class="good-rich-editor-footer"><ng-content select="[goodRichTextFooter]" /></div>
+</div>
+
+@for (box of selectedCellBoxes(); track $index) {
+  <div class="good-rich-editor-cell-selection" aria-hidden="true" [style.left.px]="box.left" [style.top.px]="box.top" [style.width.px]="box.width" [style.height.px]="box.height"></div>
+}
+@if (tableActionVisible()) {
+  <good-button #tableActionTrigger class="good-rich-editor-table-trigger" variant="outline" size="small" [icon]="tableActionIcon" [iconOnly]="true" title="Table actions"
+    [ariaLabel]="selectedCellCount() > 1 ? 'Table actions for ' + selectedCellCount() + ' cells' : 'Table actions'" [ariaExpanded]="tableMenuOpen()" [ariaControls]="tableMenuId" hasPopup="menu"
+    [style.left.px]="tableActionPosition().left" [style.top.px]="tableActionPosition().top" (click)="openTableMenuFromCell($event)" />
+}
+@if (tableActionVisible() && hasActiveCell() && !selectingCells() && columnGripVisible()) {
+  <button type="button" class="good-rich-editor-resize-grip" data-axis="column" aria-label="Resize table column" title="Drag to resize column; use Left and Right arrow keys"
+    [style.left.px]="tableGripPosition().columnLeft" [style.top.px]="tableGripPosition().columnTop"
+    (pointerdown)="startTableResize($event, 'column')" (pointermove)="moveTableResize($event)" (pointerup)="finishTableResize($event)" (pointercancel)="finishTableResize($event, true)" (keydown)="onTableResizeKeydown($event, 'column')">
+    <svg [lucideIcon]="columnGripIcon" [size]="16" aria-hidden="true"></svg>
+  </button>
+}
+@if (tableActionVisible() && hasActiveCell() && !selectingCells() && rowGripVisible()) {
+  <button type="button" class="good-rich-editor-resize-grip" data-axis="row" aria-label="Resize table row" title="Drag to resize row; use Up and Down arrow keys"
+    [style.left.px]="tableGripPosition().rowLeft" [style.top.px]="tableGripPosition().rowTop"
+    (pointerdown)="startTableResize($event, 'row')" (pointermove)="moveTableResize($event)" (pointerup)="finishTableResize($event)" (pointercancel)="finishTableResize($event, true)" (keydown)="onTableResizeKeydown($event, 'row')">
+    <svg [lucideIcon]="rowGripIcon" [size]="16" aria-hidden="true"></svg>
+  </button>
+}
+@if (tableMenuOpen()) {
+  <div [id]="tableMenuId" class="good-rich-editor-table-menu" role="menu" aria-label="Table actions" [style.left.px]="tableMenuPosition().left" [style.top.px]="tableMenuPosition().top">
+    <button type="button" role="menuitem" (click)="tableAction('properties')"><svg [lucideIcon]="tablePropertiesIcon" [size]="16" aria-hidden="true"></svg>Table properties</button>
+    @if (hasActiveCell()) {
+      <button type="button" role="menuitemcheckbox" [attr.aria-checked]="selectingCells()" (click)="toggleCellSelectionMode()"><svg [lucideIcon]="selectCellsIcon" [size]="16" aria-hidden="true"></svg>{{ selectingCells() ? 'Finish selecting cells' : 'Select multiple cells' }}</button>
+      @if (selectedCellCount() > 1) {
+        <button type="button" role="menuitem" (click)="tableAction('header-cell')"><svg [lucideIcon]="headerCellIcon" [size]="16" aria-hidden="true"></svg>Make header cells</button>
+        <button type="button" role="menuitem" (click)="tableAction('body-cell')"><svg [lucideIcon]="bodyCellIcon" [size]="16" aria-hidden="true"></svg>Make body cells</button>
+      } @else if (isHeaderCell()) {
+        <button type="button" role="menuitem" (click)="tableAction('body-cell')"><svg [lucideIcon]="bodyCellIcon" [size]="16" aria-hidden="true"></svg>Make body cell</button>
+      } @else {
+        <button type="button" role="menuitem" (click)="tableAction('header-cell')"><svg [lucideIcon]="headerCellIcon" [size]="16" aria-hidden="true"></svg>Make header cell</button>
+      }
+      <button type="button" role="menuitem" (click)="tableAction('row-before')"><svg [lucideIcon]="rowBeforeIcon" [size]="16" aria-hidden="true"></svg>Insert row before</button>
+      <button type="button" role="menuitem" (click)="tableAction('row-after')"><svg [lucideIcon]="rowAfterIcon" [size]="16" aria-hidden="true"></svg>Insert row after</button>
+      <button type="button" role="menuitem" (click)="tableAction('delete-row')"><svg [lucideIcon]="rowIcon" [size]="16" aria-hidden="true"></svg>Delete row</button>
+      <button type="button" role="menuitem" (click)="tableAction('column-before')"><svg [lucideIcon]="columnBeforeIcon" [size]="16" aria-hidden="true"></svg>Insert column before</button>
+      <button type="button" role="menuitem" (click)="tableAction('column-after')"><svg [lucideIcon]="columnAfterIcon" [size]="16" aria-hidden="true"></svg>Insert column after</button>
+      <button type="button" role="menuitem" (click)="tableAction('delete-column')"><svg [lucideIcon]="columnIcon" [size]="16" aria-hidden="true"></svg>Delete column</button>
+    }
+    <button type="button" role="menuitem" (click)="tableAction('delete-table')"><svg [lucideIcon]="deleteIcon" [size]="16" aria-hidden="true"></svg>Delete table</button>
+  </div>
+}
+
+<good-modal [(open)]="linkOpen" size="small"><good-modal-header title="Insert link" />
+  <div class="good-rich-editor-dialog-fields">
+    <good-input label="Web address" [value]="linkUrl()" (valueChange)="linkUrl.set($event)" placeholder="https://example.com" />
+    <good-input label="Display text" [value]="linkText()" (valueChange)="linkText.set($event)" />
+    <label>Open link in<select [value]="linkTarget()" (change)="linkTarget.set($any($event.target).value)"><option value="current">Current window</option><option value="new">New window</option></select></label>
+    @if (linkError()) { <p class="good-rich-editor-error" role="alert">{{ linkError() }}</p> }
+  </div>
+  <good-modal-footer><good-button variant="outline" (click)="linkOpen.set(false)">Cancel</good-button><good-button (click)="saveLink()">Save link</good-button></good-modal-footer>
+</good-modal>
+
+<good-modal [(open)]="imageOpen" size="small"><good-modal-header title="Insert image" description="PNG, JPEG, GIF, or WebP, up to 5 MB." />
+  <div class="good-rich-editor-dialog-fields">
+    <label>Image file<input type="file" accept="image/png,image/jpeg,image/gif,image/webp" (change)="chooseImage($any($event.target).files)" /></label>
+    <good-input label="Alternative text" [value]="imageAlt()" (valueChange)="imageAlt.set($event)" />
+    @if (imageError()) { <p class="good-rich-editor-error" role="alert">{{ imageError() }}</p> }
+  </div>
+  <good-modal-footer><good-button variant="outline" (click)="imageOpen.set(false)">Cancel</good-button><good-button (click)="insertImage()">Insert image</good-button></good-modal-footer>
+</good-modal>
+
+<good-modal [(open)]="tablePropertiesOpen" size="small"><good-modal-header title="Table properties" />
+  <div class="good-rich-editor-dialog-fields">
+    <good-number-input label="Width percent" [showLabel]="true" [min]="10" [max]="100" [value]="tableWidth()" (valueChange)="tableWidth.set($event)" />
+    <good-number-input label="Cell padding pixels" [showLabel]="true" [min]="0" [max]="24" [value]="tablePadding()" (valueChange)="tablePadding.set($event)" />
+    <good-input label="Caption" [value]="tableCaption()" (valueChange)="tableCaption.set($event)" />
+  </div>
+  <good-modal-footer><good-button variant="outline" (click)="tablePropertiesOpen.set(false)">Cancel</good-button><good-button (click)="saveTableProperties()">Save table</good-button></good-modal-footer>
+</good-modal>

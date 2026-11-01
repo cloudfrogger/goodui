@@ -1,0 +1,14 @@
+{
+  "page": "37 Font Selects",
+  "pageId": "5f52067e-ed89-8049-8008-e0d83718393e",
+  "family": "goodui.select-font",
+  "selector": "good-select-font",
+  "componentId": "5f52067e-ed89-8049-8008-e0d847bafee0",
+  "mainShapeId": "5f52067e-ed89-8049-8008-e0d841f9f051",
+  "specimens": {
+    "openTrigger": "5f52067e-ed89-8049-8008-e0d859adce9c",
+    "openList": "5f52067e-ed89-8049-8008-e0d859bbb38b"
+  },
+  "runtimeState": ["available families", "selected family", "open", "keyboard focus", "small", "default", "large", "disabled"],
+  "notes": "The Penpot list depicts generic families. The browser detects named local families at runtime; Penpot cannot reproduce each user's installed fonts."
+}

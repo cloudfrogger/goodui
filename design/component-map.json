@@ -16,6 +16,8 @@
     "card-header",
     "checkbox",
     "code-block",
+    "color-controls",
+    "color-picker",
     "column",
     "columns",
     "date-input",
@@ -56,12 +58,14 @@
     "prose",
     "progress",
     "range-slider",
+    "rich-text-editor",
     "radio-group",
     "rating",
     "search",
     "section",
     "select",
     "select-country",
+    "select-font",
     "separator",
     "settings",
     "sidebar-container",
@@ -1727,6 +1731,34 @@
       "angularSelector": "good-tabs",
       "kind": "component",
       "state": "overflow"
+    },
+    {
+      "penpotName": "goodui.color-controls",
+      "penpotId": "5f52067e-ed89-8049-8008-e094ea67d958",
+      "angularSelector": "good-color-controls",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.color-picker",
+      "penpotId": "5f52067e-ed89-8049-8008-e094ea62f927",
+      "angularSelector": "good-color-picker",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.rich-text-editor",
+      "penpotId": "5f52067e-ed89-8049-8008-e08fc607a358",
+      "angularSelector": "good-rich-text-editor",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.select-font",
+      "penpotId": "5f52067e-ed89-8049-8008-e0d847bafee0",
+      "angularSelector": "good-select-font",
+      "kind": "component",
+      "state": null
     }
   ],
   "variantManifests": [
@@ -1759,6 +1791,8 @@
     "design/tabs-contract.json",
     "design/typography-components.json",
     "design/select-variants.json",
-    "design/input-phone-variants.json"
+    "design/input-phone-variants.json",
+    "design/rich-text-contract.json",
+    "design/color-controls-contract.json"
   ]
 }

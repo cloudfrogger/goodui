@@ -1,0 +1,16 @@
+.good-select-font { display: inline-block; min-width: 0; color: var(--good-select-foreground); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-select-font-trigger { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: space-between; gap: 8px; width: 180px; max-width: 100%; height: var(--good-select-height-default); padding: 0 var(--good-select-padding-inline-default); border: 1px solid var(--good-select-border); border-radius: var(--good-select-radius); background: var(--good-select-background); color: var(--good-select-foreground); cursor: pointer; }
+.good-select-font-trigger[data-size="small"] { width: 156px; height: var(--good-select-height-small); padding-inline: var(--good-select-padding-inline-small); font-size: 13px; }
+.good-select-font-trigger[data-size="large"] { width: 208px; height: var(--good-select-height-large); padding-inline: var(--good-select-padding-inline-large); font-size: 16px; }
+.good-select-font-trigger:hover:not(:disabled), .good-select-font-trigger[aria-expanded="true"] { background: var(--good-select-option-hover); }
+.good-select-font-trigger:focus-visible { outline: 2px solid var(--good-color-brand); outline-offset: 2px; }
+.good-select-font-trigger:disabled { opacity: .5; background: var(--good-select-disabled-background); cursor: not-allowed; }
+.good-select-font-trigger svg { flex: none; color: var(--good-select-muted); }
+.good-select-font-current { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.good-select-font-popup { position: fixed; z-index: 400; box-sizing: border-box; width: min(232px, calc(100vw - 16px)); padding: 4px; border: 1px solid var(--good-select-panel-border); border-radius: var(--good-select-panel-radius); background: var(--good-select-panel-background); box-shadow: 0 12px 30px #0003; }
+.good-select-font-list { max-height: min(312px, calc(100dvh - 24px)); overflow: auto; outline: none; }
+.good-select-font-option { display: flex; align-items: center; justify-content: space-between; gap: var(--good-select-option-gap); min-height: 38px; padding: 6px var(--good-select-option-padding-inline); border-radius: var(--good-select-radius); color: var(--good-select-foreground); cursor: pointer; }
+.good-select-font-option:hover, .good-select-font-option[data-active="true"] { background: var(--good-select-option-hover); }
+.good-select-font-option[aria-selected="true"] { color: var(--good-select-check); }
+.good-select-font-option svg { flex: none; }
+.good-select-font-preview { overflow: hidden; font-size: 15px; text-overflow: ellipsis; white-space: nowrap; }
