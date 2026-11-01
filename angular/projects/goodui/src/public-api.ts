@@ -13,6 +13,7 @@ export * from './lib/group';
 export * from './lib/subnav';
 export * from './lib/button';
 export * from './lib/action-group';
+export * from './lib/action-bar';
 export * from './lib/switch';
 export * from './lib/checkbox';
 export * from './lib/radio-group';

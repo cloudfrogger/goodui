@@ -1,0 +1,59 @@
+<good-main-view layout="fill">
+  <good-action-bar goodMainViewToolbar [groups]="actionGroups"
+    (commandSelected)="runAction($event.commandId)">
+    <div goodActionBarTools>
+      <good-dropdown [icon]="filterIcon" [items]="filterItems" size="small"
+        [ariaLabel]="'Filter: ' + filter()" menuLabel="Message filter"
+        (itemSelected)="setFilter($event.id)"><span goodDropdownTrigger>Filter</span></good-dropdown>
+      <good-input label="Search messages" type="search" size="small" [startIcon]="searchIcon"
+        placeholder="Search messages" [(value)]="search" />
+    </div>
+  </good-action-bar>
+  <good-resizable height="100%" [split]="24" [minSplit]="20" [maxSplit]="40"
+    ariaLabel="Resize mailbox navigation and messages">
+    <good-resizable-pane side="start">
+      <good-group title="Folders" appearance="plain">
+        <good-listbox label="Folders" [items]="folders" selectionMode="single" [bordered]="false" compact
+          [(selectedIds)]="selectedFolders" [maxHeight]="460" />
+      </good-group>
+    </good-resizable-pane>
+    <good-resizable-pane side="end" padding="none">
+      <good-resizable orientation="vertical" height="100%" [split]="48"
+        [minSplit]="25" [maxSplit]="75" handle="line"
+        ariaLabel="Resize message list and preview">
+        <good-resizable-pane side="start" padding="none">
+          <good-table [label]="folderLabel() + ' messages'" tableStyle="compact"
+            [data]="visibleMessages()" [columns]="columns" [getRowId]="rowId"
+            [emphasizeRow]="emphasizeMessage" emphasisLabel="Unread"
+            selectable [(selectedRowId)]="selectedMessageId" (rowSelected)="openMessage($event)"
+            emptyMessage="No messages in this folder." />
+        </good-resizable-pane>
+        <good-resizable-pane side="end">
+          @if (selectedMessage(); as message) {
+            <good-group [title]="message.subject" appearance="plain">
+              <good-prose>
+                <good-paragraph><strong>From:</strong> {{ message.sender }}</good-paragraph>
+                <good-paragraph><strong>To:</strong> {{ message.recipient }}</good-paragraph>
+                <good-paragraph><strong>Date:</strong> {{ message.date }}</good-paragraph>
+                <good-separator variant="line" />
+                @for (paragraph of message.body; track $index) {
+                  <good-paragraph>{{ paragraph }}</good-paragraph>
+                }
+              </good-prose>
+            </good-group>
+          } @else {
+            <good-group title="Message preview" appearance="plain">
+              <good-paragraph>Choose a message to read it here.</good-paragraph>
+            </good-group>
+          }
+          <p class="good-sr-only" role="status">{{ feedback() }}</p>
+        </good-resizable-pane>
+      </good-resizable>
+    </good-resizable-pane>
+  </good-resizable>
+</good-main-view>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Mail workspace source" />
+  <good-code-block [code]="htmlSource" language="html" title="mail-workspace-page.html" />
+  <good-code-block [code]="typescriptSource" language="typescript" title="mail-workspace-page.ts" />
+</good-modal>

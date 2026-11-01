@@ -22,7 +22,7 @@ const flagUrl = (svg: string): string => `data:image/svg+xml;charset=utf-8,${enc
         </div>
         <div class="showcase-listbox-grid showcase-listbox-grid-three">
           <div>
-            <good-listbox label="Simple list" [showLabel]="true" [items]="simpleItems"
+            <good-listbox label="Simple list" [showLabel]="true" [items]="simpleItems" [bordered]="false" compact
               selectionMode="none" (itemActivated)="lastActivated.set($event.label)" />
             <p class="showcase-button-feedback" role="status">Activated: {{ lastActivated() }}</p>
           </div>
@@ -38,6 +38,7 @@ const flagUrl = (svg: string): string => `data:image/svg+xml;charset=utf-8,${enc
             <p class="showcase-button-feedback" role="status">Selected: {{ visibleSections().join(', ') || 'None' }}</p>
           </div>
         </div>
+        <p>The first list uses <code>[bordered]="false"</code> and <code>compact</code> for a dense list in its parent; the others keep the default frame and spacing.</p>
       </section>
 
       <section class="showcase-section">

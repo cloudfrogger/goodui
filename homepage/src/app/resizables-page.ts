@@ -13,6 +13,8 @@ import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, 
 export class ResizablesPageComponent {
   readonly split = signal(38);
   readonly settled = signal(38);
+  readonly nestedOuter = signal(35);
+  readonly nestedInner = signal(40);
   readonly handles = ['grip', 'line', 'dots', 'chevrons'] as const;
 
   readonly basicCode = `import { Component, signal } from '@angular/core';
@@ -36,5 +38,16 @@ export class PageComponent {
   [minSplit]="20" [maxSplit]="80" [disabled]="false" [split]="38">
   <good-resizable-pane side="start" padding="default">First area</good-resizable-pane>
   <good-resizable-pane side="end" padding="none">Edge-to-edge area</good-resizable-pane>
+</good-resizable>`;
+  readonly nestedTemplate = `<good-resizable orientation="auto" height="540px" [(split)]="nestedOuter"
+  ariaLabel="Resize navigation and workspace">
+  <good-resizable-pane side="start">Navigation</good-resizable-pane>
+  <good-resizable-pane side="end" padding="none">
+    <good-resizable orientation="vertical" height="100%" [(split)]="nestedInner"
+      ariaLabel="Resize list and detail">
+      <good-resizable-pane side="start">List</good-resizable-pane>
+      <good-resizable-pane side="end">Detail</good-resizable-pane>
+    </good-resizable>
+  </good-resizable-pane>
 </good-resizable>`;
 }

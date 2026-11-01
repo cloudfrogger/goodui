@@ -60,6 +60,17 @@
       "penpotCount": 3
     },
     {
+      "selector": "good-action-bar",
+      "className": "GoodActionBarComponent",
+      "file": "components/good-action-bar.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodActionBarComponent"
+      },
+      "usageGuide": "guides/components/action-bar.md",
+      "penpotCount": 0
+    },
+    {
       "selector": "good-action-group",
       "className": "GoodActionGroupComponent",
       "file": "components/good-action-group.json",

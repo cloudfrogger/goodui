@@ -19,6 +19,14 @@ readonly items: readonly GoodListboxItem[] = [
   (itemActivated)="openView($event)" />
 ```
 
+The frame is on Listbox itself. In an already framed pane or a plain Group, set `[bordered]="false"` to remove its outer border, rounded corners, and inset padding. The default is `true`; selection, focus, search, and group guides still work.
+Add the `compact` attribute when a dense navigation or record list is useful. It reduces row height to 34 px and tightens gaps, group headings, and the optional search header. It defaults to `false` and combines with either frame setting and either selection appearance.
+
+```html
+<good-listbox label="Folders" [items]="folders" selectionMode="single"
+  [bordered]="false" compact [(selectedIds)]="selectedFolderIds" />
+```
+
 To search the same simple list, add `[searchable]="true"`. The built-in magnifier and search field filter item labels without changing action-only behavior:
 
 ```html

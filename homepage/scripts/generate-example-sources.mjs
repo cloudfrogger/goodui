@@ -22,6 +22,10 @@ const examples = [
     ['calendarWorkspaceHtml', 'calendar-workspace-page.html'],
     ['calendarWorkspaceTs', 'calendar-workspace-page.ts'],
   ]],
+  ['mail-workspace', [
+    ['mailWorkspaceHtml', 'mail-workspace-page.html'],
+    ['mailWorkspaceTs', 'mail-workspace-page.ts'],
+  ]],
   ['error-pages', [
     ['errorPagesExampleHtml', 'error-pages-example-page.html'],
     ['errorPagesExampleTs', 'error-pages-example-page.ts'],

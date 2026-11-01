@@ -1,0 +1,20 @@
+.good-action-bar { display: flex; align-items: center; gap: 16px; min-width: 0; width: 100%; padding: 10px 16px; border-bottom: 1px solid var(--good-color-border); background: var(--good-canvas); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; position: relative; }
+.good-action-bar { --good-action-bar-command-height: 56px; --good-action-bar-command-icon-size: 20px; --good-action-bar-command-font-size: 11px; }
+.good-action-bar[data-size="default"] { --good-action-bar-command-height: 64px; --good-action-bar-command-icon-size: 22px; --good-action-bar-command-font-size: 12px; }
+.good-action-bar[data-size="large"] { --good-action-bar-command-height: 72px; --good-action-bar-command-icon-size: 24px; --good-action-bar-command-font-size: 13px; }
+.good-action-bar :is(.good-action-bar-visible, .good-action-bar-more, .good-action-bar-measure) .good-button-control { flex-direction: column; gap: 4px; width: auto; height: var(--good-action-bar-command-height); min-width: 56px; padding: 5px 9px; font-size: var(--good-action-bar-command-font-size); line-height: 1.2; }
+.good-action-bar :is(.good-action-bar-visible, .good-action-bar-more, .good-action-bar-measure) .good-button-icon { width: var(--good-action-bar-command-icon-size); height: var(--good-action-bar-command-icon-size); }
+.good-action-bar-commands { display: flex; align-items: center; min-width: 0; flex: 1; gap: 8px; }
+.good-action-bar-visible { display: flex; align-items: center; min-width: 0; gap: 14px; overflow-x: auto; scrollbar-width: thin; }
+.good-action-bar-visible > .good-action-group { flex: none; }
+.good-action-bar-more { flex: none; }
+.good-action-bar-tools { display: flex; align-items: center; justify-content: flex-end; gap: 8px; min-width: 0; flex: none; }
+.good-action-bar-tools:empty { display: none; }
+.good-action-bar-tools > [goodActionBarTools] { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.good-action-bar-measure { position: fixed; left: -10000px; top: 0; display: flex; width: max-content; visibility: hidden; pointer-events: none; white-space: nowrap; }
+.good-action-bar-measure-item, .good-action-bar-measure-more { display: inline-flex; }
+.good-action-bar[data-stacked="true"] { flex-wrap: wrap; }
+.good-action-bar[data-stacked="true"] .good-action-bar-commands { flex-basis: 100%; }
+.good-action-bar[data-stacked="true"] .good-action-bar-tools { flex: 1; justify-content: flex-start; }
+.good-action-bar[data-stacked="true"] .good-action-bar-tools > [goodActionBarTools] { flex: 1; }
+.good-action-bar[data-stacked="true"] .good-action-bar-tools good-input { flex: 1; min-width: 0; }

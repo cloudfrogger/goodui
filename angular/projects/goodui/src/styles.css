@@ -6,6 +6,7 @@
 @import "./progress.css";
 @import "./timeline.css";
 @import "./resizable.css";
+@import "./action-bar.css";
 @import "./range-slider.css";
 @import "./signature-pad.css";
 @import "./color-picker.css";
@@ -20,7 +21,7 @@
 good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sidebar-item,
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
-good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-month-calendar, good-progress, good-timeline, good-timeline-step, good-range-slider, good-signature-pad, good-color-controls, good-color-picker, good-select-font, good-rich-text-editor, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-expandable, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-textarea, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-tabs, good-tab, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
+good-main-menu, good-theme-toggle, good-main-view, good-subnav, good-button, good-action-group, good-action-bar, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-month-calendar, good-progress, good-timeline, good-timeline-step, good-range-slider, good-signature-pad, good-color-controls, good-color-picker, good-select-font, good-rich-text-editor, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-expandable, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-textarea, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-tabs, good-tab, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
 good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-columns, good-column, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -520,6 +521,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-main-view { display: flex; flex-direction: column; min-height: 100%; padding: 20px 30px 30px; background: var(--good-canvas); }
 .good-main-view[data-layout="fill"] { flex: 1; height: 100%; min-height: 0; overflow: hidden; padding: 0; }
 .good-main-view[data-layout="fill"] > .good-main-view-content { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+.good-main-view > [goodMainViewToolbar] { flex: none; min-width: 0; }
 .good-main-view[data-layout="fill"] > .good-main-view-content > * { flex: 1; min-height: 0; }
 .good-main-view[data-layout="fill"] > .good-subnav { margin: 0; }
 .good-main-view > .good-subnav { flex: none; margin: -20px -30px 36px; }
@@ -637,6 +639,16 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-table-scroll:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: -2px; }
 .good-table-scroll table { width: 100%; min-width: var(--good-table-min-width); border-collapse: collapse; text-align: left; font-size: 14px; }
 .good-table-scroll th { height: var(--good-table-header-height); padding: var(--good-table-cell-padding-block) var(--good-table-cell-padding-inline); border-bottom: 1px solid var(--good-table-border); background: var(--good-table-header-background); color: var(--good-table-header-foreground); font-size: 12px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+.good-table-header-content { display: inline-flex; align-items: center; justify-content: space-between; gap: var(--good-space-1); width: 100%; min-width: 0; }
+.good-table-header-label { min-width: 0; }
+.good-table-header-content .good-table-sort { min-width: 0; }
+.good-table-column-grip { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 28px; height: 28px; padding: 0; border: 0; border-radius: var(--good-radius-compact); background: transparent; color: var(--good-table-muted); cursor: grab; touch-action: none; }
+.good-table-column-grip:hover { background: var(--good-table-row-hover); color: var(--good-table-text); }
+.good-table-column-grip:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: 1px; }
+.good-table-column-grip:active { cursor: grabbing; }
+.good-table[data-column-dragging="true"] .good-table-scroll { user-select: none; }
+.good-table-scroll th[data-drag-source="true"] { opacity: .6; }
+.good-table-scroll th[data-drop-target="true"] { box-shadow: inset 0 -3px 0 var(--good-color-accent); }
 .good-table-scroll td { height: var(--good-table-row-height); padding: var(--good-table-cell-padding-block) var(--good-table-cell-padding-inline); border-bottom: 1px solid var(--good-table-border); line-height: 1.45; vertical-align: middle; }
 .good-table-scroll tbody tr:last-child td { border-bottom: 0; }
 .good-table-scroll tbody tr:not(.good-table-empty-row):hover { background: var(--good-table-row-hover); }
@@ -651,6 +663,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-table-frame[data-style="striped"] .good-table-scroll tbody tr:nth-child(even):not(.good-table-empty-row) { background: var(--good-table-row-striped); }
 .good-table-frame[data-style="striped"] .good-table-scroll tbody tr:nth-child(even):not(.good-table-empty-row):hover { background: var(--good-table-row-hover); }
 .good-table-scroll tbody tr[data-selected="true"] td, .good-table-frame[data-style="striped"] .good-table-scroll tbody tr[data-selected="true"] td { background: var(--good-color-selected); }
+.good-table-scroll tbody tr[data-emphasized="true"] { font-weight: 700; }
 .good-table-scroll tbody tr[data-selected="true"] td:first-child { box-shadow: inset 3px 0 0 var(--good-color-accent); }
 .good-table-scroll tbody tr[data-row-id] { cursor: pointer; }
 .good-table-scroll tbody tr[data-row-id]:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: -2px; }
@@ -859,6 +872,8 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-listbox { --good-listbox-background: var(--good-select-panel-background); --good-listbox-border: var(--good-select-panel-border); --good-listbox-foreground: var(--good-select-foreground); --good-listbox-muted: var(--good-select-muted); --good-listbox-hover: var(--good-select-option-hover); --good-listbox-selected: var(--good-select-option-selected); --good-listbox-focus: var(--good-select-focus-border); display: block; min-width: 0; color: var(--good-listbox-foreground); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-listbox-label { margin-bottom: var(--good-typography-field-label-gap); color: var(--good-typography-label-color); font-size: var(--good-typography-label-font-size); font-weight: var(--good-typography-label-font-weight); }
 .good-listbox-frame { box-sizing: border-box; display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid var(--good-listbox-border); border-radius: var(--good-radius-card); background: var(--good-listbox-background); }
+.good-listbox[data-bordered="false"] .good-listbox-frame { border: 0; border-radius: 0; background: transparent; }
+.good-listbox[data-bordered="false"] .good-listbox-list { padding: 0; }
 .good-listbox[data-disabled="true"] { opacity: var(--good-select-disabled-opacity); }
 .good-listbox-search { display: flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 12px; border-bottom: 1px solid var(--good-listbox-border); color: var(--good-listbox-muted); }
 .good-listbox-search:focus-within { box-shadow: inset 0 -2px var(--good-listbox-focus); }
@@ -871,6 +886,12 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-listbox-group-label { padding: 8px 10px 5px; color: var(--good-listbox-muted); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 .good-listbox-group-items-named { margin-left: 20px; padding-left: 12px; border-left: 1px solid var(--good-listbox-border); }
 .good-listbox-option { box-sizing: border-box; display: flex; align-items: center; gap: 10px; min-height: var(--good-select-option-height); padding: 8px 10px; border-radius: var(--good-radius-item); cursor: pointer; }
+.good-listbox[data-compact="true"] .good-listbox-option { min-height: 34px; padding: 5px 8px; gap: 8px; }
+.good-listbox[data-compact="true"] .good-listbox-option + .good-listbox-option,
+.good-listbox[data-compact="true"] .good-listbox-group [role="listitem"] + [role="listitem"] { margin-top: 1px; }
+.good-listbox[data-compact="true"] .good-listbox-group + .good-listbox-group { margin-top: 3px; padding-top: 4px; }
+.good-listbox[data-compact="true"] .good-listbox-group-label { padding-block: 5px 3px; }
+.good-listbox[data-compact="true"] .good-listbox-search { min-height: 36px; }
 .good-listbox-option:is(button) { width: 100%; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; }
 .good-listbox-option:is(button):focus-visible { outline: 2px solid var(--good-listbox-focus); outline-offset: -2px; }
 .good-listbox-option:is(button):disabled { opacity: var(--good-select-option-disabled-opacity); cursor: not-allowed; }

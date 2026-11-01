@@ -22,6 +22,7 @@ export type GoodMainViewLayout = 'page' | 'fill';
         <div class="good-main-view-actions"><ng-content select="[good-main-view-actions]" /></div>
       </header>
     }
+    <ng-content select="[goodMainViewToolbar]" />
     <div class="good-main-view-content"><ng-content /></div>
   `,
   host: { class: 'good-main-view', '[attr.data-layout]': 'layout()' },

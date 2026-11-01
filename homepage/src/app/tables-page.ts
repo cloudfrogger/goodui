@@ -88,7 +88,7 @@ class TableDeleteCellComponent {
       </section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Direct row action</h2><p>Sort by Name; Owner, Status, and Actions are intentionally not sortable. The last column renders an accessible icon-only Delete button.</p></div>
-        <good-table label="Records with direct delete actions" [data]="directRows()" [columns]="deleteColumns" [getRowId]="rowId" />
+        <good-table label="Records with direct delete actions" [data]="directRows()" [columns]="deleteColumns" [getRowId]="rowId" [reorderable]="false" />
         <p class="showcase-table-feedback" role="status">{{ directActionFeedback() }}</p>
       </section>
       <section class="showcase-section">
@@ -103,13 +103,21 @@ class TableDeleteCellComponent {
         <good-code-block [code]="selectionCode" language="typescript" title="Selection state and event" />
       </section>
       <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Move columns</h2><p>Drag a header grip to a new position, or focus it and press Left, Right, Home, or End. Sorting remains on the header label. Column movement is enabled by default.</p></div>
+        <good-table label="Reorder workspace columns" [data]="rows().slice(0, 4)" [columns]="simpleColumns"
+          [getRowId]="rowId" [(columnOrder)]="reorderedColumns" />
+        <p class="showcase-table-feedback" role="status">Order: {{ reorderedColumns().length ? reorderedColumns().join(' · ') : 'original column order' }}</p>
+        <good-code-block [code]="reorderCode" language="html" title="Reorder columns or opt out" />
+      </section>
+      <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Styles</h2><p>Connected rows are the default. Bordered, striped, and compact layouts use the same columns and cells.</p></div>
         <div class="showcase-table-style-grid">
           @for (style of styles; track style) {
-            <div><h3>{{ style }}</h3><good-table [label]="style + ' example'" [style]="style"
+            <div><h3>{{ style }}</h3><good-table [label]="style + ' example'" [tableStyle]="style"
               [data]="rows().slice(0, 3)" [columns]="simpleColumns" [getRowId]="rowId" /></div>
           }
         </div>
+        <good-code-block [code]="compactStyleCode" language="html" title="Compact table" />
       </section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Client pages</h2><p>A page size keeps this table short. Remove the pagination input to let it grow with its records.</p></div>
@@ -139,10 +147,19 @@ export class TablesPageComponent {
   readonly directRows = signal(initialRows.slice(0, 4));
   readonly emptyRows: readonly RecordRow[] = [];
   readonly styles = ['bordered', 'striped', 'compact'] as const;
+  readonly compactStyleCode = `<good-table label="Items" tableStyle="compact"
+  [data]="items" [columns]="columns" />`;
   readonly feedback = signal('Use a row action to view or delete a record.');
   readonly directActionFeedback = signal('Delete a record to see the table update.');
   readonly rowId = (row: RecordRow) => row.id;
   readonly selectedRowId = signal<string | null>('2');
+  readonly reorderedColumns = signal<string[]>([]);
+  readonly reorderCode = `<good-table label="Items" [data]="items" [columns]="columns"
+  [(columnOrder)]="columnOrder" />
+
+<!-- Keep the declared column order fixed when needed. -->
+<good-table label="Fixed columns" [data]="items" [columns]="columns"
+  [reorderable]="false" />`;
   readonly selectionFeedback = signal('Row 2 is initially selected.');
   onRowSelected(row: RecordRow): void { this.selectionFeedback.set(`You selected ${row.name}.`); }
   readonly selectionTemplate = `<good-table label="Choose a workspace" [data]="rows()" [columns]="columns"

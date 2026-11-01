@@ -38,4 +38,15 @@ export class CalendarPageComponent {}`;
   readonly pageCode = `<good-main-view layout="fill">
   <good-calendar [fillHeight]="true" />
 </good-main-view>`;
+  readonly toolbarCode = `<good-main-view layout="fill">
+  <good-action-bar goodMainViewToolbar [groups]="actionGroups"
+    (commandSelected)="runCommand($event)">
+    <div goodActionBarTools>
+      <good-input label="Search items" type="search" [(value)]="query" />
+    </div>
+  </good-action-bar>
+  <good-resizable height="100%">
+    <!-- Navigation, list, and preview panes -->
+  </good-resizable>
+</good-main-view>`;
 }

@@ -51,6 +51,38 @@
       "kind": "input"
     },
     {
+      "name": "tableStyle",
+      "type": "GoodTableStyle",
+      "required": false,
+      "default": null,
+      "allowedValues": [
+        "default",
+        "bordered",
+        "striped",
+        "compact"
+      ],
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "reorderable",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "columnOrder",
+      "type": "string[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "model"
+    },
+    {
       "name": "searchable",
       "type": "boolean",
       "required": false,
@@ -147,9 +179,35 @@
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/table.ts",
       "kind": "model"
+    },
+    {
+      "name": "emphasizeRow",
+      "type": "(row: TData) => boolean",
+      "required": false,
+      "default": {
+        "expression": "() => false"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "emphasisLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
     }
   ],
   "outputs": [
+    {
+      "name": "columnOrderChange",
+      "type": "string[]",
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "implicit": true
+    },
     {
       "name": "selectedRowIdChange",
       "type": "string",
@@ -179,6 +237,12 @@
   ],
   "variants": {
     "style": [
+      "default",
+      "bordered",
+      "striped",
+      "compact"
+    ],
+    "tableStyle": [
       "default",
       "bordered",
       "striped",

@@ -28,6 +28,24 @@ export class PeoplePage {
 
 Sorting is opt-in for each column. Client sorting and search operate on the supplied rows. Pass a stable `getRowId` when cells contain stateful controls or records can be reordered. Column definitions use TanStack's `accessorKey`, `accessorFn`, `header`, `cell`, `enableSorting`, sorting functions, and `meta`. GoodUI recognizes `meta: { align: 'start' | 'center' | 'end', noWrap: boolean }` for cell alignment and wrapping.
 
+## Move columns
+
+Column movement is enabled by default. Drag the grip beside a header to another header, or focus the grip and use Left, Right, Home, or End. The body cells move with their headers. The sort button remains separate. Use `[reorderable]="false"` in the template when the column order must stay fixed. Bind `[(columnOrder)]` to a `signal<string[]>` when the application needs to save or set the order; the array contains column IDs. Give every column a stable ID (an `accessorKey` supplies one for simple columns).
+
+```html
+<good-table label="Items" [data]="items()" [columns]="columns"
+  [(columnOrder)]="columnOrder" />
+
+<good-table label="Fixed columns" [data]="items()" [columns]="columns"
+  [reorderable]="false" />
+```
+
+```ts
+readonly columnOrder = signal<string[]>([]); // Empty uses the declared order.
+```
+
+The grip announces its position and keyboard controls. After a move, a live status message announces the new position. With reordering disabled, grips disappear; a bound `columnOrder` can still set a programmatic order.
+
 ## Select one row
 
 Add the `selectable` attribute to opt in. Bind `selectedRowId` when the selection must be read or changed by the page. `rowSelected` gives the complete record when the user chooses a different row; programmatic changes do not emit that interaction event.
@@ -51,6 +69,19 @@ clearSelection(): void { this.selectedRowId.set(null); }
 ```
 
 Use a stable `getRowId` whenever data can be searched, sorted, paged, or replaced. The highlight follows the ID through those changes. If the selected row is not on the current page, its ID is retained and no visible row is highlighted until it returns. Selection is single and stays selected on a second click; set the ID to `null` to clear it. The table keeps one keyboard tab stop in its body: Up/Down moves focus among visible rows, Home/End jumps to the first/last row, and Enter/Space selects the focused row. Buttons, links, switches, and inputs inside a row keep their own actions and do not select the row.
+
+## Emphasize rows from application data
+
+Use `emphasizeRow` when a record state should make the text of its entire row bold. It is independent of selection and works after sorting or filtering. Supply `emphasisLabel` to put the state in the first cell for screen readers without adding a visible status column.
+
+```ts
+readonly needsAttention = (row: RecordRow): boolean => row.needsAttention;
+```
+
+```html
+<good-table label="Records" [data]="rows()" [columns]="columns"
+  [emphasizeRow]="needsAttention" emphasisLabel="Needs attention" />
+```
 
 ## Render GoodUI components in cells
 
@@ -121,13 +152,21 @@ For cursor mode, pass the backend's opaque `nextCursor` and `hasNextPage` with e
 
 ## Appearance and accessibility
 
-`style` is `default`, `bordered`, `striped`, or `compact`. Default rows share continuous horizontal dividers. Bordered adds cell boundaries, striped shades alternating rows, and compact reduces row height and padding. All styles use shared semantic table, color, spacing, and radius tokens in both themes. The search, page-size selector, and action buttons remain keyboard accessible. Sortable headers are buttons with `aria-sort`; the table uses its `label` as its accessible name. The empty state says “NO records found” by default; override it with `emptyMessage`. Consumers own accessibility labels for interactive cell controls.
+`tableStyle` is `default`, `bordered`, `striped`, or `compact`. Default rows share continuous horizontal dividers. Bordered adds cell boundaries, striped shades alternating rows, and compact reduces row height and padding. Use `tableStyle="compact"` for a literal value or `[tableStyle]="selectedStyle"` for a binding. The older `[style]="selectedStyle"` input remains supported, but literal `style="compact"` is parsed as the native HTML style attribute and does not configure the Table. All styles use shared semantic table, color, spacing, and radius tokens in both themes. The search, page-size selector, and action buttons remain keyboard accessible. Sortable headers are buttons with `aria-sort`; the table uses its `label` as its accessible name. The empty state says “NO records found” by default; override it with `emptyMessage`. Consumers own accessibility labels for interactive cell controls.
+
+```html
+<good-table label="Items" tableStyle="compact"
+  [data]="items" [columns]="columns" />
+```
 
 | Input/output | Default | Meaning |
 | --- | --- | --- |
 | `data`, `columns` | required | Rows and TanStack column definitions. |
 | `label` | `Records` | Accessible table name. |
-| `style` | `default` | `default`, `bordered`, `striped`, or `compact`. |
+| `tableStyle` | `default` | `default`, `bordered`, `striped`, or `compact`. Prefer this input in templates. |
+| `reorderable` | `true` | Show column grips; set `[reorderable]="false"` to prevent user reordering. |
+| `columnOrder` / `columnOrderChange` | `[]` | Controlled ordered column IDs; supports `[(columnOrder)]`. |
+| `[style]` | `default` | Existing bound style input; retained for compatibility. |
 | `searchable` | `false` | Show the search control. |
 | `searchPlaceholder` | `Search records` | Search prompt. |
 | `pagination` | `null` | Client, page, or cursor pagination configuration. |
@@ -137,6 +176,8 @@ For cursor mode, pass the backend's opaque `nextCursor` and `hasNextPage` with e
 | `selectable` | `false` | Enables single-row selection from the table body. |
 | `selectedRowId` / `selectedRowIdChange` | `null` | Controlled selected ID; use `[(selectedRowId)]` for two-way binding. |
 | `rowSelected` | — | Complete selected record from a user action. |
+| `emphasizeRow` | always false | Predicate that renders a row's text bold from application data. |
+| `emphasisLabel` | empty | Optional screen reader state text in the first cell of emphasized rows. |
 | `sortingChange`, `searchChange` | — | Current table interaction state. |
 | `request` | — | Complete request for manual search, sorting, or pagination. |
 

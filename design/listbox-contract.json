@@ -43,6 +43,8 @@
     "selectedIds": "Readonly array of selected item IDs, including single selection",
     "selectionMode": ["none", "single", "multiple"],
     "appearance": ["highlight", "checkbox"],
+    "bordered": "true by default; false removes the outer frame and inset list padding in existing panes",
+    "compact": "false by default; true reduces row height to 34px and tightens internal spacing",
     "searchable": "Optional inline search filters items and removes empty groups",
     "searchIcon": "Lucide icon data; default magnifier",
     "searchIconSrc": "Optional image URL overrides the Lucide search icon",

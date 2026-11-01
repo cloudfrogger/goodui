@@ -44,6 +44,8 @@ Choose `layout="page"` (the default) for a scrolling page. Direct `good-section`
 
 Choose `layout="fill"` when a single workspace must occupy all remaining height below the topbar. MainView removes its outer padding so the projected child meets the edges of the application area; the application page no longer scrolls. The child must own its internal scrolling. For the calendar, opt in with `[fillHeight]="true"` to make its frame flush and its views scroll inside:
 
+Add `goodMainViewToolbar` to an optional strip that should stay above the filled content. The strip uses its natural height; the workspace receives the remaining height. Use `good-action-bar` for grouped commands and projected search/filter tools.
+
 ```html
 <good-main-view layout="fill">
   <good-calendar [fillHeight]="true" [sidebarEnabled]="true">

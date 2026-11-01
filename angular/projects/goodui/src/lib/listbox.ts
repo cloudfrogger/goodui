@@ -2,7 +2,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   ChangeDetectionStrategy, Component, Directive, ElementRef, TemplateRef,
-  computed, contentChild, forwardRef, inject, input, model, output, signal, viewChild,
+  booleanAttribute, computed, contentChild, forwardRef, inject, input, model, output, signal, viewChild,
 } from '@angular/core';
 import { LucideDynamicIcon, LucideSearch } from '@lucide/angular';
 import { GoodButtonIcon } from './models';
@@ -54,7 +54,7 @@ let nextListboxId = 0;
   imports: [NgTemplateOutlet, LucideDynamicIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodListboxComponent), multi: true }],
-  host: { class: 'good-listbox', '[attr.data-disabled]': 'isDisabled()', '(focusout)': 'onFocusOut($event)' },
+  host: { class: 'good-listbox', '[attr.data-disabled]': 'isDisabled()', '[attr.data-bordered]': 'bordered()', '[attr.data-compact]': 'compact()', '(focusout)': 'onFocusOut($event)' },
   template: `
     @if (showLabel()) { <div class="good-listbox-label" [id]="labelId">{{ label() }}</div> }
     <div class="good-listbox-frame" [attr.data-appearance]="appearance()">
@@ -138,6 +138,8 @@ export class GoodListboxComponent implements ControlValueAccessor {
   readonly selectedIds = model<readonly string[]>([]);
   readonly selectionMode = input<GoodListboxSelectionMode>('none');
   readonly appearance = input<GoodListboxAppearance>('highlight');
+  readonly bordered = input(true);
+  readonly compact = input(false, { transform: booleanAttribute });
   readonly label = input('Items');
   readonly showLabel = input(false);
   readonly searchable = input(false);

@@ -102,6 +102,7 @@
   "composition": {
     "projectedContent": [
       "[good-main-view-actions]",
+      "[goodMainViewToolbar]",
       "*"
     ],
     "relatedSelectors": [

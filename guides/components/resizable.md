@@ -43,6 +43,26 @@ Write each `side` once. Keep the attribute literal so Angular can place the cont
 
 The first pane stays first when the layout stacks. At 390 px viewport width the pane order is top, divider, bottom. Each pane keeps its own scrollbar; content does not force the other pane wider or taller. Choose a height that leaves enough room for both panes on small screens. For a full workspace, use GoodUI's `good-main-view fillHeight` and give the split view `height="100%"`.
 
+## Vertical and nested layouts
+
+Set `orientation="vertical"` to keep the first pane above the second at every width. A Resizable can also sit inside either pane of another Resizable. Give that pane `padding="none"` and the nested Resizable `height="100%"`; the outer split then supplies its height. Keep separate `split` signals so each divider changes only its own two panes.
+
+```html
+<good-resizable orientation="auto" height="540px" [(split)]="outerSplit"
+  ariaLabel="Resize navigation and workspace">
+  <good-resizable-pane side="start">Navigation</good-resizable-pane>
+  <good-resizable-pane side="end" padding="none">
+    <good-resizable orientation="vertical" height="100%" [(split)]="innerSplit"
+      ariaLabel="Resize list and detail">
+      <good-resizable-pane side="start">List</good-resizable-pane>
+      <good-resizable-pane side="end">Detail</good-resizable-pane>
+    </good-resizable>
+  </good-resizable-pane>
+</good-resizable>
+```
+
+`outerSplit` and `innerSplit` are independent `signal<number>` values, such as `signal(35)` and `signal(40)`. The outer `auto` direction stacks below 680 px of its own width; the inner split stays vertical. Choose a taller outer height when both splits stack on a small screen so each pane has useful space. The [live example](../../homepage/src/app/resizables-page.html) demonstrates both dividers.
+
 ## Operation
 
 - Drag the separator with mouse, pen, or touch. The position updates continuously through `splitChange`.

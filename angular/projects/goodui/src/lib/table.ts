@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, booleanAttribute, computed, effect, input, model, output, signal, untracked } from '@angular/core';
-import { LucideArrowDown, LucideArrowDownUp, LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideSearch, LucideSearchX } from '@lucide/angular';
+import { ChangeDetectionStrategy, Component, ElementRef, booleanAttribute, computed, effect, inject, input, model, output, signal, untracked } from '@angular/core';
+import { LucideArrowDown, LucideArrowDownUp, LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearch, LucideSearchX } from '@lucide/angular';
 import { FlexRender, ColumnDef, Column, RowData, SortingState, PaginationState, injectTable, tableFeatures,
   rowSortingFeature, createSortedRowModel, sortFn_alphanumeric, sortFn_text, sortFn_datetime,
   columnFilteringFeature, globalFilteringFeature, createFilteredRowModel, filterFn_includesString,
-  rowPaginationFeature, createPaginatedRowModel } from '@tanstack/angular-table';
+  rowPaginationFeature, createPaginatedRowModel, columnOrderingFeature } from '@tanstack/angular-table';
 import { GoodButtonComponent } from './button';
 import { GoodInputComponent } from './input';
 
@@ -17,6 +17,7 @@ const goodTableFeatures = tableFeatures({
   filterFns: { includesString: filterFn_includesString },
   rowPaginationFeature,
   paginatedRowModel: createPaginatedRowModel(),
+  columnOrderingFeature,
 });
 
 export type GoodTableStyle = 'default' | 'bordered' | 'striped' | 'compact';
@@ -48,11 +49,11 @@ export interface GoodTableRequest {
   selector: 'good-table',
   standalone: true,
   imports: [FlexRender, GoodButtonComponent, GoodInputComponent, LucideArrowDown, LucideArrowDownUp,
-    LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideSearchX],
+    LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearchX],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-table' },
+  host: { class: 'good-table', '[attr.data-column-dragging]': 'dragSourceId() ? "true" : null' },
   template: `
-    <div class="good-table-frame" [attr.data-style]="style()" [attr.aria-busy]="loading() ? 'true' : null">
+    <div class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.aria-busy]="loading() ? 'true' : null">
       @if (searchable()) {
         <div class="good-table-toolbar">
           <good-input label="Search records" type="search" [startIcon]="searchIcon" [placeholder]="searchPlaceholder()"
@@ -62,26 +63,43 @@ export interface GoodTableRequest {
       <div class="good-table-scroll" role="region" tabindex="0"
         [attr.aria-label]="label() + ' table. Scroll horizontally for more columns when needed.'">
         <table [attr.aria-label]="label()">
-          <thead>
+          <thead [attr.data-reorderable]="reorderable()">
             @for (headerGroup of table.getHeaderGroups(); track headerGroup.id) {
               <tr>
                 @for (header of headerGroup.headers; track header.id) {
                   <th scope="col" [attr.data-align]="columnMeta(header.column).align || null"
+                    [attr.data-column-id]="header.subHeaders.length ? null : header.column.id"
+                    [attr.data-drop-target]="dragTargetId() === header.column.id ? 'true' : null"
+                    [attr.data-drag-source]="dragSourceId() === header.column.id ? 'true' : null"
                     [attr.aria-sort]="header.column.getCanSort() ? ariaSort(header.column) : null">
                     @if (!header.isPlaceholder) {
-                      @if (header.column.getCanSort()) {
-                        <button class="good-table-sort" type="button" (click)="header.column.toggleSorting()"
-                          [attr.aria-label]="sortLabel(header.column)">
-                          <span *flexRenderHeader="header; let rendered">{{ rendered }}</span>
-                          @switch (header.column.getIsSorted()) {
-                            @case ('asc') { <svg lucideArrowUp [size]="14" aria-hidden="true"></svg> }
-                            @case ('desc') { <svg lucideArrowDown [size]="14" aria-hidden="true"></svg> }
-                            @default { <svg lucideArrowDownUp [size]="14" aria-hidden="true"></svg> }
-                          }
-                        </button>
-                      } @else {
-                        <ng-container *flexRenderHeader="header; let rendered">{{ rendered }}</ng-container>
-                      }
+                      <span class="good-table-header-content">
+                        @if (header.column.getCanSort()) {
+                          <button class="good-table-sort" type="button" (click)="header.column.toggleSorting()"
+                            [attr.aria-label]="sortLabel(header.column)">
+                            <span *flexRenderHeader="header; let rendered">{{ rendered }}</span>
+                            @switch (header.column.getIsSorted()) {
+                              @case ('asc') { <svg lucideArrowUp [size]="14" aria-hidden="true"></svg> }
+                              @case ('desc') { <svg lucideArrowDown [size]="14" aria-hidden="true"></svg> }
+                              @default { <svg lucideArrowDownUp [size]="14" aria-hidden="true"></svg> }
+                            }
+                          </button>
+                        } @else {
+                          <span class="good-table-header-label"><ng-container *flexRenderHeader="header; let rendered">{{ rendered }}</ng-container></span>
+                        }
+                        @if (reorderable() && !header.subHeaders.length) {
+                          <button class="good-table-column-grip" type="button"
+                            [attr.aria-label]="moveColumnLabel(header.column.id)"
+                            [attr.title]="moveColumnLabel(header.column.id)"
+                            (pointerdown)="onColumnPointerDown($event, header.column.id)"
+                            (pointermove)="onColumnPointerMove($event)"
+                            (pointerup)="onColumnPointerUp($event)"
+                            (pointercancel)="cancelColumnDrag()"
+                            (keydown)="onColumnGripKeydown($event, header.column.id)">
+                            <svg lucideGripVertical [size]="16" aria-hidden="true"></svg>
+                          </button>
+                        }
+                      </span>
                     }
                   </th>
                 }
@@ -92,14 +110,18 @@ export interface GoodTableRequest {
             @for (row of table.getRowModel().rows; track row.id) {
               <tr [attr.data-row-id]="selectable() ? row.id : null"
                 [attr.data-selected]="selectable() && row.id === selectedRowId() ? 'true' : null"
+                [attr.data-emphasized]="emphasizeRow()(row.original) ? 'true' : null"
                 [attr.aria-selected]="selectable() ? row.id === selectedRowId() : null"
                 [attr.tabindex]="selectable() ? (row.id === activeRowId() ? 0 : -1) : null"
                 (click)="onRowClick($event, row.id, row.original)"
                 (focus)="onRowFocus($event, row.id)"
                 (keydown)="onRowKeydown($event, row.id, row.original)">
-                @for (cell of row.getAllCells(); track cell.id) {
+                @for (cell of row.getAllCells(); track cell.id; let first = $first) {
                   <td [attr.data-align]="columnMeta(cell.column).align || null"
                     [attr.data-nowrap]="columnMeta(cell.column).noWrap ? 'true' : null">
+                    @if (first && emphasisLabel() && emphasizeRow()(row.original)) {
+                      <span class="good-sr-only">{{ emphasisLabel() }}. </span>
+                    }
                     <ng-container *flexRenderCell="cell; let rendered">{{ rendered }}</ng-container>
                   </td>
                 }
@@ -117,6 +139,7 @@ export interface GoodTableRequest {
           </tbody>
         </table>
       </div>
+      <span class="good-sr-only" role="status" aria-live="polite">{{ columnOrderAnnouncement() }}</span>
       @if (pagination(); as config) {
         <div class="good-table-footer">
           <div class="good-table-page-summary" role="status">{{ pageSummary() }}</div>
@@ -151,6 +174,12 @@ export class GoodTableComponent<TData extends RowData> {
   readonly columns = input.required<readonly GoodTableColumn<TData>[]>();
   readonly label = input('Records');
   readonly style = input<GoodTableStyle>('default');
+  /** Prefer this name in templates: static style="compact" is interpreted as an HTML style attribute. */
+  readonly tableStyle = input<GoodTableStyle | null>(null);
+  /** Drag or use the header grips to reorder columns; enabled by default. */
+  readonly reorderable = input(true, { transform: booleanAttribute });
+  /** Optional controlled order of leaf column IDs; emits changes from user reordering. */
+  readonly columnOrder = model<string[]>([]);
   readonly searchable = input(false);
   readonly searchPlaceholder = input('Search records');
   readonly pagination = input<GoodTablePagination | null>(null);
@@ -163,12 +192,22 @@ export class GoodTableComponent<TData extends RowData> {
   readonly selectable = input(false, { transform: booleanAttribute });
   /** ID of the selected record; supports [(selectedRowId)] and programmatic changes. */
   readonly selectedRowId = model<string | null>(null);
+  /** Visual emphasis for rows selected by application data, independent of row selection. */
+  readonly emphasizeRow = input<(row: TData) => boolean>(() => false);
+  /** Optional screen reader text for emphasized rows, such as a record state. */
+  readonly emphasisLabel = input('');
   /** Emits the selected record only when a user chooses a different row. */
   readonly rowSelected = output<TData>();
   readonly sortingChange = output<SortingState>();
   readonly searchChange = output<string>();
   readonly request = output<GoodTableRequest>();
   readonly search = signal('');
+  readonly columnOrderAnnouncement = signal('');
+  readonly dragSourceId = signal<string | null>(null);
+  readonly dragTargetId = signal<string | null>(null);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private pointerStart: { x: number; y: number; id: string } | null = null;
+  private dropAfter = false;
   readonly sorting = signal<SortingState>([]);
   readonly pageState = signal<PaginationState>({ pageIndex: 0, pageSize: 10 });
   readonly cursorHistory = signal<(string | null)[]>([null]);
@@ -193,7 +232,8 @@ export class GoodTableComponent<TData extends RowData> {
       rowCount: config?.mode === 'pages' ? config.totalRows : undefined,
       pageCount: config?.mode === 'cursor' ? -1 : undefined,
       globalFilterFn: 'includesString' as const,
-      state: { sorting: this.sorting(), globalFilter: this.search(), pagination: this.pageState() },
+      state: { sorting: this.sorting(), globalFilter: this.search(), pagination: this.pageState(), columnOrder: this.columnOrder() },
+      onColumnOrderChange: updater => this.columnOrder.update(old => typeof updater === 'function' ? updater(old) : updater),
       onSortingChange: (updater: SortingState | ((old: SortingState) => SortingState)) => {
         const next = typeof updater === 'function' ? updater(this.sorting()) : updater;
         this.sorting.set(next);
@@ -279,6 +319,64 @@ export class GoodTableComponent<TData extends RowData> {
   sortLabel(column: Column<typeof goodTableFeatures, TData, unknown>): string {
     const title = typeof column.columnDef.header === 'string' ? column.columnDef.header : column.id;
     return `Sort ${title}${column.getIsSorted() === 'asc' ? ' descending' : ' ascending'}`;
+  }
+  moveColumnLabel(id: string): string {
+    const columns = this.table.getAllLeafColumns();
+    const column = columns.find(item => item.id === id);
+    const title = typeof column?.columnDef.header === 'string' ? column.columnDef.header : id;
+    return `Move ${title}, column ${columns.findIndex(item => item.id === id) + 1} of ${columns.length}. Drag or use Left and Right arrow keys.`;
+  }
+  onColumnPointerDown(event: PointerEvent, id: string): void {
+    if (!this.reorderable() || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    this.pointerStart = { x: event.clientX, y: event.clientY, id };
+    (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+  }
+  onColumnPointerMove(event: PointerEvent): void {
+    if (!this.pointerStart || !this.reorderable()) return;
+    const distance = Math.hypot(event.clientX - this.pointerStart.x, event.clientY - this.pointerStart.y);
+    if (!this.dragSourceId() && distance < 6) return;
+    this.dragSourceId.set(this.pointerStart.id);
+    const header = this.host.nativeElement.ownerDocument.elementFromPoint(event.clientX, event.clientY)
+      ?.closest<HTMLElement>('th[data-column-id]');
+    if (!header || !this.host.nativeElement.contains(header)) { this.dragTargetId.set(null); return; }
+    this.dragTargetId.set(header.dataset['columnId'] ?? null);
+    this.dropAfter = event.clientX >= header.getBoundingClientRect().left + header.getBoundingClientRect().width / 2;
+  }
+  onColumnPointerUp(event: PointerEvent): void {
+    const source = this.dragSourceId(), target = this.dragTargetId();
+    if (source && target) this.moveColumn(source, target, this.dropAfter);
+    const handle = event.currentTarget as HTMLElement;
+    if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
+    this.cancelColumnDrag();
+  }
+  cancelColumnDrag(): void {
+    this.pointerStart = null;
+    this.dragSourceId.set(null);
+    this.dragTargetId.set(null);
+  }
+  onColumnGripKeydown(event: KeyboardEvent, id: string): void {
+    if (!this.reorderable() || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    const columns = this.table.getAllLeafColumns().map(column => column.id);
+    const index = columns.indexOf(id);
+    const targetIndex = event.key === 'Home' ? 0 : event.key === 'End' ? columns.length - 1
+      : index + (event.key === 'ArrowLeft' ? -1 : 1);
+    if (index < 0 || targetIndex < 0 || targetIndex >= columns.length) return;
+    event.preventDefault();
+    this.moveColumn(id, columns[targetIndex], targetIndex > index);
+  }
+  private moveColumn(source: string, target: string, after: boolean): void {
+    if (!this.reorderable() || source === target) return;
+    const order = this.table.getAllLeafColumns().map(column => column.id);
+    if (!order.includes(source) || !order.includes(target)) return;
+    order.splice(order.indexOf(source), 1);
+    order.splice(order.indexOf(target) + (after ? 1 : 0), 0, source);
+    this.table.setColumnOrder(order);
+    const position = order.indexOf(source) + 1;
+    const column = this.table.getColumn(source);
+    const label = typeof column?.columnDef.header === 'string' ? column.columnDef.header : source;
+    this.columnOrderAnnouncement.set(`${label} moved to column ${position} of ${order.length}.`);
+    requestAnimationFrame(() => this.host.nativeElement.querySelector<HTMLElement>(
+      `th[data-column-id="${CSS.escape(source)}"] .good-table-column-grip`)?.focus());
   }
   onRowClick(event: MouseEvent, id: string, record: TData): void {
     if (!this.selectable() || this.isInteractiveTarget(event)) return;

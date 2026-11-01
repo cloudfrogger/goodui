@@ -23,6 +23,31 @@
     </good-group>
   </good-section>
   <good-section>
+    <good-group title="Combine two directions" appearance="plain">
+      <good-paragraph>Place one Resizable inside a pane of another. The outer split uses <code>orientation="auto"</code>; the inner split uses <code>orientation="vertical"</code> so its list stays above its detail area. Give the containing pane <code>padding="none"</code> and the nested split <code>height="100%"</code> to fill the available space. Both dividers have independent values and work separately.</good-paragraph>
+      <good-resizable orientation="auto" height="540px" [(split)]="nestedOuter" ariaLabel="Resize navigation and workspace">
+        <good-resizable-pane side="start">
+          <good-subheading [level]="3">Navigation</good-subheading>
+          <good-paragraph>Choose a workspace area.</good-paragraph>
+        </good-resizable-pane>
+        <good-resizable-pane side="end" padding="none">
+          <good-resizable orientation="vertical" height="100%" [(split)]="nestedInner" ariaLabel="Resize list and detail">
+            <good-resizable-pane side="start">
+              <good-subheading [level]="3">List</good-subheading>
+              <good-paragraph>Items remain above the detail view.</good-paragraph>
+            </good-resizable-pane>
+            <good-resizable-pane side="end">
+              <good-subheading [level]="3">Detail</good-subheading>
+              <good-paragraph>Drag either divider. The nested divider changes only this workspace area.</good-paragraph>
+            </good-resizable-pane>
+          </good-resizable>
+        </good-resizable-pane>
+      </good-resizable>
+      <good-paragraph>Outer: {{ nestedOuter() }}% · inner: {{ nestedInner() }}%</good-paragraph>
+      <good-code-block [code]="nestedTemplate" language="html" title="Nested horizontal and vertical split" />
+    </good-group>
+  </good-section>
+  <good-section>
     <good-group title="Choose the handle" appearance="plain">
       <good-paragraph><code>grip</code> is the quiet default: three dots in a small pill. Choose <code>line</code> for the lightest mark, <code>dots</code> for a bare dotted grip, or <code>chevrons</code> when the direction should be especially clear. The entire divider remains the touch and keyboard target in every style.</good-paragraph>
       @for (style of handles; track style) {

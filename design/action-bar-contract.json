@@ -1,0 +1,15 @@
+{
+  "family": "goodui.action-bar",
+  "selector": "good-action-bar",
+  "penpotStatus": "pending-plugin-connection",
+  "proposedPage": "Action Bars",
+  "composition": ["goodui.button", "goodui.action-group", "goodui.dropdown", "goodui.input"],
+  "runtime": {
+    "groups": "ordered command groups with IDs and labels",
+    "priority": ["important", "normal", "overflow"],
+    "overflow": "responsive More menu; important commands stay visible",
+    "tools": "projected application controls",
+    "size": ["small", "default", "large"]
+  },
+  "publishedIds": []
+}

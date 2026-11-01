@@ -14,5 +14,5 @@
   "runtimeInputs": ["split", "orientation", "handle", "height", "minSplit", "maxSplit", "disabled", "ariaLabel"],
   "paneInputs": ["padding"],
   "runtimeOutputs": ["splitChange", "splitChangeEnd"],
-  "notes": "The boards show representative handle, stacked, and disabled states. The pane component represents projected content; side=start/end is a static projection attribute. Auto orientation stacks below 680 px of component width. Split is a percentage of available space after the 12 px separator. Pointer and keyboard operation and independent pane scrolling are runtime behaviors."
+  "notes": "The boards show representative handle, stacked, and disabled states. The pane component represents projected content; side=start/end is a static projection attribute. Auto orientation stacks below 680 px of component width. A vertical split or a nested split inside a padding=none pane is a runtime composition of the same published families, not an additional component. Split is a percentage of available space after the 12 px separator. Pointer and keyboard operation and independent pane scrolling are runtime behaviors."
 }

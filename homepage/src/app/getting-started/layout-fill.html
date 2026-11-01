@@ -26,6 +26,7 @@
     <good-prose>
       <good-paragraph>The sidebar and topbar stay in place. <code>good-main-view layout="fill"</code> takes the remaining space below the topbar and removes its own padding. The application page does not scroll; the projected workspace owns its internal scroll areas.</good-paragraph>
       <good-paragraph>Place one primary component directly inside MainView. Do not wrap it in a Section or Card when it should touch the edges. A MainView title or description also uses space, so leave them out for a fully flush workspace.</good-paragraph>
+      <good-paragraph>For a fixed command strip above a full-height workspace, add <code>goodMainViewToolbar</code> to the strip. MainView keeps it outside the scrolling content and gives the remaining height to the workspace. The slot accepts any component; <code>good-action-bar</code> is the standard choice for grouped commands and tools.</good-paragraph>
     </good-prose>
   </good-section>
 
@@ -47,9 +48,18 @@
   </good-section>
 
   <good-section>
+    <good-subheading>Optional fixed toolbar</good-subheading>
+    <good-prose>
+      <good-paragraph>The bar stays above the workspace while its panes scroll independently. This works for editors, file browsers, tables, and other filled views.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="toolbarCode" language="html" title="src/app/workspace-page.html" />
+  </good-section>
+
+  <good-section>
     <good-subheading>See it in use</good-subheading>
     <good-prose>
       <good-paragraph>Open the <good-link route="/examples/calendar-workspace">calendar workspace example</good-link> on desktop or mobile. It fills the client area, while its calendar grid and optional sidebar scroll independently. Use its “View source” action to inspect the complete working Angular page.</good-paragraph>
+      <good-paragraph>The <good-link route="/examples/mail-workspace">mail workspace example</good-link> shows the fixed ActionBar above a resizable three-pane view, including live search and filter tools.</good-paragraph>
       <good-paragraph>For content that should grow and scroll as a page instead, use <good-link route="/getting-started/layout/default">Default view</good-link>.</good-paragraph>
     </good-prose>
   </good-section>
