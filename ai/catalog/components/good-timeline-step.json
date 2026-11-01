@@ -1,0 +1,248 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-timeline-step",
+  "className": "GoodTimelineStepComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodTimelineStepComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/timeline.ts",
+  "inputs": [
+    {
+      "name": "id",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "eyebrow",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "transitionLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "iconName",
+      "type": "GoodTimelineIconName",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": [
+        "check",
+        "clipboard-list",
+        "file-text",
+        "house",
+        "map-pin",
+        "package-check",
+        "shield-check",
+        "truck"
+      ],
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "imageSrc",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "imageAlt",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "GoodTimelineColor",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": [
+        "brand",
+        "destructive",
+        "accent",
+        "warning",
+        "success",
+        "info",
+        "violet",
+        "neutral"
+      ],
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "marker",
+      "type": "GoodTimelineMarker",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": [
+        "number",
+        "icon",
+        "dot"
+      ],
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "endpoint",
+      "type": "\"start\" | \"end\"",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": [
+        "start",
+        "end"
+      ],
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "deactivated",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "state",
+      "type": "GoodTimelineState",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": [
+        "completed",
+        "current",
+        "upcoming",
+        "error",
+        "deactivated"
+      ],
+      "source": "angular/projects/goodui/src/lib/timeline.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "iconName": [
+      "check",
+      "clipboard-list",
+      "file-text",
+      "house",
+      "map-pin",
+      "package-check",
+      "shield-check",
+      "truck"
+    ],
+    "color": [
+      "brand",
+      "destructive",
+      "accent",
+      "warning",
+      "success",
+      "info",
+      "violet",
+      "neutral"
+    ],
+    "marker": [
+      "number",
+      "icon",
+      "dot"
+    ],
+    "endpoint": [
+      "start",
+      "end"
+    ],
+    "state": [
+      "completed",
+      "current",
+      "upcoming",
+      "error",
+      "deactivated"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/timeline-step.md",
+  "usage": {
+    "summary": "`good-timeline-step` defines one step inside `good-timeline`. It is a declarative configuration tag; the parent renders the visible marker, text, and connector.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.timeline-step",
+      "penpotId": "2f4a7d00-3514-8040-8008-e13ce8fe5e6d",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

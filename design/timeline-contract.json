@@ -1,0 +1,22 @@
+{
+  "page": "39 Timelines",
+  "pageId": "5f52067e-ed89-8049-8008-e134aa307903",
+  "selector": "good-timeline",
+  "published": [
+    { "name": "goodui.timeline.simple", "componentId": "5f52067e-ed89-8049-8008-e134ab5114b6", "shapeId": "5f52067e-ed89-8049-8008-e134aa4a1bc4", "appearance": "simple", "orientation": "horizontal" },
+    { "name": "goodui.timeline.detailed", "componentId": "2f4a7d00-3514-8040-8008-e13649866a2a", "shapeId": "2f4a7d00-3514-8040-8008-e1364868879a", "appearance": "detailed", "orientation": "horizontal" },
+    { "name": "goodui.timeline.illustrated", "componentId": "2f4a7d00-3514-8040-8008-e136601b352e", "shapeId": "2f4a7d00-3514-8040-8008-e1365eeb7aff", "appearance": "illustrated", "orientation": "horizontal" },
+    { "name": "goodui.timeline.illustrated-endpoints", "componentId": "2f4a7d00-3514-8040-8008-e150401cb41b", "shapeId": "2f4a7d00-3514-8040-8008-e14fc675df9b", "appearance": "illustrated", "orientation": "horizontal", "endpoint": "start/end", "color": "accent" },
+    { "name": "goodui.timeline.vertical", "componentId": "2f4a7d00-3514-8040-8008-e1366f8db664", "shapeId": "2f4a7d00-3514-8040-8008-e1366ef92fdc", "appearance": "simple", "orientation": "vertical" },
+    { "name": "goodui.timeline.small", "componentId": "2f4a7d00-3514-8040-8008-e1412af83064", "shapeId": "2f4a7d00-3514-8040-8008-e1412a440cba", "size": "small" },
+    { "name": "goodui.timeline.large", "componentId": "2f4a7d00-3514-8040-8008-e14138d12efb", "shapeId": "2f4a7d00-3514-8040-8008-e1413836ef5c", "size": "large" },
+    { "name": "goodui.timeline.deactivated", "componentId": "2f4a7d00-3514-8040-8008-e1414915b662", "shapeId": "2f4a7d00-3514-8040-8008-e14148a07465", "state": "deactivated" },
+    { "name": "goodui.timeline.secondary", "componentId": "2f4a7d00-3514-8040-8008-e14526efde16", "shapeId": "2f4a7d00-3514-8040-8008-e144f4e3aef8", "tone": "secondary" },
+    { "name": "goodui.timeline.mono", "componentId": "2f4a7d00-3514-8040-8008-e1454eb50d6a", "shapeId": "2f4a7d00-3514-8040-8008-e145375842ee", "tone": "mono" },
+    { "name": "goodui.timeline-step", "componentId": "2f4a7d00-3514-8040-8008-e13ce8fe5e6d", "shapeId": "2f4a7d00-3514-8040-8008-e13ce8a73752", "role": "declarative step definition rendered by good-timeline" }
+  ],
+  "runtimeInputs": ["steps", "currentIndex", "orientation", "appearance", "tone", "size", "marker", "color", "completedColor", "deactivated", "ariaLabel"],
+  "stepFields": ["id", "title", "description", "eyebrow", "transitionLabel", "icon", "iconName", "imageSrc", "imageAlt", "color", "marker", "endpoint", "state", "deactivated"],
+  "runtimeStates": ["completed", "current", "upcoming", "error", "deactivated"],
+  "notes": "Published boards show representative configurations. good-timeline-step configures a child step; its parent good-timeline renders the visible ordered list. The caller may use child tags or a steps array, but should not mix them. Step count, labels, custom graphics, semantic colors, completedColor, tone, size, deactivation, and current position are runtime data. First and last illustrated steps may use endpoint=start/end for graphics on the process line; middle icons connect to their markers with stems. Mono tone overrides semantic accent colors and desaturates illustrations. The optional transition label belongs to the source step. Auto orientation becomes vertical in narrow containers."
+}

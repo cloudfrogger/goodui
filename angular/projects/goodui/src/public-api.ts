@@ -50,6 +50,7 @@ export * from './lib/calendar-working-hours';
 export * from './lib/calendar';
 export * from './lib/month-calendar';
 export * from './lib/progress';
+export * from './lib/timeline';
 export * from './lib/pdf-preview';
 export * from './lib/error-page';
 export * from './lib/dropdown';

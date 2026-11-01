@@ -44,6 +44,8 @@
     "link",
     "tab",
     "tabs",
+    "timeline",
+    "timeline-step",
     "main-menu",
     "main-view",
     "month-calendar",
@@ -1767,6 +1769,83 @@
       "angularSelector": "good-signature-pad",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.timeline.simple",
+      "penpotId": "5f52067e-ed89-8049-8008-e134ab5114b6",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "simple"
+    },
+    {
+      "penpotName": "goodui.timeline.detailed",
+      "penpotId": "2f4a7d00-3514-8040-8008-e13649866a2a",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "detailed"
+    },
+    {
+      "penpotName": "goodui.timeline.illustrated",
+      "penpotId": "2f4a7d00-3514-8040-8008-e136601b352e",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "illustrated"
+    },
+    {
+      "penpotName": "goodui.timeline.illustrated-endpoints",
+      "penpotId": "2f4a7d00-3514-8040-8008-e150401cb41b",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "illustrated-endpoints"
+    },
+    {
+      "penpotName": "goodui.timeline.vertical",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1366f8db664",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "vertical"
+    },
+    {
+      "penpotName": "goodui.timeline.small",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1412af83064",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "small"
+    },
+    {
+      "penpotName": "goodui.timeline.large",
+      "penpotId": "2f4a7d00-3514-8040-8008-e14138d12efb",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "large"
+    },
+    {
+      "penpotName": "goodui.timeline.deactivated",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1414915b662",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "deactivated"
+    },
+    {
+      "penpotName": "goodui.timeline.secondary",
+      "penpotId": "2f4a7d00-3514-8040-8008-e14526efde16",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "secondary"
+    },
+    {
+      "penpotName": "goodui.timeline.mono",
+      "penpotId": "2f4a7d00-3514-8040-8008-e1454eb50d6a",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "mono"
+    },
+    {
+      "penpotName": "goodui.timeline-step",
+      "penpotId": "2f4a7d00-3514-8040-8008-e13ce8fe5e6d",
+      "angularSelector": "good-timeline-step",
+      "kind": "component",
+      "state": null
     }
   ],
   "variantManifests": [
@@ -1791,6 +1870,7 @@
     "design/progress-variants.json",
     "design/range-slider-variants.json",
     "design/signature-pad-contract.json",
+    "design/timeline-contract.json",
     "design/notification-host-contract.json",
     "design/radio-group-variants.json",
     "design/rating-variants.json",

@@ -973,6 +973,28 @@
       "penpotCount": 3
     },
     {
+      "selector": "good-timeline",
+      "className": "GoodTimelineComponent",
+      "file": "components/good-timeline.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTimelineComponent"
+      },
+      "usageGuide": "guides/components/timeline.md",
+      "penpotCount": 10
+    },
+    {
+      "selector": "good-timeline-step",
+      "className": "GoodTimelineStepComponent",
+      "file": "components/good-timeline-step.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTimelineStepComponent"
+      },
+      "usageGuide": "guides/components/timeline-step.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-topbar",
       "className": "GoodTopbarComponent",
       "file": "components/good-topbar.json",

@@ -1,0 +1,118 @@
+<good-main-view title="Timelines" description="Show ordered steps and their progress, from a simple numbered line to illustrated process milestones.">
+  <good-section>
+    <good-group title="Start with steps" appearance="plain">
+      <p>Write one <code>&lt;good-timeline-step&gt;</code> per step, directly in the template. Give each a stable <code>id</code> and a <code>title</code>. <code>currentIndex</code> is zero-based: earlier steps are completed, that step is current, and later steps are upcoming. This first example uses <code>size="small"</code>; the layout becomes vertical when its container is narrow.</p>
+      <good-timeline [currentIndex]="currentIndex()" size="small" ariaLabel="Simple process">
+        <good-timeline-step id="idea" title="Idea" />
+        <good-timeline-step id="plan" title="Plan" />
+        <good-timeline-step id="build" title="Build" />
+        <good-timeline-step id="launch" title="Launch" />
+      </good-timeline>
+      <good-action-group ariaLabel="Move through the example">
+        <good-button size="small" variant="outline" [disabled]="currentIndex() === 0" (click)="previous()">Previous</good-button>
+        <good-button size="small" variant="secondary" [disabled]="currentIndex() === simpleStepCount" (click)="next()">Next</good-button>
+      </good-action-group>
+      <good-code-block [code]="basicCode" language="typescript" title="Steps and current position" />
+      <good-code-block [code]="basicTemplate" language="html" title="Template" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Choose your options" appearance="plain">
+      <p>Set the shared choices on <code>&lt;good-timeline&gt;</code>. Give only exceptional steps their own overrides. These are the accepted values:</p>
+      <good-columns [columns]="2">
+        <good-column>
+          <good-subheading [level]="3">Form</good-subheading>
+          <good-paragraph><code>appearance</code> accepts <code>simple</code> (plain line), <code>detailed</code> (text panels), or <code>illustrated</code> (graphics above the line). Default: <code>simple</code>.</good-paragraph>
+        </good-column>
+        <good-column>
+          <good-subheading [level]="3">Direction and size</good-subheading>
+          <good-paragraph><code>orientation</code> accepts <code>auto</code>, <code>horizontal</code>, or <code>vertical</code>. Auto turns vertical below 680 px of component width. <code>size</code> accepts <code>small</code>, <code>default</code>, or <code>large</code>. Defaults: <code>auto</code> and <code>default</code>.</good-paragraph>
+        </good-column>
+        <good-column>
+          <good-subheading [level]="3">Palette</good-subheading>
+          <good-paragraph><code>tone</code> accepts <code>brand</code> (default), <code>secondary</code>, or <code>mono</code>. <code>color</code> and optional <code>completedColor</code> accept <code>brand</code>, <code>accent</code>, <code>success</code>, <code>warning</code>, <code>info</code>, <code>destructive</code>, <code>neutral</code>, or <code>violet</code>. Mono removes all color.</good-paragraph>
+        </good-column>
+        <good-column>
+          <good-subheading [level]="3">Progress</good-subheading>
+          <good-paragraph><code>[currentIndex]</code> starts at 0; earlier steps are completed. Set it to the step count when all are done. A step's <code>state</code> may be <code>completed</code>, <code>current</code>, <code>upcoming</code>, <code>error</code>, or <code>deactivated</code>. Boolean <code>deactivated</code> works on a step or the whole timeline.</good-paragraph>
+        </good-column>
+        <good-column>
+          <good-subheading [level]="3">Markers and graphics</good-subheading>
+          <good-paragraph><code>marker</code> accepts <code>number</code> (default), <code>icon</code>, or <code>dot</code>; a step may override it. A step may use <code>iconName</code>, custom <code>[icon]</code>, or <code>imageSrc</code> with <code>imageAlt</code>. The image wins. In illustrated mode, <code>endpoint="start"</code> and <code>endpoint="end"</code> put first and last icons on the line.</good-paragraph>
+        </good-column>
+        <good-column>
+          <good-subheading [level]="3">Step content</good-subheading>
+          <good-paragraph>Each step needs unique <code>id</code> and visible <code>title</code>. Optional <code>eyebrow</code>, <code>description</code>, and <code>transitionLabel</code> add context; a transition labels the line leaving that step. <code>ariaLabel</code> names the timeline for assistive technology.</good-paragraph>
+        </good-column>
+      </good-columns>
+      <p>Built-in <code>iconName</code> values: <code>check</code>, <code>clipboard-list</code>, <code>file-text</code>, <code>house</code>, <code>map-pin</code>, <code>package-check</code>, <code>shield-check</code>, and <code>truck</code>. A step's <code>color</code> wins over <code>completedColor</code>; <code>tone="mono"</code> wins over both. Use <code>[steps]</code> instead of child tags when the step count comes from data.</p>
+      <good-code-block [code]="referenceTemplate" language="html" title="Copy and adapt the timeline" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Choose an exact color value" appearance="plain">
+      <p>Write one of these strings in <code>color="..."</code> on <code>&lt;good-timeline&gt;</code>. The swatches use the active light or dark theme. <code>accent</code> is a good default for an illustrated process; <code>brand</code> is the component default.</p>
+      <ul class="showcase-timeline-palette">
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-accent)" aria-hidden="true"></span><span><code>accent</code><small>Theme-aware blue · recommended process accent</small></span></li>
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-brand)" aria-hidden="true"></span><span><code>brand</code><small>Core brand blue · default; same as accent in light mode</small></span></li>
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-success)" aria-hidden="true"></span><span><code>success</code><small>Green · successful outcome</small></span></li>
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-warning-foreground)" aria-hidden="true"></span><span><code>warning</code><small>Contrast amber or yellow · needs attention</small></span></li>
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-info)" aria-hidden="true"></span><span><code>info</code><small>Sky blue · informational state</small></span></li>
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-error)" aria-hidden="true"></span><span><code>destructive</code><small>Red · error or destructive outcome</small></span></li>
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-muted)" aria-hidden="true"></span><span><code>neutral</code><small>Gray · quiet process information</small></span></li>
+        <li><span class="showcase-timeline-swatch" style="--swatch: var(--good-color-marker-violet)" aria-hidden="true"></span><span><code>violet</code><small>Purple · optional category accent</small></span></li>
+      </ul>
+      <p>Finished steps already stand out without a second hue. Set <code>completedColor="success"</code> only when green has a specific meaning for completion. A step's own <code>color</code> overrides both parent colors. <code>tone="secondary"</code> makes ordinary steps neutral; <code>tone="mono"</code> removes all color.</p>
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Choose a tone" appearance="plain">
+      <p><code>tone</code> changes the palette without changing the layout. <code>brand</code> uses the GoodUI accent, <code>secondary</code> uses a quieter neutral fill, and <code>mono</code> gives the entire timeline a black, white, and gray print treatment. The mono tone also removes color from step overrides and images.</p>
+      <p><strong>Brand</strong></p>
+      <good-timeline [currentIndex]="1" tone="brand" size="small" ariaLabel="Brand timeline">
+        <good-timeline-step id="brand-draft" title="Draft" /><good-timeline-step id="brand-review" title="Review" /><good-timeline-step id="brand-done" title="Done" />
+      </good-timeline>
+      <p><strong>Secondary</strong></p>
+      <good-timeline [currentIndex]="1" tone="secondary" size="small" ariaLabel="Secondary timeline">
+        <good-timeline-step id="secondary-draft" title="Draft" /><good-timeline-step id="secondary-review" title="Review" /><good-timeline-step id="secondary-done" title="Done" />
+      </good-timeline>
+      <p><strong>Mono</strong></p>
+      <good-timeline [currentIndex]="1" tone="mono" size="small" ariaLabel="Mono timeline">
+        <good-timeline-step id="mono-draft" title="Draft" color="success" /><good-timeline-step id="mono-review" title="Review" /><good-timeline-step id="mono-done" title="Done" />
+      </good-timeline>
+      <good-code-block [code]="toneTemplate" language="html" title="Tone variants" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Details and transition labels" appearance="plain">
+      <p>This is the default size. Set <code>appearance</code>, <code>marker</code>, and <code>color</code> on the timeline; a step can override its marker and color. Add <code>description</code> and <code>eyebrow</code> for context. <code>transitionLabel</code> labels the connector from that step to the next. The final step uses <code>deactivated</code> to stay visible but muted.</p>
+      <good-timeline [currentIndex]="2" appearance="detailed" ariaLabel="Detailed process">
+        <good-timeline-step id="request" eyebrow="Step 1" title="Request" description="Collect the details." transitionLabel="Submitted" marker="icon" iconName="file-text" color="success" />
+        <good-timeline-step id="review" eyebrow="Step 2" title="Review" description="Check the information." transitionLabel="Approved" />
+        <good-timeline-step id="approval" eyebrow="Step 3" title="Approval" description="Record the decision." transitionLabel="Ready" />
+        <good-timeline-step id="complete" eyebrow="Step 4" title="Complete" description="Make the result available." marker="dot" deactivated />
+      </good-timeline>
+      <good-code-block [code]="styleTemplate" language="html" title="Declarative styles and a deactivated step" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Illustrated milestones" appearance="plain">
+      <p><code>appearance="illustrated"</code> puts a vertical stem between each middle icon and its progress marker. <code>endpoint="start"</code> and <code>endpoint="end"</code> place the first and last icons on the line. One <code>color="accent"</code> on the timeline keeps the process visually coherent; completed stations are already stronger through filled markers and outlined graphics. Add <code>completedColor</code> only when completion needs a distinct semantic color.</p>
+      <good-timeline [currentIndex]="3" appearance="illustrated" marker="dot" color="accent" size="large" ariaLabel="Illustrated process">
+        <good-timeline-step id="origin" title="Origin" description="The process begins." iconName="house" endpoint="start" />
+        <good-timeline-step id="created" title="Created" description="The request is recorded." iconName="file-text" />
+        <good-timeline-step id="packed" title="Prepared" description="Everything is ready to go." iconName="package-check" />
+        <good-timeline-step id="transit" title="In transit" description="The work is moving forward." iconName="truck" />
+        <good-timeline-step id="received" title="Destination" description="The process is complete." iconName="map-pin" endpoint="end" />
+      </good-timeline>
+      <good-code-block [code]="detailedTemplate" language="html" title="Illustrated steps in the template" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Vertical history" appearance="plain">
+      <p>Choose <code>orientation="vertical"</code> when the timeline should stay vertical even on a wide page. Set a step's <code>color</code> for a semantic accent or <code>state="error"</code> when a step needs attention regardless of its index. Available accents are brand, accent, success, warning, info, destructive, neutral, and violet. When steps come from an API, pass the same fields as an array through <code>[steps]</code>.</p>
+      <good-timeline [steps]="verticalSteps" [currentIndex]="2" orientation="vertical" marker="icon" ariaLabel="Review history" />
+      <good-code-block [code]="dataCode" language="typescript" title="Alternative for data-driven steps" />
+    </good-group>
+  </good-section>
+</good-main-view>
