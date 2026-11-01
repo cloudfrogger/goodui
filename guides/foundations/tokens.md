@@ -26,7 +26,7 @@ Import the package stylesheet in the application's global stylesheet, then put a
 }
 ```
 
-Base color overrides propagate through aliases such as `--good-brand` and many component roles. Some component colors have their own explicit values, including the primary Button hover color; override those separately when changing the brand. `GoodThemeService.setTheme('dark')` or `setTheme('light')` selects the theme and stores the choice in `localStorage`. With no stored choice, the service uses the system color preference.
+Base color overrides propagate through aliases such as `--good-brand` and many component roles. Some component colors have their own explicit values, including the primary Button hover color; override those separately when changing the brand. `GoodThemeService.setTheme('dark')` or `setTheme('light')` selects the theme and stores the choice in the `goodui-theme` cookie. With no cookie, the service uses the system color preference.
 
 CSS overrides affect only that app. To change the shared GoodUI Penpot and Angular palette together, edit `layout` and `layout-dark` in Penpot, export the token snapshot, and run `npm run tokens:generate` followed by `npm run tokens:check`. The export is manual; no automatic Penpot synchronization is implied.
 
@@ -196,7 +196,7 @@ Image Input adds `image-input.size` (180 px) to the `layout` set. Its Penpot pre
 
 This is a **manual Penpot-to-repository export** followed by automatic CSS generation. The build regenerates CSS from the saved JSON, not from live Penpot. The generated file is `angular/projects/goodui/src/tokens.generated.css`; the package stylesheet imports it and exposes Tailwind CSS 4 `--color-good-*` mappings through `@theme inline`. GoodUI does not ship Tailwind Preflight to consuming apps.
 
-For app-level theming, set `data-theme="light"` or `data-theme="dark"` on a common root. `GoodThemeService` stores the preference (`light`, `system`, or `dark`) under `goodui-theme` and writes the resolved light/dark value to `data-theme`. With no saved choice, it follows the system preference and responds to later system changes. Apps can override public `--good-*` variables at runtime; these overrides are application-specific and do not write back to Penpot.
+For app-level theming, set `data-theme="light"` or `data-theme="dark"` on a common root. `GoodThemeService` stores an explicit Light or Dark preference in the `goodui-theme` cookie and writes the resolved value to `data-theme`. System mode removes the cookie, follows the system preference, and responds to later system changes. Put the [prepaint script](../components/theme-toggle.md) in the app's `index.html` to set the background before Angular loads. Apps can override public `--good-*` variables at runtime; these overrides are application-specific and do not write back to Penpot.
 
 ## Progress tokens
 

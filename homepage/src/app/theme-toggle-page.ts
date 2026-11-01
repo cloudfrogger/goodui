@@ -18,6 +18,11 @@ import { GoodCodeBlockComponent, GoodMainViewComponent, GoodThemeService, GoodTh
           <p>The AppLayout shows this action by default. Set <code>showThemeToggle</code> to false to omit it; a standalone control uses the same theme service.</p></div>
         <good-code-block [code]="usageCode" language="html" title="Theme toggle usage" />
       </section>
+      <section class="showcase-section" aria-labelledby="theme-toggle-loading-title">
+        <div class="showcase-section-heading"><h2 id="theme-toggle-loading-title">Apply the theme before the page paints</h2>
+          <p>Light and Dark choices are saved in the <code>goodui-theme</code> cookie. System mode removes it. Add this code at the start of your app's <code>src/index.html</code> head so the background matches the saved or system theme before Angular loads. The two colors match GoodUI's default canvas tokens; update them if your app changes those tokens.</p></div>
+        <good-code-block [code]="prepaintCode" language="html" title="src/index.html · inside head" />
+      </section>
     </good-main-view>
   `,
 })
@@ -29,4 +34,18 @@ export class ThemeTogglePageComponent {
 
 <!-- Or place the action in a custom topbar composition. -->
 <good-theme-toggle />`;
+
+  readonly prepaintCode = `<script>
+  const savedTheme = document.cookie.split(';').map(part => part.trim())
+    .find(part => part.startsWith('goodui-theme='))?.slice('goodui-theme='.length);
+  const initialTheme = savedTheme === 'light' || savedTheme === 'dark'
+    ? savedTheme
+    : window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', initialTheme);
+</script>
+<style>
+  html { background-color: #fff; color-scheme: light; }
+  html[data-theme="dark"] { background-color: #09090b; color-scheme: dark; }
+  body { background-color: inherit; }
+</style>`;
 }

@@ -22,7 +22,7 @@ describe('GoodThemeToggleComponent', () => {
     expect(theme.preference()).toBe('dark');
     button.click();
     expect(theme.preference()).toBe('light');
-    localStorage.removeItem('goodui-theme');
+    document.cookie = 'goodui-theme=; Path=/; Max-Age=0';
   });
 });
 

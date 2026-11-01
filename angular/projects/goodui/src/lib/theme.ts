@@ -12,9 +12,9 @@ export class GoodThemeService {
   private readonly media = this.document.defaultView?.matchMedia?.('(prefers-color-scheme: dark)');
 
   constructor() {
-    const win = this.document.defaultView;
-    const stored = win?.localStorage.getItem('goodui-theme');
-    this.setTheme(stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system', false);
+    const stored = this.document.cookie.split(';').map(part => part.trim())
+      .find(part => part.startsWith('goodui-theme='))?.slice('goodui-theme='.length);
+    this.setTheme(stored === 'light' || stored === 'dark' ? stored : 'system', false);
     this.media?.addEventListener('change', () => {
       if (this.preference() === 'system') this.applyTheme();
     });
@@ -23,7 +23,12 @@ export class GoodThemeService {
   setTheme(preference: GoodThemePreference, persist = true): void {
     this.preference.set(preference);
     this.applyTheme();
-    if (persist) this.document.defaultView?.localStorage.setItem('goodui-theme', preference);
+    if (persist) {
+      const secure = this.document.defaultView?.location.protocol === 'https:' ? '; Secure' : '';
+      this.document.cookie = preference === 'system'
+        ? `goodui-theme=; Path=/; Max-Age=0; SameSite=Lax${secure}`
+        : `goodui-theme=${preference}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
+    }
   }
 
   cycle(): void {
