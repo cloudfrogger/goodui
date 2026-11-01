@@ -31,6 +31,7 @@ export * from './lib/select-font';
 export * from './lib/rich-text-editor';
 export * from './lib/number-input';
 export * from './lib/range-slider';
+export * from './lib/signature-pad';
 export * from './lib/pin-input';
 export * from './lib/alert';
 export * from './lib/notification-center';

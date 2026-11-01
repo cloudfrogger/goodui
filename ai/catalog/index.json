@@ -852,6 +852,17 @@
       "penpotCount": 2
     },
     {
+      "selector": "good-signature-pad",
+      "className": "GoodSignaturePadComponent",
+      "file": "components/good-signature-pad.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSignaturePadComponent"
+      },
+      "usageGuide": "guides/components/signature-pad.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-status-icon",
       "className": "GoodStatusIconComponent",
       "file": "components/good-status-icon.json",

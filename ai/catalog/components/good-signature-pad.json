@@ -1,0 +1,115 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-signature-pad",
+  "className": "GoodSignaturePadComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSignaturePadComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+  "inputs": [
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Signature",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+      "kind": "input"
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "required": false,
+      "default": "180",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+      "kind": "input"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showClear",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "GoodSignatureData",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+      "kind": "model"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "GoodSignatureData",
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts",
+      "implicit": true
+    },
+    {
+      "name": "svgChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts"
+    },
+    {
+      "name": "strokeCompleted",
+      "type": "GoodSignatureStroke",
+      "source": "angular/projects/goodui/src/lib/signature-pad.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": false
+  },
+  "usageGuide": "guides/components/signature-pad.md",
+  "usage": {
+    "summary": "`good-signature-pad` captures a handwritten signature from a pen, finger, or mouse. Its dashed white writing surface, baseline, and **Clear** button make the intended action visible. Clear is available by default. Each completed stroke produces two independent results: a structured sequence of sampled points and a standalone SVG image.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.signature-pad",
+      "penpotId": "5f52067e-ed89-8049-8008-e116dc874393",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

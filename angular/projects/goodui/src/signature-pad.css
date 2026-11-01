@@ -1,0 +1,14 @@
+.good-signature-pad { display: block; width: 100%; padding: 16px; border: 1px solid var(--good-color-border); border-radius: var(--good-radius-card); background: var(--good-surface); color: var(--good-text); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
+.good-signature-pad-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 32px; margin-bottom: 12px; }
+.good-signature-pad-label { font-size: 14px; font-weight: 600; line-height: 1.4; }
+.good-signature-pad-surface { position: relative; width: 100%; min-height: 140px; overflow: hidden; border: 1px dashed color-mix(in srgb, var(--good-color-brand) 28%, #9ca3af); border-radius: var(--good-radius-item); background: #fff; color: #111827; cursor: crosshair; touch-action: none; user-select: none; }
+.good-signature-pad-surface:has(.good-signature-pad-ink path), .good-signature-pad-surface:has(.good-signature-pad-ink circle) { border-style: solid; }
+.good-signature-pad-placeholder { position: absolute; z-index: 1; top: 15px; left: 15px; color: #71717a; font-size: 14px; pointer-events: none; }
+.good-signature-pad-ink { position: absolute; z-index: 2; inset: 0; display: block; width: 100%; height: 100%; overflow: visible; fill: none; stroke: #111827; stroke-width: 2.7; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.good-signature-pad-ink circle { fill: #111827; stroke: none; }
+.good-signature-pad-baseline { position: absolute; right: 15px; bottom: 42px; left: 15px; height: 1px; background: #d4d4d8; pointer-events: none; }
+.good-signature-pad-hint { position: absolute; right: 15px; bottom: 13px; left: 15px; color: #71717a; font-size: 12px; line-height: 1.4; pointer-events: none; }
+.good-signature-pad[data-disabled="true"] { opacity: .55; }
+.good-signature-pad[data-disabled="true"] .good-signature-pad-surface { cursor: not-allowed; touch-action: auto; }
+.good-signature-pad[data-readonly="true"] .good-signature-pad-surface { cursor: default; touch-action: auto; }
+@media (max-width: 640px) { .good-signature-pad { padding: 12px; } }

@@ -66,6 +66,7 @@
     "select",
     "select-country",
     "select-font",
+    "signature-pad",
     "separator",
     "settings",
     "sidebar-container",
@@ -1759,6 +1760,13 @@
       "angularSelector": "good-select-font",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.signature-pad",
+      "penpotId": "5f52067e-ed89-8049-8008-e116dc874393",
+      "angularSelector": "good-signature-pad",
+      "kind": "component",
+      "state": null
     }
   ],
   "variantManifests": [
@@ -1782,6 +1790,7 @@
     "design/modal-variants.json",
     "design/progress-variants.json",
     "design/range-slider-variants.json",
+    "design/signature-pad-contract.json",
     "design/notification-host-contract.json",
     "design/radio-group-variants.json",
     "design/rating-variants.json",

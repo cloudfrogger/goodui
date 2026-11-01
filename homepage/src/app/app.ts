@@ -84,6 +84,7 @@ export class App {
         { id: 'select-font', label: 'Font select', route: '/components/select-font' },
         { id: 'number-inputs', label: 'Number inputs', route: '/components/number-inputs' },
         { id: 'range-sliders', label: 'Range sliders', route: '/components/range-sliders' },
+        { id: 'signature-pads', label: 'Signature pads', route: '/components/signature-pads' },
         { id: 'pin-inputs', label: 'PIN inputs', route: '/components/pin-inputs' },
         { id: 'phone-inputs', label: 'Phone inputs', route: '/components/phone-inputs' },
         { id: 'date-inputs', label: 'Date inputs', route: '/components/date-inputs' },
@@ -178,6 +179,7 @@ export class App {
   readonly searchItems: readonly GoodSearchItem[] = [
     { id: 'textareas', label: 'Textareas', description: 'Multiline text, resizing, and form states', route: '/components/textareas' },
     { id: 'range-sliders', label: 'Range sliders', description: 'Single values, intervals, ticks, and step buttons', route: '/components/range-sliders' },
+    { id: 'signature-pads', label: 'Signature pads', description: 'Timed pen strokes and SVG output', route: '/components/signature-pads' },
     { id: 'layout-general', label: 'Layout · General', description: 'Foundation · application shell, navigation, and providers', route: '/getting-started/layout/general' },
     { id: 'layout-default', label: 'Layout · Default view', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default' },
     { id: 'layout-fill', label: 'Layout · Fill view', description: 'Foundation · full-height workspace without page scrolling', route: '/getting-started/layout/fill' },

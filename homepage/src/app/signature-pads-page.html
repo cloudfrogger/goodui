@@ -1,0 +1,26 @@
+<good-main-view title="Signature pads" description="Capture a handwritten signature as timed strokes and a standalone SVG.">
+  <good-section>
+    <good-group title="Sign here" appearance="plain">
+      <p>Draw with a pen, finger, or mouse. The dashed paper area marks where to sign. Clear is built in so the signer can start again. Each completed stroke updates the structured value and emits an SVG string.</p>
+      <good-signature-pad label="Your signature" [(value)]="signature" (svgChange)="emittedSvg.set($event)" (strokeCompleted)="lastStroke.set($event)" />
+      <good-button variant="outline" size="small" (click)="loadSample()">Load a sample signature</good-button>
+      <p role="status">{{ signature()?.strokes?.length ?? 0 }} strokes · {{ lastStroke()?.points?.length ?? 0 }} points in the last drawn stroke</p>
+      <good-code-block [code]="basicCode" language="html" title="Capture a signature" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Save the data" appearance="plain">
+      <p>Think of the signature as a timeline. Each time the pen touches the surface, a new stroke begins. Its points stay in drawing order. <code>t</code> counts milliseconds from the first contact, including pauses between strokes. For example, points at 0 and 45 ms were drawn 45 ms apart; if the next stroke starts at 260 ms, the pause is preserved too. <code>x</code> and <code>y</code> locate the pen on the recorded canvas; <code>pressure</code> ranges from 0 to 1.</p>
+      <p>This short excerpt shows how to read the data. The bound <code>value</code> retains every point, so you can replay the movement. The SVG stores the finished lines as a standalone image, without their timing; <code>svgChange</code> emits it after each stroke and after Clear.</p>
+      <good-code-block [code]="dataPreview()" language="json" title="Time series excerpt" />
+      <good-code-block [code]="dataCode" language="typescript" title="Read and save both outputs" />
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-group title="Forms and loaded signatures" appearance="plain">
+      <p>Bind a reactive form control instead of <code>[(value)]</code> when the pad belongs to a form. Set its value to a saved <code>GoodSignatureData</code> object to show the signature again. Clear sets it to <code>null</code>.</p>
+      <good-signature-pad label="Form signature" [formControl]="formSignature" [height]="160" />
+      <good-code-block [code]="formsCode" language="typescript" title="Reactive Forms" />
+    </good-group>
+  </good-section>
+</good-main-view>

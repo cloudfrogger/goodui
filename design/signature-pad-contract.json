@@ -1,0 +1,14 @@
+{
+  "page": "38 Signature Pads",
+  "pageId": "5f52067e-ed89-8049-8008-e116cba6c993",
+  "family": "goodui.signature-pad",
+  "selector": "good-signature-pad",
+  "componentId": "5f52067e-ed89-8049-8008-e116dc874393",
+  "mainShapeId": "5f52067e-ed89-8049-8008-e116cbc11774",
+  "guideBoardId": "5f52067e-ed89-8049-8008-e117f430f37b",
+  "signedSpecimenId": "5f52067e-ed89-8049-8008-e118174ebf8c",
+  "runtimeInputs": ["label", "height", "disabled", "readonly", "showClear", "value"],
+  "runtimeOutputs": ["valueChange", "svgChange", "strokeCompleted"],
+  "runtimeStates": ["empty", "drawing", "signed", "disabled", "readonly", "clear"],
+  "notes": "The Penpot master depicts the empty pad. The signed specimen is a linked copy with separate overlay paths. Pointer samples, SVG output, InkML export, and clearing are runtime behavior; no biometric or legal validation is implied."
+}
