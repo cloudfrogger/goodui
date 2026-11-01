@@ -79,6 +79,7 @@ export class App {
       { id: 'inputs-category', label: 'Inputs', icon: 'card', children: [
         { id: 'inputs', label: 'Text and file', route: '/components/inputs' },
         { id: 'number-inputs', label: 'Number inputs', route: '/components/number-inputs' },
+        { id: 'range-sliders', label: 'Range sliders', route: '/components/range-sliders' },
         { id: 'pin-inputs', label: 'PIN inputs', route: '/components/pin-inputs' },
         { id: 'phone-inputs', label: 'Phone inputs', route: '/components/phone-inputs' },
         { id: 'date-inputs', label: 'Date inputs', route: '/components/date-inputs' },
@@ -170,6 +171,7 @@ export class App {
     ] },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
+    { id: 'range-sliders', label: 'Range sliders', description: 'Single values, intervals, ticks, and step buttons', route: '/components/range-sliders' },
     { id: 'layout-general', label: 'Layout · General', description: 'Foundation · application shell, navigation, and providers', route: '/getting-started/layout/general' },
     { id: 'layout-default', label: 'Layout · Default view', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default' },
     { id: 'layout-fill', label: 'Layout · Fill view', description: 'Foundation · full-height workspace without page scrolling', route: '/getting-started/layout/fill' },

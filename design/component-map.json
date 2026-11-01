@@ -55,6 +55,7 @@
     "pdf-preview",
     "prose",
     "progress",
+    "range-slider",
     "radio-group",
     "rating",
     "search",
@@ -777,6 +778,13 @@
       "penpotName": "goodui.number-input",
       "penpotId": "9ec30947-b9fa-809b-8008-db1ee40f79e1",
       "angularSelector": "good-number-input",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.range-slider",
+      "penpotId": "5f52067e-ed89-8049-8008-e07ac5b6c8a0",
+      "angularSelector": "good-range-slider",
       "kind": "component",
       "state": null
     },
@@ -1733,6 +1741,7 @@
     "design/month-calendar-contract.json",
     "design/modal-variants.json",
     "design/progress-variants.json",
+    "design/range-slider-variants.json",
     "design/notification-host-contract.json",
     "design/radio-group-variants.json",
     "design/rating-variants.json",

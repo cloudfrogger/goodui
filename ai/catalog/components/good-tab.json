@@ -56,9 +56,9 @@
         "secondary",
         "destructive",
         "text",
-        "info",
-        "success",
         "warning",
+        "success",
+        "info",
         "primary"
       ],
       "source": "angular/projects/goodui/src/lib/tabs.ts",
@@ -89,9 +89,9 @@
       "secondary",
       "destructive",
       "text",
-      "info",
-      "success",
       "warning",
+      "success",
+      "info",
       "primary"
     ]
   },

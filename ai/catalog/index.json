@@ -665,6 +665,17 @@
       "penpotCount": 1
     },
     {
+      "selector": "good-range-slider",
+      "className": "GoodRangeSliderComponent",
+      "file": "components/good-range-slider.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodRangeSliderComponent"
+      },
+      "usageGuide": "guides/components/range-slider.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-rating",
       "className": "GoodRatingComponent",
       "file": "components/good-rating.json",

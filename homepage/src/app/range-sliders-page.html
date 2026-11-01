@@ -1,0 +1,44 @@
+<good-main-view title="Range sliders" description="Choose one value or a bounded interval with a compact, keyboard-friendly slider.">
+  <good-section>
+    <good-group title="One value" appearance="plain">
+      <good-range-slider label="Volume" [showLabel]="true" [(value)]="volume"
+        (changeCommitted)="recordChange($event)" />
+      <p>Current value: {{ volume() }} · Last user change: {{ lastChange() }}</p>
+      <good-button variant="outline" size="small" (click)="volume.set(70)">Set to 70 in code</good-button>
+      <good-code-block [code]="singleCode" language="html" title="Single value and programmatic update" />
+    </good-group>
+  </good-section>
+
+  <good-section>
+    <good-group title="Select an interval" appearance="plain">
+      <good-range-slider mode="range" label="Budget" [showLabel]="true"
+        [min]="0" [max]="100" [step]="5" [(rangeValue)]="budget"
+        [showBounds]="true" [ticks]="ticks" [showStepButtons]="true"
+        color="success" [icon]="gripIcon" (changeCommitted)="recordChange($event)" />
+      <p>Selected interval: {{ budget().start }}–{{ budget().end }}. Click a handle to choose which end the step buttons adjust.</p>
+      <good-code-block [code]="rangeCode" language="html" title="Range, labels, ticks, and step buttons" />
+    </good-group>
+  </good-section>
+
+  <good-section>
+    <good-group title="Sizes, colors, and thumb icons" appearance="plain">
+      @for (size of sizes; track size) {
+        <good-range-slider [label]="size + ' slider'" [showLabel]="true" [size]="size"
+          [value]="60" [color]="size === 'small' ? 'info' : size === 'large' ? 'violet' : 'brand'"
+          [icon]="size === 'large' ? moveIcon : gripIcon" />
+      }
+      <good-range-slider label="Unavailable" [showLabel]="true" [value]="40" color="warning"
+        [showStepButtons]="true" [disabled]="true" />
+      <p>The default thumb is plain. Pass any Lucide icon, such as Grip or MoveHorizontal, to <code>icon</code>. Semantic and marker colors use GoodUI tokens in both themes.</p>
+    </good-group>
+  </good-section>
+
+  <good-section>
+    <good-group title="Angular Forms" appearance="plain">
+      <good-range-slider label="Zoom" [showLabel]="true" [formControl]="zoom" [showBounds]="true"
+        [showStepButtons]="true" />
+      <p>Form control value: {{ zoom.value }}</p>
+      <good-code-block [code]="formCode" language="typescript" title="Reactive Forms" />
+    </good-group>
+  </good-section>
+</good-main-view>

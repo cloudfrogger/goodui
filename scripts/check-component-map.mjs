@@ -7,6 +7,7 @@ const buttonVariants = JSON.parse(readFileSync(resolve(root, 'design/button-vari
 const switchVariants = JSON.parse(readFileSync(resolve(root, 'design/switch-variants.json'), 'utf8'));
 const inputVariants = JSON.parse(readFileSync(resolve(root, 'design/input-variants.json'), 'utf8'));
 const numberInputVariants = JSON.parse(readFileSync(resolve(root, 'design/number-input-variants.json'), 'utf8'));
+const rangeSliderVariants = JSON.parse(readFileSync(resolve(root, 'design/range-slider-variants.json'), 'utf8'));
 const dateInputVariants = JSON.parse(readFileSync(resolve(root, 'design/date-input-variants.json'), 'utf8'));
 const imageInputVariants = JSON.parse(readFileSync(resolve(root, 'design/image-input-variants.json'), 'utf8'));
 const dropdownVariants = JSON.parse(readFileSync(resolve(root, 'design/dropdown-variants.json'), 'utf8'));
@@ -56,6 +57,27 @@ for (const size of numberInputVariants.axes.size) for (const status of numberInp
 if (map.componentMappings.find(entry => entry.penpotName === 'goodui.number-input')?.penpotId !==
     numberInputVariants.variants.find(entry => entry.size === 'default' && entry.status === 'default' && entry.icon === 'no')?.id) {
   throw new Error('Number Input mapping does not point to its default variant.');
+}
+if (rangeSliderVariants.family !== 'goodui.range-slider' || rangeSliderVariants.selector !== 'good-range-slider' ||
+    rangeSliderVariants.page !== '33 Range Sliders' || !/^[0-9a-f-]{36}$/.test(rangeSliderVariants.containerId)) {
+  throw new Error('Invalid Range Slider registry.');
+}
+const rangeKeys = new Set();
+const rangeIds = new Set();
+for (const entry of rangeSliderVariants.variants) {
+  const key = ['mode', 'size', 'status'].map(axis => {
+    if (!rangeSliderVariants.axes[axis].includes(entry[axis])) throw new Error(`Unknown Range Slider ${axis}: ${entry[axis]}`);
+    return entry[axis];
+  }).join('/');
+  if (rangeKeys.has(key) || rangeIds.has(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.id)) throw new Error(`Invalid Range Slider variant: ${key}`);
+  rangeKeys.add(key); rangeIds.add(entry.id);
+}
+for (const mode of rangeSliderVariants.axes.mode) for (const size of rangeSliderVariants.axes.size) for (const status of rangeSliderVariants.axes.status) {
+  if (!rangeKeys.has(`${mode}/${size}/${status}`)) throw new Error(`Missing Range Slider variant: ${mode}/${size}/${status}`);
+}
+if (map.componentMappings.find(entry => entry.penpotName === 'goodui.range-slider')?.penpotId !==
+    rangeSliderVariants.variants.find(entry => entry.mode === 'single' && entry.size === 'default' && entry.status === 'default')?.id) {
+  throw new Error('Range Slider mapping does not point to its default variant.');
 }
 if (errorPageVariants.family !== 'goodui.error-page' || errorPageVariants.selector !== 'good-error-page' ||
     errorPageVariants.page !== '26 Error Pages' || !/^[0-9a-f-]{36}$/.test(errorPageVariants.containerId) ||

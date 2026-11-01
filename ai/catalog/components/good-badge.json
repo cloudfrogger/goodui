@@ -27,9 +27,9 @@
         "secondary",
         "destructive",
         "text",
-        "info",
-        "success",
         "warning",
+        "success",
+        "info",
         "primary"
       ],
       "source": "angular/projects/goodui/src/lib/badge.ts",
@@ -128,9 +128,9 @@
       "secondary",
       "destructive",
       "text",
-      "info",
-      "success",
       "warning",
+      "success",
+      "info",
       "primary"
     ],
     "variant": [

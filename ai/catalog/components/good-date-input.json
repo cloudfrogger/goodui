@@ -55,9 +55,9 @@
       "required": false,
       "default": "date",
       "allowedValues": [
+        "range",
         "multiple",
         "date",
-        "range",
         "month",
         "year"
       ],
@@ -302,9 +302,9 @@
       "large"
     ],
     "mode": [
+      "range",
       "multiple",
       "date",
-      "range",
       "month",
       "year"
     ],

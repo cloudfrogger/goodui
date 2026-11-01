@@ -17,10 +17,10 @@
       "allowedValues": [
         "brand",
         "destructive",
-        "neutral",
-        "info",
+        "warning",
         "success",
-        "warning"
+        "info",
+        "neutral"
       ],
       "source": "angular/projects/goodui/src/lib/alert.ts",
       "kind": "input"
@@ -120,10 +120,10 @@
     "tone": [
       "brand",
       "destructive",
-      "neutral",
-      "info",
+      "warning",
       "success",
-      "warning"
+      "info",
+      "neutral"
     ],
     "appearance": [
       "mono",

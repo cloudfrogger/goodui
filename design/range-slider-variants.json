@@ -1,0 +1,34 @@
+{
+  "family": "goodui.range-slider",
+  "selector": "good-range-slider",
+  "page": "33 Range Sliders",
+  "pageId": "60c96765-28da-8018-8008-e079683c9885",
+  "containerId": "5f52067e-ed89-8049-8008-e07b21d51436",
+  "axes": {
+    "mode": ["single", "range"],
+    "size": ["small", "default", "large"],
+    "status": ["default", "disabled"]
+  },
+  "variants": [
+    { "id": "5f52067e-ed89-8049-8008-e07ac1223e8e", "mode": "single", "size": "small", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e07ac5b6c8a0", "mode": "single", "size": "default", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e07aca2ea3cb", "mode": "single", "size": "large", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e07ad3a46bd9", "mode": "single", "size": "small", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e07ad7e5e83f", "mode": "single", "size": "default", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e07adc357d95", "mode": "single", "size": "large", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e07ae79a2926", "mode": "range", "size": "small", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e07aeef1bf01", "mode": "range", "size": "default", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e07af5dbe209", "mode": "range", "size": "large", "status": "default" },
+    { "id": "5f52067e-ed89-8049-8008-e07b0092a5fb", "mode": "range", "size": "small", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e07b078f9622", "mode": "range", "size": "default", "status": "disabled" },
+    { "id": "5f52067e-ed89-8049-8008-e07b0eda82eb", "mode": "range", "size": "large", "status": "disabled" }
+  ],
+  "runtimeInputs": ["value", "rangeValue", "min", "max", "step", "ticks", "label", "showLabel", "showBounds", "minLabel", "maxLabel", "color", "icon", "showStepButtons"],
+  "tokenBindings": {
+    "track.fill": "color.border",
+    "selectedRange.fill": "color.brand",
+    "thumb.fill": "color.surface",
+    "thumb.stroke": "color.brand",
+    "corners": "radius.switch"
+  }
+}

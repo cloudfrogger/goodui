@@ -1,0 +1,285 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-range-slider",
+  "className": "GoodRangeSliderComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodRangeSliderComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/range-slider.ts",
+  "inputs": [
+    {
+      "name": "mode",
+      "type": "GoodRangeSliderMode",
+      "required": false,
+      "default": "single",
+      "allowedValues": [
+        "single",
+        "range"
+      ],
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "default": "50",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "model"
+    },
+    {
+      "name": "rangeValue",
+      "type": "GoodRangeSliderRange",
+      "required": false,
+      "default": {
+        "expression": "{ start: 25, end: 75 }"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "model"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "default": "0",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "default": "100",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ticks",
+      "type": "readonly GoodRangeSliderTick[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Value",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showBounds",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "minLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "maxLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodRangeSliderSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "GoodRangeSliderColor",
+      "required": false,
+      "default": "brand",
+      "allowedValues": [
+        "brand",
+        "secondary",
+        "destructive",
+        "text",
+        "accent",
+        "warning",
+        "success",
+        "info",
+        "sky",
+        "blue",
+        "indigo",
+        "violet",
+        "purple",
+        "fuchsia",
+        "pink",
+        "rose",
+        "red",
+        "orange",
+        "amber",
+        "yellow",
+        "lime",
+        "green",
+        "teal",
+        "cyan"
+      ],
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showStepButtons",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "implicit": true
+    },
+    {
+      "name": "rangeValueChange",
+      "type": "GoodRangeSliderRange",
+      "source": "angular/projects/goodui/src/lib/range-slider.ts",
+      "implicit": true
+    },
+    {
+      "name": "changeCommitted",
+      "type": "number | GoodRangeSliderRange",
+      "source": "angular/projects/goodui/src/lib/range-slider.ts"
+    }
+  ],
+  "variants": {
+    "mode": [
+      "single",
+      "range"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "color": [
+      "brand",
+      "secondary",
+      "destructive",
+      "text",
+      "accent",
+      "warning",
+      "success",
+      "info",
+      "sky",
+      "blue",
+      "indigo",
+      "violet",
+      "purple",
+      "fuchsia",
+      "pink",
+      "rose",
+      "red",
+      "orange",
+      "amber",
+      "yellow",
+      "lime",
+      "green",
+      "teal",
+      "cyan"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": false
+  },
+  "usageGuide": "guides/components/range-slider.md",
+  "usage": {
+    "summary": "Use `good-range-slider` to choose one number or the ends of an interval. It fills the available width and starts with a plain thumb, a brand-colored selected track, and a value of `50` on a `0`–`100` scale.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.range-slider",
+      "penpotId": "5f52067e-ed89-8049-8008-e07ac5b6c8a0",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

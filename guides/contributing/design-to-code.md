@@ -12,7 +12,7 @@ The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`, but
 
 ## Penpot-Registry
 
-File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages include `01 Components` through `29 Tabs`; dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, `24 Progress`, `25 PDF Preview`, `27 Number Inputs`, `28 Listboxes`, and `29 Tabs`. The IDs below are Penpot main shape IDs; preserve them while editing.
+File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, `24 Progress`, `25 PDF Preview`, `27 Number Inputs`, `28 Listboxes`, `29 Tabs`, and `33 Range Sliders`. The IDs below are Penpot main shape IDs; preserve them while editing.
 
 | Penpot component | Library ID |
 | --- | --- |
@@ -56,6 +56,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Pages include `01 Components` t
 | `goodui.notifications.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65811a2c` / `521fe58c-da62-80e2-8008-d33fff9a20ba` |
 | `goodui.notifications.unread` | `5fd6a355-e255-80dc-8008-d81d121a0160` (linked bell and destructive Badge with 16 px `notification.count.*` overrides) |
 | `goodui.progress` (`mode` × `appearance` × `size`) | Container `bf5e7a26-ff29-80d7-8008-d9b649158136`; all 18 published IDs and Angular inputs in [progress-variants.json](../../design/progress-variants.json) |
+| `goodui.range-slider` (`mode` × `size` × `status`) | Container `5f52067e-ed89-8049-8008-e07b21d51436` on `33 Range Sliders`; all 12 published IDs and Angular inputs in [range-slider-variants.json](../../design/range-slider-variants.json) |
 | `goodui.pdf-preview` | `bf5e7a26-ff29-80d7-8008-d9c818647115` on `25 PDF Preview`; maps to `good-pdf-preview` (loaded specimen). Toolbar buttons remain linked GoodUI Button instances; page content is illustrative. |
 | `goodui.error-page` (`status=404/500`) | Container `9ec30947-b9fa-809b-8008-db17cc868a9c` on `26 Error Pages`; both published IDs and Angular inputs are in [error-page-variants.json](../../design/error-page-variants.json). Actions and Lucide icons are linked library instances. |
 | `goodui.alert-composition.progress` | `bf5e7a26-ff29-80d7-8008-d9b857795ba5`; linked Progress instance inside a detached, token-bound Alert frame for composition reference |
