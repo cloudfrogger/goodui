@@ -10,10 +10,10 @@
   "runtime": {
     "initialSelection": "The first enabled tab, unless a good-tab is marked selected or activeId is supplied",
     "selection": "activeId is a two-way model; tabActivated reports pointer and keyboard selection",
-    "content": "Each good-tab projects its own panel content",
+    "content": "Each good-tab projects its own panel content without a panel frame or inner padding; a divider below the content marks the end of the tab set",
     "overflow": "Header arrows appear only when tabs do not fit; mouse dragging and touch swiping also scroll the tab row without activating a tab",
     "optionalContent": ["icon", "badge", "badgeColor"],
     "accessibility": "Tablist, tab, and tabpanel roles with ARIA relationships and arrow-key navigation"
   },
-  "visualTokens": ["color.surface", "color.border", "color.selected", "color.accent", "color.text", "color.muted", "radius.card"]
+  "visualTokens": ["color.border", "color.selected", "color.accent", "color.text", "color.muted", "radius.item"]
 }

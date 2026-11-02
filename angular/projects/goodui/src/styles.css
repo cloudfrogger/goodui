@@ -931,7 +931,8 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-tabs-scroll-button { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 30px; height: 30px; margin: 0 4px; padding: 0; border: 1px solid var(--good-border); border-radius: var(--good-radius-item); background: var(--good-surface); color: var(--good-muted); cursor: pointer; }
 .good-tabs-scroll-button:hover:not(:disabled) { background: var(--good-selected); color: var(--good-accent); }
 .good-tabs-scroll-button:disabled { opacity: .4; cursor: not-allowed; }
-.good-tabs-content { min-width: 0; padding: 20px; border: 1px solid var(--good-border); border-top: 0; border-radius: 0 0 var(--good-radius-card) var(--good-radius-card); background: var(--good-surface); }
+.good-tabs-content { min-width: 0; margin-top: 16px; }
+.good-tabs-content::after { content: ''; display: block; margin-top: 24px; border-bottom: 1px solid var(--good-border); }
 .good-tab-panel { display: block; min-width: 0; outline: none; }
 .good-tab-panel[hidden] { display: none; }
 .good-tab-panel:focus-visible { outline: 2px solid var(--good-accent); outline-offset: 4px; border-radius: var(--good-radius-item); }

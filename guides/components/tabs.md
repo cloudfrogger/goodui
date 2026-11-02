@@ -2,6 +2,8 @@
 
 `good-tabs` displays a horizontal row of tabs and one content panel at a time. Put each panel in a `good-tab`. Give every tab a stable `value` and a visible `label`.
 
+The active panel has no frame or inner padding. Place a `good-table`, `good-card`, or other complete component directly inside it; that component keeps its own surface and spacing. A quiet rule below the content marks the end of the tab set. The tab heading retains its selected underline and the rule below the tab row.
+
 ```html
 <good-tabs ariaLabel="Account sections">
   <good-tab value="profile" label="Profile">Profile details</good-tab>
