@@ -13,10 +13,14 @@
     { "name": "goodui.timeline.deactivated", "componentId": "2f4a7d00-3514-8040-8008-e1414915b662", "shapeId": "2f4a7d00-3514-8040-8008-e14148a07465", "state": "deactivated" },
     { "name": "goodui.timeline.secondary", "componentId": "2f4a7d00-3514-8040-8008-e14526efde16", "shapeId": "2f4a7d00-3514-8040-8008-e144f4e3aef8", "tone": "secondary" },
     { "name": "goodui.timeline.mono", "componentId": "2f4a7d00-3514-8040-8008-e1454eb50d6a", "shapeId": "2f4a7d00-3514-8040-8008-e145375842ee", "tone": "mono" },
-    { "name": "goodui.timeline-step", "componentId": "2f4a7d00-3514-8040-8008-e13ce8fe5e6d", "shapeId": "2f4a7d00-3514-8040-8008-e13ce8a73752", "role": "declarative step definition rendered by good-timeline" }
+    { "name": "goodui.timeline-step", "componentId": "2f4a7d00-3514-8040-8008-e13ce8fe5e6d", "shapeId": "2f4a7d00-3514-8040-8008-e13ce8a73752", "role": "declarative step definition rendered by good-timeline" },
+    { "name": "goodui.timeline.sections", "componentId": "1b6260d7-e591-805d-8008-e2c931b359ef", "shapeId": "1b6260d7-e591-805d-8008-e2c91624c4b5", "appearance": "sections", "orientation": "vertical" },
+    { "name": "goodui.timeline-section", "componentId": "1b6260d7-e591-805d-8008-e2c93746d449", "shapeId": "1b6260d7-e591-805d-8008-e2c936ef8238", "role": "projected section with title, state marker, and arbitrary content" }
   ],
   "runtimeInputs": ["steps", "currentIndex", "orientation", "appearance", "tone", "size", "marker", "color", "completedColor", "deactivated", "ariaLabel"],
   "stepFields": ["id", "title", "description", "eyebrow", "transitionLabel", "icon", "iconName", "imageSrc", "imageAlt", "color", "marker", "endpoint", "state", "deactivated"],
+  "sectionInputs": ["title", "state", "headingLevel", "headingId"],
+  "sectionStates": ["completed", "attention", "current", "upcoming", "optional"],
   "runtimeStates": ["completed", "current", "upcoming", "error", "deactivated"],
   "notes": "Published boards show representative configurations. good-timeline-step configures a child step; its parent good-timeline renders the visible ordered list. The caller may use child tags or a steps array, but should not mix them. Step count, labels, custom graphics, semantic colors, completedColor, tone, size, deactivation, and current position are runtime data. First and last illustrated steps may use endpoint=start/end for graphics on the process line; middle icons connect to their markers with stems. Mono tone overrides semantic accent colors and desaturates illustrations. The optional transition label belongs to the source step. Auto orientation becomes vertical in narrow containers."
 }

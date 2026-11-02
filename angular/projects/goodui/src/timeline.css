@@ -96,3 +96,43 @@
   .good-timeline[data-orientation="auto"][data-appearance="illustrated"] .good-timeline-step[data-endpoint] .good-timeline-content { grid-row: 1; }
   .good-timeline[data-orientation="auto"][data-appearance="illustrated"] .good-timeline-step[data-endpoint] .good-timeline-connector { left: calc(var(--good-timeline-marker-size) / 2 - 1px); width: 2px; }
 }
+
+/* Long-form process sections keep the established timeline presentations untouched. */
+.good-timeline[data-appearance="sections"] { --good-timeline-section-marker: 24px; --good-timeline-section-gap: var(--good-space-4); --good-timeline-section-accent: var(--good-color-brand); --good-timeline-section-complete: var(--good-timeline-section-accent); container-type: normal; }
+.good-timeline[data-appearance="sections"][data-size="small"] { --good-timeline-section-marker: 20px; --good-timeline-section-gap: var(--good-space-3); }
+.good-timeline[data-appearance="sections"][data-size="large"] { --good-timeline-section-marker: 30px; --good-timeline-section-gap: var(--good-space-5); }
+.good-timeline[data-appearance="sections"][data-color="accent"] { --good-timeline-section-accent: var(--good-color-accent); }
+.good-timeline[data-appearance="sections"][data-color="success"] { --good-timeline-section-accent: var(--good-color-success); }
+.good-timeline[data-appearance="sections"][data-color="warning"] { --good-timeline-section-accent: var(--good-color-warning-foreground); }
+.good-timeline[data-appearance="sections"][data-color="info"] { --good-timeline-section-accent: var(--good-color-info); }
+.good-timeline[data-appearance="sections"][data-color="destructive"] { --good-timeline-section-accent: var(--good-color-error); }
+.good-timeline[data-appearance="sections"][data-color="neutral"] { --good-timeline-section-accent: var(--good-color-muted); }
+.good-timeline[data-appearance="sections"][data-color="violet"] { --good-timeline-section-accent: var(--good-color-marker-violet); }
+.good-timeline[data-appearance="sections"][data-completed-color="brand"] { --good-timeline-section-complete: var(--good-color-brand); }
+.good-timeline[data-appearance="sections"][data-completed-color="accent"] { --good-timeline-section-complete: var(--good-color-accent); }
+.good-timeline[data-appearance="sections"][data-completed-color="success"] { --good-timeline-section-complete: var(--good-color-success); }
+.good-timeline[data-appearance="sections"][data-completed-color="warning"] { --good-timeline-section-complete: var(--good-color-warning-foreground); }
+.good-timeline[data-appearance="sections"][data-completed-color="info"] { --good-timeline-section-complete: var(--good-color-info); }
+.good-timeline[data-appearance="sections"][data-completed-color="destructive"] { --good-timeline-section-complete: var(--good-color-error); }
+.good-timeline[data-appearance="sections"][data-completed-color="neutral"] { --good-timeline-section-complete: var(--good-color-muted); }
+.good-timeline[data-appearance="sections"][data-completed-color="violet"] { --good-timeline-section-complete: var(--good-color-marker-violet); }
+.good-timeline[data-appearance="sections"][data-tone="secondary"] { --good-timeline-section-accent: var(--good-button-secondary-foreground); --good-timeline-section-complete: var(--good-button-secondary-foreground); }
+.good-timeline[data-appearance="sections"][data-tone="mono"] { --good-timeline-section-accent: var(--good-color-text); --good-timeline-section-complete: var(--good-color-text); }
+.good-timeline-sections { display: block; width: 100%; min-width: 0; }
+.good-timeline-section { position: relative; display: block; box-sizing: border-box; min-width: 0; padding-left: calc(var(--good-timeline-section-marker) + var(--good-timeline-section-gap)); }
+.good-timeline-section:not(:last-child)::before { position: absolute; top: var(--good-timeline-section-marker); bottom: 0; left: calc(var(--good-timeline-section-marker) / 2 - 1px); width: 2px; background: repeating-linear-gradient(to bottom, var(--good-timeline-section-accent) 0 4px, transparent 4px 9px); content: ''; }
+.good-timeline-section > section { min-width: 0; }
+.good-timeline-section-heading { position: sticky; z-index: 4; top: calc(-1 * var(--good-scroll-content-inset-top, 0px)); display: grid; grid-template-columns: var(--good-timeline-section-marker) minmax(0, 1fr); align-items: center; gap: var(--good-timeline-section-gap); min-height: 48px; margin-left: calc(-1 * (var(--good-timeline-section-marker) + var(--good-timeline-section-gap))); padding: var(--good-space-2) 0; background: var(--good-canvas); }
+.good-timeline-section-heading :is(h2, h3, h4) { min-width: 0; margin: 0; color: var(--good-color-text); font-size: 18px; font-weight: 650; line-height: 1.35; }
+.good-timeline-section[data-stuck="true"] .good-timeline-section-heading { min-height: 36px; box-shadow: 0 1px 0 var(--good-color-border); }
+.good-timeline-section[data-stuck="true"] .good-timeline-section-heading :is(h2, h3, h4) { font-size: 14px; }
+.good-timeline-section-marker { display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: var(--good-timeline-section-marker); height: var(--good-timeline-section-marker); border: 2px solid var(--good-color-muted); border-radius: 50%; background: var(--good-canvas); color: var(--good-color-muted); font-size: 14px; font-weight: 800; line-height: 1; }
+.good-timeline-section-marker svg { display: block; width: 70%; height: 70%; stroke-width: 3; }
+.good-timeline-section[data-state="completed"] .good-timeline-section-marker { border-color: var(--good-timeline-section-complete); background: var(--good-timeline-section-complete); color: #fff; }
+.good-timeline-section[data-state="attention"] .good-timeline-section-marker { border-color: var(--good-color-warning); background: var(--good-color-warning); color: var(--good-color-warning-foreground); }
+.good-timeline-section[data-state="current"] .good-timeline-section-marker { border-color: var(--good-timeline-section-accent); color: var(--good-timeline-section-accent); }
+.good-timeline-section[data-state="optional"] .good-timeline-section-marker { opacity: .7; }
+.good-timeline[data-appearance="sections"][data-tone="mono"] .good-timeline-section[data-state="attention"] .good-timeline-section-marker { border-color: var(--good-color-text); background: var(--good-color-text); color: var(--good-canvas); }
+.good-timeline[data-appearance="sections"][data-deactivated="true"] .good-timeline-section-marker { border-color: var(--good-color-muted); background: var(--good-canvas); color: var(--good-color-muted); opacity: .5; }
+.good-timeline-section-body { min-width: 0; padding: var(--good-space-2) 0 var(--good-space-6); }
+.good-timeline-section:last-child .good-timeline-section-body { padding-bottom: 0; }

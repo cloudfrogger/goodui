@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, booleanAttribute, computed, contentChildren, input } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, PLATFORM_ID, booleanAttribute, computed, contentChildren, inject, input, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import {
   LucideCheck, LucideClipboardList, LucideDynamicIcon, LucideFileText,
   LucideHouse, LucideMapPin, LucidePackageCheck, LucideShieldCheck, LucideTruck,
@@ -6,13 +7,14 @@ import {
 import type { GoodButtonIcon } from './models';
 
 export type GoodTimelineOrientation = 'auto' | 'horizontal' | 'vertical';
-export type GoodTimelineAppearance = 'simple' | 'detailed' | 'illustrated';
+export type GoodTimelineAppearance = 'simple' | 'detailed' | 'illustrated' | 'sections';
 export type GoodTimelineTone = 'brand' | 'secondary' | 'mono';
 export type GoodTimelineSize = 'small' | 'default' | 'large';
 export type GoodTimelineMarker = 'number' | 'icon' | 'dot';
 export type GoodTimelineColor = 'brand' | 'accent' | 'success' | 'warning' | 'info' | 'destructive' | 'neutral' | 'violet';
 export type GoodTimelineState = 'completed' | 'current' | 'upcoming' | 'error' | 'deactivated';
 export type GoodTimelineIconName = 'check' | 'clipboard-list' | 'file-text' | 'house' | 'map-pin' | 'package-check' | 'shield-check' | 'truck';
+export type GoodTimelineSectionState = 'completed' | 'attention' | 'current' | 'upcoming' | 'optional';
 
 const iconNames: Record<GoodTimelineIconName, GoodButtonIcon> = {
   check: LucideCheck,
@@ -97,8 +99,15 @@ export class GoodTimelineStepComponent {
     '[attr.data-marker]': 'marker()',
     '[attr.data-size]': 'size()',
     '[attr.data-deactivated]': 'deactivated()',
+    '[attr.data-color]': 'color()',
+    '[attr.data-completed-color]': 'completedColor() ?? null',
   },
   template: `
+    @if (appearance() === 'sections') {
+      <div class="good-timeline-sections" role="list" [attr.aria-label]="ariaLabel()">
+        <ng-content select="good-timeline-section" />
+      </div>
+    } @else {
     <ol class="good-timeline-list" [attr.aria-label]="ariaLabel()">
       @for (step of renderedSteps(); track step.id; let index = $index; let last = $last) {
         <li class="good-timeline-step" [attr.data-state]="stateOf(step, index)"
@@ -135,6 +144,7 @@ export class GoodTimelineStepComponent {
       }
     </ol>
     <ng-content select="good-timeline-step" />
+    }
   `,
 })
 export class GoodTimelineComponent {
@@ -174,5 +184,69 @@ export class GoodTimelineComponent {
   stateOf(step: GoodTimelineStep, index: number): GoodTimelineState {
     if (this.deactivated() || step.deactivated) return 'deactivated';
     return step.state ?? (index < this.safeCurrentIndex() ? 'completed' : index === this.safeCurrentIndex() ? 'current' : 'upcoming');
+  }
+}
+
+/** A full-width process section with a sticky heading and arbitrary projected content. */
+@Component({
+  selector: 'good-timeline-section',
+  standalone: true,
+  imports: [LucideCheck],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'good-timeline-section',
+    role: 'listitem',
+    '[attr.data-state]': 'state()',
+    '[attr.data-stuck]': 'stuck()',
+  },
+  template: `
+    <section [attr.aria-labelledby]="headingId()">
+      <header class="good-timeline-section-heading">
+        <span class="good-timeline-section-marker" aria-hidden="true">
+          @if (state() === 'completed') { <svg lucideCheck [size]="16"></svg> }
+          @else if (state() === 'attention') { <span>!</span> }
+        </span>
+        @switch (headingLevel()) {
+          @case (3) { <h3 [id]="headingId()">{{ title() }}</h3> }
+          @case (4) { <h4 [id]="headingId()">{{ title() }}</h4> }
+          @default { <h2 [id]="headingId()">{{ title() }}</h2> }
+        }
+        <span class="good-timeline-sr-only">{{ stateLabel() }}</span>
+      </header>
+      <div class="good-timeline-section-body"><ng-content /></div>
+    </section>
+  `,
+})
+export class GoodTimelineSectionComponent implements AfterViewInit {
+  private static nextId = 0;
+  private readonly hostElement = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly platformId = inject(PLATFORM_ID);
+  readonly title = input.required<string>();
+  readonly state = input<GoodTimelineSectionState>('upcoming');
+  readonly headingLevel = input<2 | 3 | 4>(2);
+  readonly headingId = input(`good-timeline-section-${++GoodTimelineSectionComponent.nextId}`);
+  readonly stuck = signal(false);
+  readonly stateLabel = computed(() => ({
+    completed: 'Completed', attention: 'Needs attention', current: 'Current',
+    upcoming: 'Upcoming', optional: 'Optional',
+  })[this.state()]);
+
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const host = this.hostElement.nativeElement;
+    let scrollParent: HTMLElement | null = host.parentElement;
+    while (scrollParent && !/(auto|scroll)/.test(getComputedStyle(scrollParent).overflowY)) scrollParent = scrollParent.parentElement;
+    const scrollTarget: HTMLElement | Window = scrollParent ?? window;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const top = scrollParent?.getBoundingClientRect().top ?? 0;
+      this.stuck.set(host.getBoundingClientRect().top < top - 1);
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    scrollTarget.addEventListener('scroll', onScroll, { passive: true });
+    update();
+    this.destroyRef.onDestroy(() => { scrollTarget.removeEventListener('scroll', onScroll); if (frame) cancelAnimationFrame(frame); });
   }
 }

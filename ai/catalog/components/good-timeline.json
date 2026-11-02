@@ -48,7 +48,8 @@
       "allowedValues": [
         "simple",
         "detailed",
-        "illustrated"
+        "illustrated",
+        "sections"
       ],
       "source": "angular/projects/goodui/src/lib/timeline.ts",
       "kind": "input"
@@ -159,7 +160,8 @@
     "appearance": [
       "simple",
       "detailed",
-      "illustrated"
+      "illustrated",
+      "sections"
     ],
     "tone": [
       "brand",
@@ -199,6 +201,7 @@
   },
   "composition": {
     "projectedContent": [
+      "good-timeline-section",
       "good-timeline-step"
     ],
     "relatedSelectors": [],
@@ -210,7 +213,7 @@
   },
   "usageGuide": "guides/components/timeline.md",
   "usage": {
-    "summary": "`good-timeline` shows an ordered sequence of process steps. It uses a plain numbered line by default. The line becomes vertical when its container is narrow, so the same markup works in a page, card, or mobile view. For a fixed sequence, write the steps directly in HTML:",
+    "summary": "Use `appearance=\"sections\"` when the timeline structures a page or form. Import `GoodTimelineComponent` and `GoodTimelineSectionComponent` from `@goodui/angular`. Each section accepts arbitrary projected GoodUI content; the parent supplies the vertical dashed rail. This mode stays vertical at every width and leaves existing step timelines unchanged.",
     "examples": []
   },
   "penpot": [
@@ -282,6 +285,13 @@
       "penpotId": "2f4a7d00-3514-8040-8008-e1454eb50d6a",
       "kind": "component",
       "state": "mono",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.timeline.sections",
+      "penpotId": "1b6260d7-e591-805d-8008-e2c931b359ef",
+      "kind": "component",
+      "state": "sections",
       "owner": null
     }
   ],

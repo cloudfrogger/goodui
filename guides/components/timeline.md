@@ -1,5 +1,36 @@
 # Timeline
 
+## Long forms with section content
+
+Use `appearance="sections"` when the timeline structures a page or form. Import `GoodTimelineComponent` and `GoodTimelineSectionComponent` from `@goodui/angular`. Each section accepts arbitrary projected GoodUI content; the parent supplies the vertical dashed rail. This mode stays vertical at every width and leaves existing step timelines unchanged.
+
+```html
+<good-timeline appearance="sections" color="brand" ariaLabel="Document preparation">
+  <good-timeline-section title="1. Draft" state="completed">
+    <good-paragraph>The draft is ready.</good-paragraph>
+  </good-timeline-section>
+  <good-timeline-section title="2. Review"
+    [state]="approved() ? 'completed' : 'attention'">
+    <good-paragraph>Check the content.</good-paragraph>
+    <good-button (click)="approved.set(true)">Approve</good-button>
+  </good-timeline-section>
+  <good-timeline-section title="3. Optional notes" state="optional">
+    <good-paragraph>Add any useful context.</good-paragraph>
+  </good-timeline-section>
+</good-timeline>
+```
+
+Bind `state` to your own validation or workflow data. Timeline only displays it. `completed` shows a filled accent marker with a white check; `attention` shows a yellow warning marker; `current` uses an accent outline; `upcoming` and `optional` are quiet gray circles. The heading stays at the top of the nearest scrolling area as a compact opaque bar while that section scrolls, then the next section replaces it. `good-assistant-main` accounts for its own top padding so the sticky bar meets the view edge. If you provide a different padded scrolling container, set its `--good-scroll-content-inset-top` to the same value as its top padding. No page-specific scroll handler is needed.
+
+| Section input | Default | Effect |
+| --- | --- | --- |
+| `title` | required | Visible heading and accessible section name. |
+| `state` | `upcoming` | `completed`, `attention`, `current`, `upcoming`, or `optional`. |
+| `headingLevel` | `2` | Semantic H2, H3, or H4 for the section title. |
+| `headingId` | generated | Optional stable ID for a link to this section. |
+
+The parent's `size`, `tone`, `color`, `completedColor`, `deactivated`, and `ariaLabel` inputs also apply. `currentIndex`, `steps`, `marker`, and `orientation` apply to step presentations and are ignored in section mode. See the [VPS create example](../../homepage/src/app/examples/case-studies/vpshoster/create-server-page.html) for a longer form and the homepage Timeline page for an independent example.
+
 `good-timeline` shows an ordered sequence of process steps. It uses a plain numbered line by default. The line becomes vertical when its container is narrow, so the same markup works in a page, card, or mobile view. For a fixed sequence, write the steps directly in HTML:
 
 ```html
@@ -41,6 +72,7 @@ Start with the shape of the information, then choose its palette:
 | A compact sequence such as onboarding or checkout | `appearance="simple"` | A line with numbered, icon, or dot markers and short labels. This is the default. |
 | Each step needs an eyebrow or explanation | `appearance="detailed"` | Step text sits in bordered panels below the same progress line. |
 | Each step needs a graphic or a clear start and finish | `appearance="illustrated"` | Graphics sit above the markers with short stems. The first and last steps can become endpoints. |
+| Each step contains controls or other page content | `appearance="sections"` | A full-width vertical form with a dashed rail and sticky section headings. |
 
 `orientation="auto"` is usually right: the timeline becomes vertical when the component has less than 680 px of width. Choose `vertical` for a history that should always read top to bottom, or `horizontal` when horizontal scrolling is preferred in narrow space. Set `size` to `small`, `default`, or `large` to change marker, graphic, text, and spacing sizes together.
 
@@ -49,7 +81,7 @@ Start with the shape of the information, then choose its palette:
 | `steps` | omitted | Optional array for data-driven steps. Otherwise use `good-timeline-step` child tags with unique `id` and visible `title`. |
 | `currentIndex` | `0` | Position used to derive completed, current, and upcoming states. |
 | `orientation` | `auto` | `auto` changes from horizontal to vertical below 680 px of available component width. `horizontal` stays horizontal and scrolls when needed. `vertical` always stays vertical. |
-| `appearance` | `simple` | `simple` is the plain line, `detailed` frames step text in small cards, and `illustrated` adds a visual orb for each step. |
+| `appearance` | `simple` | `simple` is the plain line, `detailed` frames step text in small cards, `illustrated` adds a visual orb, and `sections` places projected content beside a dashed vertical rail. |
 | `tone` | `brand` | `brand` uses the GoodUI accent, `secondary` uses a quieter neutral fill, and `mono` uses only theme-aware black, white, and gray with print-style typography. The tone is independent of `appearance`. |
 | `size` | `default` | `small`, `default`, or `large` scales markers, illustrations, typography, spacing, and minimum horizontal step width together. |
 | `marker` | `number` | `number`, `icon`, or `dot` inside the progress marker. An icon marker uses each step's `icon`; without one, it falls back to a dot. |
@@ -144,4 +176,4 @@ readonly reviewSteps: GoodTimelineStep[] = [
   appearance="illustrated" marker="dot" color="violet" />
 ```
 
-The Penpot page `39 Timelines` publishes simple, detailed, illustrated, illustrated with endpoints, vertical, small, large, deactivated, secondary, mono, and single-step specimens. Their stable IDs and input mapping are in [timeline-contract.json](../../design/timeline-contract.json). Penpot shows representative step content; titles, icons, image assets, color choices, and progress are supplied at runtime.
+The Penpot page `39 Timelines` publishes simple, detailed, illustrated, illustrated with endpoints, vertical, small, large, deactivated, secondary, mono, and single-step specimens, plus a long-form sections specimen and a section family. Their stable IDs and input mapping are in [timeline-contract.json](../../design/timeline-contract.json). Penpot shows representative content; titles, icons, image assets, colors, progress, and projected section bodies are supplied at runtime.

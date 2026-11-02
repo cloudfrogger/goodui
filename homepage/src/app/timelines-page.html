@@ -17,6 +17,28 @@
     </good-group>
   </good-section>
   <good-section>
+    <good-group title="Build a long form with sections" appearance="plain">
+      <p>Use <code>appearance="sections"</code> when each step contains a form or other page content. Put one <code>&lt;good-timeline-section&gt;</code> around each part. The parent draws the vertical dashed rail; every section owns its heading, marker, and body. The active section heading becomes a smaller opaque bar when its content scrolls behind it. The next heading replaces it automatically.</p>
+      <good-timeline appearance="sections" color="brand" ariaLabel="Document preparation">
+        <good-timeline-section title="1. Draft" state="completed" [headingLevel]="3">
+          <good-paragraph>The draft is ready for review.</good-paragraph>
+        </good-timeline-section>
+        <good-timeline-section title="2. Review" [headingLevel]="3" [state]="documentApproved() ? 'completed' : 'attention'">
+          <good-group appearance="plain" spacing="tight">
+            <good-paragraph>Check the content before approval. The yellow marker asks for action; a completed step gets a filled marker with a white check.</good-paragraph>
+            <good-button size="small" [disabled]="documentApproved()" (click)="documentApproved.set(true)">Approve document</good-button>
+          </good-group>
+        </good-timeline-section>
+        <good-timeline-section title="3. Optional notes" state="optional" [headingLevel]="3">
+          <good-paragraph>Optional and upcoming sections use quiet gray markers. Bind <code>[state]</code> to your form data; Timeline never decides whether a section is complete.</good-paragraph>
+        </good-timeline-section>
+      </good-timeline>
+      <p>Available section states: <code>completed</code>, <code>attention</code>, <code>current</code>, <code>upcoming</code> (default), and <code>optional</code>. The shared <code>size</code>, <code>tone</code>, <code>color</code>, and <code>completedColor</code> inputs work here too. A section title is an H2 by default; set <code>[headingLevel]="3"</code> or <code>4</code> when nesting inside another heading. The sticky bar follows the nearest scrolling container, including a fill-layout main view.</p>
+      <good-code-block [code]="sectionsTemplate" language="html" title="Section timeline template" />
+      <good-code-block [code]="sectionsCode" language="typescript" title="Page state and imports" />
+    </good-group>
+  </good-section>
+  <good-section>
     <good-group title="Choose your options" appearance="plain">
       <p>Set the shared choices on <code>&lt;good-timeline&gt;</code>. Give only exceptional steps their own overrides. These are the accepted values:</p>
       <good-columns [columns]="2">

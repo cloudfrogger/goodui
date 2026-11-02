@@ -51,6 +51,7 @@
     "tab",
     "tabs",
     "timeline",
+    "timeline-section",
     "timeline-step",
     "main-menu",
     "main-view",
@@ -1867,6 +1868,20 @@
       "penpotName": "goodui.timeline-step",
       "penpotId": "2f4a7d00-3514-8040-8008-e13ce8fe5e6d",
       "angularSelector": "good-timeline-step",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.timeline.sections",
+      "penpotId": "1b6260d7-e591-805d-8008-e2c931b359ef",
+      "angularSelector": "good-timeline",
+      "kind": "component",
+      "state": "sections"
+    },
+    {
+      "penpotName": "goodui.timeline-section",
+      "penpotId": "1b6260d7-e591-805d-8008-e2c93746d449",
+      "angularSelector": "good-timeline-section",
       "kind": "component",
       "state": null
     },

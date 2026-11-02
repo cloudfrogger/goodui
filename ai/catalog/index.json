@@ -1080,7 +1080,18 @@
         "symbol": "GoodTimelineComponent"
       },
       "usageGuide": "guides/components/timeline.md",
-      "penpotCount": 10
+      "penpotCount": 11
+    },
+    {
+      "selector": "good-timeline-section",
+      "className": "GoodTimelineSectionComponent",
+      "file": "components/good-timeline-section.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTimelineSectionComponent"
+      },
+      "usageGuide": "guides/components/timeline-section.md",
+      "penpotCount": 1
     },
     {
       "selector": "good-timeline-step",

@@ -1,6 +1,6 @@
 .good-assistant-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--good-assistant-width)); width: 100%; height: 100%; min-height: 0; min-width: 0; background: var(--good-canvas); color: var(--good-text); }
-.good-assistant-main { display: block; box-sizing: border-box; min-width: 0; min-height: 0; height: 100%; overflow: auto; padding: var(--good-space-6) var(--good-main-view-inline-padding, var(--good-space-6)); }
-.good-assistant-main[data-padding="none"] { padding: 0; }
+.good-assistant-main { --good-scroll-content-inset-top: var(--good-space-6); display: block; box-sizing: border-box; min-width: 0; min-height: 0; height: 100%; overflow: auto; padding: var(--good-scroll-content-inset-top) var(--good-main-view-inline-padding, var(--good-space-6)); }
+.good-assistant-main[data-padding="none"] { --good-scroll-content-inset-top: 0px; padding: 0; }
 .good-assistant-surface { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; height: 100%; overflow: hidden; background: var(--good-canvas); }
 .good-assistant-header, .good-assistant-footer { display: block; flex: none; padding: var(--good-space-4); }
 .good-assistant-header > header, .good-assistant-footer > footer { display: flex; flex-direction: column; gap: var(--good-space-2); }
@@ -8,8 +8,8 @@
 .good-assistant-backdrop, good-button.good-assistant-launcher, good-button.good-assistant-close, .good-assistant-dock { display: none; }
 @media (max-width: 700px) {
   .good-assistant-panel { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
-  .good-assistant-main { width: 100%; height: 100%; padding: var(--good-space-4) var(--good-main-view-inline-padding, var(--good-space-4)); }
-  .good-assistant-main[data-padding="none"] { padding: 0; }
+  .good-assistant-main { --good-scroll-content-inset-top: var(--good-space-4); width: 100%; height: 100%; padding: var(--good-scroll-content-inset-top) var(--good-main-view-inline-padding, var(--good-space-4)); }
+  .good-assistant-main[data-padding="none"] { --good-scroll-content-inset-top: 0px; padding: 0; }
   .good-assistant-surface { position: fixed; z-index: 102; top: 0; right: 0; bottom: 0; width: min(90vw, 360px); height: auto; box-shadow: -8px 0 32px color-mix(in srgb, var(--good-text) 14%, transparent); transform: translateX(105%); visibility: hidden; transition: transform .2s ease, visibility .2s; }
   .good-assistant-panel[data-open="true"] .good-assistant-surface { transform: translateX(0); visibility: visible; }
   good-button.good-assistant-close { display: flex; position: absolute; z-index: 1; top: 8px; right: 8px; }

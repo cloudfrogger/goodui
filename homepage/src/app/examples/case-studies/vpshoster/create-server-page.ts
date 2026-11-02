@@ -8,7 +8,7 @@ import {
   GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
   GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
   GoodRadioGroupComponent, GoodRadioOption, GoodSectionComponent, GoodSelectComponent, GoodSelectOption, GoodSelectValue, GoodSubheadingComponent, GoodTableColumn,
-  GoodTableComponent, GoodTabComponent, GoodTabsComponent, GoodTextareaComponent,
+  GoodTableComponent, GoodTabComponent, GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent,
 } from '@goodui/angular';
 import { VPS_PLANS, VpsCaseStudyStore, VpsPlan } from './vps-store';
 import { vpsCreateHtml, vpsCreateTs, vpsStoreTs } from './source-code.generated';
@@ -30,7 +30,7 @@ const imageVersions: Record<string, readonly string[]> = {
     GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
     GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
     GoodRadioGroupComponent, GoodSectionComponent, GoodSelectComponent, GoodSubheadingComponent, GoodTableComponent, GoodTabComponent,
-    GoodTabsComponent, GoodTextareaComponent],
+    GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './create-server-page.html',
 })
@@ -106,6 +106,8 @@ export class VpsCreateServerPageComponent {
     ];
     return networks.filter(network => network.zone === this.zone());
   });
+  readonly networkReady = computed(() => (this.ipv4() || this.ipv6() || this.privateNetwork())
+    && (!this.privateNetwork() || this.privateNetworkOptions().some(option => option.value === this.privateNetworkId())));
   readonly sshKeys = signal<GoodListboxItem[]>([
     { id: 'laptop', label: 'Laptop key', description: 'ed25519 · local demo' },
   ]);
@@ -127,6 +129,10 @@ export class VpsCreateServerPageComponent {
   readonly quantity = signal(1);
   readonly nameIndexes = computed(() => Array.from({ length: this.quantity() }, (_, index) => index));
   readonly nameOverrides = signal<Record<number, string>>({});
+  readonly namesReady = computed(() => {
+    const names = this.nameIndexes().map(index => this.nameFor(index).trim());
+    return names.every(name => /^[a-z0-9][a-z0-9-]*$/.test(name)) && new Set(names).size === names.length;
+  });
   readonly locationSurcharge = computed(() => this.location() === 'Singapore' ? 7 : 0);
   readonly volumePrice = computed(() => this.volumeEnabled() ? this.volumeSize() * 0.05 : 0);
   readonly backupPrice = computed(() => this.backups() ? this.selectedPlan().monthlyPrice * 0.2 : 0);

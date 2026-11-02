@@ -3,7 +3,7 @@ import { LucideCheck, LucideClipboardList, LucideFileText, LucideShieldCheck } f
 import {
   GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent,
   GoodGroupComponent, GoodParagraphComponent, GoodSubheadingComponent,
-  GoodMainViewComponent, GoodSectionComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodTimelineStep,
+  GoodMainViewComponent, GoodSectionComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodTimelineSectionComponent, GoodTimelineStep,
 } from '@goodui/angular';
 
 @Component({
@@ -11,13 +11,14 @@ import {
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodColumnsComponent,
     GoodColumnComponent, GoodParagraphComponent, GoodSubheadingComponent, GoodTimelineComponent,
-    GoodTimelineStepComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent],
+    GoodTimelineStepComponent, GoodTimelineSectionComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './timelines-page.html',
 })
 export class TimelinesPageComponent {
   readonly currentIndex = signal(1);
   readonly simpleStepCount = 4;
+  readonly documentApproved = signal(false);
   readonly verticalSteps: readonly GoodTimelineStep[] = [
     { id: 'received', title: 'Received', description: 'Monday, 9:20 AM', icon: LucideFileText, color: 'info' },
     { id: 'checked', title: 'Needs correction', description: 'One detail was missing.', icon: LucideShieldCheck, state: 'error', transitionLabel: 'Manual review' },
@@ -85,4 +86,28 @@ readonly steps: GoodTimelineStep[] = [
 ];
 
 // Template: <good-timeline [steps]="steps" [currentIndex]="1" />`;
+  readonly sectionsCode = `import { Component, signal } from '@angular/core';
+import { GoodTimelineComponent, GoodTimelineSectionComponent, GoodButtonComponent } from '@goodui/angular';
+
+@Component({
+  standalone: true,
+  imports: [GoodTimelineComponent, GoodTimelineSectionComponent, GoodButtonComponent],
+  templateUrl: './page.html',
+})
+export class PageComponent {
+  readonly approved = signal(false);
+}`;
+  readonly sectionsTemplate = `<good-timeline appearance="sections" color="brand" ariaLabel="Document preparation">
+  <good-timeline-section title="1. Draft" state="completed">
+    <p>The draft is ready for review.</p>
+  </good-timeline-section>
+  <good-timeline-section title="2. Review"
+    [state]="approved() ? 'completed' : 'attention'">
+    <p>Check the content before approval.</p>
+    <good-button (click)="approved.set(true)">Approve</good-button>
+  </good-timeline-section>
+  <good-timeline-section title="3. Optional notes" state="optional">
+    <p>Add a note if the document needs context.</p>
+  </good-timeline-section>
+</good-timeline>`;
 }
