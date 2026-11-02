@@ -64,6 +64,15 @@
       "kind": "input"
     },
     {
+      "name": "showMobileBrand",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "kind": "input"
+    },
+    {
       "name": "items",
       "type": "readonly GoodTopbarItem[]",
       "required": false,
@@ -176,8 +185,8 @@
       "good-main-menu"
     ],
     "relatedSelectors": [
-      "good-brand-icon",
       "good-icon",
+      "good-brand-icon",
       "good-topbar-menu-container",
       "good-main-menu"
     ],

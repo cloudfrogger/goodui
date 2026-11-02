@@ -16,7 +16,7 @@ import { GoodNotificationHostComponent } from './notification-host';
   template: `
     <good-sidebar-container class="good-desktop-sidebar" [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [sections]="sidebarSections()" [activeRoute]="activeRoute()" />
     <div class="good-app-main">
-      <good-topbar [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [brandMarkSrc]="brandMarkSrc()" [brandMarkDarkSrc]="brandMarkDarkSrc()" [showBrandIcon]="showBrandIcon()" [items]="topbarItems()" [activeRoute]="activeRoute()" [mobileMenuMode]="mobileTopbarMenuMode()"
+      <good-topbar [brand]="brand()" [brandLogoSrc]="brandLogoSrc()" [brandLogoDarkSrc]="brandLogoDarkSrc()" [brandMarkSrc]="brandMarkSrc()" [brandMarkDarkSrc]="brandMarkDarkSrc()" [showBrandIcon]="showBrandIcon()" [showMobileBrand]="showMobileBrand()" [items]="topbarItems()" [activeRoute]="activeRoute()" [mobileMenuMode]="mobileTopbarMenuMode()"
         [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()"
         (menuToggle)="openDrawer()" />
       <div class="good-app-page"><ng-content /></div>
@@ -45,6 +45,7 @@ export class GoodAppLayoutComponent {
   readonly brandMarkSrc = input('');
   readonly brandMarkDarkSrc = input('');
   readonly showBrandIcon = input(false);
+  readonly showMobileBrand = input(true);
   readonly sidebarSections = input<readonly GoodSidebarSection[]>([]);
   readonly topbarItems = input<readonly GoodTopbarItem[]>([]);
   readonly mobileTopbarMenuMode = input<GoodTopbarMobileMenuMode>('hidden');

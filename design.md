@@ -77,7 +77,8 @@ AppLayout
 │           └─ SidebarSubmenuItem (repeatable)
 └─ content area
    ├─ Topbar
-   │  ├─ BrandIcon (optional; visible on mobile)
+   │  ├─ mobile drawer trigger
+   │  ├─ BrandIcon (optional; after the trigger on mobile)
    │  ├─ TopbarMenuContainer
    │  │  └─ TopbarMenuItem (repeatable; optional dropdown)
    │  │     └─ TopbarDropdownMenu
@@ -111,7 +112,7 @@ AppLayout
 
 `Dropdown` can be placed in any action area. It owns a Button trigger, optional header and footer, and a list of recursive `DropdownItem` entries inside a positioned `DropdownPanel`.
 
-The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppLayout` feed the desktop sidebar and mobile drawer; `brandMarkSrc` and `brandMarkDarkSrc` feed the mobile topbar symbol and optional desktop BrandIcon. `brand` is the image's accessible name. When no mark URL is supplied, the mobile topbar retains the wordmark or text fallback for existing consumers. The dark URLs are optional; if absent, their light URLs remain visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI homepage uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers. Penpot's AppLayout, SidebarContainer, Topbar, and BrandIcon masters show GoodUI artwork as specimen content to demonstrate placement; the runtime fallback remains generic.
+The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppLayout` feed the desktop sidebar and mobile drawer; `brandMarkSrc` and `brandMarkDarkSrc` feed the mobile topbar symbol and optional desktop BrandIcon. On mobile the drawer trigger precedes the symbol. `showMobileBrand=false` hides only the mobile topbar branding; the sidebar and drawer retain their branding. `brand` is the image's accessible name. When no mark URL is supplied, the mobile topbar retains the wordmark or text fallback for existing consumers. The dark URLs are optional; if absent, their light URLs remain visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI homepage uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers. Penpot's AppLayout, SidebarContainer, Topbar, and BrandIcon masters show GoodUI artwork as specimen content to demonstrate placement; the runtime fallback remains generic.
 
 ### Alerts and notifications
 

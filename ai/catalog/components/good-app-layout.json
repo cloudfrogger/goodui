@@ -64,6 +64,15 @@
       "kind": "input"
     },
     {
+      "name": "showMobileBrand",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "kind": "input"
+    },
+    {
       "name": "sidebarSections",
       "type": "readonly GoodSidebarSection[]",
       "required": false,

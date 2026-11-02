@@ -356,17 +356,19 @@ export class GoodTopbarMenuContainerComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="good-topbar-left">
-      @if (brandMarkSrc()) {
-        <good-brand-icon class="good-mobile-brand-icon" [src]="brandMarkSrc()" [darkSrc]="brandMarkDarkSrc()" [label]="brand()" />
-      } @else {
-        <span class="good-mobile-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
-          @if (brandLogoSrc()) {
-            <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
-            @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
-          } @else { {{ brand() }} }
-        </span>
-      }
       <button type="button" class="good-mobile-menu-button good-action-button" aria-label="Open sidebar" (click)="menuToggle.emit()"><good-icon name="menu" /></button>
+      @if (showMobileBrand()) {
+        @if (brandMarkSrc()) {
+          <good-brand-icon class="good-mobile-brand-icon" [src]="brandMarkSrc()" [darkSrc]="brandMarkDarkSrc()" [label]="brand()" />
+        } @else {
+          <span class="good-mobile-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
+            @if (brandLogoSrc()) {
+              <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
+              @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
+            } @else { {{ brand() }} }
+          </span>
+        }
+      }
       @if (showBrandIcon()) { <good-brand-icon class="good-desktop-brand-icon" [src]="brandMarkSrc()" [darkSrc]="brandMarkDarkSrc()" [label]="brand()" /> }
       @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" [mobileMode]="mobileMenuMode()" /> }
       <ng-content select="good-topbar-menu-container" />
@@ -383,6 +385,7 @@ export class GoodTopbarComponent {
   readonly brandMarkSrc = input('');
   readonly brandMarkDarkSrc = input('');
   readonly showBrandIcon = input(false);
+  readonly showMobileBrand = input(true);
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly activeRoute = input('');
   readonly mobileMenuMode = input<GoodTopbarMobileMenuMode>('hidden');
