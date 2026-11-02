@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, ElementRef, booleanAttribute, computed, effect, inject, input, model, output, signal, untracked } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, booleanAttribute, computed, effect, inject, input, model, output, signal, untracked, viewChild } from '@angular/core';
 import { LucideArrowDown, LucideArrowDownUp, LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearch, LucideSearchX } from '@lucide/angular';
 import { FlexRender, ColumnDef, Column, RowData, SortingState, PaginationState, injectTable, tableFeatures,
   rowSortingFeature, createSortedRowModel, sortFn_alphanumeric, sortFn_text, sortFn_datetime,
   columnFilteringFeature, globalFilteringFeature, createFilteredRowModel, filterFn_includesString,
-  rowPaginationFeature, createPaginatedRowModel, columnOrderingFeature } from '@tanstack/angular-table';
+  rowPaginationFeature, createPaginatedRowModel, columnOrderingFeature, columnVisibilityFeature } from '@tanstack/angular-table';
 import { GoodButtonComponent } from './button';
 import { GoodInputComponent } from './input';
 
@@ -18,15 +18,25 @@ const goodTableFeatures = tableFeatures({
   rowPaginationFeature,
   paginatedRowModel: createPaginatedRowModel(),
   columnOrderingFeature,
+  columnVisibilityFeature,
+  columnMeta: {} as GoodTableColumnMeta,
 });
 
 export type GoodTableStyle = 'default' | 'bordered' | 'striped' | 'compact';
+export type GoodTableColumnBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type GoodTableColumn<TData extends RowData> = ColumnDef<typeof goodTableFeatures, TData>;
 
 export interface GoodTableColumnMeta {
   align?: 'start' | 'center' | 'end';
   noWrap?: boolean;
+  /** Minimum table width tier for this column; omitted columns are visible from xs. */
+  visibleFrom?: GoodTableColumnBreakpoint;
+  [key: string]: unknown;
 }
+
+const tableColumnMinWidth: Record<GoodTableColumnBreakpoint, number> = {
+  xs: 0, sm: 480, md: 700, lg: 960, xl: 1280,
+};
 
 interface GoodTablePageBase {
   pageSize: number;
@@ -51,9 +61,9 @@ export interface GoodTableRequest {
   imports: [FlexRender, GoodButtonComponent, GoodInputComponent, LucideArrowDown, LucideArrowDownUp,
     LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearchX],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-table', '[attr.data-column-dragging]': 'dragSourceId() ? "true" : null' },
+  host: { class: 'good-table', '[attr.data-column-dragging]': 'dragSourceId() ? "true" : null', '[attr.data-responsive-columns]': 'hasResponsiveColumns() ? "true" : null' },
   template: `
-    <div class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.aria-busy]="loading() ? 'true' : null">
+    <div #frame class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.aria-busy]="loading() ? 'true' : null">
       @if (searchable()) {
         <div class="good-table-toolbar">
           <good-input label="Search records" type="search" [startIcon]="searchIcon" [placeholder]="searchPlaceholder()"
@@ -116,7 +126,7 @@ export interface GoodTableRequest {
                 (click)="onRowClick($event, row.id, row.original)"
                 (focus)="onRowFocus($event, row.id)"
                 (keydown)="onRowKeydown($event, row.id, row.original)">
-                @for (cell of row.getAllCells(); track cell.id; let first = $first) {
+                @for (cell of row.getVisibleCells(); track cell.id; let first = $first) {
                   <td [attr.data-align]="columnMeta(cell.column).align || null"
                     [attr.data-nowrap]="columnMeta(cell.column).noWrap ? 'true' : null">
                     @if (first && emphasisLabel() && emphasizeRow()(row.original)) {
@@ -128,7 +138,7 @@ export interface GoodTableRequest {
               </tr>
             } @empty {
               <tr class="good-table-empty-row">
-                <td [attr.colspan]="table.getAllLeafColumns().length || 1">
+                <td [attr.colspan]="table.getVisibleLeafColumns().length || 1">
                   <div class="good-table-empty" role="status">
                     @if (loading()) { <span class="good-table-loading-indicator" aria-hidden="true"></span><span>Loading records...</span> }
                     @else { <svg lucideSearchX [size]="24" aria-hidden="true"></svg><strong>{{ emptyMessage() }}</strong> }
@@ -169,7 +179,7 @@ export interface GoodTableRequest {
     </div>
   `,
 })
-export class GoodTableComponent<TData extends RowData> {
+export class GoodTableComponent<TData extends RowData> implements AfterViewInit {
   readonly data = input.required<readonly TData[]>();
   readonly columns = input.required<readonly GoodTableColumn<TData>[]>();
   readonly label = input('Records');
@@ -202,10 +212,14 @@ export class GoodTableComponent<TData extends RowData> {
   readonly searchChange = output<string>();
   readonly request = output<GoodTableRequest>();
   readonly search = signal('');
+  readonly columnVisibility = signal<Record<string, boolean>>({});
   readonly columnOrderAnnouncement = signal('');
   readonly dragSourceId = signal<string | null>(null);
   readonly dragTargetId = signal<string | null>(null);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly frame = viewChild.required<ElementRef<HTMLElement>>('frame');
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly tableWidth = signal(0);
   private pointerStart: { x: number; y: number; id: string } | null = null;
   private dropAfter = false;
   readonly sorting = signal<SortingState>([]);
@@ -216,6 +230,13 @@ export class GoodTableComponent<TData extends RowData> {
   readonly previousIcon = LucideChevronLeft;
   readonly nextIcon = LucideChevronRight;
   private lastPaginationMode: GoodTablePagination['mode'] | null = null;
+  readonly hasResponsiveColumns = computed(() => {
+    const hasBreakpoint = (columns: readonly GoodTableColumn<TData>[]): boolean => columns.some(column => {
+      const children = 'columns' in column ? column.columns as readonly GoodTableColumn<TData>[] : undefined;
+      return (column.meta?.visibleFrom ?? 'xs') !== 'xs' || (!!children?.length && hasBreakpoint(children));
+    });
+    return hasBreakpoint(this.columns());
+  });
 
   readonly table = injectTable(() => {
     const config = this.pagination();
@@ -232,7 +253,7 @@ export class GoodTableComponent<TData extends RowData> {
       rowCount: config?.mode === 'pages' ? config.totalRows : undefined,
       pageCount: config?.mode === 'cursor' ? -1 : undefined,
       globalFilterFn: 'includesString' as const,
-      state: { sorting: this.sorting(), globalFilter: this.search(), pagination: this.pageState(), columnOrder: this.columnOrder() },
+      state: { sorting: this.sorting(), globalFilter: this.search(), pagination: this.pageState(), columnOrder: this.columnOrder(), columnVisibility: this.columnVisibility() },
       onColumnOrderChange: updater => this.columnOrder.update(old => typeof updater === 'function' ? updater(old) : updater),
       onSortingChange: (updater: SortingState | ((old: SortingState) => SortingState)) => {
         const next = typeof updater === 'function' ? updater(this.sorting()) : updater;
@@ -295,6 +316,15 @@ export class GoodTableComponent<TData extends RowData> {
 
   constructor() {
     effect(() => {
+      this.columns();
+      const width = this.tableWidth();
+      const visible = Object.fromEntries(untracked(() => this.table.getAllLeafColumns()).map(column => {
+        const from = this.columnMeta(column).visibleFrom ?? 'xs';
+        return [column.id, width >= tableColumnMinWidth[from]];
+      }));
+      untracked(() => this.columnVisibility.set(visible));
+    });
+    effect(() => {
       const config = this.pagination();
       if (!config) { this.lastPaginationMode = null; return; }
       const max = config.maxPageSize && config.maxPageSize > 0 ? Math.floor(config.maxPageSize) : Number.MAX_SAFE_INTEGER;
@@ -310,8 +340,18 @@ export class GoodTableComponent<TData extends RowData> {
     });
   }
 
+  ngAfterViewInit(): void {
+    const frame = this.frame().nativeElement;
+    const measure = () => this.tableWidth.set(frame.getBoundingClientRect().width);
+    measure();
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(frame);
+    this.destroyRef.onDestroy(() => observer.disconnect());
+  }
+
   columnMeta(column: Column<typeof goodTableFeatures, TData, unknown>): GoodTableColumnMeta {
-    return column.columnDef.meta as GoodTableColumnMeta | undefined ?? {};
+    return column.columnDef.meta ?? {};
   }
   ariaSort(column: Column<typeof goodTableFeatures, TData, unknown>): 'ascending' | 'descending' | 'none' {
     return column.getIsSorted() === 'asc' ? 'ascending' : column.getIsSorted() === 'desc' ? 'descending' : 'none';
@@ -321,7 +361,7 @@ export class GoodTableComponent<TData extends RowData> {
     return `Sort ${title}${column.getIsSorted() === 'asc' ? ' descending' : ' ascending'}`;
   }
   moveColumnLabel(id: string): string {
-    const columns = this.table.getAllLeafColumns();
+    const columns = this.table.getVisibleLeafColumns();
     const column = columns.find(item => item.id === id);
     const title = typeof column?.columnDef.header === 'string' ? column.columnDef.header : id;
     return `Move ${title}, column ${columns.findIndex(item => item.id === id) + 1} of ${columns.length}. Drag or use Left and Right arrow keys.`;
@@ -356,7 +396,7 @@ export class GoodTableComponent<TData extends RowData> {
   }
   onColumnGripKeydown(event: KeyboardEvent, id: string): void {
     if (!this.reorderable() || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-    const columns = this.table.getAllLeafColumns().map(column => column.id);
+    const columns = this.table.getVisibleLeafColumns().map(column => column.id);
     const index = columns.indexOf(id);
     const targetIndex = event.key === 'Home' ? 0 : event.key === 'End' ? columns.length - 1
       : index + (event.key === 'ArrowLeft' ? -1 : 1);
@@ -371,10 +411,11 @@ export class GoodTableComponent<TData extends RowData> {
     order.splice(order.indexOf(source), 1);
     order.splice(order.indexOf(target) + (after ? 1 : 0), 0, source);
     this.table.setColumnOrder(order);
-    const position = order.indexOf(source) + 1;
+    const visibleIds = new Set(this.table.getVisibleLeafColumns().map(column => column.id));
+    const position = order.filter(id => visibleIds.has(id)).indexOf(source) + 1;
     const column = this.table.getColumn(source);
     const label = typeof column?.columnDef.header === 'string' ? column.columnDef.header : source;
-    this.columnOrderAnnouncement.set(`${label} moved to column ${position} of ${order.length}.`);
+    this.columnOrderAnnouncement.set(`${label} moved to column ${position} of ${visibleIds.size}.`);
     requestAnimationFrame(() => this.host.nativeElement.querySelector<HTMLElement>(
       `th[data-column-id="${CSS.escape(source)}"] .good-table-column-grip`)?.focus());
   }

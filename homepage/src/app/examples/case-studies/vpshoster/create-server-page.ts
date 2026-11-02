@@ -60,10 +60,10 @@ export class VpsCreateServerPageComponent {
   readonly dedicatedPlans = VPS_PLANS.filter(plan => plan.family === 'dedicated');
   readonly planColumns: GoodTableColumn<VpsPlan>[] = [
     { accessorKey: 'name', header: 'Type', enableSorting: true },
-    { accessorKey: 'vcpus', header: 'vCPUs', meta: { noWrap: true } },
-    { accessorKey: 'memoryGb', header: 'RAM (GB)', meta: { noWrap: true } },
-    { accessorKey: 'diskGb', header: 'SSD (GB)', meta: { noWrap: true } },
-    { accessorKey: 'trafficTb', header: 'Traffic (TB)', meta: { noWrap: true } },
+    { accessorKey: 'vcpus', header: 'vCPUs', meta: { noWrap: true, visibleFrom: 'md' } },
+    { accessorKey: 'memoryGb', header: 'RAM (GB)', meta: { noWrap: true, visibleFrom: 'md' } },
+    { accessorKey: 'diskGb', header: 'SSD (GB)', meta: { noWrap: true, visibleFrom: 'md' } },
+    { accessorKey: 'trafficTb', header: 'Traffic (TB)', meta: { noWrap: true, visibleFrom: 'md' } },
     { accessorKey: 'monthlyPrice', header: 'EUR / month', meta: { align: 'end', noWrap: true },
       cell: context => this.euro(context.row.original.monthlyPrice) },
   ];

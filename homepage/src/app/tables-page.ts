@@ -120,6 +120,11 @@ class TableDeleteCellComponent {
         <good-code-block [code]="compactStyleCode" language="html" title="Compact table" />
       </section>
       <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Responsive columns</h2><p>Name and Status stay visible. Owner appears when the table has at least 700 px of space; resize the page to see the column return.</p></div>
+        <good-table label="Responsive workspace records" [data]="rows().slice(0, 4)" [columns]="responsiveColumns" [getRowId]="rowId" />
+        <good-code-block [code]="responsiveColumnsCode" language="typescript" title="Show a column from md" />
+      </section>
+      <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Client pages</h2><p>A page size keeps this table short. Remove the pagination input to let it grow with its records.</p></div>
         <good-table label="Client paginated records" [data]="rows()" [columns]="simpleColumns" [getRowId]="rowId"
           [pagination]="clientPagination" />
@@ -149,6 +154,11 @@ export class TablesPageComponent {
   readonly styles = ['bordered', 'striped', 'compact'] as const;
   readonly compactStyleCode = `<good-table label="Items" tableStyle="compact"
   [data]="items" [columns]="columns" />`;
+  readonly responsiveColumnsCode = `readonly columns: GoodTableColumn<RecordRow>[] = [
+  { accessorKey: 'name', header: 'Name' },
+  { accessorKey: 'owner', header: 'Owner', meta: { visibleFrom: 'md' } },
+  { accessorKey: 'status', header: 'Status' },
+];`;
   readonly feedback = signal('Use a row action to view or delete a record.');
   readonly directActionFeedback = signal('Delete a record to see the table update.');
   readonly rowId = (row: RecordRow) => row.id;
@@ -189,6 +199,13 @@ onRowSelected(row: RecordRow): void {
       cell: context => flexRenderComponent(GoodBadgeComponent, {
         inputs: { label: context.getValue<string>(), color: this.badgeColor(context.row.original.status), variant: 'light', size: 'small' },
       }) },
+  ];
+  readonly responsiveColumns: GoodTableColumn<RecordRow>[] = [
+    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'owner', header: 'Owner', meta: { visibleFrom: 'md' } },
+    { accessorKey: 'status', header: 'Status', cell: context => flexRenderComponent(GoodBadgeComponent, {
+      inputs: { label: context.getValue<string>(), color: this.badgeColor(context.row.original.status), variant: 'light', size: 'small' },
+    }) },
   ];
   readonly columns: GoodTableColumn<RecordRow>[] = [
     { accessorKey: 'name', header: 'Name', enableSorting: true },

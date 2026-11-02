@@ -643,6 +643,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-table-scroll { max-width: 100%; overflow-x: auto; }
 .good-table-scroll:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: -2px; }
 .good-table-scroll table { width: 100%; min-width: var(--good-table-min-width); border-collapse: collapse; text-align: left; font-size: 14px; }
+.good-table[data-responsive-columns="true"] .good-table-scroll table { min-width: 100%; }
 .good-table-scroll th { height: var(--good-table-header-height); padding: var(--good-table-cell-padding-block) var(--good-table-cell-padding-inline); border-bottom: 1px solid var(--good-table-border); background: var(--good-table-header-background); color: var(--good-table-header-foreground); font-size: 12px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
 .good-table-header-content { display: inline-flex; align-items: center; justify-content: space-between; gap: var(--good-space-1); width: 100%; min-width: 0; }
 .good-table-header-label { min-width: 0; }

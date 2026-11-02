@@ -28,6 +28,20 @@ export class PeoplePage {
 
 Sorting is opt-in for each column. Client sorting and search operate on the supplied rows. Pass a stable `getRowId` when cells contain stateful controls or records can be reordered. Column definitions use TanStack's `accessorKey`, `accessorFn`, `header`, `cell`, `enableSorting`, sorting functions, and `meta`. GoodUI recognizes `meta: { align: 'start' | 'center' | 'end', noWrap: boolean }` for cell alignment and wrapping.
 
+## Show columns from a width
+
+Set `meta.visibleFrom` in a column definition to show that column only when the Table's own container is wide enough. The default is `xs`, so existing columns remain visible at every width. The tiers are `xs` (0 px), `sm` (480 px), `md` (700 px), `lg` (960 px), and `xl` (1280 px). Measuring the Table rather than the viewport also works when it sits beside a sidebar or assistant panel.
+
+```ts
+readonly columns: GoodTableColumn<Plan>[] = [
+  { accessorKey: 'name', header: 'Plan' },
+  { accessorKey: 'vcpus', header: 'vCPUs', meta: { visibleFrom: 'md' } },
+  { accessorKey: 'price', header: 'Price' },
+];
+```
+
+Headers and cells appear together as the container crosses a tier. Hidden columns remain in the data and return automatically when space grows; column order is preserved. Keep an identifying column visible at `xs`. Responsive visibility is runtime data and does not add a Penpot variant.
+
 ## Move columns
 
 Column movement is enabled by default. Drag the grip beside a header to another header, or focus the grip and use Left, Right, Home, or End. The body cells move with their headers. The sort button remains separate. Use `[reorderable]="false"` in the template when the column order must stay fixed. Bind `[(columnOrder)]` to a `signal<string[]>` when the application needs to save or set the order; the array contains column IDs. Give every column a stable ID (an `accessorKey` supplies one for simple columns).
@@ -161,7 +175,7 @@ For cursor mode, pass the backend's opaque `nextCursor` and `hasNextPage` with e
 
 | Input/output | Default | Meaning |
 | --- | --- | --- |
-| `data`, `columns` | required | Rows and TanStack column definitions. |
+| `data`, `columns` | required | Rows and TanStack column definitions; `meta.visibleFrom` defaults to `xs`. |
 | `label` | `Records` | Accessible table name. |
 | `tableStyle` | `default` | `default`, `bordered`, `striped`, or `compact`. Prefer this input in templates. |
 | `reorderable` | `true` | Show column grips; set `[reorderable]="false"` to prevent user reordering. |
