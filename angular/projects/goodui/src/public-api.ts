@@ -53,6 +53,7 @@ export * from './lib/month-calendar';
 export * from './lib/progress';
 export * from './lib/timeline';
 export * from './lib/resizable';
+export * from './lib/assistant-panel';
 export * from './lib/pdf-preview';
 export * from './lib/error-page';
 export * from './lib/dropdown';

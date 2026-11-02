@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, contentChild, effect, input, signal, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, booleanAttribute, contentChild, effect, input, signal, computed } from '@angular/core';
 import { GoodInputComponent } from './input';
 import { GoodCheckboxComponent } from './checkbox';
 import { GoodRadioGroupComponent } from './radio-group';
@@ -149,7 +149,7 @@ export class GoodSeparatorComponent {
 @Component({
   selector: 'good-inline-image', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [GoodImagePreviewComponent],
-  host: { class: 'good-inline-image', '[attr.data-align]': 'align()' },
+  host: { class: 'good-inline-image', '[attr.data-align]': 'align()', '[attr.data-full-width]': 'fullWidth()' },
   template: `<figure>
     @if (previewable()) {
       <button type="button" class="good-inline-image-preview" [attr.aria-label]="'Preview ' + (alt() || 'image')" (click)="previewOpen.set(true)">
@@ -165,6 +165,7 @@ export class GoodInlineImageComponent {
   readonly alt = input.required<string>();
   readonly caption = input('');
   readonly align = input<GoodImageAlign>('center');
+  readonly fullWidth = input(false, { transform: booleanAttribute });
   readonly loading = input<'lazy' | 'eager'>('lazy');
   readonly previewable = input(false);
   readonly previewOpen = signal(false);

@@ -26,6 +26,13 @@ const examples = [
     ['mailWorkspaceHtml', 'mail-workspace-page.html'],
     ['mailWorkspaceTs', 'mail-workspace-page.ts'],
   ]],
+  ['case-studies/vpshoster', [
+    ['vpsServersHtml', 'servers-page.html'],
+    ['vpsServersTs', 'servers-page.ts'],
+    ['vpsCreateHtml', 'create-server-page.html'],
+    ['vpsCreateTs', 'create-server-page.ts'],
+    ['vpsStoreTs', 'vps-store.ts'],
+  ]],
   ['error-pages', [
     ['errorPagesExampleHtml', 'error-pages-example-page.html'],
     ['errorPagesExampleTs', 'error-pages-example-page.ts'],

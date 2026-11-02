@@ -1,0 +1,35 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Examples · Case studies</good-eyebrow>
+        <good-heading [level]="1">VPS hoster</good-heading>
+        <good-summary>Browse servers and configure a new one with GoodUI controls.</good-summary>
+      </good-heading-group>
+      <good-paragraph>The reference screenshots show a server list, filters, and a long server creation flow. This case study keeps those interactions while using GoodUI's own layout, components, colors, and light and dark themes. The screenshot's topbar is omitted because the GoodUI application shell already provides navigation, search, and the user menu.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>1. Explore the server list</good-subheading>
+    <good-prose>
+      <good-paragraph><good-link route="/examples/case-studies/vpshoster/servers">Open Servers</good-link> to search, sort, filter by name or IP, zone, location, type, status, and label. Select a row for details, use the checkboxes for bulk actions, or open a row's menu to start, stop, or remove a demo server. The tabs switch between infrastructure sections.</good-paragraph>
+      <good-paragraph>The list uses GoodUI Expandable, Tabs, Table, Checkbox, Badge, Dropdown, Input, Select, and Modal. The table owns sorting, row selection, keyboard navigation, and compact density; the application owns server data and filter predicates.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>2. Configure a server</good-subheading>
+    <good-prose>
+      <good-paragraph><good-link route="/examples/case-studies/vpshoster/create">Open Create servers</good-link>. Select a shared or dedicated plan, location, OS or application image, networking, SSH keys, and optional volume, firewall, backups, placement, labels, and cloud-init data. Change the quantity and names; the order summary updates immediately. Create returns to the list with the new demo records.</good-paragraph>
+      <good-paragraph>GoodUI Resizable keeps configuration and the price summary in separate scrollable panes and stacks them on narrow screens. GoodUI Group, Table, Select, Listbox, Checkbox, Input, NumberInput, Textarea, Alert, and Button own the visible controls. Each live screen offers its template, TypeScript, and local state source through <strong>View source</strong>.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>Scope of this example</good-subheading>
+    <good-prose>
+      <good-paragraph>Server records live only in browser memory; refresh restores the sample record. Prices are illustrative and IPs use the documentation range. Create does not provision a VPS, bill an account, or send SSH keys anywhere. A consuming application must connect its own authenticated backend for those actions.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>

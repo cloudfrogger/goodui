@@ -1,0 +1,103 @@
+<good-main-view title="Servers" description="Manage virtual servers in this local GoodUI case study." eyebrow="Case studies · VPS hoster">
+  <div good-main-view-actions>
+    <good-action-group>
+      <good-button variant="outline" size="small" [icon]="filterIcon" (click)="filterOpen.set(true)">Filter</good-button>
+      <good-button size="small" [icon]="addIcon" (click)="addServer()">Add server</good-button>
+    </good-action-group>
+  </div>
+  <good-section>
+    <good-expandable label="Important status updates · 4 maintenance notices · 1 warning" icon="chevron">
+      <good-alert tone="warning" title="Regional maintenance" message="This is sample status content for the case study. No live service status is queried." />
+    </good-expandable>
+  </good-section>
+  <good-section>
+    <good-tabs ariaLabel="Infrastructure sections">
+      <good-tab value="servers" label="Servers" [badge]="store.count()">
+        @if (selectedIds().length) {
+          <good-action-group ariaLabel="Selected server actions">
+            <good-paragraph>{{ selectedIds().length }} selected</good-paragraph>
+            <good-button variant="outline" size="small" (click)="setSelectedStatus('running')">Start selected</good-button>
+            <good-button variant="outline" size="small" (click)="setSelectedStatus('stopped')">Stop selected</good-button>
+            <good-button variant="destructive" size="small" (click)="bulkDeleteOpen.set(true)">Delete selected</good-button>
+          </good-action-group>
+        }
+        <good-table label="Virtual servers" tableStyle="compact" [data]="visibleServers()" [columns]="columns"
+          [getRowId]="rowId" [searchable]="true" searchPlaceholder="Search servers"
+          selectable [(selectedRowId)]="selectedServerId" (rowSelected)="view($event)"
+          emptyMessage="No servers match these filters." />
+        @if (selectedServer(); as server) {
+          <good-group [title]="server.name" [headingLevel]="3" appearance="contrast">
+            <good-prose>
+              <good-paragraph>{{ server.plan }} · {{ server.architecture }} · {{ server.image }} · {{ server.location }} ({{ server.zone }})</good-paragraph>
+              <good-paragraph>Public IP: {{ server.publicIp }} · Status: {{ server.status }} · Created: {{ server.created }}</good-paragraph>
+              <good-paragraph>Labels: {{ server.labels.length ? server.labels.join(', ') : 'None' }}</good-paragraph>
+              <good-paragraph>Networking: {{ server.ipv4 ? 'IPv4 ' : '' }}{{ server.ipv6 ? 'IPv6 ' : '' }}{{ server.privateNetwork || '' }}</good-paragraph>
+              <good-paragraph>SSH keys: {{ server.sshKeys.length ? server.sshKeys.join(', ') : 'None' }}</good-paragraph>
+              <good-paragraph>Volume: {{ server.volume ? server.volume.name + ' · ' + server.volume.sizeGb + ' GB' : 'None' }}</good-paragraph>
+              <good-paragraph>Firewall: {{ server.firewall || 'None' }} · Backups: {{ server.backups ? 'On' : 'Off' }} · Placement: {{ server.placement || 'None' }}</good-paragraph>
+              @if (server.cloudConfig) { <good-paragraph>Cloud-init configuration supplied for this demo.</good-paragraph> }
+            </good-prose>
+          </good-group>
+        }
+      </good-tab>
+      <good-tab value="snapshots" label="Snapshots"><good-group title="Snapshots" appearance="plain"><good-paragraph>No snapshots have been created in this local demo.</good-paragraph></good-group></good-tab>
+      <good-tab value="backups" label="Backups"><good-group title="Backups" appearance="plain"><good-paragraph>Backups can be enabled while configuring a server.</good-paragraph></good-group></good-tab>
+      <good-tab value="placement" label="Placement groups"><good-group title="Placement groups" appearance="plain"><good-paragraph>No placement groups are available in this local demo.</good-paragraph></good-group></good-tab>
+    </good-tabs>
+  </good-section>
+  <good-section>
+    <good-prose>
+      @if (store.notice()) { <good-paragraph role="status">{{ store.notice() }}</good-paragraph> }
+      @if (feedback()) { <good-paragraph role="status">{{ feedback() }}</good-paragraph> }
+      <good-paragraph>This case study keeps data in memory and uses documentation IP addresses. It does not provision infrastructure.</good-paragraph>
+      <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
+    </good-prose>
+  </good-section>
+</good-main-view>
+
+<good-modal [(open)]="filterOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Filter servers" description="Combine fields to narrow the server list." />
+  <good-group title="Search and attributes" appearance="plain">
+    <good-input label="Name or IP address" [showLabel]="true" placeholder="Search by name or IP" [(value)]="nameFilter" />
+    <good-select label="Network zone" [showLabel]="true" [options]="zoneOptions" placeholder="Any zone" [(value)]="zoneFilter" />
+    <good-select label="Location" [showLabel]="true" [options]="locationOptions" placeholder="Any location" [(value)]="locationFilter" />
+    <good-select label="Type" [showLabel]="true" [options]="planOptions" placeholder="Any type" [(value)]="planFilter" />
+    <good-select label="Status" [showLabel]="true" [options]="statusOptions" placeholder="Any status" [(value)]="statusFilter" />
+    <good-input label="Label" [showLabel]="true" placeholder="Filter labels" [(value)]="labelFilter" />
+  </good-group>
+  <good-modal-footer>
+    <good-action-group>
+      <good-button variant="outline" (click)="clearFilters()">Clear filters</good-button>
+      <good-button (click)="filterOpen.set(false)">Show {{ visibleServers().length }} servers</good-button>
+    </good-action-group>
+  </good-modal-footer>
+</good-modal>
+
+<good-modal [(open)]="bulkDeleteOpen" size="small">
+  <good-modal-header title="Delete selected servers" description="This removes only local demo records." />
+  <good-paragraph>Delete {{ selectedIds().length }} selected servers?</good-paragraph>
+  <good-modal-footer>
+    <good-action-group>
+      <good-button variant="outline" (click)="bulkDeleteOpen.set(false)">Cancel</good-button>
+      <good-button variant="destructive" (click)="deleteSelected()">Delete selected</good-button>
+    </good-action-group>
+  </good-modal-footer>
+</good-modal>
+
+<good-modal [(open)]="deleteOpen" size="small">
+  <good-modal-header title="Delete server" description="This only removes the server from the local case study." />
+  <good-paragraph>Delete {{ pendingDelete()?.name }}?</good-paragraph>
+  <good-modal-footer>
+    <good-action-group>
+      <good-button variant="outline" (click)="deleteOpen.set(false)">Cancel</good-button>
+      <good-button variant="destructive" (click)="deleteServer()">Delete</good-button>
+    </good-action-group>
+  </good-modal-footer>
+</good-modal>
+
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="VPS server list source" />
+  <good-code-block [code]="htmlSource" language="html" title="servers-page.html" />
+  <good-code-block [code]="typescriptSource" language="typescript" title="servers-page.ts" />
+  <good-code-block [code]="storeSource" language="typescript" title="vps-store.ts" />
+</good-modal>

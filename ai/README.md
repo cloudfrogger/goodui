@@ -10,6 +10,8 @@ GoodUI's AI files match the Angular library in this source revision. The small `
 
 Prerequisites: an Angular 21.2 application using `@goodui/angular`, its CSS export `@goodui/angular/styles.css`, and a coding agent that can read a Markdown `SKILL.md`. The examples are compiled in a source checkout with Node 22, Angular CLI 21, and the locally built GoodUI package. They are source examples, not a backend or authentication implementation.
 
+Case studies are optional, topic-based references under `ai/case-studies/`. The full archive includes their relevant homepage source. Ask the agent to open one study by name when working from that workflow; routine component work does not require reading every case study.
+
 ## Maintainer checks
 
 Run `npm run build:lib`, `node ai/scripts/generate-catalog.mjs --check`, `node ai/scripts/check-catalog.mjs`, and `node ai/scripts/build-examples.mjs`. Regenerate the catalog after public API changes with `node ai/scripts/generate-catalog.mjs`. `ai/catalog/component.schema.json` and `index.schema.json` define the machine-readable format.

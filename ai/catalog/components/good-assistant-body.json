@@ -1,0 +1,43 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-assistant-body",
+  "className": "GoodAssistantBodyComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodAssistantBodyComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/assistant-panel.ts",
+  "inputs": [],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.assistant-body",
+      "penpotId": "1b6260d7-e591-805d-8008-e27e5f541736",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

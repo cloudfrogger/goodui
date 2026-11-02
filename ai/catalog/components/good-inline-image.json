@@ -50,6 +50,15 @@
       "kind": "input"
     },
     {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/typography.ts",
+      "kind": "input"
+    },
+    {
       "name": "loading",
       "type": "\"lazy\" | \"eager\"",
       "required": false,

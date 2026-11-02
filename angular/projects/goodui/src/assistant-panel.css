@@ -1,0 +1,34 @@
+.good-assistant-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--good-assistant-width)); width: 100%; height: 100%; min-height: 0; min-width: 0; background: var(--good-canvas); color: var(--good-text); }
+.good-assistant-main { display: block; box-sizing: border-box; min-width: 0; min-height: 0; height: 100%; overflow: auto; padding: var(--good-space-6) var(--good-main-view-inline-padding, var(--good-space-6)); }
+.good-assistant-main[data-padding="none"] { padding: 0; }
+.good-assistant-surface { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; height: 100%; overflow: hidden; background: var(--good-canvas); }
+.good-assistant-header, .good-assistant-footer { display: block; flex: none; padding: var(--good-space-4); }
+.good-assistant-header > header, .good-assistant-footer > footer { display: flex; flex-direction: column; gap: var(--good-space-2); }
+.good-assistant-body { display: block; flex: 1; min-height: 0; overflow: auto; padding: 0 var(--good-space-4); }
+.good-assistant-backdrop, good-button.good-assistant-launcher, good-button.good-assistant-close, .good-assistant-dock { display: none; }
+@media (max-width: 700px) {
+  .good-assistant-panel { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+  .good-assistant-main { width: 100%; height: 100%; padding: var(--good-space-4) var(--good-main-view-inline-padding, var(--good-space-4)); }
+  .good-assistant-main[data-padding="none"] { padding: 0; }
+  .good-assistant-surface { position: fixed; z-index: 102; top: 0; right: 0; bottom: 0; width: min(90vw, 360px); height: auto; box-shadow: -8px 0 32px color-mix(in srgb, var(--good-text) 14%, transparent); transform: translateX(105%); visibility: hidden; transition: transform .2s ease, visibility .2s; }
+  .good-assistant-panel[data-open="true"] .good-assistant-surface { transform: translateX(0); visibility: visible; }
+  good-button.good-assistant-close { display: flex; position: absolute; z-index: 1; top: 8px; right: 8px; }
+  .good-assistant-header { padding-right: 52px; min-height: 52px; }
+  .good-assistant-body { padding-inline: var(--good-space-3); }
+  .good-assistant-surface:not(:has(good-assistant-header)) .good-assistant-body { padding-top: 52px; }
+  .good-assistant-footer { padding: var(--good-space-3); }
+  .good-assistant-backdrop { position: fixed; z-index: 101; inset: 0; background: color-mix(in srgb, var(--good-text) 35%, transparent); }
+  .good-assistant-panel[data-open="true"] .good-assistant-backdrop { display: block; }
+  good-button.good-assistant-launcher { display: flex; position: fixed; z-index: 100; right: 16px; bottom: 16px; }
+  .good-assistant-panel[data-mobile-mode="dock"] { grid-template-rows: minmax(0, 1fr) auto; }
+  .good-assistant-panel[data-mobile-mode="dock"] good-button.good-assistant-launcher,
+  .good-assistant-panel[data-mobile-mode="hidden"] good-button.good-assistant-launcher { display: none; }
+  .good-assistant-panel[data-mobile-mode="dock"] .good-assistant-dock { display: flex; align-items: flex-start; min-width: 0; max-height: min(40dvh, 300px); overflow: auto; padding: var(--good-space-3); border-radius: var(--good-radius-card) var(--good-radius-card) 0 0; background: var(--good-surface); box-shadow: 0 -8px 24px color-mix(in srgb, var(--good-text) 10%, transparent); }
+  .good-assistant-mobile { display: block; flex: 1; min-width: 0; }
+  .good-assistant-panel[data-mobile-mode="dock"] .good-assistant-surface { top: auto; left: 0; right: 0; bottom: 0; width: 100%; height: min(85dvh, 720px); border-radius: var(--good-radius-card) var(--good-radius-card) 0 0; transform: translateY(105%); box-shadow: 0 -8px 32px color-mix(in srgb, var(--good-text) 14%, transparent); }
+  .good-assistant-panel[data-mobile-mode="dock"][data-open="true"] .good-assistant-surface { transform: translateY(0); }
+  .good-assistant-panel[data-mobile-mode="hidden"] .good-assistant-surface,
+  .good-assistant-panel[data-mobile-mode="hidden"] .good-assistant-backdrop,
+  .good-assistant-panel[data-mobile-mode="hidden"] .good-assistant-dock { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .good-assistant-surface { transition: none; } }

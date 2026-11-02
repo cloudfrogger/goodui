@@ -98,6 +98,7 @@ export class App {
         { id: 'groups', label: 'Groups', route: '/components/groups' },
         { id: 'expandables', label: 'Expandables', route: '/components/expandables' },
         { id: 'resizable', label: 'Resizable', route: '/components/resizable' },
+        { id: 'assistant-panels', label: 'Assistant panels', route: '/components/assistant-panels' },
       ] },
       { id: 'content-category', label: 'Data display', icon: 'book', children: [
         { id: 'tables', label: 'Tables', route: '/components/tables' },
@@ -129,11 +130,21 @@ export class App {
       { id: 'notifications-example', label: 'Notifications', icon: 'bell', route: '/examples/notifications' },
       { id: 'pdf-reader-example', label: 'PDF reader', icon: 'book', route: '/examples/pdf-reader' },
       { id: 'calendar-workspace-example', label: 'Calendar workspace', icon: 'calendar', route: '/examples/calendar-workspace' },
-      { id: 'mail-compose-example', label: 'Compose mail', icon: 'message', route: '/examples/mail-compose' },
-      { id: 'mail-workspace-example', label: 'Mail workspace', icon: 'message', route: '/examples/mail-workspace' },
       { id: 'error-pages-example', label: 'Error pages', icon: 'question', route: '/examples/error-pages' },
       { id: 'not-found-example', label: '404 · Page not found', icon: 'question', route: '/404' },
       { id: 'server-error-example', label: '500 · Server error', icon: 'question', route: '/500' },
+      { id: 'case-studies', label: 'Case studies', icon: 'book', children: [
+        { id: 'webmailer-case-study', label: 'Webmailer', children: [
+          { id: 'webmailer-overview', label: 'Overview', route: '/examples/case-studies/webmailer' },
+          { id: 'mail-workspace-example', label: 'Mail workspace', route: '/examples/mail-workspace' },
+          { id: 'mail-compose-example', label: 'Compose mail', route: '/examples/mail-compose' },
+        ] },
+        { id: 'vpshoster-case-study', label: 'VPS hoster', children: [
+          { id: 'vpshoster-overview', label: 'Overview', route: '/examples/case-studies/vpshoster' },
+          { id: 'vpshoster-servers', label: 'Servers', route: '/examples/case-studies/vpshoster/servers' },
+          { id: 'vpshoster-create', label: 'Create servers', route: '/examples/case-studies/vpshoster/create' },
+        ] },
+      ] },
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
       { id: 'account', label: 'My Account', icon: 'settings', children: [
         { id: 'account-home', label: 'Account Home', children: [
@@ -218,6 +229,7 @@ export class App {
     { id: 'cards', label: 'Cards', description: 'Headers, actions, images, and footers', route: '/components/cards' },
     { id: 'groups', label: 'Groups', description: 'Lightweight content groups and responsive field rows', route: '/components/groups' },
     { id: 'expandables', label: 'Expandables', description: 'Full-width disclosures with rich headings and content', route: '/components/expandables' },
+    { id: 'assistant-panels', label: 'Assistant panels', description: 'Contextual companion surface with mobile drawer or bottom summary', route: '/components/assistant-panels' },
     { id: 'links', label: 'Links', description: 'Underlines, styles, and mono appearance', route: '/components/links' },
     { id: 'code-blocks', label: 'Code blocks', description: 'Highlighted source, copy, and expandable previews', route: '/components/code-blocks' },
     { id: 'modals', label: 'Modals', description: 'Focused dialogs, flexible layouts, and nested flows', route: '/components/modals' },
@@ -242,6 +254,8 @@ export class App {
     { id: 'topbar-submenu', label: 'Topbar submenu', description: 'Nested navigation and keyboard behavior', route: '/components/topbar-submenu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },
+    { id: 'webmailer-case-study', label: 'Webmailer case study', description: 'Mail workspace and composer built with GoodUI', route: '/examples/case-studies/webmailer' },
+    { id: 'vpshoster-case-study', label: 'VPS hoster case study', description: 'Server list and configuration flow built with GoodUI', route: '/examples/case-studies/vpshoster' },
     { id: 'mail-compose', label: 'Compose mail', description: 'Rich text formatting, links, images, and tables', route: '/examples/mail-compose' },
     { id: 'mail-workspace', label: 'Mail workspace', description: 'Folders, message list, preview, and local actions', route: '/examples/mail-workspace' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },

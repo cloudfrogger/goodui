@@ -23,8 +23,8 @@ try {
   fs.mkdirSync(path.join(stage, 'small/goodui'), { recursive: true });
   fs.copyFileSync(path.join(root, 'ai/skill/goodui/SKILL.md'), path.join(stage, 'small/goodui/SKILL.md'));
   zip(`goodui-skill-${version}.zip`, path.join(stage, 'small'), ['goodui']);
-  for (const item of ['ai', 'guides/components', 'design/component-map.json', 'design-tokens/penpot.tokens.json', 'design.md', 'angular/projects/goodui/src/lib', 'angular/projects/goodui/src/public-api.ts', 'angular/projects/goodui/package.json']) copy(item, item);
+  for (const item of ['ai', 'guides/components', 'design/component-map.json', 'design-tokens/penpot.tokens.json', 'design.md', 'angular/projects/goodui/src/lib', 'angular/projects/goodui/src/public-api.ts', 'angular/projects/goodui/package.json', 'homepage/src/app/examples/case-studies', 'homepage/src/app/examples/mail-compose', 'homepage/src/app/examples/mail-workspace']) copy(item, item);
   fs.writeFileSync(path.join(stage, 'ai/manifest.json'), `${JSON.stringify({ package: '@goodui/angular', version, sourceRevision: dirty ? null : revision, releaseTag: tag, note: dirty ? 'Local test archive from an uncommitted workspace; use a release archive for versioned references.' : null }, null, 2)}\n`);
-  zip(`goodui-ai-${version}.zip`, stage, ['ai', 'guides', 'design', 'design-tokens', 'design.md', 'angular']);
+  zip(`goodui-ai-${version}.zip`, stage, ['ai', 'guides', 'design', 'design-tokens', 'design.md', 'angular', 'homepage']);
   console.log(`Created two release archives for ${tag}${dirty ? ' from an uncommitted workspace' : ` at ${revision}`}`);
 } finally { fs.rmSync(stage, { recursive: true, force: true }); }

@@ -156,6 +156,20 @@
       "kind": "component",
       "state": "mobile",
       "owner": null
+    },
+    {
+      "penpotName": "goodui.main-view.fill-heading",
+      "penpotId": "1b6260d7-e591-805d-8008-e28200da7174",
+      "kind": "component",
+      "state": "fill-heading",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.main-view.fill-heading-mobile",
+      "penpotId": "1b6260d7-e591-805d-8008-e282014cb32c",
+      "kind": "component",
+      "state": "fill-heading-mobile",
+      "owner": null
     }
   ],
   "missing": {

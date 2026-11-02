@@ -102,6 +102,8 @@ The [Typography page](../../homepage/src/app/getting-started/typography.html) pl
 
 The separator has `role="separator"` and reserves more space before the division than after it. `good-inline-image` renders a semantic figure and optional figcaption. Its `align` is `center` by default, with `left` and `right` alternatives; the image stays within 420 px and shrinks to fit mobile width. Supply meaningful `alt` text for informative images, or an empty string for decorative ones. `loading` defaults to `lazy`.
 
+Set `fullWidth` for wide screenshots or diagrams. It lets the figure use the full width of its GoodUI parent while still shrinking on small screens; the default remains the compact 420 px figure. This is a runtime layout option, not another Penpot alignment variant.
+
 Set `[previewable]="true"` to open the shared image modal by mouse or keyboard. The optional caption appears below both the inline image and its fitted modal preview. Escape, backdrop dismissal, and the close button return focus to the image trigger. The same preview is available in [Image input](image-input.md).
 
 In a standalone Angular page, include `GoodInlineImageComponent` in that page's `imports`. Put a local image in the application's `public/` directory and use a root-relative URL such as `src="/framework_concept.png"`; a relative URL without the leading slash resolves under the current route.

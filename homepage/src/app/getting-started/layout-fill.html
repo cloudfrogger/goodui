@@ -25,7 +25,7 @@
     <good-subheading>What fills the screen?</good-subheading>
     <good-prose>
       <good-paragraph>The sidebar and topbar stay in place. <code>good-main-view layout="fill"</code> takes the remaining space below the topbar and removes its own padding. The application page does not scroll; the projected workspace owns its internal scroll areas.</good-paragraph>
-      <good-paragraph>Place one primary component directly inside MainView. Do not wrap it in a Section or Card when it should touch the edges. A MainView title or description also uses space, so leave them out for a fully flush workspace.</good-paragraph>
+      <good-paragraph>Place one primary component directly inside MainView. Do not wrap it in a Section or Card when it should touch the edges. If you provide a MainView title or description, its heading has the usual page inset while the workspace below remains edge-to-edge. Leave the heading out when the workspace must also touch the topbar.</good-paragraph>
       <good-paragraph>For a fixed command strip above a full-height workspace, add <code>goodMainViewToolbar</code> to the strip. MainView keeps it outside the scrolling content and gives the remaining height to the workspace. The slot accepts any component; <code>good-action-bar</code> is the standard choice for grouped commands and tools.</good-paragraph>
     </good-prose>
   </good-section>

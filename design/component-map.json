@@ -1,6 +1,12 @@
 {
   "directFamilies": [
     "action-group",
+    "assistant-body",
+    "assistant-footer",
+    "assistant-header",
+    "assistant-main",
+    "assistant-mobile",
+    "assistant-panel",
     "action-menu",
     "alert",
     "app-layout",
@@ -876,6 +882,20 @@
       "angularSelector": "good-main-view",
       "kind": "component",
       "state": "mobile"
+    },
+    {
+      "penpotName": "goodui.main-view.fill-heading",
+      "penpotId": "1b6260d7-e591-805d-8008-e28200da7174",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "fill-heading"
+    },
+    {
+      "penpotName": "goodui.main-view.fill-heading-mobile",
+      "penpotId": "1b6260d7-e591-805d-8008-e282014cb32c",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "fill-heading-mobile"
     },
     {
       "penpotName": "goodui.month-calendar.day",
@@ -1898,9 +1918,66 @@
       "angularSelector": "good-resizable-pane",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.assistant-panel.desktop",
+      "penpotId": "1b6260d7-e591-805d-8008-e2774236ab8a",
+      "angularSelector": "good-assistant-panel",
+      "kind": "component",
+      "state": "desktop"
+    },
+    {
+      "penpotName": "goodui.assistant-panel.mobile-drawer",
+      "penpotId": "1b6260d7-e591-805d-8008-e27742a1a718",
+      "angularSelector": "good-assistant-panel",
+      "kind": "component",
+      "state": "mobile-drawer"
+    },
+    {
+      "penpotName": "goodui.assistant-panel.mobile-bottom",
+      "penpotId": "1b6260d7-e591-805d-8008-e27743170a3a",
+      "angularSelector": "good-assistant-panel",
+      "kind": "component",
+      "state": "mobile-bottom"
+    },
+    {
+      "penpotName": "goodui.assistant-main",
+      "penpotId": "1b6260d7-e591-805d-8008-e27e5f0668f4",
+      "angularSelector": "good-assistant-main",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.assistant-header",
+      "penpotId": "1b6260d7-e591-805d-8008-e27e5f22f89e",
+      "angularSelector": "good-assistant-header",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.assistant-body",
+      "penpotId": "1b6260d7-e591-805d-8008-e27e5f541736",
+      "angularSelector": "good-assistant-body",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.assistant-footer",
+      "penpotId": "1b6260d7-e591-805d-8008-e27e5f7e9f34",
+      "angularSelector": "good-assistant-footer",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.assistant-mobile",
+      "penpotId": "1b6260d7-e591-805d-8008-e27e5fc41ffd",
+      "angularSelector": "good-assistant-mobile",
+      "kind": "component",
+      "state": null
     }
   ],
   "variantManifests": [
+    "design/assistant-panel-contract.json",
     "design/action-group-variants.json",
     "design/alert-contract.json",
     "design/badge-variants.json",

@@ -1,0 +1,195 @@
+<good-main-view layout="fill">
+  <good-expandable goodMainViewToolbar label="Important status updates · 4 maintenance notices · 1 warning" icon="chevron">
+    <good-alert tone="warning" title="Regional maintenance" message="This is sample status content for the case study. No live service status is queried." />
+  </good-expandable>
+  <good-assistant-panel label="Order summary" [(open)]="summaryOpen">
+    <good-assistant-main>
+      <good-section>
+        <good-prose>
+          <good-link route="/examples/case-studies/vpshoster/servers">← Back to servers</good-link>
+          <good-subheading [level]="2">Create servers</good-subheading>
+          <good-paragraph>Choose a plan and configure the server. This case study previews the workflow locally; Create adds demo records without provisioning infrastructure.</good-paragraph>
+        </good-prose>
+      </good-section>
+
+      <good-section>
+        <good-group title="1. Server type" appearance="plain">
+          <good-paragraph>Select a shared or dedicated plan. The selected row sets CPU, memory, storage, and base price.</good-paragraph>
+          <good-tabs ariaLabel="Server plan families" (tabActivated)="selectFamily($event.id)">
+            <good-tab value="shared" label="Shared resources">
+              <good-radio-group label="Shared resource class" [options]="planCategories" orientation="horizontal"
+                [value]="planCategory()" (valueChange)="selectCategory($event)" />
+              @if (planCategory() === 'cost') {
+                <good-radio-group label="Architecture" [options]="architectureOptions" orientation="horizontal"
+                  [(value)]="architecture" />
+              }
+              <good-table label="Shared resource plans" tableStyle="compact" [data]="sharedPlans()" [columns]="planColumns"
+                [getRowId]="planRowId" [reorderable]="false" selectable [(selectedRowId)]="planId" />
+            </good-tab>
+            <good-tab value="dedicated" label="Dedicated resources">
+              <good-paragraph>General purpose plans provide dedicated virtual CPUs for sustained workloads.</good-paragraph>
+              <good-table label="Dedicated resource plans" tableStyle="compact" [data]="dedicatedPlans" [columns]="planColumns"
+                [getRowId]="planRowId" [reorderable]="false" selectable [(selectedRowId)]="planId" />
+            </good-tab>
+          </good-tabs>
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="2. Location" appearance="plain">
+          <good-paragraph>Location affects network availability and may change the monthly price.</good-paragraph>
+          <good-select label="Server location" [showLabel]="true" [options]="locations" [(value)]="location" />
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="3. Image" appearance="plain">
+          <good-paragraph>Choose an operating system or a ready-to-use application image, then select its version.</good-paragraph>
+          <good-tabs ariaLabel="Image families" (tabActivated)="selectImageFamily($event.id)">
+            <good-tab value="os" label="OS images">
+              <good-select label="Operating system" [showLabel]="true" [options]="osImages"
+                [value]="image()" (valueChange)="setImage($event)" />
+            </good-tab>
+            <good-tab value="apps" label="Apps">
+              <good-select label="Application image" [showLabel]="true" [options]="appImages"
+                [value]="image()" (valueChange)="setImage($event)" />
+            </good-tab>
+          </good-tabs>
+          <good-select label="Image version" [showLabel]="true" [options]="versionOptions()" [(value)]="imageVersion" />
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="4. Networking" appearance="plain">
+          <good-paragraph>Keep at least one public address or a private network. IPv4 adds €0.50 per server each month; IPv6 is included.</good-paragraph>
+          <good-checkbox label="Public IPv4" [showLabel]="true" [(checked)]="ipv4" />
+          <good-checkbox label="Public IPv6" [showLabel]="true" [(checked)]="ipv6" />
+          <good-checkbox label="Private network" [showLabel]="true" [(checked)]="privateNetwork" />
+          @if (privateNetwork()) {
+            <good-select label="Private network" [showLabel]="true" [options]="privateNetworkOptions()"
+              placeholder="Choose a network" [(value)]="privateNetworkId" />
+          }
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="5. SSH keys" appearance="plain">
+          <good-paragraph>Select the public keys to install. Without a key, this demo still lets you create a server but shows a security reminder.</good-paragraph>
+          <good-listbox label="SSH keys" [items]="sshKeys()" selectionMode="multiple" appearance="checkbox"
+            [(selectedIds)]="selectedKeyIds" [bordered]="false" compact />
+          <good-button variant="outline" size="small" (click)="keyModalOpen.set(true)">Add SSH key</good-button>
+          @if (!selectedKeyIds().length) {
+            <good-alert tone="warning" title="No SSH key selected" message="Choose or add a public key for key-based access." />
+          }
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="6. Volumes" appearance="plain">
+          <good-paragraph>Attach an optional SSD volume at the same location. This demo estimates €0.05 per GB each month.</good-paragraph>
+          @if (!volumeEnabled()) {
+            <good-button variant="outline" (click)="volumeEnabled.set(true)">Add volume</good-button>
+          } @else {
+            <good-form-row [columns]="2">
+              <good-input label="Volume name" [showLabel]="true" [(value)]="volumeName" />
+              <good-number-input label="Volume size in GB" [showLabel]="true" [min]="10" [max]="10000" [step]="10" [(value)]="volumeSize" />
+            </good-form-row>
+            <good-button variant="outline" size="small" (click)="volumeEnabled.set(false)">Remove volume</good-button>
+          }
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="7. Firewall and backups" appearance="plain">
+          <good-select label="Firewall" [showLabel]="true" [options]="firewallOptions"
+            placeholder="No firewall" [(value)]="firewall" />
+          <good-checkbox label="Enable daily backups (+20% of plan price)" [showLabel]="true" [(checked)]="backups" />
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="8. Placement and labels" appearance="plain">
+          <good-select label="Placement group" [showLabel]="true" [options]="placementOptions"
+            placeholder="No placement group" [(value)]="placement" />
+          <good-input label="Labels" [showLabel]="true" placeholder="production, api" [(value)]="labels" />
+          <good-paragraph>Separate labels with commas. They become searchable in the server list.</good-paragraph>
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="9. Cloud config" appearance="plain">
+          <good-paragraph>Optional cloud-init user data is limited to 32 KiB. It is kept only while this page is open.</good-paragraph>
+          <good-textarea label="Cloud-init configuration" [showLabel]="true" [rows]="5"
+            placeholder="#cloud-config" [(value)]="cloudConfig" />
+        </good-group>
+      </good-section>
+
+      <good-section>
+        <good-group title="10. Server names" appearance="plain">
+          <good-paragraph>Give every server a distinct lowercase name. The suggestions follow your image, plan, and location.</good-paragraph>
+          @for (index of nameIndexes(); track index) {
+            <good-input [label]="'Server ' + (index + 1) + ' name'" [showLabel]="true" [required]="true"
+              [value]="nameFor(index)" (valueChange)="setName(index, $event)" />
+          }
+        </good-group>
+      </good-section>
+    </good-assistant-main>
+
+    <good-assistant-header><good-subheading [level]="2">Order summary</good-subheading></good-assistant-header>
+    <good-assistant-body>
+        <good-prose>
+          <good-paragraph><strong>{{ selectedPlan().name }}</strong> · {{ selectedPlan().vcpus }} vCPUs · {{ selectedPlan().memoryGb }} GB RAM · {{ selectedPlan().diskGb }} GB SSD · {{ selectedPlan().category === 'cost' ? architecture() : 'x86' }}</good-paragraph>
+          <good-paragraph><strong>Location:</strong> {{ location() }} · {{ zone() }}</good-paragraph>
+          <good-paragraph><strong>Image:</strong> {{ imageLabel() }}</good-paragraph>
+          <good-paragraph><strong>Network:</strong> {{ ipv4() ? 'IPv4 ' : '' }}{{ ipv6() ? 'IPv6 ' : '' }}{{ privateNetwork() ? 'private' : '' }}</good-paragraph>
+          <good-paragraph><strong>SSH keys:</strong> {{ selectedKeyIds().length }}</good-paragraph>
+          <good-paragraph><strong>Extras:</strong> {{ volumeEnabled() ? volumeSize() + ' GB volume · ' : '' }}{{ backups() ? 'backups · ' : '' }}{{ firewall() || 'no firewall' }}</good-paragraph>
+          <good-number-input label="Number of servers" [showLabel]="true" [min]="1" [max]="5" [(value)]="quantity" />
+          <good-paragraph>Plan: {{ euro(selectedPlan().monthlyPrice) }} / month · IPv4: {{ euro(ipv4() ? 0.5 : 0) }} / month</good-paragraph>
+          @if (locationSurcharge()) { <good-paragraph>Location: {{ euro(locationSurcharge()) }} / month</good-paragraph> }
+          @if (volumeEnabled()) { <good-paragraph>Volume: {{ euro(volumePrice()) }} / month</good-paragraph> }
+          @if (backups()) { <good-paragraph>Backups: {{ euro(backupPrice()) }} / month</good-paragraph> }
+        </good-prose>
+    </good-assistant-body>
+    <good-assistant-footer>
+        <good-prose>
+          <good-subheading [level]="3">{{ euro(totalPrice()) }} / month</good-subheading>
+          <good-paragraph>{{ euro(totalPrice() / 720) }} / hour estimated. Prices are illustrative and exclude tax.</good-paragraph>
+          @if (error()) { <good-alert tone="destructive" title="Check your configuration" [message]="error()" /> }
+          <good-action-group orientation="responsive">
+            <good-button (click)="create()">Create {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-button>
+            <good-button variant="outline" (click)="cancel()">Cancel</good-button>
+          </good-action-group>
+          <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
+        </good-prose>
+    </good-assistant-footer>
+    <good-assistant-mobile>
+      <good-paragraph><strong>{{ selectedPlan().name }}</strong> · {{ location() }} · {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-paragraph>
+      <good-subheading [level]="3">{{ euro(totalPrice()) }} / month</good-subheading>
+      <good-button size="small" (click)="create()">Create {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-button>
+    </good-assistant-mobile>
+  </good-assistant-panel>
+</good-main-view>
+
+<good-modal [(open)]="keyModalOpen" size="default">
+  <good-modal-header title="Add SSH public key" description="This key is stored only in the current browser session." />
+  <good-group title="Key details" appearance="plain">
+    <good-input label="Key name" [showLabel]="true" placeholder="Work laptop" [(value)]="keyName" />
+    <good-textarea label="OpenSSH public key" [showLabel]="true" [rows]="4"
+      placeholder="ssh-ed25519 AAAA..." [(value)]="keyContent" />
+    @if (keyError()) { <good-alert tone="destructive" [message]="keyError()" /> }
+  </good-group>
+  <good-modal-footer>
+    <good-action-group>
+      <good-button variant="outline" (click)="keyModalOpen.set(false)">Cancel</good-button>
+      <good-button (click)="addKey()">Add key</good-button>
+    </good-action-group>
+  </good-modal-footer>
+</good-modal>
+
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="VPS configuration source" />
+  <good-code-block [code]="htmlSource" language="html" title="create-server-page.html" />
+  <good-code-block [code]="typescriptSource" language="typescript" title="create-server-page.ts" />
+  <good-code-block [code]="storeSource" language="typescript" title="vps-store.ts" />
+</good-modal>

@@ -115,6 +115,72 @@
       "penpotCount": 6
     },
     {
+      "selector": "good-assistant-body",
+      "className": "GoodAssistantBodyComponent",
+      "file": "components/good-assistant-body.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAssistantBodyComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-assistant-footer",
+      "className": "GoodAssistantFooterComponent",
+      "file": "components/good-assistant-footer.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAssistantFooterComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-assistant-header",
+      "className": "GoodAssistantHeaderComponent",
+      "file": "components/good-assistant-header.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAssistantHeaderComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-assistant-main",
+      "className": "GoodAssistantMainComponent",
+      "file": "components/good-assistant-main.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAssistantMainComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-assistant-mobile",
+      "className": "GoodAssistantMobileComponent",
+      "file": "components/good-assistant-mobile.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAssistantMobileComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-assistant-panel",
+      "className": "GoodAssistantPanelComponent",
+      "file": "components/good-assistant-panel.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodAssistantPanelComponent"
+      },
+      "usageGuide": "guides/components/assistant-panel.md",
+      "penpotCount": 3
+    },
+    {
       "selector": "good-avatar-menu",
       "className": "GoodAvatarMenuComponent",
       "file": "components/good-avatar-menu.json",
@@ -552,7 +618,7 @@
         "symbol": "GoodMainViewComponent"
       },
       "usageGuide": "guides/components/main-view.md",
-      "penpotCount": 4
+      "penpotCount": 6
     },
     {
       "selector": "good-modal",

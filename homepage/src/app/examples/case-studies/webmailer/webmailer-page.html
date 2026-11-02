@@ -1,0 +1,35 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Examples · Case studies</good-eyebrow>
+        <good-heading [level]="1">Webmailer</good-heading>
+        <good-summary>Two connected screens show how generic GoodUI components form a mail workflow.</good-summary>
+      </good-heading-group>
+      <good-paragraph>Start with the <good-link route="/examples/mail-workspace">mail workspace</good-link> to browse folders, select a message, and open the composer. Then use <good-link route="/examples/mail-compose">Compose mail</good-link> to edit a draft. Both pages are live examples; their mail data and commands belong to the example, while the controls remain reusable across applications.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>1. Browse and act</good-subheading>
+    <good-prose>
+      <good-paragraph>The workspace uses <code>good-main-view layout="fill"</code> with an <code>good-action-bar</code> in its toolbar slot. The bar groups commands and keeps search and filtering on the right. Below it, nested <code>good-resizable</code> panes arrange a borderless folder <code>good-listbox</code>, a compact selectable <code>good-table</code>, and a message preview. Selection, unread emphasis, and command events are GoodUI APIs; the message array and the action handlers are application state.</good-paragraph>
+      <good-paragraph><good-link route="/examples/mail-workspace">Open the mail workspace</good-link>. Choose a folder and a message, resize the panes, search, and try a command. Use its <strong>View source</strong> command to inspect the complete Angular template and TypeScript.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>2. Compose a draft</good-subheading>
+    <good-prose>
+      <good-paragraph>The composer also fills the main area. A <code>good-rich-text-editor</code> receives the draft through <code>[(value)]</code> and owns the editing tools. Its header projects a native <code>form goodForm</code> with GoodUI fields; its footer projects GoodUI actions. The example validates recipient and subject locally. Sending requires an application mail service.</good-paragraph>
+      <good-paragraph><good-link route="/examples/mail-compose">Open Compose mail</good-link> and edit the draft. The <good-link route="/components/rich-text-editor">Rich text editor</good-link> chapter explains its formatting features, HTML value, and feature selection.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section>
+    <good-subheading>Use this case study</good-subheading>
+    <good-prose>
+      <good-paragraph>Use the Webmailer when designing or implementing a related workflow. Read the relevant screen and its source first, then consult the component chapters for exact APIs. If the workflow exposes a missing capability, add it to the generic GoodUI component and update the case study to show its use. Other case studies need no review unless their behavior is affected.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>
