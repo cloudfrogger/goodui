@@ -2,7 +2,7 @@
 .good-rich-editor-shell{border:1px solid var(--good-color-border);border-radius:var(--good-radius-card,12px);background:var(--good-color-surface);overflow:clip}
 .good-rich-editor-shell:focus-within{border-color:var(--good-color-brand);box-shadow:0 0 0 2px color-mix(in srgb,var(--good-color-brand) 14%,transparent)}
 .good-rich-editor-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:8px;border-bottom:1px solid var(--good-color-border);background:var(--good-color-surface,var(--good-color-surface))}
-.good-rich-editor-tools{display:flex;align-items:center;gap:2px}.good-rich-editor-divider{height:24px;width:1px;background:var(--good-color-border);margin:0 3px}.good-rich-editor-format{min-width:94px}.good-rich-editor-font{max-width:156px}.good-rich-editor-font-size{width:124px}.good-rich-editor-spacer{flex:1}
+.good-rich-editor-tools{display:flex;align-items:center;gap:2px}.good-rich-editor-divider{height:24px;width:1px;background:var(--good-color-border);margin:0 3px}.good-rich-editor-format{min-width:94px}.good-rich-editor-font{max-width:156px}.good-rich-editor-font-size[data-full-width="false"]{width:124px}.good-rich-editor-spacer{flex:1}
 .good-rich-editor-workspace{display:flex;position:relative;min-height:0}.good-rich-editor-canvas{flex:1;min-width:0;overflow:auto}
 .good-rich-editor-content{outline:0;padding:24px;line-height:1.6;overflow-wrap:anywhere;max-height:70vh}.good-rich-editor-content:empty:before{content:'Start writing…';color:var(--good-color-muted);pointer-events:none}
 .good-rich-editor-content>*:first-child{margin-top:0}.good-rich-editor-content>*:last-child{margin-bottom:0}.good-rich-editor-content p{margin:0 0 1em}

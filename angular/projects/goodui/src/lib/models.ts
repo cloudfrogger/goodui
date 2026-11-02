@@ -9,6 +9,8 @@ export interface GoodNavItem {
   label: string;
   icon?: GoodIconName;
   route?: string;
+  /** Use exact for an overview route that is also the prefix of sibling pages. */
+  activeMatch?: 'exact' | 'prefix';
   badge?: string;
   children?: readonly GoodNavItem[];
   disabled?: boolean;
@@ -94,14 +96,14 @@ export type GoodIconName =
   | 'chevron-right' | 'sun' | 'moon' | 'monitor' | 'grid' | 'logout'
   | 'calendar' | 'question' | 'card' | 'book' | 'contact' | 'star' | 'message' | 'globe' | 'check';
 
-export function goodRouteActive(route: string | undefined, current: string): boolean {
+export function goodRouteActive(route: string | undefined, current: string, activeMatch: 'exact' | 'prefix' = 'prefix'): boolean {
   if (!route) return false;
   const normalized = route === '/' ? '/' : route.replace(/\/$/, '');
-  return current === normalized || (normalized !== '/' && current.startsWith(`${normalized}/`));
+  return current === normalized || (activeMatch === 'prefix' && normalized !== '/' && current.startsWith(`${normalized}/`));
 }
 
 export function goodItemContainsRoute(item: GoodNavItem, current: string): boolean {
-  return goodRouteActive(item.route, current) || !!item.children?.some(child => goodItemContainsRoute(child, current));
+  return goodRouteActive(item.route, current, item.activeMatch) || !!item.children?.some(child => goodItemContainsRoute(child, current));
 }
 
 export function goodTopbarItemContainsRoute(item: GoodTopbarItem, current: string): boolean {

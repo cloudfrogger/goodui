@@ -10,10 +10,12 @@
 
 `size` accepts `small`, `default`, or `large`, matching Input heights of 32, 40, and 48 px. `disabled` blocks editing and stepping, including when Angular Forms disables the control. The buttons stop at the configured bounds. `label`, `showLabel`, `name`, `inputId`, and `describedBy` provide the same labeling pattern as other GoodUI inputs. `icon` accepts any Lucide icon data; the icon is decorative and the numeric input keeps its accessible label.
 
+The field fills its parent's available width by default, like other GoodUI form inputs. Set `[fullWidth]="false"` for a compact stepper in a toolbar or another inline setting. Size still controls its height, icon size, and compact center width.
+
 Click the center to edit with the keyboard. Enter commits, Escape restores the prior value, and Arrow Up/Down use the configured step. A typed number is clamped to the bounds on blur. Empty or invalid text leaves the previous value in place. The component implements `ControlValueAccessor` with a numeric value, so use either `[(value)]` or Angular Forms as the source of truth.
 
 On value changes, digits slide upward with a brief brightness flicker. `prefers-reduced-motion: reduce` removes the animation. The displayed number is decorative; assistive technology reads the native numeric input and the labeled buttons.
 
 ## Design mapping
 
-The `goodui.number-input` Penpot family maps to `good-number-input`. Size and disabled status are visual variants. Bounds, step, value, and the choice of Lucide icon remain runtime inputs. The control reuses Input surface, border, focus, and height tokens in both themes.
+The `goodui.number-input` Penpot family maps to `good-number-input`. Size and disabled status are visual variants. Bounds, step, value, width behavior, and the choice of Lucide icon remain runtime inputs. Penpot specimens show the compact width; Angular fills the parent by default. The control reuses Input surface, border, focus, and height tokens in both themes.

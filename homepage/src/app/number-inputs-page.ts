@@ -10,7 +10,7 @@ import { GoodCodeBlockComponent, GoodMainViewComponent, GoodNumberInputComponent
   template: `
     <good-main-view title="Number inputs" description="Animated stepping with editable values, bounds, and optional Lucide icons.">
       <section class="showcase-section">
-        <div class="showcase-section-heading"><h2>Sizes and disabled state</h2><p>Minus and plus move by one. Click a number to type it directly.</p></div>
+        <div class="showcase-section-heading"><h2>Sizes and disabled state</h2><p>The stepper fills its available width by default. Minus and plus move by one; click a number to type it directly.</p></div>
         <div class="showcase-rating-list">
           @for (size of sizes; track size) {
             <div class="showcase-rating-example">
@@ -28,10 +28,11 @@ import { GoodCodeBlockComponent, GoodMainViewComponent, GoodNumberInputComponent
           <div class="showcase-rating-example"><strong>Fractional steps</strong><good-number-input label="Rate" [showLabel]="true" [value]="1.5" [min]="0" [max]="3" [step]="0.25" [icon]="gaugeIcon" /></div>
           <div class="showcase-rating-example"><strong>Negative range</strong><good-number-input label="Balance" [showLabel]="true" [value]="-2" [min]="-10" [step]="2" [icon]="coinsIcon" /></div>
           <div class="showcase-rating-example"><strong>Form control</strong><good-number-input label="Seats" [showLabel]="true" [max]="12" [formControl]="seats" /><span>Value: {{ seats.value }}</span></div>
+          <div class="showcase-rating-example"><strong>Compact</strong><good-number-input label="Toolbar quantity" [showLabel]="true" [fullWidth]="false" [value]="2" /><span>Set <code>[fullWidth]="false"</code> for inline tools.</span></div>
         </div>
       </section>
       <section class="showcase-section">
-        <div class="showcase-section-heading"><h2>Angular usage</h2><p>The numeric value supports two-way binding and Reactive Forms.</p></div>
+        <div class="showcase-section-heading"><h2>Angular usage</h2><p>The numeric value supports two-way binding and Reactive Forms. Use compact width only when the context calls for it.</p></div>
         <good-code-block [code]="usageCode" language="html" [lineNumbers]="true" />
       </section>
     </good-main-view>
@@ -45,5 +46,6 @@ export class NumberInputsPageComponent {
   readonly usageCode = `<good-number-input label="Seats" [showLabel]="true"
   [min]="0" [max]="12" [step]="1" [formControl]="seats" />
 <good-number-input label="Rate" [step]="0.25" [icon]="gaugeIcon"
-  [(value)]="rate" />`;
+  [(value)]="rate" />
+<good-number-input label="Toolbar quantity" [fullWidth]="false" />`;
 }

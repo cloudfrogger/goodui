@@ -1,5 +1,5 @@
 <good-main-view layout="fill">
-  <good-assistant-panel label="Order summary" [(open)]="summaryOpen">
+  <good-assistant-panel label="Order summary" appearance="soft" [(open)]="summaryOpen">
     <good-assistant-main>
       <good-section>
         <good-prose>
@@ -131,6 +131,11 @@
               <good-input [label]="'Server ' + (index + 1) + ' name'" [showLabel]="true" [required]="true"
                 [value]="nameFor(index)" (valueChange)="setName(index, $event)" />
             }
+            @if (error()) { <good-alert tone="destructive" title="Check your configuration" [message]="error()" /> }
+            <good-action-group orientation="responsive">
+              <good-button (click)="create()">Create {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-button>
+              <good-button variant="outline" (click)="cancel()">Cancel</good-button>
+            </good-action-group>
           </good-group>
         </good-timeline-section>
       </good-timeline>
@@ -138,36 +143,43 @@
 
     <good-assistant-header><good-subheading [level]="2">Order summary</good-subheading></good-assistant-header>
     <good-assistant-body>
-        <good-prose>
-          <good-paragraph><strong>{{ selectedPlan().name }}</strong> · {{ selectedPlan().vcpus }} vCPUs · {{ selectedPlan().memoryGb }} GB RAM · {{ selectedPlan().diskGb }} GB SSD · {{ selectedPlan().category === 'cost' ? architecture() : 'x86' }}</good-paragraph>
-          <good-paragraph><strong>Location:</strong> {{ location() }} · {{ zone() }}</good-paragraph>
-          <good-paragraph><strong>Image:</strong> {{ imageLabel() }}</good-paragraph>
-          <good-paragraph><strong>Network:</strong> {{ ipv4() ? 'IPv4 ' : '' }}{{ ipv6() ? 'IPv6 ' : '' }}{{ privateNetwork() ? 'private' : '' }}</good-paragraph>
-          <good-paragraph><strong>SSH keys:</strong> {{ selectedKeyIds().length }}</good-paragraph>
-          <good-paragraph><strong>Extras:</strong> {{ volumeEnabled() ? volumeSize() + ' GB volume · ' : '' }}{{ backups() ? 'backups · ' : '' }}{{ firewall() || 'no firewall' }}</good-paragraph>
-          <good-number-input label="Number of servers" [showLabel]="true" [min]="1" [max]="5" [(value)]="quantity" />
-          <good-paragraph>Plan: {{ euro(selectedPlan().monthlyPrice) }} / month · IPv4: {{ euro(ipv4() ? 0.5 : 0) }} / month</good-paragraph>
-          @if (locationSurcharge()) { <good-paragraph>Location: {{ euro(locationSurcharge()) }} / month</good-paragraph> }
-          @if (volumeEnabled()) { <good-paragraph>Volume: {{ euro(volumePrice()) }} / month</good-paragraph> }
-          @if (backups()) { <good-paragraph>Backups: {{ euro(backupPrice()) }} / month</good-paragraph> }
-        </good-prose>
+      <good-prose>
+        <good-subheading [level]="3">{{ selectedPlan().name }}</good-subheading>
+        <good-paragraph>{{ selectedPlan().vcpus }} vCPUs · {{ selectedPlan().memoryGb }} GB RAM · {{ selectedPlan().diskGb }} GB SSD · {{ selectedPlan().category === 'cost' ? architecture() : 'x86' }}</good-paragraph>
+        <good-detail-list>
+          <div goodDetailRow><dt>Location</dt><dd>{{ location() }} · {{ zone() }}</dd></div>
+          <div goodDetailRow><dt>Image</dt><dd>{{ imageLabel() }}</dd></div>
+          <div goodDetailRow><dt>Network</dt><dd>{{ ipv4() ? 'IPv4 ' : '' }}{{ ipv6() ? 'IPv6 ' : '' }}{{ privateNetwork() ? 'private' : '' }}</dd></div>
+          <div goodDetailRow><dt>SSH keys</dt><dd>{{ selectedKeyIds().length }}</dd></div>
+          @if (volumeEnabled()) { <div goodDetailRow><dt>Volume</dt><dd>{{ volumeSize() }} GB</dd></div> }
+          @if (backups()) { <div goodDetailRow><dt>Backups</dt><dd>Daily</dd></div> }
+          <div goodDetailRow><dt>Firewall</dt><dd>{{ firewall() || 'None' }}</dd></div>
+        </good-detail-list>
+        <good-separator variant="line" />
+        <good-number-input label="Number of servers" [showLabel]="true" [min]="1" [max]="5" [(value)]="quantity" />
+        <good-subheading [level]="3">Monthly estimate</good-subheading>
+        <good-detail-list>
+          <div goodDetailRow><dt>{{ selectedPlan().name }} × {{ quantity() }}</dt><dd>{{ euro(selectedPlan().monthlyPrice * quantity()) }}</dd></div>
+          @if (ipv4()) { <div goodDetailRow><dt>IPv4 × {{ quantity() }}</dt><dd>{{ euro(0.5 * quantity()) }}</dd></div> }
+          @if (locationSurcharge()) { <div goodDetailRow><dt>Location × {{ quantity() }}</dt><dd>{{ euro(locationSurcharge() * quantity()) }}</dd></div> }
+          @if (volumeEnabled()) { <div goodDetailRow><dt>Volume × {{ quantity() }}</dt><dd>{{ euro(volumePrice() * quantity()) }}</dd></div> }
+          @if (backups()) { <div goodDetailRow><dt>Backups × {{ quantity() }}</dt><dd>{{ euro(backupPrice() * quantity()) }}</dd></div> }
+        </good-detail-list>
+      </good-prose>
     </good-assistant-body>
     <good-assistant-footer>
         <good-prose>
-          <good-subheading [level]="3">{{ euro(totalPrice()) }} / month</good-subheading>
-          <good-paragraph>{{ euro(totalPrice() / 720) }} / hour estimated. Prices are illustrative and exclude tax.</good-paragraph>
-          @if (error()) { <good-alert tone="destructive" title="Check your configuration" [message]="error()" /> }
-          <good-action-group orientation="responsive">
-            <good-button (click)="create()">Create {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-button>
-            <good-button variant="outline" (click)="cancel()">Cancel</good-button>
-          </good-action-group>
+          <good-heading-group>
+            <good-eyebrow>Estimated total</good-eyebrow>
+            <good-heading [level]="3">{{ euro(totalPrice()) }} / month</good-heading>
+          </good-heading-group>
+          <good-hint>{{ euro(totalPrice() / 720) }} / hour estimated. Prices are illustrative and exclude tax.</good-hint>
           <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
         </good-prose>
     </good-assistant-footer>
     <good-assistant-mobile>
       <good-paragraph><strong>{{ selectedPlan().name }}</strong> · {{ location() }} · {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-paragraph>
       <good-subheading [level]="3">{{ euro(totalPrice()) }} / month</good-subheading>
-      <good-button size="small" (click)="create()">Create {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-button>
     </good-assistant-mobile>
   </good-assistant-panel>
 </good-main-view>

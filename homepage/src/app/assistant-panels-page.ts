@@ -10,7 +10,7 @@ import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantH
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view layout="fill" title="Assistant panel" description="A contextual companion beside a full-height workspace.">
-      <good-assistant-panel label="Document details" [hideOnMobile]="hideMobile()" [(open)]="panelOpen">
+      <good-assistant-panel label="Document details" [appearance]="softSurface() ? 'soft' : 'default'" [hideOnMobile]="hideMobile()" [(open)]="panelOpen">
         <good-assistant-main>
           <good-section>
             <good-group title="A workspace with context" appearance="plain">
@@ -18,6 +18,7 @@ import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantH
               <good-button variant="outline" (click)="selected.set('Project brief')">Project brief</good-button>
               <good-button variant="outline" (click)="selected.set('Release notes')">Release notes</good-button>
               <good-button variant="outline" (click)="toggleMobile()">{{ hideMobile() ? 'Show' : 'Hide' }} mobile companion</good-button>
+              <good-button variant="outline" (click)="softSurface.update(value => !value)">{{ softSurface() ? 'Use open surface' : 'Use soft surface' }}</good-button>
               <good-code-block [code]="drawerCode" language="html" title="Default right drawer" />
             </good-group>
           </good-section>
@@ -34,7 +35,8 @@ import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantH
           </good-section>
           <good-section>
             <good-group title="Options" appearance="plain">
-              <good-paragraph><code>hideOnMobile</code> removes the companion and launcher on small screens. <code>width</code> changes the desktop width from its 300px default. <code>[(open)]</code> controls the mobile overlay; Escape, the backdrop, and the close button dismiss it. Use <code>padding="none"</code> on <code>good-assistant-main</code> only for edge-to-edge content.</good-paragraph>
+              <good-paragraph><code>appearance="soft"</code> places the companion on a subtly tinted, borderless card. It uses the theme-aware <code>color.selected</code> token and keeps its shape in the mobile drawer or bottom dock. The default remains an open surface. <code>hideOnMobile</code> removes the companion and launcher on small screens. <code>width</code> changes the desktop width from its 300px default. <code>[(open)]</code> controls the mobile overlay; Escape, the backdrop, and the close button dismiss it. Use <code>padding="none"</code> on <code>good-assistant-main</code> only for edge-to-edge content.</good-paragraph>
+              <good-code-block [code]="softCode" language="html" title="Soft assistant surface" />
               <good-code-block [code]="hiddenCode" language="html" title="Hide the companion on mobile" />
             </good-group>
           </good-section>
@@ -52,6 +54,7 @@ import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantH
 export class AssistantPanelsPageComponent {
   readonly panelOpen = signal(false);
   readonly hideMobile = signal(false);
+  readonly softSurface = signal(false);
   toggleMobile(): void { this.hideMobile.update(value => !value); this.panelOpen.set(false); }
   readonly selected = signal('Project brief');
   readonly drawerCode = `<good-main-view layout="fill">
@@ -72,5 +75,11 @@ export class AssistantPanelsPageComponent {
   readonly hiddenCode = `<good-assistant-panel label="Details" hideOnMobile>
   <good-assistant-main>Workspace</good-assistant-main>
   <good-assistant-body>Desktop-only details</good-assistant-body>
+</good-assistant-panel>`;
+  readonly softCode = `<good-assistant-panel label="Document details" appearance="soft">
+  <good-assistant-main>Primary workspace</good-assistant-main>
+  <good-assistant-header>Document details</good-assistant-header>
+  <good-assistant-body>Context and controls</good-assistant-body>
+  <good-assistant-footer>Actions</good-assistant-footer>
 </good-assistant-panel>`;
 }

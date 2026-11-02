@@ -49,6 +49,17 @@
       "penpotCount": 0
     },
     {
+      "selector": "div[goodDetailRow]",
+      "className": "GoodDetailRowDirective",
+      "file": "components/div-goodDetailRow.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodDetailRowDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
+    },
+    {
       "selector": "form[goodForm]",
       "className": "GoodFormDirective",
       "file": "components/form-goodForm.json",
@@ -178,7 +189,7 @@
         "symbol": "GoodAssistantPanelComponent"
       },
       "usageGuide": "guides/components/assistant-panel.md",
-      "penpotCount": 3
+      "penpotCount": 4
     },
     {
       "selector": "good-avatar-menu",
@@ -377,6 +388,17 @@
       },
       "usageGuide": "guides/components/date-input.md",
       "penpotCount": 5
+    },
+    {
+      "selector": "good-detail-list",
+      "className": "GoodDetailListComponent",
+      "file": "components/good-detail-list.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodDetailListComponent"
+      },
+      "usageGuide": "guides/components/detail-list.md",
+      "penpotCount": 1
     },
     {
       "selector": "good-dropdown",

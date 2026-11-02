@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { Router } from '@angular/router';
 import {
   GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
-  GoodCodeBlockComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
+  GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodFormRowComponent, GoodGroupComponent, GoodHeadingGroupComponent, GoodHintComponent, GoodInputComponent,
   GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodListboxItem, GoodMainViewComponent,
   GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
   GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
   GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
-  GoodRadioGroupComponent, GoodRadioOption, GoodSectionComponent, GoodSelectComponent, GoodSelectOption, GoodSelectValue, GoodSubheadingComponent, GoodTableColumn,
+  GoodRadioGroupComponent, GoodRadioOption, GoodSectionComponent, GoodSelectComponent, GoodSelectOption, GoodSelectValue, GoodSeparatorComponent, GoodSubheadingComponent, GoodTableColumn,
   GoodTableComponent, GoodTabComponent, GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent,
 } from '@goodui/angular';
 import { VPS_PLANS, VpsCaseStudyStore, VpsPlan } from './vps-store';
@@ -24,12 +24,12 @@ const imageVersions: Record<string, readonly string[]> = {
   selector: 'example-vps-create-server-page',
   standalone: true,
   imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
-    GoodCodeBlockComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
+    GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodFormRowComponent, GoodGroupComponent, GoodHeadingGroupComponent, GoodHintComponent, GoodInputComponent,
     GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent,
     GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
     GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
     GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
-    GoodRadioGroupComponent, GoodSectionComponent, GoodSelectComponent, GoodSubheadingComponent, GoodTableComponent, GoodTabComponent,
+    GoodRadioGroupComponent, GoodSectionComponent, GoodSelectComponent, GoodSeparatorComponent, GoodSubheadingComponent, GoodTableComponent, GoodTabComponent,
     GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './create-server-page.html',

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, computed, effect, forwardRef, input, model, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, booleanAttribute, computed, effect, forwardRef, input, model, signal } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 import { LucideDynamicIcon, LucideMinus, LucidePlus } from '@lucide/angular';
 import { GoodButtonIcon } from './models';
@@ -12,7 +12,7 @@ let nextNumberInputId = 0;
   standalone: true,
   imports: [LucideDynamicIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-number-input' },
+  host: { class: 'good-number-input', '[attr.data-full-width]': 'fullWidth()' },
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => GoodNumberInputComponent), multi: true },
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => GoodNumberInputComponent), multi: true },
@@ -62,6 +62,7 @@ export class GoodNumberInputComponent implements ControlValueAccessor, Validator
   readonly max = input(Infinity);
   readonly step = input(1);
   readonly size = input<GoodNumberInputSize>('default');
+  readonly fullWidth = input(true, { transform: booleanAttribute });
   readonly disabled = input(false);
   readonly icon = input<GoodButtonIcon>();
   readonly label = input('Number');

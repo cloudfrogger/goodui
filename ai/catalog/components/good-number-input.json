@@ -61,6 +61,15 @@
       "kind": "input"
     },
     {
+      "name": "fullWidth",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/number-input.ts",
+      "kind": "input"
+    },
+    {
       "name": "disabled",
       "type": "boolean",
       "required": false,

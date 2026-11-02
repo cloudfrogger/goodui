@@ -128,6 +128,31 @@
       </div>
     </section>
 
+    <section class="showcase-section" id="detail-list">
+      <div class="showcase-section-heading"><h2>Detail lists</h2><p>Use <code>good-detail-list</code> for compact label/value pairs in summaries, settings, and price breakdowns. It keeps the labels on the left and the values aligned on the right, even in a narrow panel.</p></div>
+      <good-section>
+        <good-prose>
+          <good-paragraph>Each <code>div goodDetailRow</code> contains one native <code>dt</code> for the label and one <code>dd</code> for the value. Add rows with ordinary Angular template control flow. The list has no inputs or outputs; its content is yours.</good-paragraph>
+          <good-paragraph>The list spaces its rows. Put it inside <code>good-prose</code> when it sits beside a heading, text, or a form control; the parent then owns the spacing around the list.</good-paragraph>
+        </good-prose>
+        <div class="showcase-typography-recipes">
+          <div class="showcase-typography-recipe">
+            <div class="showcase-typography-preview">
+              <strong>Configuration summary</strong>
+              <good-detail-list>
+                <div goodDetailRow><dt>Storage</dt><dd>320 GB SSD</dd></div>
+                <div goodDetailRow><dt>Location</dt><dd>Helsinki</dd></div>
+                <div goodDetailRow><dt>Monthly price</dt><dd>€12.99</dd></div>
+              </good-detail-list>
+            </div>
+            <good-code-block [code]="detailListCode" language="html" title="Detail list · Angular template" />
+          </div>
+        </div>
+        <good-code-block [code]="detailListImportsCode" language="typescript" title="Import the list and row directive" />
+        <good-paragraph>For a prominent total, put a <code>good-heading-group</code> after the price rows. The VPS create case study uses this composition in its Order Summary.</good-paragraph>
+      </good-section>
+    </section>
+
     <section class="showcase-section" id="text-columns">
       <div class="showcase-section-heading"><h2>Text columns</h2><p>Choose two, three, or four columns. GoodUI stacks them as space narrows and keeps each column's headings and paragraphs in the usual text rhythm. Visibility follows the width of this container.</p></div>
       <good-section>

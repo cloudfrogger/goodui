@@ -42,11 +42,12 @@ export class GoodSidebarSubmenuItemComponent {
   readonly label = input('');
   readonly route = input<string | undefined>();
   readonly active = input(false);
+  readonly activeMatch = input<'exact' | 'prefix'>('prefix');
   readonly activeRoute = input('');
   readonly disabled = computed(() => this.item()?.disabled ?? false);
   readonly text = computed(() => this.item()?.label ?? this.label());
   readonly link = computed(() => this.item()?.route ?? this.route());
-  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.activeRoute()));
+  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.activeRoute(), this.item()?.activeMatch ?? this.activeMatch()));
 }
 
 @Component({
@@ -145,6 +146,7 @@ export class GoodSidebarItemComponent {
   readonly route = input<string | undefined>();
   readonly badge = input<string | undefined>();
   readonly active = input(false);
+  readonly activeMatch = input<'exact' | 'prefix'>('prefix');
   readonly expanded = input(false);
   readonly activeRoute = input('');
   readonly projectedGroups = contentChildren(GoodSidebarSubmenuGroupComponent);
@@ -154,7 +156,7 @@ export class GoodSidebarItemComponent {
   readonly iconName = computed(() => this.item()?.icon ?? this.icon());
   readonly link = computed(() => this.item()?.route ?? this.route());
   readonly badgeText = computed(() => this.item()?.badge ?? this.badge());
-  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.activeRoute()));
+  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.activeRoute(), this.item()?.activeMatch ?? this.activeMatch()));
   readonly initiallyOpen = computed(() => this.expanded() || (!!this.item() && goodItemContainsRoute(this.item()!, this.activeRoute())));
   readonly localOpen = signal<boolean | null>(null);
   readonly isOpen = computed(() => this.accordion

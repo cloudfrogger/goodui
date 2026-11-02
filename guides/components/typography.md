@@ -2,6 +2,20 @@
 
 GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.
 
+## Details and price breakdowns
+
+Use `good-detail-list` when labels and values need a stable reading order, such as metadata, settings, or a price breakdown. Each `div goodDetailRow` contains one native `dt` (label) and `dd` (value). GoodUI aligns the values, keeps numbers tabular, and lets long content wrap inside narrow panels. A parent such as `good-prose` owns the space before and after the list; the list owns the spacing between rows.
+
+```html
+<good-detail-list>
+  <div goodDetailRow><dt>Storage</dt><dd>320 GB SSD</dd></div>
+  <div goodDetailRow><dt>Location</dt><dd>{{ location }}</dd></div>
+  <div goodDetailRow><dt>Monthly price</dt><dd>{{ monthlyPrice }}</dd></div>
+</good-detail-list>
+```
+
+Import `GoodDetailListComponent` and `GoodDetailRowDirective` from `@goodui/angular`. Use a `good-subheading` for a section title and `good-separator variant="line"` when two related groups need a visual break. Put the emphasized total below the breakdown so individual rows remain easy to scan. The VPS create case study shows this composition in a narrow assistant panel.
+
 ## Page heading
 
 `good-heading-group` arranges an optional `good-eyebrow`, a `good-heading`, and an optional `good-summary`. Eyebrow defaults to the brand appearance, whose text color follows `color.accent` in both themes, and accepts `appearance="mono"`. The Summary uses 15 px text, weight 700, and 0.75 px letter spacing (0.05em at this fixed size) so it reads as a distinct lead-in above 14 px paragraphs without overpowering the title in multi-line copy. `good-heading` renders a real heading tag according to `level` (1–6, default 1). H1 uses 24 px and weight 800, with a 16 px gap below it when followed by Summary in a HeadingGroup or by page content in MainView; H2–H6 use 20 px and weight 600 with the compact 4 px gap. `good-main-view` already composes these elements for its `eyebrow`, `title`, and `description` inputs.

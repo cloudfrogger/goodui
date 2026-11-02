@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, booleanAttribute, contentChild, effect, input, signal, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Directive, booleanAttribute, contentChild, effect, input, signal, computed } from '@angular/core';
 import { GoodInputComponent } from './input';
 import { GoodCheckboxComponent } from './checkbox';
 import { GoodRadioGroupComponent } from './radio-group';
@@ -67,6 +67,21 @@ export class GoodSectionComponent {}
   host: { class: 'good-prose' }, template: `<ng-content />`,
 })
 export class GoodProseComponent {}
+
+/** A semantic label/value list for summaries, metadata, and price breakdowns. */
+@Component({
+  selector: 'good-detail-list', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-detail-list' },
+  template: `<dl><ng-content /></dl>`,
+})
+export class GoodDetailListComponent {}
+
+/** Place a native dt and dd inside this row to preserve description-list semantics. */
+@Directive({
+  selector: 'div[goodDetailRow]', standalone: true,
+  host: { class: 'good-detail-row' },
+})
+export class GoodDetailRowDirective {}
 
 @Component({
   selector: 'good-columns', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,

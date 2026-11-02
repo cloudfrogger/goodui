@@ -22,7 +22,7 @@ import {
 </good-main-view>
 ```
 
-`good-assistant-main` owns the primary content and its responsive inset. `padding="none"` removes the inset for a map or edge-to-edge canvas. The companion's header and footer remain in place while its body scrolls. All five sections accept arbitrary GoodUI content. The surface is open to the workspace: there is no dividing border.
+`good-assistant-main` owns the primary content and its responsive inset. `padding="none"` removes the inset for a map or edge-to-edge canvas. The companion's header and footer remain in place while its body scrolls. All five sections accept arbitrary GoodUI content. The default surface is open to the workspace. Set `appearance="soft"` to inset the companion as a rounded, borderless card on the existing theme-aware `color.selected` surface. The tint also follows the mobile drawer and bottom dock; no custom CSS or new color value is needed.
 
 ## Mobile choices
 
@@ -37,6 +37,7 @@ import {
 | Input or output | Default | Meaning |
 | --- | --- | --- |
 | `label` | `Assistant panel` | Accessible name for the companion and mobile controls. |
+| `appearance` | `default` | `default` is the open surface; `soft` is an inset card with a subtle background and no border. |
 | `width` | `300px` | Desktop companion width as a CSS length. |
 | `hideOnMobile` | `false` | Hide the companion and its mobile controls below the breakpoint. |
 | `[(open)]` | `false` | Programmatic and user-controlled mobile expansion. |
@@ -46,4 +47,4 @@ The [VPS hoster case study](../../homepage/src/app/examples/case-studies/vpshost
 
 The component page also shows an [illustration made from desktop and mobile screenshots](../../homepage/public/components/assistant-panel-dock.svg): the red arrow connects the full desktop summary to the shorter mobile dock. The source screenshots are in `homepage/artwork/`; regenerate the SVG with `node homepage/scripts/generate-assistant-panel-illustration.mjs` after changing that example.
 
-Penpot page `41 Assistant Panels` publishes desktop, mobile drawer, and mobile dock specimens and the five section families. Their live library IDs and Angular mapping are recorded in [assistant-panel-contract.json](../../design/assistant-panel-contract.json).
+Penpot page `41 Assistant Panels` publishes desktop, soft desktop, mobile drawer, and mobile dock specimens and the five section families. Their live library IDs and Angular mapping are recorded in [assistant-panel-contract.json](../../design/assistant-panel-contract.json).

@@ -23,7 +23,7 @@
     { "id": "9ec30947-b9fa-809b-8008-db1f058121cf", "size": "large", "status": "disabled", "icon": "no" },
     { "id": "9ec30947-b9fa-809b-8008-db1f0b50f528", "size": "large", "status": "disabled", "icon": "yes" }
   ],
-  "runtimeInputs": ["value", "min", "max", "step", "icon", "label", "disabled"],
+  "runtimeInputs": ["value", "min", "max", "step", "icon", "label", "disabled", "fullWidth"],
   "animation": "Digits move upward on value change; reduced-motion users see a static value",
   "linkedIcons": ["minus", "plus", "gauge"],
   "tokenBindings": {

@@ -135,12 +135,12 @@ export class App {
       { id: 'server-error-example', label: '500 · Server error', icon: 'question', route: '/500' },
       { id: 'case-studies', label: 'Case studies', icon: 'book', children: [
         { id: 'webmailer-case-study', label: 'Webmailer', children: [
-          { id: 'webmailer-overview', label: 'Overview', route: '/examples/case-studies/webmailer' },
+          { id: 'webmailer-overview', label: 'Overview', route: '/examples/case-studies/webmailer', activeMatch: 'exact' },
           { id: 'mail-workspace-example', label: 'Mail workspace', route: '/examples/mail-workspace' },
           { id: 'mail-compose-example', label: 'Compose mail', route: '/examples/mail-compose' },
         ] },
         { id: 'vpshoster-case-study', label: 'VPS hoster', children: [
-          { id: 'vpshoster-overview', label: 'Overview', route: '/examples/case-studies/vpshoster' },
+          { id: 'vpshoster-overview', label: 'Overview', route: '/examples/case-studies/vpshoster', activeMatch: 'exact' },
           { id: 'vpshoster-servers', label: 'Servers', route: '/examples/case-studies/vpshoster/servers' },
           { id: 'vpshoster-create', label: 'Create servers', route: '/examples/case-studies/vpshoster/create' },
         ] },

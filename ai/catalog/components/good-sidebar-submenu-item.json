@@ -48,6 +48,18 @@
       "kind": "input"
     },
     {
+      "name": "activeMatch",
+      "type": "\"exact\" | \"prefix\"",
+      "required": false,
+      "default": "prefix",
+      "allowedValues": [
+        "exact",
+        "prefix"
+      ],
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    },
+    {
       "name": "activeRoute",
       "type": "string",
       "required": false,
@@ -58,7 +70,12 @@
     }
   ],
   "outputs": [],
-  "variants": {},
+  "variants": {
+    "activeMatch": [
+      "exact",
+      "prefix"
+    ]
+  },
   "composition": {
     "projectedContent": [],
     "relatedSelectors": [],

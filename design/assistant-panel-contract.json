@@ -4,6 +4,7 @@
   "selector": "good-assistant-panel",
   "published": [
     { "name": "goodui.assistant-panel.desktop", "componentId": "1b6260d7-e591-805d-8008-e2774236ab8a", "shapeId": "1b6260d7-e591-805d-8008-e27741b06925", "state": "desktop" },
+    { "name": "goodui.assistant-panel.soft", "componentId": "1b6260d7-e591-805d-8008-e2cd39a2f594", "shapeId": "1b6260d7-e591-805d-8008-e2cd276f926e", "appearance": "soft", "state": "desktop" },
     { "name": "goodui.assistant-panel.mobile-drawer", "componentId": "1b6260d7-e591-805d-8008-e27742a1a718", "shapeId": "1b6260d7-e591-805d-8008-e2774237ccad", "state": "mobile-drawer" },
     { "name": "goodui.assistant-panel.mobile-bottom", "componentId": "1b6260d7-e591-805d-8008-e27743170a3a", "shapeId": "1b6260d7-e591-805d-8008-e27742a2d981", "state": "mobile-bottom" },
     { "name": "goodui.assistant-main", "componentId": "1b6260d7-e591-805d-8008-e27e5f0668f4", "shapeId": "1b6260d7-e591-805d-8008-e27e5ec1c841", "selector": "good-assistant-main" },
@@ -12,8 +13,8 @@
     { "name": "goodui.assistant-footer", "componentId": "1b6260d7-e591-805d-8008-e27e5f7e9f34", "shapeId": "1b6260d7-e591-805d-8008-e27e5f55721b", "selector": "good-assistant-footer" },
     { "name": "goodui.assistant-mobile", "componentId": "1b6260d7-e591-805d-8008-e27e5fc41ffd", "shapeId": "1b6260d7-e591-805d-8008-e27e5f804e1f", "selector": "good-assistant-mobile" }
   ],
-  "runtimeInputs": ["label", "width", "hideOnMobile", "open"],
+  "runtimeInputs": ["label", "appearance", "width", "hideOnMobile", "open"],
   "runtimeOutputs": ["openChange"],
   "projectionSlots": ["good-assistant-main", "good-assistant-header", "good-assistant-body", "good-assistant-footer", "good-assistant-mobile"],
-  "notes": "Desktop is the standard layout. Without good-assistant-mobile, a mobile button opens the full companion from the right. With it, the caller-supplied preview docks at the bottom and opens a bottom sheet. hideOnMobile removes the companion. The main section owns responsive padding; no fixed pixel height is required. Colors bind to shared layout tokens."
+  "notes": "Desktop is the standard layout. appearance=soft insets the companion as a borderless rounded card with the theme-aware color.selected fill; the open surface remains the default. Without good-assistant-mobile, a mobile button opens the full companion from the right. With it, the caller-supplied preview docks at the bottom and opens a bottom sheet. hideOnMobile removes the companion. The main section owns responsive padding; no fixed pixel height is required. Colors bind to shared layout tokens."
 }

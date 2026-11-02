@@ -27,6 +27,7 @@
     "column",
     "columns",
     "date-input",
+    "detail-list",
     "citation",
     "dropdown",
     "expandable",
@@ -542,6 +543,13 @@
       "angularSelector": "good-date-input",
       "kind": "internal-part",
       "owner": "goodui.date-input",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.detail-list",
+      "penpotId": "1b6260d7-e591-805d-8008-e2d28e329f5a",
+      "angularSelector": "good-detail-list",
+      "kind": "component",
       "state": null
     },
     {
@@ -1940,6 +1948,13 @@
       "angularSelector": "good-assistant-panel",
       "kind": "component",
       "state": "desktop"
+    },
+    {
+      "penpotName": "goodui.assistant-panel.soft",
+      "penpotId": "1b6260d7-e591-805d-8008-e2cd39a2f594",
+      "angularSelector": "good-assistant-panel",
+      "kind": "component",
+      "state": "soft"
     },
     {
       "penpotName": "goodui.assistant-panel.mobile-drawer",

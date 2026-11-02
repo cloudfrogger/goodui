@@ -22,7 +22,7 @@
     <good-select-font class="good-rich-editor-font" size="small" label="Font family" [value]="fontFamily()" (fontSelected)="fontFamilyChanged($event)" [disabled]="isDisabled() || readonly()" />
     }
     @if (hasFeature('fontsize')) {
-    <good-number-input class="good-rich-editor-font-size" size="small" label="Font size in pixels" [min]="8" [max]="72" [step]="1" [value]="fontSize()" (valueChange)="fontSizeChanged($event)" [disabled]="isDisabled() || readonly()" />
+    <good-number-input class="good-rich-editor-font-size" size="small" label="Font size in pixels" [fullWidth]="false" [min]="8" [max]="72" [step]="1" [value]="fontSize()" (valueChange)="fontSizeChanged($event)" [disabled]="isDisabled() || readonly()" />
     }
     @if (hasFeature('bold') || hasFeature('italic') || hasFeature('underline')) {
     @if (hasFeature('undo') || hasFeature('redo') || formatItems().length || hasFeature('fontfamily') || hasFeature('fontsize')) {

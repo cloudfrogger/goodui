@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
-  GoodCitationComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodErrorTextComponent, GoodEyebrowComponent,
+  GoodCitationComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodErrorTextComponent, GoodEyebrowComponent,
   GoodFieldLabelComponent, GoodFormFieldComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodHintComponent, GoodInlineImageComponent, GoodInputComponent, GoodMainViewComponent,
   GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSeparatorComponent, GoodSubheadingComponent,
@@ -12,7 +12,7 @@ import {
   standalone: true,
   imports: [GoodMainViewComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent,
     GoodSummaryComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodSubheadingComponent,
-    GoodCitationComponent, GoodColumnComponent, GoodColumnsComponent, GoodSeparatorComponent, GoodInlineImageComponent, GoodFormFieldComponent,
+    GoodCitationComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodSeparatorComponent, GoodInlineImageComponent, GoodFormFieldComponent,
     GoodFieldLabelComponent, GoodHintComponent, GoodErrorTextComponent, GoodInputComponent, GoodCodeBlockComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/typography.html',
@@ -49,6 +49,23 @@ export class TypographyPageComponent {
   <good-paragraph>GoodUI gives paragraphs a consistent reading rhythm.</good-paragraph>
   <good-paragraph>Place related paragraphs directly inside a prose container.</good-paragraph>
 </good-prose>`;
+
+  readonly detailListCode = `<good-detail-list>
+  <div goodDetailRow><dt>Storage</dt><dd>320 GB SSD</dd></div>
+  <div goodDetailRow><dt>Location</dt><dd>Helsinki</dd></div>
+  <div goodDetailRow><dt>Monthly price</dt><dd>€12.99</dd></div>
+</good-detail-list>`;
+
+  readonly detailListImportsCode = `import { Component } from '@angular/core';
+import { GoodDetailListComponent, GoodDetailRowDirective } from '@goodui/angular';
+
+@Component({
+  selector: 'app-details',
+  standalone: true,
+  imports: [GoodDetailListComponent, GoodDetailRowDirective],
+  templateUrl: './details.html',
+})
+export class DetailsComponent {}`;
 
   readonly twoColumnCode = `<good-columns>
   <good-column>

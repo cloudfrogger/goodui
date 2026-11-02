@@ -24,7 +24,7 @@ The homepage's Account / Get Started navigation shows two expansion levels. Good
 </good-sidebar-container>
 ```
 
-For most apps, `good-app-layout` builds the same structure from `sidebarSections`. A section has `id`, optional `heading`, and `items`. Each item has `id`, `label`, and optional `icon`, `badge`, `disabled`, `route`, or recursive `children`. GoodUI calculates spacing, indentation, guide lines, and scroll height.
+For most apps, `good-app-layout` builds the same structure from `sidebarSections`. A section has `id`, optional `heading`, and `items`. Each item has `id`, `label`, and optional `icon`, `badge`, `disabled`, `route`, or recursive `children`. GoodUI calculates spacing, indentation, guide lines, and scroll height. Route matching uses the route and its descendants by default. Set `activeMatch: 'exact'` on an overview item whose URL is also the prefix of sibling pages; then only that exact URL is marked active. The same choice is available as `activeMatch="exact"` on a directly declared sidebar item.
 
 For a large catalog, use a small number of named parents instead of placing every page directly under the section heading. The homepage groups its component pages under Controls, Inputs, Content and data, Feedback, and Navigation. For example:
 

@@ -4,6 +4,7 @@ import { LucideChevronUp, LucidePanelRight, LucideX } from '@lucide/angular';
 import { GoodButtonComponent } from './button';
 
 export type GoodAssistantMainPadding = 'default' | 'none';
+export type GoodAssistantPanelAppearance = 'default' | 'soft';
 
 @Component({
   selector: 'good-assistant-main', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
@@ -54,6 +55,7 @@ let nextAssistantPanelId = 0;
   host: {
     class: 'good-assistant-panel',
     '[attr.data-mobile-mode]': 'mobileMode()',
+    '[attr.data-appearance]': 'appearance()',
     '[attr.data-open]': 'open()',
     '[style.--good-assistant-width]': 'width()',
   },
@@ -89,6 +91,7 @@ export class GoodAssistantPanelComponent {
   readonly panelId = `good-assistant-panel-${++nextAssistantPanelId}`;
 
   readonly label = input('Assistant panel');
+  readonly appearance = input<GoodAssistantPanelAppearance>('default');
   readonly width = input('300px');
   readonly hideOnMobile = input(false, { transform: booleanAttribute });
   readonly open = model(false);
