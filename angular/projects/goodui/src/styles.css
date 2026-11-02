@@ -57,9 +57,10 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 @container (min-width: 700px) and (max-width: 959.98px) { .good-column[data-visible-md="false"] { display: none; } }
 @container (min-width: 960px) and (max-width: 1279.98px) { .good-column[data-visible-lg="false"] { display: none; } }
 @container (min-width: 1280px) { .good-column[data-visible-xl="false"] { display: none; } }
-.good-paragraph { margin-block-end: var(--good-typography-paragraph-after-gap); }
-.good-prose > .good-paragraph { margin-block-end: 0; }
+.good-paragraph { margin: 0; }
 .good-prose > * + * { margin-block-start: var(--good-typography-flow-gap); }
+.good-prose > good-link + good-heading { margin-block-start: var(--good-space-4); }
+.good-prose > good-heading + good-paragraph { margin-block-start: var(--good-space-2); }
 .good-prose > * + good-subheading { margin-block-start: var(--good-typography-flow-section-gap); }
 .good-prose > good-subheading + good-paragraph { margin-block-start: var(--good-typography-paragraph-subheading-gap); }
 .good-prose > * + good-separator { margin-block-start: var(--good-typography-separator-before-gap); }
@@ -119,6 +120,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-group[data-appearance="plain"] .good-group-title { margin: 0 0 var(--good-group-heading-gap); padding: 0; background: transparent; }
 .good-group[data-appearance="contrast"] .good-group-title { margin: 0 0 var(--good-group-heading-gap); padding: 0; background: transparent; }
 .good-group-content { display: grid; gap: var(--good-group-gap); min-width: 0; }
+.good-group[data-spacing="tight"] > .good-group-frame > .good-group-content { gap: var(--good-space-1); }
 .good-expandable { display: block; width: 100%; min-width: 0; overflow: hidden; border: 1px solid var(--good-color-border); border-radius: var(--good-radius-card); background: var(--good-color-surface); color: var(--good-color-text); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-expandable-trigger { box-sizing: border-box; display: flex; align-items: center; gap: var(--good-space-4); width: 100%; min-height: 48px; padding: var(--good-space-3) var(--good-space-4); border: 0; background: transparent; color: inherit; text-align: left; font: inherit; font-size: 14px; font-weight: 600; line-height: 1.45; cursor: pointer; }
 .good-expandable-trigger:hover:not(:disabled) { background: var(--good-color-selected); }
@@ -130,7 +132,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-expandable[data-icon="caret"] .good-expandable-icon svg { fill: currentColor; stroke: none; }
 .good-expandable[data-expanded="true"] .good-expandable-icon-second { opacity: 0; }
 .good-expandable[data-expanded="true"]:is([data-icon="chevron"], [data-icon="arrow"], [data-icon="caret"]) .good-expandable-icon svg { transform: rotate(180deg); }
-.good-expandable-panel { min-width: 0; padding: var(--good-space-4); border-top: 1px solid var(--good-color-border); color: var(--good-color-text); }
+.good-expandable-panel { display: flex; flex-direction: column; gap: var(--good-space-4); min-width: 0; padding: var(--good-space-4); border-top: 1px solid var(--good-color-border); color: var(--good-color-text); }
 .good-expandable-panel[hidden] { display: none; }
 .good-expandable-panel > :first-child { margin-top: 0; }
 .good-expandable-panel > :last-child { margin-bottom: 0; }
@@ -200,7 +202,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-modal-header-copy { flex: 1 1 auto; min-width: 0; }
 .good-modal-title { margin: 0; color: var(--good-modal-foreground); font-size: 18px; font-weight: 600; line-height: 1.35; }
 .good-modal-description { margin: 4px 0 0; color: var(--good-modal-muted); font-size: 13px; line-height: 1.4; }
-.good-modal-body { box-sizing: border-box; flex: 1 1 auto; min-width: 0; min-height: 0; padding: var(--good-modal-body-padding-block) var(--good-modal-padding-inline); }
+.good-modal-body { box-sizing: border-box; display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--good-space-4); min-width: 0; min-height: 0; padding: var(--good-modal-body-padding-block) var(--good-modal-padding-inline); }
 .good-modal-body > :first-child { margin-top: 0; }
 .good-modal-body > :last-child { margin-bottom: 0; }
 .good-modal-footer-content { box-sizing: border-box; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: var(--good-modal-footer-gap); min-height: var(--good-modal-footer-min-height); padding: var(--good-modal-footer-padding-block) var(--good-modal-padding-inline); border-top: 1px solid var(--good-modal-border); background: var(--good-modal-footer-background); }
@@ -253,7 +255,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-link-control[aria-disabled="true"] { opacity: .45; cursor: not-allowed; text-decoration-line: none; }
 
 .good-card { display: block; min-width: 0; overflow: hidden; border: 1px solid var(--good-card-border); border-radius: var(--good-card-radius); background: var(--good-card-background); color: var(--good-card-body-color); }
-.good-card-body { padding: var(--good-card-body-padding-block) var(--good-card-padding-inline); }
+.good-card-body { display: flex; flex-direction: column; gap: var(--good-space-4); padding: var(--good-card-body-padding-block) var(--good-card-padding-inline); }
 .good-card-body > :first-child { margin-top: 0; }
 .good-card-body > :last-child { margin-bottom: 0; }
 .good-card-body > h2, .good-card-body > h3 { font-size: 16px; font-weight: 600; line-height: 1.4; }
@@ -933,7 +935,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-tabs-scroll-button:disabled { opacity: .4; cursor: not-allowed; }
 .good-tabs-content { min-width: 0; margin-top: 16px; }
 .good-tabs-content::after { content: ''; display: block; margin-top: 24px; border-bottom: 1px solid var(--good-border); }
-.good-tab-panel { display: block; min-width: 0; outline: none; }
+.good-tab-panel { display: flex; flex-direction: column; gap: var(--good-space-3); min-width: 0; outline: none; }
 .good-tab-panel[hidden] { display: none; }
 .good-tab-panel:focus-visible { outline: 2px solid var(--good-accent); outline-offset: 4px; border-radius: var(--good-radius-item); }
 .good-input-phone { display: block; width: 100%; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; color: var(--good-phone-foreground); }

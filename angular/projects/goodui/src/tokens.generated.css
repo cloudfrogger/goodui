@@ -396,7 +396,7 @@
   --good-group-radius: var(--good-radius-item);
   --good-group-padding-block: var(--good-space-5);
   --good-group-padding-inline: var(--good-space-6);
-  --good-group-gap: var(--good-space-5);
+  --good-group-gap: var(--good-space-4);
   --good-group-heading-gap: var(--good-space-2);
   --good-form-row-gap: var(--good-space-4);
   --good-image-input-size: 180px;

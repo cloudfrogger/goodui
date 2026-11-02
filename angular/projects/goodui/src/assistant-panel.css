@@ -4,7 +4,7 @@
 .good-assistant-surface { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; height: 100%; overflow: hidden; background: var(--good-canvas); }
 .good-assistant-header, .good-assistant-footer { display: block; flex: none; padding: var(--good-space-4); }
 .good-assistant-header > header, .good-assistant-footer > footer { display: flex; flex-direction: column; gap: var(--good-space-2); }
-.good-assistant-body { display: block; flex: 1; min-height: 0; overflow: auto; padding: 0 var(--good-space-4); }
+.good-assistant-body { display: flex; flex: 1; flex-direction: column; gap: var(--good-space-4); min-height: 0; overflow: auto; padding: 0 var(--good-space-4); }
 .good-assistant-backdrop, good-button.good-assistant-launcher, good-button.good-assistant-close, .good-assistant-dock { display: none; }
 @media (max-width: 700px) {
   .good-assistant-panel { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }

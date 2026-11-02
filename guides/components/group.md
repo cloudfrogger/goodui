@@ -1,6 +1,18 @@
 # Group and form row
 
-`good-group` collects related content without the visual weight of a Card. It owns padding and spacing between projected children. `appearance="outline"` (default) draws a quiet border and places an optional title in that border; `contrast` uses a soft theme-aware background; `plain` keeps the spacing with no surface. Set `title` to label the native `section`. `headingLevel` defaults to 2 and accepts 2, 3, or 4 so heading order remains correct. `headingId` can be set when a page needs a stable external reference. The title is omitted completely when empty.
+`good-group` collects related content without the visual weight of a Card. It owns padding and a 16 px gap between projected children. Paragraphs and controls contribute no outer spacing, so a paragraph, Checkbox, RadioGroup, Select, or FormRow can be substituted without doubling that gap. Checkbox and radio choices retain 44 px touch targets inside their own bounds. `appearance="outline"` (default) draws a quiet border and places an optional title in that border; `contrast` uses a soft theme-aware background; `plain` keeps the spacing with no surface. Set `title` to label the native `section`. `headingLevel` defaults to 2 and accepts 2, 3, or 4 so heading order remains correct. `headingId` can be set when a page needs a stable external reference. The title is omitted completely when empty.
+
+Use `spacing="tight"` for a cluster of full-height choices, such as several Checkboxes. It sets their gap to 4 px, matching the pitch of RadioGroup options while preserving each 44 px touch area. Put the introductory paragraph and the tight Group as siblings in an outer Group; its default 16 px gap then separates explanation from choices. Keep a conditional Select outside the tight Group so it gets the normal control spacing.
+
+```html
+<good-group title="Network" appearance="plain">
+  <good-paragraph>Choose the connections to enable.</good-paragraph>
+  <good-group appearance="plain" spacing="tight">
+    <good-checkbox label="IPv4" [showLabel]="true" />
+    <good-checkbox label="IPv6" [showLabel]="true" />
+  </good-group>
+</good-group>
+```
 
 At viewport widths of 640 px or less, framed Groups use 12 px side padding and 16 px vertical padding. The outer MainView margins stay at 24 px; only the Group interior becomes more compact so form fields retain useful width. Plain Groups continue to have no frame or padding. The responsive padding is a runtime layout rule; Penpot's linked Group specimens show the desktop 24 px side padding.
 

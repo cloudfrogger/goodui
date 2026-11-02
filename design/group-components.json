@@ -4,14 +4,14 @@
     {
       "family": "group",
       "selector": "good-group",
-      "inputs": ["title", "appearance", "headingLevel", "headingId"],
+      "inputs": ["title", "appearance", "spacing", "headingLevel", "headingId"],
       "variants": {
         "outline": "2d089ed4-0973-8065-8008-d7d27136412f",
         "outline-no-title": "2d089ed4-0973-8065-8008-d7d2713887f8",
         "plain": "2d089ed4-0973-8065-8008-d7d2713a5630",
         "contrast": "2d089ed4-0973-8065-8008-d7d2713c73a1"
       },
-      "note": "The title is optional. The outline specimen places it in the border; contrast uses a soft surface. Both groups own internal spacing and contain linked FormRow examples."
+      "note": "The title is optional. The outline specimen places it in the border; contrast uses a soft surface. Group owns the default 16 px content gap through group.gap. The runtime spacing=tight option uses a 4 px gap for clustered controls and has no separate Penpot variant. Specimens contain linked FormRow examples."
     },
     {
       "family": "form-row",

@@ -32,6 +32,18 @@
       "kind": "input"
     },
     {
+      "name": "spacing",
+      "type": "GoodGroupSpacing",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "tight"
+      ],
+      "source": "angular/projects/goodui/src/lib/group.ts",
+      "kind": "input"
+    },
+    {
       "name": "mobileBleed",
       "type": "boolean",
       "required": false,
@@ -72,6 +84,10 @@
       "outline",
       "contrast"
     ],
+    "spacing": [
+      "default",
+      "tight"
+    ],
     "headingLevel": [
       2,
       3,
@@ -91,7 +107,7 @@
   },
   "usageGuide": "guides/components/group.md",
   "usage": {
-    "summary": "`good-group` collects related content without the visual weight of a Card. It owns padding and spacing between projected children. `appearance=\"outline\"` (default) draws a quiet border and places an optional title in that border; `contrast` uses a soft theme-aware background; `plain` keeps the spacing with no surface. Set `title` to label the native `section`. `headingLevel` defaults to 2 and accepts 2, 3, or 4 so heading order remains correct. `headingId` can be set when a page needs a stable external reference. The title is omitted completely when empty.",
+    "summary": "`good-group` collects related content without the visual weight of a Card. It owns padding and a 16 px gap between projected children. Paragraphs and controls contribute no outer spacing, so a paragraph, Checkbox, RadioGroup, Select, or FormRow can be substituted without doubling that gap. Checkbox and radio choices retain 44 px touch targets inside their own bounds. `appearance=\"outline\"` (default) draws a quiet border and places an optional title in that border; `contrast` uses a soft theme-aware background; `plain` keeps the spacing with no surface. Set `title` to label the native `section`. `headingLevel` defaults to 2 and accepts 2, 3, or 4 so heading order remains correct. `headingId` can be set when a page needs a stable external reference. The title is omitted completely when empty.",
     "examples": [
       "ai/examples/edit-form.html",
       "ai/examples/settings.html"

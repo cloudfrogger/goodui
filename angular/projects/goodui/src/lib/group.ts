@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 export type GoodGroupAppearance = 'plain' | 'outline' | 'contrast';
+export type GoodGroupSpacing = 'default' | 'tight';
 
 /** Light visual grouping for content and forms, without Card chrome. */
 @Component({
   selector: 'good-group',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-group', '[attr.data-appearance]': 'appearance()', '[attr.data-mobile-bleed]': 'mobileBleed()' },
+  host: { class: 'good-group', '[attr.data-appearance]': 'appearance()', '[attr.data-spacing]': 'spacing()', '[attr.data-mobile-bleed]': 'mobileBleed()' },
   template: `
     <section class="good-group-frame" [attr.aria-labelledby]="title() ? headingId() : null">
       @if (title()) {
@@ -25,6 +26,7 @@ export class GoodGroupComponent {
   private static nextId = 0;
   readonly title = input('');
   readonly appearance = input<GoodGroupAppearance>('outline');
+  readonly spacing = input<GoodGroupSpacing>('default');
   readonly mobileBleed = input(false);
   readonly headingLevel = input<2 | 3 | 4>(2);
   readonly headingId = input(`good-group-heading-${++GoodGroupComponent.nextId}`);

@@ -4,6 +4,8 @@
 
 The active panel has no frame or inner padding. Place a `good-table`, `good-card`, or other complete component directly inside it; that component keeps its own surface and spacing. A quiet rule below the content marks the end of the tab set. The tab heading retains its selected underline and the rule below the tab row.
 
+When a panel contains several direct children, it gives them a 12 px vertical gap. Their order stays the same when you exchange a Paragraph for a RadioGroup, form control, or Table; avoid margins on individual children.
+
 ```html
 <good-tabs ariaLabel="Account sections">
   <good-tab value="profile" label="Profile">Profile details</good-tab>

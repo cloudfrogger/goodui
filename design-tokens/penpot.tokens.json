@@ -1898,7 +1898,7 @@
         "$type": "spacing"
       },
       "gap": {
-        "$value": "{space.5}",
+        "$value": "{space.4}",
         "$type": "spacing"
       },
       "heading-gap": {

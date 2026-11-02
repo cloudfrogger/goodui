@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {
   GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
   GoodCodeBlockComponent, GoodExpandableComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
-  GoodLinkComponent, GoodListboxComponent, GoodListboxItem, GoodMainViewComponent,
+  GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodListboxItem, GoodMainViewComponent,
   GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
   GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
   GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
@@ -25,7 +25,7 @@ const imageVersions: Record<string, readonly string[]> = {
   standalone: true,
   imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
     GoodCodeBlockComponent, GoodExpandableComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
-    GoodLinkComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent,
+    GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent,
     GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
     GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
     GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,

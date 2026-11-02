@@ -7,7 +7,7 @@
       <good-section>
         <good-prose>
           <good-link route="/examples/case-studies/vpshoster/servers">← Back to servers</good-link>
-          <good-subheading [level]="2">Create servers</good-subheading>
+          <good-heading [level]="1">Create servers</good-heading>
           <good-paragraph>Choose a plan and configure the server. This case study previews the workflow locally; Create adds demo records without provisioning infrastructure.</good-paragraph>
         </good-prose>
       </good-section>
@@ -62,9 +62,11 @@
       <good-section>
         <good-group title="4. Networking" appearance="plain">
           <good-paragraph>Keep at least one public address or a private network. IPv4 adds €0.50 per server each month; IPv6 is included.</good-paragraph>
-          <good-checkbox label="Public IPv4" [showLabel]="true" [(checked)]="ipv4" />
-          <good-checkbox label="Public IPv6" [showLabel]="true" [(checked)]="ipv6" />
-          <good-checkbox label="Private network" [showLabel]="true" [(checked)]="privateNetwork" />
+          <good-group appearance="plain" spacing="tight">
+            <good-checkbox label="Public IPv4" [showLabel]="true" [(checked)]="ipv4" />
+            <good-checkbox label="Public IPv6" [showLabel]="true" [(checked)]="ipv6" />
+            <good-checkbox label="Private network" [showLabel]="true" [(checked)]="privateNetwork" />
+          </good-group>
           @if (privateNetwork()) {
             <good-select label="Private network" [showLabel]="true" [options]="privateNetworkOptions()"
               placeholder="Choose a network" [(value)]="privateNetworkId" />
