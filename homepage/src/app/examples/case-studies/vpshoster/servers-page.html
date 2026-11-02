@@ -6,11 +6,6 @@
     </good-action-group>
   </div>
   <good-section>
-    <good-expandable label="Important status updates · 4 maintenance notices · 1 warning" icon="chevron">
-      <good-alert tone="warning" title="Regional maintenance" message="This is sample status content for the case study. No live service status is queried." />
-    </good-expandable>
-  </good-section>
-  <good-section>
     <good-tabs ariaLabel="Infrastructure sections">
       <good-tab value="servers" label="Servers" [badge]="store.count()">
         @if (selectedIds().length) {
@@ -22,11 +17,24 @@
           </good-action-group>
         }
         <good-table label="Virtual servers" tableStyle="compact" [data]="visibleServers()" [columns]="columns"
-          [getRowId]="rowId" [searchable]="true" searchPlaceholder="Search servers"
+          [getRowId]="rowId"
           selectable [(selectedRowId)]="selectedServerId" (rowSelected)="view($event)"
-          emptyMessage="No servers match these filters." />
+          emptyMessage="No servers match these filters.">
+          <ng-template goodTableCell="name" let-server>
+            <good-action-group spacing="small" align="center" [wrap]="false">
+              <good-status-icon appearance="led" size="small"
+                [status]="server.status === 'running' ? 'completed' : 'dismissed'"
+                [ariaLabel]="server.status === 'running' ? 'Running' : 'Stopped'" />
+              <good-group appearance="plain" spacing="tight">
+                <good-link href="/examples/case-studies/vpshoster/servers#server-details"
+                  (click)="openDetails(server, $event)">{{ server.name }}</good-link>
+                <good-hint>{{ serverDetails(server) }}</good-hint>
+              </good-group>
+            </good-action-group>
+          </ng-template>
+        </good-table>
         @if (selectedServer(); as server) {
-          <good-group [title]="server.name" [headingLevel]="3" appearance="contrast">
+          <good-group id="server-details" [title]="server.name" [headingLevel]="3" appearance="contrast">
             <good-prose>
               <good-paragraph>{{ server.plan }} · {{ server.architecture }} · {{ server.image }} · {{ server.location }} ({{ server.zone }})</good-paragraph>
               <good-paragraph>Public IP: {{ server.publicIp }} · Status: {{ server.status }} · Created: {{ server.created }}</good-paragraph>

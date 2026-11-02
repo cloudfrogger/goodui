@@ -1169,6 +1169,17 @@
       },
       "usageGuide": null,
       "penpotCount": 0
+    },
+    {
+      "selector": "ng-template[goodTableCell]",
+      "className": "GoodTableCellDirective",
+      "file": "components/ng-template-goodTableCell.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodTableCellDirective"
+      },
+      "usageGuide": null,
+      "penpotCount": 0
     }
   ]
 }

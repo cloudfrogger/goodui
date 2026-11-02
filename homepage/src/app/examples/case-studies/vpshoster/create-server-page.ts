@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { Router } from '@angular/router';
 import {
   GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
-  GoodCodeBlockComponent, GoodExpandableComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
+  GoodCodeBlockComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
   GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodListboxItem, GoodMainViewComponent,
   GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
   GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
@@ -24,7 +24,7 @@ const imageVersions: Record<string, readonly string[]> = {
   selector: 'example-vps-create-server-page',
   standalone: true,
   imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
-    GoodCodeBlockComponent, GoodExpandableComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
+    GoodCodeBlockComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent,
     GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent,
     GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
     GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
@@ -37,6 +37,7 @@ const imageVersions: Record<string, readonly string[]> = {
 export class VpsCreateServerPageComponent {
   private readonly router = inject(Router);
   private readonly store = inject(VpsCaseStudyStore);
+  constructor() { this.store.ensureStatusNotice(); }
   readonly sourceOpen = signal(false);
   readonly summaryOpen = signal(false);
   readonly keyModalOpen = signal(false);

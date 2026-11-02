@@ -99,7 +99,65 @@ readonly needsAttention = (row: RecordRow): boolean => row.needsAttention;
 
 ## Render GoodUI components in cells
 
-TanStack's Angular `flexRenderComponent` is the direct route from a cell definition to an Angular component. GoodUI re-exports it, so an app using `good-table` can import everything from `@goodui/angular`. Its `inputs` object accepts the row's values; the component can expose its usual outputs. A Badge needs no wrapper:
+For a page-specific cell, keep the column definition simple and put its Angular markup directly inside `good-table`. The server example places a status LED, a link, and a muted second line in the Name cell. There is no separate NameCell class.
+
+```html
+<good-table label="Servers" tableStyle="compact" [data]="servers" [columns]="columns" [getRowId]="rowId">
+  <ng-template goodTableCell="name" let-server>
+    <good-action-group spacing="small" align="center" [wrap]="false">
+      <good-status-icon appearance="led" size="small"
+        [status]="server.status === 'running' ? 'completed' : 'dismissed'"
+        [ariaLabel]="server.status === 'running' ? 'Running' : 'Stopped'" />
+      <good-group appearance="plain" spacing="tight">
+        <good-link route="/examples/case-studies/vpshoster/servers">{{ server.name }}</good-link>
+        <good-hint>{{ server.plan }} | {{ server.architecture }} | {{ server.diskGb }} GB | {{ server.zone }}</good-hint>
+      </good-group>
+    </good-action-group>
+  </ng-template>
+</good-table>
+```
+
+```ts
+import { Component } from '@angular/core';
+import {
+  GoodActionGroupComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent,
+  GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent,
+} from '@goodui/angular';
+
+interface Server {
+  id: string;
+  name: string;
+  status: 'running' | 'stopped';
+  plan: string;
+  architecture: string;
+  diskGb: number;
+  zone: string;
+  publicIp: string;
+}
+
+@Component({
+  standalone: true,
+  imports: [GoodTableComponent, GoodTableCellDirective, GoodActionGroupComponent,
+    GoodStatusIconComponent, GoodGroupComponent, GoodLinkComponent, GoodHintComponent],
+  templateUrl: './servers-page.html',
+})
+export class ServersPage {
+  readonly servers: readonly Server[] = [
+    { id: 'sample-1', name: 'demo-node', status: 'running', plan: 'CPX22', architecture: 'x86', diskGb: 80, zone: 'eu-central', publicIp: '192.0.2.10' },
+    { id: 'sample-2', name: 'backup-node', status: 'stopped', plan: 'CX22', architecture: 'x86', diskGb: 40, zone: 'eu-central', publicIp: '192.0.2.11' },
+  ];
+  readonly rowId = (server: Server): string => server.id;
+  readonly columns: GoodTableColumn<Server>[] = [
+    { accessorKey: 'name', header: 'Name', enableSorting: true, meta: { noWrap: true } },
+    { accessorKey: 'publicIp', header: 'Public IP', meta: { visibleFrom: 'md' } },
+    { accessorKey: 'status', header: 'Status', meta: { visibleFrom: 'md' } },
+  ];
+}
+```
+
+`accessorKey: 'name'` supplies the column ID. The matching `goodTableCell="name"` replaces only the visible content of that column; `let-server` exposes the original row, including fields outside Name. The LED reads `server.status`, while the Hint assembles the second line. `meta.noWrap` keeps that line together and lets the Table scroll horizontally when needed. `meta.visibleFrom: 'md'` hides Public IP and Status in a narrow table; Name remains. Import `GoodTableCellDirective` and every GoodUI component used inside the template. A stable `getRowId` preserves row identity through sorting and updates. Replace the example route with your own details route. The [Tables page](../../homepage/src/app/tables-page.ts) renders this example; the [VPS Servers case study](../../homepage/src/app/examples/case-studies/vpshoster/servers-page.html) shows the full screen. `let-value="value"` is available when the template only needs the column value.
+
+For a cell shared across pages, TanStack's Angular `flexRenderComponent` is still available. GoodUI re-exports it, so an app using `good-table` can import everything from `@goodui/angular`. Its `inputs` object accepts the row's values; the component can expose its usual outputs. A Badge needs no wrapper:
 
 ```ts
 import { flexRenderComponent, GoodBadgeComponent, GoodTableColumn } from '@goodui/angular';
@@ -116,7 +174,7 @@ const columns: GoodTableColumn<Person>[] = [
 ];
 ```
 
-For a Switch, action menu, router link, or composed cell, make a small standalone cell component with `input()` properties, then pass the record and callbacks through `flexRenderComponent`. This keeps interaction in ordinary Angular code while `good-table` owns the row layout. The [Tables page](../../homepage/src/app/tables-page.ts) shows working Badge and Switch cells, a View/Delete menu, and a separate last-column Delete button with a Lucide trash icon. In that example, only Name opts into sorting; Owner, Status, and Actions are explicitly not sortable. The icon-only button receives a row-specific accessible label and calls the page's delete handler. A TanStack header or cell can also return a string, number, `TemplateRef`, or another flex-renderable value. Keep destructive actions labeled and confirm deletion when the application requires it.
+For a reusable action menu or composed cell, make a small standalone cell component with `input()` properties, then pass the record and callbacks through `flexRenderComponent`. In the Tables example, the action menu and separate last-column Delete button use this route. The icon-only button receives a row-specific accessible label and calls the page's delete handler. A TanStack header or cell can also return a string, number, `TemplateRef`, or another flex-renderable value. Keep destructive actions labeled and confirm deletion when the application requires it.
 
 ## Search and sorting
 

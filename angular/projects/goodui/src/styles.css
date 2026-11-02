@@ -661,6 +661,7 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-table-scroll :is(th, td)[data-align="center"] { text-align: center; }
 .good-table-scroll :is(th, td)[data-align="end"] { text-align: right; }
 .good-table-scroll td[data-nowrap="true"] { white-space: nowrap; }
+.good-table-scroll td[data-nowrap="true"] .good-group { container-type: normal; width: max-content; flex: none; }
 .good-table-sort { display: inline-flex; align-items: center; gap: var(--good-space-2); max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; font-weight: inherit; letter-spacing: inherit; cursor: pointer; }
 .good-table-sort:hover { color: var(--good-table-text); }
 .good-table-sort:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: 4px; border-radius: var(--good-radius-compact); }

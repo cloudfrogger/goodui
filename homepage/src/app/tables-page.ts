@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import {
-  GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodSwitchComponent,
-  GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent,
+  GoodActionGroupComponent, GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent,
+  GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent,
+  GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent,
   LucideTrash2,
 } from '@goodui/angular';
 
@@ -12,6 +13,17 @@ interface RecordRow {
   status: 'Active' | 'Review' | 'Paused';
   enabled: boolean;
   updated: string;
+}
+
+interface ServerCellExampleRow {
+  id: string;
+  name: string;
+  status: 'running' | 'stopped';
+  plan: string;
+  architecture: string;
+  diskGb: number;
+  zone: string;
+  publicIp: string;
 }
 
 const initialRows: RecordRow[] = [
@@ -28,19 +40,6 @@ const initialRows: RecordRow[] = [
   { id: '11', name: 'Security reports', owner: 'Chris Evans', status: 'Paused', enabled: false, updated: '2026-10-01' },
   { id: '12', name: 'Product roadmap', owner: 'Skyler Bell', status: 'Active', enabled: true, updated: '2026-09-29' },
 ];
-
-@Component({
-  selector: 'showcase-table-switch-cell',
-  standalone: true,
-  imports: [GoodSwitchComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<good-switch [label]="'Enable ' + row().name" size="small" [checked]="row().enabled"
-    (checkedChange)="onToggle()(row().id, $event)" />`,
-})
-class TableSwitchCellComponent {
-  readonly row = input.required<RecordRow>();
-  readonly onToggle = input.required<(id: string, value: boolean) => void>();
-}
 
 @Component({
   selector: 'showcase-table-actions-cell',
@@ -76,15 +75,46 @@ class TableDeleteCellComponent {
 @Component({
   selector: 'showcase-tables-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodTableComponent, GoodButtonComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodTableComponent, GoodTableCellDirective, GoodSwitchComponent,
+    GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent,
+    GoodHintComponent, GoodLinkComponent, GoodParagraphComponent, GoodStatusIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Tables" description="Searchable records, rich cells, and client or server pagination">
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Records</h2><p>Search and sort the full data set. Custom cells render a Badge, Switch, and action menu.</p></div>
         <good-table label="Workspace records" [data]="rows()" [columns]="columns" [getRowId]="rowId"
-          [searchable]="true" />
+          [searchable]="true">
+          <ng-template goodTableCell="enabled" let-row>
+            <good-switch [label]="'Enable ' + row.name" size="small" [checked]="row.enabled"
+              (checkedChange)="toggle(row.id, $event)" />
+          </ng-template>
+        </good-table>
         <p class="showcase-table-feedback" role="status">{{ feedback() }}</p>
+      </section>
+      <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Build a custom cell</h2><p>The server list below shows why a cell template is useful: one Name cell contains a status LED, a link, and a second line of details.</p></div>
+        <good-group appearance="plain">
+          <good-paragraph><strong>1.</strong> The <code>name</code> column still uses <code>accessorKey: 'name'</code>. That gives it a stable ID for sorting and for the custom template.</good-paragraph>
+          <good-paragraph><strong>2.</strong> Inside the Table, <code>goodTableCell="name"</code> matches that ID. <code>let-server</code> gives you the full record, so the LED can read its status while the second line reads its plan, architecture, disk size, and zone.</good-paragraph>
+          <good-paragraph><strong>3.</strong> Write the cell as ordinary GoodUI markup. The Table still owns rows, sorting, and responsive columns; the template only decides what appears inside Name. At narrow widths, the extra columns hide but Name retains both lines.</good-paragraph>
+          <good-table label="Server custom cell example" tableStyle="compact" [data]="serverDemoRows" [columns]="serverDemoColumns" [getRowId]="serverDemoRowId" [reorderable]="false">
+            <ng-template goodTableCell="name" let-server>
+              <good-action-group spacing="small" align="center" [wrap]="false">
+                <good-status-icon appearance="led" size="small"
+                  [status]="server.status === 'running' ? 'completed' : 'dismissed'"
+                  [ariaLabel]="server.status === 'running' ? 'Running' : 'Stopped'" />
+                <good-group appearance="plain" spacing="tight">
+                  <good-link route="/examples/case-studies/vpshoster/servers">{{ server.name }}</good-link>
+                  <good-hint>{{ server.plan }} | {{ server.architecture }} | {{ server.diskGb }} GB | {{ server.zone }}</good-hint>
+                </good-group>
+              </good-action-group>
+            </ng-template>
+          </good-table>
+          <good-code-block [code]="customCellHtml" language="html" title="servers-page.html" />
+          <good-code-block [code]="customCellTs" language="typescript" title="servers-page.ts" />
+          <good-paragraph>This excerpt uses the same Name composition as the <good-link route="/examples/case-studies/vpshoster/servers">full VPS server list</good-link>. Replace the link route with your application's details page. Use <code>flexRenderComponent</code> when the cell itself needs to be reused across pages.</good-paragraph>
+        </good-group>
       </section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Direct row action</h2><p>Sort by Name; Owner, Status, and Actions are intentionally not sortable. The last column renders an accessible icon-only Delete button.</p></div>
@@ -149,11 +179,69 @@ class TableDeleteCellComponent {
 })
 export class TablesPageComponent {
   readonly rows = signal(initialRows);
+  readonly serverDemoRows: readonly ServerCellExampleRow[] = [
+    { id: 'sample-1', name: 'demo-node', status: 'running', plan: 'CPX22', architecture: 'x86', diskGb: 80, zone: 'eu-central', publicIp: '192.0.2.10' },
+    { id: 'sample-2', name: 'backup-node', status: 'stopped', plan: 'CX22', architecture: 'x86', diskGb: 40, zone: 'eu-central', publicIp: '192.0.2.11' },
+  ];
+  readonly serverDemoRowId = (server: ServerCellExampleRow): string => server.id;
+  readonly serverDemoColumns: GoodTableColumn<ServerCellExampleRow>[] = [
+    { accessorKey: 'name', header: 'Name', enableSorting: true, meta: { noWrap: true } },
+    { accessorKey: 'publicIp', header: 'Public IP', meta: { visibleFrom: 'md' } },
+    { accessorKey: 'status', header: 'Status', meta: { visibleFrom: 'md' } },
+  ];
   readonly directRows = signal(initialRows.slice(0, 4));
   readonly emptyRows: readonly RecordRow[] = [];
   readonly styles = ['bordered', 'striped', 'compact'] as const;
   readonly compactStyleCode = `<good-table label="Items" tableStyle="compact"
   [data]="items" [columns]="columns" />`;
+  readonly customCellHtml = `<good-table label="Servers" tableStyle="compact" [data]="servers" [columns]="columns" [getRowId]="rowId">
+  <ng-template goodTableCell="name" let-server>
+    <good-action-group spacing="small" align="center" [wrap]="false">
+      <good-status-icon appearance="led" size="small"
+        [status]="server.status === 'running' ? 'completed' : 'dismissed'"
+        [ariaLabel]="server.status === 'running' ? 'Running' : 'Stopped'" />
+      <good-group appearance="plain" spacing="tight">
+        <good-link route="/examples/case-studies/vpshoster/servers">{{ server.name }}</good-link>
+        <good-hint>{{ server.plan }} | {{ server.architecture }} | {{ server.diskGb }} GB | {{ server.zone }}</good-hint>
+      </good-group>
+    </good-action-group>
+  </ng-template>
+</good-table>`;
+  readonly customCellTs = `import { Component } from '@angular/core';
+import {
+  GoodActionGroupComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent,
+  GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent,
+} from '@goodui/angular';
+
+interface Server {
+  id: string;
+  name: string;
+  status: 'running' | 'stopped';
+  plan: string;
+  architecture: string;
+  diskGb: number;
+  zone: string;
+  publicIp: string;
+}
+
+@Component({
+  standalone: true,
+  imports: [GoodTableComponent, GoodTableCellDirective, GoodActionGroupComponent,
+    GoodStatusIconComponent, GoodGroupComponent, GoodLinkComponent, GoodHintComponent],
+  templateUrl: './servers-page.html',
+})
+export class ServersPage {
+  readonly servers: readonly Server[] = [
+    { id: 'sample-1', name: 'demo-node', status: 'running', plan: 'CPX22', architecture: 'x86', diskGb: 80, zone: 'eu-central', publicIp: '192.0.2.10' },
+    { id: 'sample-2', name: 'backup-node', status: 'stopped', plan: 'CX22', architecture: 'x86', diskGb: 40, zone: 'eu-central', publicIp: '192.0.2.11' },
+  ];
+  readonly rowId = (server: Server): string => server.id;
+  readonly columns: GoodTableColumn<Server>[] = [
+    { accessorKey: 'name', header: 'Name', enableSorting: true, meta: { noWrap: true } },
+    { accessorKey: 'publicIp', header: 'Public IP', meta: { visibleFrom: 'md' } },
+    { accessorKey: 'status', header: 'Status', meta: { visibleFrom: 'md' } },
+  ];
+}`;
   readonly responsiveColumnsCode = `readonly columns: GoodTableColumn<RecordRow>[] = [
   { accessorKey: 'name', header: 'Name' },
   { accessorKey: 'owner', header: 'Owner', meta: { visibleFrom: 'md' } },
@@ -214,11 +302,7 @@ onRowSelected(row: RecordRow): void {
       cell: context => flexRenderComponent(GoodBadgeComponent, {
         inputs: { label: context.getValue<string>(), color: this.badgeColor(context.row.original.status), variant: 'light', size: 'small' },
       }) },
-    { id: 'enabled', header: 'Enabled', accessorFn: row => row.enabled ? 'Enabled' : 'Paused',
-      cell: context => flexRenderComponent(TableSwitchCellComponent, {
-        key: context.row.original.id,
-        inputs: { row: context.row.original, onToggle: (id: string, value: boolean) => this.toggle(id, value) },
-      }) },
+    { id: 'enabled', header: 'Enabled', accessorFn: row => row.enabled ? 'Enabled' : 'Paused' },
     { accessorKey: 'updated', header: 'Updated', enableSorting: true },
     { id: 'actions', header: 'Actions', meta: { align: 'end', noWrap: true }, enableGlobalFilter: false,
       cell: context => flexRenderComponent(TableActionsCellComponent, {

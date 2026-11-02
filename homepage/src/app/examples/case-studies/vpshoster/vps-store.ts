@@ -1,4 +1,5 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
+import { GoodNotificationCenter } from '@goodui/angular';
 
 export interface VpsPlan {
   id: string;
@@ -49,6 +50,8 @@ export const VPS_PLANS: readonly VpsPlan[] = [
 
 @Injectable({ providedIn: 'root' })
 export class VpsCaseStudyStore {
+  private readonly notifications = inject(GoodNotificationCenter);
+  private statusNoticePublished = false;
   readonly notice = signal('');
   readonly servers = signal<VpsServer[]>([
     { id: 'sample-1', name: 'demo-node', plan: 'CPX22', architecture: 'x86', image: 'Ubuntu 26.04', location: 'Nuremberg',
@@ -57,6 +60,16 @@ export class VpsCaseStudyStore {
       backups: false, placement: null, cloudConfig: '' },
   ]);
   readonly count = computed(() => this.servers().length);
+
+  ensureStatusNotice(): void {
+    if (this.statusNoticePublished) return;
+    this.statusNoticePublished = true;
+    this.notifications.publish({
+      title: 'Regional maintenance',
+      message: 'Sample status notice for this case study. No live service status is queried.',
+      tone: 'warning', delivery: 'inbox',
+    });
+  }
 
   add(servers: readonly Omit<VpsServer, 'id' | 'created' | 'publicIp' | 'status'>[]): void {
     const start = this.servers().length + 1;

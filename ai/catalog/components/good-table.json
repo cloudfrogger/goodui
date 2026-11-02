@@ -258,12 +258,14 @@
     ]
   },
   "composition": {
-    "projectedContent": [],
+    "projectedContent": [
+      "ng-template[goodTableCell]"
+    ],
     "relatedSelectors": [
       "good-input",
       "good-button"
     ],
-    "notes": null
+    "notes": "See source template and component guide for projection slots."
   },
   "forms": {
     "controlValueAccessor": false,

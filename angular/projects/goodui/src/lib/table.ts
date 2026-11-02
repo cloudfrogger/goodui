@@ -1,4 +1,5 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, booleanAttribute, computed, effect, inject, input, model, output, signal, untracked, viewChild } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, Directive, ElementRef, TemplateRef, booleanAttribute, computed, contentChildren, effect, inject, input, model, output, signal, untracked, viewChild } from '@angular/core';
 import { LucideArrowDown, LucideArrowDownUp, LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearch, LucideSearchX } from '@lucide/angular';
 import { FlexRender, ColumnDef, Column, RowData, SortingState, PaginationState, injectTable, tableFeatures,
   rowSortingFeature, createSortedRowModel, sortFn_alphanumeric, sortFn_text, sortFn_datetime,
@@ -34,6 +35,22 @@ export interface GoodTableColumnMeta {
   [key: string]: unknown;
 }
 
+export interface GoodTableCellContext<TData> {
+  $implicit: TData;
+  value: unknown;
+}
+
+/** Project an Angular template into a column by its stable column ID. */
+@Directive({ selector: 'ng-template[goodTableCell]', standalone: true })
+export class GoodTableCellDirective<TData = any> {
+  readonly goodTableCell = input.required<string>();
+  readonly template = inject<TemplateRef<GoodTableCellContext<TData>>>(TemplateRef);
+
+  static ngTemplateContextGuard<TData>(
+    _directive: GoodTableCellDirective<TData>, context: unknown,
+  ): context is GoodTableCellContext<TData> { return true; }
+}
+
 const tableColumnMinWidth: Record<GoodTableColumnBreakpoint, number> = {
   xs: 0, sm: 480, md: 700, lg: 960, xl: 1280,
 };
@@ -58,11 +75,12 @@ export interface GoodTableRequest {
 @Component({
   selector: 'good-table',
   standalone: true,
-  imports: [FlexRender, GoodButtonComponent, GoodInputComponent, LucideArrowDown, LucideArrowDownUp,
+  imports: [FlexRender, NgTemplateOutlet, GoodButtonComponent, GoodInputComponent, LucideArrowDown, LucideArrowDownUp,
     LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearchX],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'good-table', '[attr.data-column-dragging]': 'dragSourceId() ? "true" : null', '[attr.data-responsive-columns]': 'hasResponsiveColumns() ? "true" : null' },
   template: `
+    <ng-content select="ng-template[goodTableCell]" />
     <div #frame class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.aria-busy]="loading() ? 'true' : null">
       @if (searchable()) {
         <div class="good-table-toolbar">
@@ -132,7 +150,12 @@ export interface GoodTableRequest {
                     @if (first && emphasisLabel() && emphasizeRow()(row.original)) {
                       <span class="good-sr-only">{{ emphasisLabel() }}. </span>
                     }
-                    <ng-container *flexRenderCell="cell; let rendered">{{ rendered }}</ng-container>
+                    @if (cellTemplate(cell.column.id); as customCell) {
+                      <ng-container [ngTemplateOutlet]="customCell.template"
+                        [ngTemplateOutletContext]="{ $implicit: row.original, value: cell.getValue() }" />
+                    } @else {
+                      <ng-container *flexRenderCell="cell; let rendered">{{ rendered }}</ng-container>
+                    }
                   </td>
                 }
               </tr>
@@ -180,6 +203,10 @@ export interface GoodTableRequest {
   `,
 })
 export class GoodTableComponent<TData extends RowData> implements AfterViewInit {
+  readonly cellTemplates = contentChildren(GoodTableCellDirective);
+  cellTemplate(columnId: string): GoodTableCellDirective | undefined {
+    return this.cellTemplates().find(template => template.goodTableCell() === columnId);
+  }
   readonly data = input.required<readonly TData[]>();
   readonly columns = input.required<readonly GoodTableColumn<TData>[]>();
   readonly label = input('Records');

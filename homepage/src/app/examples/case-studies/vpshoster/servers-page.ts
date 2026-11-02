@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, Signal, computed, inject, input, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import {
-  GoodActionGroupComponent, GoodAlertComponent, GoodBadgeComponent, GoodButtonComponent, GoodCheckboxComponent, GoodDropdownComponent, GoodExpandableComponent,
-  GoodCodeBlockComponent, GoodGroupComponent, GoodInputComponent, GoodMainViewComponent,
+  GoodActionGroupComponent, GoodBadgeComponent, GoodButtonComponent, GoodCheckboxComponent, GoodDropdownComponent,
+  GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodInputComponent, GoodLinkComponent, GoodMainViewComponent,
   GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent,
-  GoodProseComponent, GoodSectionComponent, GoodSelectComponent, GoodTableColumn, GoodTableComponent, GoodTabsComponent,
+  GoodProseComponent, GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent,
   GoodTabComponent, GoodSelectOption, flexRenderComponent, LucideEllipsis, LucideFilter, LucidePlus,
 } from '@goodui/angular';
-import { VpsCaseStudyStore, VpsServer } from './vps-store';
+import { VPS_PLANS, VpsCaseStudyStore, VpsServer } from './vps-store';
 import { vpsServersHtml, vpsServersTs, vpsStoreTs } from './source-code.generated';
 
 @Component({
@@ -61,7 +61,8 @@ class VpsActionsCellComponent {
 @Component({
   selector: 'example-vps-servers-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodExpandableComponent, GoodGroupComponent,
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent,
+    GoodHintComponent, GoodLinkComponent, GoodStatusIconComponent, GoodTableCellDirective,
     GoodInputComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent,
     GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSelectComponent,
     GoodSectionComponent, GoodTableComponent, GoodTabsComponent, GoodTabComponent],
@@ -71,6 +72,7 @@ class VpsActionsCellComponent {
 export class VpsServersPageComponent {
   private readonly router = inject(Router);
   readonly store = inject(VpsCaseStudyStore);
+  constructor() { this.store.ensureStatusNotice(); }
   readonly filterIcon = LucideFilter;
   readonly addIcon = LucidePlus;
   readonly filterOpen = signal(false);
@@ -119,18 +121,18 @@ export class VpsServersPageComponent {
     && this.visibleServers().every(server => this.selectedIds().includes(server.id)));
   readonly selectedServer = computed(() => this.store.servers().find(server => server.id === this.selectedServerId()) ?? null);
   readonly columns: GoodTableColumn<VpsServer>[] = [
-    { id: 'select', header: () => flexRenderComponent(VpsSelectAllCellComponent, { inputs: {
+    { id: 'select', meta: { visibleFrom: 'md' }, header: () => flexRenderComponent(VpsSelectAllCellComponent, { inputs: {
         allVisible: this.allVisible, onToggle: (checked: boolean) => this.toggleAllVisible(checked),
       } }), accessorFn: server => server.id, enableGlobalFilter: false,
       cell: context => flexRenderComponent(VpsSelectRowCellComponent, { key: context.row.original.id, inputs: {
         server: context.row.original, selectedIds: this.selectedIds,
         onToggle: (id: string, checked: boolean) => this.toggleSelected(id, checked),
       } }) },
-    { accessorKey: 'name', header: 'Name', enableSorting: true },
-    { accessorKey: 'publicIp', header: 'Public IP', meta: { noWrap: true } },
-    { accessorKey: 'location', header: 'Location', enableSorting: true },
-    { accessorKey: 'created', header: 'Created', enableSorting: true, meta: { noWrap: true } },
-    { accessorKey: 'status', header: 'Status', enableSorting: true,
+    { accessorKey: 'name', header: 'Name', enableSorting: true, meta: { noWrap: true } },
+    { accessorKey: 'publicIp', header: 'Public IP', meta: { noWrap: true, visibleFrom: 'md' } },
+    { accessorKey: 'location', header: 'Location', enableSorting: true, meta: { visibleFrom: 'md' } },
+    { accessorKey: 'created', header: 'Created', enableSorting: true, meta: { noWrap: true, visibleFrom: 'md' } },
+    { accessorKey: 'status', header: 'Status', enableSorting: true, meta: { visibleFrom: 'md' },
       cell: context => flexRenderComponent(GoodBadgeComponent, { inputs: {
         label: context.row.original.status === 'running' ? 'Running' : 'Stopped',
         color: context.row.original.status === 'running' ? 'success' : 'secondary', variant: 'light', size: 'small',
@@ -149,6 +151,17 @@ export class VpsServersPageComponent {
   readonly storeSource = vpsStoreTs;
 
   addServer(): void { void this.router.navigateByUrl('/examples/case-studies/vpshoster/create'); }
+  serverDetails(server: VpsServer): string {
+    const diskGb = VPS_PLANS.find(plan => plan.name === server.plan)?.diskGb;
+    return [server.plan, server.architecture, diskGb === undefined ? null : `${diskGb} GB`, server.zone]
+      .filter(value => value !== null).join(' | ');
+  }
+  openDetails(server: VpsServer, event: MouseEvent): void {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    this.view(server);
+    requestAnimationFrame(() => document.getElementById('server-details')?.scrollIntoView({ block: 'nearest' }));
+  }
   view(server: VpsServer): void { this.selectedServerId.set(server.id); }
   toggleSelected(id: string, checked: boolean): void {
     this.selectedIds.update(ids => checked ? [...new Set([...ids, id])] : ids.filter(value => value !== id));
