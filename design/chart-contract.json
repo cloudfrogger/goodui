@@ -19,6 +19,13 @@
       "note": "Grouped four-quarter specimen with two series in theme-aware marker blue and teal. The Card is a linked GoodUI instance; source rows and data-table state are runtime configuration."
     },
     {
+      "name": "goodui.sparkline",
+      "id": "1b6260d7-e591-805d-8008-e3e1ea06ba12",
+      "selector": "good-sparkline",
+      "inputs": ["source", "yKey", "xKey", "size", "width", "color", "min", "max", "groupBy", "aggregate", "showEndpoint", "ariaLabel"],
+      "note": "Compact single-series specimen with marker-blue line and a surface-filled endpoint. Small and large sizes, custom width/color, empty/error states, and grouping are runtime options; no Card is part of the component."
+    },
+    {
       "name": "goodui.chart-axis",
       "id": "1b6260d7-e591-805d-8008-e2e297d4bfae",
       "selector": "good-chart-axis",
@@ -40,6 +47,6 @@
       "note": "The specimen shows one line. The declarative Angular tag configures a series inside LineChart and does not render alone."
     }
   ],
-  "tokens": ["color.text", "color.muted", "color.border", "color.accent", "color.marker.blue", "color.marker.teal"],
-  "runtimeStates": ["show-data", "custom-palette", "grouped-bars", "negative-bars", "empty", "invalid-configuration", "responsive-width"]
+  "tokens": ["color.text", "color.muted", "color.border", "color.surface", "color.accent", "color.marker.blue", "color.marker.teal"],
+  "runtimeStates": ["show-data", "custom-palette", "grouped-bars", "negative-bars", "sparkline-size", "sparkline-endpoint", "empty", "invalid-configuration", "responsive-width"]
 }

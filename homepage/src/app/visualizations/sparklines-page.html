@@ -1,0 +1,40 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Data visualizations</good-eyebrow>
+        <good-heading>Sparklines</good-heading>
+        <good-summary>A small trend line for a metric or table cell, using the same typed data sources as larger charts.</good-summary>
+      </good-heading-group>
+      <good-paragraph>A Sparkline shows one numeric series without axes, labels, or a Card of its own. Give it a <code>GoodChartDataSource</code> and a numeric <code>yKey</code>. With no <code>xKey</code>, each row gets the next horizontal position. The endpoint dot makes the latest value easy to spot; the SVG describes the trend to screen readers.</good-paragraph>
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">One compact metric</good-subheading>
+      <good-card>
+        <good-card-header title="Weekly visits" [headingLevel]="3" />
+        <good-detail-list>
+          <div goodDetailRow><dt>Current</dt><dd>82</dd></div>
+          <div goodDetailRow><dt>Trend</dt><dd><good-sparkline [source]="visits" yKey="count" ariaLabel="Weekly visits trend" /></dd></div>
+        </good-detail-list>
+      </good-card>
+      <good-paragraph>The default color is marker blue. Use <code>color="teal"</code> or another marker name to choose a theme-aware highlight; a CSS color also works. <code>size="small"</code> and <code>size="large"</code> adjust both width and height, while <code>[width]</code> can set a specific pixel width.</good-paragraph>
+      <good-code-block [code]="singleCode" language="html" title="Sparkline · Angular template" />
+      <good-code-block [code]="sourceCode" language="typescript" title="Typed values · TypeScript" />
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">Several trends in a Table</good-subheading>
+      <good-paragraph>Project a Sparkline into a custom Table cell when every row has its own data source. GoodUI Table owns the cell layout; each Sparkline owns only its compact trend.</good-paragraph>
+      <good-table [data]="rows" [columns]="columns" tableStyle="compact" [reorderable]="false">
+        <ng-template goodTableCell="trend" let-row>
+          <good-sparkline [source]="row.trend" yKey="count" size="small"
+            [color]="row.color" [ariaLabel]="row.region + ' requests trend'" />
+        </ng-template>
+      </good-table>
+      <good-code-block [code]="tableCode" language="html" title="Sparkline in a Table cell" />
+    </good-prose>
+  </good-section>
+</good-main-view>

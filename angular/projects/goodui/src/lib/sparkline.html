@@ -1,0 +1,15 @@
+@if (errors().length) {
+  <span class="good-sparkline-message" role="alert" [attr.title]="errors().join(' ')">Invalid data</span>
+} @else if (!points().length) {
+  <span class="good-sparkline-message" role="status">No data</span>
+} @else {
+  <svg [attr.viewBox]="'0 0 ' + chartWidth() + ' ' + chartHeight()" role="img"
+    [attr.aria-label]="description()" preserveAspectRatio="xMidYMid meet">
+    <path class="good-sparkline-path" [attr.d]="path()" [attr.stroke]="colorValue()"
+      [attr.stroke-width]="strokeWidth()" />
+    @if (showEndpoint() && endpoint(); as end) {
+      <circle class="good-sparkline-endpoint" [attr.cx]="end.x" [attr.cy]="end.y"
+        [attr.r]="dotRadius()" [attr.stroke]="colorValue()" />
+    }
+  </svg>
+}

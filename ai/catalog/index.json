@@ -1039,6 +1039,17 @@
       "penpotCount": 1
     },
     {
+      "selector": "good-sparkline",
+      "className": "GoodSparklineComponent",
+      "file": "components/good-sparkline.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodSparklineComponent"
+      },
+      "usageGuide": "guides/components/sparkline.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-status-icon",
       "className": "GoodStatusIconComponent",
       "file": "components/good-status-icon.json",

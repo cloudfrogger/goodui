@@ -1,0 +1,188 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-sparkline",
+  "className": "GoodSparklineComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodSparklineComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/sparkline.ts",
+  "inputs": [
+    {
+      "name": "source",
+      "type": "GoodChartDataSource",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "yKey",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "xKey",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodSparklineSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "width",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "groupBy",
+      "type": "GoodChartTimeGroup",
+      "required": false,
+      "default": null,
+      "allowedValues": [
+        "day",
+        "month",
+        "year"
+      ],
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "aggregate",
+      "type": "GoodChartAggregation",
+      "required": false,
+      "default": "none",
+      "allowedValues": [
+        "first",
+        "last",
+        "none",
+        "mean",
+        "sum",
+        "min",
+        "max",
+        "count"
+      ],
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showEndpoint",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sparkline.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "groupBy": [
+      "day",
+      "month",
+      "year"
+    ],
+    "aggregate": [
+      "first",
+      "last",
+      "none",
+      "mean",
+      "sum",
+      "min",
+      "max",
+      "count"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/sparkline.md",
+  "usage": {
+    "summary": "`good-sparkline` shows one compact trend without a Card, axes, legend, or interactive controls. Use it beside a metric or inside a GoodUI Table cell. It reads the same typed `GoodChartDataSource` as Line and Bar charts, so the same source can power a full chart elsewhere.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.sparkline",
+      "penpotId": "1b6260d7-e591-805d-8008-e3e1ea06ba12",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

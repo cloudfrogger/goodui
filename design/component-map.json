@@ -54,6 +54,7 @@
     "listbox",
     "link",
     "line-chart",
+    "sparkline",
     "tab",
     "tabs",
     "timeline",
@@ -880,6 +881,13 @@
       "penpotName": "goodui.input-phone",
       "penpotId": "c0c3286f-e4bf-804c-8008-d726120bd498",
       "angularSelector": "good-input-phone",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.sparkline",
+      "penpotId": "1b6260d7-e591-805d-8008-e3e1ea06ba12",
+      "angularSelector": "good-sparkline",
       "kind": "component",
       "state": null
     },
