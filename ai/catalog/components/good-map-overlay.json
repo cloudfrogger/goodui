@@ -1,0 +1,136 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-map-overlay",
+  "className": "GoodMapOverlayComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodMapOverlayComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/world-map.ts",
+  "inputs": [
+    {
+      "name": "source",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "countryKey",
+      "type": "string",
+      "required": false,
+      "default": "country",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "timeKey",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "type",
+      "type": "GoodMapOverlayType",
+      "required": false,
+      "default": "percentage",
+      "allowedValues": [
+        "percentage",
+        "bar",
+        "pie"
+      ],
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "valueKeys",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "type": [
+      "percentage",
+      "bar",
+      "pie"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.map-overlay",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f4551cd9be",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.map-overlay.bar",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f455478339",
+      "kind": "component",
+      "state": "bar",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.map-overlay.pie",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f4556f4a3d",
+      "kind": "component",
+      "state": "pie",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.map-overlay.aggregated",
+      "penpotId": "18e25442-2c17-80b0-8008-e40193c020b5",
+      "kind": "component",
+      "state": "aggregated",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

@@ -42,8 +42,8 @@
       "required": false,
       "default": "none",
       "allowedValues": [
-        "single",
         "none",
+        "single",
         "multiple"
       ],
       "source": "angular/projects/goodui/src/lib/listbox.ts",
@@ -188,8 +188,8 @@
   ],
   "variants": {
     "selectionMode": [
-      "single",
       "none",
+      "single",
       "multiple"
     ],
     "appearance": [

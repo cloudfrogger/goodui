@@ -1,0 +1,73 @@
+<div class="good-world-map-header">
+  <strong>{{ title() }}</strong>
+  <div class="good-world-map-controls" aria-label="Map controls">
+    <good-button variant="ghost" size="small" [iconOnly]="true" [icon]="zoomOutIcon" ariaLabel="Zoom out" (click)="zoom(1 / 1.5)" />
+    <good-button variant="ghost" size="small" [iconOnly]="true" [icon]="resetIcon" ariaLabel="Show whole world" (click)="resetFromUser()" />
+    <good-button variant="ghost" size="small" [iconOnly]="true" [icon]="zoomInIcon" ariaLabel="Zoom in" (click)="zoom(1.5)" />
+  </div>
+</div>
+<div class="good-world-map-config" aria-hidden="true"><ng-content /></div>
+@if (error()) { <p class="good-world-map-error" role="alert">{{ error() }}</p> }
+@if (overlayErrors()) { <p class="good-world-map-error" role="alert">{{ overlayErrors() }}</p> }
+@if (scaleError()) { <p class="good-world-map-error" role="alert">{{ scaleError() }}</p> }
+<svg #mapCanvas class="good-world-map-canvas" viewBox="0 0 960 500" role="img" [attr.aria-label]="title() + '. Drag to move; scroll or pinch to zoom.'"
+  (wheel)="onWheel($event)" (pointerdown)="onPointerDown($event)" (pointermove)="onPointerMove($event)"
+  (pointerup)="onPointerUp($event)" (pointercancel)="onPointerUp($event)">
+  <rect class="good-world-map-water" x="0" y="0" width="960" height="500" />
+  <g [attr.transform]="'translate(' + transform().x + ' ' + transform().y + ') scale(' + transform().k + ')'">
+    @for (country of countries(); track country.name) {
+      <path class="good-world-map-country" [class.good-world-map-selected]="selected() === country.code"
+        [attr.data-neighbor]="isNeighbor(country) ? 'true' : null"
+        [style.fill]="countryFill(country)"
+        [attr.d]="country.path" [attr.tabindex]="country.code ? 0 : null" [attr.role]="country.code ? 'button' : null"
+        [attr.aria-label]="countryTitle(country)" (click)="onCountryClick(country)"
+        (keydown.enter)="onCountryClick(country)" (keydown.space)="onCountryClick(country); $event.preventDefault()">
+        <title>{{ countryTitle(country) }}</title>
+      </path>
+    }
+  </g>
+  @for (glyph of displayedGlyphs(); track glyph.id) {
+      <g class="good-world-map-glyph" role="img" tabindex="0" [attr.aria-label]="glyphTitle(glyph)"
+        [attr.transform]="'translate(' + glyphX(glyph) + ' ' + glyphY(glyph) + ') scale(' + glyphScale() + ')'">
+        <title>{{ glyphTitle(glyph) }}</title>
+        @switch (glyph.type) {
+          @case ('percentage') {
+            <rect class="good-world-map-glyph-background" x="-24" y="-13" width="48" height="26" rx="7" />
+            <text text-anchor="middle" dominant-baseline="middle" [attr.fill]="glyph.colors[0]">{{ glyph.values[0] | number:'1.0-1' }}%</text>
+          }
+          @case ('bar') {
+            <rect class="good-world-map-glyph-background" x="-26" y="-34" width="52" height="39" rx="6" />
+            @for (value of glyph.values; track $index) {
+              <rect class="good-world-map-bar" [attr.x]="-22 + $index * (44 / glyph.values.length)"
+                [attr.y]="-4 - barHeight(value, glyph.values)" [attr.width]="Math.max(2, 40 / glyph.values.length)"
+                [attr.height]="barHeight(value, glyph.values)" [attr.fill]="glyph.colors[$index]" />
+            }
+          }
+          @case ('pie') {
+            <circle class="good-world-map-glyph-background" r="18" />
+            @for (slice of glyph.paths; track $index) {
+              <path class="good-world-map-slice" [attr.d]="slice" [attr.fill]="glyph.colors[$index]" />
+            }
+          }
+        }
+        @if (glyph.count > 1) {
+          <g class="good-world-map-glyph-count"
+            [attr.transform]="'translate(' + (glyph.type === 'pie' ? 17 : glyph.type === 'bar' ? 25 : 23) + ' ' + (glyph.type === 'bar' ? -34 : glyph.type === 'pie' ? -17 : -13) + ')'">
+            <circle r="10" />
+            <text text-anchor="middle" dominant-baseline="middle">{{ glyph.count }}</text>
+          </g>
+        }
+      </g>
+  }
+</svg>
+@if (resolvedScale(); as scale) {
+  @if (!scale.error && scale.values.size) {
+    <div class="good-world-map-scale" [attr.aria-label]="scale.label + ' color scale from ' + scale.min + ' to ' + scale.max">
+      <span class="good-world-map-scale-label">{{ scale.label }}</span>
+      <span>{{ scale.min | number:'1.0-2' }}{{ scale.unit }}</span>
+      <span class="good-world-map-scale-ramp"
+        [style.background]="scale.gradient" aria-hidden="true"></span>
+      <span>{{ scale.max | number:'1.0-2' }}{{ scale.unit }}</span>
+    </div>
+  }
+}

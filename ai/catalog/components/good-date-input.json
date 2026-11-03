@@ -55,11 +55,11 @@
       "required": false,
       "default": "date",
       "allowedValues": [
+        "month",
+        "year",
         "range",
         "multiple",
-        "date",
-        "month",
-        "year"
+        "date"
       ],
       "source": "angular/projects/goodui/src/lib/date-input.ts",
       "kind": "input"
@@ -302,11 +302,11 @@
       "large"
     ],
     "mode": [
+      "month",
+      "year",
       "range",
       "multiple",
-      "date",
-      "month",
-      "year"
+      "date"
     ],
     "placement": [
       "bottom-start",

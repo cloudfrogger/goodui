@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "check:mapping": "node scripts/check-component-map.mjs",
+    "map:generate": "node scripts/build-world-map.mjs",
+    "map:check": "node scripts/build-world-map.mjs --check",
     "tokens:generate": "node scripts/generate-tokens.mjs",
     "tokens:check": "node scripts/generate-tokens.mjs --check",
     "penpot:save": "node scripts/save-penpot-export.mjs",

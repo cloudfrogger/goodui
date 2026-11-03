@@ -15,9 +15,9 @@
       "required": false,
       "default": "week",
       "allowedValues": [
+        "day",
         "month",
         "week",
-        "day",
         "list"
       ],
       "source": "angular/projects/goodui/src/lib/calendar.ts",
@@ -284,9 +284,9 @@
   ],
   "variants": {
     "view": [
+      "day",
       "month",
       "week",
-      "day",
       "list"
     ]
   },

@@ -731,6 +731,28 @@
       "penpotCount": 6
     },
     {
+      "selector": "good-map-color-scale",
+      "className": "GoodMapColorScaleComponent",
+      "file": "components/good-map-color-scale.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodMapColorScaleComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-map-overlay",
+      "className": "GoodMapOverlayComponent",
+      "file": "components/good-map-overlay.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodMapOverlayComponent"
+      },
+      "usageGuide": null,
+      "penpotCount": 4
+    },
+    {
       "selector": "good-modal",
       "className": "GoodModalComponent",
       "file": "components/good-modal.json",
@@ -1301,6 +1323,17 @@
       },
       "usageGuide": null,
       "penpotCount": 1
+    },
+    {
+      "selector": "good-world-map",
+      "className": "GoodWorldMapComponent",
+      "file": "components/good-world-map.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodWorldMapComponent"
+      },
+      "usageGuide": "guides/components/world-map.md",
+      "penpotCount": 4
     },
     {
       "selector": "ng-template[goodListboxItem]",

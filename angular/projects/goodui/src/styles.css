@@ -1081,3 +1081,25 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 @media (max-width: 360px) {
   .good-topbar[data-mobile-menu="popup"] .good-mobile-brand { display: none !important; }
 }
+
+.good-world-map { display: block; min-width: 0; overflow: hidden; border: 1px solid var(--good-color-border); border-radius: var(--good-radius-card); background: var(--good-color-surface); color: var(--good-color-text); }
+.good-world-map-header { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; border-bottom: 1px solid var(--good-color-border); }
+.good-world-map-controls { display: flex; align-items: center; gap: 4px; }
+.good-world-map-config { display: none; }
+.good-world-map-canvas { display: block; width: 100%; height: auto; min-height: 250px; background: var(--good-color-canvas); touch-action: none; cursor: grab; }
+.good-world-map-canvas:active { cursor: grabbing; }
+.good-world-map-water { fill: var(--good-color-canvas); }
+.good-world-map-country { fill: var(--good-color-selected); stroke: var(--good-color-muted); stroke-opacity: .55; stroke-width: .65; vector-effect: non-scaling-stroke; cursor: pointer; }
+.good-world-map-country:hover, .good-world-map-country:focus-visible { fill: var(--good-color-selected); stroke: var(--good-color-brand); stroke-width: 1; outline: none; }
+.good-world-map-country.good-world-map-selected { fill: var(--good-color-selected); stroke: var(--good-color-brand); stroke-width: 1.4; }
+.good-world-map-glyph { cursor: default; }
+.good-world-map-glyph:focus-visible { outline: 2px solid var(--good-color-brand); outline-offset: 3px; }
+.good-world-map-glyph-background { fill: var(--good-color-surface); stroke: var(--good-color-border); stroke-width: 1; }
+.good-world-map-glyph text { font: 700 12px var(--good-typography-font-family), sans-serif; }
+.good-world-map-glyph .good-world-map-bar, .good-world-map-glyph .good-world-map-slice { stroke: none; }
+.good-world-map-glyph-count circle { fill: var(--good-color-text); stroke: var(--good-color-surface); stroke-width: 1; }
+.good-world-map-glyph-count text { fill: var(--good-color-surface); font-size: 9px; font-weight: 700; }
+.good-world-map-error { margin: 0; padding: 10px 16px; color: var(--good-color-error); }
+.good-world-map-scale { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 44px; padding: 8px 16px; border-top: 1px solid var(--good-color-border); color: var(--good-color-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.good-world-map-scale-label { margin-right: auto; color: var(--good-color-text); font-weight: 600; }
+.good-world-map-scale-ramp { display: block; flex: 1 1 100px; max-width: 180px; min-width: 64px; height: 10px; border: 1px solid var(--good-color-border); border-radius: var(--good-radius-pill); }

@@ -109,7 +109,10 @@
     "topbar-dropdown-menu",
     "topbar-menu-container",
     "topbar-menu-item",
-    "topbar-submenu"
+    "topbar-submenu",
+    "world-map",
+    "map-overlay",
+    "map-color-scale"
   ],
   "internalParts": {
     "alert-composition": "alert",
@@ -133,7 +136,10 @@
     "subnav-dropdown": "subnav",
     "subnav-item": "subnav"
   },
-  "pendingPenpotFamilies": ["action-bar", "pin-input"],
+  "pendingPenpotFamilies": [
+    "action-bar",
+    "pin-input"
+  ],
   "pendingContracts": {
     "action-bar": "design/action-bar-contract.json",
     "pin-input": "design/pin-input-contract.json"
@@ -402,7 +408,10 @@
       "kind": "internal-part",
       "owner": "goodui.calendar",
       "state": "all-day",
-      "runtimeInputs": ["events[].marker", "events[].tone"]
+      "runtimeInputs": [
+        "events[].marker",
+        "events[].tone"
+      ]
     },
     {
       "penpotName": "goodui.calendar-event.all-day-resizable",
@@ -411,7 +420,11 @@
       "kind": "internal-part",
       "owner": "goodui.calendar",
       "state": "all-day-resizable",
-      "runtimeInputs": ["events[].marker", "events[].tone", "events[].resizable"]
+      "runtimeInputs": [
+        "events[].marker",
+        "events[].tone",
+        "events[].resizable"
+      ]
     },
     {
       "penpotName": "goodui.calendar-event.timed",
@@ -420,7 +433,10 @@
       "kind": "internal-part",
       "owner": "goodui.calendar",
       "state": "timed",
-      "runtimeInputs": ["events[].marker", "events[].tone"]
+      "runtimeInputs": [
+        "events[].marker",
+        "events[].tone"
+      ]
     },
     {
       "penpotName": "goodui.calendar-event.timed-resizable",
@@ -429,7 +445,11 @@
       "kind": "internal-part",
       "owner": "goodui.calendar",
       "state": "timed-resizable",
-      "runtimeInputs": ["events[].marker", "events[].tone", "events[].resizable"]
+      "runtimeInputs": [
+        "events[].marker",
+        "events[].tone",
+        "events[].resizable"
+      ]
     },
     {
       "penpotName": "goodui.calendar.nonworking-band",
@@ -2091,6 +2111,83 @@
       "angularSelector": "good-assistant-mobile",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.world-map",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f412c7a013",
+      "angularSelector": "good-world-map",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.map-overlay",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f4551cd9be",
+      "angularSelector": "good-map-overlay",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.map-overlay.bar",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f455478339",
+      "angularSelector": "good-map-overlay",
+      "kind": "component",
+      "state": "bar"
+    },
+    {
+      "penpotName": "goodui.map-overlay.pie",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f4556f4a3d",
+      "angularSelector": "good-map-overlay",
+      "kind": "component",
+      "state": "pie"
+    },
+    {
+      "penpotName": "goodui.world-map.color-scale",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f9ce07e2bf",
+      "angularSelector": "good-world-map",
+      "kind": "component",
+      "state": "color-scale"
+    },
+    {
+      "penpotName": "goodui.map-color-scale",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f9ce9d78e0",
+      "angularSelector": "good-map-color-scale",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.map-color-scale.heatmap",
+      "penpotId": "18e25442-2c17-80b0-8008-e4059532df81",
+      "angularSelector": "good-map-color-scale",
+      "kind": "component",
+      "state": "heatmap"
+    },
+    {
+      "penpotName": "goodui.map-color-scale.custom",
+      "penpotId": "18e25442-2c17-80b0-8008-e405a2f1850f",
+      "angularSelector": "good-map-color-scale",
+      "kind": "component",
+      "state": "custom"
+    },
+    {
+      "penpotName": "goodui.world-map.selected-neighbors",
+      "penpotId": "18e25442-2c17-80b0-8008-e3fd1171966f",
+      "angularSelector": "good-world-map",
+      "kind": "component",
+      "state": "selected-neighbors"
+    },
+    {
+      "penpotName": "goodui.map-overlay.aggregated",
+      "penpotId": "18e25442-2c17-80b0-8008-e40193c020b5",
+      "angularSelector": "good-map-overlay",
+      "kind": "component",
+      "state": "aggregated"
+    },
+    {
+      "penpotName": "goodui.world-map.aggregated-overlays",
+      "penpotId": "18e25442-2c17-80b0-8008-e401d4eda08a",
+      "angularSelector": "good-world-map",
+      "kind": "component",
+      "state": "aggregated-overlays"
     }
   ],
   "variantManifests": [
@@ -2130,6 +2227,7 @@
     "design/select-variants.json",
     "design/input-phone-variants.json",
     "design/rich-text-contract.json",
-    "design/color-controls-contract.json"
+    "design/color-controls-contract.json",
+    "design/world-map-contract.json"
   ]
 }

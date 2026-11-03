@@ -1,0 +1,25 @@
+{
+  "page": "42 Charts",
+  "geometrySource": "@cublya/world-atlas 3.0.0-beta.2, countries-independent-50m.json, Natural Earth 5.1.2",
+  "families": [
+    { "name": "goodui.world-map", "id": "18e25442-2c17-80b0-8008-e3f412c7a013", "selector": "good-world-map", "state": "default" },
+    { "name": "goodui.map-overlay", "id": "18e25442-2c17-80b0-8008-e3f4551cd9be", "selector": "good-map-overlay", "state": "percentage" },
+    { "name": "goodui.map-overlay.bar", "id": "18e25442-2c17-80b0-8008-e3f455478339", "selector": "good-map-overlay", "state": "bar" },
+    { "name": "goodui.map-overlay.pie", "id": "18e25442-2c17-80b0-8008-e3f4556f4a3d", "selector": "good-map-overlay", "state": "pie" },
+    { "name": "goodui.world-map.color-scale", "id": "18e25442-2c17-80b0-8008-e3f9ce07e2bf", "selector": "good-world-map", "state": "color-scale" },
+    { "name": "goodui.map-color-scale", "id": "18e25442-2c17-80b0-8008-e3f9ce9d78e0", "selector": "good-map-color-scale", "state": "corporate" },
+    { "name": "goodui.map-color-scale.heatmap", "id": "18e25442-2c17-80b0-8008-e4059532df81", "selector": "good-map-color-scale", "state": "heatmap" },
+    { "name": "goodui.map-color-scale.custom", "id": "18e25442-2c17-80b0-8008-e405a2f1850f", "selector": "good-map-color-scale", "state": "custom" },
+    { "name": "goodui.world-map.selected-neighbors", "id": "18e25442-2c17-80b0-8008-e3fd1171966f", "selector": "good-world-map", "state": "selected-neighbors" },
+    { "name": "goodui.map-overlay.aggregated", "id": "18e25442-2c17-80b0-8008-e40193c020b5", "selector": "good-map-overlay", "state": "aggregated" },
+    { "name": "goodui.world-map.aggregated-overlays", "id": "18e25442-2c17-80b0-8008-e401d4eda08a", "selector": "good-world-map", "state": "aggregated-overlays" }
+  ],
+  "inputs": {
+    "good-world-map": ["title", "sources", "focusCountry", "time", "colors", "minZoom", "maxZoom", "aggregateOverlays"],
+    "good-map-overlay": ["source", "countryKey", "timeKey", "type", "valueKeys", "label", "color"],
+    "good-map-color-scale": ["source", "countryKey", "timeKey", "valueKey", "min", "max", "palette", "colors", "lowColor", "highColor", "label"]
+  },
+  "outputs": { "good-world-map": ["countrySelected"] },
+  "runtimeStates": ["whole-world", "focused-country", "selected-neighbors", "aggregated-overlays", "dragging", "zoomed", "color-scale", "corporate-palette", "heatmap-palette", "custom-colors", "loading", "geometry-error", "data-error"],
+  "notes": "Penpot shows a map, three color-scale specimens (corporate, heatmap, custom), a selected-country neighbor specimen, linked aggregated-overlay specimens, and glyph specimens. Runtime geometry, country focus, zoom and pan, responsive mean aggregation, direct-neighbor detection, data validation, and multi-stop color interpolation live in Angular."
+}

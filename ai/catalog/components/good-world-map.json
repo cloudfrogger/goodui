@@ -1,0 +1,145 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-world-map",
+  "className": "GoodWorldMapComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodWorldMapComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/world-map.ts",
+  "inputs": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "World map",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "sources",
+      "type": "readonly GoodChartDataSource[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "focusCountry",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "time",
+      "type": "string | Date",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "colors",
+      "type": "readonly string[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "minZoom",
+      "type": "number",
+      "required": false,
+      "default": "1",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "maxZoom",
+      "type": "number",
+      "required": false,
+      "default": "12",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "aggregateOverlays",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "countrySelected",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/world-map.ts"
+    }
+  ],
+  "variants": {},
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [
+      "good-button"
+    ],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/world-map.md",
+  "usage": {
+    "summary": "`good-world-map` plots country data on a zoomable, pannable map. It shares `GoodChartDataSource` and the GoodUI marker palette with the other data visualizations. The geometry is bundled and loaded only when a map is opened; it requires no tile service or API key. The map uses Natural Earth 5.1.2 country boundaries via `@cublya/world-atlas` 3.0.0-beta.2. See [Natural Earth's terms](https://www.naturalearthdata.com/about/terms-of-use/) and [World Atlas data license](https://cublya.github.io/world-atlas/guides/boundary-data-licensing/).",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.world-map",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f412c7a013",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.world-map.color-scale",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f9ce07e2bf",
+      "kind": "component",
+      "state": "color-scale",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.world-map.selected-neighbors",
+      "penpotId": "18e25442-2c17-80b0-8008-e3fd1171966f",
+      "kind": "component",
+      "state": "selected-neighbors",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.world-map.aggregated-overlays",
+      "penpotId": "18e25442-2c17-80b0-8008-e401d4eda08a",
+      "kind": "component",
+      "state": "aggregated-overlays",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

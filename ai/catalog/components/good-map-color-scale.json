@@ -1,0 +1,163 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-map-color-scale",
+  "className": "GoodMapColorScaleComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodMapColorScaleComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/world-map.ts",
+  "inputs": [
+    {
+      "name": "source",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "countryKey",
+      "type": "string",
+      "required": false,
+      "default": "country",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "timeKey",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "valueKey",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "palette",
+      "type": "GoodMapColorPalette",
+      "required": false,
+      "default": "corporate",
+      "allowedValues": [
+        "corporate",
+        "heatmap"
+      ],
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "colors",
+      "type": "readonly string[]",
+      "required": false,
+      "default": [],
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "lowColor",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "highColor",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/world-map.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "palette": [
+      "corporate",
+      "heatmap"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": null,
+  "usage": {
+    "summary": null,
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.map-color-scale",
+      "penpotId": "18e25442-2c17-80b0-8008-e3f9ce9d78e0",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.map-color-scale.heatmap",
+      "penpotId": "18e25442-2c17-80b0-8008-e4059532df81",
+      "kind": "component",
+      "state": "heatmap",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.map-color-scale.custom",
+      "penpotId": "18e25442-2c17-80b0-8008-e405a2f1850f",
+      "kind": "component",
+      "state": "custom",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": true,
+    "penpotMapping": false
+  }
+}

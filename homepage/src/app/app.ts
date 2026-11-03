@@ -26,7 +26,7 @@ export class App {
     });
   }
 
-  readonly user: GoodUser = { name: 'Steve Fischer', email: 'steve@example.com', initials: 'SF', badge: 'Pro' };
+  readonly user: GoodUser = { name: 'GoodUI User', email: '', initials: 'GU', badge: 'Pro' };
   readonly language = signal('English');
   readonly avatarActions = computed<readonly GoodMenuAction[]>(() => [
     { id: 'public-profile', label: 'Public Profile', icon: 'account', route: '/profile' },
@@ -107,6 +107,7 @@ export class App {
         { id: 'scatter-plots', label: 'Scatter plots', route: '/visualizations/scatter-plots' },
         { id: 'histograms', label: 'Histograms', route: '/visualizations/histograms' },
         { id: 'sparklines', label: 'Sparklines', route: '/visualizations/sparklines' },
+        { id: 'world-maps', label: 'World maps', route: '/visualizations/world-maps' },
       ] },
       { id: 'content-category', label: 'Data display', icon: 'book', children: [
         { id: 'tables', label: 'Tables', route: '/components/tables' },
@@ -216,6 +217,7 @@ export class App {
     { id: 'scatter-plots', label: 'Scatter plots', description: 'Two-dimensional observations from multiple typed sources', route: '/visualizations/scatter-plots' },
     { id: 'histograms', label: 'Histograms', description: 'Numeric distributions in shared count intervals', route: '/visualizations/histograms' },
     { id: 'sparklines', label: 'Sparklines', description: 'Compact trends for metrics and table cells', route: '/visualizations/sparklines' },
+    { id: 'world-maps', label: 'World maps', description: 'Zoomable country maps with chart overlays', route: '/visualizations/world-maps' },
     { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
     { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },
     { id: 'designing', label: 'Designing', description: 'Getting Started', route: '/getting-started/designing' },
