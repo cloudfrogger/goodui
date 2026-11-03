@@ -1,0 +1,38 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Data visualizations</good-eyebrow>
+        <good-heading>Bar charts</good-heading>
+        <good-summary>Compare values by category with the same data-source and axis contract as line charts.</good-summary>
+      </good-heading-group>
+      <good-paragraph>Pass one or more typed sources, declare the axes, and add one <code>good-chart-bar</code> per measure. Bars with the same X value sit beside each other. The chart owns its Card, legend, responsive plot, and optional data-table switch.</good-paragraph>
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">Two series in GoodUI colors</good-subheading>
+      <good-bar-chart title="Requests by quarter" [sources]="requestSources" [showDataToggle]="true">
+        <good-chart-axis position="x" type="category" label="Quarter" />
+        <good-chart-axis position="y" type="number" label="Requests" [min]="0" [precision]="0" />
+        <good-chart-bar source="new" xKey="quarter" yKey="count" label="New" />
+        <good-chart-bar source="returning" xKey="quarter" yKey="count" label="Returning" />
+      </good-bar-chart>
+      <good-paragraph>The first bars use GoodUI marker blue; the second use marker teal. The table icon in the Card header reveals the same numbers in a GoodUI Table.</good-paragraph>
+      <good-code-block [code]="chartCode" language="html" title="Grouped bar chart · Angular template" />
+      <good-code-block [code]="dataCode" language="typescript" title="Two typed sources · TypeScript" />
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">A custom palette and one-dimensional data</good-subheading>
+      <good-paragraph>Set <code>[colors]</code> to an array of marker names or CSS colors to replace the chart palette. Here <code>violet</code> stays theme-aware. With one numeric key and no <code>xKey</code>, row positions become the X values. Set <code>color</code> on an individual bar definition when just that series needs another color.</good-paragraph>
+      <good-bar-chart title="Tasks by day" [sources]="[taskCounts]" [colors]="customColors">
+        <good-chart-axis position="x" type="number" label="Day" [precision]="0" />
+        <good-chart-axis position="y" type="number" label="Tasks" [min]="0" [precision]="0" />
+        <good-chart-bar source="tasks" yKey="count" label="Tasks" />
+      </good-bar-chart>
+      <good-code-block [code]="customCode" language="html" title="Custom palette · Angular template" />
+    </good-prose>
+  </good-section>
+</good-main-view>

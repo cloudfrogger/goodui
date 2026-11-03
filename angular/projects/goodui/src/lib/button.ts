@@ -11,6 +11,7 @@ import { GoodButtonIcon, GoodButtonSize, GoodButtonVariant } from './models';
     <button class="good-button-control" [class.good-button-icon-only]="iconOnly()" [type]="type()"
       [attr.data-variant]="variant()" [attr.data-size]="size()"
       [disabled]="disabled()" [attr.aria-label]="ariaLabel() || null"
+      [attr.aria-pressed]="ariaPressed()"
       [attr.aria-expanded]="ariaExpanded()" [attr.aria-controls]="ariaControls() || null"
       [attr.aria-haspopup]="hasPopup() || null">
       @if (icon(); as iconData) { <svg class="good-button-icon" [lucideIcon]="iconData" [size]="iconSize()" aria-hidden="true"></svg> }
@@ -28,6 +29,7 @@ export class GoodButtonComponent {
   readonly size = input<GoodButtonSize>('default');
   readonly iconSize = computed(() => ({ small: 14, default: 16, large: 20 })[this.size()]);
   readonly ariaLabel = input('');
+  readonly ariaPressed = input<boolean | null>(null);
   readonly disabled = input(false);
   readonly type = input<'button' | 'submit' | 'reset'>('button');
   readonly ariaExpanded = input<boolean | null>(null);

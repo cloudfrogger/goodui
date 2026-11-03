@@ -13,10 +13,14 @@
     "avatar-menu",
     "avatar-menu-item",
     "badge",
+    "bar-chart",
     "brand-icon",
     "breadcrumbs",
     "button",
     "calendar",
+    "chart-axis",
+    "chart-bar",
+    "chart-line",
     "card",
     "card-footer",
     "card-header",
@@ -49,6 +53,7 @@
     "input-phone",
     "listbox",
     "link",
+    "line-chart",
     "tab",
     "tabs",
     "timeline",
@@ -305,6 +310,34 @@
       "penpotName": "goodui.button",
       "penpotId": "521fe58c-da62-80e2-8008-d423817384e6",
       "angularSelector": "good-button",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.bar-chart",
+      "penpotId": "1b6260d7-e591-805d-8008-e3534ae5a60d",
+      "angularSelector": "good-bar-chart",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.chart-axis",
+      "penpotId": "1b6260d7-e591-805d-8008-e2e297d4bfae",
+      "angularSelector": "good-chart-axis",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.chart-bar",
+      "penpotId": "1b6260d7-e591-805d-8008-e3535bb1b85d",
+      "angularSelector": "good-chart-bar",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.chart-line",
+      "penpotId": "1b6260d7-e591-805d-8008-e2e297e11eab",
+      "angularSelector": "good-chart-line",
       "kind": "component",
       "state": null
     },
@@ -847,6 +880,13 @@
       "penpotName": "goodui.input-phone",
       "penpotId": "c0c3286f-e4bf-804c-8008-d726120bd498",
       "angularSelector": "good-input-phone",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.line-chart",
+      "penpotId": "1b6260d7-e591-805d-8008-e2e1e2b3f91b",
+      "angularSelector": "good-line-chart",
       "kind": "component",
       "state": null
     },
@@ -2007,6 +2047,7 @@
     }
   ],
   "variantManifests": [
+    "design/chart-contract.json",
     "design/assistant-panel-contract.json",
     "design/action-group-variants.json",
     "design/alert-contract.json",

@@ -1,0 +1,45 @@
+{
+  "page": "42 Charts",
+  "dataContract": "GoodChartDataSource",
+  "families": [
+    {
+      "name": "goodui.line-chart",
+      "id": "1b6260d7-e591-805d-8008-e2e1e2b3f91b",
+      "selector": "good-line-chart",
+      "inputs": ["title", "ariaLabel", "sources", "colors", "showDataToggle"],
+      "composition": ["goodui.card", "goodui.chart-axis", "goodui.chart-line"],
+      "note": "A two-series monthly-temperature specimen. Card is a linked GoodUI instance. Source rows, axis values, line labels, palette overrides, and optional icon-button data-table state are runtime configuration."
+    },
+    {
+      "name": "goodui.bar-chart",
+      "id": "1b6260d7-e591-805d-8008-e3534ae5a60d",
+      "selector": "good-bar-chart",
+      "inputs": ["title", "ariaLabel", "sources", "colors", "showDataToggle"],
+      "composition": ["goodui.card", "goodui.chart-axis", "goodui.chart-bar"],
+      "note": "Grouped four-quarter specimen with two series in theme-aware marker blue and teal. The Card is a linked GoodUI instance; source rows and data-table state are runtime configuration."
+    },
+    {
+      "name": "goodui.chart-axis",
+      "id": "1b6260d7-e591-805d-8008-e2e297d4bfae",
+      "selector": "good-chart-axis",
+      "inputs": ["position", "type", "label", "min", "max", "ticks", "precision", "groupBy", "aggregate"],
+      "note": "The specimen shows X and Y labels together for reference. Each declarative Angular tag configures one axis and does not render alone."
+    },
+    {
+      "name": "goodui.chart-bar",
+      "id": "1b6260d7-e591-805d-8008-e3535bb1b85d",
+      "selector": "good-chart-bar",
+      "inputs": ["source", "xKey", "yKey", "label", "color"],
+      "note": "One-bar-series reference. The declarative Angular tag configures a series inside BarChart and does not render alone."
+    },
+    {
+      "name": "goodui.chart-line",
+      "id": "1b6260d7-e591-805d-8008-e2e297e11eab",
+      "selector": "good-chart-line",
+      "inputs": ["source", "xKey", "yKey", "label", "color"],
+      "note": "The specimen shows one line. The declarative Angular tag configures a series inside LineChart and does not render alone."
+    }
+  ],
+  "tokens": ["color.text", "color.muted", "color.border", "color.accent", "color.marker.blue", "color.marker.teal"],
+  "runtimeStates": ["show-data", "custom-palette", "grouped-bars", "negative-bars", "empty", "invalid-configuration", "responsive-width"]
+}

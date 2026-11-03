@@ -1,0 +1,89 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-chart-line",
+  "className": "GoodChartLineComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodChartLineComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/line-chart.ts",
+  "inputs": [
+    {
+      "name": "source",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "xKey",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "yKey",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/chart-line.md",
+  "usage": {
+    "summary": "`good-chart-line` is a declarative configuration child of `good-line-chart`. It requires a `source` ID and numeric `yKey`. Set `xKey` to a declared category, numeric, date, or datetime key. For a one-dimensional source, omit `xKey` and use a numeric X axis; row positions become X values. Optional `label` sets the legend and data-table heading. Optional `color` accepts a CSS color, a GoodUI semantic name, or a marker name; it overrides the chart's `colors` array for this series.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.chart-line",
+      "penpotId": "1b6260d7-e591-805d-8008-e2e297e11eab",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

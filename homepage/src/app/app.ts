@@ -100,6 +100,11 @@ export class App {
         { id: 'resizable', label: 'Resizable', route: '/components/resizable' },
         { id: 'assistant-panels', label: 'Assistant panels', route: '/components/assistant-panels' },
       ] },
+      { id: 'visualizations-category', label: 'Data visualizations', icon: 'grid', children: [
+        { id: 'chart-datasources', label: 'Data sources', route: '/visualizations/datasources' },
+        { id: 'line-charts', label: 'Line charts', route: '/visualizations/line-charts' },
+        { id: 'bar-charts', label: 'Bar charts', route: '/visualizations/bar-charts' },
+      ] },
       { id: 'content-category', label: 'Data display', icon: 'book', children: [
         { id: 'tables', label: 'Tables', route: '/components/tables' },
         { id: 'timelines', label: 'Timelines', route: '/components/timelines' },
@@ -202,6 +207,9 @@ export class App {
     { id: 'layout-default', label: 'Layout · Default view', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default' },
     { id: 'layout-fill', label: 'Layout · Fill view', description: 'Foundation · full-height workspace without page scrolling', route: '/getting-started/layout/fill' },
     { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
+    { id: 'chart-datasources', label: 'Chart data sources', description: 'Typed keys, dimensions, multiple sources, and axis conversions', route: '/visualizations/datasources' },
+    { id: 'line-charts', label: 'Line charts', description: 'Responsive, multi-series charts with optional data table', route: '/visualizations/line-charts' },
+    { id: 'bar-charts', label: 'Bar charts', description: 'Grouped series with shared axes, palettes, and data table', route: '/visualizations/bar-charts' },
     { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
     { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },
     { id: 'designing', label: 'Designing', description: 'Getting Started', route: '/getting-started/designing' },

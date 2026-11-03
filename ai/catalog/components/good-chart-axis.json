@@ -1,0 +1,168 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-chart-axis",
+  "className": "GoodChartAxisComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodChartAxisComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/line-chart.ts",
+  "inputs": [
+    {
+      "name": "position",
+      "type": "\"x\" | \"y\"",
+      "required": true,
+      "default": null,
+      "allowedValues": [
+        "x",
+        "y"
+      ],
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "type",
+      "type": "GoodChartAxisType",
+      "required": false,
+      "default": "number",
+      "allowedValues": [
+        "number",
+        "category",
+        "time"
+      ],
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "min",
+      "type": "string | number | Date",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "max",
+      "type": "string | number | Date",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "ticks",
+      "type": "number",
+      "required": false,
+      "default": "5",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "precision",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "groupBy",
+      "type": "GoodChartTimeGroup",
+      "required": false,
+      "default": null,
+      "allowedValues": [
+        "day",
+        "month",
+        "year"
+      ],
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "aggregate",
+      "type": "GoodChartAggregation",
+      "required": false,
+      "default": "none",
+      "allowedValues": [
+        "first",
+        "last",
+        "none",
+        "mean",
+        "sum",
+        "min",
+        "max",
+        "count"
+      ],
+      "source": "angular/projects/goodui/src/lib/line-chart.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "position": [
+      "x",
+      "y"
+    ],
+    "type": [
+      "number",
+      "category",
+      "time"
+    ],
+    "groupBy": [
+      "day",
+      "month",
+      "year"
+    ],
+    "aggregate": [
+      "first",
+      "last",
+      "none",
+      "mean",
+      "sum",
+      "min",
+      "max",
+      "count"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/chart-axis.md",
+  "usage": {
+    "summary": "`good-chart-axis` is a declarative configuration child of `good-line-chart` or `good-bar-chart`. Add one with `position=\"x\"` and one with `position=\"y\"`; it does not render on its own. Set `type` to `category`, `number`, or `time`, matching the selected source key. Optional `label`, `min`, `max`, `ticks`, and `precision` define the visible scale. On time axes, `groupBy` accepts `day`, `month`, or `year`; `aggregate` selects how duplicate dates in a bucket combine.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.chart-axis",
+      "penpotId": "1b6260d7-e591-805d-8008-e2e297d4bfae",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

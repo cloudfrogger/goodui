@@ -225,6 +225,17 @@
       "penpotCount": 1
     },
     {
+      "selector": "good-bar-chart",
+      "className": "GoodBarChartComponent",
+      "file": "components/good-bar-chart.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodBarChartComponent"
+      },
+      "usageGuide": "guides/components/bar-chart.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-brand-icon",
       "className": "GoodBrandIconComponent",
       "file": "components/good-brand-icon.json",
@@ -299,6 +310,39 @@
         "symbol": "GoodCardHeaderComponent"
       },
       "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-chart-axis",
+      "className": "GoodChartAxisComponent",
+      "file": "components/good-chart-axis.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodChartAxisComponent"
+      },
+      "usageGuide": "guides/components/chart-axis.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-chart-bar",
+      "className": "GoodChartBarComponent",
+      "file": "components/good-chart-bar.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodChartBarComponent"
+      },
+      "usageGuide": "guides/components/chart-bar.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-chart-line",
+      "className": "GoodChartLineComponent",
+      "file": "components/good-chart-line.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodChartLineComponent"
+      },
+      "usageGuide": "guides/components/chart-line.md",
       "penpotCount": 1
     },
     {
@@ -597,6 +641,17 @@
       },
       "usageGuide": "guides/components/input-phone.md",
       "penpotCount": 2
+    },
+    {
+      "selector": "good-line-chart",
+      "className": "GoodLineChartComponent",
+      "file": "components/good-line-chart.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodLineChartComponent"
+      },
+      "usageGuide": "guides/components/line-chart.md",
+      "penpotCount": 1
     },
     {
       "selector": "good-link",

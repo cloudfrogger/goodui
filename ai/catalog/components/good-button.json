@@ -78,6 +78,15 @@
       "kind": "input"
     },
     {
+      "name": "ariaPressed",
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/button.ts",
+      "kind": "input"
+    },
+    {
       "name": "disabled",
       "type": "boolean",
       "required": false,

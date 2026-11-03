@@ -1,0 +1,53 @@
+<good-card>
+  <good-card-header [title]="title()" [headingLevel]="3">
+    @if (showDataToggle()) {
+      <good-button goodCardActions variant="ghost" size="small" [iconOnly]="true"
+        [icon]="dataVisible() ? chartIcon : tableIcon" [ariaPressed]="dataVisible()"
+        [ariaLabel]="dataVisible() ? 'Show chart' : 'Show data'"
+        (click)="dataVisible.set(!dataVisible())" />
+    }
+  </good-card-header>
+  <div class="good-chart-config" aria-hidden="true"><ng-content /></div>
+  @if (resolved().errors.length) {
+    <div class="good-chart-message" role="alert">{{ resolved().errors.join(' ') }}</div>
+  } @else if (!resolved().lines.length || !tableRows().length) {
+    <div class="good-chart-message">No data to display.</div>
+  } @else if (dataVisible()) {
+    <p class="good-chart-table-hint">Scroll horizontally to see all series.</p>
+    <good-table [label]="title() + ' data'" tableStyle="compact" [data]="tableRows()"
+      [columns]="tableColumns()" [reorderable]="false" />
+  } @else {
+    <div #plot class="good-chart-plot">
+      <svg [attr.viewBox]="'0 0 ' + width() + ' ' + height" role="img"
+        [attr.aria-label]="ariaLabel() || title()" preserveAspectRatio="xMidYMid meet">
+        @for (tick of yTicks(); track $index) {
+          <line class="good-chart-grid" [attr.x1]="left" [attr.x2]="width() - right"
+            [attr.y1]="tick.y" [attr.y2]="tick.y" />
+          <text class="good-chart-tick good-chart-y-tick" [attr.x]="left - 9" [attr.y]="tick.y + 4">{{ tick.label }}</text>
+        }
+        <line class="good-chart-baseline" [attr.x1]="left" [attr.x2]="width() - right"
+          [attr.y1]="top + plotHeight" [attr.y2]="top + plotHeight" />
+        @for (tick of xTicks(); track $index) {
+          @if (tick.visible) {
+            <text class="good-chart-tick good-chart-x-tick" [attr.x]="tick.x"
+              [attr.y]="top + plotHeight + 19">{{ tick.label }}</text>
+          }
+        }
+        @for (line of renderedLines(); track line.id) {
+          <path class="good-chart-line-path" [attr.d]="line.path" [attr.stroke]="line.colorValue" />
+          @for (dot of line.dots; track $index) {
+            <circle class="good-chart-point" [attr.cx]="dot.x" [attr.cy]="dot.y" r="3"
+              [attr.stroke]="line.colorValue" />
+          }
+        }
+      </svg>
+      @if (yAxis().label) { <span class="good-chart-y-label">{{ yAxis().label }}</span> }
+      @if (xAxis().label) { <span class="good-chart-x-label">{{ xAxis().label }}</span> }
+    </div>
+    <div class="good-chart-legend" aria-label="Series legend">
+      @for (line of renderedLines(); track line.id) {
+        <span class="good-chart-legend-item"><i [style.background]="line.colorValue" aria-hidden="true"></i>{{ line.label }}</span>
+      }
+    </div>
+  }
+</good-card>

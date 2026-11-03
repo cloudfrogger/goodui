@@ -1,0 +1,89 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-chart-bar",
+  "className": "GoodChartBarComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodChartBarComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/bar-chart.ts",
+  "inputs": [
+    {
+      "name": "source",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/bar-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "xKey",
+      "type": "string",
+      "required": false,
+      "default": {
+        "expression": "undefined"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/bar-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "yKey",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/bar-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/bar-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/bar-chart.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/chart-bar.md",
+  "usage": {
+    "summary": "`good-chart-bar` is a declarative configuration child of `good-bar-chart`; it does not render alone. Set `source` to a `GoodChartDataSource.id` and `yKey` to a declared `number` or `integer` key. Set `xKey` to a declared category, numeric, date, or datetime key compatible with the X axis. Omit `xKey` only with a numeric X axis to use row positions. Optional `label` sets the legend and table heading. Optional `color` overrides the chart's assigned palette color for this series.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.chart-bar",
+      "penpotId": "1b6260d7-e591-805d-8008-e3535bb1b85d",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

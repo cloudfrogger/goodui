@@ -1,0 +1,36 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Data visualizations</good-eyebrow>
+        <good-heading>Data sources</good-heading>
+        <good-summary>One typed data contract for every GoodUI visualization.</good-summary>
+      </good-heading-group>
+      <good-paragraph>Start with a source ID, describe every key once, then supply ordinary rows. A source can hold one, two, or three dimensions. The chart selects the keys it needs; extra keys stay available to other visualizations.</good-paragraph>
+      <good-code-block [code]="sourceCode" language="typescript" title="A typed source" />
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading>Choose key types deliberately</good-subheading>
+      <good-paragraph><code>category</code> accepts a string and preserves source order. <code>number</code> accepts a finite JavaScript number; <code>integer</code> accepts only whole numbers. <code>date</code> accepts a Date or an ISO day such as <code>2026-01-01</code>. <code>datetime</code> accepts a Date or an ISO timestamp with a timezone, such as <code>2026-01-01T12:00:00Z</code>. Null and invalid values are skipped; numeric strings are never silently converted.</good-paragraph>
+      <good-paragraph>Keys may also have a readable <code>label</code> and <code>unit</code>. IDs and key names are stable references between the data source and a chart. For a one-dimensional line, omit <code>xKey</code> and use a numeric X axis; row positions become 1, 2, 3, and so on.</good-paragraph>
+      <good-code-block [code]="dimensionsCode" language="typescript" title="One, two, and three dimensions" />
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading>Define the axes in the template</good-subheading>
+      <good-paragraph>Use one <code>good-chart-axis position="x"</code> and one with <code>position="y"</code>. Choose <code>type="category"</code>, <code>number</code>, or <code>time</code> to match the source key. Optional <code>label</code>, <code>min</code>, <code>max</code>, and <code>ticks</code> describe the visible scale. <code>precision</code> rounds numeric tick labels only; it never changes the measurements or table values.</good-paragraph>
+      <good-paragraph>For dates, set <code>groupBy="day"</code>, <code>month</code>, or <code>year</code> on the time axis. When several rows fall in one bucket, choose <code>aggregate="mean"</code>, <code>sum</code>, <code>min</code>, <code>max</code>, <code>count</code>, <code>first</code>, or <code>last</code>. GoodUI reports duplicate buckets if aggregation is omitted, so a change from days to months cannot silently alter the statistic.</good-paragraph>
+      <good-code-block [code]="axisCode" language="html" title="Daily readings shown as monthly means" />
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading>Combine sources</good-subheading>
+      <good-paragraph>Pass multiple sources in <code>[sources]</code>. Each <code>good-chart-line</code> or <code>good-chart-bar</code> names its source and its X and Y keys. Categories with the same label share one horizontal position; a missing value stays empty in the data table. Both chart types use GoodUI's theme-aware marker and highlight colors: blue, teal, violet, amber, rose, and lime. Set <code>[colors]</code> to your own array, or override one series with <code>color</code>. The Line chart guide lists the named color choices.</good-paragraph>
+      <good-code-block [code]="multiSourceCode" language="html" title="Two sources in one chart" />
+    </good-prose>
+  </good-section>
+</good-main-view>
