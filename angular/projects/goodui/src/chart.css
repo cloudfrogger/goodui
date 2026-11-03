@@ -1,5 +1,5 @@
-.good-line-chart, .good-bar-chart { display: block; min-width: 0; }
-.good-line-chart .good-card, .good-bar-chart .good-card { width: 100%; }
+.good-line-chart, .good-bar-chart, .good-scatter-chart { display: block; min-width: 0; }
+.good-line-chart .good-card, .good-bar-chart .good-card, .good-scatter-chart .good-card { width: 100%; }
 .good-chart-config { display: none; }
 .good-chart-plot { position: relative; width: 100%; min-width: 0; }
 .good-chart-plot svg { display: block; width: 100%; height: 300px; overflow: visible; }
@@ -12,6 +12,9 @@
 .good-chart-point { fill: var(--good-color-surface); stroke-width: 2; vector-effect: non-scaling-stroke; }
 .good-chart-bar { transition: opacity .15s ease; }
 .good-chart-bar:hover { opacity: .78; }
+.good-chart-x-grid { opacity: .38; }
+.good-chart-scatter-point { stroke: var(--good-color-surface); stroke-width: 2; transition: r .15s ease, opacity .15s ease; }
+.good-chart-scatter-point:hover { r: 7; opacity: .82; }
 .good-chart-y-label, .good-chart-x-label { position: absolute; color: var(--good-color-muted); font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; font-size: 11px; line-height: 1; }
 .good-chart-y-label { left: 0; top: 50%; transform: translate(-35%, -50%) rotate(-90deg); white-space: nowrap; }
 .good-chart-x-label { bottom: 0; left: 50%; transform: translateX(-50%); }

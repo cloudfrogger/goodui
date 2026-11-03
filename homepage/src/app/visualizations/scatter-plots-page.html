@@ -1,0 +1,33 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Data visualizations</good-eyebrow>
+        <good-heading>Scatter plots</good-heading>
+        <good-summary>See how two numeric measurements relate, with each source shown as its own series.</good-summary>
+      </good-heading-group>
+      <good-paragraph>Each row supplies one X and one Y value. Add one <code>good-chart-scatter</code> for each source. The plot keeps observations with the same X value separate, so repeated measurements stay visible. Axes, Card, palette, and data-table switch follow the other GoodUI charts.</good-paragraph>
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">Compare two sources</good-subheading>
+      <good-scatter-chart title="Payload and response time" [sources]="sources" [showDataToggle]="true">
+        <good-chart-axis position="x" type="number" label="Payload (KB)" [min]="0" [precision]="0" />
+        <good-chart-axis position="y" type="number" label="Response time (ms)" [min]="0" [precision]="0" />
+        <good-chart-scatter source="service-a" xKey="payload" yKey="latency" label="Service A" />
+        <good-chart-scatter source="service-b" xKey="payload" yKey="latency" label="Service B" />
+      </good-scatter-chart>
+      <good-paragraph>Blue and teal are the default marker colors. Hover a point to read its values; the table button shows every observation, including both points at 38 KB for Service A. Sample measurements are illustrative.</good-paragraph>
+      <good-code-block [code]="chartCode" language="html" title="Scatter plot · Angular template" />
+      <good-code-block [code]="dataCode" language="typescript" title="Two-dimensional source · TypeScript" />
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">Choose colors</good-subheading>
+      <good-paragraph>Set <code>[colors]</code> to marker names or CSS colors. An individual <code>good-chart-scatter color="..."</code> overrides the palette for that series. A time X axis is also possible when its key is a date or datetime.</good-paragraph>
+      <good-code-block [code]="paletteCode" language="html" title="Custom palette · Angular template" />
+    </good-prose>
+  </good-section>
+</good-main-view>

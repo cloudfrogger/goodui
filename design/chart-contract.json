@@ -26,6 +26,21 @@
       "note": "Compact single-series specimen with marker-blue line and a surface-filled endpoint. Small and large sizes, custom width/color, empty/error states, and grouping are runtime options; no Card is part of the component."
     },
     {
+      "name": "goodui.scatter-chart",
+      "id": "6478e0b9-da8b-80c2-8008-e3e68249d198",
+      "selector": "good-scatter-chart",
+      "inputs": ["title", "ariaLabel", "sources", "colors", "showDataToggle"],
+      "composition": ["goodui.card", "goodui.chart-axis", "goodui.chart-scatter"],
+      "note": "Two-series 2D specimen with linked Card and theme-aware blue and teal markers. Repeated X positions remain separate dots; the data-table view and palette overrides are runtime options."
+    },
+    {
+      "name": "goodui.chart-scatter",
+      "id": "6478e0b9-da8b-80c2-8008-e3e6a0bb2b93",
+      "selector": "good-chart-scatter",
+      "inputs": ["source", "xKey", "yKey", "label", "color"],
+      "note": "Single-series 2D point specimen. The Angular tag configures ScatterChart and does not render alone."
+    },
+    {
       "name": "goodui.chart-axis",
       "id": "1b6260d7-e591-805d-8008-e2e297d4bfae",
       "selector": "good-chart-axis",
@@ -48,5 +63,5 @@
     }
   ],
   "tokens": ["color.text", "color.muted", "color.border", "color.surface", "color.accent", "color.marker.blue", "color.marker.teal"],
-  "runtimeStates": ["show-data", "custom-palette", "grouped-bars", "negative-bars", "sparkline-size", "sparkline-endpoint", "empty", "invalid-configuration", "responsive-width"]
+  "runtimeStates": ["show-data", "custom-palette", "grouped-bars", "negative-bars", "sparkline-size", "sparkline-endpoint", "scatter-overlapping-x", "empty", "invalid-configuration", "responsive-width"]
 }

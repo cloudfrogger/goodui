@@ -1,0 +1,87 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-chart-scatter",
+  "className": "GoodChartScatterComponent",
+  "kind": "component",
+  "import": {
+    "package": "@goodui/angular",
+    "symbol": "GoodChartScatterComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/scatter-chart.ts",
+  "inputs": [
+    {
+      "name": "source",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/scatter-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "xKey",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/scatter-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "yKey",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/scatter-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/scatter-chart.ts",
+      "kind": "input"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/scatter-chart.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/chart-scatter.md",
+  "usage": {
+    "summary": "`good-chart-scatter` configures one series inside `good-scatter-chart`; it does not render on its own. Set `source` to a `GoodChartDataSource.id` and set both `xKey` and `yKey` to declared keys. X must be numeric for a numeric axis or date/datetime for a time axis. Y must be numeric. `label` controls the legend and data-table series name. `color` overrides the chart's marker palette for this series.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.chart-scatter",
+      "penpotId": "6478e0b9-da8b-80c2-8008-e3e6a0bb2b93",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

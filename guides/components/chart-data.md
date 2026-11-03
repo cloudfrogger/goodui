@@ -1,6 +1,6 @@
 # Chart data sources and axes
 
-All GoodUI visualizations use `GoodChartDataSource`. A source has a stable `id`, key declarations, and rows. A one-dimensional source has one key, a two-dimensional source has X and Y keys, and a three-dimensional source adds a third key. Charts refer to the keys they need. This keeps the data independent from the rendering style and allows one chart to combine several sources. Line and Bar charts consume one X and one Y key; Sparkline needs one Y key and can use an X key. Other dimensions remain available for future visualizations.
+All GoodUI visualizations use `GoodChartDataSource`. A source has a stable `id`, key declarations, and rows. A one-dimensional source has one key, a two-dimensional source has X and Y keys, and a three-dimensional source adds a third key. Charts refer to the keys they need. This keeps the data independent from the rendering style and allows one chart to combine several sources. Line, Bar, and Scatter charts consume one X and one Y key; Sparkline needs one Y key and can use an X key. Scatter preserves separate observations at equal X values. Other dimensions remain available for future visualizations.
 
 ```ts
 import type { GoodChartDataSource } from '@goodui/angular';
@@ -40,7 +40,7 @@ Declare axes in the chart template with `good-chart-axis position="x"` and `posi
   [ticks]="7" [precision]="0" />
 ```
 
-On a time axis, `groupBy` accepts `day`, `month`, or `year`. When more than one reading lands in a bucket, choose an aggregation: `mean`, `sum`, `min`, `max`, `count`, `first`, or `last`. With the default `aggregate="none"`, duplicate X values produce an explicit configuration message instead of a silently chosen statistic. Grouping uses UTC calendar boundaries. For example, daily readings plotted by month with `aggregate="mean"` become monthly averages. `precision="0"` rounds the axis labels only; it does not change the line or the data table.
+On a time axis, `groupBy` accepts `day`, `month`, or `year`. When more than one reading lands in a bucket, Line and Bar charts require an aggregation: `mean`, `sum`, `min`, `max`, `count`, `first`, or `last`. With their default `aggregate="none"`, duplicate X values produce an explicit configuration message instead of a silently chosen statistic. Scatter plots preserve separate points in the same bucket until an aggregation is explicitly set. Grouping uses UTC calendar boundaries. For example, daily readings plotted by month with `aggregate="mean"` become monthly averages. `precision="0"` rounds the axis labels only; it does not change the plotted or table values.
 
 ## Combining sources
 
@@ -55,4 +55,4 @@ Pass a source array to `[sources]`. Each declarative line selects a source by `i
 </good-line-chart>
 ```
 
-The [Data sources page](../../homepage/src/app/visualizations/datasources-page.html) presents these rules before the [Line charts](../../homepage/src/app/visualizations/line-charts-page.html), [Bar charts](../../homepage/src/app/visualizations/bar-charts-page.html), and [Sparklines](../../homepage/src/app/visualizations/sparklines-page.html) examples. Future visualizations should reuse this contract instead of inventing their own row shape.
+The [Data sources page](../../homepage/src/app/visualizations/datasources-page.html) presents these rules before the [Line charts](../../homepage/src/app/visualizations/line-charts-page.html), [Bar charts](../../homepage/src/app/visualizations/bar-charts-page.html), [Scatter plots](../../homepage/src/app/visualizations/scatter-plots-page.html), and [Sparklines](../../homepage/src/app/visualizations/sparklines-page.html) examples. Future visualizations should reuse this contract instead of inventing their own row shape.

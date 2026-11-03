@@ -163,3 +163,46 @@ export function resolveChartLines(
 ): GoodChartResolution {
   return resolveChartSeries(sources, definitions, xAxis, 'Line');
 }
+
+/** Resolves independent 2D observations. Equal X values remain separate points. */
+export function resolveScatterSeries(
+  sources: readonly GoodChartDataSource[], definitions: readonly GoodChartSeriesDefinition[],
+  xAxis: GoodChartAxisDefinition,
+): GoodChartResolution {
+  const errors: string[] = [];
+  const lines: GoodResolvedChartSeries[] = [];
+  const sourceById = new Map(sources.map(source => [source.id, source]));
+  if (xAxis.type === 'category') return { lines, errors: ['Scatter: the X axis must be number or time.'] };
+  for (const [index, definition] of definitions.entries()) {
+    const prefix = `Scatter ${index + 1}`;
+    const source = sourceById.get(definition.source);
+    if (!source) { errors.push(`${prefix}: data source "${definition.source}" was not found.`); continue; }
+    const xKey = source.keys.find(key => key.key === definition.xKey);
+    const yKey = source.keys.find(key => key.key === definition.yKey);
+    if (!xKey) { errors.push(`${prefix}: a declared xKey is required.`); continue; }
+    if (!yKey || !['number', 'integer'].includes(yKey.type)) {
+      errors.push(`${prefix}: "${definition.yKey}" must be a declared numeric key.`); continue;
+    }
+    if ((xAxis.type === 'number' && !['number', 'integer'].includes(xKey.type)) ||
+      (xAxis.type === 'time' && !['date', 'datetime'].includes(xKey.type))) {
+      errors.push(`${prefix}: x key "${xKey.key}" does not match the ${xAxis.type} axis.`); continue;
+    }
+    const points: GoodChartPoint[] = [];
+    for (const row of source.rows) {
+      const y = parseNumber(row[yKey.key], yKey.type);
+      const x = xAxis.type === 'time' ? parseTime(row[xKey.key], xKey.type) : parseNumber(row[xKey.key], xKey.type);
+      if (x !== null && y !== null) points.push({ x: xAxis.type === 'time' ? bucketTime(x, xAxis.groupBy) : x, y });
+    }
+    // Aggregation is opt-in: duplicate X values normally represent distinct observations.
+    const method = xAxis.aggregate ?? 'none';
+    let result = points;
+    if (method !== 'none') {
+      const groups = new Map<number, number[]>();
+      for (const point of points) groups.set(Number(point.x), [...(groups.get(Number(point.x)) ?? []), point.y]);
+      result = [...groups].map(([x, values]) => ({ x, y: aggregate(values, method) }));
+    }
+    lines.push({ id: `${source.id}:${definition.xKey}:${definition.yKey}:${index}`,
+      label: definition.label || yKey.label || definition.yKey, source: source.id, color: definition.color, points: result });
+  }
+  return { lines, errors };
+}

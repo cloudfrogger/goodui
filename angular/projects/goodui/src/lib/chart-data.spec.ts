@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { GoodChartDataSource, resolveChartLines } from './chart-data';
+import { GoodChartDataSource, resolveChartLines, resolveScatterSeries } from './chart-data';
 
 describe('chart data resolution', () => {
   it('combines independent sources by category without changing their values', () => {
@@ -46,5 +46,39 @@ describe('chart data resolution', () => {
       .toEqual([{ x: 1, y: 3 }]);
     expect(resolveChartLines([source], [{ source: 'counts', xKey: 'count', yKey: 'count' }], { type: 'time' }).errors[0])
       .toContain('does not match the time axis');
+  });
+
+  it('keeps equal X values as separate scatter observations across sources', () => {
+    const sources: GoodChartDataSource[] = [
+      { id: 'first', keys: [{ key: 'x', type: 'number' }, { key: 'y', type: 'number' }],
+        rows: [{ x: 2, y: 3 }, { x: 2, y: 5 }, { x: '2', y: 8 }] },
+      { id: 'second', keys: [{ key: 'x', type: 'number' }, { key: 'y', type: 'integer' }],
+        rows: [{ x: 2, y: 7 }] },
+    ];
+    const definitions = [{ source: 'first', xKey: 'x', yKey: 'y' }, { source: 'second', xKey: 'x', yKey: 'y' }];
+    const result = resolveScatterSeries(sources, definitions, { type: 'number' });
+    expect(result.errors).toEqual([]);
+    expect(result.lines.map(line => line.points)).toEqual([
+      [{ x: 2, y: 3 }, { x: 2, y: 5 }], [{ x: 2, y: 7 }],
+    ]);
+    expect(resolveScatterSeries(sources, definitions, { type: 'number', aggregate: 'mean' }).lines[0].points)
+      .toEqual([{ x: 2, y: 4 }]);
+  });
+
+  it('resolves time scatter points without dropping same-bucket observations', () => {
+    const source: GoodChartDataSource = {
+      id: 'timed', keys: [{ key: 'day', type: 'date' }, { key: 'value', type: 'number' }],
+      rows: [
+        { day: '2026-01-02', value: 2 }, { day: '2026-01-18', value: 4 },
+        { day: '2026-02-01', value: 6 }, { day: '2026-02-30', value: 8 },
+      ],
+    };
+    const definition = [{ source: 'timed', xKey: 'day', yKey: 'value' }];
+    expect(resolveScatterSeries([source], definition, { type: 'time', groupBy: 'month' }).lines[0].points)
+      .toEqual([
+        { x: Date.UTC(2026, 0, 1), y: 2 }, { x: Date.UTC(2026, 0, 1), y: 4 },
+        { x: Date.UTC(2026, 1, 1), y: 6 },
+      ]);
+    expect(resolveScatterSeries([source], definition, { type: 'category' }).errors[0]).toContain('number or time');
   });
 });

@@ -21,6 +21,7 @@
     "chart-axis",
     "chart-bar",
     "chart-line",
+    "chart-scatter",
     "card",
     "card-footer",
     "card-header",
@@ -54,6 +55,7 @@
     "listbox",
     "link",
     "line-chart",
+    "scatter-chart",
     "sparkline",
     "tab",
     "tabs",
@@ -339,6 +341,13 @@
       "penpotName": "goodui.chart-line",
       "penpotId": "1b6260d7-e591-805d-8008-e2e297e11eab",
       "angularSelector": "good-chart-line",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.chart-scatter",
+      "penpotId": "6478e0b9-da8b-80c2-8008-e3e6a0bb2b93",
+      "angularSelector": "good-chart-scatter",
       "kind": "component",
       "state": null
     },
@@ -888,6 +897,13 @@
       "penpotName": "goodui.sparkline",
       "penpotId": "1b6260d7-e591-805d-8008-e3e1ea06ba12",
       "angularSelector": "good-sparkline",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.scatter-chart",
+      "penpotId": "6478e0b9-da8b-80c2-8008-e3e68249d198",
+      "angularSelector": "good-scatter-chart",
       "kind": "component",
       "state": null
     },

@@ -346,6 +346,17 @@
       "penpotCount": 1
     },
     {
+      "selector": "good-chart-scatter",
+      "className": "GoodChartScatterComponent",
+      "file": "components/good-chart-scatter.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodChartScatterComponent"
+      },
+      "usageGuide": "guides/components/chart-scatter.md",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-checkbox",
       "className": "GoodCheckboxComponent",
       "file": "components/good-checkbox.json",
@@ -893,6 +904,17 @@
         "symbol": "GoodRichTextEditorComponent"
       },
       "usageGuide": "guides/components/rich-text-editor.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-scatter-chart",
+      "className": "GoodScatterChartComponent",
+      "file": "components/good-scatter-chart.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodScatterChartComponent"
+      },
+      "usageGuide": "guides/components/scatter-chart.md",
       "penpotCount": 1
     },
     {

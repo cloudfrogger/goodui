@@ -23,6 +23,7 @@ export * from './lib/chart-data';
 export * from './lib/chart-colors';
 export * from './lib/line-chart';
 export * from './lib/bar-chart';
+export * from './lib/scatter-chart';
 export * from './lib/sparkline';
 export { flexRenderComponent } from '@tanstack/angular-table';
 export * from './lib/link';
