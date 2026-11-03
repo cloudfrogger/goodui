@@ -18,6 +18,33 @@
       [columns]="tableColumns()" [reorderable]="false" />
   } @else {
     <div #plot class="good-chart-plot">
+      @if (orientation() === 'horizontal') {
+        <svg [attr.viewBox]="'0 0 ' + width() + ' ' + horizontalHeight()" role="img"
+          [attr.aria-label]="ariaLabel() || title()" [style.height.px]="horizontalHeight()"
+          preserveAspectRatio="xMidYMid meet">
+          @for (tick of horizontalValueTicks(); track $index) {
+            <line class="good-chart-grid" [attr.x1]="tick.x" [attr.x2]="tick.x"
+              [attr.y1]="top" [attr.y2]="top + horizontalPlotHeight()" />
+            <text class="good-chart-tick good-chart-x-tick" [attr.x]="tick.x"
+              [attr.y]="top + horizontalPlotHeight() + 19">{{ tick.label }}</text>
+          }
+          @for (tick of horizontalCategoryTicks(); track $index) {
+            <text class="good-chart-tick good-chart-y-tick" [attr.x]="horizontalLeft() - 10"
+              [attr.y]="tick.y + 4">{{ tick.label }}</text>
+          }
+          <line class="good-chart-baseline" [attr.x1]="horizontalValueX(baseline())"
+            [attr.x2]="horizontalValueX(baseline())" [attr.y1]="top"
+            [attr.y2]="top + horizontalPlotHeight()" />
+          @for (bar of horizontalBars(); track bar.id) {
+            <rect class="good-chart-bar" [attr.x]="bar.x" [attr.y]="bar.y"
+              [attr.width]="bar.width" [attr.height]="bar.height" [attr.fill]="bar.color" rx="2">
+              <title>{{ bar.title }}</title>
+            </rect>
+          }
+        </svg>
+        @if (xAxis().label) { <span class="good-chart-y-label">{{ xAxis().label }}</span> }
+        @if (yAxis().label) { <span class="good-chart-x-label">{{ yAxis().label }}</span> }
+      } @else {
       <svg [attr.viewBox]="'0 0 ' + width() + ' ' + height" role="img"
         [attr.aria-label]="ariaLabel() || title()" preserveAspectRatio="xMidYMid meet">
         @for (tick of yTicks(); track $index) {
@@ -42,6 +69,7 @@
       </svg>
       @if (yAxis().label) { <span class="good-chart-y-label">{{ yAxis().label }}</span> }
       @if (xAxis().label) { <span class="good-chart-x-label">{{ xAxis().label }}</span> }
+      }
     </div>
     <div class="good-chart-legend" aria-label="Series legend">
       @for (item of legend(); track item.id) {

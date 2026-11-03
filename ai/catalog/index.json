@@ -233,7 +233,7 @@
         "symbol": "GoodBarChartComponent"
       },
       "usageGuide": "guides/components/bar-chart.md",
-      "penpotCount": 1
+      "penpotCount": 2
     },
     {
       "selector": "good-brand-icon",
@@ -332,6 +332,17 @@
         "symbol": "GoodChartBarComponent"
       },
       "usageGuide": "guides/components/chart-bar.md",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-chart-histogram",
+      "className": "GoodChartHistogramComponent",
+      "file": "components/good-chart-histogram.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodChartHistogramComponent"
+      },
+      "usageGuide": "guides/components/chart-histogram.md",
       "penpotCount": 1
     },
     {
@@ -585,6 +596,17 @@
         "symbol": "GoodHintComponent"
       },
       "usageGuide": null,
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-histogram",
+      "className": "GoodHistogramComponent",
+      "file": "components/good-histogram.json",
+      "import": {
+        "package": "@goodui/angular",
+        "symbol": "GoodHistogramComponent"
+      },
+      "usageGuide": "guides/components/histogram.md",
       "penpotCount": 1
     },
     {

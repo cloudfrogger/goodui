@@ -14,9 +14,18 @@
       "name": "goodui.bar-chart",
       "id": "1b6260d7-e591-805d-8008-e3534ae5a60d",
       "selector": "good-bar-chart",
-      "inputs": ["title", "ariaLabel", "sources", "colors", "showDataToggle"],
+      "inputs": ["title", "ariaLabel", "sources", "colors", "showDataToggle", "orientation"],
       "composition": ["goodui.card", "goodui.chart-axis", "goodui.chart-bar"],
-      "note": "Grouped four-quarter specimen with two series in theme-aware marker blue and teal. The Card is a linked GoodUI instance; source rows and data-table state are runtime configuration."
+      "note": "Grouped four-quarter vertical specimen with two series in theme-aware marker blue and teal. The Card is a linked GoodUI instance; source rows and data-table state are runtime configuration."
+    },
+    {
+      "name": "goodui.bar-chart.horizontal",
+      "id": "18e25442-2c17-80b0-8008-e3ec6ac2f5a3",
+      "selector": "good-bar-chart",
+      "state": "horizontal",
+      "inputs": ["title", "ariaLabel", "sources", "colors", "showDataToggle", "orientation"],
+      "composition": ["goodui.card", "goodui.chart-axis", "goodui.chart-bar"],
+      "note": "Horizontal four-quarter specimen with a linked GoodUI Card, token-bound blue and teal bars, and the same logical X category/Y value contract as the vertical state."
     },
     {
       "name": "goodui.sparkline",
@@ -41,6 +50,21 @@
       "note": "Single-series 2D point specimen. The Angular tag configures ScatterChart and does not render alone."
     },
     {
+      "name": "goodui.histogram",
+      "id": "6478e0b9-da8b-80c2-8008-e3ea638c1541",
+      "selector": "good-histogram",
+      "inputs": ["title", "ariaLabel", "sources", "binCount", "colors", "showDataToggle"],
+      "composition": ["goodui.card", "goodui.chart-axis"],
+      "note": "Two-source specimen with a linked GoodUI Card, shared equal-width intervals, and token-bound marker blue and teal."
+    },
+    {
+      "name": "goodui.chart-histogram",
+      "id": "18e25442-2c17-80b0-8008-e3ec54585fa6",
+      "selector": "good-chart-histogram",
+      "inputs": ["source", "valueKey", "label", "color"],
+      "note": "One-series equal-width bin specimen. The Angular tag configures Histogram and does not render alone."
+    },
+    {
       "name": "goodui.chart-axis",
       "id": "1b6260d7-e591-805d-8008-e2e297d4bfae",
       "selector": "good-chart-axis",
@@ -63,5 +87,5 @@
     }
   ],
   "tokens": ["color.text", "color.muted", "color.border", "color.surface", "color.accent", "color.marker.blue", "color.marker.teal"],
-  "runtimeStates": ["show-data", "custom-palette", "grouped-bars", "negative-bars", "sparkline-size", "sparkline-endpoint", "scatter-overlapping-x", "empty", "invalid-configuration", "responsive-width"]
+  "runtimeStates": ["show-data", "custom-palette", "grouped-bars", "negative-bars", "horizontal-bars", "histogram-bins", "histogram-shared-range", "sparkline-size", "sparkline-endpoint", "scatter-overlapping-x", "empty", "invalid-configuration", "responsive-width"]
 }

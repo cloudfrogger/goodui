@@ -149,7 +149,7 @@
   },
   "usageGuide": "guides/components/chart-axis.md",
   "usage": {
-    "summary": "`good-chart-axis` is a declarative configuration child of `good-line-chart`, `good-bar-chart`, or `good-scatter-chart`. Add one with `position=\"x\"` and one with `position=\"y\"`; it does not render on its own. Set `type` to `category`, `number`, or `time`, matching the selected source key. Scatter uses a numeric or time X axis and a numeric Y axis. Optional `label`, `min`, `max`, `ticks`, and `precision` define the visible scale. On time axes, `groupBy` accepts `day`, `month`, or `year`; `aggregate` combines duplicate dates when requested. Line and Bar require aggregation for duplicate X values, while Scatter keeps them as separate points by default.",
+    "summary": "`good-chart-axis` is a declarative configuration child of `good-line-chart`, `good-bar-chart`, `good-scatter-chart`, or `good-histogram`. Add one with `position=\"x\"` and one with `position=\"y\"`; it does not render on its own. Set `type` to `category`, `number`, or `time`, matching the selected source key. Scatter uses a numeric or time X axis and a numeric Y axis. Histogram uses a numeric X value axis and a numeric Y count axis. In a horizontal Bar chart, the X and Y tags still describe the logical source keys, while GoodUI rotates their visual placement. Optional `label`, `min`, `max`, `ticks`, and `precision` define the visible scale. On time axes, `groupBy` accepts `day`, `month`, or `year`; `aggregate` combines duplicate dates when requested. Line and Bar require aggregation for duplicate X values, while Scatter keeps them as separate points by default.",
     "examples": []
   },
   "penpot": [

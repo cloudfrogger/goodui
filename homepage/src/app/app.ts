@@ -105,6 +105,7 @@ export class App {
         { id: 'line-charts', label: 'Line charts', route: '/visualizations/line-charts' },
         { id: 'bar-charts', label: 'Bar charts', route: '/visualizations/bar-charts' },
         { id: 'scatter-plots', label: 'Scatter plots', route: '/visualizations/scatter-plots' },
+        { id: 'histograms', label: 'Histograms', route: '/visualizations/histograms' },
         { id: 'sparklines', label: 'Sparklines', route: '/visualizations/sparklines' },
       ] },
       { id: 'content-category', label: 'Data display', icon: 'book', children: [
@@ -213,6 +214,7 @@ export class App {
     { id: 'line-charts', label: 'Line charts', description: 'Responsive, multi-series charts with optional data table', route: '/visualizations/line-charts' },
     { id: 'bar-charts', label: 'Bar charts', description: 'Grouped series with shared axes, palettes, and data table', route: '/visualizations/bar-charts' },
     { id: 'scatter-plots', label: 'Scatter plots', description: 'Two-dimensional observations from multiple typed sources', route: '/visualizations/scatter-plots' },
+    { id: 'histograms', label: 'Histograms', description: 'Numeric distributions in shared count intervals', route: '/visualizations/histograms' },
     { id: 'sparklines', label: 'Sparklines', description: 'Compact trends for metrics and table cells', route: '/visualizations/sparklines' },
     { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
     { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },

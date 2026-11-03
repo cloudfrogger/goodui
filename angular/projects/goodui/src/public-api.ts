@@ -24,6 +24,7 @@ export * from './lib/chart-colors';
 export * from './lib/line-chart';
 export * from './lib/bar-chart';
 export * from './lib/scatter-chart';
+export * from './lib/histogram';
 export * from './lib/sparkline';
 export { flexRenderComponent } from '@tanstack/angular-table';
 export * from './lib/link';

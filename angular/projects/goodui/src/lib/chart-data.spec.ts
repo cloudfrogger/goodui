@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { GoodChartDataSource, resolveChartLines, resolveScatterSeries } from './chart-data';
+import { GoodChartDataSource, resolveChartLines, resolveHistogram, resolveScatterSeries } from './chart-data';
 
 describe('chart data resolution', () => {
   it('combines independent sources by category without changing their values', () => {
@@ -80,5 +80,20 @@ describe('chart data resolution', () => {
         { x: Date.UTC(2026, 1, 1), y: 6 },
       ]);
     expect(resolveScatterSeries([source], definition, { type: 'category' }).errors[0]).toContain('number or time');
+  });
+
+  it('uses shared histogram bins and includes the upper boundary once', () => {
+    const sources: GoodChartDataSource[] = [
+      { id: 'a', keys: [{ key: 'duration', type: 'number' }],
+        rows: [{ duration: 0 }, { duration: 5 }, { duration: 10 }, { duration: '7' }] },
+      { id: 'b', keys: [{ key: 'duration', type: 'integer' }],
+        rows: [{ duration: 2 }, { duration: 8 }, { duration: 10.5 }] },
+    ];
+    const definitions = [{ source: 'a', valueKey: 'duration' }, { source: 'b', valueKey: 'duration' }];
+    expect(resolveHistogram(sources, definitions, 2).bins).toEqual([
+      { start: 0, end: 5, counts: [1, 1] },
+      { start: 5, end: 10, counts: [2, 1] },
+    ]);
+    expect(resolveHistogram(sources, definitions, 1).errors[0]).toContain('2 to 40');
   });
 });

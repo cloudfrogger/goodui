@@ -1,0 +1,38 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Data visualizations</good-eyebrow>
+        <good-heading>Histograms</good-heading>
+        <good-summary>Turn individual numeric measurements into a distribution of counts.</good-summary>
+      </good-heading-group>
+      <good-paragraph>A Histogram groups raw values into adjacent intervals. It answers “How often did a value fall in this range?” rather than comparing named categories. Supply one numeric key per source; GoodUI chooses common bin boundaries for every series so their distributions are comparable.</good-paragraph>
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">Compare two distributions</good-subheading>
+      <good-histogram title="Task duration" [sources]="sources" [binCount]="8" [showDataToggle]="true">
+        <good-chart-axis position="x" type="number" label="Minutes" [min]="0" [max]="56" [precision]="0" />
+        <good-chart-axis position="y" type="number" label="Tasks" [min]="0" [precision]="0" />
+        <good-chart-histogram source="workflow-a" valueKey="minutes" label="Workflow A" />
+        <good-chart-histogram source="workflow-b" valueKey="minutes" label="Workflow B" />
+      </good-histogram>
+      <good-paragraph>Eight equal intervals cover 0–56 minutes. A value at an interval boundary enters the interval on its right; 56 enters the last interval. The table button shows the count for each interval and source. Sample values are illustrative.</good-paragraph>
+      <good-code-block [code]="chartCode" language="html" title="Histogram · Angular template" />
+      <good-code-block [code]="sourceCode" language="typescript" title="One-dimensional sources · TypeScript" />
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">One source and a custom color</good-subheading>
+      <good-paragraph>Set <code>[binCount]</code> to an integer from 2 through 40. With no X bounds, GoodUI uses the smallest and largest valid values across all sources. <code>[colors]</code> replaces the marker palette; a series can override it with its own <code>color</code>.</good-paragraph>
+      <good-histogram title="Workflow A duration" [sources]="[workflowA]" [binCount]="7" [colors]="['violet']">
+        <good-chart-axis position="x" type="number" label="Minutes" [min]="0" [max]="56" />
+        <good-chart-axis position="y" type="number" label="Tasks" />
+        <good-chart-histogram source="workflow-a" valueKey="minutes" label="Workflow A" />
+      </good-histogram>
+      <good-code-block [code]="singleCode" language="html" title="Single source · Angular template" />
+    </good-prose>
+  </good-section>
+</good-main-view>

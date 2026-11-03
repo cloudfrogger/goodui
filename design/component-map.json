@@ -20,6 +20,7 @@
     "calendar",
     "chart-axis",
     "chart-bar",
+    "chart-histogram",
     "chart-line",
     "chart-scatter",
     "card",
@@ -46,6 +47,7 @@
     "group",
     "heading",
     "heading-group",
+    "histogram",
     "hint",
     "image-input",
     "image-preview",
@@ -324,9 +326,23 @@
       "state": null
     },
     {
+      "penpotName": "goodui.bar-chart.horizontal",
+      "penpotId": "18e25442-2c17-80b0-8008-e3ec6ac2f5a3",
+      "angularSelector": "good-bar-chart",
+      "kind": "component",
+      "state": "horizontal"
+    },
+    {
       "penpotName": "goodui.chart-axis",
       "penpotId": "1b6260d7-e591-805d-8008-e2e297d4bfae",
       "angularSelector": "good-chart-axis",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.chart-histogram",
+      "penpotId": "18e25442-2c17-80b0-8008-e3ec54585fa6",
+      "angularSelector": "good-chart-histogram",
       "kind": "component",
       "state": null
     },
@@ -904,6 +920,13 @@
       "penpotName": "goodui.scatter-chart",
       "penpotId": "6478e0b9-da8b-80c2-8008-e3e68249d198",
       "angularSelector": "good-scatter-chart",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.histogram",
+      "penpotId": "6478e0b9-da8b-80c2-8008-e3ea638c1541",
+      "angularSelector": "good-histogram",
       "kind": "component",
       "state": null
     },

@@ -34,6 +34,8 @@ export class GoodBarChartComponent {
   readonly sources = input.required<readonly GoodChartDataSource[]>();
   readonly colors = input<readonly string[]>([]);
   readonly showDataToggle = input(false);
+  /** Rotates the same source categories and measures without changing their declarative keys. */
+  readonly orientation = input<'vertical' | 'horizontal'>('vertical');
   readonly tableIcon = LucideTable2;
   readonly chartIcon = LucideChartColumn;
   readonly axes = contentChildren(GoodChartAxisComponent);
@@ -145,6 +147,41 @@ export class GoodBarChartComponent {
     }));
   });
 
+  readonly horizontalHeight = computed(() => Math.max(300, this.xValues().length * 46 + this.top + this.bottom));
+  readonly horizontalLeft = computed(() => Math.min(160, Math.max(70,
+    ...this.xValues().map(value => this.formatX(value).length * 7 + 16))));
+  readonly horizontalPlotWidth = computed(() => Math.max(100, this.width() - this.horizontalLeft() - this.right));
+  readonly horizontalPlotHeight = computed(() => this.horizontalHeight() - this.top - this.bottom);
+  readonly horizontalValueTicks = computed(() => {
+    const [min, max] = this.yDomain();
+    const count = Math.max(2, Math.min(Math.floor(this.horizontalPlotWidth() / 58), Math.round(this.yAxis().ticks ?? 5)));
+    return Array.from({ length: count }, (_, index) => {
+      const value = min + (max - min) * index / (count - 1);
+      return { x: this.horizontalValueX(value), label: this.formatNumber(value, this.yAxis().precision) };
+    });
+  });
+  readonly horizontalCategoryTicks = computed(() => this.xValues().map((value, index) => ({
+    y: this.top + (index + .5) * this.horizontalPlotHeight() / Math.max(1, this.xValues().length),
+    label: this.formatX(value),
+  })));
+  readonly horizontalBars = computed<readonly ChartBar[]>(() => {
+    const lines = this.resolved().lines;
+    const values = this.xValues();
+    const groupHeight = this.horizontalPlotHeight() / Math.max(1, values.length);
+    const barHeight = Math.min(22, groupHeight * .72 / Math.max(1, lines.length));
+    const [min, max] = this.yDomain();
+    const zeroX = this.horizontalValueX(this.baseline());
+    return lines.flatMap((line, seriesIndex) => line.points.map(point => {
+      const index = values.indexOf(point.x);
+      const valueX = this.horizontalValueX(Math.max(min, Math.min(max, point.y)));
+      return { id: `${line.id}:${point.x}`, x: Math.min(zeroX, valueX),
+        y: this.top + (index + .5) * groupHeight - lines.length * barHeight / 2 + seriesIndex * barHeight,
+        width: Math.abs(valueX - zeroX), height: Math.max(2, barHeight - 2),
+        color: resolveChartColor(line.color, this.colors(), seriesIndex),
+        title: `${line.label}, ${this.formatX(point.x)}: ${this.formatNumber(point.y, undefined)}` };
+    }));
+  });
+
   readonly legend = computed(() => this.resolved().lines.map((line, index) => ({
     id: line.id, label: line.label, color: resolveChartColor(line.color, this.colors(), index),
   })));
@@ -174,6 +211,10 @@ export class GoodBarChartComponent {
   yPosition(value: number): number {
     const [min, max] = this.yDomain();
     return this.top + (max - value) * this.plotHeight / (max - min);
+  }
+  horizontalValueX(value: number): number {
+    const [min, max] = this.yDomain();
+    return this.horizontalLeft() + (value - min) * this.horizontalPlotWidth() / (max - min);
   }
   formatNumber(value: number, precision: number | undefined): string {
     const digits = precision == null ? (Number.isInteger(value) ? 0 : 1) : Math.max(0, Math.min(4, Math.round(precision)));

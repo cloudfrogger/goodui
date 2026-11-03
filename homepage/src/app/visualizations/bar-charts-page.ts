@@ -54,4 +54,10 @@ readonly requestSources = [this.newRequests, this.returningRequests];`;
   <good-chart-axis position="y" type="number" label="Tasks" [min]="0" [precision]="0" />
   <good-chart-bar source="tasks" yKey="count" label="Tasks" />
 </good-bar-chart>`;
+  readonly horizontalCode = `<good-bar-chart title="Requests by quarter" [sources]="requestSources" orientation="horizontal">
+  <good-chart-axis position="x" type="category" label="Quarter" />
+  <good-chart-axis position="y" type="number" label="Requests" [min]="0" [precision]="0" />
+  <good-chart-bar source="new" xKey="quarter" yKey="count" label="New" />
+  <good-chart-bar source="returning" xKey="quarter" yKey="count" label="Returning" />
+</good-bar-chart>`;
 }

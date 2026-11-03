@@ -35,4 +35,17 @@
       <good-code-block [code]="customCode" language="html" title="Custom palette · Angular template" />
     </good-prose>
   </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">Horizontal bars</good-subheading>
+      <good-paragraph>Set <code>orientation="horizontal"</code> when category labels need more room or a ranked comparison reads better from top to bottom. The source keys and declarative axes stay the same: X describes the categories in the data, Y describes their numeric values. GoodUI rotates their visual placement.</good-paragraph>
+      <good-bar-chart title="Requests by quarter" [sources]="requestSources" orientation="horizontal">
+        <good-chart-axis position="x" type="category" label="Quarter" />
+        <good-chart-axis position="y" type="number" label="Requests" [min]="0" [precision]="0" />
+        <good-chart-bar source="new" xKey="quarter" yKey="count" label="New" />
+        <good-chart-bar source="returning" xKey="quarter" yKey="count" label="Returning" />
+      </good-bar-chart>
+      <good-code-block [code]="horizontalCode" language="html" title="Horizontal bars · Angular template" />
+    </good-prose>
+  </good-section>
 </good-main-view>

@@ -53,10 +53,27 @@
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/bar-chart.ts",
       "kind": "input"
+    },
+    {
+      "name": "orientation",
+      "type": "\"vertical\" | \"horizontal\"",
+      "required": false,
+      "default": "vertical",
+      "allowedValues": [
+        "vertical",
+        "horizontal"
+      ],
+      "source": "angular/projects/goodui/src/lib/bar-chart.ts",
+      "kind": "input"
     }
   ],
   "outputs": [],
-  "variants": {},
+  "variants": {
+    "orientation": [
+      "vertical",
+      "horizontal"
+    ]
+  },
   "composition": {
     "projectedContent": [
       "*"
@@ -84,6 +101,13 @@
       "penpotId": "1b6260d7-e591-805d-8008-e3534ae5a60d",
       "kind": "component",
       "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.bar-chart.horizontal",
+      "penpotId": "18e25442-2c17-80b0-8008-e3ec6ac2f5a3",
+      "kind": "component",
+      "state": "horizontal",
       "owner": null
     }
   ],

@@ -206,3 +206,64 @@ export function resolveScatterSeries(
   }
   return { lines, errors };
 }
+
+export interface GoodHistogramSeriesDefinition {
+  source: string;
+  valueKey: string;
+  label?: string;
+  color?: string;
+}
+
+export interface GoodHistogramBin {
+  start: number;
+  end: number;
+  /** One count per declared series, in series order. */
+  counts: readonly number[];
+}
+
+export interface GoodHistogramResolution {
+  series: readonly { id: string; label: string; color?: string }[];
+  bins: readonly GoodHistogramBin[];
+  errors: readonly string[];
+}
+
+/** Uses one shared numeric range for every source; bins are left-closed, right-open except the last. */
+export function resolveHistogram(
+  sources: readonly GoodChartDataSource[], definitions: readonly GoodHistogramSeriesDefinition[],
+  binCount = 8, minOverride: number | null = null, maxOverride: number | null = null,
+): GoodHistogramResolution {
+  const errors: string[] = [];
+  if (!Number.isInteger(binCount) || binCount < 2 || binCount > 40) errors.push('Histogram: binCount must be an integer from 2 to 40.');
+  if (minOverride !== null && !Number.isFinite(minOverride)) errors.push('Histogram: min must be finite.');
+  if (maxOverride !== null && !Number.isFinite(maxOverride)) errors.push('Histogram: max must be finite.');
+  const byId = new Map(sources.map(source => [source.id, source]));
+  const series: { id: string; label: string; color?: string }[] = [];
+  const values: number[][] = [];
+  for (const [index, definition] of definitions.entries()) {
+    const source = byId.get(definition.source);
+    if (!source) { errors.push(`Histogram ${index + 1}: data source "${definition.source}" was not found.`); continue; }
+    const key = source.keys.find(item => item.key === definition.valueKey);
+    if (!key || !['number', 'integer'].includes(key.type)) {
+      errors.push(`Histogram ${index + 1}: "${definition.valueKey}" must be a declared numeric key.`); continue;
+    }
+    series.push({ id: `${source.id}:${key.key}:${index}`, label: definition.label || key.label || key.key, color: definition.color });
+    values.push(source.rows.map(row => parseNumber(row[key.key], key.type)).filter((value): value is number => value !== null));
+  }
+  if (errors.length) return { series, bins: [], errors };
+  const all = values.flat();
+  if (!all.length) return { series, bins: [], errors };
+  const rawMin = Math.min(...all);
+  const rawMax = Math.max(...all);
+  const start = minOverride ?? (rawMin === rawMax ? rawMin - .5 : rawMin);
+  const end = maxOverride ?? (rawMin === rawMax ? rawMax + .5 : rawMax);
+  if (start >= end) return { series, bins: [], errors: ['Histogram: min must be smaller than max.'] };
+  const step = (end - start) / binCount;
+  const counts = Array.from({ length: binCount }, () => Array.from({ length: series.length }, () => 0));
+  values.forEach((sourceValues, seriesIndex) => sourceValues.forEach(value => {
+    if (value < start || value > end) return;
+    const index = Math.min(binCount - 1, Math.floor((value - start) / step));
+    counts[index][seriesIndex]++;
+  }));
+  return { series, bins: counts.map((row, index) => ({ start: start + index * step,
+    end: index === binCount - 1 ? end : start + (index + 1) * step, counts: row })), errors };
+}

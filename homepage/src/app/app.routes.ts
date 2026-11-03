@@ -46,6 +46,7 @@ export const routes: Routes = [
   { path: 'visualizations/line-charts', loadComponent: () => import('./visualizations/line-charts-page').then(module => module.LineChartsPageComponent) },
   { path: 'visualizations/bar-charts', loadComponent: () => import('./visualizations/bar-charts-page').then(module => module.BarChartsPageComponent) },
   { path: 'visualizations/scatter-plots', loadComponent: () => import('./visualizations/scatter-plots-page').then(module => module.ScatterPlotsPageComponent) },
+  { path: 'visualizations/histograms', loadComponent: () => import('./visualizations/histograms-page').then(module => module.HistogramsPageComponent) },
   { path: 'visualizations/sparklines', loadComponent: () => import('./visualizations/sparklines-page').then(module => module.SparklinesPageComponent) },
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/action-bars', loadComponent: () => import('./action-bars-page').then(module => module.ActionBarsPageComponent) },

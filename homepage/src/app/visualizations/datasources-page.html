@@ -14,7 +14,7 @@
     <good-prose>
       <good-subheading>Choose key types deliberately</good-subheading>
       <good-paragraph><code>category</code> accepts a string and preserves source order. <code>number</code> accepts a finite JavaScript number; <code>integer</code> accepts only whole numbers. <code>date</code> accepts a Date or an ISO day such as <code>2026-01-01</code>. <code>datetime</code> accepts a Date or an ISO timestamp with a timezone, such as <code>2026-01-01T12:00:00Z</code>. Null and invalid values are skipped; numeric strings are never silently converted.</good-paragraph>
-      <good-paragraph>Keys may also have a readable <code>label</code> and <code>unit</code>. IDs and key names are stable references between the data source and a chart. For a one-dimensional line, omit <code>xKey</code> and use a numeric X axis; row positions become 1, 2, 3, and so on.</good-paragraph>
+      <good-paragraph>Keys may also have a readable <code>label</code> and <code>unit</code>. IDs and key names are stable references between the data source and a chart. For a one-dimensional line, omit <code>xKey</code> and use a numeric X axis; row positions become 1, 2, 3, and so on. A Histogram instead reads that one numeric key as raw values and counts them in intervals.</good-paragraph>
       <good-code-block [code]="dimensionsCode" language="typescript" title="One, two, and three dimensions" />
     </good-prose>
   </good-section>
