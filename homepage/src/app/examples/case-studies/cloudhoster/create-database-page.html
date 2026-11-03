@@ -1,0 +1,93 @@
+<good-main-view layout="fill">
+  <good-assistant-panel label="Monthly estimate" appearance="soft" [(open)]="summaryOpen">
+    <good-assistant-main>
+      <good-section>
+        <good-prose>
+          <good-heading-group>
+            <good-eyebrow>Cloudhoster · Managed databases</good-eyebrow>
+            <good-heading>Create database cluster</good-heading>
+            <good-summary>Build the database your application needs.</good-summary>
+          </good-heading-group>
+          <good-paragraph>Five choices, one live estimate. This demo saves a local cluster record.</good-paragraph>
+        </good-prose>
+      </good-section>
+      <good-timeline appearance="sections" color="brand" ariaLabel="Database configuration steps">
+        <good-timeline-section title="Database engine" state="completed">
+        <good-group appearance="plain">
+          <good-radio-group label="Engine" [options]="engineOptions" [value]="engine()" (valueChange)="chooseEngine($event)" />
+          <good-select label="Version" [showLabel]="true" [options]="versions()" [(value)]="version" />
+        </good-group>
+        </good-timeline-section>
+        <good-timeline-section title="Edition and location" state="completed">
+        <good-group appearance="plain">
+          <good-radio-group label="Edition" [options]="editionOptions" orientation="horizontal" [(value)]="edition" />
+          <good-select label="Region" [showLabel]="true" [options]="regions" [(value)]="region" />
+        </good-group>
+        </good-timeline-section>
+        <good-timeline-section title="Compute" [state]="plan() ? 'completed' : 'attention'">
+        <good-group appearance="plain">
+          <good-paragraph>Choose shared resources for general workloads, or dedicated CPUs for sustained load.</good-paragraph>
+          <good-tabs ariaLabel="Compute families" (tabActivated)="chooseFamily($event.id)">
+            <good-tab value="shared" label="Shared CPU" [selected]="true">
+              <good-radio-group label="Shared plan" [options]="sharedPlans" [(value)]="plan" />
+            </good-tab>
+            <good-tab value="dedicated" label="Dedicated CPU">
+              <good-radio-group label="Dedicated plan" [options]="dedicatedPlans" [(value)]="plan" />
+            </good-tab>
+          </good-tabs>
+        </good-group>
+        </good-timeline-section>
+        <good-timeline-section title="Storage" state="completed">
+        <good-group appearance="plain">
+          <good-number-input label="Storage in GB" [showLabel]="true" [min]="10" [max]="1000" [step]="10"
+            [(value)]="storageGb" />
+          <good-checkbox label="Automatically grow storage when needed" [showLabel]="true" [(checked)]="autoscale" />
+          <good-paragraph>Storage adds {{ storagePrice() | currency:'USD' }} per month to this estimate.</good-paragraph>
+        </good-group>
+        </good-timeline-section>
+        <good-timeline-section title="Name and create" [state]="name().trim() ? 'current' : 'attention'">
+        <good-group appearance="plain">
+          <good-input label="Cluster name" [showLabel]="true" [required]="true" [(value)]="name"
+            placeholder="app-postgres" />
+          <good-input label="Tags" [showLabel]="true" [(value)]="tags" placeholder="production, api" />
+          @if (error()) { <good-alert tone="destructive" title="Check the cluster name" [message]="error()" /> }
+          <good-action-group>
+            <good-button (click)="create()">Create database cluster</good-button>
+            <good-button variant="outline" (click)="cancel()">Cancel</good-button>
+          </good-action-group>
+        </good-group>
+        </good-timeline-section>
+      </good-timeline>
+    </good-assistant-main>
+    <good-assistant-header><good-subheading [level]="2">Monthly estimate</good-subheading></good-assistant-header>
+    <good-assistant-body>
+      <good-prose>
+        <good-subheading [level]="3">{{ engine() }} · {{ edition() }}</good-subheading>
+        <good-paragraph>{{ cpu() }} vCPU · {{ memoryGb() }} GB RAM · {{ region() }}</good-paragraph>
+        <good-detail-list>
+          <div goodDetailRow><dt>Compute</dt><dd>{{ planPrice() | currency:'USD' }}</dd></div>
+          <div goodDetailRow><dt>Storage · {{ storageGb() }} GB</dt><dd>{{ storagePrice() | currency:'USD' }}</dd></div>
+          <div goodDetailRow><dt>Autoscale</dt><dd>{{ autoscale() ? 'On' : 'Off' }}</dd></div>
+        </good-detail-list>
+      </good-prose>
+    </good-assistant-body>
+    <good-assistant-footer>
+      <good-prose>
+        <good-separator variant="line" />
+        <good-subheading [level]="3">{{ totalPrice() | currency:'USD' }} / month</good-subheading>
+        <good-hint>Illustrative estimate, before tax.</good-hint>
+        <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
+      </good-prose>
+    </good-assistant-footer>
+    <good-assistant-mobile>
+      <good-paragraph>{{ engine() }} · {{ cpu() }} vCPU · {{ storageGb() }} GB</good-paragraph>
+      <good-subheading [level]="3">{{ totalPrice() | currency:'USD' }} / month</good-subheading>
+    </good-assistant-mobile>
+  </good-assistant-panel>
+</good-main-view>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Database creation source" />
+  <good-code-block [code]="htmlSource" language="html" title="create-database-page.html" />
+  <good-code-block [code]="tsSource" language="typescript" title="create-database-page.ts" />
+  <good-code-block [code]="storeSource" language="typescript" title="cloudhoster-store.ts" />
+</good-modal>

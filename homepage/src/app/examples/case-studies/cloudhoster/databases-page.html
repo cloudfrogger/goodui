@@ -1,0 +1,70 @@
+<good-main-view title="Managed databases" eyebrow="Cloudhoster · Case study">
+  <good-section>
+    <good-card [mobileBleed]="true">
+      <good-card-header title="Databases, simplified" backgroundImage="/case-studies/cloudhoster/database-hero.svg">
+        <span goodCardSubtitle>Choose an engine and grow from first connection to production traffic.</span>
+      </good-card-header>
+      <good-columns [columns]="2">
+        <good-column>
+          <good-subheading [level]="3">Build on your terms</good-subheading>
+          <good-paragraph>Pick PostgreSQL, MySQL, or MongoDB, then choose a region and compute plan. Storage can grow with your application.</good-paragraph>
+          <good-button (click)="create()">Create database cluster</good-button>
+        </good-column>
+        <good-column>
+          <good-subheading [level]="3">Included in the workflow</good-subheading>
+          <good-paragraph>Version selection · live cost estimate · metrics · logs · users · connection pools · spend alerts.</good-paragraph>
+          <good-link route="/examples/case-studies/cloudhoster/billing">Explore billing</good-link>
+        </good-column>
+      </good-columns>
+    </good-card>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-heading-group>
+        <good-eyebrow>Cloudhoster · Case study</good-eyebrow>
+        <good-heading [level]="2">Your clusters</good-heading>
+        <good-summary>Open a cluster to inspect its activity and settings.</good-summary>
+      </good-heading-group>
+      @if (store.notice()) { <good-paragraph role="status">{{ store.notice() }}</good-paragraph> }
+    </good-prose>
+    <good-table label="Database clusters" tableStyle="compact" [data]="store.clusters()" [columns]="columns"
+      [getRowId]="rowId" [reorderable]="false" emptyMessage="No database clusters yet. Create one to begin.">
+      <ng-template goodTableCell="name" let-cluster>
+        <good-action-group align="center" spacing="small" [wrap]="false">
+          <good-status-icon appearance="led" size="small"
+            [status]="cluster.status === 'online' ? 'completed' : 'progressing'"
+            [ariaLabel]="cluster.status" />
+          <good-button variant="ghost" size="small" (click)="open(cluster)">{{ cluster.name }}</good-button>
+        </good-action-group>
+      </ng-template>
+    </good-table>
+  </good-section>
+  <good-section>
+    <good-prose><good-subheading [level]="2">Supported engines</good-subheading>
+      <good-paragraph>Start with a familiar data model and adjust capacity later.</good-paragraph></good-prose>
+    <good-columns [columns]="3">
+      <good-column><good-card><good-card-header title="PostgreSQL" [headingLevel]="3" tone="secondary" />
+        <good-paragraph>Relational data, transactions, and extensions.</good-paragraph>
+        <good-button variant="outline" size="small" (click)="create('PostgreSQL')">Configure</good-button>
+      </good-card></good-column>
+      <good-column><good-card><good-card-header title="MySQL" [headingLevel]="3" tone="secondary" />
+        <good-paragraph>A widely supported SQL database for web applications.</good-paragraph>
+        <good-button variant="outline" size="small" (click)="create('MySQL')">Configure</good-button>
+      </good-card></good-column>
+      <good-column><good-card><good-card-header title="MongoDB" [headingLevel]="3" tone="secondary" />
+        <good-paragraph>Flexible documents for changing application data.</good-paragraph>
+        <good-button variant="outline" size="small" (click)="create('MongoDB')">Configure</good-button>
+      </good-card></good-column>
+    </good-columns>
+  </good-section>
+  <good-section><good-action-group>
+    <good-link route="/examples/case-studies/cloudhoster">Back to workspace</good-link>
+    <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
+  </good-action-group></good-section>
+</good-main-view>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Database list source" />
+  <good-code-block [code]="htmlSource" language="html" title="databases-page.html" />
+  <good-code-block [code]="tsSource" language="typescript" title="databases-page.ts" />
+  <good-code-block [code]="storeSource" language="typescript" title="cloudhoster-store.ts" />
+</good-modal>

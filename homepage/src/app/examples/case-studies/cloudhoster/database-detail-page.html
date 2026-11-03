@@ -1,0 +1,202 @@
+<good-main-view [title]="cluster()?.name || 'Database cluster'" eyebrow="Cloudhoster · Managed databases">
+  @if (cluster(); as item) {
+    <good-section>
+      <good-paragraph>
+        <good-status-icon appearance="led" [status]="item.status === 'online' ? 'completed' : 'progressing'" [ariaLabel]="item.status" />
+        {{ item.status === 'online' ? 'Online' : 'Provisioning' }} · {{ item.engine }} {{ item.version }} · {{ item.cpu }} vCPU · {{ item.memoryGb }} GB RAM · {{ item.storageGb }} GB · {{ item.region }}
+      </good-paragraph>
+      <good-action-group>
+        <good-button variant="outline" size="small" (click)="back()">Back to databases</good-button>
+        <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
+      </good-action-group>
+      @if (store.notice()) { <good-paragraph role="status">{{ store.notice() }}</good-paragraph> }
+    </good-section>
+    <good-section>
+      <good-tabs ariaLabel="Database cluster sections">
+        <good-tab value="overview" label="Overview" [selected]="true">
+          <good-columns [columns]="2">
+            <good-column>
+              <good-card>
+                <good-card-header title="Getting started" [headingLevel]="3" tone="secondary" />
+                <good-paragraph>{{ item.status === 'online' ? 'Your cluster is ready. Complete these steps to connect an application.' : 'Your cluster is being provisioned. You can prepare access while it starts.' }}</good-paragraph>
+                <good-timeline orientation="vertical" appearance="simple" size="small" [currentIndex]="item.status === 'online' ? 1 : 0" ariaLabel="Database setup">
+                  <good-timeline-step id="create" title="Create database cluster" />
+                  <good-timeline-step id="secure" title="Secure access" />
+                  <good-timeline-step id="connect" title="Connect an application" />
+                  <good-timeline-step id="observe" title="Inspect usage" />
+                </good-timeline>
+              </good-card>
+            </good-column>
+            <good-column>
+              <good-card>
+                <good-card-header title="Connection details" [headingLevel]="3" tone="secondary" />
+                <good-detail-list>
+                  <div goodDetailRow><dt>Host</dt><dd>db.example.invalid</dd></div>
+                  <div goodDetailRow><dt>Port</dt><dd>25060</dd></div>
+                  <div goodDetailRow><dt>Database</dt><dd>app</dd></div>
+                  <div goodDetailRow><dt>Network</dt><dd>Private</dd></div>
+                </good-detail-list>
+                <good-code-block code="db.example.invalid:25060/app" language="text" title="Example endpoint" />
+              </good-card>
+            </good-column>
+          </good-columns>
+          <good-card>
+            <good-card-header title="Cluster resources" [headingLevel]="3" />
+            <good-columns [columns]="2">
+              <good-column><good-detail-list>
+                <div goodDetailRow><dt>Engine</dt><dd>{{ item.engine }} {{ item.version }}</dd></div>
+                <div goodDetailRow><dt>Edition</dt><dd>{{ item.edition }}</dd></div>
+                <div goodDetailRow><dt>Region</dt><dd>{{ item.region }}</dd></div>
+              </good-detail-list></good-column>
+              <good-column><good-detail-list>
+                <div goodDetailRow><dt>Compute</dt><dd>{{ item.cpu }} vCPU · {{ item.memoryGb }} GB RAM</dd></div>
+                <div goodDetailRow><dt>Storage</dt><dd>{{ item.storageGb }} GB</dd></div>
+                <div goodDetailRow><dt>Autoscale</dt><dd>{{ item.autoscale ? 'Enabled' : 'Off' }}</dd></div>
+              </good-detail-list></good-column>
+            </good-columns>
+          </good-card>
+        </good-tab>
+        <good-tab value="insights" label="Insights">
+          <good-group appearance="plain" title="Usage metrics">
+            <good-paragraph>Recent readings for this cluster. Use the table icon on any chart to inspect the values.</good-paragraph>
+            <good-line-chart title="CPU usage" [sources]="metricSources" [showDataToggle]="true">
+              <good-chart-axis position="x" type="category" label="Time" />
+              <good-chart-axis position="y" type="number" label="CPU %" [min]="0" [max]="100" />
+              <good-chart-line source="metrics" xKey="period" yKey="cpu" label="CPU" color="blue" />
+            </good-line-chart>
+            <good-line-chart title="Load average" [sources]="metricSources" [showDataToggle]="true">
+              <good-chart-axis position="x" type="category" label="Time" />
+              <good-chart-axis position="y" type="number" label="Load" [min]="0" [max]="3" />
+              <good-chart-line source="metrics" xKey="period" yKey="load" label="Load" color="teal" />
+            </good-line-chart>
+            <good-line-chart title="Memory usage" [sources]="metricSources" [showDataToggle]="true">
+              <good-chart-axis position="x" type="category" label="Time" />
+              <good-chart-axis position="y" type="number" label="Memory %" [min]="0" [max]="100" />
+              <good-chart-line source="metrics" xKey="period" yKey="memory" label="Memory" color="violet" />
+            </good-line-chart>
+          </good-group>
+        </good-tab>
+        <good-tab value="logs" label="Logs &amp; queries">
+          <good-columns [columns]="2">
+            <good-column><good-card><good-card-header title="Current connections" [headingLevel]="3" tone="secondary" />
+              <good-paragraph>No active queries in this local demo.</good-paragraph>
+            </good-card></good-column>
+            <good-column><good-card><good-card-header title="Query statistics" [headingLevel]="3" tone="secondary" />
+              <good-paragraph>Statistics appear when the database receives traffic.</good-paragraph>
+            </good-card></good-column>
+          </good-columns>
+          <good-group appearance="plain" title="Recent logs">
+            <good-button variant="outline" size="small" (click)="refreshLogs()">Refresh logs</good-button>
+            <good-table label="Recent database logs" tableStyle="compact" [data]="logs()" [columns]="logColumns"
+              [reorderable]="false" emptyMessage="No log entries yet." />
+          </good-group>
+        </good-tab>
+        <good-tab value="users" label="Users &amp; databases">
+          <good-columns [columns]="2">
+          <good-column><good-card><good-card-header title="Database users" [headingLevel]="3" tone="secondary" />
+            @for (user of users(); track user) { <good-paragraph>{{ user }}</good-paragraph> }
+            <good-input label="New user name" [showLabel]="true" [(value)]="userName" />
+            <good-button variant="outline" (click)="addUser()">Add user</good-button>
+          </good-card></good-column>
+          <good-column><good-card><good-card-header title="Databases" [headingLevel]="3" tone="secondary" />
+            @for (database of databases(); track database) { <good-paragraph>{{ database }}</good-paragraph> }
+            <good-input label="New database name" [showLabel]="true" [(value)]="databaseName" />
+            <good-button variant="outline" (click)="addDatabase()">Add database</good-button>
+          </good-card></good-column>
+          </good-columns>
+          @if (formError()) { <good-alert tone="destructive" [message]="formError()" /> }
+        </good-tab>
+        <good-tab value="pools" label="Connection pools">
+          <good-group appearance="plain" title="Connection pools">
+            <good-paragraph>Pool clients through a named connection endpoint. The pool records here exist only in this browser session.</good-paragraph>
+            <good-button (click)="createPoolOpen.set(true)">Create connection pool</good-button>
+            <good-table label="Connection pools" tableStyle="compact" [data]="pools()" [columns]="poolColumns"
+              [getRowId]="poolRowId" [reorderable]="false" emptyMessage="No connection pools yet.">
+              <ng-template goodTableCell="id" let-pool>
+                <good-button variant="ghost" size="small" (click)="askDeletePool(pool)">Delete</good-button>
+              </ng-template>
+            </good-table>
+          </good-group>
+        </good-tab>
+        <good-tab value="network" label="Network access">
+          <good-card><good-card-header title="Trusted sources" [headingLevel]="3" tone="secondary" />
+            <good-paragraph>Only trusted client networks should reach a production database. This case study does not open any real connection.</good-paragraph>
+            <good-detail-list>
+              <div goodDetailRow><dt>Private network</dt><dd>Enabled for demo resources</dd></div>
+              <div goodDetailRow><dt>Public access</dt><dd>Disabled</dd></div>
+              <div goodDetailRow><dt>Port</dt><dd>25060</dd></div>
+            </good-detail-list>
+          </good-card>
+        </good-tab>
+        <good-tab value="settings" label="Settings">
+          <good-card><good-card-header title="Cluster settings" [headingLevel]="3" tone="secondary" />
+            <good-detail-list>
+              <div goodDetailRow><dt>Engine</dt><dd>{{ item.engine }} {{ item.version }}</dd></div>
+              <div goodDetailRow><dt>Edition</dt><dd>{{ item.edition }}</dd></div>
+              <div goodDetailRow><dt>Region</dt><dd>{{ item.region }}</dd></div>
+              <div goodDetailRow><dt>Storage autoscale</dt><dd>{{ item.autoscale ? 'Enabled' : 'Disabled' }}</dd></div>
+              <div goodDetailRow><dt>Monthly estimate</dt><dd>{{ item.monthlyPrice }}</dd></div>
+            </good-detail-list>
+            <good-alert tone="warning" title="Delete cluster" message="Deleting this demo cluster also removes its connection pools." />
+            <good-button variant="outline" (click)="beginEditSettings()">Edit settings</good-button>
+            <good-button variant="destructive" (click)="deleteConfirmation.set(''); deleteClusterOpen.set(true)">Delete database cluster</good-button>
+          </good-card>
+        </good-tab>
+      </good-tabs>
+    </good-section>
+  } @else {
+    <good-section><good-alert tone="warning" title="Database not found" message="This demo cluster may have been removed." />
+      <good-button variant="outline" (click)="back()">Back to databases</good-button></good-section>
+  }
+</good-main-view>
+
+<good-modal [(open)]="createPoolOpen" size="default">
+  <good-modal-header title="Create connection pool" description="Pool settings are saved only in this local case study." />
+  <good-group appearance="plain">
+    <good-input label="Pool name" [showLabel]="true" [(value)]="poolName" />
+    <good-select label="Database" [showLabel]="true" [options]="databaseOptions()" [(value)]="poolDatabase" />
+    <good-select label="Pooling mode" [showLabel]="true" [options]="modes" [(value)]="poolMode" />
+    <good-input label="Maximum connections" [showLabel]="true" type="number" [value]="'' + poolSize()"
+      (valueChange)="poolSize.set(+$event || 1)" />
+    @if (formError()) { <good-alert tone="destructive" [message]="formError()" /> }
+  </good-group>
+  <good-modal-footer><good-action-group>
+    <good-button variant="outline" (click)="createPoolOpen.set(false)">Cancel</good-button>
+    <good-button (click)="createPool()">Create pool</good-button>
+  </good-action-group></good-modal-footer>
+</good-modal>
+<good-modal [(open)]="deletePoolOpen" size="small">
+  <good-modal-header title="Delete connection pool" />
+  <good-paragraph>Delete {{ selectedPool()?.name }} from this local demo?</good-paragraph>
+  <good-modal-footer><good-action-group>
+    <good-button variant="outline" (click)="deletePoolOpen.set(false)">Cancel</good-button>
+    <good-button variant="destructive" (click)="deletePool()">Delete pool</good-button>
+  </good-action-group></good-modal-footer>
+</good-modal>
+<good-modal [(open)]="deleteClusterOpen" size="default">
+  <good-modal-header title="Delete database cluster" description="This permanently removes the local demo record." />
+  <good-paragraph>Type <strong>{{ cluster()?.name }}</strong> to confirm.</good-paragraph>
+  <good-input label="Cluster name" [showLabel]="true" [(value)]="deleteConfirmation" />
+  @if (formError()) { <good-alert tone="destructive" [message]="formError()" /> }
+  <good-modal-footer><good-action-group>
+    <good-button variant="outline" (click)="deleteClusterOpen.set(false)">Cancel</good-button>
+    <good-button variant="destructive" (click)="deleteCluster()">Delete cluster</good-button>
+  </good-action-group></good-modal-footer>
+</good-modal>
+<good-modal [(open)]="editSettingsOpen" size="default">
+  <good-modal-header title="Edit cluster settings" description="Changes stay in this local demo." />
+  <good-group appearance="plain">
+    <good-input label="Tags" [showLabel]="true" [(value)]="editTags" />
+    <good-checkbox label="Automatically grow storage" [showLabel]="true" [(checked)]="editAutoscale" />
+  </good-group>
+  <good-modal-footer><good-action-group>
+    <good-button variant="outline" (click)="editSettingsOpen.set(false)">Cancel</good-button>
+    <good-button (click)="saveSettings()">Save settings</good-button>
+  </good-action-group></good-modal-footer>
+</good-modal>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Database detail source" />
+  <good-code-block [code]="htmlSource" language="html" title="database-detail-page.html" />
+  <good-code-block [code]="tsSource" language="typescript" title="database-detail-page.ts" />
+  <good-code-block [code]="storeSource" language="typescript" title="cloudhoster-store.ts" />
+</good-modal>

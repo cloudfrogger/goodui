@@ -153,6 +153,12 @@ export class App {
           { id: 'vpshoster-servers', label: 'Servers', route: '/examples/case-studies/vpshoster/servers' },
           { id: 'vpshoster-create', label: 'Create servers', route: '/examples/case-studies/vpshoster/create' },
         ] },
+        { id: 'cloudhoster-case-study', label: 'Cloudhoster', children: [
+          { id: 'cloudhoster-overview', label: 'Overview', route: '/examples/case-studies/cloudhoster', activeMatch: 'exact' },
+          { id: 'cloudhoster-databases', label: 'Databases', route: '/examples/case-studies/cloudhoster/databases', activeMatch: 'exact' },
+          { id: 'cloudhoster-create', label: 'Create database', route: '/examples/case-studies/cloudhoster/databases/create' },
+          { id: 'cloudhoster-billing', label: 'Billing', route: '/examples/case-studies/cloudhoster/billing' },
+        ] },
       ] },
       { id: 'profile', label: 'Public Profile', icon: 'account', route: '/profile' },
       { id: 'account', label: 'My Account', icon: 'settings', children: [
@@ -272,6 +278,7 @@ export class App {
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },
     { id: 'webmailer-case-study', label: 'Webmailer case study', description: 'Mail workspace and composer built with GoodUI', route: '/examples/case-studies/webmailer' },
     { id: 'vpshoster-case-study', label: 'VPS hoster case study', description: 'Server list and configuration flow built with GoodUI', route: '/examples/case-studies/vpshoster' },
+    { id: 'cloudhoster-case-study', label: 'Cloudhoster case study', description: 'Managed databases and billing workflows built with GoodUI', route: '/examples/case-studies/cloudhoster' },
     { id: 'mail-compose', label: 'Compose mail', description: 'Rich text formatting, links, images, and tables', route: '/examples/mail-compose' },
     { id: 'mail-workspace', label: 'Mail workspace', description: 'Folders, message list, preview, and local actions', route: '/examples/mail-workspace' },
     { id: 'account', label: 'Account Home', description: 'Get Started', route: '/account/home/get-started' },

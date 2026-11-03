@@ -1,0 +1,70 @@
+<good-main-view>
+  <good-section>
+    <good-heading-group>
+      <good-eyebrow>Cloudhoster · Case study</good-eyebrow>
+      <good-heading>Welcome aboard</good-heading>
+      <good-summary>Your database workspace at a glance.</good-summary>
+    </good-heading-group>
+  </good-section>
+  <good-section>
+    <good-card [mobileBleed]="true">
+      <good-card-header title="Managed data, ready when you are" backgroundImage="/case-studies/cloudhoster/database-hero.svg">
+        <span goodCardSubtitle>Configure a cluster, inspect its activity, and keep its costs in view.</span>
+      </good-card-header>
+      <good-columns [columns]="2">
+        <good-column>
+          <good-subheading [level]="3">Start with a database</good-subheading>
+          <good-paragraph>Choose an engine, region, compute plan, and storage. The estimate updates as you configure it.</good-paragraph>
+          <good-button (click)="openDatabases()">Explore databases</good-button>
+        </good-column>
+        <good-column>
+          <good-subheading [level]="3">Your workspace today</good-subheading>
+          <good-detail-list>
+            <div goodDetailRow><dt>Database clusters</dt><dd>{{ store.clusters().length }}</dd></div>
+            <div goodDetailRow><dt>Estimated monthly cost</dt><dd>{{ store.totalMonthly() | currency:'USD' }}</dd></div>
+            <div goodDetailRow><dt>Spend alerts</dt><dd>{{ store.alerts().length }}</dd></div>
+          </good-detail-list>
+          <good-button variant="outline" (click)="openBilling()">View billing</good-button>
+        </good-column>
+      </good-columns>
+    </good-card>
+  </good-section>
+  <good-section>
+    <good-prose>
+      <good-subheading [level]="2">Quick actions</good-subheading>
+      <good-action-group>
+        <good-link route="/examples/case-studies/cloudhoster/databases/create">Create a database cluster</good-link>
+        <good-link route="/examples/case-studies/cloudhoster/databases">Inspect clusters</good-link>
+        <good-link route="/examples/case-studies/cloudhoster/billing">Review billing</good-link>
+      </good-action-group>
+    </good-prose>
+  </good-section>
+  <good-section>
+    <good-columns [columns]="3">
+      <good-column><good-card><good-card-header title="Provision" [headingLevel]="3" tone="secondary" />
+        <good-paragraph>Set up PostgreSQL, MySQL, or MongoDB in a guided form with a live price summary.</good-paragraph>
+        <good-link route="/examples/case-studies/cloudhoster/databases/create">Configure a cluster</good-link>
+      </good-card></good-column>
+      <good-column><good-card><good-card-header title="Operate" [headingLevel]="3" tone="secondary" />
+        <good-paragraph>Follow provisioning, inspect metrics and logs, and manage users and connection pools.</good-paragraph>
+        <good-link route="/examples/case-studies/cloudhoster/databases">Open clusters</good-link>
+      </good-card></good-column>
+      <good-column><good-card><good-card-header title="Control spend" [headingLevel]="3" tone="secondary" />
+        <good-paragraph>Compare usage, inspect invoices, and configure alerts for a monthly budget.</good-paragraph>
+        <good-link route="/examples/case-studies/cloudhoster/billing">Open billing</good-link>
+      </good-card></good-column>
+    </good-columns>
+  </good-section>
+  <good-section>
+    <good-action-group>
+      <good-paragraph>This is a local GoodUI example with illustrative data.</good-paragraph>
+      <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
+    </good-action-group>
+  </good-section>
+</good-main-view>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Cloudhoster case study source" />
+  <good-code-block [code]="htmlSource" language="html" title="home-page.html" />
+  <good-code-block [code]="tsSource" language="typescript" title="home-page.ts" />
+  <good-code-block [code]="storeSource" language="typescript" title="cloudhoster-store.ts" />
+</good-modal>

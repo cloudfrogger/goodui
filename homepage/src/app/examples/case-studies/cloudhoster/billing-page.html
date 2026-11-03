@@ -1,0 +1,166 @@
+<good-main-view title="Billing" eyebrow="Cloudhoster · Account"
+  description="Estimated usage, invoices, and spend controls in one place.">
+  <div good-main-view-actions><good-action-group>
+    <good-link route="/examples/case-studies/cloudhoster">Overview</good-link>
+    <good-button variant="outline" size="small" (click)="sourceOpen.set(true)">View source</good-button>
+  </good-action-group></div>
+  <good-section>
+    <good-alert tone="info" appearance="light" title="Usage at a glance"
+      message="The figures below are illustrative and update from this local case study." />
+    <good-tabs ariaLabel="Billing sections">
+      <good-tab value="overview" label="Overview" [selected]="true">
+        <good-card>
+          <good-card-header title="Current month" [headingLevel]="3" tone="secondary" />
+          <good-columns [columns]="2">
+            <good-column>
+              <good-hint>Estimated usage for this month</good-hint>
+              <good-heading [level]="2">{{ store.totalMonthly() | currency:'USD' }}</good-heading>
+              <good-paragraph>From {{ store.clusters().length }} active demo cluster{{ store.clusters().length === 1 ? '' : 's' }}.</good-paragraph>
+              <good-button variant="outline" (click)="paymentNotice.set('No payment is due in this local demo.')">Make payment</good-button>
+            </good-column>
+            <good-column><good-detail-list>
+              <div goodDetailRow><dt>Available credit</dt><dd>$100.00</dd></div>
+              <div goodDetailRow><dt>Estimated usage</dt><dd>{{ store.totalMonthly() | currency:'USD' }}</dd></div>
+              <div goodDetailRow><dt>Remaining credit</dt><dd>{{ remaining() | currency:'USD' }}</dd></div>
+            </good-detail-list></good-column>
+          </good-columns>
+        </good-card>
+        @if (paymentNotice()) { <good-paragraph role="status">{{ paymentNotice() }}</good-paragraph> }
+        <good-columns [columns]="2">
+          <good-column><good-card><good-card-header title="Subscriptions" [headingLevel]="3" />
+            <good-detail-list>
+              <div goodDetailRow><dt>Managed databases</dt><dd>{{ store.clusters().length }}</dd></div>
+              <div goodDetailRow><dt>Support plan</dt><dd>Starter</dd></div>
+            </good-detail-list>
+          </good-card></good-column>
+          <good-column><good-card><good-card-header title="Payment methods" [headingLevel]="3" />
+            <good-paragraph>No payment method is stored in this local example.</good-paragraph>
+          </good-card></good-column>
+        </good-columns>
+      </good-tab>
+      <good-tab value="insights" label="Billing insights">
+        <good-group appearance="plain" title="Analyze spend">
+          <good-paragraph>Choose a period and grouping, then switch the charts to their data tables for exact values.</good-paragraph>
+          <good-action-group>
+            <good-button size="small" [variant]="selectedCategory() === 'all' ? 'default' : 'secondary'"
+              [ariaPressed]="selectedCategory() === 'all'" (click)="selectedCategory.set('all')">All spend</good-button>
+            <good-button size="small" [variant]="selectedCategory() === 'database' ? 'default' : 'secondary'"
+              [ariaPressed]="selectedCategory() === 'database'" (click)="selectedCategory.set('database')">Databases</good-button>
+            <good-button size="small" [variant]="selectedCategory() === 'compute' ? 'default' : 'secondary'"
+              [ariaPressed]="selectedCategory() === 'compute'" (click)="selectedCategory.set('compute')">Compute</good-button>
+          </good-action-group>
+          <good-action-group>
+            <good-select label="Period" [showLabel]="true" [options]="periods" [(value)]="period" />
+            <good-select label="Group by" [showLabel]="true" [options]="groupings" [(value)]="groupBy" />
+          </good-action-group>
+          <good-line-chart title="Daily estimated spend" [sources]="visibleSpendSource()" [showDataToggle]="true">
+            <good-chart-axis position="x" type="time" label="Day" />
+            <good-chart-axis position="y" type="number" label="USD" [min]="0" />
+            @if (selectedCategory() !== 'compute') {
+              <good-chart-line source="spend" xKey="day" yKey="database" label="Databases" color="blue" />
+            }
+            @if (selectedCategory() !== 'database') {
+              <good-chart-line source="spend" xKey="day" yKey="compute" label="Compute" color="teal" />
+            }
+          </good-line-chart>
+          <good-bar-chart title="Resource breakdown" [sources]="breakdownSource()" [showDataToggle]="true" orientation="horizontal">
+            <good-chart-axis position="x" type="category" label="Product" />
+            <good-chart-axis position="y" type="number" label="USD" [min]="0" />
+            <good-chart-bar source="breakdown" xKey="product" yKey="amount" label="Estimated spend" color="blue" />
+          </good-bar-chart>
+        </good-group>
+      </good-tab>
+      <good-tab value="alerts" label="Spend alerts" [badge]="store.alerts().length">
+        <good-group appearance="plain" title="Spend alerts">
+          <good-paragraph>Set a monthly budget and choose the thresholds your application should monitor.</good-paragraph>
+          @if (store.notice()) { <good-paragraph role="status">{{ store.notice() }}</good-paragraph> }
+          @if (!alertFormOpen()) {
+            @if (store.alerts().length) {
+              <good-button (click)="newAlert()">Create alert</good-button>
+              <good-table label="Spend alerts" tableStyle="compact" [data]="store.alerts()" [columns]="alertColumns"
+              [getRowId]="alertRowId" [reorderable]="false" emptyMessage="No spend alerts yet. Create one to monitor a budget.">
+              <ng-template goodTableCell="budget" let-alert>{{ alert.budget | currency:'USD' }}</ng-template>
+              <ng-template goodTableCell="thresholds" let-alert>{{ alert.thresholds.join('%, ') }}%</ng-template>
+              <ng-template goodTableCell="id" let-alert>
+                <good-action-group spacing="small">
+                  <good-button variant="ghost" size="small" (click)="editAlert(alert)">Edit</good-button>
+                  <good-button variant="ghost" size="small" (click)="deletingAlert.set(alert)">Delete</good-button>
+                </good-action-group>
+              </ng-template>
+              </good-table>
+            } @else {
+              <good-card>
+                <good-card-header title="No spend alerts yet" [headingLevel]="3" tone="secondary" />
+                <good-paragraph>Create a budget to track the spend you care about.</good-paragraph>
+                <good-button (click)="newAlert()">Create your first alert</good-button>
+              </good-card>
+            }
+          } @else {
+            <good-subheading [level]="3">{{ editingAlert() ? 'Edit' : 'Create' }} spend alert</good-subheading>
+            <good-input label="Alert name" [showLabel]="true" [(value)]="alertName" />
+            <good-number-input label="Monthly budget in USD" [showLabel]="true" [min]="1" [max]="100000" [(value)]="alertBudget" />
+            <good-select label="Resource scope" [showLabel]="true" [options]="scopes" [(value)]="alertScope" />
+            <good-group appearance="plain" spacing="tight" title="Notify at">
+              <good-checkbox label="80% of budget" [showLabel]="true" [(checked)]="threshold80" />
+              <good-checkbox label="100% of budget" [showLabel]="true" [(checked)]="threshold100" />
+            </good-group>
+            <good-paragraph>Alerts appear in the GoodUI notification center in a connected application. This demo only saves the alert settings locally.</good-paragraph>
+            @if (formError()) { <good-alert tone="destructive" [message]="formError()" /> }
+            <good-action-group>
+              <good-button (click)="createAlert()">{{ editingAlert() ? 'Save alert' : 'Create alert' }}</good-button>
+              <good-button variant="outline" (click)="alertFormOpen.set(false)">Cancel</good-button>
+            </good-action-group>
+          }
+        </good-group>
+      </good-tab>
+      <good-tab value="history" label="History">
+        <good-group appearance="plain" title="Billing history">
+          <good-table label="Invoices" tableStyle="compact" [data]="invoices" [columns]="invoiceColumns"
+            [getRowId]="invoiceRowId" [reorderable]="false">
+            <ng-template goodTableCell="id" let-invoice>
+              <good-button variant="ghost" size="small" (click)="selectedInvoice.set(invoice)">{{ invoice.id }}</good-button>
+            </ng-template>
+            <ng-template goodTableCell="total" let-invoice>{{ invoice.total | currency:'USD' }}</ng-template>
+          </good-table>
+        </good-group>
+      </good-tab>
+      <good-tab value="settings" label="Settings">
+        <good-group appearance="plain" title="Billing settings">
+          <good-detail-list>
+            <div goodDetailRow><dt>Company address</dt><dd>Not set in this local demo</dd></div>
+            <div goodDetailRow><dt>Tax identification</dt><dd>{{ taxId() || 'Not set' }}</dd></div>
+            <div goodDetailRow><dt>Support plan</dt><dd>Starter</dd></div>
+            <div goodDetailRow><dt>Purchase orders</dt><dd>None</dd></div>
+          </good-detail-list>
+          <good-input label="Tax ID" [showLabel]="true" [(value)]="taxId" placeholder="Optional demo value" />
+          <good-paragraph>This value stays in memory and is never sent to a payment service.</good-paragraph>
+        </good-group>
+      </good-tab>
+    </good-tabs>
+  </good-section>
+</good-main-view>
+
+<good-modal [open]="!!deletingAlert()" (openChange)="!$event && deletingAlert.set(null)" size="small">
+  <good-modal-header title="Delete spend alert" />
+  <good-paragraph>Delete {{ deletingAlert()?.name }} from this local demo?</good-paragraph>
+  <good-modal-footer><good-action-group>
+    <good-button variant="outline" (click)="deletingAlert.set(null)">Cancel</good-button>
+    <good-button variant="destructive" (click)="deleteAlert()">Delete alert</good-button>
+  </good-action-group></good-modal-footer>
+</good-modal>
+<good-modal [open]="!!selectedInvoice()" (openChange)="!$event && selectedInvoice.set(null)" size="small">
+  <good-modal-header title="Invoice details" />
+  <good-detail-list>
+    <div goodDetailRow><dt>Invoice</dt><dd>{{ selectedInvoice()?.id }}</dd></div>
+    <div goodDetailRow><dt>Period</dt><dd>{{ selectedInvoice()?.period }}</dd></div>
+    <div goodDetailRow><dt>Amount</dt><dd>{{ selectedInvoice()?.total | currency:'USD' }}</dd></div>
+    <div goodDetailRow><dt>Status</dt><dd>{{ selectedInvoice()?.status }}</dd></div>
+  </good-detail-list>
+  <good-modal-footer><good-button variant="outline" (click)="selectedInvoice.set(null)">Close</good-button></good-modal-footer>
+</good-modal>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Billing source" />
+  <good-code-block [code]="htmlSource" language="html" title="billing-page.html" />
+  <good-code-block [code]="tsSource" language="typescript" title="billing-page.ts" />
+  <good-code-block [code]="storeSource" language="typescript" title="cloudhoster-store.ts" />
+</good-modal>
