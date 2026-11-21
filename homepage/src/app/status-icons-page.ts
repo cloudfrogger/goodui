@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   GoodCodeBlockComponent, GoodMainViewComponent, GoodSectionComponent, GoodStatusIconAppearance,
   GoodStatusIconComponent, GoodStatusIconSize, GoodStatusIconStatus,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-status-icons-page',
@@ -57,7 +57,7 @@ export class StatusIconsPageComponent {
 <good-status-icon status="error" appearance="symbol" />
 <span><good-status-icon status="revising" [decorative]="true" /> Revising</span>`;
   readonly importCode = `import { Component } from '@angular/core';
-import { GoodStatusIconComponent } from '@goodui/angular';
+import { GoodStatusIconComponent } from '@cloudfrogger/goodui';
 
 @Component({
   imports: [GoodStatusIconComponent],

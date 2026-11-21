@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodMainViewComponent, GoodSwitchComponent, GoodSwitchSize } from '@goodui/angular';
+import { GoodMainViewComponent, GoodSwitchComponent, GoodSwitchSize } from '@cloudfrogger/goodui';
 
 type SwitchRow = { label: string; status: 'default' | 'disabled' | 'error'; initial: boolean };
 

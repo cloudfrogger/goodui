@@ -4,7 +4,7 @@
 
 ```ts
 import { FormControl } from '@angular/forms';
-import type { GoodDateRange, GoodDatePreset } from '@goodui/angular';
+import type { GoodDateRange, GoodDatePreset } from '@cloudfrogger/goodui';
 
 readonly appointment = new FormControl<string | null>(null);
 readonly window = new FormControl<GoodDateRange | null>(null);

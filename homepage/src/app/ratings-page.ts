@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodMainViewComponent, GoodRatingComponent, GoodRatingIcon, GoodRatingSize, LucideSmile } from '@goodui/angular';
+import { GoodMainViewComponent, GoodRatingComponent, GoodRatingIcon, GoodRatingSize, LucideSmile } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-ratings-page',

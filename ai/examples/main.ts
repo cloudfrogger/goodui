@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { GoodButtonComponent, GoodActionGroupComponent } from '@goodui/angular';
+import { GoodButtonComponent, GoodActionGroupComponent } from '@cloudfrogger/goodui';
 import { LoginExample } from './login';
 import { TableViewExample } from './table-view';
 import { EditFormExample } from './edit-form';

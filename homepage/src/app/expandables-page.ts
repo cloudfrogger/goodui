@@ -4,7 +4,7 @@ import {
   GoodExpandableHeaderDirective, GoodEyebrowComponent, GoodHeadingComponent,
   GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent,
   GoodProseComponent, GoodSectionComponent, GoodSummaryComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-expandables-page',

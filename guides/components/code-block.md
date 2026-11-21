@@ -3,7 +3,7 @@
 `good-code-block` displays selectable source text with syntax highlighting. It owns the frame, toolbar, copy action, optional line-number gutter, horizontal scrolling, and optional expandable preview. Set `inline` for a short snippet inside a sentence; inline mode removes the frame, toolbar, line numbers, and expand control.
 
 ```ts
-import { GoodCodeBlockComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent } from '@cloudfrogger/goodui';
 
 // Add GoodCodeBlockComponent to the consuming standalone component's imports.
 export class ExamplePage {

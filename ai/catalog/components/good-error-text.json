@@ -4,7 +4,7 @@
   "className": "GoodErrorTextComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodErrorTextComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

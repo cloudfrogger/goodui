@@ -4,7 +4,7 @@
   "className": "GoodPinInputComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodPinInputComponent"
   },
   "source": "angular/projects/goodui/src/lib/pin-input.ts",

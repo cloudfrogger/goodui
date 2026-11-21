@@ -4,7 +4,7 @@
   "className": "GoodSubnavComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSubnavComponent"
   },
   "source": "angular/projects/goodui/src/lib/subnav.ts",

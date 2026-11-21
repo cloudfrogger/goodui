@@ -3,7 +3,7 @@ import {
   GOOD_MARKER_COLORS, GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent,
   GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodProgressColor,
   GoodProgressComponent, GoodSectionComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-progress-page',

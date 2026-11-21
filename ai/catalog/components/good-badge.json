@@ -4,7 +4,7 @@
   "className": "GoodBadgeComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodBadgeComponent"
   },
   "source": "angular/projects/goodui/src/lib/badge.ts",

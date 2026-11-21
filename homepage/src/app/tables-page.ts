@@ -4,7 +4,7 @@ import {
   GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent,
   GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent,
   LucideTrash2,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 interface RecordRow {
   id: string;
@@ -211,7 +211,7 @@ export class TablesPageComponent {
 import {
   GoodActionGroupComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent,
   GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 interface Server {
   id: string;

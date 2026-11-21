@@ -4,7 +4,7 @@
   "className": "GoodTopbarDropdownItemComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodTopbarDropdownItemComponent"
   },
   "source": "angular/projects/goodui/src/lib/topbar.ts",

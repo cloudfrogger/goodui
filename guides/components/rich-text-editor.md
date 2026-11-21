@@ -46,7 +46,7 @@ This is the complete allowlist. Copy it and remove the names you do not need:
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { GoodRichTextEditorComponent, type GoodRichTextFeature } from '@goodui/angular';
+import { GoodRichTextEditorComponent, type GoodRichTextFeature } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,
@@ -79,7 +79,7 @@ Bind a signal containing HTML to `[(value)]`. To load a saved document, set the 
 
 ```ts
 import { signal, viewChild } from '@angular/core';
-import { GoodRichTextEditorComponent } from '@goodui/angular';
+import { GoodRichTextEditorComponent } from '@cloudfrogger/goodui';
 
 readonly editor = viewChild(GoodRichTextEditorComponent);
 readonly html = signal('<p>Initial draft</p>');

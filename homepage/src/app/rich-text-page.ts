@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent,
-  GoodMainViewComponent, GoodRichTextEditorComponent, GoodSectionComponent } from '@goodui/angular';
-import type { GoodRichTextFeature } from '@goodui/angular';
+  GoodMainViewComponent, GoodRichTextEditorComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
+import type { GoodRichTextFeature } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-rich-text-page', standalone: true,
@@ -29,7 +29,7 @@ export class RichTextPageComponent {
   readonly featuresTemplateCode = `<good-rich-text-editor label="Note" [(value)]="body"
   [features]="editorFeatures" />`;
   readonly featuresTypeScriptCode = `import { Component, signal } from '@angular/core';
-import { GoodRichTextEditorComponent, type GoodRichTextFeature } from '@goodui/angular';
+import { GoodRichTextEditorComponent, type GoodRichTextFeature } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,

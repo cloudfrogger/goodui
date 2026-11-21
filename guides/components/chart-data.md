@@ -3,7 +3,7 @@
 All GoodUI visualizations use `GoodChartDataSource`. A source has a stable `id`, key declarations, and rows. A one-dimensional source has one key, a two-dimensional source has X and Y keys, and a three-dimensional source adds a third key. Charts refer to the keys they need. This keeps the data independent from the rendering style and allows one chart to combine several sources. Line, Bar, and Scatter charts consume one X and one Y key; Sparkline and Histogram can use one numeric key. Scatter preserves separate observations at equal X values; Histogram derives shared count intervals from raw values. Other dimensions remain available for future visualizations.
 
 ```ts
-import type { GoodChartDataSource } from '@goodui/angular';
+import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 const readings: GoodChartDataSource = {
   id: 'daily-temperature',

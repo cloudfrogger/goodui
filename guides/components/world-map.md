@@ -5,7 +5,7 @@
 Start with a source whose country key is `category` and uses two-letter country codes (ISO 3166-1 alpha-2 where available; `XK` for Kosovo). A numeric key supplies the overlay value. A `date` or `datetime` key is optional; with repeated rows the latest observation per country is shown by default. Set `[time]` to an exact date or datetime to show an earlier observation. Rows for countries without mapped geometry are skipped. The bundled independent-country map covers 238 distinct two-letter codes, including `FR`, `NO`, `TW`, and `XK`; it does not include every dependent territory. An unavailable `focusCountry` produces a visible error.
 
 ```ts
-import type { GoodChartDataSource } from '@goodui/angular';
+import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 readonly sources: GoodChartDataSource[] = [{
   id: 'coverage',

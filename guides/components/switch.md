@@ -17,7 +17,7 @@ The visible track sizes are 28 × 16, 36 × 20, and 44 × 24 px. Every size has 
 
 ```ts
 import { signal } from '@angular/core';
-import { GoodSwitchComponent } from '@goodui/angular';
+import { GoodSwitchComponent } from '@cloudfrogger/goodui';
 
 readonly emailEnabled = signal(false);
 ```

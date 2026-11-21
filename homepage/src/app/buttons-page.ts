@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodButtonComponent, GoodButtonSize, GoodButtonVariant, GoodMainViewComponent, LucidePlus, LucideTrash2 } from '@goodui/angular';
+import { GoodButtonComponent, GoodButtonSize, GoodButtonVariant, GoodMainViewComponent, LucidePlus, LucideTrash2 } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-buttons-page',

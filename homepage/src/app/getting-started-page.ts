@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, type GoodBreadcrumbItem } from '@goodui/angular';
+import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, type GoodBreadcrumbItem } from '@cloudfrogger/goodui';
 import { themePrepaintCode } from './theme-prepaint-code';
 
 @Component({
@@ -27,7 +27,7 @@ export class DesigningPageComponent {
   readonly prepareReferencesCode = `# From the folder containing goodui/ and hello-goodui/:
 (cd goodui && node ai/scripts/package.mjs)
 cd hello-goodui
-GOODUI_VERSION=$(node -p "require('./node_modules/@goodui/angular/package.json').version")
+GOODUI_VERSION=$(node -p "require('./node_modules/@cloudfrogger/goodui/package.json').version")
 echo "Installed GoodUI: $GOODUI_VERSION"
 mkdir -p .goodui
 unzip -o "../goodui/ai/artifacts/goodui-ai-\${GOODUI_VERSION}.zip" -d .goodui`;
@@ -77,22 +77,17 @@ export class DevelopingPageComponent {
     { label: 'Getting Started', route: '/getting-started/introduction' },
     { label: 'Developing' },
   ];
-  readonly setupCode = `git clone https://github.com/cloudfrogger/goodui.git
-cd goodui
-npm --prefix angular ci --legacy-peer-deps
-npm run build:lib
-cd ..
-npx -y -p @angular/cli@21.2.27 ng new hello-goodui --routing --style=css --defaults
+  readonly setupCode = `npx -y -p @angular/cli@21.2.27 ng new hello-goodui --routing --style=css --defaults
 cd hello-goodui
-npm install ../goodui/angular/dist/goodui`;
+npm install @cloudfrogger/goodui`;
 
-  readonly stylesCode = `@import "@goodui/angular/styles.css";`;
+  readonly stylesCode = `@import "@cloudfrogger/goodui/styles.css";`;
 
   readonly prepaintCode = themePrepaintCode;
 
   readonly providersCode = `import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideGoodUI } from '@goodui/angular';
+import { provideGoodUI } from '@cloudfrogger/goodui';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -115,7 +110,7 @@ import {
   GoodAppLayoutComponent,
   GoodMainViewComponent,
   type GoodSidebarSection,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',

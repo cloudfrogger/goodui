@@ -4,7 +4,7 @@
   "className": "GoodDropdownHeaderDirective",
   "kind": "directive",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodDropdownHeaderDirective"
   },
   "source": "angular/projects/goodui/src/lib/dropdown.ts",

@@ -4,7 +4,7 @@
   "className": "GoodActionGroupComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodActionGroupComponent"
   },
   "source": "angular/projects/goodui/src/lib/action-group.ts",

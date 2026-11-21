@@ -4,7 +4,7 @@
   "className": "GoodTopbarComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodTopbarComponent"
   },
   "source": "angular/projects/goodui/src/lib/topbar.ts",

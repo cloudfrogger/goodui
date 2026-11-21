@@ -3,7 +3,7 @@ import { GoodCardComponent, GoodCardHeaderComponent, GoodChartDataSource, GoodCo
   GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingComponent,
   GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
   GoodSectionComponent, GoodSparklineComponent, GoodSubheadingComponent, GoodSummaryComponent,
-  GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodMarkerColor } from '@goodui/angular';
+  GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodMarkerColor } from '@cloudfrogger/goodui';
 
 interface TrendRow {
   region: string;
@@ -43,7 +43,7 @@ export class SparklinesPageComponent {
     { accessorKey: 'trend', header: 'Trend' },
   ];
 
-  readonly sourceCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly sourceCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 readonly visits: GoodChartDataSource = {
   id: 'visits',

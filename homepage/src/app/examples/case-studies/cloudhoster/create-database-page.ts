@@ -11,7 +11,7 @@ import {
   GoodNumberInputComponent, GoodParagraphComponent, GoodProseComponent, GoodRadioGroupComponent,
   GoodSectionComponent, GoodSelectComponent, GoodSeparatorComponent, GoodSubheadingComponent,
   GoodSummaryComponent, GoodTabComponent, GoodTabsComponent, GoodTimelineComponent, GoodTimelineSectionComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { CloudhosterStore } from './cloudhoster-store';
 import { cloudCreateHtml, cloudCreateTs, cloudStoreTs } from './source-code.generated';
 

@@ -3,7 +3,7 @@
 `good-expandable` reveals optional content across the full available width. Use one for a short answer or a related block of details. The default is collapsed with a plus icon. The header is a native button, so Enter and Space toggle it without extra keyboard code.
 
 ```ts
-import { GoodExpandableComponent, GoodExpandableHeaderDirective } from '@goodui/angular';
+import { GoodExpandableComponent, GoodExpandableHeaderDirective } from '@cloudfrogger/goodui';
 ```
 
 ```html

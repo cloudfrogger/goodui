@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   GoodBreadcrumbsComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodMainViewComponent, GoodSectionComponent, GoodSummaryComponent, type GoodBreadcrumbItem,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { UserRegistrationFormExampleComponent } from './user-registration-form';
 
 @Component({

@@ -6,7 +6,7 @@ import {
   GoodResizableComponent, GoodResizablePaneComponent, GoodSeparatorComponent, GoodTableComponent,
   LucideArchive, LucideFileCode2, LucideFilter, LucideFolder, LucideMailPlus, LucideMailOpen, LucideSearch,
   LucideStar, LucideTrash2, type GoodActionBarGroup, type GoodDropdownItem, type GoodListboxItem, type GoodTableColumn,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { mailWorkspaceHtml, mailWorkspaceTs } from './source-code.generated';
 
 interface MailMessage {

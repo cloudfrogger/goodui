@@ -5,7 +5,7 @@
 ```ts
 import { Component } from '@angular/core';
 import { GoodChartAxisComponent, GoodChartScatterComponent, GoodScatterChartComponent,
-  type GoodChartDataSource } from '@goodui/angular';
+  type GoodChartDataSource } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-measurements', standalone: true,

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { GoodButtonComponent, GoodChartDataSource, GoodCodeBlockComponent, GoodEyebrowComponent,
   GoodHeadingComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodMapOverlayComponent,
   GoodMapColorScaleComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent,
-  GoodSummaryComponent, GoodWorldMapComponent } from '@goodui/angular';
+  GoodSummaryComponent, GoodWorldMapComponent } from '@cloudfrogger/goodui';
 
 @Component({ selector: 'showcase-world-maps-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent,
@@ -47,7 +47,7 @@ export class WorldMapsPageComponent {
   <good-map-overlay source="coverage" countryKey="country" timeKey="date"
     valueKeys="share" type="percentage" label="Coverage" />
 </good-world-map>`;
-  readonly sourceCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly sourceCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 readonly sources: GoodChartDataSource[] = [{
   id: 'coverage',
@@ -90,7 +90,7 @@ readonly sources: GoodChartDataSource[] = [{
   <good-map-overlay source="regional-coverage" countryKey="country" timeKey="date"
     valueKeys="share" type="percentage" label="Coverage" />
 </good-world-map>`;
-  readonly scaleSourceCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly scaleSourceCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 readonly regionalSources: GoodChartDataSource[] = [{
   id: 'regional-coverage',

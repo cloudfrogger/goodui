@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideGoodUI } from '@goodui/angular';
+import { provideGoodUI } from '@cloudfrogger/goodui';
 
 import { routes } from './app.routes';
 

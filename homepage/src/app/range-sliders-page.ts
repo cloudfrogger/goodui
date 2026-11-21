@@ -4,7 +4,7 @@ import {
   GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
   GoodRangeSliderComponent, GoodRangeSliderRange, GoodRangeSliderSize, GoodRangeSliderTick,
   GoodSectionComponent, LucideGrip, LucideMoveHorizontal,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-range-sliders-page',

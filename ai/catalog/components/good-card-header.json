@@ -4,7 +4,7 @@
   "className": "GoodCardHeaderComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodCardHeaderComponent"
   },
   "source": "angular/projects/goodui/src/lib/card.ts",

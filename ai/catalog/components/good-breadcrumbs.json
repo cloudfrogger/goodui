@@ -4,7 +4,7 @@
   "className": "GoodBreadcrumbsComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodBreadcrumbsComponent"
   },
   "source": "angular/projects/goodui/src/lib/breadcrumbs.ts",

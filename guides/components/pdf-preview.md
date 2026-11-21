@@ -3,7 +3,7 @@
 `good-pdf-preview` displays one PDF page at a time inside a responsive GoodUI frame. Its toolbar owns page navigation, zoom (50–300% of fitted width), clockwise rotation, and an optional download action. The document viewport scrolls when a zoomed page exceeds its width. PDF.js renders the page and a selectable text layer; page count updates are announced to assistive technology. `PageUp` and `PageDown` work while the viewport has focus.
 
 ```ts
-import { GoodPdfPreviewComponent } from '@goodui/angular';
+import { GoodPdfPreviewComponent } from '@cloudfrogger/goodui';
 
 // Add GoodPdfPreviewComponent to your standalone component's imports.
 readonly pdfUrl = '/api/reports/quarterly.pdf';

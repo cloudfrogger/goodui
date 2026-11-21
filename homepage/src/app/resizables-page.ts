@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodSectionComponent, GoodSubheadingComponent } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodSectionComponent, GoodSubheadingComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-resizables-page',
@@ -18,7 +18,7 @@ export class ResizablesPageComponent {
   readonly handles = ['grip', 'line', 'dots', 'chevrons'] as const;
 
   readonly basicCode = `import { Component, signal } from '@angular/core';
-import { GoodResizableComponent, GoodResizablePaneComponent } from '@goodui/angular';
+import { GoodResizableComponent, GoodResizablePaneComponent } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,

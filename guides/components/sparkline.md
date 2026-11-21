@@ -4,7 +4,7 @@
 
 ```ts
 import { Component } from '@angular/core';
-import { GoodSparklineComponent, type GoodChartDataSource } from '@goodui/angular';
+import { GoodSparklineComponent, type GoodChartDataSource } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-visits', standalone: true,

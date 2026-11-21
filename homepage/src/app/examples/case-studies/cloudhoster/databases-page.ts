@@ -7,7 +7,7 @@ import {
   GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent,
   GoodSectionComponent, GoodStatusIconComponent, GoodSubheadingComponent, GoodSummaryComponent,
   GoodTableCellDirective, GoodTableColumn, GoodTableComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { CloudhosterStore, DemoCluster } from './cloudhoster-store';
 import { cloudDatabasesHtml, cloudDatabasesTs, cloudStoreTs } from './source-code.generated';
 

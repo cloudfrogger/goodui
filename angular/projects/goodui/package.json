@@ -1,7 +1,11 @@
 {
-  "name": "@goodui/angular",
+  "name": "@cloudfrogger/goodui",
   "version": "0.0.1",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "@angular/common": "^21.2.0",
     "@angular/core": "^21.2.0",

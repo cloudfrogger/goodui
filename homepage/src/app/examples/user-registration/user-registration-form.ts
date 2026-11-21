@@ -8,7 +8,7 @@ import {
   GoodInputPhoneComponent, GoodListboxComponent, GoodListboxGroup, GoodParagraphComponent,
   GoodRadioGroupComponent, GoodSelectCountryComponent,
   GoodTextareaComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 const passwordsMatch: ValidatorFn = form => {
   const password = form.get('password')?.value;

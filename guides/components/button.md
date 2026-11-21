@@ -13,7 +13,7 @@
 Sizes are `small` (32 px), `default` (40 px), and `large` (48 px). The default variant and size are both `default`. All five variants work in light and dark themes.
 
 ```ts
-import { GoodButtonComponent, LucidePlus, LucideSettings, LucideTrash2 } from '@goodui/angular';
+import { GoodButtonComponent, LucidePlus, LucideSettings, LucideTrash2 } from '@cloudfrogger/goodui';
 
 readonly plusIcon = LucidePlus;
 readonly settingsIcon = LucideSettings;
@@ -31,7 +31,7 @@ readonly trashIcon = LucideTrash2;
 <good-button [disabled]="saving" type="submit">Save changes</good-button>
 ```
 
-Lucide Angular is a dependency of `@goodui/angular`, and the library re-exports its icons. Import the icon classes you use from GoodUI and pass them to `[icon]`; no icon font, global provider, or icon CSS import is needed. The Penpot file uses the connected `Lucide-icons` library for the same icon shapes. Use a visible label when space allows. An icon-only button needs an icon and a meaningful `ariaLabel`; `[iconOnly]="true"` explicitly hides projected text. For a toggle button, bind `[ariaPressed]` to its boolean state; this reaches the native button. The default native type is `button`; set `type="submit"` or `type="reset"` for form controls. The click event bubbles from the internal native button. Use Angular Router links for navigation actions.
+Lucide Angular is a dependency of `@cloudfrogger/goodui`, and the library re-exports its icons. Import the icon classes you use from GoodUI and pass them to `[icon]`; no icon font, global provider, or icon CSS import is needed. The Penpot file uses the connected `Lucide-icons` library for the same icon shapes. Use a visible label when space allows. An icon-only button needs an icon and a meaningful `ariaLabel`; `[iconOnly]="true"` explicitly hides projected text. For a toggle button, bind `[ariaPressed]` to its boolean state; this reaches the native button. The default native type is `button`; set `type="submit"` or `type="reset"` for form controls. The click event bubbles from the internal native button. Use Angular Router links for navigation actions.
 
 `endIcon` uses the same icon type and size as `icon`. It is useful for a trailing chevron; `good-dropdown` sets it automatically when `showChevron` is enabled. The Penpot Button matrix remains the base visual family, while the Dropdown compositions show its trailing chevron as a linked Lucide overlay on a linked Button instance.
 

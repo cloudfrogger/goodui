@@ -4,7 +4,7 @@
   "className": "GoodRangeSliderComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodRangeSliderComponent"
   },
   "source": "angular/projects/goodui/src/lib/range-slider.ts",

@@ -4,7 +4,7 @@
   "className": "GoodButtonComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodButtonComponent"
   },
   "source": "angular/projects/goodui/src/lib/button.ts",

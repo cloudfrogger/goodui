@@ -4,7 +4,7 @@ import {
   GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent,
   GoodGroupComponent, GoodParagraphComponent, GoodSubheadingComponent,
   GoodMainViewComponent, GoodSectionComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodTimelineSectionComponent, GoodTimelineStep,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-timelines-page',
@@ -30,7 +30,7 @@ export class TimelinesPageComponent {
   next(): void { this.currentIndex.update(value => Math.min(this.simpleStepCount, value + 1)); }
 
   readonly basicCode = `import { Component, signal } from '@angular/core';
-import { GoodTimelineComponent, GoodTimelineStepComponent } from '@goodui/angular';
+import { GoodTimelineComponent, GoodTimelineStepComponent } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,
@@ -77,7 +77,7 @@ export class PageComponent {
   <good-timeline-step id="transit" title="In transit" iconName="truck" />
   <good-timeline-step id="received" title="Destination" iconName="map-pin" endpoint="end" />
 </good-timeline>`;
-  readonly dataCode = `import { GoodTimelineStep } from '@goodui/angular';
+  readonly dataCode = `import { GoodTimelineStep } from '@cloudfrogger/goodui';
 
 readonly steps: GoodTimelineStep[] = [
   { id: 'received', title: 'Received', iconName: 'file-text' },
@@ -87,7 +87,7 @@ readonly steps: GoodTimelineStep[] = [
 
 // Template: <good-timeline [steps]="steps" [currentIndex]="1" />`;
   readonly sectionsCode = `import { Component, signal } from '@angular/core';
-import { GoodTimelineComponent, GoodTimelineSectionComponent, GoodButtonComponent } from '@goodui/angular';
+import { GoodTimelineComponent, GoodTimelineSectionComponent, GoodButtonComponent } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LucideArrowLeft, LucideHouse } from '@lucide/angular';
-import { GoodButtonComponent, GoodErrorPageComponent, GoodMainViewComponent } from '@goodui/angular';
+import { GoodButtonComponent, GoodErrorPageComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-not-found-page',

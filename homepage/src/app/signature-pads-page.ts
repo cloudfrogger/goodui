@@ -3,7 +3,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {
   GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
   GoodSectionComponent, GoodSignaturePadComponent, GoodSignatureData, GoodSignatureStroke,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-signature-pads-page',
@@ -53,7 +53,7 @@ export class SignaturePadsPageComponent {
   readonly basicCode = `<good-signature-pad label="Your signature" [(value)]="signature"
   (svgChange)="emittedSvg.set($event)" />`;
   readonly dataCode = `import { signal } from '@angular/core';
-import { GoodSignatureData, goodSignatureSvg, goodSignatureInkml } from '@goodui/angular';
+import { GoodSignatureData, goodSignatureSvg, goodSignatureInkml } from '@cloudfrogger/goodui';
 
 readonly signature = signal<GoodSignatureData | null>(null);
 

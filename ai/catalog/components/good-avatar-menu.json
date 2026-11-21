@@ -4,7 +4,7 @@
   "className": "GoodAvatarMenuComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodAvatarMenuComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",

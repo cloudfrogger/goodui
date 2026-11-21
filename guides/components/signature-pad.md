@@ -9,7 +9,7 @@
 
 ```ts
 import { signal } from '@angular/core';
-import { GoodSignatureData, goodSignatureSvg, goodSignatureInkml } from '@goodui/angular';
+import { GoodSignatureData, goodSignatureSvg, goodSignatureInkml } from '@cloudfrogger/goodui';
 
 readonly signature = signal<GoodSignatureData | null>(null);
 readonly savedSvg = signal('');

@@ -4,7 +4,7 @@
 
 ```ts
 import { FormControl } from '@angular/forms';
-import { GoodCheckboxComponent } from '@goodui/angular';
+import { GoodCheckboxComponent } from '@cloudfrogger/goodui';
 
 readonly includeArchived = new FormControl(false, { nonNullable: true });
 readonly selectAll = new FormControl<boolean | null>(null); // null = indeterminate

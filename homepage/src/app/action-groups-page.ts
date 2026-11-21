@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodActionGroupSpacing, GoodButtonComponent, GoodDropdownComponent, GoodDropdownItem, GoodLinkComponent, GoodMainViewComponent } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodActionGroupSpacing, GoodButtonComponent, GoodDropdownComponent, GoodDropdownItem, GoodLinkComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-action-groups-page',

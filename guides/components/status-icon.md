@@ -3,7 +3,7 @@
 `good-status-icon` is a compact, non-interactive status indicator. Set its required `status` and use the default flat dot (`appearance="plain"`) unless the surrounding UI needs a stronger visual cue. The component owns its shape, color, size, and accessible name; it does not change application state or emit events.
 
 ```ts
-import { GoodStatusIconComponent } from '@goodui/angular';
+import { GoodStatusIconComponent } from '@cloudfrogger/goodui';
 ```
 
 ```html

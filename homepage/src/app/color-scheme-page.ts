@@ -5,7 +5,7 @@ import {
   GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
   GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, GoodThemeService,
   GOOD_MARKER_COLORS,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 type ColorRole = { name: string; token: string; purpose: string };
 
@@ -61,7 +61,7 @@ export class ColorSchemePageComponent {
   readonly markerColors = computed(() => this.colors().slice(coreRoles.length + semanticRoles.length));
 
   readonly overridesCode = `/* app/src/styles.css — after the GoodUI stylesheet */
-@import "@goodui/angular/styles.css";
+@import "@cloudfrogger/goodui/styles.css";
 
 :root {
   --good-color-brand: #6D28D9;
@@ -74,7 +74,7 @@ export class ColorSchemePageComponent {
 }`;
 
   readonly themeCode = `import { Injectable, inject } from '@angular/core';
-import { GoodThemeService } from '@goodui/angular';
+import { GoodThemeService } from '@cloudfrogger/goodui';
 
 @Injectable({ providedIn: 'root' })
 export class AppearanceSettings {

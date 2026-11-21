@@ -30,7 +30,7 @@ Pass Lucide icon data to `startIcon` or `endIcon`. Use `startText` or `endText` 
 Fixed group text is included in the native input's accessible name, so units and prefixes remain available to assistive technology. Icons are decorative and are not announced.
 
 ```ts
-import { LucideSearch } from '@goodui/angular';
+import { LucideSearch } from '@cloudfrogger/goodui';
 
 readonly searchIcon = LucideSearch;
 ```

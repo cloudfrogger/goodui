@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { GoodActionGroupComponent, GoodButtonComponent, GoodFieldLabelComponent, GoodFormDirective,
-  GoodFormFieldComponent, GoodInputComponent, GoodMainViewComponent, GoodRichTextEditorComponent } from '@goodui/angular';
+  GoodFormFieldComponent, GoodInputComponent, GoodMainViewComponent, GoodRichTextEditorComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'example-mail-compose-page',

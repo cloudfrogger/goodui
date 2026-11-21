@@ -3,7 +3,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {
   GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, GoodSelectOption, GoodSelectValue,
   LucideCode2, LucidePalette, LucideShieldCheck, LucideStar,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-selects-page',

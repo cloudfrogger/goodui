@@ -4,7 +4,7 @@
   "className": "GoodNotificationsComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodNotificationsComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",

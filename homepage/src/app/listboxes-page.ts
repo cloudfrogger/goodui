@@ -4,7 +4,7 @@ import {
   GoodCodeBlockComponent, GoodListboxComponent, GoodListboxGroup, GoodListboxItem,
   GoodListboxItemDirective, GoodListboxItemSelectionChange, GoodMainViewComponent,
   LucideFolder, LucideListFilter, LucidePalette, LucideShieldCheck,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 const flagUrl = (svg: string): string => `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 
@@ -210,7 +210,7 @@ export class ListboxesPageComponent {
   selectionMode="multiple" [(selectedIds)]="selectedIds" />`;
 
   readonly longListCode = `import { signal } from '@angular/core';
-import { type GoodListboxItem } from '@goodui/angular';
+import { type GoodListboxItem } from '@cloudfrogger/goodui';
 
 readonly records: readonly GoodListboxItem[] = Array.from({ length: 80 }, (_, index) => {
   const number = String(index + 1).padStart(3, '0');
@@ -222,7 +222,7 @@ readonly selectedRecord = signal<readonly string[]>(['record-001']);`;
   selectionMode="single" [maxHeight]="280" [(selectedIds)]="selectedRecord" />`;
 
   readonly countryCode = `import { CA, DE, FR, JP, RU, US } from 'country-flag-icons/string/3x2';
-import { type GoodListboxGroup } from '@goodui/angular';
+import { type GoodListboxGroup } from '@cloudfrogger/goodui';
 
 const flagUrl = (svg: string) =>
   'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
@@ -255,7 +255,7 @@ readonly countryGroups: readonly GoodListboxGroup[] = [
 
   readonly groupsCode = `import { Component, signal } from '@angular/core';
 import { GoodListboxComponent, GoodListboxGroup, GoodListboxItemDirective,
-  GoodListboxItemSelectionChange } from '@goodui/angular';
+  GoodListboxItemSelectionChange } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-workspace-list',

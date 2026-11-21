@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodChartAxisComponent, GoodChartDataSource, GoodChartLineComponent, GoodCodeBlockComponent,
   GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodLineChartComponent,
   GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@goodui/angular';
+  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -41,7 +41,7 @@ export class LineChartsPageComponent {
   <good-chart-line source="valletta" xKey="month" yKey="celsius" label="Valletta, MT" />
 </good-line-chart>`;
 
-  readonly dataCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly dataCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

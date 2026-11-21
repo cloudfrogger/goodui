@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodNumberInputComponent, GoodNumberInputSize, LucideCoins, LucideGauge } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodNumberInputComponent, GoodNumberInputSize, LucideCoins, LucideGauge } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-number-inputs-page',

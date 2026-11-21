@@ -11,7 +11,7 @@ import {
   GoodActionMenuComponent, GoodButtonComponent, GoodCardActionsDirective,
   GoodCardComponent, GoodCardHeaderComponent, GoodCardFooterComponent,
   GoodLinkComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 // Add these to the consuming standalone component's imports as needed.
 ```

@@ -3,7 +3,7 @@
 `good-action-menu` is a compact icon button with an action list. It fits an optional action area in Subnav and can be used anywhere a small secondary menu is needed. It uses `good-button` for the trigger.
 
 ```ts
-import { GoodActionMenuComponent, LucideEllipsis, type GoodMenuAction } from '@goodui/angular';
+import { GoodActionMenuComponent, LucideEllipsis, type GoodMenuAction } from '@cloudfrogger/goodui';
 
 readonly menuIcon = LucideEllipsis;
 

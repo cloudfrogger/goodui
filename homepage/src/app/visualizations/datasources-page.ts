@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@goodui/angular';
+  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-chart-datasources-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,7 +11,7 @@ import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, Goo
   templateUrl: './datasources-page.html',
 })
 export class ChartDatasourcesPageComponent {
-  readonly sourceCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly sourceCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 const dailyTemperatures: GoodChartDataSource = {
   id: 'dusseldorf',

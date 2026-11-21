@@ -17,7 +17,7 @@ The first enabled tab opens by default. Mark a different tab with `[selected]="t
 
 ```ts
 import { signal } from '@angular/core';
-import { type GoodTabActivation } from '@goodui/angular';
+import { type GoodTabActivation } from '@cloudfrogger/goodui';
 
 readonly activeId = signal<string | null>(null);
 

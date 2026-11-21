@@ -32,7 +32,7 @@ cd ../my-angular-app
 npm install ../goodui/angular/dist/goodui
 ```
 
-Import `@goodui/angular/styles.css` in your app's global stylesheet and register `provideGoodUI()` in its application providers. The [root README](../README.md#how-to-use) contains a complete starter example.
+Import `@cloudfrogger/goodui/styles.css` in your app's global stylesheet and register `provideGoodUI()` in its application providers. The [root README](../README.md#how-to-use) contains a complete starter example.
 
 ## Contribute
 

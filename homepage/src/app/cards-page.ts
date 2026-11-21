@@ -3,7 +3,7 @@ import {
   GoodActionMenuComponent, GoodButtonComponent, GoodCardActionsDirective, GoodCardComponent,
   GoodCardFooterComponent, GoodCardHeaderComponent, GoodLinkComponent, GoodMainViewComponent,
   GoodMenuAction, LucidePlus,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-cards-page',

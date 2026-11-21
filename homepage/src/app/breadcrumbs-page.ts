@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodBreadcrumbItem, GoodBreadcrumbsComponent, GoodButtonComponent, GoodMainViewComponent, LucideHouse } from '@goodui/angular';
+import { GoodBreadcrumbItem, GoodBreadcrumbsComponent, GoodButtonComponent, GoodMainViewComponent, LucideHouse } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-breadcrumbs-page',

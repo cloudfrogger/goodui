@@ -4,7 +4,7 @@
   "className": "GoodInputComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodInputComponent"
   },
   "source": "angular/projects/goodui/src/lib/input.ts",

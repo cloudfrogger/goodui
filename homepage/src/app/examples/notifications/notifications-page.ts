@@ -4,7 +4,7 @@ import {
   GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodNotificationCenter,
   GoodNotificationDelivery, GoodProgressComponent, GoodSectionComponent,
   type GoodBreadcrumbItem,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { notificationsHtml, notificationsTs } from './source-code.generated';
 
 @Component({

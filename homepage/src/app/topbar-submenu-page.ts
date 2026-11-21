@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarSubmenuComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarSubmenuComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-topbar-submenu-page',
@@ -33,7 +33,7 @@ export class TopbarSubmenuPageComponent {
     { id: 'contact', label: 'Contact Us', icon: 'contact', route: '/help/contact', separatorBefore: true },
   ];
 
-  readonly usageCode = `import type { GoodTopbarItem } from '@goodui/angular';
+  readonly usageCode = `import type { GoodTopbarItem } from '@cloudfrogger/goodui';
 
 const navigation: readonly GoodTopbarItem[] = [
   { id: 'help', label: 'Help', children: [

@@ -14,7 +14,7 @@ Use `good-detail-list` when labels and values need a stable reading order, such 
 </good-detail-list>
 ```
 
-Import `GoodDetailListComponent` and `GoodDetailRowDirective` from `@goodui/angular`. Use a `good-subheading` for a section title and `good-separator variant="line"` when two related groups need a visual break. Put the emphasized total below the breakdown so individual rows remain easy to scan. The VPS create case study shows this composition in a narrow assistant panel.
+Import `GoodDetailListComponent` and `GoodDetailRowDirective` from `@cloudfrogger/goodui`. Use a `good-subheading` for a section title and `good-separator variant="line"` when two related groups need a visual break. Put the emphasized total below the breakdown so individual rows remain easy to scan. The VPS create case study shows this composition in a narrow assistant panel.
 
 ## Page heading
 
@@ -42,7 +42,7 @@ The Typography page previews seven common calls: Heading H1 and H2, followed by 
 
 ## Readable sections
 
-Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, grows up to 1024 px, centers itself in wider containers such as `good-main-view`, and spaces its heading from its body. It fills narrower containers without horizontal overflow. Adjacent sections receive the shared section gap. Give each section a descriptive `good-subheading`; choose its `level` to preserve heading order. `good-prose` owns paragraph spacing inside the section and retains its 760 px reading width. Import `GoodSectionComponent`, `GoodSubheadingComponent`, `GoodProseComponent`, and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component.
+Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, grows up to 1024 px, centers itself in wider containers such as `good-main-view`, and spaces its heading from its body. It fills narrower containers without horizontal overflow. Adjacent sections receive the shared section gap. Give each section a descriptive `good-subheading`; choose its `level` to preserve heading order. `good-prose` owns paragraph spacing inside the section and retains its 760 px reading width. Import `GoodSectionComponent`, `GoodSubheadingComponent`, `GoodProseComponent`, and `GoodParagraphComponent` from `@cloudfrogger/goodui` in the consuming standalone component.
 
 ```html
 <good-main-view title="Designing" description="Getting Started with GoodUI">
@@ -83,7 +83,7 @@ Use `good-columns` for two to four parallel pieces of page content. Put each pie
 </good-columns>
 ```
 
-Every column is visible at every size unless its `visibleAt` input says otherwise. Set `[visibleAt]="['sm', 'md', 'lg', 'xl']"` to hide one column only at xs. The bands refer to **container width**, not the browser window: xs below 480 px, sm 480–699 px, md 700–959 px, lg 960–1279 px, and xl 1280 px and above. You can list any combination; an empty list hides the column at all sizes. Keep essential information visible at every size, or supply it elsewhere when a column is hidden. The container keeps source order when columns stack, so put content in reading order. Import `GoodColumnsComponent` and `GoodColumnComponent` from `@goodui/angular`.
+Every column is visible at every size unless its `visibleAt` input says otherwise. Set `[visibleAt]="['sm', 'md', 'lg', 'xl']"` to hide one column only at xs. The bands refer to **container width**, not the browser window: xs below 480 px, sm 480–699 px, md 700–959 px, lg 960–1279 px, and xl 1280 px and above. You can list any combination; an empty list hides the column at all sizes. Keep essential information visible at every size, or supply it elsewhere when a column is hidden. The container keeps source order when columns stack, so put content in reading order. Import `GoodColumnsComponent` and `GoodColumnComponent` from `@cloudfrogger/goodui`.
 
 Penpot page `12 Typography` publishes a `goodui.columns` variant group with `columns=2/3/4` and a linked `goodui.column` component. Its specimens show desktop composition; the container breakpoints and per-column visibility are Angular runtime behavior. Their published IDs are in [typography-components.json](../../design/typography-components.json).
 
@@ -93,7 +93,7 @@ Penpot page `12 Typography` publishes a `goodui.columns` variant group with `col
 
 For mixed content, use `good-group` instead of adding margins to each child. Group supplies a 16 px default gap; `spacing="tight"` clusters full-height choices at a 4 px gap. Card bodies, modal bodies, expanded panels, assistant bodies, and tab panels also arrange their direct children. Keep a Checkbox's or RadioGroup's 44 px touch area intact; that height is part of the control, not extra outer spacing.
 
-For a page with paragraphs, import `GoodProseComponent` and `GoodParagraphComponent` from `@goodui/angular` in the consuming standalone component, then use:
+For a page with paragraphs, import `GoodProseComponent` and `GoodParagraphComponent` from `@cloudfrogger/goodui` in the consuming standalone component, then use:
 
 ```html
 <good-prose>

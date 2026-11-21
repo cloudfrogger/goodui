@@ -4,7 +4,7 @@ import {
   GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
   GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, LucideSparkles,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-badges-page',
@@ -113,7 +113,7 @@ export class BadgesPageComponent {
   readonly tags = signal(['Design', 'Angular', 'Penpot']);
   readonly status = signal('Select a close button to remove a badge.');
   readonly startCode = `import { Component } from '@angular/core';
-import { GoodBadgeComponent } from '@goodui/angular';
+import { GoodBadgeComponent } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,
@@ -127,7 +127,7 @@ export class ExampleComponent {}`;
   readonly sizeCode = `<good-badge label="New" size="small" />
 <good-badge label="Featured" color="info" variant="light" [icon]="sparklesIcon" />
 <good-badge label="Square" color="success" variant="outline" shape="square" size="large" />`;
-  readonly iconCode = `import { GoodBadgeComponent, LucideSparkles } from '@goodui/angular';
+  readonly iconCode = `import { GoodBadgeComponent, LucideSparkles } from '@cloudfrogger/goodui';
 
 readonly sparklesIcon = LucideSparkles;`;
   readonly removeCode = `@for (tag of tags(); track tag) {

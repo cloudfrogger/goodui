@@ -4,7 +4,7 @@
   "className": "GoodAssistantBodyComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodAssistantBodyComponent"
   },
   "source": "angular/projects/goodui/src/lib/assistant-panel.ts",

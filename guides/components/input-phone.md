@@ -1,10 +1,10 @@
 # Phone input
 
-`good-input-phone` combines a searchable country selector with a native telephone field. It displays a flag and international calling code, and exposes one international value such as `+4915112345678`. Use the same value with `[(value)]` or Angular Forms.
+`good-input-phone` combines a searchable country selector with a native telephone field. It displays a flag and international calling code, and exposes one international value such as `+12025550123`. Use the same value with `[(value)]` or Angular Forms.
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { GoodInputPhoneComponent } from '@goodui/angular';
+import { GoodInputPhoneComponent } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,

@@ -4,7 +4,7 @@
   "className": "GoodDateInputComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodDateInputComponent"
   },
   "source": "angular/projects/goodui/src/lib/date-input.ts",

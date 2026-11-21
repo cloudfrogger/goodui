@@ -4,7 +4,7 @@
   "className": "GoodParagraphComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodParagraphComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

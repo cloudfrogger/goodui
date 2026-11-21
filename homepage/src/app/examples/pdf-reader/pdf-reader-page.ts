@@ -3,7 +3,7 @@ import {
   GoodActionGroupComponent, GoodAlertComponent, GoodBreadcrumbsComponent, GoodButtonComponent,
   GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodPdfPreviewComponent,
   GoodSectionComponent, type GoodBreadcrumbItem,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { pdfReaderHtml, pdfReaderTs } from './source-code.generated';
 
 interface SamplePdf { name: string; file: string; description: string }

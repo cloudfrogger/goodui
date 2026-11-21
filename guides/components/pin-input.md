@@ -26,7 +26,7 @@ readonly code = new FormControl('', { nonNullable: true });
   [masked]="true" placeholder="·" />
 ```
 
-`masked` displays `*` for each filled slot and changes the native input to password type. Empty slots have a neutral gray surface. A one-character `placeholder` repeats in every empty slot; a longer string supplies one character per slot. Pass a Lucide icon through `placeholderIcon` to show an icon instead of text in empty slots. This icon is decorative. For example, import `LucideMinus` from `@goodui/angular` and bind `[placeholderIcon]="minusIcon"`.
+`masked` displays `*` for each filled slot and changes the native input to password type. Empty slots have a neutral gray surface. A one-character `placeholder` repeats in every empty slot; a longer string supplies one character per slot. Pass a Lucide icon through `placeholderIcon` to show an icon instead of text in empty slots. This icon is decorative. For example, import `LucideMinus` from `@cloudfrogger/goodui` and bind `[placeholderIcon]="minusIcon"`.
 
 ## Appearance and layout
 

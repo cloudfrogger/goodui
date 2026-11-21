@@ -4,7 +4,7 @@
   "className": "GoodHintComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodHintComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

@@ -5,7 +5,7 @@ import {
   GoodHintComponent, GoodInlineImageComponent, GoodInputComponent, GoodMainViewComponent,
   GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSeparatorComponent, GoodSubheadingComponent,
   GoodSummaryComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-typography-page',
@@ -57,7 +57,7 @@ export class TypographyPageComponent {
 </good-detail-list>`;
 
   readonly detailListImportsCode = `import { Component } from '@angular/core';
-import { GoodDetailListComponent, GoodDetailRowDirective } from '@goodui/angular';
+import { GoodDetailListComponent, GoodDetailRowDirective } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-details',
@@ -177,7 +177,7 @@ import {
   GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
   GoodColumnsComponent, GoodColumnComponent,
   GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-page',

@@ -3,7 +3,7 @@ import {
   GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormFieldComponent, GoodFormRowComponent,
   GoodGroupComponent, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent,
   GoodProseComponent, GoodSectionComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-groups-page',

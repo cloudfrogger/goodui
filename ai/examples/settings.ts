@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodFormDirective, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSwitchComponent } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodFormDirective, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSwitchComponent } from '@cloudfrogger/goodui';
 @Component({
   selector: 'app-settings-example', standalone: true,
   imports: [ReactiveFormsModule, GoodMainViewComponent, GoodGroupComponent, GoodFormDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodParagraphComponent],

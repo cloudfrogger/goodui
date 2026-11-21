@@ -6,7 +6,7 @@
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { GoodTableColumn, GoodTableComponent } from '@goodui/angular';
+import { GoodTableColumn, GoodTableComponent } from '@cloudfrogger/goodui';
 
 interface Person { id: string; name: string; role: string }
 
@@ -122,7 +122,7 @@ import { Component } from '@angular/core';
 import {
   GoodActionGroupComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent,
   GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 interface Server {
   id: string;
@@ -157,10 +157,10 @@ export class ServersPage {
 
 `accessorKey: 'name'` supplies the column ID. The matching `goodTableCell="name"` replaces only the visible content of that column; `let-server` exposes the original row, including fields outside Name. The LED reads `server.status`, while the Hint assembles the second line. `meta.noWrap` keeps that line together and lets the Table scroll horizontally when needed. `meta.visibleFrom: 'md'` hides Public IP and Status in a narrow table; Name remains. Import `GoodTableCellDirective` and every GoodUI component used inside the template. A stable `getRowId` preserves row identity through sorting and updates. Replace the example route with your own details route. The [Tables page](../../homepage/src/app/tables-page.ts) renders this example; the [VPS Servers case study](../../homepage/src/app/examples/case-studies/vpshoster/servers-page.html) shows the full screen. `let-value="value"` is available when the template only needs the column value.
 
-For a cell shared across pages, TanStack's Angular `flexRenderComponent` is still available. GoodUI re-exports it, so an app using `good-table` can import everything from `@goodui/angular`. Its `inputs` object accepts the row's values; the component can expose its usual outputs. A Badge needs no wrapper:
+For a cell shared across pages, TanStack's Angular `flexRenderComponent` is still available. GoodUI re-exports it, so an app using `good-table` can import everything from `@cloudfrogger/goodui`. Its `inputs` object accepts the row's values; the component can expose its usual outputs. A Badge needs no wrapper:
 
 ```ts
-import { flexRenderComponent, GoodBadgeComponent, GoodTableColumn } from '@goodui/angular';
+import { flexRenderComponent, GoodBadgeComponent, GoodTableColumn } from '@cloudfrogger/goodui';
 
 const columns: GoodTableColumn<Person>[] = [
   { accessorKey: 'name', header: 'Name' },
@@ -189,7 +189,7 @@ Set `[searchable]="true"` to place a GoodUI search input above the table. The de
 ```
 
 ```ts
-import { GoodTablePagination, GoodTableRequest } from '@goodui/angular';
+import { GoodTablePagination, GoodTableRequest } from '@cloudfrogger/goodui';
 
 readonly pagination = signal<GoodTablePagination>({
   mode: 'pages', pageSize: 25, maxPageSize: 100,

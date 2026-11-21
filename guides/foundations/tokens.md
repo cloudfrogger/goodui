@@ -13,7 +13,7 @@ The 16 names are `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`,
 Import the package stylesheet in the application's global stylesheet, then put app-specific CSS variable overrides after it:
 
 ```css
-@import "@goodui/angular/styles.css";
+@import "@cloudfrogger/goodui/styles.css";
 
 :root {
   --good-color-brand: #6D28D9;

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodErrorTextComponent, GoodHintComponent, GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, LucideSearch, LucideShieldCheck } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodErrorTextComponent, GoodHintComponent, GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, LucideSearch, LucideShieldCheck } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-inputs-page',

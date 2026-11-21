@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodPinInputComponent, GoodPinInputSize, LucideMinus } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodPinInputComponent, GoodPinInputSize, LucideMinus } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-pin-inputs-page',

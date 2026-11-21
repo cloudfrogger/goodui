@@ -4,7 +4,7 @@
   "className": "GoodRadioGroupComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodRadioGroupComponent"
   },
   "source": "angular/projects/goodui/src/lib/radio-group.ts",

@@ -4,11 +4,11 @@ GoodUI's AI files match the Angular library in this source revision. The small `
 
 ## Install and update
 
-1. Check the installed `@goodui/angular` version in your application's lockfile or `node_modules/@goodui/angular/package.json`.
+1. Check the installed `@cloudfrogger/goodui` version in your application's lockfile or `node_modules/@cloudfrogger/goodui/package.json`.
 2. Download the **same version** from `https://github.com/cloudfrogger/goodui/releases/tag/v<version>`. Extract the small archive into your agent's skills directory so it contains `goodui/SKILL.md`. Or extract the full archive into `.goodui/` in your Angular project (it contains `ai/` and local references). Copy `.goodui/ai/skill/goodui/SKILL.md` to `.agents/skills/goodui/SKILL.md` for Codex or `.claude/skills/goodui/SKILL.md` for Claude Code, and tell the agent the reference package is at `.goodui/ai`.
 3. After upgrading GoodUI, replace the AI download with the matching release. If versions differ, use an exact version tag or commit; do not use the current `master` branch as a fallback.
 
-Prerequisites: an Angular 21.2 application using `@goodui/angular`, its CSS export `@goodui/angular/styles.css`, and a coding agent that can read a Markdown `SKILL.md`. The examples are compiled in a source checkout with Node 22, Angular CLI 21, and the locally built GoodUI package. They are source examples, not a backend or authentication implementation.
+Prerequisites: an Angular 21.2 application using `@cloudfrogger/goodui`, its CSS export `@cloudfrogger/goodui/styles.css`, and a coding agent that can read a Markdown `SKILL.md`. The examples are compiled in a source checkout with Node 22, Angular CLI 21, and the locally built GoodUI package. They are source examples, not a backend or authentication implementation.
 
 Case studies are optional, topic-based references under `ai/case-studies/`. The full archive includes their relevant homepage source. Ask the agent to open one study by name when working from that workflow; routine component work does not require reading every case study.
 

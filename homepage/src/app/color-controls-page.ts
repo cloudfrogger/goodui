@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LucideStar } from '@lucide/angular';
 import { GoodCodeBlockComponent, GoodColorControlsComponent, GoodColorPickerComponent,
-  GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent } from '@goodui/angular';
+  GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-color-controls-page', standalone: true,

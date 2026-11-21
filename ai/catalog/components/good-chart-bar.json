@@ -4,7 +4,7 @@
   "className": "GoodChartBarComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodChartBarComponent"
   },
   "source": "angular/projects/goodui/src/lib/bar-chart.ts",

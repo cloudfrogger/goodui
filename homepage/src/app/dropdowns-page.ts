@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodDropdownComponent, GoodDropdownFooterDirective, GoodDropdownHeaderDirective, GoodDropdownItem, GoodMainViewComponent, LucideDownload, LucideFileText, LucideFolder, LucideSettings2, LucideShare2, LucideTrash2, LucideUsers } from '@goodui/angular';
+import { GoodDropdownComponent, GoodDropdownFooterDirective, GoodDropdownHeaderDirective, GoodDropdownItem, GoodMainViewComponent, LucideDownload, LucideFileText, LucideFolder, LucideSettings2, LucideShare2, LucideTrash2, LucideUsers } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-dropdowns-page',

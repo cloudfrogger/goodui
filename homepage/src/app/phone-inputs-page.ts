@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodInputPhoneComponent, GoodMainViewComponent } from '@goodui/angular';
+import { GoodInputPhoneComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-phone-inputs-page',
@@ -14,7 +14,7 @@ import { GoodInputPhoneComponent, GoodMainViewComponent } from '@goodui/angular'
         <div class="showcase-select-grid">
           <good-input-phone label="Browser locale" [showLabel]="true" size="small" />
           <good-input-phone label="German number" [showLabel]="true" country="DE" [(value)]="germanPhone" />
-          <good-input-phone label="French number" [showLabel]="true" country="FR" size="large" value="+33612345678" />
+          <good-input-phone label="US number" [showLabel]="true" country="US" size="large" value="+12025550123" />
         </div>
       </section>
       <section class="showcase-section">
@@ -30,7 +30,7 @@ import { GoodInputPhoneComponent, GoodMainViewComponent } from '@goodui/angular'
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Control states</h2><p>Disabled, read-only, and error states follow the same Input color roles in both themes.</p></div>
         <div class="showcase-select-grid">
-          <good-input-phone label="Disabled" [showLabel]="true" country="US" value="+12135551234" [disabled]="true" />
+          <good-input-phone label="Disabled" [showLabel]="true" country="US" value="+12135550123" [disabled]="true" />
           <good-input-phone label="Read-only" [showLabel]="true" country="GB" value="+447700900123" [readonly]="true" />
           <good-input-phone label="Needs attention" [showLabel]="true" country="DE" [error]="true" describedBy="phone-error" />
         </div>

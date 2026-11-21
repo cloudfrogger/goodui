@@ -40,7 +40,7 @@ These blocks are Penpot library components with nested instances. Their states i
 The library renders `GoodTopbarItem.children` recursively. `icon` adds an optional icon; `separatorBefore` adds a divider above a row.
 
 ```ts
-import type { GoodTopbarItem } from '@goodui/angular';
+import type { GoodTopbarItem } from '@cloudfrogger/goodui';
 
 const help: GoodTopbarItem = {
   id: 'help', label: 'Help', children: [

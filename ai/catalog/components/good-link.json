@@ -4,7 +4,7 @@
   "className": "GoodLinkComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodLinkComponent"
   },
   "source": "angular/projects/goodui/src/lib/link.ts",

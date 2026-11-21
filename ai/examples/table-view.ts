@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoodMainViewComponent, GoodTableComponent, GoodTableColumn } from '@goodui/angular';
+import { GoodMainViewComponent, GoodTableComponent, GoodTableColumn } from '@cloudfrogger/goodui';
 interface Person { id: number; name: string; email: string; status: string; }
 @Component({
   selector: 'app-table-example', standalone: true,

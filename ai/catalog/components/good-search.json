@@ -4,7 +4,7 @@
   "className": "GoodSearchComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSearchComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",

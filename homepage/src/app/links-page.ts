@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodLinkAppearance, GoodLinkComponent, GoodLinkDecoration, GoodLinkUnderline, GoodMainViewComponent } from '@goodui/angular';
+import { GoodLinkAppearance, GoodLinkComponent, GoodLinkDecoration, GoodLinkUnderline, GoodMainViewComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-links-page',

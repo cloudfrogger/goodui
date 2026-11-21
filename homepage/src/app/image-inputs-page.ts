@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodImageInputComponent, GoodInlineImageComponent, GoodMainViewComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodImageInputComponent, GoodInlineImageComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-image-inputs-page',

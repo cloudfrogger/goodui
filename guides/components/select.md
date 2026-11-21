@@ -6,7 +6,7 @@
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { GoodSelectComponent, type GoodSelectOption, type GoodSelectValue } from '@goodui/angular';
+import { GoodSelectComponent, type GoodSelectOption, type GoodSelectValue } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,
@@ -41,7 +41,7 @@ For multiple selection, `value` is a `readonly string[]`. Selected values remain
 ## Countries
 
 ```ts
-import { GoodSelectCountryComponent } from '@goodui/angular';
+import { GoodSelectCountryComponent } from '@cloudfrogger/goodui';
 
 // In a standalone component's imports: [GoodSelectCountryComponent]
 ```

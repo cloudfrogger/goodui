@@ -4,7 +4,7 @@
   "className": "GoodSummaryComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSummaryComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

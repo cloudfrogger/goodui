@@ -3,7 +3,7 @@
 `good-badge` displays compact status or metadata text. It owns its spacing, icon alignment, colors, and rounded shape, so a page only needs to place the component.
 
 ```ts
-import { GoodBadgeComponent, LucideSparkles } from '@goodui/angular';
+import { GoodBadgeComponent, LucideSparkles } from '@cloudfrogger/goodui';
 
 readonly sparklesIcon = LucideSparkles;
 
@@ -19,7 +19,7 @@ removeTag(): void {
   shape="square" size="small" [removable]="true" (removed)="removeTag()" />
 ```
 
-Add `GoodBadgeComponent` to the consuming standalone component's `imports`. Lucide Angular icons are re-exported by `@goodui/angular`; `icon` also accepts custom `GoodButtonIcon` data. `iconSrc` accepts a URL or data URI for a decorative leading image, such as a flag, when no Lucide `icon` is provided.
+Add `GoodBadgeComponent` to the consuming standalone component's `imports`. Lucide Angular icons are re-exported by `@cloudfrogger/goodui`; `icon` also accepts custom `GoodButtonIcon` data. `iconSrc` accepts a URL or data URI for a decorative leading image, such as a flag, when no Lucide `icon` is provided.
 
 | Input / output | Default | Purpose |
 | --- | --- | --- |

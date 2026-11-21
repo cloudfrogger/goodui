@@ -10,4 +10,4 @@ Use `good-columns` for two to four pieces of parallel text content. It distribut
 </good-columns>
 ```
 
-Import `GoodColumnsComponent` and `GoodColumnComponent` from `@goodui/angular`, plus the text components you use. The number of tracks is capped at one below 480 px, two from 480 px, three from 700 px, and four from 960 px. These are container widths. Fewer visible children fill the available tracks. See [Typography](typography.md#text-columns) for visibility and the Penpot mapping.
+Import `GoodColumnsComponent` and `GoodColumnComponent` from `@cloudfrogger/goodui`, plus the text components you use. The number of tracks is capped at one below 480 px, two from 480 px, three from 700 px, and four from 960 px. These are container widths. Fewer visible children fill the available tracks. See [Typography](typography.md#text-columns) for visibility and the Penpot mapping.

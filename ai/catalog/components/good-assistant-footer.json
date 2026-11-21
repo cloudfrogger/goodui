@@ -4,7 +4,7 @@
   "className": "GoodAssistantFooterComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodAssistantFooterComponent"
   },
   "source": "angular/projects/goodui/src/lib/assistant-panel.ts",

@@ -2,6 +2,9 @@ kind: pipeline
 type: kubernetes
 name: homepage
 
+concurrency:
+  limit: 1
+
 trigger:
   event:
     - push
@@ -46,6 +49,31 @@ steps:
     commands:
       - node --test scripts/deploy-kubernetes.test.mjs
       - node scripts/deploy-kubernetes.mjs
+    when:
+      event:
+        - push
+      branch:
+        - master
+
+  - name: build-npm-package
+    image: node:22-bookworm-slim@sha256:de170b39439eb0e5a3444ad7d60b015614a381e10fecae2e30ec9e735122f38d
+    commands:
+      - npm --prefix angular ci --legacy-peer-deps --no-audit --no-fund
+      - npm run check:mapping
+      - npm run build:lib
+    when:
+      event:
+        - push
+      branch:
+        - master
+
+  - name: publish-npm-package
+    image: node:22-bookworm-slim@sha256:de170b39439eb0e5a3444ad7d60b015614a381e10fecae2e30ec9e735122f38d
+    environment:
+      NPM_TOKEN:
+        from_secret: npm_token
+    commands:
+      - node scripts/publish-npm.mjs
     when:
       event:
         - push

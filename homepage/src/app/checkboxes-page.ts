@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCheckboxAppearance, GoodCheckboxComponent, GoodCheckboxSize, GoodMainViewComponent } from '@goodui/angular';
+import { GoodCheckboxAppearance, GoodCheckboxComponent, GoodCheckboxSize, GoodMainViewComponent } from '@cloudfrogger/goodui';
 
 type CheckboxRow = { label: string; value: boolean | null; disabled: boolean };
 

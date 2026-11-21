@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodMainViewComponent, GoodRadioAppearance, GoodRadioGroupComponent, GoodRadioOption, GoodRadioSize } from '@goodui/angular';
+import { GoodMainViewComponent, GoodRadioAppearance, GoodRadioGroupComponent, GoodRadioOption, GoodRadioSize } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-radio-groups-page',

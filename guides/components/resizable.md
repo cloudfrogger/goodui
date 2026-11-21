@@ -4,7 +4,7 @@
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { GoodResizableComponent, GoodResizablePaneComponent } from '@goodui/angular';
+import { GoodResizableComponent, GoodResizablePaneComponent } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodBarChartComponent, GoodChartAxisComponent, GoodChartBarComponent, GoodChartDataSource,
   GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@goodui/angular';
+  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-bar-charts-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,7 +34,7 @@ export class BarChartsPageComponent {
   <good-chart-bar source="new" xKey="quarter" yKey="count" label="New" />
   <good-chart-bar source="returning" xKey="quarter" yKey="count" label="Returning" />
 </good-bar-chart>`;
-  readonly dataCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly dataCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 readonly newRequests: GoodChartDataSource = {
   id: 'new',

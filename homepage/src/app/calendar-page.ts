@@ -3,7 +3,7 @@ import {
   GoodCalendarComponent, GoodCalendarEmptyAction, GoodCalendarEvent, GoodCalendarMove, GoodCalendarResize, GoodCalendarService,
   GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent,
   GoodModalHeaderComponent, GoodParagraphComponent, GoodSectionComponent, goodCalendarStartOfWeek,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 const week = goodCalendarStartOfWeek(new Date());
 const at = (day: number, hour: number, minute = 0) => new Date(week.getFullYear(), week.getMonth(), week.getDate() + day, hour, minute);
@@ -88,7 +88,7 @@ export class CalendarPageComponent {
   }
 
   readonly usageCode = `import { inject } from '@angular/core';
-import { GoodCalendarService } from '@goodui/angular';
+import { GoodCalendarService } from '@cloudfrogger/goodui';
 
 const calendar = inject(GoodCalendarService);
 calendar.setEvents([
@@ -120,7 +120,7 @@ onMove(change: GoodCalendarMove): void {
   this.detailsOpen.set(true);
 }`;
 
-  readonly workingHoursCode = `import type { GoodCalendarWorkingPeriod } from '@goodui/angular';
+  readonly workingHoursCode = `import type { GoodCalendarWorkingPeriod } from '@cloudfrogger/goodui';
 
 readonly workingHours: readonly GoodCalendarWorkingPeriod[] = [
   { daysOfWeek: [1, 2, 3, 4], start: '08:30', end: '12:00' },

@@ -4,7 +4,7 @@
   "className": "GoodActionBarComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodActionBarComponent"
   },
   "source": "angular/projects/goodui/src/lib/action-bar.ts",

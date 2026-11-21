@@ -4,7 +4,7 @@
   "className": "GoodSelectFontComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSelectFontComponent"
   },
   "source": "angular/projects/goodui/src/lib/select-font.ts",

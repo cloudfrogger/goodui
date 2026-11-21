@@ -4,7 +4,7 @@
   "className": "GoodModalFooterComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodModalFooterComponent"
   },
   "source": "angular/projects/goodui/src/lib/modal.ts",

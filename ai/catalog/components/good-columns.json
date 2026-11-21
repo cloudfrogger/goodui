@@ -4,7 +4,7 @@
   "className": "GoodColumnsComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodColumnsComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

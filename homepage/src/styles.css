@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@goodui/angular/styles.css";
+@import "@cloudfrogger/goodui/styles.css";
 
 body { margin: 0; }
 

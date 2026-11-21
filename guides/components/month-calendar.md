@@ -4,11 +4,11 @@
 
 ## Start with one month
 
-Import `GoodMonthCalendarComponent` from `@goodui/angular` and bind `selected` if the application needs the chosen date. The current month is shown initially. Both `month` and `selected` are Angular model inputs and support two-way binding.
+Import `GoodMonthCalendarComponent` from `@cloudfrogger/goodui` and bind `selected` if the application needs the chosen date. The current month is shown initially. Both `month` and `selected` are Angular model inputs and support two-way binding.
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { GoodMonthCalendarComponent } from '@goodui/angular';
+import { GoodMonthCalendarComponent } from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,
@@ -32,7 +32,7 @@ Set `selectionMode="week"`. Clicking any day selects the complete seven-day week
 ```
 
 ```ts
-import type { GoodMonthCalendarSelection } from '@goodui/angular';
+import type { GoodMonthCalendarSelection } from '@cloudfrogger/goodui';
 
 onWeekSelected(selection: GoodMonthCalendarSelection): void {
   // Load records from selection.start up to, but excluding, selection.endExclusive.
@@ -53,7 +53,7 @@ onWeekSelected(selection: GoodMonthCalendarSelection): void {
 Pass `highlights` as `{ date, color, label? }` records. `color` uses a `GoodMarkerColor` name and the shared `color.marker.*` palette. A subtle tint and dot mark the day; the optional label is included in its accessible name. Highlights are visual information and do not change which dates can be chosen. Outside-month dates remain selectable.
 
 ```ts
-import type { GoodMonthCalendarHighlight } from '@goodui/angular';
+import type { GoodMonthCalendarHighlight } from '@cloudfrogger/goodui';
 
 readonly highlights: readonly GoodMonthCalendarHighlight[] = [
   { date: '2026-10-04', color: 'blue', label: 'Planning' },

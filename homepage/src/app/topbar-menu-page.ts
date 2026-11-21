@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarMenuContainerComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarMenuContainerComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-topbar-menu-page',

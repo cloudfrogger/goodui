@@ -9,7 +9,7 @@ import {
   GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
   GoodRadioGroupComponent, GoodRadioOption, GoodSectionComponent, GoodSelectComponent, GoodSelectOption, GoodSelectValue, GoodSeparatorComponent, GoodSubheadingComponent, GoodTableColumn,
   GoodTableComponent, GoodTabComponent, GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { VPS_PLANS, VpsCaseStudyStore, VpsPlan } from './vps-store';
 import { vpsCreateHtml, vpsCreateTs, vpsStoreTs } from './source-code.generated';
 

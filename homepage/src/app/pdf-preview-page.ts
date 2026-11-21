@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-pdf-preview-page',
@@ -25,7 +25,7 @@ export class PdfPreviewPageComponent {
   readonly usage = `<good-pdf-preview [source]="pdfUrl" title="Quarterly report"
   downloadName="quarterly-report.pdf"
   (loaded)="pageCount = $event" (loadError)="error = $event" />`;
-  readonly typescript = `import { GoodPdfPreviewComponent } from '@goodui/angular';
+  readonly typescript = `import { GoodPdfPreviewComponent } from '@cloudfrogger/goodui';
 
 readonly pdfUrl = '/api/reports/quarterly.pdf';
 // [source] also accepts File, ArrayBuffer, Uint8Array, or null.`;

@@ -11,7 +11,7 @@ import {
   GoodModalComponent,
   GoodModalFooterComponent,
   GoodModalHeaderComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   standalone: true,

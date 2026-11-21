@@ -1,5 +1,5 @@
 {
-  "package": "@goodui/angular",
+  "package": "@cloudfrogger/goodui",
   "version": "0.0.1",
   "sourceRevision": null,
   "note": "A release archive records the exact tag and commit in its release manifest. This source tree has no published tag."

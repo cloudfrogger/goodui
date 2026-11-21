@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodHintComponent, GoodInputComponent, GoodMainViewComponent, GoodRadioGroupComponent, type GoodRadioOption } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodHintComponent, GoodInputComponent, GoodMainViewComponent, GoodRadioGroupComponent, type GoodRadioOption } from '@cloudfrogger/goodui';
 
 type FormLayout = 'vertical' | 'left' | 'right';
 const createExampleForm = () => new FormGroup({ name: new FormControl(''), email: new FormControl(''), team: new FormControl('') });

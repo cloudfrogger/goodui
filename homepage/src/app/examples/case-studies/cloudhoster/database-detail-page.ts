@@ -11,7 +11,7 @@ import {
   GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent,
   GoodTabComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent,
   GoodTimelineComponent, GoodTimelineStepComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { CloudhosterStore, DemoPool } from './cloudhoster-store';
 import { cloudDetailHtml, cloudDetailTs, cloudStoreTs } from './source-code.generated';
 

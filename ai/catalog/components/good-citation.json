@@ -4,7 +4,7 @@
   "className": "GoodCitationComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodCitationComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

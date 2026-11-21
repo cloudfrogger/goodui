@@ -3,7 +3,7 @@ import {
   GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodLinkComponent,
   GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
   GoodSubheadingComponent, GoodSummaryComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'example-webmailer-case-study-page',

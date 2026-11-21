@@ -175,7 +175,7 @@
       ],
       "properties": {
         "package": {
-          "const": "@goodui/angular"
+          "const": "@cloudfrogger/goodui"
         },
         "symbol": {
           "type": "string"

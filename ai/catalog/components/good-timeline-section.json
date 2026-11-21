@@ -4,7 +4,7 @@
   "className": "GoodTimelineSectionComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodTimelineSectionComponent"
   },
   "source": "angular/projects/goodui/src/lib/timeline.ts",
@@ -86,7 +86,7 @@
   },
   "usageGuide": "guides/components/timeline-section.md",
   "usage": {
-    "summary": "`good-timeline-section` is a projected child of `good-timeline appearance=\"sections\"`. It supplies a semantic heading, a state marker, and a body for GoodUI controls or content. Import `GoodTimelineSectionComponent` together with `GoodTimelineComponent` from `@goodui/angular`.",
+    "summary": "`good-timeline-section` is a projected child of `good-timeline appearance=\"sections\"`. It supplies a semantic heading, a state marker, and a body for GoodUI controls or content. Import `GoodTimelineSectionComponent` together with `GoodTimelineComponent` from `@cloudfrogger/goodui`.",
     "examples": []
   },
   "penpot": [

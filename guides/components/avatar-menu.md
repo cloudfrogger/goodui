@@ -3,7 +3,7 @@
 `good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.
 
 ```ts
-import { GoodMenuAction, GoodUser } from '@goodui/angular';
+import { GoodMenuAction, GoodUser } from '@cloudfrogger/goodui';
 
 currentUser: GoodUser = {
   name: 'Alex Morgan', email: 'alex@example.com', initials: 'AM', badge: 'Pro',

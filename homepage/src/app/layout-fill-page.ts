@@ -3,7 +3,7 @@ import {
   GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
   GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-layout-fill-page',
@@ -25,7 +25,7 @@ export const routes: Routes = [
   readonly componentCode = `import { Component } from '@angular/core';
 import {
   GoodCalendarComponent, GoodMainViewComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-calendar-page',

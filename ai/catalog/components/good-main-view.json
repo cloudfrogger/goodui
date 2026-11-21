@@ -4,7 +4,7 @@
   "className": "GoodMainViewComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodMainViewComponent"
   },
   "source": "angular/projects/goodui/src/lib/main-view.ts",

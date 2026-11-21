@@ -4,7 +4,7 @@
   "className": "GoodChartHistogramComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodChartHistogramComponent"
   },
   "source": "angular/projects/goodui/src/lib/histogram.ts",

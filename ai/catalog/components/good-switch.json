@@ -4,7 +4,7 @@
   "className": "GoodSwitchComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSwitchComponent"
   },
   "source": "angular/projects/goodui/src/lib/switch.ts",

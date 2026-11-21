@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodSubheadingComponent } from '@goodui/angular';
+import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodSubheadingComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-assistant-panels-page',

@@ -3,7 +3,7 @@
 `good-breadcrumbs` shows a page's position in a hierarchy. Pass the path in order, from the first level to the current page. Earlier levels with a `route` become Angular links; the final level is always current and has `aria-current="page"`.
 
 ```ts
-import { GoodBreadcrumbsComponent, type GoodBreadcrumbItem, LucideHouse } from '@goodui/angular';
+import { GoodBreadcrumbsComponent, type GoodBreadcrumbItem, LucideHouse } from '@cloudfrogger/goodui';
 
 readonly homeIcon = LucideHouse;
 readonly path: readonly GoodBreadcrumbItem[] = [

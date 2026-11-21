@@ -4,7 +4,7 @@ Use `good-detail-list` for compact label/value pairs in summaries, settings, and
 
 ```ts
 import { Component } from '@angular/core';
-import { GoodDetailListComponent, GoodDetailRowDirective } from '@goodui/angular';
+import { GoodDetailListComponent, GoodDetailRowDirective } from '@cloudfrogger/goodui';
 
 @Component({
   imports: [GoodDetailListComponent, GoodDetailRowDirective],

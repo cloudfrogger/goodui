@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodFormDirective, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodFormDirective, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-login-example', standalone: true,

@@ -4,7 +4,7 @@
   "className": "GoodRatingComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodRatingComponent"
   },
   "source": "angular/projects/goodui/src/lib/rating.ts",

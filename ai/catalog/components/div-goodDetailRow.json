@@ -4,7 +4,7 @@
   "className": "GoodDetailRowDirective",
   "kind": "directive",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodDetailRowDirective"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

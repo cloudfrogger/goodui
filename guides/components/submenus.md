@@ -10,7 +10,7 @@ GoodUI provides nested navigation in the sidebar, topbar, avatar menu, and page 
 | Page Subnav | `subnavItems[].children` | `goodui.subnav-dropdown` inside `goodui.subnav` | Menu stays visible outside the horizontally scrolling item track |
 
 ```ts
-import type { GoodTopbarItem } from '@goodui/angular';
+import type { GoodTopbarItem } from '@cloudfrogger/goodui';
 
 const supportMenu: GoodTopbarItem = {
   id: 'support',

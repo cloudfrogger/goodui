@@ -6,7 +6,7 @@
 import {
   GoodDropdownComponent, GoodDropdownHeaderDirective, GoodDropdownFooterDirective,
   type GoodDropdownItem, LucideFolder, LucideShare2,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 readonly items: readonly GoodDropdownItem[] = [
   { id: 'files', label: 'Files', icon: LucideFolder, badge: '12', route: '/files' },

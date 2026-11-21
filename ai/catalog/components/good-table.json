@@ -4,7 +4,7 @@
   "className": "GoodTableComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodTableComponent"
   },
   "source": "angular/projects/goodui/src/lib/table.ts",

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodSubheadingComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodSubheadingComponent } from '@cloudfrogger/goodui';
 import { UserRegistrationPageComponent } from './user-registration-page';
 import {
   userRegistrationFormHtml, userRegistrationFormTs,

@@ -3,7 +3,7 @@ import {
   GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent,
   GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-layout-default-page',
@@ -39,7 +39,7 @@ export const routes: Routes = [
 import {
   GoodMainViewComponent, GoodParagraphComponent,
   GoodProseComponent, GoodSectionComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-overview-page',

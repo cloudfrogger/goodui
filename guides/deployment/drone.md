@@ -1,6 +1,6 @@
 # Build and publish the homepage with Drone
 
-The root `.drone.yml` builds the Angular library and homepage inside a multistage Docker image, then publishes the static homepage in an unprivileged Nginx image. A Kaniko step performs the build and registry push without a Docker socket or a privileged Drone repository. On a push to `master`, a second step updates one existing Kubernetes Deployment after the image push succeeds. A custom Drone run still builds and publishes the image, but does not deploy it.
+The root `.drone.yml` builds the Angular library and homepage inside a multistage Docker image, then publishes the static homepage in an unprivileged Nginx image. A Kaniko step performs the build and registry push without a Docker socket or a privileged Drone repository. On a push to `master`, a second step updates one existing Kubernetes Deployment after the image push succeeds. After a successful deployment on a push to `master`, Drone builds the Angular package and publishes `@cloudfrogger/goodui` to npm. Pipeline runs are serialized to keep deployments and npm releases in order. A custom Drone run builds and publishes the image.
 
 ## Configure the private registry
 
@@ -63,3 +63,15 @@ The host or ingress controls which clients may reach this container. GoodUI's Ng
 If an ingress sits between Cloudflare and this container, configure it to pass the Cloudflare request headers through unchanged. This Nginx image serves static Angular files; it has no `proxy_pass` upstream to forward headers to. Request headers are not copied into browser response headers. Nginx serves Angular routes via `index.html`, returns 404 for missing assets and hidden files, disables source-map delivery, applies security response headers, avoids caching the application shell, and caches hashed JS/CSS assets for one year. Set HTTPS and HSTS policy at Cloudflare or the TLS-terminating proxy.
 
 The production Angular build disables critical CSS inlining. This keeps Angular from adding an inline `onload` handler to the stylesheet link, which the image's `script-src 'self'` policy blocks. The stylesheet remains minified and loads as a regular blocking CSS file. Keep this build setting aligned with the CSP when changing the homepage build.
+
+## Publish the Angular package to npm
+
+Create a Drone repository secret named `npm_token` with a granular npm access token that has publish permission for `@cloudfrogger/goodui` and bypass 2FA enabled for unattended publishing. The npm account must own the `cloudfrogger` scope or have permission to publish there. Configure token expiry and rotation in your npm account. See [npm's CI token documentation](https://docs.npmjs.com/using-private-packages-in-a-ci-cd-workflow/).
+
+The `build-npm-package` step installs dependencies and builds the Angular package without the publishing token. The following `publish-npm-package` step receives that token and publishes only on push events for `master`, after all preceding steps succeed. A temporary npm configuration reads the token from the environment and is removed afterward.
+
+Each publication uses the source package's major and minor numbers and the Drone build number as its patch number. For example, source version `0.0.1` and build 42 produce `0.0.42`. The published package records the commit SHA in `gitHead`. Retrying the same build skips a version already published for the same commit. A version belonging to another commit fails the step. The source version and built manifest are preserved after the command completes.
+
+Consumers install the public package with `npm install @cloudfrogger/goodui` and import its stylesheet from `@cloudfrogger/goodui/styles.css`. This replaces the earlier local package name `@goodui/angular`; update existing TypeScript and stylesheet imports when migrating.
+
+To inspect the publication without uploading a package, build the library and run the script with `--dry-run`, setting `DRONE_BUILD_NUMBER` to a positive integer and `DRONE_COMMIT_SHA` to a full commit SHA.

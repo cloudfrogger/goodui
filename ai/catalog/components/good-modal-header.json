@@ -4,7 +4,7 @@
   "className": "GoodModalHeaderComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodModalHeaderComponent"
   },
   "source": "angular/projects/goodui/src/lib/modal.ts",

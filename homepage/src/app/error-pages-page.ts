@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 

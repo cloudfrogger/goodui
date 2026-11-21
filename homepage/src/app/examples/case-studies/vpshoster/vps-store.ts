@@ -1,5 +1,5 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { GoodNotificationCenter } from '@goodui/angular';
+import { GoodNotificationCenter } from '@cloudfrogger/goodui';
 
 export interface VpsPlan {
   id: string;

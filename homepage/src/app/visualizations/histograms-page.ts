@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodChartAxisComponent, GoodChartDataSource, GoodChartHistogramComponent, GoodCodeBlockComponent,
   GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodHistogramComponent,
   GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@goodui/angular';
+  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-histograms-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,7 +30,7 @@ export class HistogramsPageComponent {
   <good-chart-histogram source="workflow-a" valueKey="minutes" label="Workflow A" />
   <good-chart-histogram source="workflow-b" valueKey="minutes" label="Workflow B" />
 </good-histogram>`;
-  readonly sourceCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly sourceCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 readonly workflowA: GoodChartDataSource = {
   id: 'workflow-a',

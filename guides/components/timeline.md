@@ -2,7 +2,7 @@
 
 ## Long forms with section content
 
-Use `appearance="sections"` when the timeline structures a page or form. Import `GoodTimelineComponent` and `GoodTimelineSectionComponent` from `@goodui/angular`. Each section accepts arbitrary projected GoodUI content; the parent supplies the vertical dashed rail. This mode stays vertical at every width and leaves existing step timelines unchanged.
+Use `appearance="sections"` when the timeline structures a page or form. Import `GoodTimelineComponent` and `GoodTimelineSectionComponent` from `@cloudfrogger/goodui`. Each section accepts arbitrary projected GoodUI content; the parent supplies the vertical dashed rail. This mode stays vertical at every width and leaves existing step timelines unchanged.
 
 ```html
 <good-timeline appearance="sections" color="brand" ariaLabel="Document preparation">
@@ -41,14 +41,14 @@ The parent's `size`, `tone`, `color`, `completedColor`, `deactivated`, and `aria
 </good-timeline>
 ```
 
-Import both `GoodTimelineComponent` and `GoodTimelineStepComponent` from `@goodui/angular` into a standalone page. For example, add them to the page's `imports: [GoodTimelineComponent, GoodTimelineStepComponent]`. `currentIndex` is zero-based. With `1`, Draft is completed, Review is current, and Publish is upcoming. Bind it to a signal to update the display programmatically. Set it to the step count when all steps are complete. Timeline is a read-only progress view and does not change process state itself.
+Import both `GoodTimelineComponent` and `GoodTimelineStepComponent` from `@cloudfrogger/goodui` into a standalone page. For example, add them to the page's `imports: [GoodTimelineComponent, GoodTimelineStepComponent]`. `currentIndex` is zero-based. With `1`, Draft is completed, Review is current, and Publish is upcoming. Bind it to a signal to update the display programmatically. Set it to the step count when all steps are complete. Timeline is a read-only progress view and does not change process state itself.
 
 Each child tag defines a step; it is hidden as a configuration node while the parent renders the visible ordered list. Keep the `id` stable and unique. For fixed content, this markup keeps the sequence, descriptions, and transition labels together in one place without a matching TypeScript array.
 
 When steps come from an API or change in number, use the array form instead:
 
 ```ts
-import { GoodTimelineStep } from '@goodui/angular';
+import { GoodTimelineStep } from '@cloudfrogger/goodui';
 
 readonly steps: GoodTimelineStep[] = [
   { id: 'draft', title: 'Draft', transitionLabel: 'Send for review' },

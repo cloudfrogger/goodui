@@ -4,7 +4,7 @@
   "className": "GoodImagePreviewComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodImagePreviewComponent"
   },
   "source": "angular/projects/goodui/src/lib/image-preview.ts",

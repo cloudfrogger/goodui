@@ -4,7 +4,7 @@
   "className": "GoodDetailListComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodDetailListComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

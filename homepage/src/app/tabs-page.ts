@@ -3,7 +3,7 @@ import {
   GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodParagraphComponent,
   GoodTabActivation, GoodTabComponent, GoodTabsComponent,
   LucideBell, LucideFileText, LucideSettings,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-tabs-page',
@@ -100,7 +100,7 @@ export class TabsPageComponent {
 </good-tabs>`;
 
   readonly controlledCode = `import { signal } from '@angular/core';
-import { type GoodTabActivation, LucideBell } from '@goodui/angular';
+import { type GoodTabActivation, LucideBell } from '@cloudfrogger/goodui';
 
 readonly activeId = signal<string | null>(null);
 readonly bellIcon = LucideBell;

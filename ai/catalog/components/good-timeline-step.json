@@ -4,7 +4,7 @@
   "className": "GoodTimelineStepComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodTimelineStepComponent"
   },
   "source": "angular/projects/goodui/src/lib/timeline.ts",

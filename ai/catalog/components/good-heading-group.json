@@ -4,7 +4,7 @@
   "className": "GoodHeadingGroupComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodHeadingGroupComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

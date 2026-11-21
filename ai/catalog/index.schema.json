@@ -5,9 +5,9 @@
   "required": ["$schema", "package", "version", "generatedFrom", "components"],
   "properties": {
     "$schema": { "const": "index.schema.json" },
-    "package": { "const": "@goodui/angular" },
+    "package": { "const": "@cloudfrogger/goodui" },
     "version": { "type": "string" },
     "generatedFrom": { "type": "string" },
-    "components": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["selector", "className", "file", "import", "usageGuide", "penpotCount"], "properties": { "selector": { "type": "string" }, "className": { "type": "string" }, "file": { "type": "string" }, "import": { "type": "object", "required": ["package", "symbol"], "properties": { "package": { "const": "@goodui/angular" }, "symbol": { "type": "string" } } }, "usageGuide": { "type": ["string", "null"] }, "penpotCount": { "type": "integer", "minimum": 0 } } } }
+    "components": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["selector", "className", "file", "import", "usageGuide", "penpotCount"], "properties": { "selector": { "type": "string" }, "className": { "type": "string" }, "file": { "type": "string" }, "import": { "type": "object", "required": ["package", "symbol"], "properties": { "package": { "const": "@cloudfrogger/goodui" }, "symbol": { "type": "string" } } }, "usageGuide": { "type": ["string", "null"] }, "penpotCount": { "type": "integer", "minimum": 0 } } } }
   }
 }

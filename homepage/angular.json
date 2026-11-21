@@ -64,7 +64,7 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "options": { "prebundle": { "exclude": ["@goodui/angular"] } },
+          "options": { "prebundle": { "exclude": ["@cloudfrogger/goodui"] } },
           "configurations": {
             "production": {
               "buildTarget": "homepage:build:production"

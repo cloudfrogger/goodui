@@ -4,7 +4,7 @@
   "className": "GoodMainMenuComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodMainMenuComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",

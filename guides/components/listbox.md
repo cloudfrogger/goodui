@@ -5,7 +5,7 @@
 ## Start with a flat list
 
 ```ts
-import { GoodListboxComponent, type GoodListboxItem } from '@goodui/angular';
+import { GoodListboxComponent, type GoodListboxItem } from '@cloudfrogger/goodui';
 
 readonly items: readonly GoodListboxItem[] = [
   { id: 'overview', label: 'Overview' },
@@ -64,7 +64,7 @@ Use `groups` when readers need named sections. Each group and item has a stable 
 Named groups indent their rows beneath the heading and show a visible guide line. Flat items have no indent. The homepage's Workspaces and Countries examples both show this grouping treatment.
 
 ```ts
-import { type GoodListboxGroup } from '@goodui/angular';
+import { type GoodListboxGroup } from '@cloudfrogger/goodui';
 
 readonly groups: readonly GoodListboxGroup[] = [
   { id: 'creative', label: 'Creative', items: [

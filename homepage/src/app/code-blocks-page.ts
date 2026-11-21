@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-code-blocks-page',
@@ -71,7 +71,7 @@ print(greet(Account("Ada")))`;
   color: var(--good-text);
 }`;
 
-  readonly bashCode = `npm install @goodui/angular
+  readonly bashCode = `npm install @cloudfrogger/goodui
 npm run start`;
 
   readonly sqlCode = `SELECT name, created_at

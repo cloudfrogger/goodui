@@ -4,7 +4,7 @@ import {
   GoodButtonComponent, GoodCodeBlockComponent, GoodErrorTextComponent, GoodFormFieldComponent,
   GoodFieldLabelComponent, GoodGroupComponent, GoodHintComponent, GoodInputSize,
   GoodMainViewComponent, GoodSectionComponent, GoodTextareaComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-textareas-page',

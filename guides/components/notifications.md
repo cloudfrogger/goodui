@@ -4,7 +4,7 @@
 
 ```ts
 import { ApplicationConfig, Injectable, inject } from '@angular/core';
-import { provideGoodUI, GoodNotificationCenter } from '@goodui/angular';
+import { provideGoodUI, GoodNotificationCenter } from '@cloudfrogger/goodui';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideGoodUI()],
@@ -64,7 +64,7 @@ Up to three toasts are visible at once. Later toasts wait in order, and their ti
 The panel orders dated notifications newest first across the center and the `[items]` input. Every `publish()` call records its creation time automatically. The panel displays that date and time in the viewer's locale and time zone, and exposes the original value through a semantic `<time datetime>` element. For externally supplied `GoodNotification` items, provide `createdAt` as Unix milliseconds to get the same ordering and display. Items without `createdAt` follow dated items in their supplied order; their legacy `time` text is shown unchanged.
 
 ```ts
-import type { GoodNotification } from '@goodui/angular';
+import type { GoodNotification } from '@cloudfrogger/goodui';
 
 const notifications: GoodNotification[] = [
   { id: 'release', title: 'Release completed', createdAt: Date.now(), read: false },

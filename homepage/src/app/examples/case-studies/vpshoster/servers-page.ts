@@ -6,7 +6,7 @@ import {
   GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent,
   GoodProseComponent, GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent,
   GoodTabComponent, GoodSelectOption, flexRenderComponent, LucideEllipsis, LucideFilter, LucidePlus,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { VPS_PLANS, VpsCaseStudyStore, VpsServer } from './vps-store';
 import { vpsServersHtml, vpsServersTs, vpsStoreTs } from './source-code.generated';
 

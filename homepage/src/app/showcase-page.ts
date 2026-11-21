@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem, LucideCircleQuestionMark, LucideEllipsis } from '@goodui/angular';
+import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem, LucideCircleQuestionMark, LucideEllipsis } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-showcase-page',

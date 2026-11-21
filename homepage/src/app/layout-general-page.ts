@@ -3,7 +3,7 @@ import {
   GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
   GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent,
   GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-layout-general-page',
@@ -22,7 +22,7 @@ import {
   type GoodSidebarSection,
   type GoodTopbarItem,
   type GoodUser,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',
@@ -57,7 +57,7 @@ export class App {
 
   readonly providersCode = `import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideGoodUI } from '@goodui/angular';
+import { provideGoodUI } from '@cloudfrogger/goodui';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

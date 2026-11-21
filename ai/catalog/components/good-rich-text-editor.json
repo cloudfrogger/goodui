@@ -4,7 +4,7 @@
   "className": "GoodRichTextEditorComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodRichTextEditorComponent"
   },
   "source": "angular/projects/goodui/src/lib/rich-text-editor.ts",

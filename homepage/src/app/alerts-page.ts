@@ -3,7 +3,7 @@ import {
   GoodAlertAppearance, GoodAlertComponent, GoodAlertSize, GoodAlertTone,
   GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodProgressComponent, GoodSectionComponent,
   LucideCircleCheck, LucideInfo, LucideOctagonAlert, LucideTriangleAlert,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-alerts-page',

@@ -4,7 +4,7 @@
   "className": "GoodSignaturePadComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSignaturePadComponent"
   },
   "source": "angular/projects/goodui/src/lib/signature-pad.ts",

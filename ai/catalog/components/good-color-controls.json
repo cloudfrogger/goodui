@@ -4,7 +4,7 @@
   "className": "GoodColorControlsComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodColorControlsComponent"
   },
   "source": "angular/projects/goodui/src/lib/color-controls.ts",

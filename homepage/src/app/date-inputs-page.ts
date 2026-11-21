@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodDateInputComponent, GoodDatePreset, GoodDateValue, GoodMainViewComponent, LucideCalendarCheck2, LucideMapPin } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodDateInputComponent, GoodDatePreset, GoodDateValue, GoodMainViewComponent, LucideCalendarCheck2, LucideMapPin } from '@cloudfrogger/goodui';
 
 const iso = (date: Date): string => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 const today = new Date();

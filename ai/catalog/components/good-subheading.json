@@ -4,7 +4,7 @@
   "className": "GoodSubheadingComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSubheadingComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",

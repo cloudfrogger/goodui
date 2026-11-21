@@ -4,7 +4,7 @@
 
 ```ts
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodRadioGroupComponent, type GoodRadioOption } from '@goodui/angular';
+import { GoodRadioGroupComponent, type GoodRadioOption } from '@cloudfrogger/goodui';
 
 readonly plan = new FormControl<string | null>('team');
 readonly plans: readonly GoodRadioOption[] = [

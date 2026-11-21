@@ -4,7 +4,7 @@
   "className": "GoodResizableComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodResizableComponent"
   },
   "source": "angular/projects/goodui/src/lib/resizable.ts",

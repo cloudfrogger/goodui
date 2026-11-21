@@ -10,7 +10,7 @@
       </good-heading-group>
 
       <good-subheading>Install and style GoodUI</good-subheading>
-      <good-paragraph>GoodUI currently ships as a locally built package and targets Angular 21.2. You need Node.js 20.19 or newer. From a directory where you want both projects, build GoodUI and create an Angular app:</good-paragraph>
+      <good-paragraph>GoodUI targets Angular 21.2. You need Node.js 20.19 or newer. Create an Angular app and install GoodUI from npm:</good-paragraph>
       <good-code-block [code]="setupCode" language="bash" title="terminal" />
       <good-paragraph>Add the compiled GoodUI stylesheet to <code>src/styles.css</code>:</good-paragraph>
       <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
@@ -44,7 +44,7 @@
       <good-code-block [code]="brandCode" language="html" title="Application shell" />
 
       <good-subheading>Add GoodUI to an existing Angular app</good-subheading>
-      <good-paragraph>Build GoodUI with the first four commands above. In your Angular 21.2 project, run <code>npm install /path/to/goodui/angular/dist/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</good-paragraph>
+      <good-paragraph>In your Angular 21.2 project, run <code>npm install @cloudfrogger/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</good-paragraph>
       <good-paragraph>Add <code>provideGoodUI()</code> to your existing root providers and keep <code>provideRouter(routes)</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</good-paragraph>
       <good-paragraph>To run this repository's website and component examples:</good-paragraph>
       <good-code-block [code]="homepageCode" language="bash" title="terminal" />

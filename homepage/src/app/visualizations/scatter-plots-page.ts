@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodChartAxisComponent, GoodChartDataSource, GoodChartScatterComponent, GoodCodeBlockComponent,
   GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodMainViewComponent,
   GoodParagraphComponent, GoodProseComponent, GoodScatterChartComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@goodui/angular';
+  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-scatter-plots-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
@@ -43,7 +43,7 @@ export class ScatterPlotsPageComponent {
   <good-chart-scatter source="service-a" xKey="payload" yKey="latency" label="Service A" />
   <good-chart-scatter source="service-b" xKey="payload" yKey="latency" label="Service B" />
 </good-scatter-chart>`;
-  readonly dataCode = `import type { GoodChartDataSource } from '@goodui/angular';
+  readonly dataCode = `import type { GoodChartDataSource } from '@cloudfrogger/goodui';
 
 readonly serviceA: GoodChartDataSource = {
   id: 'service-a',

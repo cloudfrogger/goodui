@@ -1,6 +1,6 @@
 {
   "$schema": "index.schema.json",
-  "package": "@goodui/angular",
+  "package": "@cloudfrogger/goodui",
   "version": "0.0.1",
   "generatedFrom": "angular/projects/goodui/src/public-api.ts",
   "components": [
@@ -9,7 +9,7 @@
       "className": "GoodCardActionsDirective",
       "file": "components/goodCardActions.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCardActionsDirective"
       },
       "usageGuide": null,
@@ -20,7 +20,7 @@
       "className": "GoodDropdownFooterDirective",
       "file": "components/goodDropdownFooter.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodDropdownFooterDirective"
       },
       "usageGuide": null,
@@ -31,7 +31,7 @@
       "className": "GoodDropdownHeaderDirective",
       "file": "components/goodDropdownHeader.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodDropdownHeaderDirective"
       },
       "usageGuide": null,
@@ -42,7 +42,7 @@
       "className": "GoodExpandableHeaderDirective",
       "file": "components/goodExpandableHeader.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodExpandableHeaderDirective"
       },
       "usageGuide": null,
@@ -53,7 +53,7 @@
       "className": "GoodDetailRowDirective",
       "file": "components/div-goodDetailRow.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodDetailRowDirective"
       },
       "usageGuide": null,
@@ -64,7 +64,7 @@
       "className": "GoodFormDirective",
       "file": "components/form-goodForm.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodFormDirective"
       },
       "usageGuide": null,
@@ -75,7 +75,7 @@
       "className": "GoodActionBarComponent",
       "file": "components/good-action-bar.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodActionBarComponent"
       },
       "usageGuide": "guides/components/action-bar.md",
@@ -86,7 +86,7 @@
       "className": "GoodActionGroupComponent",
       "file": "components/good-action-group.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodActionGroupComponent"
       },
       "usageGuide": "guides/components/action-group.md",
@@ -97,7 +97,7 @@
       "className": "GoodActionMenuComponent",
       "file": "components/good-action-menu.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodActionMenuComponent"
       },
       "usageGuide": "guides/components/action-menu.md",
@@ -108,7 +108,7 @@
       "className": "GoodAlertComponent",
       "file": "components/good-alert.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAlertComponent"
       },
       "usageGuide": "guides/components/alert.md",
@@ -119,7 +119,7 @@
       "className": "GoodAppLayoutComponent",
       "file": "components/good-app-layout.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAppLayoutComponent"
       },
       "usageGuide": null,
@@ -130,7 +130,7 @@
       "className": "GoodAssistantBodyComponent",
       "file": "components/good-assistant-body.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantBodyComponent"
       },
       "usageGuide": null,
@@ -141,7 +141,7 @@
       "className": "GoodAssistantFooterComponent",
       "file": "components/good-assistant-footer.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantFooterComponent"
       },
       "usageGuide": null,
@@ -152,7 +152,7 @@
       "className": "GoodAssistantHeaderComponent",
       "file": "components/good-assistant-header.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantHeaderComponent"
       },
       "usageGuide": null,
@@ -163,7 +163,7 @@
       "className": "GoodAssistantMainComponent",
       "file": "components/good-assistant-main.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantMainComponent"
       },
       "usageGuide": null,
@@ -174,7 +174,7 @@
       "className": "GoodAssistantMobileComponent",
       "file": "components/good-assistant-mobile.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantMobileComponent"
       },
       "usageGuide": null,
@@ -185,7 +185,7 @@
       "className": "GoodAssistantPanelComponent",
       "file": "components/good-assistant-panel.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantPanelComponent"
       },
       "usageGuide": "guides/components/assistant-panel.md",
@@ -196,7 +196,7 @@
       "className": "GoodAvatarMenuComponent",
       "file": "components/good-avatar-menu.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAvatarMenuComponent"
       },
       "usageGuide": "guides/components/avatar-menu.md",
@@ -207,7 +207,7 @@
       "className": "GoodAvatarMenuItemComponent",
       "file": "components/good-avatar-menu-item.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodAvatarMenuItemComponent"
       },
       "usageGuide": null,
@@ -218,7 +218,7 @@
       "className": "GoodBadgeComponent",
       "file": "components/good-badge.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodBadgeComponent"
       },
       "usageGuide": "guides/components/badge.md",
@@ -229,7 +229,7 @@
       "className": "GoodBarChartComponent",
       "file": "components/good-bar-chart.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodBarChartComponent"
       },
       "usageGuide": "guides/components/bar-chart.md",
@@ -240,7 +240,7 @@
       "className": "GoodBrandIconComponent",
       "file": "components/good-brand-icon.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodBrandIconComponent"
       },
       "usageGuide": null,
@@ -251,7 +251,7 @@
       "className": "GoodBreadcrumbsComponent",
       "file": "components/good-breadcrumbs.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodBreadcrumbsComponent"
       },
       "usageGuide": "guides/components/breadcrumbs.md",
@@ -262,7 +262,7 @@
       "className": "GoodButtonComponent",
       "file": "components/good-button.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodButtonComponent"
       },
       "usageGuide": "guides/components/button.md",
@@ -273,7 +273,7 @@
       "className": "GoodCalendarComponent",
       "file": "components/good-calendar.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCalendarComponent"
       },
       "usageGuide": "guides/components/calendar.md",
@@ -284,7 +284,7 @@
       "className": "GoodCardComponent",
       "file": "components/good-card.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCardComponent"
       },
       "usageGuide": "guides/components/card.md",
@@ -295,7 +295,7 @@
       "className": "GoodCardFooterComponent",
       "file": "components/good-card-footer.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCardFooterComponent"
       },
       "usageGuide": null,
@@ -306,7 +306,7 @@
       "className": "GoodCardHeaderComponent",
       "file": "components/good-card-header.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCardHeaderComponent"
       },
       "usageGuide": null,
@@ -317,7 +317,7 @@
       "className": "GoodChartAxisComponent",
       "file": "components/good-chart-axis.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodChartAxisComponent"
       },
       "usageGuide": "guides/components/chart-axis.md",
@@ -328,7 +328,7 @@
       "className": "GoodChartBarComponent",
       "file": "components/good-chart-bar.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodChartBarComponent"
       },
       "usageGuide": "guides/components/chart-bar.md",
@@ -339,7 +339,7 @@
       "className": "GoodChartHistogramComponent",
       "file": "components/good-chart-histogram.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodChartHistogramComponent"
       },
       "usageGuide": "guides/components/chart-histogram.md",
@@ -350,7 +350,7 @@
       "className": "GoodChartLineComponent",
       "file": "components/good-chart-line.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodChartLineComponent"
       },
       "usageGuide": "guides/components/chart-line.md",
@@ -361,7 +361,7 @@
       "className": "GoodChartScatterComponent",
       "file": "components/good-chart-scatter.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodChartScatterComponent"
       },
       "usageGuide": "guides/components/chart-scatter.md",
@@ -372,7 +372,7 @@
       "className": "GoodCheckboxComponent",
       "file": "components/good-checkbox.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCheckboxComponent"
       },
       "usageGuide": "guides/components/checkbox.md",
@@ -383,7 +383,7 @@
       "className": "GoodCitationComponent",
       "file": "components/good-citation.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCitationComponent"
       },
       "usageGuide": null,
@@ -394,7 +394,7 @@
       "className": "GoodCodeBlockComponent",
       "file": "components/good-code-block.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodCodeBlockComponent"
       },
       "usageGuide": "guides/components/code-block.md",
@@ -405,7 +405,7 @@
       "className": "GoodColorControlsComponent",
       "file": "components/good-color-controls.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodColorControlsComponent"
       },
       "usageGuide": "guides/components/color-controls.md",
@@ -416,7 +416,7 @@
       "className": "GoodColorPickerComponent",
       "file": "components/good-color-picker.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodColorPickerComponent"
       },
       "usageGuide": null,
@@ -427,7 +427,7 @@
       "className": "GoodColumnComponent",
       "file": "components/good-column.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodColumnComponent"
       },
       "usageGuide": "guides/components/column.md",
@@ -438,7 +438,7 @@
       "className": "GoodColumnsComponent",
       "file": "components/good-columns.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodColumnsComponent"
       },
       "usageGuide": "guides/components/columns.md",
@@ -449,7 +449,7 @@
       "className": "GoodDateInputComponent",
       "file": "components/good-date-input.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodDateInputComponent"
       },
       "usageGuide": "guides/components/date-input.md",
@@ -460,7 +460,7 @@
       "className": "GoodDetailListComponent",
       "file": "components/good-detail-list.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodDetailListComponent"
       },
       "usageGuide": "guides/components/detail-list.md",
@@ -471,7 +471,7 @@
       "className": "GoodDropdownComponent",
       "file": "components/good-dropdown.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodDropdownComponent"
       },
       "usageGuide": "guides/components/dropdown.md",
@@ -482,7 +482,7 @@
       "className": "GoodErrorPageComponent",
       "file": "components/good-error-page.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodErrorPageComponent"
       },
       "usageGuide": "guides/components/error-page.md",
@@ -493,7 +493,7 @@
       "className": "GoodErrorTextComponent",
       "file": "components/good-error-text.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodErrorTextComponent"
       },
       "usageGuide": null,
@@ -504,7 +504,7 @@
       "className": "GoodExpandableComponent",
       "file": "components/good-expandable.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodExpandableComponent"
       },
       "usageGuide": "guides/components/expandable.md",
@@ -515,7 +515,7 @@
       "className": "GoodEyebrowComponent",
       "file": "components/good-eyebrow.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodEyebrowComponent"
       },
       "usageGuide": null,
@@ -526,7 +526,7 @@
       "className": "GoodFieldLabelComponent",
       "file": "components/good-field-label.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodFieldLabelComponent"
       },
       "usageGuide": null,
@@ -537,7 +537,7 @@
       "className": "GoodFormFieldComponent",
       "file": "components/good-form-field.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodFormFieldComponent"
       },
       "usageGuide": null,
@@ -548,7 +548,7 @@
       "className": "GoodFormRowComponent",
       "file": "components/good-form-row.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodFormRowComponent"
       },
       "usageGuide": null,
@@ -559,7 +559,7 @@
       "className": "GoodGroupComponent",
       "file": "components/good-group.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodGroupComponent"
       },
       "usageGuide": "guides/components/group.md",
@@ -570,7 +570,7 @@
       "className": "GoodHeadingComponent",
       "file": "components/good-heading.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodHeadingComponent"
       },
       "usageGuide": null,
@@ -581,7 +581,7 @@
       "className": "GoodHeadingGroupComponent",
       "file": "components/good-heading-group.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodHeadingGroupComponent"
       },
       "usageGuide": null,
@@ -592,7 +592,7 @@
       "className": "GoodHintComponent",
       "file": "components/good-hint.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodHintComponent"
       },
       "usageGuide": null,
@@ -603,7 +603,7 @@
       "className": "GoodHistogramComponent",
       "file": "components/good-histogram.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodHistogramComponent"
       },
       "usageGuide": "guides/components/histogram.md",
@@ -614,7 +614,7 @@
       "className": "GoodIconComponent",
       "file": "components/good-icon.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodIconComponent"
       },
       "usageGuide": null,
@@ -625,7 +625,7 @@
       "className": "GoodImageInputComponent",
       "file": "components/good-image-input.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodImageInputComponent"
       },
       "usageGuide": "guides/components/image-input.md",
@@ -636,7 +636,7 @@
       "className": "GoodImagePreviewComponent",
       "file": "components/good-image-preview.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodImagePreviewComponent"
       },
       "usageGuide": null,
@@ -647,7 +647,7 @@
       "className": "GoodInlineImageComponent",
       "file": "components/good-inline-image.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodInlineImageComponent"
       },
       "usageGuide": null,
@@ -658,7 +658,7 @@
       "className": "GoodInputComponent",
       "file": "components/good-input.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodInputComponent"
       },
       "usageGuide": "guides/components/input.md",
@@ -669,7 +669,7 @@
       "className": "GoodInputPhoneComponent",
       "file": "components/good-input-phone.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodInputPhoneComponent"
       },
       "usageGuide": "guides/components/input-phone.md",
@@ -680,7 +680,7 @@
       "className": "GoodLineChartComponent",
       "file": "components/good-line-chart.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodLineChartComponent"
       },
       "usageGuide": "guides/components/line-chart.md",
@@ -691,7 +691,7 @@
       "className": "GoodLinkComponent",
       "file": "components/good-link.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodLinkComponent"
       },
       "usageGuide": "guides/components/link.md",
@@ -702,7 +702,7 @@
       "className": "GoodListboxComponent",
       "file": "components/good-listbox.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodListboxComponent"
       },
       "usageGuide": "guides/components/listbox.md",
@@ -713,7 +713,7 @@
       "className": "GoodMainMenuComponent",
       "file": "components/good-main-menu.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodMainMenuComponent"
       },
       "usageGuide": "guides/components/main-menu.md",
@@ -724,7 +724,7 @@
       "className": "GoodMainViewComponent",
       "file": "components/good-main-view.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodMainViewComponent"
       },
       "usageGuide": "guides/components/main-view.md",
@@ -735,7 +735,7 @@
       "className": "GoodMapColorScaleComponent",
       "file": "components/good-map-color-scale.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodMapColorScaleComponent"
       },
       "usageGuide": null,
@@ -746,7 +746,7 @@
       "className": "GoodMapOverlayComponent",
       "file": "components/good-map-overlay.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodMapOverlayComponent"
       },
       "usageGuide": null,
@@ -757,7 +757,7 @@
       "className": "GoodModalComponent",
       "file": "components/good-modal.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodModalComponent"
       },
       "usageGuide": "guides/components/modal.md",
@@ -768,7 +768,7 @@
       "className": "GoodModalFooterComponent",
       "file": "components/good-modal-footer.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodModalFooterComponent"
       },
       "usageGuide": null,
@@ -779,7 +779,7 @@
       "className": "GoodModalHeaderComponent",
       "file": "components/good-modal-header.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodModalHeaderComponent"
       },
       "usageGuide": null,
@@ -790,7 +790,7 @@
       "className": "GoodMonthCalendarComponent",
       "file": "components/good-month-calendar.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodMonthCalendarComponent"
       },
       "usageGuide": "guides/components/month-calendar.md",
@@ -801,7 +801,7 @@
       "className": "GoodNotificationHostComponent",
       "file": "components/good-notification-host.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodNotificationHostComponent"
       },
       "usageGuide": null,
@@ -812,7 +812,7 @@
       "className": "GoodNotificationsComponent",
       "file": "components/good-notifications.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodNotificationsComponent"
       },
       "usageGuide": "guides/components/notifications.md",
@@ -823,7 +823,7 @@
       "className": "GoodNumberInputComponent",
       "file": "components/good-number-input.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodNumberInputComponent"
       },
       "usageGuide": "guides/components/number-input.md",
@@ -834,7 +834,7 @@
       "className": "GoodParagraphComponent",
       "file": "components/good-paragraph.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodParagraphComponent"
       },
       "usageGuide": null,
@@ -845,7 +845,7 @@
       "className": "GoodPdfPreviewComponent",
       "file": "components/good-pdf-preview.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodPdfPreviewComponent"
       },
       "usageGuide": "guides/components/pdf-preview.md",
@@ -856,7 +856,7 @@
       "className": "GoodPinInputComponent",
       "file": "components/good-pin-input.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodPinInputComponent"
       },
       "usageGuide": "guides/components/pin-input.md",
@@ -867,7 +867,7 @@
       "className": "GoodProgressComponent",
       "file": "components/good-progress.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodProgressComponent"
       },
       "usageGuide": "guides/components/progress.md",
@@ -878,7 +878,7 @@
       "className": "GoodProseComponent",
       "file": "components/good-prose.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodProseComponent"
       },
       "usageGuide": null,
@@ -889,7 +889,7 @@
       "className": "GoodRadioGroupComponent",
       "file": "components/good-radio-group.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodRadioGroupComponent"
       },
       "usageGuide": "guides/components/radio-group.md",
@@ -900,7 +900,7 @@
       "className": "GoodRangeSliderComponent",
       "file": "components/good-range-slider.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodRangeSliderComponent"
       },
       "usageGuide": "guides/components/range-slider.md",
@@ -911,7 +911,7 @@
       "className": "GoodRatingComponent",
       "file": "components/good-rating.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodRatingComponent"
       },
       "usageGuide": "guides/components/rating.md",
@@ -922,7 +922,7 @@
       "className": "GoodResizableComponent",
       "file": "components/good-resizable.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodResizableComponent"
       },
       "usageGuide": "guides/components/resizable.md",
@@ -933,7 +933,7 @@
       "className": "GoodResizablePaneComponent",
       "file": "components/good-resizable-pane.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodResizablePaneComponent"
       },
       "usageGuide": "guides/components/resizable-pane.md",
@@ -944,7 +944,7 @@
       "className": "GoodRichTextEditorComponent",
       "file": "components/good-rich-text-editor.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodRichTextEditorComponent"
       },
       "usageGuide": "guides/components/rich-text-editor.md",
@@ -955,7 +955,7 @@
       "className": "GoodScatterChartComponent",
       "file": "components/good-scatter-chart.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodScatterChartComponent"
       },
       "usageGuide": "guides/components/scatter-chart.md",
@@ -966,7 +966,7 @@
       "className": "GoodSearchComponent",
       "file": "components/good-search.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSearchComponent"
       },
       "usageGuide": "guides/components/search.md",
@@ -977,7 +977,7 @@
       "className": "GoodSectionComponent",
       "file": "components/good-section.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSectionComponent"
       },
       "usageGuide": null,
@@ -988,7 +988,7 @@
       "className": "GoodSelectComponent",
       "file": "components/good-select.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSelectComponent"
       },
       "usageGuide": "guides/components/select.md",
@@ -999,7 +999,7 @@
       "className": "GoodSelectCountryComponent",
       "file": "components/good-select-country.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSelectCountryComponent"
       },
       "usageGuide": null,
@@ -1010,7 +1010,7 @@
       "className": "GoodSelectFontComponent",
       "file": "components/good-select-font.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSelectFontComponent"
       },
       "usageGuide": "guides/components/select-font.md",
@@ -1021,7 +1021,7 @@
       "className": "GoodSeparatorComponent",
       "file": "components/good-separator.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSeparatorComponent"
       },
       "usageGuide": null,
@@ -1032,7 +1032,7 @@
       "className": "GoodSettingsComponent",
       "file": "components/good-settings.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSettingsComponent"
       },
       "usageGuide": "guides/components/settings.md",
@@ -1043,7 +1043,7 @@
       "className": "GoodSidebarContainerComponent",
       "file": "components/good-sidebar-container.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarContainerComponent"
       },
       "usageGuide": null,
@@ -1054,7 +1054,7 @@
       "className": "GoodSidebarItemComponent",
       "file": "components/good-sidebar-item.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarItemComponent"
       },
       "usageGuide": null,
@@ -1065,7 +1065,7 @@
       "className": "GoodSidebarMenuContainerComponent",
       "file": "components/good-sidebar-menu-container.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarMenuContainerComponent"
       },
       "usageGuide": null,
@@ -1076,7 +1076,7 @@
       "className": "GoodSidebarSubmenuGroupComponent",
       "file": "components/good-sidebar-submenu-group.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarSubmenuGroupComponent"
       },
       "usageGuide": null,
@@ -1087,7 +1087,7 @@
       "className": "GoodSidebarSubmenuItemComponent",
       "file": "components/good-sidebar-submenu-item.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarSubmenuItemComponent"
       },
       "usageGuide": null,
@@ -1098,7 +1098,7 @@
       "className": "GoodSignaturePadComponent",
       "file": "components/good-signature-pad.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSignaturePadComponent"
       },
       "usageGuide": "guides/components/signature-pad.md",
@@ -1109,7 +1109,7 @@
       "className": "GoodSparklineComponent",
       "file": "components/good-sparkline.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSparklineComponent"
       },
       "usageGuide": "guides/components/sparkline.md",
@@ -1120,7 +1120,7 @@
       "className": "GoodStatusIconComponent",
       "file": "components/good-status-icon.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodStatusIconComponent"
       },
       "usageGuide": "guides/components/status-icon.md",
@@ -1131,7 +1131,7 @@
       "className": "GoodSubheadingComponent",
       "file": "components/good-subheading.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSubheadingComponent"
       },
       "usageGuide": null,
@@ -1142,7 +1142,7 @@
       "className": "GoodSubnavComponent",
       "file": "components/good-subnav.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSubnavComponent"
       },
       "usageGuide": "guides/components/subnav.md",
@@ -1153,7 +1153,7 @@
       "className": "GoodSummaryComponent",
       "file": "components/good-summary.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSummaryComponent"
       },
       "usageGuide": null,
@@ -1164,7 +1164,7 @@
       "className": "GoodSwitchComponent",
       "file": "components/good-switch.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodSwitchComponent"
       },
       "usageGuide": "guides/components/switch.md",
@@ -1175,7 +1175,7 @@
       "className": "GoodTabComponent",
       "file": "components/good-tab.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTabComponent"
       },
       "usageGuide": null,
@@ -1186,7 +1186,7 @@
       "className": "GoodTableComponent",
       "file": "components/good-table.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTableComponent"
       },
       "usageGuide": "guides/components/table.md",
@@ -1197,7 +1197,7 @@
       "className": "GoodTabsComponent",
       "file": "components/good-tabs.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTabsComponent"
       },
       "usageGuide": "guides/components/tabs.md",
@@ -1208,7 +1208,7 @@
       "className": "GoodTextareaComponent",
       "file": "components/good-textarea.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTextareaComponent"
       },
       "usageGuide": "guides/components/textarea.md",
@@ -1219,7 +1219,7 @@
       "className": "GoodThemeToggleComponent",
       "file": "components/good-theme-toggle.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodThemeToggleComponent"
       },
       "usageGuide": "guides/components/theme-toggle.md",
@@ -1230,7 +1230,7 @@
       "className": "GoodTimelineComponent",
       "file": "components/good-timeline.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTimelineComponent"
       },
       "usageGuide": "guides/components/timeline.md",
@@ -1241,7 +1241,7 @@
       "className": "GoodTimelineSectionComponent",
       "file": "components/good-timeline-section.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTimelineSectionComponent"
       },
       "usageGuide": "guides/components/timeline-section.md",
@@ -1252,7 +1252,7 @@
       "className": "GoodTimelineStepComponent",
       "file": "components/good-timeline-step.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTimelineStepComponent"
       },
       "usageGuide": "guides/components/timeline-step.md",
@@ -1263,7 +1263,7 @@
       "className": "GoodTopbarComponent",
       "file": "components/good-topbar.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarComponent"
       },
       "usageGuide": "guides/components/topbar.md",
@@ -1274,7 +1274,7 @@
       "className": "GoodTopbarDropdownItemComponent",
       "file": "components/good-topbar-dropdown-item.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarDropdownItemComponent"
       },
       "usageGuide": null,
@@ -1285,7 +1285,7 @@
       "className": "GoodTopbarDropdownMenuComponent",
       "file": "components/good-topbar-dropdown-menu.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarDropdownMenuComponent"
       },
       "usageGuide": null,
@@ -1296,7 +1296,7 @@
       "className": "GoodTopbarMenuContainerComponent",
       "file": "components/good-topbar-menu-container.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarMenuContainerComponent"
       },
       "usageGuide": null,
@@ -1307,7 +1307,7 @@
       "className": "GoodTopbarMenuItemComponent",
       "file": "components/good-topbar-menu-item.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarMenuItemComponent"
       },
       "usageGuide": null,
@@ -1318,7 +1318,7 @@
       "className": "GoodTopbarSubmenuComponent",
       "file": "components/good-topbar-submenu.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarSubmenuComponent"
       },
       "usageGuide": null,
@@ -1329,7 +1329,7 @@
       "className": "GoodWorldMapComponent",
       "file": "components/good-world-map.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodWorldMapComponent"
       },
       "usageGuide": "guides/components/world-map.md",
@@ -1340,7 +1340,7 @@
       "className": "GoodListboxItemDirective",
       "file": "components/ng-template-goodListboxItem.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodListboxItemDirective"
       },
       "usageGuide": null,
@@ -1351,7 +1351,7 @@
       "className": "GoodTableCellDirective",
       "file": "components/ng-template-goodTableCell.json",
       "import": {
-        "package": "@goodui/angular",
+        "package": "@cloudfrogger/goodui",
         "symbol": "GoodTableCellDirective"
       },
       "usageGuide": null,

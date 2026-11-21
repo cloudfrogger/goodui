@@ -4,7 +4,7 @@
   "className": "GoodMapColorScaleComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodMapColorScaleComponent"
   },
   "source": "angular/projects/goodui/src/lib/world-map.ts",

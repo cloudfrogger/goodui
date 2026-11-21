@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodModalPresentation, GoodModalSize } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodModalPresentation, GoodModalSize } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-modals-page',

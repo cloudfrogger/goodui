@@ -8,7 +8,7 @@ Register GoodUI once at bootstrap with `provideGoodUI()`. Then inject `GoodCalen
 
 ```ts
 import { Component, inject } from '@angular/core';
-import { GoodCalendarComponent, GoodCalendarService } from '@goodui/angular';
+import { GoodCalendarComponent, GoodCalendarService } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-schedule',
@@ -34,7 +34,7 @@ export class SchedulePage {
 For applications that already use the GoodUI shell, `provideGoodUI()` is already in `app.config.ts`. New applications add it to the root provider list:
 
 ```ts
-import { provideGoodUI } from '@goodui/angular';
+import { provideGoodUI } from '@cloudfrogger/goodui';
 
 export const appConfig = { providers: [provideGoodUI()] };
 ```
@@ -87,7 +87,7 @@ The hourly grid lines remain visible over shaded periods, including fully shaded
 Pass `[workingHours]` to define your own weekly schedule. Each period has `daysOfWeek` (JavaScript weekdays: Sunday `0` through Saturday `6`), local `start`, and exclusive `end` in `HH:mm` format. Multiple periods can describe lunch breaks or different shifts; overlapping periods are merged. Use `24:00` for an end at midnight, or an empty array to shade every hour. Overnight shifts are expressed as two periods on consecutive days. `[nonWorkingLabels]` optionally names exact gaps; the default label applies only when a 12:00–13:00 gap exists. Pass `[]` to remove captions.
 
 ```ts
-import type { GoodCalendarWorkingPeriod } from '@goodui/angular';
+import type { GoodCalendarWorkingPeriod } from '@cloudfrogger/goodui';
 
 readonly workingHours: readonly GoodCalendarWorkingPeriod[] = [
   { daysOfWeek: [1, 2, 3, 4], start: '08:30', end: '12:00' },
@@ -132,7 +132,7 @@ Drag an event body to another day or time with a mouse, pen, or touch pointer. F
 Pass holidays as `{ date, name }` entries. A `YYYY-MM-DD` string is a local calendar date; a `Date` is also accepted. Multiple named holidays may share a date. Labels appear in all four views and do not block selection or booking:
 
 ```typescript
-import type { GoodCalendarHoliday } from '@goodui/angular';
+import type { GoodCalendarHoliday } from '@cloudfrogger/goodui';
 
 readonly holidays: readonly GoodCalendarHoliday[] = [
   { date: '2026-12-25', name: 'Christmas Day' },

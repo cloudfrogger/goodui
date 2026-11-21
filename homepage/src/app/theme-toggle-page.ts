@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodThemeService, GoodThemeToggleComponent } from '@goodui/angular';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodThemeService, GoodThemeToggleComponent } from '@cloudfrogger/goodui';
 import { themePrepaintCode } from './theme-prepaint-code';
 
 @Component({

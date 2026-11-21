@@ -1,6 +1,6 @@
 # Design tokens
 
-GoodUI ships its own stylesheet. Load `@goodui/angular/styles.css` once in the application build; do not recreate component colors or spacing in page CSS. The token source in this repository is `design-tokens/penpot.tokens.json`; generated CSS is an output, not an editing target.
+GoodUI ships its own stylesheet. Load `@cloudfrogger/goodui/styles.css` once in the application build; do not recreate component colors or spacing in page CSS. The token source in this repository is `design-tokens/penpot.tokens.json`; generated CSS is an output, not an editing target.
 
 - Use semantic roles such as brand, surface, text, border, destructive, and warning. Keep both light and dark themes readable.
 - Use GoodUI appearance inputs for a component's documented variants. The catalog lists actual accepted values and defaults.

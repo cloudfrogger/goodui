@@ -6,7 +6,7 @@ import {
   type GoodCalendarEvent, type GoodCalendarEventInput, type GoodCalendarMove, type GoodCalendarResize,
   type GoodCalendarView, type GoodMonthCalendarSelection,
   goodCalendarStartOfWeek,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import { calendarWorkspaceHtml, calendarWorkspaceTs } from './source-code.generated';
 
 type CalendarKind = 'work' | 'personal';

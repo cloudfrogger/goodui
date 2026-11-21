@@ -4,7 +4,7 @@
   "className": "GoodListboxComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodListboxComponent"
   },
   "source": "angular/projects/goodui/src/lib/listbox.ts",

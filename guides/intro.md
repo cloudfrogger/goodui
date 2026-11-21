@@ -26,7 +26,7 @@ npm install ../goodui/angular/dist/goodui
 Add the compiled GoodUI stylesheet to `src/styles.css`:
 
 ```css
-@import "@goodui/angular/styles.css";
+@import "@cloudfrogger/goodui/styles.css";
 ```
 
 Replace `src/app/app.ts` with a small page:
@@ -37,7 +37,7 @@ import {
   GoodAppLayoutComponent,
   GoodMainViewComponent,
   type GoodSidebarSection,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',

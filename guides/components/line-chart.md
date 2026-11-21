@@ -7,7 +7,7 @@ Read [chart-data.md](chart-data.md) first for the shared source and axis contrac
 ```ts
 import { Component } from '@angular/core';
 import { GoodChartAxisComponent, GoodChartDataSource, GoodChartLineComponent,
-  GoodLineChartComponent } from '@goodui/angular';
+  GoodLineChartComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-temperature', standalone: true,

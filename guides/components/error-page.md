@@ -3,7 +3,7 @@
 `good-error-page` provides the responsive recovery layout for missing pages and server failures. It accepts any status code and message; the published Penpot variants show 404 and 500. The component owns the typography, illustration, spacing, and mobile stacking, so a consuming page only supplies its message and useful actions.
 
 ```ts
-import { GoodButtonComponent, GoodErrorPageComponent } from '@goodui/angular';
+import { GoodButtonComponent, GoodErrorPageComponent } from '@cloudfrogger/goodui';
 
 // Add both components to your standalone page's imports.
 ```

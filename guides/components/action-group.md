@@ -5,7 +5,7 @@
 The homepage app has a dedicated **Components → Action groups** page at `/components/action-groups`. It shows mixed controls, vertical and responsive layouts, and all three spacing values. The Modal demo uses the same component for its example launchers.
 
 ```ts
-import { GoodActionGroupComponent, GoodButtonComponent } from '@goodui/angular';
+import { GoodActionGroupComponent, GoodButtonComponent } from '@cloudfrogger/goodui';
 
 // Add both components to the consuming standalone component's imports.
 ```

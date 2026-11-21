@@ -4,7 +4,7 @@
   "className": "GoodTimelineComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodTimelineComponent"
   },
   "source": "angular/projects/goodui/src/lib/timeline.ts",
@@ -213,7 +213,7 @@
   },
   "usageGuide": "guides/components/timeline.md",
   "usage": {
-    "summary": "Use `appearance=\"sections\"` when the timeline structures a page or form. Import `GoodTimelineComponent` and `GoodTimelineSectionComponent` from `@goodui/angular`. Each section accepts arbitrary projected GoodUI content; the parent supplies the vertical dashed rail. This mode stays vertical at every width and leaves existing step timelines unchanged.",
+    "summary": "Use `appearance=\"sections\"` when the timeline structures a page or form. Import `GoodTimelineComponent` and `GoodTimelineSectionComponent` from `@cloudfrogger/goodui`. Each section accepts arbitrary projected GoodUI content; the parent supplies the vertical dashed rail. This mode stays vertical at every width and leaves existing step timelines unchanged.",
     "examples": []
   },
   "penpot": [

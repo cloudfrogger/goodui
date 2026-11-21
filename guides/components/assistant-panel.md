@@ -7,7 +7,7 @@ import {
   GoodAssistantPanelComponent, GoodAssistantMainComponent,
   GoodAssistantHeaderComponent, GoodAssistantBodyComponent,
   GoodAssistantFooterComponent, GoodAssistantMobileComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 ```
 
 ```html

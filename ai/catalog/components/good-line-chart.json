@@ -4,7 +4,7 @@
   "className": "GoodLineChartComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodLineChartComponent"
   },
   "source": "angular/projects/goodui/src/lib/line-chart.ts",

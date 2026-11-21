@@ -3,7 +3,7 @@
 `good-link` is a navigational text control. It defaults to the brand accent and shows a solid underline on hover. Use `appearance="mono"` when the link should follow the theme text color, or `underline="always"` when the line should remain visible.
 
 ```ts
-import { GoodLinkComponent } from '@goodui/angular';
+import { GoodLinkComponent } from '@cloudfrogger/goodui';
 
 // Add GoodLinkComponent to the consuming standalone component's imports.
 ```

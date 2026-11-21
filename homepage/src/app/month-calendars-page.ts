@@ -3,7 +3,7 @@ import {
   GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
   GoodMonthCalendarComponent, GoodMonthCalendarHighlight, GoodMonthCalendarSelection,
   GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 const today = new Date();
 const monthKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;

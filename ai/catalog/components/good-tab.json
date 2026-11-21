@@ -4,7 +4,7 @@
   "className": "GoodTabComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodTabComponent"
   },
   "source": "angular/projects/goodui/src/lib/tabs.ts",

@@ -5,7 +5,7 @@
 ```ts
 import { Component } from '@angular/core';
 import { GoodBarChartComponent, GoodChartAxisComponent, GoodChartBarComponent,
-  type GoodChartDataSource } from '@goodui/angular';
+  type GoodChartDataSource } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-requests', standalone: true,

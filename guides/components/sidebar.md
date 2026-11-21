@@ -29,7 +29,7 @@ For most apps, `good-app-layout` builds the same structure from `sidebarSections
 For a large catalog, use a small number of named parents instead of placing every page directly under the section heading. The homepage groups its component pages under Controls, Inputs, Content and data, Feedback, and Navigation. For example:
 
 ```ts
-import { type GoodSidebarSection } from '@goodui/angular';
+import { type GoodSidebarSection } from '@cloudfrogger/goodui';
 
 readonly navigation: readonly GoodSidebarSection[] = [
   { id: 'components', heading: 'COMPONENTS', items: [

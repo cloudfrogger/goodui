@@ -4,7 +4,7 @@
   "className": "GoodListboxItemDirective",
   "kind": "directive",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodListboxItemDirective"
   },
   "source": "angular/projects/goodui/src/lib/listbox.ts",

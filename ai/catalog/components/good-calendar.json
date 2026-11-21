@@ -4,7 +4,7 @@
   "className": "GoodCalendarComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodCalendarComponent"
   },
   "source": "angular/projects/goodui/src/lib/calendar.ts",

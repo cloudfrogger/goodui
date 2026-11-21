@@ -15,7 +15,7 @@ readonly satisfaction = new FormControl(3, { nonNullable: true });
 <good-rating label="Mood" [customIcon]="smileIcon" selectedColor="#0EA5E9" [value]="4" />
 ```
 
-Import `GoodRatingComponent` from `@goodui/angular` and `ReactiveFormsModule` when using a form control. Standalone usage also supports `[(value)]`; the selected integer is emitted through `valueChange`. A form control may disable the component, or you may set `[disabled]="true"`.
+Import `GoodRatingComponent` from `@cloudfrogger/goodui` and `ReactiveFormsModule` when using a form control. Standalone usage also supports `[(value)]`; the selected integer is emitted through `valueChange`. A form control may disable the component, or you may set `[disabled]="true"`.
 
 | Input | Default | Purpose |
 | --- | --- | --- |

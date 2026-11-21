@@ -4,7 +4,7 @@
   "className": "GoodSparklineComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodSparklineComponent"
   },
   "source": "angular/projects/goodui/src/lib/sparkline.ts",

@@ -4,7 +4,7 @@ import {
   GoodActionGroupComponent, GoodBreadcrumbsComponent, GoodButtonComponent,
   GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
   GoodSectionComponent, type GoodBreadcrumbItem,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 import {
   errorPagesExampleHtml, errorPagesExampleTs, notFoundHtml, notFoundTs,
   serverErrorHtml, serverErrorTs,

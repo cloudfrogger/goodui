@@ -4,7 +4,7 @@
   "className": "GoodInputPhoneComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodInputPhoneComponent"
   },
   "source": "angular/projects/goodui/src/lib/input-phone.ts",
@@ -200,7 +200,7 @@
   },
   "usageGuide": "guides/components/input-phone.md",
   "usage": {
-    "summary": "`good-input-phone` combines a searchable country selector with a native telephone field. It displays a flag and international calling code, and exposes one international value such as `+4915112345678`. Use the same value with `[(value)]` or Angular Forms.",
+    "summary": "`good-input-phone` combines a searchable country selector with a native telephone field. It displays a flag and international calling code, and exposes one international value such as `+12025550123`. Use the same value with `[(value)]` or Angular Forms.",
     "examples": []
   },
   "penpot": [

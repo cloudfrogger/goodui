@@ -37,7 +37,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
 3. Import its stylesheet in your application's global `src/styles.css`:
 
    ```css
-   @import "@goodui/angular/styles.css";
+   @import "@cloudfrogger/goodui/styles.css";
    ```
 
 4. Register GoodUI services in your root `app.config.ts` alongside Angular Router:
@@ -45,7 +45,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
    ```ts
    import { ApplicationConfig } from '@angular/core';
    import { provideRouter } from '@angular/router';
-   import { provideGoodUI } from '@goodui/angular';
+   import { provideGoodUI } from '@cloudfrogger/goodui';
    import { routes } from './app.routes';
 
    export const appConfig: ApplicationConfig = {
@@ -58,7 +58,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
    ```ts
    import { Component } from '@angular/core';
    import { RouterOutlet } from '@angular/router';
-   import { GoodAppLayoutComponent, type GoodSidebarSection } from '@goodui/angular';
+   import { GoodAppLayoutComponent, type GoodSidebarSection } from '@cloudfrogger/goodui';
 
    @Component({
      selector: 'app-root',
@@ -81,7 +81,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    Each routed page can use `<good-main-view title="Home">...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppLayout guide](guides/layout/app-layout.md) for topbar items, user data, and nested menus.
 
-   Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@goodui/angular`. See the [Button guide](guides/components/button.md) and the homepage's `/components/buttons` page for all variants and sizes.
+   Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@cloudfrogger/goodui`. See the [Button guide](guides/components/button.md) and the homepage's `/components/buttons` page for all variants and sizes.
 
    Show status with `<good-badge label="Active" color="success" />`. Badges also support outlines, light fills, optional icons, and a removable action. See the [Badge guide](guides/components/badge.md) and `/components/badges` on the homepage.
 
@@ -189,7 +189,7 @@ Open `http://localhost:4200/`. After changing library source, run `npm run build
 - [Typography registry](design/typography-components.json) — Penpot IDs, variants, compositions, and Angular selectors.
 - [Token workflow](design-tokens/README.md) — Penpot export, CSS generation, and theme mapping.
 - [Markdown guides](guides/README.md) — integration, layout, components, and Penpot mapping.
-- [Angular library](angular/projects/goodui/) — source for `@goodui/angular`.
+- [Angular library](angular/projects/goodui/) — source for `@cloudfrogger/goodui`.
 - [Homepage](homepage/) — an Angular website consuming the built package.
 - [Contributor instructions](AGENTS.md) — design and implementation workflow.
 

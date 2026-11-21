@@ -4,7 +4,7 @@
   "className": "GoodChartScatterComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodChartScatterComponent"
   },
   "source": "angular/projects/goodui/src/lib/scatter-chart.ts",

@@ -5,7 +5,7 @@
 ```ts
 import { Component } from '@angular/core';
 import { GoodChartAxisComponent, GoodChartHistogramComponent, GoodHistogramComponent,
-  type GoodChartDataSource } from '@goodui/angular';
+  type GoodChartDataSource } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-durations', standalone: true,

@@ -4,7 +4,7 @@
   "className": "GoodNotificationHostComponent",
   "kind": "component",
   "import": {
-    "package": "@goodui/angular",
+    "package": "@cloudfrogger/goodui",
     "symbol": "GoodNotificationHostComponent"
   },
   "source": "angular/projects/goodui/src/lib/notification-host.ts",

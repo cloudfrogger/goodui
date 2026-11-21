@@ -4,7 +4,7 @@ import {
   GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
   GoodSubheadingComponent, LucideCopy, LucideDownload, LucideFilter, LucidePlus, LucideSearch,
   LucideTrash2, type GoodActionBarGroup, type GoodDropdownItem,
-} from '@goodui/angular';
+} from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-action-bars-page',

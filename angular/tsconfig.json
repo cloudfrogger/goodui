@@ -5,7 +5,7 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@goodui/angular": [
+      "@cloudfrogger/goodui": [
         "./dist/goodui"
       ]
     },

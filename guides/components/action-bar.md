@@ -3,7 +3,7 @@
 `good-action-bar` puts grouped commands above a workspace. It uses GoodUI Button for visible commands, ActionGroup for their spacing, and Dropdown for the accessible More menu. Project existing Input, Dropdown, or other controls into `[goodActionBarTools]` for search and filters. Command IDs and behavior belong to the application.
 
 ```ts
-import { GoodActionBarComponent, GoodInputComponent, LucideCopy, LucidePlus, LucideTrash2, type GoodActionBarGroup } from '@goodui/angular';
+import { GoodActionBarComponent, GoodInputComponent, LucideCopy, LucidePlus, LucideTrash2, type GoodActionBarGroup } from '@cloudfrogger/goodui';
 
 readonly groups: readonly GoodActionBarGroup[] = [
   { id: 'create', label: 'Create', commands: [
