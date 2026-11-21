@@ -79,3 +79,8 @@ steps:
         - push
       branch:
         - master
+
+---
+kind: secret
+name: npm_token
+data: 7rygwxPMhyVt34h6e/oUpXLl6Ej8Cpcvl0T4w+hD8Y77XiPCqHgiHavR/ReeuTNVRf3YoQ69/2fzFVgQmVM8EWzlwwo=
