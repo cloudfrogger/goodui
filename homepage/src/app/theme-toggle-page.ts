@@ -20,8 +20,8 @@ import { themePrepaintCode } from './theme-prepaint-code';
         <good-code-block [code]="usageCode" language="html" title="Theme toggle usage" />
       </section>
       <section class="showcase-section" aria-labelledby="theme-toggle-loading-title">
-        <div class="showcase-section-heading"><h2 id="theme-toggle-loading-title">Apply the theme before the page paints</h2>
-          <p>Light and Dark choices are saved in the <code>goodui-theme</code> cookie. System mode removes it. Add this code at the start of your app's <code>src/index.html</code> head so the background matches the saved or system theme before Angular loads. The two colors match GoodUI's default canvas tokens; update them if your app changes those tokens.</p></div>
+        <div class="showcase-section-heading"><h2 id="theme-toggle-loading-title">Avoid flickering on page load</h2>
+          <p>A dark-themed app can briefly flash white while its stylesheets and JavaScript load. Include both the script and the inline styles below to set the theme and its background color immediately. Light and Dark choices are saved in the <code>goodui-theme</code> cookie. System mode removes it. Add this code at the start of your app's <code>src/index.html</code> head so the background matches the saved or system theme before Angular loads. The two colors match GoodUI's default canvas tokens; update them if your app changes those tokens.</p></div>
         <good-code-block [code]="prepaintCode" language="html" title="src/index.html · inside head" />
       </section>
     </good-main-view>

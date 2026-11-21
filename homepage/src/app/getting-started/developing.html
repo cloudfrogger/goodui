@@ -15,8 +15,8 @@
       <good-paragraph>Add the compiled GoodUI stylesheet to <code>src/styles.css</code>:</good-paragraph>
       <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
 
-      <good-subheading>Apply the theme before the first paint</good-subheading>
-      <good-paragraph>In your app's <code>src/index.html</code>, paste this snippet immediately after <code>&lt;meta charset="utf-8"&gt;</code> in the <code>&lt;head&gt;</code>, before external stylesheets and scripts. It sets the page background while Angular and GoodUI are still loading, so the first paint matches the user's theme.</good-paragraph>
+      <good-subheading>Avoid flickering on page load</good-subheading>
+      <good-paragraph>A dark-themed app can briefly flash white while its stylesheets and JavaScript load. Setting <code>data-theme="dark"</code> alone still leaves the background white until the theme CSS arrives. The inline styles below immediately give the page a matching light or dark background. In your app's <code>src/index.html</code>, paste the entire snippet immediately after <code>&lt;meta charset="utf-8"&gt;</code> in the <code>&lt;head&gt;</code>, before external stylesheets and scripts.</good-paragraph>
       <good-code-block [code]="prepaintCode" language="html" title="src/index.html · inside head" />
       <good-paragraph>The script uses <code>light</code> or <code>dark</code> from the <code>goodui-theme</code> cookie. If the cookie is missing or has another value, it follows the system preference. If your app overrides GoodUI's <code>color.canvas</code> token, use your light and dark canvas colors in the inline styles as well.</good-paragraph>
 
