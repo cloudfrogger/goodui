@@ -189,9 +189,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/layout/app-layout.md",
   "usage": {
-    "summary": null,
+    "summary": "`AppLayout` is the complete application shell. On desktop it positions a 280 px sidebar beside a 70 px topbar and the page area. On mobile it uses a 60 px topbar and a sidebar drawer with a scrim. The shell owns offsets, scroll areas, and stacking, so pages do not need layout margins for these regions.",
     "examples": []
   },
   "penpot": [
@@ -239,7 +239,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

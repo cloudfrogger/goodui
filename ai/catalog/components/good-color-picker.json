@@ -120,9 +120,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/color-controls.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-color-picker` is a compact dropdown control. It shows the selected color as a swatch with a chevron by default. `good-color-controls` is the detailed RGB/HSL editor that the picker opens for custom colors. Both components can be used independently.",
     "examples": []
   },
   "penpot": [
@@ -135,7 +135,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

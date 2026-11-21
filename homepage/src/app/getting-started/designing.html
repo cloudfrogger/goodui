@@ -17,19 +17,19 @@
   <good-section>
     <good-subheading>1. Prepare an Angular app and matching references</good-subheading>
     <good-prose>
-      <good-paragraph>Follow <good-link route="/getting-started/developing">Developing</good-link> to install the locally built <code>@cloudfrogger/goodui</code> package and import <code>@cloudfrogger/goodui/styles.css</code>. Then use the AI package from the <strong>same GoodUI version and source revision</strong>. The full package gives the agent local component details and examples, so it can read only what this page needs.</good-paragraph>
-      <good-paragraph>When a matching <good-link href="https://github.com/cloudfrogger/goodui/releases" target="_blank">GoodUI release</good-link> provides <code>goodui-ai-&lt;version&gt;.zip</code>, download that archive and extract it into <code>.goodui/</code> in your app. If you installed GoodUI from a source checkout as shown in Developing, create the same archive from that checkout. This example assumes sibling folders named <code>goodui/</code> and <code>hello-goodui/</code>:</good-paragraph>
+      <good-paragraph>Follow <good-link route="/getting-started/developing">Developing</good-link> to install <code>@cloudfrogger/goodui</code> and import its stylesheet. The npm package includes the GoodUI skill, catalog, guides, source references, and examples for that installed version. <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> walks through the complete agent setup.</good-paragraph>
+      <good-paragraph>Run these commands in your Angular app's root to install GoodUI and print the bundled reference version.</good-paragraph>
     </good-prose>
     <good-code-block [code]="prepareReferencesCode" language="bash" title="Prepare local GoodUI references" />
     <good-prose>
-      <good-paragraph>Check that the version printed by the command matches the archive name. If it does not, get the matching package instead of using newer <code>master</code> documentation for an older installation. The small release ZIP contains only the skill; the full ZIP is the useful choice when you want quick, low-context prompting with local references.</good-paragraph>
+      <good-paragraph>The installed package and its reference manifest should show the same version. Older installations can use the full AI archive from their exact release or recorded source commit.</good-paragraph>
     </good-prose>
   </good-section>
 
   <good-section>
     <good-subheading>2. Make the skill available to your agent</good-subheading>
     <good-prose>
-      <good-paragraph>Run the command for the agent you use from your Angular app's root. Keeping the skill in the project makes the setup visible beside the app and easy to update with GoodUI. Start a new agent session after copying it, and mention <code>.goodui/ai</code> in your first prompt so it finds the local catalog.</good-paragraph>
+      <good-paragraph>Run the command for the agent you use from your Angular app's root. Keeping the skill in the project makes the setup visible beside the app and easy to update with GoodUI. Start a new agent session after installation. The skill finds the references at <code>node_modules/@cloudfrogger/goodui/ai</code>.</good-paragraph>
       <good-paragraph><strong>Codex:</strong> place the skill at <code>.agents/skills/goodui/SKILL.md</code>.</good-paragraph>
     </good-prose>
     <good-code-block [code]="codexSkillCode" language="bash" title="Install for Codex" />
@@ -38,7 +38,7 @@
     </good-prose>
     <good-code-block [code]="claudeSkillCode" language="bash" title="Install for Claude Code" />
     <good-prose>
-      <good-paragraph>The skill is the entry point, not a copy of every component manual. It first checks the installed GoodUI version and then loads only the relevant catalog files, guides, and examples. See the <good-link href="https://github.com/cloudfrogger/goodui/blob/master/ai/README.md" target="_blank">AI package instructions</good-link> when updating the package.</good-paragraph>
+      <good-paragraph>The skill checks the installed GoodUI version and loads the relevant catalog files, guides, and examples. See the <good-link href="https://github.com/cloudfrogger/goodui/blob/master/ai/README.md" target="_blank">AI package instructions</good-link> when updating the package.</good-paragraph>
     </good-prose>
   </good-section>
 
@@ -46,7 +46,7 @@
     <good-subheading>3. Make the GoodUI Penpot library available</good-subheading>
     <good-prose>
       <good-paragraph>Get access to the live GoodUI Penpot file in your workspace. Publish or enable it as a library in your target design file, then choose its components from the asset library. Start with the application shell, then add linked cards, tables, fields, and actions. Select published variants and shared tokens for light and dark appearances; keep instances linked so later library updates remain traceable.</good-paragraph>
-      <good-paragraph>Connect your agent's Penpot MCP integration and give it access to the target file and GoodUI library. <strong>The skill does not connect Penpot by itself.</strong> Ask the agent to inspect the live components before editing and to report the component names it used. The AI ZIP contains mapping references, not a native <code>.penpot</code> library archive. If access is missing, establish the connection before asking for the design.</good-paragraph>
+      <good-paragraph>Connect your agent's Penpot MCP integration and give it access to the target file and GoodUI library. <strong>The skill does not connect Penpot by itself.</strong> Ask the agent to inspect the live components before editing and to report the component names it used. The bundled references document the Penpot-to-Angular mapping. If access is missing, establish the connection before asking for the design.</good-paragraph>
       <good-paragraph>The <good-link href="https://github.com/cloudfrogger/goodui/blob/master/guides/contributing/design-to-code.md" target="_blank">design-to-code guide</good-link> records the published Penpot families and their Angular owners.</good-paragraph>
     </good-prose>
   </good-section>

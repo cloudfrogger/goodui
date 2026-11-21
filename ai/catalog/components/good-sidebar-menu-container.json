@@ -52,9 +52,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/sidebar.md",
   "usage": {
-    "summary": null,
+    "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
     "examples": []
   },
   "penpot": [
@@ -74,7 +74,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

@@ -1,0 +1,58 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-breadcrumbs [items]="breadcrumbs" />
+      <good-heading-group>
+        <good-eyebrow>Getting started</good-eyebrow>
+        <good-heading [level]="1">Developing with AI</good-heading>
+        <good-summary>Install the GoodUI skill, give your agent the matching component references, and describe the screen you want to build.</good-summary>
+      </good-heading-group>
+      <good-paragraph>You can describe a page in everyday language. The GoodUI skill helps your coding agent choose the components and look up their real Angular APIs. Follow these steps in the Angular project where you want to use GoodUI.</good-paragraph>
+
+      <good-subheading>1. Install GoodUI in your application</good-subheading>
+      <good-paragraph>Open a terminal in your Angular app's root, beside its <code>package.json</code>, and run the command below. If you are starting a new app, follow <good-link route="/getting-started/developing">Developing</good-link> first to create it and initialize the GoodUI services.</good-paragraph>
+      <good-code-block [code]="installCode" language="bash" title="Your Angular application" />
+      <good-paragraph>Add this import to your app's global <code>src/styles.css</code> if it is not there yet.</good-paragraph>
+      <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
+      <good-paragraph>The npm package includes the skill and its reference files. They are available at <code>node_modules/@cloudfrogger/goodui/ai/</code>. That gives the agent the catalog, guides, examples, and source references for the version your app actually uses.</good-paragraph>
+
+      <good-subheading>2. Install the skill for your coding agent</good-subheading>
+      <good-paragraph>Stay in your Angular app's root and run the command for your agent. For Codex, use this command. It creates <code>.agents/skills/goodui/SKILL.md</code> in your project.</good-paragraph>
+      <good-code-block [code]="codexCode" language="bash" title="Install for Codex" />
+      <good-paragraph>For Claude Code, use this command. It creates <code>.claude/skills/goodui/SKILL.md</code>. Run both commands if your team uses both tools.</good-paragraph>
+      <good-code-block [code]="claudeCode" language="bash" title="Install for Claude Code" />
+      <good-paragraph>Start a new agent session in this project after installation. The skill tells the agent where to find the reference files in the installed npm package. Keep the generated skill file in your repository so teammates get the same entry point; they install the locked dependencies with <code>npm ci</code>.</good-paragraph>
+      <good-paragraph>If the installer reports that <code>ai/install.mjs</code> is missing, your installed GoodUI version predates bundled references. Upgrade to a version containing them. If a different GoodUI skill already exists at the destination, review that file before replacing it with the installer's <code>--force</code> option.</good-paragraph>
+
+      <good-subheading>3. Check that the agent can find GoodUI</good-subheading>
+      <good-paragraph>Send this as your first message. The response should name your installed version, report the available selectors, and point to concrete component guides. This gives you a quick way to check the setup before asking for a whole page.</good-paragraph>
+      <good-code-block [code]="setupPrompt" title="First message to your agent" />
+      <good-paragraph>In Codex you can explicitly invoke <code>$goodui</code>; in Claude Code use <code>/goodui</code>. You can also ask in plain language to use the GoodUI skill, as the prompts on this page do. The agent can read the catalog and relevant files from your workspace.</good-paragraph>
+
+      <good-subheading>4. Describe the first screen</good-subheading>
+      <good-paragraph>Tell the agent what people need to do, which information belongs on the screen, and which interactions should work. Start with one page. You can copy this prompt and replace the directory, columns, and actions with your own requirements.</good-paragraph>
+      <good-code-block [code]="firstPagePrompt" title="Build a working directory" />
+      <good-paragraph>The catalog covers the published Angular component and directive selectors. Each detail file records the available inputs, required values, outputs, projection slots, and form integration. The agent also has the exported types, service source, and usage examples, so it can look up how components fit together while implementing your request.</good-paragraph>
+
+      <good-subheading>5. Add behavior in small steps</good-subheading>
+      <good-paragraph>Once the directory works, ask for its next interaction. This prompt adds an edit flow with a modal, real form validation, and local state. You can name a GoodUI component yourself or describe the behavior and let the agent find the matching controls.</good-paragraph>
+      <good-code-block [code]="formPrompt" title="Add the form interaction" />
+      <good-paragraph>When your application has a backend, tell the agent which API client and endpoints to use and what loading, error, and success behavior you expect. The component guides supply the UI contracts; your project supplies its data and business rules.</good-paragraph>
+
+      <good-subheading>6. Review the page and give concrete feedback</good-subheading>
+      <good-paragraph>Open the page and try its main action. Check a narrow window, keyboard use, and both themes. Describe the visible problem and desired result so the agent can adjust the documented component options.</good-paragraph>
+      <good-code-block [code]="refinePrompt" title="Refine the rendered result" />
+      <good-paragraph>For later sessions, you can add the following paragraph to your project's existing <code>AGENTS.md</code> for Codex or <code>CLAUDE.md</code> for Claude Code. Add it alongside your project's own instructions.</good-paragraph>
+      <good-code-block [code]="projectInstructions" title="Optional project instructions" />
+
+      <good-subheading>7. Keep the skill and package together</good-subheading>
+      <good-paragraph>When you update GoodUI, its bundled references update with it. Run the installer again to refresh the project skill too. This example updates the Codex copy; use <code>--agent claude</code> for Claude Code or <code>--agent both</code> for both. The <code>--force</code> option replaces the existing GoodUI skill file, so review any custom edits there first.</good-paragraph>
+      <good-code-block [code]="updateCode" language="bash" title="Update GoodUI and the project skill" />
+      <good-paragraph>Commit the updated package lockfile and generated skill file together. Your next agent session can use the references shipped with that exact installed version.</good-paragraph>
+
+      <good-subheading>Work from a Penpot design</good-subheading>
+      <good-paragraph>If you want to design the screen in Penpot first, continue with <good-link route="/getting-started/designing">Designing</good-link>. The same skill knows the component mapping. Give the agent access to the live GoodUI library and your target file through its Penpot integration, then ask it to inspect the design before implementing it.</good-paragraph>
+      <good-paragraph>For the agent tools' own skill discovery and invocation rules, see the <good-link href="https://developers.openai.com/codex/skills" target="_blank">Codex skills guide</good-link> and the <good-link href="https://code.claude.com/docs/en/skills" target="_blank">Claude Code skills guide</good-link>.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>

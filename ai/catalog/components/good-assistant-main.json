@@ -40,9 +40,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/assistant-panel.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-assistant-panel` places a contextual companion beside a primary workspace. Use it for an inspector, contextual help, or an order summary. The main area gets GoodUI spacing by default; both areas fill their available client height and scroll independently. No pixel height is needed inside `good-main-view layout=\"fill\"`.",
     "examples": []
   },
   "penpot": [
@@ -55,7 +55,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

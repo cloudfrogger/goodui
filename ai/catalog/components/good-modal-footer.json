@@ -42,9 +42,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/modal.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-modal` presents focused tasks above the application. It owns the backdrop, viewport placement, focus, dismissal, and dialog stack. Add `good-modal-header` for the title and close action. Project any content into the body, then add an optional `good-modal-footer` for actions. The consuming page supplies the content and decides when to open the dialog.",
     "examples": []
   },
   "penpot": [
@@ -57,7 +57,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

@@ -15,6 +15,19 @@ import {
   templateUrl: './getting-started/layout-default.html',
 })
 export class LayoutDefaultPageComponent {
+  readonly structureCode = `<!-- navigation supplies the left sidebar's menu items. -->
+<!-- topbarItems supplies the top navigation links and menus. -->
+<good-app-layout
+  brand="Your app"
+  [sidebarSections]="navigation"
+  [topbarItems]="topbarItems">
+  <good-main-view layout="page">
+    <good-section>
+      <!-- Your page content goes here. -->
+    </good-section>
+  </good-main-view>
+</good-app-layout>`;
+
   readonly routesCode = `import { Routes } from '@angular/router';
 
 export const routes: Routes = [

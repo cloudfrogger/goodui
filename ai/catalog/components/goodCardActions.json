@@ -20,14 +20,14 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/card.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-card` is a bordered content container. It owns the surface, one-pixel border, 12 px corners, content padding, and separators. Add a header or footer only when the content needs one. `good-card-header` owns the title area and right-side actions; `good-card-footer` owns the bottom row.",
     "examples": []
   },
   "penpot": [],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": true
   }
 }

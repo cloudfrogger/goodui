@@ -20,14 +20,14 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/listbox.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-listbox` is an always visible list of items. By default it is an action list: activating an item emits `itemActivated` without changing selection. Set `selectionMode=\"single\"` or `\"multiple\"` when the list should own selection. Use `good-select` when choices should open from a form field, or `good-dropdown` for commands and navigation. Selection is a set of item IDs; even single selection uses an array with zero or one ID. This keeps the event and Angular Forms value shape consistent when an app switches between single and multiple selection.",
     "examples": []
   },
   "penpot": [],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": true
   }
 }

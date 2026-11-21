@@ -84,14 +84,14 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/icon.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-icon` renders one of GoodUI's named navigation and action icons. Import `GoodIconComponent` from `@cloudfrogger/goodui` and pass its required `name` input.",
     "examples": []
   },
   "penpot": [],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": true
   }
 }

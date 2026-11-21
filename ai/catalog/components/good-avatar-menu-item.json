@@ -47,9 +47,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/avatar-menu.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
     "examples": []
   },
   "penpot": [
@@ -76,7 +76,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

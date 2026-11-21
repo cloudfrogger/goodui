@@ -32,6 +32,7 @@ export const routes: Routes = [
   { path: 'getting-started/typography', loadComponent: () => import('./typography-page').then(module => module.TypographyPageComponent) },
   { path: 'getting-started/color-scheme', loadComponent: () => import('./color-scheme-page').then(module => module.ColorSchemePageComponent) },
   { path: 'getting-started/developing', loadComponent: () => import('./getting-started-page').then(module => module.DevelopingPageComponent) },
+  { path: 'getting-started/developing-with-ai', loadComponent: () => import('./developing-with-ai-page').then(module => module.DevelopingWithAiPageComponent) },
   { path: 'getting-started/license', loadComponent: () => import('./getting-started-page').then(module => module.LicensePageComponent) },
   { path: 'getting-started/changelog', loadComponent: () => import('./getting-started-page').then(module => module.ChangelogPageComponent) },
   { path: 'dashboard', ...page('Dashboard', 'Overview and key metrics') },

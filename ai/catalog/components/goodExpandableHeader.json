@@ -20,14 +20,14 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/expandable.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-expandable` reveals optional content across the full available width. Use one for a short answer or a related block of details. The default is collapsed with a plus icon. The header is a native button, so Enter and Space toggle it without extra keyboard code.",
     "examples": []
   },
   "penpot": [],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": true
   }
 }

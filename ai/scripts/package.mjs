@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { copyReferences } from './copy-references.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const version = JSON.parse(fs.readFileSync(path.join(root, 'angular/projects/goodui/package.json'))).version;
 const revision = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout.trim();
@@ -14,8 +15,8 @@ if (tag !== `v${version}`) throw new Error(`Tag ${tag} does not match @cloudfrog
 const out = path.join(root, 'ai/artifacts');
 fs.mkdirSync(out, { recursive: true });
 const stage = fs.mkdtempSync(path.join(os.tmpdir(), 'goodui-ai-'));
-const copy = (from, to) => fs.cpSync(path.join(root, from), path.join(stage, to), { recursive: true, filter: source => !/(^|\/)(node_modules|dist|artifacts|.angular)(\/|$)/.test(source) });
 const zip = (name, cwd, entries) => {
+  fs.rmSync(path.join(out, name), { force: true });
   const result = spawnSync('zip', ['-q', '-r', path.join(out, name), ...entries], { cwd, stdio: 'inherit' });
   if (result.status !== 0) throw new Error(`zip failed for ${name}`);
 };
@@ -23,7 +24,7 @@ try {
   fs.mkdirSync(path.join(stage, 'small/goodui'), { recursive: true });
   fs.copyFileSync(path.join(root, 'ai/skill/goodui/SKILL.md'), path.join(stage, 'small/goodui/SKILL.md'));
   zip(`goodui-skill-${version}.zip`, path.join(stage, 'small'), ['goodui']);
-  for (const item of ['ai', 'guides/components', 'design/component-map.json', 'design-tokens/penpot.tokens.json', 'design.md', 'angular/projects/goodui/src/lib', 'angular/projects/goodui/src/public-api.ts', 'angular/projects/goodui/package.json', 'homepage/src/app/examples/case-studies', 'homepage/src/app/examples/mail-compose', 'homepage/src/app/examples/mail-workspace']) copy(item, item);
+  copyReferences(stage);
   fs.writeFileSync(path.join(stage, 'ai/manifest.json'), `${JSON.stringify({ package: '@cloudfrogger/goodui', version, sourceRevision: dirty ? null : revision, releaseTag: tag, note: dirty ? 'Local test archive from an uncommitted workspace; use a release archive for versioned references.' : null }, null, 2)}\n`);
   zip(`goodui-ai-${version}.zip`, stage, ['ai', 'guides', 'design', 'design-tokens', 'design.md', 'angular', 'homepage']);
   console.log(`Created two release archives for ${tag}${dirty ? ' from an uncommitted workspace' : ` at ${revision}`}`);

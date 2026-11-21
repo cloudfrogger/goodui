@@ -43,6 +43,9 @@
       <good-paragraph>Pass your own wordmarks to the desktop sidebar and mobile drawer. Pass separate symbol assets for the mobile topbar. Each dark image is optional; the light image remains visible when it is omitted. Existing apps that only pass a wordmark continue to show it in the mobile topbar.</good-paragraph>
       <good-code-block [code]="brandCode" language="html" title="Application shell" />
 
+      <good-subheading>Develop with an AI agent</good-subheading>
+      <good-paragraph>Follow <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> to install the GoodUI skill and build your first screen with version-matched component references and step-by-step prompts.</good-paragraph>
+
       <good-subheading>Add GoodUI to an existing Angular app</good-subheading>
       <good-paragraph>In your Angular 21.2 project, run <code>npm install @cloudfrogger/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</good-paragraph>
       <good-paragraph>Add <code>provideGoodUI()</code> to your existing root providers and keep <code>provideRouter(routes)</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</good-paragraph>

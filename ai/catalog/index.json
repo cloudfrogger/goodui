@@ -12,7 +12,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodCardActionsDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/card.md",
+      "summary": "`good-card` is a bordered content container. It owns the surface, one-pixel border, 12 px corners, content padding, and separators. Add a header or footer only when the content needs one. `good-card-header` owns the title area and right-side actions; `good-card-footer` owns the bottom row.",
       "penpotCount": 0
     },
     {
@@ -23,7 +24,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodDropdownFooterDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/dropdown.md",
+      "summary": "`good-dropdown` combines a GoodUI Button trigger with a structured popup. The trigger inherits Button's `variant`, `size`, leading `icon`, disabled state, and focus style. Set `showChevron` to hide the trailing chevron; an icon-only trigger needs an `ariaLabel`. The popup owns its placement, header, item list, footer, scrolling, and submenus, so consuming apps do not need positioning CSS.",
       "penpotCount": 0
     },
     {
@@ -34,7 +36,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodDropdownHeaderDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/dropdown.md",
+      "summary": "`good-dropdown` combines a GoodUI Button trigger with a structured popup. The trigger inherits Button's `variant`, `size`, leading `icon`, disabled state, and focus style. Set `showChevron` to hide the trailing chevron; an icon-only trigger needs an `ariaLabel`. The popup owns its placement, header, item list, footer, scrolling, and submenus, so consuming apps do not need positioning CSS.",
       "penpotCount": 0
     },
     {
@@ -45,7 +48,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodExpandableHeaderDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/expandable.md",
+      "summary": "`good-expandable` reveals optional content across the full available width. Use one for a short answer or a related block of details. The default is collapsed with a plus icon. The header is a native button, so Enter and Space toggle it without extra keyboard code.",
       "penpotCount": 0
     },
     {
@@ -56,7 +60,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodDetailRowDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/detail-list.md",
+      "summary": "Use `good-detail-list` for compact label/value pairs in summaries, settings, and price breakdowns. It renders a native `<dl>`. Add one `<div goodDetailRow>` per pair, with a native `<dt>` for the label and `<dd>` for the value. The value aligns to the right; long content wraps within narrow panels. The list has no border or page-specific padding.",
       "penpotCount": 0
     },
     {
@@ -67,7 +72,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodFormDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/form.md",
+      "summary": "`goodForm` is a standalone Angular directive for a native `<form>`. It aligns every direct child `good-form-field` to the same columns and keeps native submit behavior, browser semantics, and Angular Reactive Forms intact.",
       "penpotCount": 3
     },
     {
@@ -79,6 +85,7 @@
         "symbol": "GoodActionBarComponent"
       },
       "usageGuide": "guides/components/action-bar.md",
+      "summary": "`good-action-bar` puts grouped commands above a workspace. It uses GoodUI Button for visible commands, ActionGroup for their spacing, and Dropdown for the accessible More menu. Project existing Input, Dropdown, or other controls into `[goodActionBarTools]` for search and filters. Command IDs and behavior belong to the application.",
       "penpotCount": 0
     },
     {
@@ -90,6 +97,7 @@
         "symbol": "GoodActionGroupComponent"
       },
       "usageGuide": "guides/components/action-group.md",
+      "summary": "`good-action-group` arranges related actions and owns the space between them. Put `good-button`, `good-dropdown`, links, or other controls inside it. Individual controls do not need external margins. Use `horizontal` for a wrapping row, `vertical` for a column, or `responsive` for a row that becomes a full-width column on narrow screens.",
       "penpotCount": 1
     },
     {
@@ -101,6 +109,7 @@
         "symbol": "GoodActionMenuComponent"
       },
       "usageGuide": "guides/components/action-menu.md",
+      "summary": "`good-action-menu` is a compact icon button with an action list. It fits an optional action area in Subnav and can be used anywhere a small secondary menu is needed. It uses `good-button` for the trigger.",
       "penpotCount": 2
     },
     {
@@ -112,6 +121,7 @@
         "symbol": "GoodAlertComponent"
       },
       "usageGuide": "guides/components/alert.md",
+      "summary": "`good-alert` presents a message in a page, a notification panel, or a toast. It owns its icon, spacing, border, content flow, action row, and dismiss button. The default Lucide icon is Info; pass another Lucide icon through `icon`, or set `showIcon` to false. The same component renders all three sizes and both GoodUI themes.",
       "penpotCount": 3
     },
     {
@@ -122,7 +132,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAppLayoutComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/layout/app-layout.md",
+      "summary": "`AppLayout` is the complete application shell. On desktop it positions a 280 px sidebar beside a 70 px topbar and the page area. On mobile it uses a 60 px topbar and a sidebar drawer with a scrim. The shell owns offsets, scroll areas, and stacking, so pages do not need layout margins for these regions.",
       "penpotCount": 6
     },
     {
@@ -133,7 +144,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantBodyComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/assistant-panel.md",
+      "summary": "`good-assistant-panel` places a contextual companion beside a primary workspace. Use it for an inspector, contextual help, or an order summary. The main area gets GoodUI spacing by default; both areas fill their available client height and scroll independently. No pixel height is needed inside `good-main-view layout=\"fill\"`.",
       "penpotCount": 1
     },
     {
@@ -144,7 +156,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantFooterComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/assistant-panel.md",
+      "summary": "`good-assistant-panel` places a contextual companion beside a primary workspace. Use it for an inspector, contextual help, or an order summary. The main area gets GoodUI spacing by default; both areas fill their available client height and scroll independently. No pixel height is needed inside `good-main-view layout=\"fill\"`.",
       "penpotCount": 1
     },
     {
@@ -155,7 +168,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantHeaderComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/assistant-panel.md",
+      "summary": "`good-assistant-panel` places a contextual companion beside a primary workspace. Use it for an inspector, contextual help, or an order summary. The main area gets GoodUI spacing by default; both areas fill their available client height and scroll independently. No pixel height is needed inside `good-main-view layout=\"fill\"`.",
       "penpotCount": 1
     },
     {
@@ -166,7 +180,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantMainComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/assistant-panel.md",
+      "summary": "`good-assistant-panel` places a contextual companion beside a primary workspace. Use it for an inspector, contextual help, or an order summary. The main area gets GoodUI spacing by default; both areas fill their available client height and scroll independently. No pixel height is needed inside `good-main-view layout=\"fill\"`.",
       "penpotCount": 1
     },
     {
@@ -177,7 +192,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAssistantMobileComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/assistant-panel.md",
+      "summary": "`good-assistant-panel` places a contextual companion beside a primary workspace. Use it for an inspector, contextual help, or an order summary. The main area gets GoodUI spacing by default; both areas fill their available client height and scroll independently. No pixel height is needed inside `good-main-view layout=\"fill\"`.",
       "penpotCount": 1
     },
     {
@@ -189,6 +205,7 @@
         "symbol": "GoodAssistantPanelComponent"
       },
       "usageGuide": "guides/components/assistant-panel.md",
+      "summary": "`good-assistant-panel` places a contextual companion beside a primary workspace. Use it for an inspector, contextual help, or an order summary. The main area gets GoodUI spacing by default; both areas fill their available client height and scroll independently. No pixel height is needed inside `good-main-view layout=\"fill\"`.",
       "penpotCount": 4
     },
     {
@@ -200,6 +217,7 @@
         "symbol": "GoodAvatarMenuComponent"
       },
       "usageGuide": "guides/components/avatar-menu.md",
+      "summary": "`good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
       "penpotCount": 4
     },
     {
@@ -210,7 +228,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAvatarMenuItemComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/avatar-menu.md",
+      "summary": "`good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
       "penpotCount": 3
     },
     {
@@ -222,6 +241,7 @@
         "symbol": "GoodBadgeComponent"
       },
       "usageGuide": "guides/components/badge.md",
+      "summary": "`good-badge` displays compact status or metadata text. It owns its spacing, icon alignment, colors, and rounded shape, so a page only needs to place the component.",
       "penpotCount": 1
     },
     {
@@ -233,6 +253,7 @@
         "symbol": "GoodBarChartComponent"
       },
       "usageGuide": "guides/components/bar-chart.md",
+      "summary": "`good-bar-chart` compares numeric values by category, number, or time. Like `good-line-chart`, it uses the shared `GoodChartDataSource` contract, declarative `good-chart-axis` children, GoodUI Card, and an optional GoodUI Table view. Each `good-chart-bar` selects one numeric measure. Bars with the same X value sit beside each other; missing values leave a gap.",
       "penpotCount": 2
     },
     {
@@ -243,7 +264,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodBrandIconComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/topbar.md",
+      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 1
     },
     {
@@ -255,6 +277,7 @@
         "symbol": "GoodBreadcrumbsComponent"
       },
       "usageGuide": "guides/components/breadcrumbs.md",
+      "summary": "`good-breadcrumbs` shows a page's position in a hierarchy. Pass the path in order, from the first level to the current page. Earlier levels with a `route` become Angular links; the final level is always current and has `aria-current=\"page\"`.",
       "penpotCount": 1
     },
     {
@@ -266,6 +289,7 @@
         "symbol": "GoodButtonComponent"
       },
       "usageGuide": "guides/components/button.md",
+      "summary": "`good-button` owns the action's dimensions, padding, icon alignment, focus ring, disabled state, and native button behavior. It accepts text, a leading Lucide icon, an optional trailing `endIcon`, or an icon alone. An icon-only button is square at every size, whether its empty label is inferred or `iconOnly` is set explicitly.",
       "penpotCount": 1
     },
     {
@@ -277,6 +301,7 @@
         "symbol": "GoodCalendarComponent"
       },
       "usageGuide": "guides/components/calendar.md",
+      "summary": "`good-calendar` presents appointments in **month, week, day, and list** views. It owns period navigation, today navigation, view switching, the 24-hour time grid, overlapping appointment lanes, all-day rows, scrolling, responsive layout, and event presentation. The week starts on Monday by default. The four views use the same event data and local browser time zone.",
       "penpotCount": 16
     },
     {
@@ -288,6 +313,7 @@
         "symbol": "GoodCardComponent"
       },
       "usageGuide": "guides/components/card.md",
+      "summary": "`good-card` is a bordered content container. It owns the surface, one-pixel border, 12 px corners, content padding, and separators. Add a header or footer only when the content needs one. `good-card-header` owns the title area and right-side actions; `good-card-footer` owns the bottom row.",
       "penpotCount": 1
     },
     {
@@ -298,7 +324,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodCardFooterComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/card.md",
+      "summary": "`good-card` is a bordered content container. It owns the surface, one-pixel border, 12 px corners, content padding, and separators. Add a header or footer only when the content needs one. `good-card-header` owns the title area and right-side actions; `good-card-footer` owns the bottom row.",
       "penpotCount": 1
     },
     {
@@ -309,7 +336,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodCardHeaderComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/card.md",
+      "summary": "`good-card` is a bordered content container. It owns the surface, one-pixel border, 12 px corners, content padding, and separators. Add a header or footer only when the content needs one. `good-card-header` owns the title area and right-side actions; `good-card-footer` owns the bottom row.",
       "penpotCount": 1
     },
     {
@@ -321,6 +349,7 @@
         "symbol": "GoodChartAxisComponent"
       },
       "usageGuide": "guides/components/chart-axis.md",
+      "summary": "`good-chart-axis` is a declarative configuration child of `good-line-chart`, `good-bar-chart`, `good-scatter-chart`, or `good-histogram`. Add one with `position=\"x\"` and one with `position=\"y\"`; it does not render on its own. Set `type` to `category`, `number`, or `time`, matching the selected source key. Scatter uses a numeric or time X axis and a numeric Y axis. Histogram uses a numeric X value axis and a numeric Y count axis. In a horizontal Bar chart, the X and Y tags still describe the logical source keys, while GoodUI rotates their visual placement. Optional `label`, `min`, `max`, `ticks`, and `precision` define the visible scale. On time axes, `groupBy` accepts `day`, `month`, or `year`; `aggregate` combines duplicate dates when requested. Line and Bar require aggregation for duplicate X values, while Scatter keeps them as separate points by default.",
       "penpotCount": 1
     },
     {
@@ -332,6 +361,7 @@
         "symbol": "GoodChartBarComponent"
       },
       "usageGuide": "guides/components/chart-bar.md",
+      "summary": "`good-chart-bar` is a declarative configuration child of `good-bar-chart`; it does not render alone. Set `source` to a `GoodChartDataSource.id` and `yKey` to a declared `number` or `integer` key. Set `xKey` to a declared category, numeric, date, or datetime key compatible with the X axis. Omit `xKey` only with a numeric X axis to use row positions. Optional `label` sets the legend and table heading. Optional `color` overrides the chart's assigned palette color for this series.",
       "penpotCount": 1
     },
     {
@@ -343,6 +373,7 @@
         "symbol": "GoodChartHistogramComponent"
       },
       "usageGuide": "guides/components/chart-histogram.md",
+      "summary": "`good-chart-histogram` configures one source inside `good-histogram`; it does not render alone. Set `source` to a `GoodChartDataSource.id` and `valueKey` to a declared numeric key. `label` changes the legend and data-table column heading; `color` overrides the chart's palette for this series.",
       "penpotCount": 1
     },
     {
@@ -354,6 +385,7 @@
         "symbol": "GoodChartLineComponent"
       },
       "usageGuide": "guides/components/chart-line.md",
+      "summary": "`good-chart-line` is a declarative configuration child of `good-line-chart`. It requires a `source` ID and numeric `yKey`. Set `xKey` to a declared category, numeric, date, or datetime key. For a one-dimensional source, omit `xKey` and use a numeric X axis; row positions become X values. Optional `label` sets the legend and data-table heading. Optional `color` accepts a CSS color, a GoodUI semantic name, or a marker name; it overrides the chart's `colors` array for this series.",
       "penpotCount": 1
     },
     {
@@ -365,6 +397,7 @@
         "symbol": "GoodChartScatterComponent"
       },
       "usageGuide": "guides/components/chart-scatter.md",
+      "summary": "`good-chart-scatter` configures one series inside `good-scatter-chart`; it does not render on its own. Set `source` to a `GoodChartDataSource.id` and set both `xKey` and `yKey` to declared keys. X must be numeric for a numeric axis or date/datetime for a time axis. Y must be numeric. `label` controls the legend and data-table series name. `color` overrides the chart's marker palette for this series.",
       "penpotCount": 1
     },
     {
@@ -376,6 +409,7 @@
         "symbol": "GoodCheckboxComponent"
       },
       "usageGuide": "guides/components/checkbox.md",
+      "summary": "`good-checkbox` is a native checkbox for selecting one or more options. It supports unchecked, checked, and indeterminate states. The first click or Space press on an indeterminate checkbox makes it **unchecked**; the next activates checked. Disabled controls keep their current state.",
       "penpotCount": 1
     },
     {
@@ -386,7 +420,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodCitationComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -398,6 +433,7 @@
         "symbol": "GoodCodeBlockComponent"
       },
       "usageGuide": "guides/components/code-block.md",
+      "summary": "`good-code-block` displays selectable source text with syntax highlighting. It owns the frame, toolbar, copy action, optional line-number gutter, horizontal scrolling, and optional expandable preview. Set `inline` for a short snippet inside a sentence; inline mode removes the frame, toolbar, line numbers, and expand control.",
       "penpotCount": 1
     },
     {
@@ -409,6 +445,7 @@
         "symbol": "GoodColorControlsComponent"
       },
       "usageGuide": "guides/components/color-controls.md",
+      "summary": "`good-color-picker` is a compact dropdown control. It shows the selected color as a swatch with a chevron by default. `good-color-controls` is the detailed RGB/HSL editor that the picker opens for custom colors. Both components can be used independently.",
       "penpotCount": 1
     },
     {
@@ -419,7 +456,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodColorPickerComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/color-controls.md",
+      "summary": "`good-color-picker` is a compact dropdown control. It shows the selected color as a swatch with a chevron by default. `good-color-controls` is the detailed RGB/HSL editor that the picker opens for custom colors. Both components can be used independently.",
       "penpotCount": 1
     },
     {
@@ -431,6 +469,7 @@
         "symbol": "GoodColumnComponent"
       },
       "usageGuide": "guides/components/column.md",
+      "summary": "`good-column` is one content unit inside `good-columns`. It gives projected GoodUI headings, paragraphs, and other blocks the familiar Prose spacing, so no wrapper or per-column margins are needed. Keep columns in reading order; that order is preserved when they stack.",
       "penpotCount": 1
     },
     {
@@ -442,6 +481,7 @@
         "symbol": "GoodColumnsComponent"
       },
       "usageGuide": "guides/components/columns.md",
+      "summary": "Use `good-columns` for two to four pieces of parallel text content. It distributes projected `good-column` children in equal tracks and stacks them when its own container becomes narrower. The default is two columns; set `[columns]=\"3\"` or `[columns]=\"4\"` when the content needs them. Its 24 px gap uses the shared spacing scale.",
       "penpotCount": 3
     },
     {
@@ -453,6 +493,7 @@
         "symbol": "GoodDateInputComponent"
       },
       "usageGuide": "guides/components/date-input.md",
+      "summary": "`good-date-input` combines the existing GoodUI Input with a calendar. It accepts typed dates in the current browser locale and stores values in stable local ISO strings. It supports a single day, a range, multiple days, a month, or a year. The popover provides day, month, and year views; at narrow widths or on coarse-pointer devices it becomes a near-full-screen modal overlay.",
       "penpotCount": 5
     },
     {
@@ -464,6 +505,7 @@
         "symbol": "GoodDetailListComponent"
       },
       "usageGuide": "guides/components/detail-list.md",
+      "summary": "Use `good-detail-list` for compact label/value pairs in summaries, settings, and price breakdowns. It renders a native `<dl>`. Add one `<div goodDetailRow>` per pair, with a native `<dt>` for the label and `<dd>` for the value. The value aligns to the right; long content wraps within narrow panels. The list has no border or page-specific padding.",
       "penpotCount": 1
     },
     {
@@ -475,6 +517,7 @@
         "symbol": "GoodDropdownComponent"
       },
       "usageGuide": "guides/components/dropdown.md",
+      "summary": "`good-dropdown` combines a GoodUI Button trigger with a structured popup. The trigger inherits Button's `variant`, `size`, leading `icon`, disabled state, and focus style. Set `showChevron` to hide the trailing chevron; an icon-only trigger needs an `ariaLabel`. The popup owns its placement, header, item list, footer, scrolling, and submenus, so consuming apps do not need positioning CSS.",
       "penpotCount": 4
     },
     {
@@ -486,6 +529,7 @@
         "symbol": "GoodErrorPageComponent"
       },
       "usageGuide": "guides/components/error-page.md",
+      "summary": "`good-error-page` provides the responsive recovery layout for missing pages and server failures. It accepts any status code and message; the published Penpot variants show 404 and 500. The component owns the typography, illustration, spacing, and mobile stacking, so a consuming page only supplies its message and useful actions.",
       "penpotCount": 2
     },
     {
@@ -496,7 +540,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodErrorTextComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -508,6 +553,7 @@
         "symbol": "GoodExpandableComponent"
       },
       "usageGuide": "guides/components/expandable.md",
+      "summary": "`good-expandable` reveals optional content across the full available width. Use one for a short answer or a related block of details. The default is collapsed with a plus icon. The header is a native button, so Enter and Space toggle it without extra keyboard code.",
       "penpotCount": 8
     },
     {
@@ -518,7 +564,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodEyebrowComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -529,7 +576,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodFieldLabelComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -540,7 +588,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodFormFieldComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 3
     },
     {
@@ -551,7 +600,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodFormRowComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/group.md",
+      "summary": "`good-group` collects related content without the visual weight of a Card. It owns padding and a 16 px gap between projected children. Paragraphs and controls contribute no outer spacing, so a paragraph, Checkbox, RadioGroup, Select, or FormRow can be substituted without doubling that gap. Checkbox and radio choices retain 44 px touch targets inside their own bounds. `appearance=\"outline\"` (default) draws a quiet border and places an optional title in that border; `contrast` uses a soft theme-aware background; `plain` keeps the spacing with no surface. Set `title` to label the native `section`. `headingLevel` defaults to 2 and accepts 2, 3, or 4 so heading order remains correct. `headingId` can be set when a page needs a stable external reference. The title is omitted completely when empty.",
       "penpotCount": 2
     },
     {
@@ -563,6 +613,7 @@
         "symbol": "GoodGroupComponent"
       },
       "usageGuide": "guides/components/group.md",
+      "summary": "`good-group` collects related content without the visual weight of a Card. It owns padding and a 16 px gap between projected children. Paragraphs and controls contribute no outer spacing, so a paragraph, Checkbox, RadioGroup, Select, or FormRow can be substituted without doubling that gap. Checkbox and radio choices retain 44 px touch targets inside their own bounds. `appearance=\"outline\"` (default) draws a quiet border and places an optional title in that border; `contrast` uses a soft theme-aware background; `plain` keeps the spacing with no surface. Set `title` to label the native `section`. `headingLevel` defaults to 2 and accepts 2, 3, or 4 so heading order remains correct. `headingId` can be set when a page needs a stable external reference. The title is omitted completely when empty.",
       "penpotCount": 4
     },
     {
@@ -573,7 +624,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodHeadingComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -584,7 +636,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodHeadingGroupComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -595,7 +648,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodHintComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -607,6 +661,7 @@
         "symbol": "GoodHistogramComponent"
       },
       "usageGuide": "guides/components/histogram.md",
+      "summary": "`good-histogram` counts raw numeric observations in equal-width intervals. Use it for a distribution, such as durations or measurements. Use [Bar chart](bar-chart.md) when the X values are already named categories or precomputed totals. A Histogram accepts several `GoodChartDataSource` objects and uses one shared set of interval boundaries for all series.",
       "penpotCount": 1
     },
     {
@@ -617,7 +672,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodIconComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/icon.md",
+      "summary": "`good-icon` renders one of GoodUI's named navigation and action icons. Import `GoodIconComponent` from `@cloudfrogger/goodui` and pass its required `name` input.",
       "penpotCount": 0
     },
     {
@@ -629,6 +685,7 @@
         "symbol": "GoodImageInputComponent"
       },
       "usageGuide": "guides/components/image-input.md",
+      "summary": "`good-image-input` accepts one image. Its square shape uses the shared card radius; `shape=\"circle\"` uses the shared round radius. An empty tile opens the native file picker. A selected image fills the tile with `object-fit: cover`. Without preview mode, activating the filled tile also opens the file picker. The optional upload button replaces the image, while the optional X removes it and emits `(removed)` so the application can persist the deletion.",
       "penpotCount": 1
     },
     {
@@ -639,7 +696,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodImagePreviewComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/image-input.md",
+      "summary": "`good-image-input` accepts one image. Its square shape uses the shared card radius; `shape=\"circle\"` uses the shared round radius. An empty tile opens the native file picker. A selected image fills the tile with `object-fit: cover`. Without preview mode, activating the filled tile also opens the file picker. The optional upload button replaces the image, while the optional X removes it and emits `(removed)` so the application can persist the deletion.",
       "penpotCount": 1
     },
     {
@@ -650,7 +708,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodInlineImageComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 2
     },
     {
@@ -662,6 +721,7 @@
         "symbol": "GoodInputComponent"
       },
       "usageGuide": "guides/components/input.md",
+      "summary": "`good-input` provides a text field or a native file selector in the same visual scale as GoodUI Button. The control owns its border, padding, rounding, focus indicator, optional label, and leading and trailing content. For a complete form, place it inside `good-form-field` in a native `<form goodForm layout=\"vertical|left|right\">`; the form aligns all fields without application CSS. The component fills the width its parent provides.",
       "penpotCount": 4
     },
     {
@@ -673,6 +733,7 @@
         "symbol": "GoodInputPhoneComponent"
       },
       "usageGuide": "guides/components/input-phone.md",
+      "summary": "`good-input-phone` combines a searchable country selector with a native telephone field. It displays a flag and international calling code, and exposes one international value such as `+12025550123`. Use the same value with `[(value)]` or Angular Forms.",
       "penpotCount": 2
     },
     {
@@ -684,6 +745,7 @@
         "symbol": "GoodLineChartComponent"
       },
       "usageGuide": "guides/components/line-chart.md",
+      "summary": "`good-line-chart` compares one or more numeric series over categories, numbers, or time. It uses GoodUI Card for its frame, Button for the optional view switch, and Table for the data view. The component owns its SVG plot, axes, legend, responsive measurements, and empty/error states. No page-specific chart CSS is needed.",
       "penpotCount": 1
     },
     {
@@ -695,6 +757,7 @@
         "symbol": "GoodLinkComponent"
       },
       "usageGuide": "guides/components/link.md",
+      "summary": "`good-link` is a navigational text control. It defaults to the brand accent and shows a solid underline on hover. Use `appearance=\"mono\"` when the link should follow the theme text color, or `underline=\"always\"` when the line should remain visible.",
       "penpotCount": 1
     },
     {
@@ -706,6 +769,7 @@
         "symbol": "GoodListboxComponent"
       },
       "usageGuide": "guides/components/listbox.md",
+      "summary": "`good-listbox` is an always visible list of items. By default it is an action list: activating an item emits `itemActivated` without changing selection. Set `selectionMode=\"single\"` or `\"multiple\"` when the list should own selection. Use `good-select` when choices should open from a form field, or `good-dropdown` for commands and navigation. Selection is a set of item IDs; even single selection uses an array with zero or one ID. This keeps the event and Angular Forms value shape consistent when an app switches between single and multiple selection.",
       "penpotCount": 4
     },
     {
@@ -717,6 +781,7 @@
         "symbol": "GoodMainMenuComponent"
       },
       "usageGuide": "guides/components/main-menu.md",
+      "summary": "`goodui.main-menu` is the topbar's right-hand action group. Its default composition contains [Search](./search.md), [Notifications](./notifications.md), [Theme toggle](./theme-toggle.md), and [Avatar menu](./avatar-menu.md), in that order. [Settings](./settings.md) is an additional optional action. Each action is a separate Penpot library component with a 36 × 36 px hit area. MainMenu owns spacing and alignment; individual actions have no external margins.",
       "penpotCount": 1
     },
     {
@@ -728,6 +793,7 @@
         "symbol": "GoodMainViewComponent"
       },
       "usageGuide": "guides/components/main-view.md",
+      "summary": "`goodui.main-view` provides the page container below the topbar. It supports an optional subnav, title, description, actions, and projected content. GoodUI owns page padding and scrolling. Penpot shows a content slot placeholder; Angular projects actual page content with `ng-content`.",
       "penpotCount": 6
     },
     {
@@ -738,7 +804,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodMapColorScaleComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/world-map.md",
+      "summary": "`good-world-map` plots country data on a zoomable, pannable map. It shares `GoodChartDataSource` and the GoodUI marker palette with the other data visualizations. The geometry is bundled and loaded only when a map is opened; it requires no tile service or API key. The map uses Natural Earth 5.1.2 country boundaries via `@cublya/world-atlas` 3.0.0-beta.2. See [Natural Earth's terms](https://www.naturalearthdata.com/about/terms-of-use/) and [World Atlas data license](https://cublya.github.io/world-atlas/guides/boundary-data-licensing/).",
       "penpotCount": 3
     },
     {
@@ -749,7 +816,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodMapOverlayComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/world-map.md",
+      "summary": "`good-world-map` plots country data on a zoomable, pannable map. It shares `GoodChartDataSource` and the GoodUI marker palette with the other data visualizations. The geometry is bundled and loaded only when a map is opened; it requires no tile service or API key. The map uses Natural Earth 5.1.2 country boundaries via `@cublya/world-atlas` 3.0.0-beta.2. See [Natural Earth's terms](https://www.naturalearthdata.com/about/terms-of-use/) and [World Atlas data license](https://cublya.github.io/world-atlas/guides/boundary-data-licensing/).",
       "penpotCount": 4
     },
     {
@@ -761,6 +829,7 @@
         "symbol": "GoodModalComponent"
       },
       "usageGuide": "guides/components/modal.md",
+      "summary": "`good-modal` presents focused tasks above the application. It owns the backdrop, viewport placement, focus, dismissal, and dialog stack. Add `good-modal-header` for the title and close action. Project any content into the body, then add an optional `good-modal-footer` for actions. The consuming page supplies the content and decides when to open the dialog.",
       "penpotCount": 1
     },
     {
@@ -771,7 +840,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodModalFooterComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/modal.md",
+      "summary": "`good-modal` presents focused tasks above the application. It owns the backdrop, viewport placement, focus, dismissal, and dialog stack. Add `good-modal-header` for the title and close action. Project any content into the body, then add an optional `good-modal-footer` for actions. The consuming page supplies the content and decides when to open the dialog.",
       "penpotCount": 1
     },
     {
@@ -782,7 +852,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodModalHeaderComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/modal.md",
+      "summary": "`good-modal` presents focused tasks above the application. It owns the backdrop, viewport placement, focus, dismissal, and dialog stack. Add `good-modal-header` for the title and close action. Project any content into the body, then add an optional `good-modal-footer` for actions. The consuming page supplies the content and decides when to open the dialog.",
       "penpotCount": 1
     },
     {
@@ -794,6 +865,7 @@
         "symbol": "GoodMonthCalendarComponent"
       },
       "usageGuide": "guides/components/month-calendar.md",
+      "summary": "`good-month-calendar` is a compact month picker. Use it to choose one day or one whole week. For appointments, time grids, and event editing, use [`good-calendar`](calendar.md).",
       "penpotCount": 2
     },
     {
@@ -804,7 +876,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodNotificationHostComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/notifications.md",
+      "summary": "`good-notifications` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
       "penpotCount": 1
     },
     {
@@ -816,6 +889,7 @@
         "symbol": "GoodNotificationsComponent"
       },
       "usageGuide": "guides/components/notifications.md",
+      "summary": "`good-notifications` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
       "penpotCount": 3
     },
     {
@@ -827,6 +901,7 @@
         "symbol": "GoodNumberInputComponent"
       },
       "usageGuide": "guides/components/number-input.md",
+      "summary": "`good-number-input` is a numeric field with a minus button on the left and a plus button on the right. It starts at `0`, moves in steps of `1`, and has a minimum of `0` and no maximum unless configured. Set `min`, `max`, and `step` to finite numbers; a nonpositive or nonfinite step falls back to `1`. If `max` is below `min`, the effective maximum equals the minimum.",
       "penpotCount": 1
     },
     {
@@ -837,7 +912,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodParagraphComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -849,6 +925,7 @@
         "symbol": "GoodPdfPreviewComponent"
       },
       "usageGuide": "guides/components/pdf-preview.md",
+      "summary": "`good-pdf-preview` displays one PDF page at a time inside a responsive GoodUI frame. Its toolbar owns page navigation, zoom (50–300% of fitted width), clockwise rotation, and an optional download action. The document viewport scrolls when a zoomed page exceeds its width. PDF.js renders the page and a selectable text layer; page count updates are announced to assistive technology. `PageUp` and `PageDown` work while the viewport has focus.",
       "penpotCount": 1
     },
     {
@@ -860,6 +937,7 @@
         "symbol": "GoodPinInputComponent"
       },
       "usageGuide": "guides/components/pin-input.md",
+      "summary": "`good-pin-input` collects a short code in a row of large slots. It uses one native input behind the slots, so keyboard selection, paste, browser one-time-code autofill, and mobile keyboards work as one field. Clicking a slot moves the caret to that position. A long code scrolls horizontally inside the control.",
       "penpotCount": 0
     },
     {
@@ -871,6 +949,7 @@
         "symbol": "GoodProgressComponent"
       },
       "usageGuide": "guides/components/progress.md",
+      "summary": "`good-progress` shows a known percentage, ongoing work, or a timed cycle. It owns its label, percentage, track, fill, and responsive width, so callers do not need a custom wrapper. It can be placed directly in page content or inside `good-alert`.",
       "penpotCount": 1
     },
     {
@@ -881,7 +960,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodProseComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -893,6 +973,7 @@
         "symbol": "GoodRadioGroupComponent"
       },
       "usageGuide": "guides/components/radio-group.md",
+      "summary": "`good-radio-group` presents one choice from a set of options. It owns the group label, spacing, selection indicator, and disabled presentation. It uses a native `fieldset`, `legend`, and radio inputs, so keyboard users can Tab into the group and use arrow keys to change the selection.",
       "penpotCount": 1
     },
     {
@@ -904,6 +985,7 @@
         "symbol": "GoodRangeSliderComponent"
       },
       "usageGuide": "guides/components/range-slider.md",
+      "summary": "Use `good-range-slider` to choose one number or the ends of an interval. It fills the available width and starts with a plain thumb, a brand-colored selected track, and a value of `50` on a `0`–`100` scale.",
       "penpotCount": 1
     },
     {
@@ -915,6 +997,7 @@
         "symbol": "GoodRatingComponent"
       },
       "usageGuide": "guides/components/rating.md",
+      "summary": "`good-rating` displays or collects a whole-number score. It uses five Lucide stars by default. Selected stars and thumbs-up are yellow, selected hearts are red, and custom icons default to purple. Unselected symbols are gray. The score is always between one and `count`.",
       "penpotCount": 1
     },
     {
@@ -926,6 +1009,7 @@
         "symbol": "GoodResizableComponent"
       },
       "usageGuide": "guides/components/resizable.md",
+      "summary": "`good-resizable` gives two parts of a workspace an adjustable boundary. Its two content slots are `good-resizable-pane side=\"start\"` and `side=\"end\"`. Both panes scroll independently. The split is a percentage of the space left after the 12 px divider.",
       "penpotCount": 6
     },
     {
@@ -937,6 +1021,7 @@
         "symbol": "GoodResizablePaneComponent"
       },
       "usageGuide": "guides/components/resizable-pane.md",
+      "summary": "`good-resizable-pane` is one of the two content areas inside [Resizable](resizable.md). Use it once with `side=\"start\"` and once with `side=\"end\"`; the parent positions them around its divider. The pane scrolls independently and adds responsive content padding by default. Set `padding=\"none\"` when its content should reach the edges.",
       "penpotCount": 1
     },
     {
@@ -948,6 +1033,7 @@
         "symbol": "GoodRichTextEditorComponent"
       },
       "usageGuide": "guides/components/rich-text-editor.md",
+      "summary": "`good-rich-text-editor` is a full-width HTML editor. It provides a toolbar, a scrollable writing area, undo and redo commands, and an optional assistant pane. The assistant is intentionally empty until an application projects content through `[goodRichTextAssistant]`. On narrow screens the pane overlays the editor.",
       "penpotCount": 1
     },
     {
@@ -959,6 +1045,7 @@
         "symbol": "GoodScatterChartComponent"
       },
       "usageGuide": "guides/components/scatter-chart.md",
+      "summary": "`good-scatter-chart` plots independent two-dimensional observations. Each row has an X and Y value; two rows with the same X value remain two dots. Use it to compare a relationship, a spread, or several groups. It uses the shared `GoodChartDataSource`, `good-chart-axis`, GoodUI Card, marker palette, and optional Table view.",
       "penpotCount": 1
     },
     {
@@ -970,6 +1057,7 @@
         "symbol": "GoodSearchComponent"
       },
       "usageGuide": "guides/components/search.md",
+      "summary": "`goodui.search` has a round trigger and a centered search dialog. The app supplies searchable links. The dialog filters labels and descriptions locally; tabs and external search are not currently part of the API.",
       "penpotCount": 2
     },
     {
@@ -980,7 +1068,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSectionComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -992,6 +1081,7 @@
         "symbol": "GoodSelectComponent"
       },
       "usageGuide": "guides/components/select.md",
+      "summary": "`good-select` chooses one or more values from an application supplied list. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
       "penpotCount": 3
     },
     {
@@ -1002,7 +1092,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSelectCountryComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/select.md",
+      "summary": "`good-select` chooses one or more values from an application supplied list. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
       "penpotCount": 1
     },
     {
@@ -1014,6 +1105,7 @@
         "symbol": "GoodSelectFontComponent"
       },
       "usageGuide": "guides/components/select-font.md",
+      "summary": "`good-select-font` shows familiar web font families with each option rendered in its own typeface. It tries to load each named family from the current browser's local fonts and omits names that fail. Sans serif, serif, monospace, and system UI are always offered.",
       "penpotCount": 1
     },
     {
@@ -1024,7 +1116,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSeparatorComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -1036,6 +1129,7 @@
         "symbol": "GoodSettingsComponent"
       },
       "usageGuide": "guides/components/settings.md",
+      "summary": "`goodui.settings` has a round trigger and an anchored menu. Apps can supply action buttons and links. The independent [Theme toggle](./theme-toggle.md) handles appearance from a single topbar click.",
       "penpotCount": 2
     },
     {
@@ -1046,7 +1140,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarContainerComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/sidebar.md",
+      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
       "penpotCount": 4
     },
     {
@@ -1057,7 +1152,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarItemComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/sidebar.md",
+      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
       "penpotCount": 3
     },
     {
@@ -1068,7 +1164,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarMenuContainerComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/sidebar.md",
+      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
       "penpotCount": 2
     },
     {
@@ -1079,7 +1176,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarSubmenuGroupComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/sidebar.md",
+      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
       "penpotCount": 2
     },
     {
@@ -1090,7 +1188,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSidebarSubmenuItemComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/sidebar.md",
+      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
       "penpotCount": 2
     },
     {
@@ -1102,6 +1201,7 @@
         "symbol": "GoodSignaturePadComponent"
       },
       "usageGuide": "guides/components/signature-pad.md",
+      "summary": "`good-signature-pad` captures a handwritten signature from a pen, finger, or mouse. Its dashed white writing surface, baseline, and **Clear** button make the intended action visible. Clear is available by default. Each completed stroke produces two independent results: a structured sequence of sampled points and a standalone SVG image.",
       "penpotCount": 1
     },
     {
@@ -1113,6 +1213,7 @@
         "symbol": "GoodSparklineComponent"
       },
       "usageGuide": "guides/components/sparkline.md",
+      "summary": "`good-sparkline` shows one compact trend without a Card, axes, legend, or interactive controls. Use it beside a metric or inside a GoodUI Table cell. It reads the same typed `GoodChartDataSource` as Line and Bar charts, so the same source can power a full chart elsewhere.",
       "penpotCount": 1
     },
     {
@@ -1124,6 +1225,7 @@
         "symbol": "GoodStatusIconComponent"
       },
       "usageGuide": "guides/components/status-icon.md",
+      "summary": "`good-status-icon` is a compact, non-interactive status indicator. Set its required `status` and use the default flat dot (`appearance=\"plain\"`) unless the surrounding UI needs a stronger visual cue. The component owns its shape, color, size, and accessible name; it does not change application state or emit events.",
       "penpotCount": 42
     },
     {
@@ -1134,7 +1236,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSubheadingComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -1146,6 +1249,7 @@
         "symbol": "GoodSubnavComponent"
       },
       "usageGuide": "guides/components/subnav.md",
+      "summary": "`good-subnav` navigates between sections of one area, such as account pages. It is a 60 px strip on desktop and a 44 px strip on mobile. `good-main-view` can place it above the heading without extra layout CSS.",
       "penpotCount": 8
     },
     {
@@ -1156,7 +1260,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodSummaryComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
       "penpotCount": 1
     },
     {
@@ -1168,6 +1273,7 @@
         "symbol": "GoodSwitchComponent"
       },
       "usageGuide": "guides/components/switch.md",
+      "summary": "`good-switch` is a reusable on/off control for a setting that takes effect immediately. Its visible track and thumb come from the Penpot `goodui.switch` component. The component keeps the label, hit area, focus ring, and input behavior together, so pages do not need custom alignment or click handling.",
       "penpotCount": 1
     },
     {
@@ -1178,7 +1284,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTabComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/tabs.md",
+      "summary": "`good-tabs` displays a horizontal row of tabs and one content panel at a time. Put each panel in a `good-tab`. Give every tab a stable `value` and a visible `label`.",
       "penpotCount": 1
     },
     {
@@ -1190,6 +1297,7 @@
         "symbol": "GoodTableComponent"
       },
       "usageGuide": "guides/components/table.md",
+      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
       "penpotCount": 1
     },
     {
@@ -1201,6 +1309,7 @@
         "symbol": "GoodTabsComponent"
       },
       "usageGuide": "guides/components/tabs.md",
+      "summary": "`good-tabs` displays a horizontal row of tabs and one content panel at a time. Put each panel in a `good-tab`. Give every tab a stable `value` and a visible `label`.",
       "penpotCount": 3
     },
     {
@@ -1212,6 +1321,7 @@
         "symbol": "GoodTextareaComponent"
       },
       "usageGuide": "guides/components/textarea.md",
+      "summary": "`good-textarea` is the multiline companion to [Input](input.md). Use it for notes, descriptions, or feedback inside a `good-form-field`. It fills its parent width, starts at four text rows, and uses the same input surface, border, focus, error, and required-field styling as `good-input`.",
       "penpotCount": 1
     },
     {
@@ -1223,6 +1333,7 @@
         "symbol": "GoodThemeToggleComponent"
       },
       "usageGuide": "guides/components/theme-toggle.md",
+      "summary": "`goodui.theme-toggle` maps to `good-theme-toggle`. It is an optional 36 × 36 px topbar action. One click cycles **Light → System → Dark → Light** without opening a menu. The icon shows the current preference: sun, monitor, or moon. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.",
       "penpotCount": 3
     },
     {
@@ -1234,6 +1345,7 @@
         "symbol": "GoodTimelineComponent"
       },
       "usageGuide": "guides/components/timeline.md",
+      "summary": "Use `appearance=\"sections\"` when the timeline structures a page or form. Import `GoodTimelineComponent` and `GoodTimelineSectionComponent` from `@cloudfrogger/goodui`. Each section accepts arbitrary projected GoodUI content; the parent supplies the vertical dashed rail. This mode stays vertical at every width and leaves existing step timelines unchanged.",
       "penpotCount": 11
     },
     {
@@ -1245,6 +1357,7 @@
         "symbol": "GoodTimelineSectionComponent"
       },
       "usageGuide": "guides/components/timeline-section.md",
+      "summary": "`good-timeline-section` is a projected child of `good-timeline appearance=\"sections\"`. It supplies a semantic heading, a state marker, and a body for GoodUI controls or content. Import `GoodTimelineSectionComponent` together with `GoodTimelineComponent` from `@cloudfrogger/goodui`.",
       "penpotCount": 1
     },
     {
@@ -1256,6 +1369,7 @@
         "symbol": "GoodTimelineStepComponent"
       },
       "usageGuide": "guides/components/timeline-step.md",
+      "summary": "`good-timeline-step` defines one step inside `good-timeline`. It is a declarative configuration tag; the parent renders the visible marker, text, and connector.",
       "penpotCount": 1
     },
     {
@@ -1267,6 +1381,7 @@
         "symbol": "GoodTopbarComponent"
       },
       "usageGuide": "guides/components/topbar.md",
+      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 7
     },
     {
@@ -1277,7 +1392,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarDropdownItemComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/topbar.md",
+      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 3
     },
     {
@@ -1288,7 +1404,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarDropdownMenuComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/topbar.md",
+      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 2
     },
     {
@@ -1299,7 +1416,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarMenuContainerComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/topbar.md",
+      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 3
     },
     {
@@ -1310,7 +1428,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarMenuItemComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/topbar.md",
+      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 2
     },
     {
@@ -1321,7 +1440,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTopbarSubmenuComponent"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/topbar.md",
+      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 1
     },
     {
@@ -1333,6 +1453,7 @@
         "symbol": "GoodWorldMapComponent"
       },
       "usageGuide": "guides/components/world-map.md",
+      "summary": "`good-world-map` plots country data on a zoomable, pannable map. It shares `GoodChartDataSource` and the GoodUI marker palette with the other data visualizations. The geometry is bundled and loaded only when a map is opened; it requires no tile service or API key. The map uses Natural Earth 5.1.2 country boundaries via `@cublya/world-atlas` 3.0.0-beta.2. See [Natural Earth's terms](https://www.naturalearthdata.com/about/terms-of-use/) and [World Atlas data license](https://cublya.github.io/world-atlas/guides/boundary-data-licensing/).",
       "penpotCount": 4
     },
     {
@@ -1343,7 +1464,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodListboxItemDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/listbox.md",
+      "summary": "`good-listbox` is an always visible list of items. By default it is an action list: activating an item emits `itemActivated` without changing selection. Set `selectionMode=\"single\"` or `\"multiple\"` when the list should own selection. Use `good-select` when choices should open from a form field, or `good-dropdown` for commands and navigation. Selection is a set of item IDs; even single selection uses an array with zero or one ID. This keeps the event and Angular Forms value shape consistent when an app switches between single and multiple selection.",
       "penpotCount": 0
     },
     {
@@ -1354,7 +1476,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTableCellDirective"
       },
-      "usageGuide": null,
+      "usageGuide": "guides/components/table.md",
+      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
       "penpotCount": 0
     }
   ]

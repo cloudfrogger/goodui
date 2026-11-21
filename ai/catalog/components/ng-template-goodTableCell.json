@@ -30,14 +30,14 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/table.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
     "examples": []
   },
   "penpot": [],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": true
   }
 }

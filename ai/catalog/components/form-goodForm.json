@@ -49,9 +49,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/form.md",
   "usage": {
-    "summary": null,
+    "summary": "`goodForm` is a standalone Angular directive for a native `<form>`. It aligns every direct child `good-form-field` to the same columns and keeps native submit behavior, browser semantics, and Angular Reactive Forms intact.",
     "examples": []
   },
   "penpot": [
@@ -78,7 +78,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

@@ -20,14 +20,14 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/detail-list.md",
   "usage": {
-    "summary": null,
+    "summary": "Use `good-detail-list` for compact label/value pairs in summaries, settings, and price breakdowns. It renders a native `<dl>`. Add one `<div goodDetailRow>` per pair, with a native `<dt>` for the label and `<dd>` for the value. The value aligns to the right; long content wraps within narrow panels. The list has no border or page-specific padding.",
     "examples": []
   },
   "penpot": [],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": true
   }
 }

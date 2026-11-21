@@ -106,9 +106,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/tabs.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-tabs` displays a horizontal row of tabs and one content panel at a time. Put each panel in a `good-tab`. Give every tab a stable `value` and a visible `label`.",
     "examples": [
       "ai/examples/table-view.html"
     ]
@@ -123,7 +123,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }

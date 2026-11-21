@@ -19,4 +19,6 @@ jobs:
       - run: npm run build:lib
       - run: node ai/scripts/generate-catalog.mjs --check
       - run: node ai/scripts/check-catalog.mjs
+      - run: node ai/scripts/check-catalog.mjs angular/dist/goodui
+      - run: node ai/scripts/check-npm.mjs
       - run: node ai/scripts/build-examples.mjs

@@ -3,7 +3,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Foundation · Layout</good-eyebrow>
-        <good-heading [level]="1">Default view</good-heading>
+        <good-heading [level]="1">Default layout</good-heading>
         <good-summary>Make a page that grows with its content and scrolls in the main area.</good-summary>
       </good-heading-group>
       <good-paragraph>The <good-link route="/getting-started/layout/general">General</good-link> chapter sets up the application shell. Use this page layout for forms, documents, tables, and other content that should scroll normally.</good-paragraph>
@@ -11,14 +11,19 @@
   </good-section>
 
   <good-section>
-    <good-subheading>See the default view</good-subheading>
+    <good-subheading>See the default layout</good-subheading>
     <good-prose>
-      <good-paragraph>The <good-link route="/examples/user-registration">user registration example</good-link> shows a complete form in the default MainView. The page has its own padding and scrolls as its content grows. Select the screenshot for a closer look.</good-paragraph>
+      <good-paragraph>The annotated <good-link route="/examples/user-registration">user registration example</good-link> shows the left navigation, topbar, and page content. Select the screenshot for a closer look, then compare the labels with the structure directly below it.</good-paragraph>
     </good-prose>
-    <good-inline-image src="/foundation/layout-app-shell.png" style="--good-typography-image-max-width: 100%"
-      alt="GoodUI user registration page inside a normally scrolling MainView with sidebar and topbar"
-      caption="User registration in the default view at 1440 × 900 px."
+    <good-inline-image src="/foundation/layout-default-annotated.png" style="--good-typography-image-max-width: 100%"
+      alt="Annotated GoodUI layout with arrows identifying good-sidebar-container on the left, good-topbar across the top, and good-main-view for page content"
+      caption="Left navigation, topbar, and page content in the default layout."
       [previewable]="true" loading="eager" />
+    <good-code-block [code]="structureCode" language="html" title="Default layout structure" />
+    <good-prose>
+      <good-paragraph><code>good-app-layout</code> creates <code>good-sidebar-container</code> from <code>navigation</code> and <code>good-topbar</code> from <code>topbarItems</code>. Your page belongs inside <code>good-main-view</code>. The <good-link route="/getting-started/layout/general">General</good-link> chapter shows the menu arrays, imports, and providers.</good-paragraph>
+      <good-paragraph>For a routed application, keep AppLayout in the root template and place <code>&lt;router-outlet /&gt;</code> inside it. The routed component then renders MainView and its page content, as shown in the next steps.</good-paragraph>
+    </good-prose>
   </good-section>
 
   <good-section>

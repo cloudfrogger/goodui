@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "npm run build:lib",
     "build:css": "node ../scripts/generate-tokens.mjs && tailwindcss -i projects/goodui/src/styles.css -o projects/goodui/assets/styles.css --minify",
-    "build:lib": "npm run build:css && node ../scripts/generate-pdf-worker.mjs && ng build goodui && node ../scripts/copy-license.mjs",
+    "build:lib": "node ../ai/scripts/generate-catalog.mjs --check && npm run build:css && node ../scripts/generate-pdf-worker.mjs && ng build goodui && node ../scripts/copy-license.mjs && node ../ai/scripts/package-npm.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

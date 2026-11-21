@@ -20,14 +20,14 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/dropdown.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-dropdown` combines a GoodUI Button trigger with a structured popup. The trigger inherits Button's `variant`, `size`, leading `icon`, disabled state, and focus style. Set `showChevron` to hide the trailing chevron; an icon-only trigger needs an `ariaLabel`. The popup owns its placement, header, item list, footer, scrolling, and submenus, so consuming apps do not need positioning CSS.",
     "examples": []
   },
   "penpot": [],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": true
   }
 }

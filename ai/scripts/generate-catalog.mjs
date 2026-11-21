@@ -32,6 +32,15 @@ const values = type => {
   return parts.map(part => part.value);
 };
 const json = value => `${JSON.stringify(value, null, 2)}\n`;
+const guideOverrides = {
+  'good-app-layout': 'layout/app-layout',
+  'good-avatar-menu-item': 'components/avatar-menu',
+  'good-color-picker': 'components/color-controls',
+  'good-image-preview': 'components/image-input',
+  'good-notification-host': 'components/notifications',
+  'good-select-country': 'components/select',
+  'div[goodDetailRow]': 'components/detail-list',
+};
 const generated = new Map();
 const index = [];
 for (const modulePath of modules) {
@@ -72,7 +81,13 @@ for (const modulePath of modules) {
       }
     }
     const name = selector.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
-    const guidePath = path.join(root, 'guides/components', `${selector.replace(/^good-/, '')}.md`);
+    const guideCandidates = [
+      guideOverrides[selector],
+      `components/${selector.replace(/^good-/, '')}`,
+      `components/${path.basename(modulePath, '.ts')}`,
+    ].filter(Boolean).map(guide => path.join(root, 'guides', `${guide}.md`));
+    const guidePath = guideCandidates.find(guide => fs.existsSync(guide));
+    if (!guidePath) throw new Error(`Missing usage guide for ${selector}`);
     const usageSummary = fs.existsSync(guidePath) ? fs.readFileSync(guidePath, 'utf8').split('\n').map(line => line.trim()).find(line => line && !line.startsWith('#') && !line.startsWith('```') && !line.startsWith('|') && !line.startsWith('- ') && !line.startsWith('>')) ?? null : null;
     const examples = fs.readdirSync(path.join(root, 'ai/examples')).filter(file => file.endsWith('.html') && fs.readFileSync(path.join(root, 'ai/examples', file), 'utf8').includes(selector)).map(file => `ai/examples/${file}`);
     const penpot = map.componentMappings.filter(item => item.angularSelector === selector).map(({ penpotName, penpotId, kind, state, owner }) => ({ penpotName, penpotId, kind, state, owner: owner ?? null }));
@@ -93,7 +108,7 @@ for (const modulePath of modules) {
     const relative = `components/${name}.json`;
     if (generated.has(relative)) throw new Error(`Duplicate selector ${selector}`);
     generated.set(relative, json(item));
-    index.push({ selector, className: cls.name.text, file: relative, import: item.import, usageGuide: item.usageGuide, penpotCount: penpot.length });
+    index.push({ selector, className: cls.name.text, file: relative, import: item.import, usageGuide: item.usageGuide, summary: item.usage.summary, penpotCount: penpot.length });
   }
 }
 index.sort((a, b) => a.selector.localeCompare(b.selector));

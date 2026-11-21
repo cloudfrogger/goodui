@@ -41,10 +41,21 @@ if (!dryRun) {
   if (response.status !== 404) throw new Error(`npm version lookup failed (HTTP ${response.status}).`);
 }
 
+const referenceManifests = ['ai/catalog/index.json', 'ai/manifest.json', 'angular/projects/goodui/package.json']
+  .map(relative => {
+    const file = join(directory, relative);
+    const original = readFileSync(file, 'utf8');
+    return { file, original, data: JSON.parse(original) };
+  });
 const temporaryDirectory = mkdtempSync(join(tmpdir(), 'goodui-npm-'));
 try {
   const config = join(temporaryDirectory, '.npmrc');
   writeFileSync(config, '//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n', { mode: 0o600 });
+  for (const manifest of referenceManifests) {
+    const metadata = manifest.file.endsWith('ai/manifest.json')
+      ? { sourceRevision: sha, note: 'References bundled with the npm package.' } : {};
+    writeFileSync(manifest.file, JSON.stringify({ ...manifest.data, version, ...metadata }, null, 2) + '\n');
+  }
   writeFileSync(packagePath, JSON.stringify({ ...built, version, gitHead: sha }, null, 2) + '\n');
   execFileSync('npm', ['publish', directory, '--access', 'public', '--tag', 'latest', '--registry', registry,
     '--ignore-scripts', ...(dryRun ? ['--dry-run'] : [])], {
@@ -54,5 +65,6 @@ try {
   });
 } finally {
   writeFileSync(packagePath, original);
+  for (const manifest of referenceManifests) writeFileSync(manifest.file, manifest.original);
   rmSync(temporaryDirectory, { recursive: true, force: true });
 }

@@ -61,6 +61,10 @@ steps:
       - npm --prefix angular ci --legacy-peer-deps --no-audit --no-fund
       - npm run check:mapping
       - npm run build:lib
+      - node ai/scripts/generate-catalog.mjs --check
+      - node ai/scripts/check-catalog.mjs angular/dist/goodui
+      - node ai/scripts/check-npm.mjs
+      - node ai/scripts/build-examples.mjs
     when:
       event:
         - push

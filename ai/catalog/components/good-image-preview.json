@@ -76,9 +76,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": null,
+  "usageGuide": "guides/components/image-input.md",
   "usage": {
-    "summary": null,
+    "summary": "`good-image-input` accepts one image. Its square shape uses the shared card radius; `shape=\"circle\"` uses the shared round radius. An empty tile opens the native file picker. A selected image fills the tile with `object-fit: cover`. Without preview mode, activating the filled tile also opens the file picker. The optional upload button replaces the image, while the optional X removes it and emits `(removed)` so the application can persist the deletion.",
     "examples": []
   },
   "penpot": [
@@ -91,7 +91,7 @@
     }
   ],
   "missing": {
-    "usageGuide": true,
+    "usageGuide": false,
     "penpotMapping": false
   }
 }
