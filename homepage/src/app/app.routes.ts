@@ -28,7 +28,7 @@ export const routes: Routes = [
   { path: 'getting-started/layout/general', loadComponent: () => import('./layout-general-page').then(module => module.LayoutGeneralPageComponent) },
   { path: 'getting-started/layout/page', redirectTo: 'getting-started/layout/default', pathMatch: 'full' },
   { path: 'getting-started/layout/default', loadComponent: () => import('./layout-default-page').then(module => module.LayoutDefaultPageComponent) },
-  { path: 'getting-started/layout/fill', loadComponent: () => import('./layout-fill-page').then(module => module.LayoutFillPageComponent) },
+  { path: 'getting-started/layout/fill', redirectTo: 'getting-started/layout/default', pathMatch: 'full' },
   { path: 'getting-started/typography', loadComponent: () => import('./typography-page').then(module => module.TypographyPageComponent) },
   { path: 'getting-started/color-scheme', loadComponent: () => import('./color-scheme-page').then(module => module.ColorSchemePageComponent) },
   { path: 'getting-started/developing', loadComponent: () => import('./getting-started-page').then(module => module.DevelopingPageComponent) },

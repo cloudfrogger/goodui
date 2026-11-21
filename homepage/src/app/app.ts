@@ -66,7 +66,6 @@ export class App {
       { id: 'layout', label: 'Layout', icon: 'grid', children: [
         { id: 'layout-general', label: 'General', route: '/getting-started/layout/general' },
         { id: 'layout-default', label: 'Default layout', route: '/getting-started/layout/default' },
-        { id: 'layout-fill', label: 'Fill view', route: '/getting-started/layout/fill' },
       ] },
       { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
       { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
@@ -199,7 +198,6 @@ export class App {
         { id: 'layout', label: 'Layout', icon: 'grid', children: [
           { id: 'layout-general', label: 'General', route: '/getting-started/layout/general' },
           { id: 'layout-default', label: 'Default layout', route: '/getting-started/layout/default' },
-          { id: 'layout-fill', label: 'Fill view', route: '/getting-started/layout/fill' },
         ] },
         { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
         { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
@@ -231,7 +229,7 @@ export class App {
     { id: 'timelines', label: 'Timelines', description: 'Responsive process steps and milestone histories', route: '/components/timelines' },
     { id: 'layout-general', label: 'Layout · General', description: 'Foundation · application shell, navigation, and providers', route: '/getting-started/layout/general' },
     { id: 'layout-default', label: 'Layout · Default layout', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default' },
-    { id: 'layout-fill', label: 'Layout · Fill view', description: 'Foundation · full-height workspace without page scrolling', route: '/getting-started/layout/fill' },
+    { id: 'layout-fill', label: 'Layout · Fill option', description: 'Default layout variant · entire client content area without outer padding', route: '/getting-started/layout/default' },
     { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
     { id: 'chart-datasources', label: 'Chart data sources', description: 'Typed keys, dimensions, multiple sources, and axis conversions', route: '/visualizations/datasources' },
     { id: 'line-charts', label: 'Line charts', description: 'Responsive, multi-series charts with optional data table', route: '/visualizations/line-charts' },

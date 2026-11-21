@@ -4,7 +4,7 @@
       <good-heading-group>
         <good-eyebrow>Foundation · Layout</good-eyebrow>
         <good-heading [level]="1">Default layout</good-heading>
-        <good-summary>Make a page that grows with its content and scrolls in the main area.</good-summary>
+        <good-summary>Use the standard page layout, or let a workspace fill the entire client content area.</good-summary>
       </good-heading-group>
       <good-paragraph>The <good-link route="/getting-started/layout/general">General</good-link> chapter sets up the application shell. Use this page layout for forms, documents, tables, and other content that should scroll normally.</good-paragraph>
     </good-prose>
@@ -50,7 +50,32 @@
     </good-prose>
     <good-code-block [code]="freePageCode" language="html" title="Full-width scrolling page" />
     <good-prose>
-      <good-paragraph>Need the content to meet all four edges without page scrolling? Continue with <good-link route="/getting-started/layout/fill">Fill view</good-link>.</good-paragraph>
+      <good-paragraph>For a workspace that meets all four edges without page scrolling, use the fill option described below.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section id="fill-layout">
+    <good-subheading>Fill option: use the entire client content area</good-subheading>
+    <good-prose>
+      <good-paragraph>Fill is a variant of the same layout. Set <code>layout="fill"</code> on MainView to remove its outer padding and use the full width and height available to page content. The sidebar and topbar stay in place. The calendar below touches the edges of that remaining client area, without the page layout's surrounding whitespace.</good-paragraph>
+    </good-prose>
+    <good-inline-image src="/foundation/layout-fill-annotated.png" style="--good-typography-image-max-width: 100%"
+      alt="Annotated calendar workspace showing layout fill using the entire client content area without outer padding, while the application sidebar and topbar stay in place"
+      caption="The fill option removes MainView's outer padding and uses the entire client content area below the topbar and beside the sidebar."
+      [previewable]="true" />
+    <good-code-block [code]="fillPageCode" language="html" title="Fill variant · src/app/calendar-page.html" />
+    <good-prose>
+      <good-paragraph>Place one primary workspace directly inside MainView. Its content scrolls internally, while the application frame stays fixed. For Calendar, <code>[fillHeight]="true"</code> makes the calendar fill MainView and keeps its time grid, month view, and list scrolling within the component.</good-paragraph>
+      <good-paragraph>Omit a surrounding Section or Card when the workspace should touch the edges. An optional MainView title or description keeps the normal heading inset; leave the heading out when the workspace should also touch the topbar.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="fillComponentCode" language="typescript" title="src/app/calendar-page.ts" />
+    <good-prose>
+      <good-subheading>Optional fixed toolbar</good-subheading>
+      <good-paragraph>Add <code>goodMainViewToolbar</code> to a command strip that should stay above the workspace. MainView gives the remaining height to the content. Use <code>good-action-bar</code> for grouped commands and tools; the panes beneath it scroll independently.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="fillToolbarCode" language="html" title="Fixed toolbar above a filled workspace" />
+    <good-prose>
+      <good-paragraph>Try the <good-link route="/examples/calendar-workspace">calendar workspace example</good-link> on desktop or mobile. Its “View source” action shows the complete working Angular page. The <good-link route="/examples/mail-workspace">mail workspace example</good-link> demonstrates a fixed ActionBar and a resizable three-pane workspace with search and filters.</good-paragraph>
     </good-prose>
   </good-section>
 </good-main-view>

@@ -63,4 +63,33 @@ import {
 })
 export class OverviewPageComponent {}`;
 
+  readonly fillComponentCode = `import { Component } from '@angular/core';
+import {
+  GoodCalendarComponent, GoodMainViewComponent,
+} from '@cloudfrogger/goodui';
+
+@Component({
+  selector: 'app-calendar-page',
+  standalone: true,
+  imports: [GoodMainViewComponent, GoodCalendarComponent],
+  templateUrl: './calendar-page.html',
+})
+export class CalendarPageComponent {}`;
+
+  readonly fillPageCode = `<good-main-view layout="fill">
+  <good-calendar [fillHeight]="true" />
+</good-main-view>`;
+
+  readonly fillToolbarCode = `<good-main-view layout="fill">
+  <good-action-bar goodMainViewToolbar [groups]="actionGroups"
+    (commandSelected)="runCommand($event)">
+    <div goodActionBarTools>
+      <good-input label="Search items" type="search" [(value)]="query" />
+    </div>
+  </good-action-bar>
+  <good-resizable height="100%">
+    <!-- Navigation, list, and preview panes -->
+  </good-resizable>
+</good-main-view>`;
+
 }
