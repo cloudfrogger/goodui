@@ -6,7 +6,10 @@ WORKDIR /workspace
 COPY angular/package.json angular/package-lock.json angular/
 RUN npm --prefix angular ci --legacy-peer-deps --no-audit --no-fund
 
-COPY package.json LICENSE ./
+COPY package.json LICENSE design.md ./
+COPY ai/ ai/
+COPY guides/ guides/
+COPY design/component-map.json design/component-map.json
 COPY angular/ angular/
 COPY homepage/ homepage/
 COPY scripts/ scripts/

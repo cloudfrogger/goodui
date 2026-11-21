@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { copyReferences } from './copy-references.mjs';
 
@@ -24,12 +24,15 @@ const angular = JSON.parse(fs.readFileSync(angularConfig, 'utf8'));
 angular['$schema'] = '../../../../@angular/cli/lib/config/schema.json';
 angular.projects.examples.architect.build.options.styles = ['../../styles.css'];
 fs.writeFileSync(angularConfig, JSON.stringify(angular, null, 2) + '\n');
-const dirty = execFileSync('git', ['status', '--porcelain'], { cwd: root, encoding: 'utf8' }).trim();
-const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
+const status = spawnSync('git', ['status', '--porcelain'], { cwd: root, encoding: 'utf8' });
+const revision = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' });
+const sourceRevision = status.status === 0 && revision.status === 0 && !status.stdout.trim()
+  ? revision.stdout.trim() : null;
 fs.writeFileSync(path.join(destination, 'ai/manifest.json'), JSON.stringify({
   package: built.name,
   version: built.version,
-  sourceRevision: dirty ? null : revision,
-  note: dirty ? 'Local build from an uncommitted workspace.' : 'References bundled with the npm package.',
+  sourceRevision,
+  note: sourceRevision ? 'References bundled with the npm package.'
+    : 'Source revision is assigned during npm publication.',
 }, null, 2) + '\n');
 console.log(`Bundled GoodUI agent references for ${built.name}@${built.version}`);

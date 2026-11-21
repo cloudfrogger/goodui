@@ -17,4 +17,5 @@
 **/*.pem
 **/*.key
 artwork
+ai/artifacts
 doc
