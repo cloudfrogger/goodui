@@ -16,4 +16,4 @@ For a page-level Card or framed Group that still needs more horizontal room, set
 
 Read the exact catalog detail for each selected component. Required inputs are explicit there; selector names and imports come from `public-api.ts`.
 
-For a custom action area, project `good-main-menu` directly into AppLayout or Topbar, then place action components inside it in the desired order. The container owns spacing. See `guides/components/main-menu.md`.
+For a custom action area, project `good-header-actions` directly into AppLayout or Topbar, then place action components inside it in the desired order. The container owns spacing. See `guides/components/header-actions.md`.

@@ -1,11 +1,11 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-avatar-menu",
-  "className": "GoodAvatarMenuComponent",
+  "selector": "good-header-avatar",
+  "className": "GoodHeaderAvatarComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodAvatarMenuComponent"
+    "symbol": "GoodHeaderAvatarComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",
   "inputs": [
@@ -41,9 +41,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/components/avatar-menu.md",
+  "usageGuide": "guides/components/header-avatar.md",
   "usage": {
-    "summary": "`good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
+    "summary": "`good-header-avatar` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
     "examples": []
   },
   "penpot": [

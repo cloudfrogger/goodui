@@ -1,11 +1,11 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-theme-toggle",
-  "className": "GoodThemeToggleComponent",
+  "selector": "good-header-themetoggle",
+  "className": "GoodHeaderThemeToggleComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodThemeToggleComponent"
+    "symbol": "GoodHeaderThemeToggleComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",
   "inputs": [],
@@ -22,9 +22,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/components/theme-toggle.md",
+  "usageGuide": "guides/components/header-themetoggle.md",
   "usage": {
-    "summary": "`goodui.theme-toggle` maps to `good-theme-toggle`. It is an optional 36 × 36 px topbar action. One click cycles **Light → System → Dark → Light** without opening a menu. The icon shows the current preference: sun, monitor, or moon. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.",
+    "summary": "`goodui.theme-toggle` maps to `good-header-themetoggle`. It is an optional 36 × 36 px topbar action. One click cycles **Light → System → Dark → Light** without opening a menu. The icon shows the current preference: sun, monitor, or moon. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.",
     "examples": []
   },
   "penpot": [

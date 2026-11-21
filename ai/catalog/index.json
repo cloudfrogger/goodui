@@ -209,18 +209,6 @@
       "penpotCount": 4
     },
     {
-      "selector": "good-avatar-menu",
-      "className": "GoodAvatarMenuComponent",
-      "file": "components/good-avatar-menu.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodAvatarMenuComponent"
-      },
-      "usageGuide": "guides/components/avatar-menu.md",
-      "summary": "`good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
-      "penpotCount": 4
-    },
-    {
       "selector": "good-avatar-menu-item",
       "className": "GoodAvatarMenuItemComponent",
       "file": "components/good-avatar-menu-item.json",
@@ -228,8 +216,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodAvatarMenuItemComponent"
       },
-      "usageGuide": "guides/components/avatar-menu.md",
-      "summary": "`good-avatar-menu` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
+      "usageGuide": "guides/components/header-avatar.md",
+      "summary": "`good-header-avatar` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
       "penpotCount": 3
     },
     {
@@ -617,6 +605,66 @@
       "penpotCount": 4
     },
     {
+      "selector": "good-header-actions",
+      "className": "GoodHeaderActionsComponent",
+      "file": "components/good-header-actions.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderActionsComponent"
+      },
+      "usageGuide": "guides/components/header-actions.md",
+      "summary": "`good-header-actions` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-header-avatar",
+      "className": "GoodHeaderAvatarComponent",
+      "file": "components/good-header-avatar.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderAvatarComponent"
+      },
+      "usageGuide": "guides/components/header-avatar.md",
+      "summary": "`good-header-avatar` is the account control in the topbar. The round trigger opens an approximately 250 × 384 px panel with an identity header, profile links, expandable account and language rows, a Dark Mode switch, and an optional sign-out action. The 40 px rows and their spacing belong to the component. It uses the same semantic colors in light and dark themes.",
+      "penpotCount": 4
+    },
+    {
+      "selector": "good-header-notification",
+      "className": "GoodHeaderNotificationComponent",
+      "file": "components/good-header-notification.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderNotificationComponent"
+      },
+      "usageGuide": "guides/components/header-notification.md",
+      "summary": "`good-header-notification` is the independent header bell and inbox action. Import `GoodHeaderNotificationComponent`; place it inside `good-header-actions` in any position.",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-header-search",
+      "className": "GoodHeaderSearchComponent",
+      "file": "components/good-header-search.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderSearchComponent"
+      },
+      "usageGuide": "guides/components/header-search.md",
+      "summary": "`good-header-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.",
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-header-themetoggle",
+      "className": "GoodHeaderThemeToggleComponent",
+      "file": "components/good-header-themetoggle.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderThemeToggleComponent"
+      },
+      "usageGuide": "guides/components/header-themetoggle.md",
+      "summary": "`goodui.theme-toggle` maps to `good-header-themetoggle`. It is an optional 36 × 36 px topbar action. One click cycles **Light → System → Dark → Light** without opening a menu. The icon shows the current preference: sun, monitor, or moon. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.",
+      "penpotCount": 3
+    },
+    {
       "selector": "good-heading",
       "className": "GoodHeadingComponent",
       "file": "components/good-heading.json",
@@ -773,18 +821,6 @@
       "penpotCount": 4
     },
     {
-      "selector": "good-main-menu",
-      "className": "GoodMainMenuComponent",
-      "file": "components/good-main-menu.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodMainMenuComponent"
-      },
-      "usageGuide": "guides/components/main-menu.md",
-      "summary": "`good-main-menu` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
-      "penpotCount": 1
-    },
-    {
       "selector": "good-main-view",
       "className": "GoodMainViewComponent",
       "file": "components/good-main-view.json",
@@ -877,20 +913,8 @@
         "symbol": "GoodNotificationHostComponent"
       },
       "usageGuide": "guides/components/notifications.md",
-      "summary": "`good-notifications` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
+      "summary": "`good-header-notification` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
       "penpotCount": 1
-    },
-    {
-      "selector": "good-notifications",
-      "className": "GoodNotificationsComponent",
-      "file": "components/good-notifications.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodNotificationsComponent"
-      },
-      "usageGuide": "guides/components/notifications.md",
-      "summary": "`good-notifications` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
-      "penpotCount": 3
     },
     {
       "selector": "good-number-input",
@@ -1049,18 +1073,6 @@
       "penpotCount": 1
     },
     {
-      "selector": "good-search",
-      "className": "GoodSearchComponent",
-      "file": "components/good-search.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodSearchComponent"
-      },
-      "usageGuide": "guides/components/search.md",
-      "summary": "`good-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/search` with a working preview and copyable examples.",
-      "penpotCount": 2
-    },
-    {
       "selector": "good-section",
       "className": "GoodSectionComponent",
       "file": "components/good-section.json",
@@ -1129,7 +1141,7 @@
         "symbol": "GoodSettingsComponent"
       },
       "usageGuide": "guides/components/settings.md",
-      "summary": "`goodui.settings` has a round trigger and an anchored menu. Apps can supply action buttons and links. The independent [Theme toggle](./theme-toggle.md) handles appearance from a single topbar click.",
+      "summary": "`goodui.settings` has a round trigger and an anchored menu. Apps can supply action buttons and links. The independent [Theme toggle](./header-themetoggle.md) handles appearance from a single topbar click.",
       "penpotCount": 2
     },
     {
@@ -1323,18 +1335,6 @@
       "usageGuide": "guides/components/textarea.md",
       "summary": "`good-textarea` is the multiline companion to [Input](input.md). Use it for notes, descriptions, or feedback inside a `good-form-field`. It fills its parent width, starts at four text rows, and uses the same input surface, border, focus, error, and required-field styling as `good-input`.",
       "penpotCount": 1
-    },
-    {
-      "selector": "good-theme-toggle",
-      "className": "GoodThemeToggleComponent",
-      "file": "components/good-theme-toggle.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodThemeToggleComponent"
-      },
-      "usageGuide": "guides/components/theme-toggle.md",
-      "summary": "`goodui.theme-toggle` maps to `good-theme-toggle`. It is an optional 36 × 36 px topbar action. One click cycles **Light → System → Dark → Light** without opening a menu. The icon shows the current preference: sun, monitor, or moon. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.",
-      "penpotCount": 3
     },
     {
       "selector": "good-timeline",

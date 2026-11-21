@@ -44,7 +44,7 @@ Token names remain intact in CSS, with dots and underscores converted to hyphens
 | `calendar.holiday.marker.size` | `--good-calendar-holiday-marker-size` | Linked holiday label marker in all four calendar specimens | Compact holiday marker; text and surface use existing semantic color tokens |
 | `space.7_5` | `--good-space-7-5` | Alias target | Shared 30 px spacing value |
 | `topbar.padding-inline` | `--good-topbar-padding-inline` | Desktop Topbar left/right flex padding | Desktop topbar padding |
-| `main-menu.gap` | `--good-main-menu-gap` | MainMenu flex column gap | Action spacing |
+| `main-menu.gap` | `--good-main-menu-gap` | HeaderActions flex column gap | Action spacing |
 | `sidebar.menu-gap` | `--good-sidebar-menu-gap` | SidebarMenuContainer flex row gap | Heading-to-items spacing |
 | `size.sidebar` | `--good-size-sidebar` | SidebarContainer width | Sidebar width |
 | `size.topbar` / `size.topbar-mobile` | `--good-size-topbar` / `--good-size-topbar-mobile` | Topbar heights | Shell heights |
@@ -146,11 +146,11 @@ The semantic values `topbar.padding-inline`, `main-menu.gap`, `sidebar.menu-gap`
 
 ## Supported bindings and layout limits
 
-The connected Penpot plugin API is version 2.17.0. It supports token bindings for color fills/strokes, spacing on flex and grid gaps and padding, sizing on width/height, and border radius on corners. The bindings above were checked through each shape's `tokens` map, including a desktop Topbar, MainMenu, SidebarMenuContainer, action control, SidebarItem, and MainView card border.
+The connected Penpot plugin API is version 2.17.0. It supports token bindings for color fills/strokes, spacing on flex and grid gaps and padding, sizing on width/height, and border radius on corners. The bindings above were checked through each shape's `tokens` map, including a desktop Topbar, HeaderActions, SidebarMenuContainer, action control, SidebarItem, and MainView card border.
 
 Some existing boards use absolute positions: the account MainView, Subnav's item track, and mobile Topbar. Penpot spacing tokens cannot control their individual placement offsets without changing their layout model. GoodUI keeps those offsets explicit to preserve the design. The mobile Topbar's 16 px padding and the 20 px intermediate-breakpoint padding are deliberate CSS rules, outside the bound desktop padding token. Some nested sidebar-menu instances have a different flex gap; they keep that instance value.
 
-Two existing visual differences remain outside the shared-token mapping: Penpot's mobile MainMenu has a 10 px gap while Angular uses 4 px at the mobile breakpoint, and Penpot's TopbarMenuContainer has a 10 px flex gap while Angular uses 26 px on desktop. They need a design decision before they can share one semantic token without changing one of the current appearances.
+Two existing visual differences remain outside the shared-token mapping: Penpot's mobile HeaderActions has a 10 px gap while Angular uses 4 px at the mobile breakpoint, and Penpot's TopbarMenuContainer has a 10 px flex gap while Angular uses 26 px on desktop. They need a design decision before they can share one semantic token without changing one of the current appearances.
 
 Open and responsive shell states remain separate Penpot components. Button is a real variant group with 45 combinations; its former outline component IDs and nested instances are preserved. The [variant ID manifest](https://github.com/cloudfrogger/goodui/blob/master/design/button-variants.json) maps Penpot variants to the `good-button` inputs.
 
@@ -196,7 +196,7 @@ Image Input adds `image-input.size` (180 px) to the `layout` set. Its Penpot pre
 
 This is a **manual Penpot-to-repository export** followed by automatic CSS generation. The build regenerates CSS from the saved JSON, not from live Penpot. The generated file is `angular/projects/goodui/src/tokens.generated.css`; the package stylesheet imports it and exposes Tailwind CSS 4 `--color-good-*` mappings through `@theme inline`. GoodUI does not ship Tailwind Preflight to consuming apps.
 
-For app-level theming, set `data-theme="light"` or `data-theme="dark"` on a common root. `GoodThemeService` stores an explicit Light or Dark preference in the `goodui-theme` cookie and writes the resolved value to `data-theme`. System mode removes the cookie, follows the system preference, and responds to later system changes. Put the [prepaint script](../components/theme-toggle.md) in the app's `index.html` to set the background before Angular loads. Apps can override public `--good-*` variables at runtime; these overrides are application-specific and do not write back to Penpot.
+For app-level theming, set `data-theme="light"` or `data-theme="dark"` on a common root. `GoodThemeService` stores an explicit Light or Dark preference in the `goodui-theme` cookie and writes the resolved value to `data-theme`. System mode removes the cookie, follows the system preference, and responds to later system changes. Put the [prepaint script](../components/header-themetoggle.md) in the app's `index.html` to set the background before Angular loads. Apps can override public `--good-*` variables at runtime; these overrides are application-specific and do not write back to Penpot.
 
 ## Progress tokens
 

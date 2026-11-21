@@ -182,13 +182,13 @@
   "composition": {
     "projectedContent": [
       "good-topbar-menu-container",
-      "good-main-menu"
+      "good-header-actions"
     ],
     "relatedSelectors": [
       "good-icon",
       "good-brand-icon",
       "good-topbar-menu-container",
-      "good-main-menu"
+      "good-header-actions"
     ],
     "notes": "See source template and component guide for projection slots."
   },

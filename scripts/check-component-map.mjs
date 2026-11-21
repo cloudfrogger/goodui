@@ -232,6 +232,13 @@ for (const icon of expandableContract.axes.icon) for (const state of expandableC
   if (!expandableKeys.has(`${icon}/${state}`)) throw new Error(`Missing Expandable variant: ${icon}/${state}`);
 }
 const direct = new Set(map.directFamilies);
+const selectorOverrides = map.angularSelectorOverrides ?? {};
+const selectorForFamily = family => selectorOverrides[family] ?? `good-${family}`;
+for (const [family, selector] of Object.entries(selectorOverrides)) {
+  if (!direct.has(family) || !/^good-[a-z-]+$/.test(selector) || !selectors.has(selector.slice(5))) throw new Error(`Invalid selector override for ${family}`);
+}
+if (new Set([...direct].map(selectorForFamily)).size !== direct.size) throw new Error('Duplicate direct Angular selector mapping.');
+
 if (monthCalendarContract.family !== 'goodui.month-calendar' || monthCalendarContract.selector !== 'good-month-calendar' ||
     monthCalendarContract.page !== '32 Month Calendars' || monthCalendarContract.penpotStatus !== 'published' ||
     !/^[0-9a-f-]{36}$/.test(monthCalendarContract.pageId) ||
@@ -302,7 +309,7 @@ for (const entry of map.componentMappings) {
     .sort((left, right) => right.length - left.length)[0];
   if (!family) throw new Error(`Unmapped Penpot family: ${entry.penpotName}`);
   const owner = map.internalParts[family];
-  if (entry.angularSelector !== (family === 'form' ? 'form[goodForm]' : `good-${owner ?? family}`) || entry.kind !== (owner ? 'internal-part' : 'component') ||
+  if (entry.angularSelector !== (family === 'form' ? 'form[goodForm]' : selectorForFamily(owner ?? family)) || entry.kind !== (owner ? 'internal-part' : 'component') ||
       (owner ? entry.owner !== `goodui.${owner}` : 'owner' in entry)) throw new Error(`Invalid Angular mapping for ${entry.penpotName}`);
   const state = entry.penpotName === `goodui.${family}` ? null : entry.penpotName.slice(`goodui.${family}.`.length);
   if (entry.state !== state) throw new Error(`Invalid state mapping for ${entry.penpotName}`);
@@ -314,13 +321,13 @@ for (const path of map.variantManifests ?? []) {
   if (!path.startsWith('design/') || !path.endsWith('.json')) throw new Error(`Invalid variant manifest path: ${path}`);
   JSON.parse(readFileSync(resolve(root, path), 'utf8'));
 }
-for (const name of direct) if (!selectors.has(name)) throw new Error(`Missing Angular selector for goodui.${name}`);
+for (const name of direct) if (!selectors.has(selectorForFamily(name).slice(5))) throw new Error(`Missing Angular selector for goodui.${name}`);
 for (const name of pending) if (!selectors.has(name)) throw new Error(`Missing Angular selector for pending goodui.${name}`);
 for (const [name, owner] of Object.entries(map.internalParts)) {
   if (selectors.has(name)) throw new Error(`goodui.${name} now has a selector; move it to directFamilies.`);
   if (!direct.has(owner)) throw new Error(`Unknown Angular owner for goodui.${name}: ${owner}`);
 }
-for (const name of selectors) if (name !== 'icon' && !direct.has(name) && !pending.has(name)) throw new Error(`Unmapped Angular selector: good-${name}`);
+for (const name of selectors) if (name !== 'icon' && ![...direct].some(family => selectorForFamily(family) === `good-${name}`) && !pending.has(name)) throw new Error(`Unmapped Angular selector: good-${name}`);
 if (buttonVariants.family !== 'goodui.button' || buttonVariants.selector !== 'good-button') throw new Error('Button variant family does not map to good-button.');
 const combinations = new Set();
 const ids = new Set();

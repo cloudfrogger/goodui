@@ -1,11 +1,11 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-main-menu",
-  "className": "GoodMainMenuComponent",
+  "selector": "good-header-actions",
+  "className": "GoodHeaderActionsComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodMainMenuComponent"
+    "symbol": "GoodHeaderActionsComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",
   "inputs": [
@@ -107,11 +107,11 @@
       "*"
     ],
     "relatedSelectors": [
-      "good-search",
-      "good-notifications",
-      "good-theme-toggle",
+      "good-header-search",
+      "good-header-notification",
+      "good-header-themetoggle",
       "good-settings",
-      "good-avatar-menu"
+      "good-header-avatar"
     ],
     "notes": "See source template and component guide for projection slots."
   },
@@ -119,9 +119,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/components/main-menu.md",
+  "usageGuide": "guides/components/header-actions.md",
   "usage": {
-    "summary": "`good-main-menu` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
+    "summary": "`good-header-actions` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
     "examples": []
   },
   "penpot": [

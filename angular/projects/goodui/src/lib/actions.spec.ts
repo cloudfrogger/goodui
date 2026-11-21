@@ -2,13 +2,13 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { vi } from 'vitest';
 import { provideGoodUI } from './provide-goodui';
-import { GoodNotificationsComponent, GoodThemeToggleComponent } from './actions';
+import { GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent } from './actions';
 import { GoodThemeService } from './theme';
 
-describe('GoodThemeToggleComponent', () => {
+describe('GoodHeaderThemeToggleComponent', () => {
   it('changes mode on each click without opening a menu', () => {
-    TestBed.configureTestingModule({ imports: [GoodThemeToggleComponent] });
-    const fixture = TestBed.createComponent(GoodThemeToggleComponent);
+    TestBed.configureTestingModule({ imports: [GoodHeaderThemeToggleComponent] });
+    const fixture = TestBed.createComponent(GoodHeaderThemeToggleComponent);
     const theme = TestBed.inject(GoodThemeService);
     theme.setTheme('light');
     fixture.detectChanges();
@@ -26,13 +26,13 @@ describe('GoodThemeToggleComponent', () => {
   });
 });
 
-describe('GoodNotificationsComponent', () => {
+describe('GoodHeaderNotificationComponent', () => {
   afterEach(() => vi.useRealTimers());
 
   it('combines managed and supplied messages newest first and renders their dates', () => {
     vi.useFakeTimers();
-    TestBed.configureTestingModule({ imports: [GoodNotificationsComponent], providers: [provideRouter([]), provideGoodUI()] });
-    const fixture = TestBed.createComponent(GoodNotificationsComponent);
+    TestBed.configureTestingModule({ imports: [GoodHeaderNotificationComponent], providers: [provideRouter([]), provideGoodUI()] });
+    const fixture = TestBed.createComponent(GoodHeaderNotificationComponent);
     const center = fixture.componentInstance.center;
 
     vi.setSystemTime(new Date('2026-10-24T08:00:00Z'));

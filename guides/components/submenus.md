@@ -25,6 +25,6 @@ const supportMenu: GoodTopbarItem = {
 };
 ```
 
-Parents use buttons with `aria-expanded` and `aria-controls`; leaves use links and expose `aria-current="page"` when active. Escape closes an open level and restores focus to its trigger. The sidebar opens active ancestors from the current route. The topbar and avatar menus also close on outside click; the Subnav closes on outside click, scroll, resize, or navigation. See the [Topbar](./topbar.md), [Sidebar](./sidebar.md), [Avatar menu](./avatar-menu.md), and [Subnav](./subnav.md) guides for the full APIs and behavior.
+Parents use buttons with `aria-expanded` and `aria-controls`; leaves use links and expose `aria-current="page"` when active. Escape closes an open level and restores focus to its trigger. The sidebar opens active ancestors from the current route. The topbar and avatar menus also close on outside click; the Subnav closes on outside click, scroll, resize, or navigation. See the [Topbar](./topbar.md), [Sidebar](./sidebar.md), [Avatar menu](./header-avatar.md), and [Subnav](./subnav.md) guides for the full APIs and behavior.
 
 `good-topbar-submenu` is also a standalone public component for a nested menu level. Pass the same `GoodTopbarItem[]` structure through `[items]`, give the level an accessible `label`, and handle `(navigate)` if a surrounding menu must close. The library owns placement, edge flipping, and the rows. The homepage has a dedicated **Topbar submenu** component page with a working example.

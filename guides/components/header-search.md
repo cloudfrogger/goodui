@@ -1,10 +1,10 @@
-# Search
+# Header search
 
-`good-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/search` with a working preview and copyable examples.
+`good-header-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.
 
 ## Standalone usage
 
-Import `GoodSearchComponent` and `GoodSearchItem` from `@cloudfrogger/goodui`. Configure Angular Router through `provideRouter(routes)` in the consuming app.
+Import `GoodHeaderSearchComponent` and `GoodSearchItem` from `@cloudfrogger/goodui`. Configure Angular Router through `provideRouter(routes)` in the consuming app.
 
 ```ts
 readonly items: readonly GoodSearchItem[] = [
@@ -14,7 +14,7 @@ readonly items: readonly GoodSearchItem[] = [
 ```
 
 ```html
-<good-search [items]="items" />
+<good-header-search [items]="items" />
 ```
 
 ## API
@@ -32,7 +32,7 @@ readonly items: readonly GoodSearchItem[] = [
 
 ## Shell integration
 
-`good-app-layout`, `good-topbar`, and `good-main-menu` accept the navigation records through `searchItems`.
+`good-app-layout`, `good-topbar`, and `good-header-actions` accept the navigation records through `searchItems`.
 
 ```html
 <good-app-layout [searchItems]="items">
@@ -40,7 +40,7 @@ readonly items: readonly GoodSearchItem[] = [
 </good-app-layout>
 ```
 
-MainMenu shows the action by default. A standalone MainMenu can set `[showSearch]="false"` to hide it.
+HeaderActions shows the action by default. A standalone HeaderActions can set `[showSearch]="false"` to hide it.
 
 ## Keyboard and navigation
 

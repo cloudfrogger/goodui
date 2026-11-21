@@ -175,13 +175,13 @@
   },
   "composition": {
     "projectedContent": [
-      "good-main-menu",
+      "good-header-actions",
       "*"
     ],
     "relatedSelectors": [
       "good-sidebar-container",
       "good-topbar",
-      "good-main-menu",
+      "good-header-actions",
       "good-topbar-menu-container",
       "good-notification-host"
     ],

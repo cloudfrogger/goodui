@@ -16,4 +16,4 @@ For services and TypeScript types, search `angular/projects/goodui/src/public-ap
 
 Before using a candidate, check its required inputs and projection selectors. A catalog description helps discovery; the detail file and guide establish the actual API. Follow each `source` and `usageGuide` path relative to the reference root. This applies equally to a source checkout, the installed npm package, and a full archive.
 
-For configurable topbar actions, project `good-main-menu` into `good-app-layout` or `good-topbar`, then compose `good-search`, `good-notifications`, `good-theme-toggle`, and `good-avatar-menu` as its children. See `guides/components/main-menu.md`; configure each projected action directly.
+For configurable topbar actions, project `good-header-actions` into `good-app-layout` or `good-topbar`, then compose `good-header-search`, `good-header-notification`, `good-header-themetoggle`, and `good-header-avatar` as its children. See `guides/components/header-actions.md`; configure each projected action directly.

@@ -260,6 +260,6 @@ The previous public names `GoodSectionNavComponent`, `GoodSectionNavItem`, `good
 
 `goodui.map-overlay.aggregated` (`18e25442-2c17-80b0-8008-e40193c020b5`) maps to the runtime aggregated state of `good-map-overlay`: a mean value and country-count badge. `goodui.world-map.aggregated-overlays` (`18e25442-2c17-80b0-8008-e401d4eda08a`) maps to `good-world-map` at a zoom level where nearby country details combine. Its linked aggregated overlay instances illustrate that Angular averages each numeric measure separately and recomputes groups as map size or zoom changes. The default `aggregateOverlays=true` input enables this state; false keeps individual details.
 
-### Main menu composition
+### Header actions composition
 
-`goodui.main-menu.default` maps to `good-main-menu`, a container for application-selected action components. Its linked Search, Notifications, ThemeToggle, and AvatarMenu instances represent the default arrangement. Angular accepts custom projected children in their declared order; AppLayout forwards its direct MainMenu child to Topbar. Stable component IDs, geometry, and token bindings are unchanged. See [Main menu](../components/main-menu.md).
+`goodui.main-menu.default` maps to `good-header-actions`, a container for application-selected action components. Its linked Search, Notifications, ThemeToggle, and AvatarMenu instances represent the default arrangement. Angular accepts custom projected children in their declared order; AppLayout forwards its direct HeaderActions child to Topbar. Stable component IDs, geometry, and token bindings are unchanged. See [Header actions](../components/header-actions.md).

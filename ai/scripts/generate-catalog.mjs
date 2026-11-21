@@ -33,8 +33,13 @@ const values = type => {
 };
 const json = value => `${JSON.stringify(value, null, 2)}\n`;
 const guideOverrides = {
+  'good-header-actions': 'components/header-actions',
+  'good-header-search': 'components/header-search',
+  'good-header-notification': 'components/header-notification',
+  'good-header-avatar': 'components/header-avatar',
+  'good-header-themetoggle': 'components/header-themetoggle',
   'good-app-layout': 'layout/app-layout',
-  'good-avatar-menu-item': 'components/avatar-menu',
+  'good-avatar-menu-item': 'components/header-avatar',
   'good-color-picker': 'components/color-controls',
   'good-image-preview': 'components/image-input',
   'good-notification-host': 'components/notifications',

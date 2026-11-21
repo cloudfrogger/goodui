@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostListener, OnDestroy, computed, contentChild, forwardRef, inject, input, output, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { GoodMainMenuComponent } from './actions';
+import { GoodHeaderActionsComponent } from './actions';
 import { GoodIconComponent } from './icon';
 import { GoodMenuAction, GoodNotification, GoodSearchItem, GoodTopbarItem, GoodUser, goodRouteActive, goodTopbarItemContainsRoute } from './models';
 
@@ -352,7 +352,7 @@ export class GoodTopbarMenuContainerComponent {
 @Component({
   selector: 'good-topbar',
   standalone: true,
-  imports: [GoodIconComponent, GoodBrandIconComponent, GoodTopbarMenuContainerComponent, GoodMainMenuComponent],
+  imports: [GoodIconComponent, GoodBrandIconComponent, GoodTopbarMenuContainerComponent, GoodHeaderActionsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="good-topbar-left">
@@ -373,8 +373,8 @@ export class GoodTopbarMenuContainerComponent {
       @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" [mobileMode]="mobileMenuMode()" /> }
       <ng-content select="good-topbar-menu-container" />
     </div>
-    <ng-content select="good-main-menu">
-      <good-main-menu [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()" />
+    <ng-content select="good-header-actions">
+      <good-header-actions [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()" />
     </ng-content>
   `,
   host: { class: 'good-topbar', '[attr.data-mobile-menu]': 'mobileMenuMode()' },
@@ -399,5 +399,4 @@ export class GoodTopbarComponent {
   readonly avatarActions = input<readonly GoodMenuAction[]>([]);
   readonly menuToggle = output<void>();
   readonly projectedMenu = contentChild(GoodTopbarMenuContainerComponent);
-  readonly projectedMainMenu = contentChild(GoodMainMenuComponent);
 }

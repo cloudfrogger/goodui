@@ -270,28 +270,28 @@
     {
       "penpotName": "goodui.avatar-menu.account-open",
       "penpotId": "521fe58c-da62-80e2-8008-d3e0a9a60899",
-      "angularSelector": "good-avatar-menu",
+      "angularSelector": "good-header-avatar",
       "kind": "component",
       "state": "account-open"
     },
     {
       "penpotName": "goodui.avatar-menu.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f65e8aeea",
-      "angularSelector": "good-avatar-menu",
+      "angularSelector": "good-header-avatar",
       "kind": "component",
       "state": "default"
     },
     {
       "penpotName": "goodui.avatar-menu.open",
       "penpotId": "521fe58c-da62-80e2-8008-d3400143c866",
-      "angularSelector": "good-avatar-menu",
+      "angularSelector": "good-header-avatar",
       "kind": "component",
       "state": "open"
     },
     {
       "penpotName": "goodui.avatar-submenu.default",
       "penpotId": "521fe58c-da62-80e2-8008-d3e0a96714b4",
-      "angularSelector": "good-avatar-menu",
+      "angularSelector": "good-header-avatar",
       "kind": "internal-part",
       "owner": "goodui.avatar-menu",
       "state": "default"
@@ -967,7 +967,7 @@
     {
       "penpotName": "goodui.main-menu.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f6619a524",
-      "angularSelector": "good-main-menu",
+      "angularSelector": "good-header-actions",
       "kind": "component",
       "state": "default"
     },
@@ -1058,21 +1058,21 @@
     {
       "penpotName": "goodui.notifications.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f65811a2c",
-      "angularSelector": "good-notifications",
+      "angularSelector": "good-header-notification",
       "kind": "component",
       "state": "default"
     },
     {
       "penpotName": "goodui.notifications.open",
       "penpotId": "521fe58c-da62-80e2-8008-d33fff9a20ba",
-      "angularSelector": "good-notifications",
+      "angularSelector": "good-header-notification",
       "kind": "component",
       "state": "open"
     },
     {
       "penpotName": "goodui.notifications.unread",
       "penpotId": "5fd6a355-e255-80dc-8008-d81d121a0160",
-      "angularSelector": "good-notifications",
+      "angularSelector": "good-header-notification",
       "kind": "component",
       "state": "unread"
     },
@@ -1136,14 +1136,14 @@
     {
       "penpotName": "goodui.search.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f6563524e",
-      "angularSelector": "good-search",
+      "angularSelector": "good-header-search",
       "kind": "component",
       "state": "default"
     },
     {
       "penpotName": "goodui.search.open",
       "penpotId": "521fe58c-da62-80e2-8008-d33ffe1c4f79",
-      "angularSelector": "good-search",
+      "angularSelector": "good-header-search",
       "kind": "component",
       "state": "open"
     },
@@ -1236,21 +1236,21 @@
     {
       "penpotName": "goodui.theme-toggle.light",
       "penpotId": "f52a309e-8b45-80e4-8008-d86c7ab97196",
-      "angularSelector": "good-theme-toggle",
+      "angularSelector": "good-header-themetoggle",
       "kind": "component",
       "state": "light"
     },
     {
       "penpotName": "goodui.theme-toggle.system",
       "penpotId": "f52a309e-8b45-80e4-8008-d86c7bab8421",
-      "angularSelector": "good-theme-toggle",
+      "angularSelector": "good-header-themetoggle",
       "kind": "component",
       "state": "system"
     },
     {
       "penpotName": "goodui.theme-toggle.dark",
       "penpotId": "f52a309e-8b45-80e4-8008-d86c7c8f020f",
-      "angularSelector": "good-theme-toggle",
+      "angularSelector": "good-header-themetoggle",
       "kind": "component",
       "state": "dark"
     },
@@ -2229,5 +2229,12 @@
     "design/rich-text-contract.json",
     "design/color-controls-contract.json",
     "design/world-map-contract.json"
-  ]
+  ],
+  "angularSelectorOverrides": {
+    "main-menu": "good-header-actions",
+    "search": "good-header-search",
+    "notifications": "good-header-notification",
+    "theme-toggle": "good-header-themetoggle",
+    "avatar-menu": "good-header-avatar"
+  }
 }

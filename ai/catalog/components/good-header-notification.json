@@ -1,11 +1,11 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-notifications",
-  "className": "GoodNotificationsComponent",
+  "selector": "good-header-notification",
+  "className": "GoodHeaderNotificationComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodNotificationsComponent"
+    "symbol": "GoodHeaderNotificationComponent"
   },
   "source": "angular/projects/goodui/src/lib/actions.ts",
   "inputs": [
@@ -37,9 +37,9 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/components/notifications.md",
+  "usageGuide": "guides/components/header-notification.md",
   "usage": {
-    "summary": "`good-notifications` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
+    "summary": "`good-header-notification` is the independent header bell and inbox action. Import `GoodHeaderNotificationComponent`; place it inside `good-header-actions` in any position.",
     "examples": []
   },
   "penpot": [

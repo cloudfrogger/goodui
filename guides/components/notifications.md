@@ -1,6 +1,6 @@
 # Notifications
 
-`good-notifications` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.
+`good-header-notification` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.
 
 ```ts
 import { ApplicationConfig, Injectable, inject } from '@angular/core';
@@ -71,6 +71,6 @@ const notifications: GoodNotification[] = [
 ];
 ```
 
-`good-notifications` still accepts the simple `[items]` input with `GoodNotification` records, so existing applications remain compatible. Its native dialog manages focus, Escape, and the mobile viewport.
+`good-header-notification` still accepts the simple `[items]` input with `GoodNotification` records, so existing applications remain compatible. Its native dialog manages focus, Escape, and the mobile viewport.
 
 The [Notifications example](../../homepage/src/app/examples/notifications/notifications-page.html) shows each delivery mode and includes its HTML and TypeScript source on the page. Its design uses `goodui.notifications.unread`, a linked composition of the existing bell and `goodui.badge`, plus the Alert tokens and specimens on Penpot page `21 Alerts`.

@@ -1,21 +1,21 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoodAppLayoutComponent, GoodMainMenuComponent, GoodSearchComponent, GoodNotificationsComponent, GoodThemeToggleComponent, GoodAvatarMenuComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
+import { GoodAppLayoutComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GoodAppLayoutComponent, GoodMainMenuComponent, GoodSearchComponent, GoodNotificationsComponent, GoodThemeToggleComponent, GoodAvatarMenuComponent],
+  imports: [RouterOutlet, GoodAppLayoutComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" brandMarkSrc="goodui-mark.svg" brandMarkDarkSrc="goodui-mark-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup">
-      <good-main-menu>
-        <good-search [items]="searchItems" />
-        <good-notifications />
-        <good-theme-toggle />
-        <good-avatar-menu [user]="user" [actions]="avatarActions()" />
-      </good-main-menu>
+      <good-header-actions>
+        <good-header-search [items]="searchItems" />
+        <good-header-notification />
+        <good-header-themetoggle />
+        <good-header-avatar [user]="user" [actions]="avatarActions()" />
+      </good-header-actions>
       <router-outlet />
     </good-app-layout>
   `,
@@ -80,7 +80,6 @@ export class App {
         { id: 'checkboxes', label: 'Checkboxes', route: '/components/checkboxes' },
         { id: 'radio-groups', label: 'Radio groups', route: '/components/radio-groups' },
         { id: 'ratings', label: 'Ratings', route: '/components/ratings' },
-        { id: 'theme-toggle', label: 'Theme toggle', route: '/components/theme-toggle' },
       ] },
       { id: 'inputs-category', label: 'Inputs', icon: 'card', children: [
         { id: 'inputs', label: 'Text and file', route: '/components/inputs' },
@@ -136,10 +135,7 @@ export class App {
         { id: 'links', label: 'Links', route: '/components/links' },
         { id: 'dropdowns', label: 'Dropdowns', route: '/components/dropdowns' },
         { id: 'breadcrumbs', label: 'Breadcrumbs', route: '/components/breadcrumbs' },
-        { id: 'search', label: 'Search', route: '/components/search' },
-        { id: 'main-menu', label: 'Main menu', route: '/components/main-menu' },
-        { id: 'notifications', label: 'Notifications', route: '/components/notifications' },
-        { id: 'avatar-menu', label: 'Avatar menu', route: '/components/avatar-menu' },
+        { id: 'header-actions', label: 'Header actions', route: '/components/header-actions' },
         { id: 'topbar-menu', label: 'Topbar menu', route: '/components/topbar-menu' },
         { id: 'topbar-submenu', label: 'Topbar submenu', route: '/components/topbar-submenu' },
       ] },
@@ -220,9 +216,9 @@ export class App {
     ] },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
-    { id: 'main-menu', label: 'Main menu', description: 'good-main-menu · Topbar actions', route: '/components/main-menu' },
-    { id: 'notifications', label: 'Notifications', description: 'good-notifications · Topbar actions', route: '/components/notifications' },
-    { id: 'avatar-menu', label: 'Avatar menu', description: 'good-avatar-menu · Topbar actions', route: '/components/avatar-menu' },
+    { id: 'header-actions', label: 'Header actions', description: 'good-header-actions · Compose search, notification, avatar, and theme toggle', route: '/components/header-actions' },
+    { id: 'notifications', label: 'Header notification', description: 'good-header-notification · Topbar actions', route: '/components/header-actions' },
+    { id: 'avatar-menu', label: 'Header avatar', description: 'good-header-avatar · Topbar actions', route: '/components/header-actions' },
     { id: 'textareas', label: 'Textareas', description: 'Multiline text, resizing, and form states', route: '/components/textareas' },
     { id: 'range-sliders', label: 'Range sliders', description: 'Single values, intervals, ticks, and step buttons', route: '/components/range-sliders' },
     { id: 'signature-pads', label: 'Signature pads', description: 'Timed pen strokes and SVG output', route: '/components/signature-pads' },
@@ -287,9 +283,9 @@ export class App {
     { id: 'dropdowns', label: 'Dropdowns', description: 'Button-based menus and placement', route: '/components/dropdowns' },
     { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },
     { id: 'badges', label: 'Badges', description: 'Colors, sizes, shapes, and removable labels', route: '/components/badges' },
-    { id: 'search', label: 'Search', description: 'good-search · GoodSearchComponent · Navigation links and local filtering', route: '/components/search' },
+    { id: 'search', label: 'Header search', description: 'good-header-search · GoodHeaderSearchComponent · Navigation links and local filtering', route: '/components/header-actions' },
     { id: 'topbar-menu', label: 'Topbar menu', description: 'Responsive navigation and mobile popup', route: '/components/topbar-menu' },
-    { id: 'theme-toggle', label: 'Theme toggle', description: 'good-theme-toggle · Direct Light, System, and Dark cycling', route: '/components/theme-toggle' },
+    { id: 'theme-toggle', label: 'Header theme toggle', description: 'good-header-themetoggle · Direct Light, System, and Dark cycling', route: '/components/header-actions' },
     { id: 'topbar-submenu', label: 'Topbar submenu', description: 'Nested navigation and keyboard behavior', route: '/components/topbar-submenu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },

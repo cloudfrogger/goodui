@@ -15,7 +15,7 @@ AppLayout
 ├─ SidebarContainer → SidebarMenuContainer → SidebarItem
 │                                           → SidebarSubmenuGroup → SidebarSubmenuItem
 └─ Topbar → TopbarMenuContainer → TopbarMenuItem
-          → MainMenu → Search | Notifications | ThemeToggle | AvatarMenu
+          → HeaderActions → Search | Notifications | ThemeToggle | AvatarMenu
    MainView → page heading | page content
 ```
 
@@ -65,17 +65,17 @@ The browser favicon belongs to the application. Set its URL in your app's `src/i
 
 ## Choose your topbar actions
 
-Project a `good-main-menu` directly into AppLayout to choose the actions and their order. AppLayout forwards this container into Topbar and keeps routed content in the page area. Configure projected actions directly; shell action inputs continue to configure the generated default menu when no custom container is present.
+Project a `good-header-actions` directly into AppLayout to choose the actions and their order. AppLayout forwards this container into Topbar and keeps routed content in the page area. Configure projected actions directly; shell action inputs continue to configure the generated default menu when no custom container is present.
 
 ```html
 <good-app-layout [sidebarSections]="navigation">
-  <good-main-menu>
-    <good-search [items]="searchItems" />
-    <good-theme-toggle />
-    <good-avatar-menu [user]="currentUser" [actions]="accountActions" />
-  </good-main-menu>
+  <good-header-actions>
+    <good-header-search [items]="searchItems" />
+    <good-header-themetoggle />
+    <good-header-avatar [user]="currentUser" [actions]="accountActions" />
+  </good-header-actions>
   <router-outlet />
 </good-app-layout>
 ```
 
-Import MainMenu and its selected child components in the declaring standalone component. See [Main menu](../components/main-menu.md) and its linked action guides.
+Import HeaderActions and its selected child components in the declaring standalone component. See [Header actions](../components/header-actions.md) and its linked action guides.

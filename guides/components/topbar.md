@@ -2,9 +2,9 @@
 
 **Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.
 
-The optional [Theme toggle](./theme-toggle.md) in MainMenu changes appearance with one click and no submenu.
+The optional [Theme toggle](./header-themetoggle.md) in HeaderActions changes appearance with one click and no submenu.
 
-The topbar places an optional brand icon and navigation on the left, with [MainMenu](./main-menu.md) on the right. It is 70 px tall on desktop with 30 px horizontal padding. On mobile, the drawer trigger comes first, followed by optional branding. The default `hidden` mode places navigation in the AppLayout drawer; `popup` mode replaces the horizontal row with a topbar icon that opens a separate navigation popup. Penpot contains default, `with-brand`, mobile, mobile icon, and mobile popup states.
+The topbar places an optional brand icon and navigation on the left, with [HeaderActions](./header-actions.md) on the right. It is 70 px tall on desktop with 30 px horizontal padding. On mobile, the drawer trigger comes first, followed by optional branding. The default `hidden` mode places navigation in the AppLayout drawer; `popup` mode replaces the horizontal row with a topbar icon that opens a separate navigation popup. Penpot contains default, `with-brand`, mobile, mobile icon, and mobile popup states.
 
 On mobile, `brandMarkSrc` and optional `brandMarkDarkSrc` display the application symbol after the drawer trigger at 30 × 28 px; `brand` supplies its accessible name. The optional desktop BrandIcon uses the same mark URLs. Existing consumers that only pass `brandLogoSrc` and optional `brandLogoDarkSrc` continue to see the wordmark in the mobile topbar; with no image URL, it displays the brand text. Branding is shown by default. Set `[showMobileBrand]="false"` on `good-app-layout` or a standalone `good-topbar` to leave only the drawer trigger on the left. This does not hide branding in the sidebar or drawer. `good-app-layout` forwards the wordmark and symbol inputs from one place to the topbar and both sidebar presentations.
 
@@ -76,14 +76,14 @@ For a standalone topbar, use `[mobileMenuMode]="'popup'"`. For a projected menu 
     <good-topbar-menu-item label="Home" route="/" [active]="true" />
     <good-topbar-menu-item label="Projects" route="/projects" />
   </good-topbar-menu-container>
-  <good-main-menu>
-    <good-search [items]="searchItems" />
-    <good-theme-toggle />
-    <good-avatar-menu [user]="currentUser" [actions]="accountActions" />
-  </good-main-menu>
+  <good-header-actions>
+    <good-header-search [items]="searchItems" />
+    <good-header-themetoggle />
+    <good-header-avatar [user]="currentUser" [actions]="accountActions" />
+  </good-header-actions>
 </good-topbar>
 ```
 
 The topbar owns spacing, hit areas, and responsive behavior. Apps do not need manual `flex`, `gap`, or positioning classes for this structure. `good-app-layout` wires the mobile drawer; with a standalone topbar, use `(menuToggle)` to open your own navigation.
 
-AppLayout also accepts a direct `good-main-menu` child and forwards it to the topbar action slot. The container is excluded from the page content. See [Main menu](main-menu.md) for composition and default behavior.
+AppLayout also accepts a direct `good-header-actions` child and forwards it to the topbar action slot. The container is excluded from the page content. See [Header actions](header-actions.md) for composition and default behavior.

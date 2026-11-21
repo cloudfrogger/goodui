@@ -12,7 +12,7 @@ import { GoodNotificationAction, GoodNotificationCenter, GoodNotificationEntry }
 import { LucideInfo } from '@lucide/angular';
 
 @Component({
-  selector: 'good-search',
+  selector: 'good-header-search',
   standalone: true,
   imports: [GoodIconComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,9 +28,9 @@ import { LucideInfo } from '@lucide/angular';
       </div>
     </dialog>
   `,
-  host: { class: 'good-search' },
+  host: { class: 'good-header-search' },
 })
-export class GoodSearchComponent {
+export class GoodHeaderSearchComponent {
   readonly items = input<readonly GoodSearchItem[]>([]);
   readonly query = signal('');
   readonly results = computed(() => this.items().filter(item => `${item.label} ${item.description ?? ''}`.toLocaleLowerCase().includes(this.query().toLocaleLowerCase())));
@@ -45,7 +45,7 @@ export class GoodSearchComponent {
 }
 
 @Component({
-  selector: 'good-notifications',
+  selector: 'good-header-notification',
   standalone: true,
   imports: [GoodIconComponent, RouterLink, GoodAlertComponent, GoodBadgeComponent, GoodButtonComponent, GoodLinkComponent, GoodProgressComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -98,9 +98,9 @@ export class GoodSearchComponent {
       </div>
     </dialog>
   `,
-  host: { class: 'good-notifications' },
+  host: { class: 'good-header-notification' },
 })
-export class GoodNotificationsComponent {
+export class GoodHeaderNotificationComponent {
   readonly items = input<readonly GoodNotification[]>([]);
   readonly center = inject(GoodNotificationCenter);
   readonly infoIcon = LucideInfo;
@@ -131,16 +131,16 @@ export class GoodNotificationsComponent {
 }
 
 @Component({
-  selector: 'good-theme-toggle',
+  selector: 'good-header-themetoggle',
   standalone: true,
   imports: [GoodIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<button type="button" class="good-action-button" [attr.aria-label]="label()" [attr.title]="label()" (click)="theme.cycle()">
     <good-icon [name]="icon()" />
   </button>`,
-  host: { class: 'good-theme-toggle' },
+  host: { class: 'good-header-themetoggle' },
 })
-export class GoodThemeToggleComponent {
+export class GoodHeaderThemeToggleComponent {
   readonly theme = inject(GoodThemeService);
   readonly icon = computed(() => ({ light: 'sun', system: 'monitor', dark: 'moon' } as const)[this.theme.preference()]);
   readonly label = computed(() => `Appearance: ${this.theme.preference()}. Switch to ${{ light: 'system', system: 'dark', dark: 'light' }[this.theme.preference()]} mode`);
@@ -246,7 +246,7 @@ export class GoodAvatarMenuItemComponent {
 }
 
 @Component({
-  selector: 'good-avatar-menu',
+  selector: 'good-header-avatar',
   standalone: true,
   imports: [GoodAvatarMenuItemComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -270,9 +270,9 @@ export class GoodAvatarMenuItemComponent {
       }
     </div> }
   `,
-  host: { class: 'good-avatar-menu' },
+  host: { class: 'good-header-avatar' },
 })
-export class GoodAvatarMenuComponent {
+export class GoodHeaderAvatarComponent {
   readonly user = input<GoodUser | null>(null);
   readonly actions = input<readonly GoodMenuAction[]>([]);
   readonly open = signal(false);
@@ -291,22 +291,22 @@ export class GoodAvatarMenuComponent {
 }
 
 @Component({
-  selector: 'good-main-menu',
+  selector: 'good-header-actions',
   standalone: true,
-  imports: [GoodSearchComponent, GoodNotificationsComponent, GoodThemeToggleComponent, GoodSettingsComponent, GoodAvatarMenuComponent],
+  imports: [GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodSettingsComponent, GoodHeaderAvatarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <ng-content>
-      @if (showSearch()) { <good-search [items]="searchItems()" /> }
-      @if (showNotifications()) { <good-notifications [items]="notifications()" /> }
-      @if (showThemeToggle()) { <good-theme-toggle /> }
+      @if (showSearch()) { <good-header-search [items]="searchItems()" /> }
+      @if (showNotifications()) { <good-header-notification [items]="notifications()" /> }
+      @if (showThemeToggle()) { <good-header-themetoggle /> }
       @if (showSettings()) { <good-settings [actions]="settingsActions()" /> }
-      @if (showAvatar()) { <good-avatar-menu [user]="user()" [actions]="avatarActions()" /> }
+      @if (showAvatar()) { <good-header-avatar [user]="user()" [actions]="avatarActions()" /> }
     </ng-content>
   `,
-  host: { class: 'good-main-menu' },
+  host: { class: 'good-header-actions' },
 })
-export class GoodMainMenuComponent {
+export class GoodHeaderActionsComponent {
   readonly user = input<GoodUser | null>(null);
   readonly notifications = input<readonly GoodNotification[]>([]);
   readonly searchItems = input<readonly GoodSearchItem[]>([]);

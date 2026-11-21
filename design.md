@@ -13,13 +13,13 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Area | Current baseline | GoodUI owner |
 | --- | --- | --- |
 | Sidebar | 280 px wide, fixed at left, white, right border | `SidebarContainer` owns width, scrolling, brand area, and menu spacing |
-| Topbar | 70 px tall, fixed beside sidebar | `Topbar` arranges navigation and `MainMenu` |
+| Topbar | 70 px tall, fixed beside sidebar | `Topbar` arranges navigation and `HeaderActions` |
 | Topbar content | 30 px horizontal padding | Topbar owns padding |
 | Sidebar menu | About 20 px left padding, 4 px between rows | `SidebarMenuContainer` owns heading and item list |
 | Active sidebar item | 8 px radius, neutral background | `SidebarItem` owns active state |
 | Expanded sidebar | About 34 px parent row; 36 px child rows with 4 px gap and indentation | `SidebarItem` owns open state; `SidebarSubmenuGroup` owns guide lines and layout |
 | Cards and panels | 12 px radius, subtle neutral border | `radius.card` and `color.border` |
-| Topbar actions | 36 × 36 px circular hit areas | `MainMenu` owns alignment and 10 px gaps between projected actions |
+| Topbar actions | 36 × 36 px circular hit areas | `HeaderActions` owns alignment and 10 px gaps between projected actions |
 | Topbar dropdown | Help panel 220 px wide under topbar; 34 px rows, 2 px row gap, 6 px radius | `TopbarDropdownMenu` owns panel, divider, and rows |
 | Topbar submenu | Support Forum panel 218 × 124 px; 4 px gap from parent, aligned with trigger row | `TopbarSubmenu` owns the next level and flips at the viewport edge |
 | Avatar menu | About 250 × 384 px account panel under the avatar; 40 px rows, 36 px identity image, 8 px panel radius | `AvatarMenu` owns identity, row spacing, nested menus, appearance switch, and sign-out area |
@@ -93,7 +93,7 @@ AppLayout
    │  │        ├─ TopbarDropdownItem (link or expandable parent)
    │  │        └─ TopbarSubmenu (optional and recursive)
    │  │           └─ TopbarDropdownItem (repeatable)
-   │  └─ MainMenu
+   │  └─ HeaderActions
    │     ├─ Search
    │     ├─ Notifications
    │     ├─ ThemeToggle (optional; direct Light → System → Dark cycle)
@@ -393,7 +393,7 @@ Shared `layout` dimensions: `space.1`, `.2`, `.2_5`, `.3`, `.5`, `.6`, `.7_5` = 
 
 Angular Switch, the avatar appearance switch, and all 36 Penpot Switch variants place their thumbs with flex alignment while retaining the same track sizes and on/off positions. `switch.thumb-inset` binds the four track paddings in Penpot and CSS. Absolute positioning remains appropriate for popovers, fixed submenus, and invisible native input overlays.
 
-The live Penpot file uses version 2.17.0 of the plugin API. Shell responsive and open states are separate main components; Button is a registered 45-combination Penpot variant group. The existing color tokens remain bound to fills and strokes. Semantic aliases in `layout` bind `topbar.padding-inline` to topbar flex padding, `main-menu.gap` to MainMenu flex column gap, and `sidebar.menu-gap` to the sidebar menu flex row gap. Sizing tokens bind sidebar width, desktop/mobile topbar height, subnav height, sidebar row height, the four 36 px action controls, and Button heights and icon sizes. `radius.item` binds sidebar item corners; `radius.card` binds MainView content border corners; `radius.button` binds Button corners. Main component IDs and intentionally different instance values remain unchanged.
+The live Penpot file uses version 2.17.0 of the plugin API. Shell responsive and open states are separate main components; Button is a registered 45-combination Penpot variant group. The existing color tokens remain bound to fills and strokes. Semantic aliases in `layout` bind `topbar.padding-inline` to topbar flex padding, `main-menu.gap` to HeaderActions flex column gap, and `sidebar.menu-gap` to the sidebar menu flex row gap. Sizing tokens bind sidebar width, desktop/mobile topbar height, subnav height, sidebar row height, the four 36 px action controls, and Button heights and icon sizes. `radius.item` binds sidebar item corners; `radius.card` binds MainView content border corners; `radius.button` binds Button corners. Main component IDs and intentionally different instance values remain unchanged.
 
 The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizing` on width/height, and `borderRadius` on corners. The account MainView, subnavigation track, and mobile topbar use absolute positioning rather than Penpot flex layout, so their placement offsets and mobile topbar padding cannot receive spacing-token bindings without changing layout behavior. They remain explicit geometry; the corresponding runtime CSS values are documented. Nested sidebar menu copies with a different flex gap are not rebound to the main component's gap token.
 
@@ -424,7 +424,7 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 - The mobile sidebar opens from the topbar trigger and closes through the scrim or Escape. Desktop sidebar collapse exists as a design variant but is not yet exposed as an Angular API state.
 - `MainView` accepts page content without imposing a card layout. The heading and actions are optional; content grows and scrolls.
 - `Subnav` owns its horizontal viewport and child menu. Apps provide route data and do not add custom wrapping or page offsets.
-- `MainMenu` accepts projected action components in application-defined order; AppLayout forwards a direct MainMenu child to Topbar. With no projected content it supplies the existing default actions. `MainMenu` can hide its generated ThemeToggle and other actions independently. ThemeToggle is shown by default; Settings is a separate optional menu. Apps may project a custom `good-main-menu` into `Topbar`; the container still owns spacing and hit areas.
+- `HeaderActions` accepts projected action components in application-defined order; AppLayout forwards a direct HeaderActions child to Topbar. With no projected content it supplies the existing default actions. `HeaderActions` can hide its generated ThemeToggle and other actions independently. ThemeToggle is shown by default; Settings is a separate optional menu. Apps may project a custom `good-header-actions` into `Topbar`; the container still owns spacing and hit areas.
 - Tailwind CSS 4 theme variables provide colors; the shipped component CSS provides geometry. Apps do not add `margin-left` or `padding-top` to align the shell.
 
 ## Maintenance workflow
