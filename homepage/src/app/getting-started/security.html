@@ -1,0 +1,39 @@
+<good-main-view>
+  <good-section>
+    <good-prose>
+      <good-breadcrumbs [items]="breadcrumbs" />
+      <good-heading-group>
+        <good-eyebrow>Getting started</good-eyebrow>
+        <good-heading [level]="1">Security</good-heading>
+        <good-summary>Use OpenID Connect for sign-in, role guards for protected routes, and server-side authorization for your API. Keep Keycloak visually consistent with the GoodUI theme.</good-summary>
+      </good-heading-group>
+      <good-paragraph>Your application owns its identity-provider integration, session handling, and permissions. GoodUI supplies the interface components for that application.</good-paragraph>
+
+      <good-subheading>Use OpenID Connect</good-subheading>
+      <good-paragraph>We recommend OpenID Connect (OIDC) with Keycloak or another identity provider. Use Authorization Code Flow with PKCE <code>S256</code> for Angular browser clients. Let a maintained OIDC client handle sign-in, callbacks, and sessions. The <good-link href="https://www.keycloak.org/securing-apps/javascript-adapter" target="_blank">Keycloak JavaScript adapter guide</good-link> describes this integration.</good-paragraph>
+      <good-paragraph>Use a public client with client authentication disabled, HTTPS, and specific redirect URIs and web origins. Keep client secrets on the server. The <good-link href="https://www.keycloak.org/securing-apps/javascript-adapter" target="_blank">Keycloak client configuration guide</good-link> explains these settings.</good-paragraph>
+      <good-code-block [code]="installCode" language="bash" title="Your Angular application" />
+      <good-paragraph>Initialize Keycloak before starting Angular and its router. Replace the example identity-provider URL, realm, and client ID with your configuration. This example requires sign-in before the app starts and makes the initialized adapter available through Angular injection. Keep the router and <code>provideGoodUI()</code> providers from <good-link route="/getting-started/developing">Developing</good-link> in <code>appConfig</code>.</good-paragraph>
+      <good-code-block [code]="bootstrapCode" language="typescript" title="src/main.ts" />
+
+      <good-subheading>Protect routes with role guards</good-subheading>
+      <good-paragraph>Apply a role guard to each protected route. The guard below checks authentication and a client role for the configured application client, then returns Angular's access-denied route when access is refused. Create and assign the <code>administrator</code> client role in Keycloak. Applications that use realm roles can check <code>hasRealmRole()</code> instead.</good-paragraph>
+      <good-code-block [code]="guardCode" language="typescript" title="src/app/auth/role.guard.ts" />
+      <good-code-block [code]="routesCode" language="typescript" title="src/app/app.routes.ts" />
+      <good-paragraph>Implement the administration and access-denied page components referenced here. Keep the access-denied route accessible so a refused navigation can reach it. Menu visibility and available actions can follow the same role information. Angular documents guard return values and navigation behavior in its <good-link href="https://angular.dev/guide/routing/route-guards" target="_blank">route guards guide</good-link>.</good-paragraph>
+
+      <good-subheading>Enforce permissions in the API</good-subheading>
+      <good-paragraph>Enforce authorization on the server for every protected operation, including roles and ownership of the requested resource. Send the access token to its intended API over HTTPS. Validate its signature, trusted issuer, intended audience, and expiry before using its claims. Use your backend's supported OIDC/JWT middleware and configure the expected realm and API audience. The <good-link href="https://www.rfc-editor.org/rfc/rfc9068.html#section-4" target="_blank">JWT access-token validation rules</good-link> describe these checks.</good-paragraph>
+      <good-paragraph>Keep access and refresh tokens in the OIDC client's managed session, handle expiry and logout, and attach tokens only to the configured API origin. Keycloak's JavaScript adapter keeps its tokens in memory. The <good-link href="https://www.keycloak.org/securing-apps/javascript-adapter" target="_blank">adapter documentation</good-link> covers token refresh and session handling.</good-paragraph>
+
+      <good-subheading>A Keycloak theme that matches GoodUI exactly</good-subheading>
+      <good-paragraph>We provide a Keycloak theme that matches the GoodUI style exactly. Sign-in, registration, account management, and administration share GoodUI's colors, typography, rounded controls, and light/dark appearance. Get it from the <good-link href="https://github.com/cloudfrogger/goodui_keycloak_theme" target="_blank">GoodUI Keycloak theme repository</good-link>.</good-paragraph>
+      <good-inline-image src="/security/keycloak-theme-collage.png" [fullWidth]="true" [previewable]="true"
+        alt="GoodUI Keycloak theme README collage showing light and dark sign-in, registration, account management, administration, and a mobile sign-in page"
+        caption="The original example image from the GoodUI Keycloak theme README." />
+      <good-paragraph>The theme validates custom color input as six-digit hexadecimal values and serves its appearance initializer from the Keycloak origin. Its appearance controls preserve OIDC parameters and existing CSP requirements. The repository documents these <good-link href="https://github.com/cloudfrogger/goodui_keycloak_theme#input-validation-and-security" target="_blank">security measures</good-link>.</good-paragraph>
+      <good-paragraph>Install the theme on your Keycloak server and select <code>goodui</code> under <strong>Realm Settings → Themes</strong> for the required areas. Configure the same logos and colors as your application. Use the documented <code>theme_mode</code> option to carry Light, Dark, or System appearance into sign-in. Follow the repository's <good-link href="https://github.com/cloudfrogger/goodui_keycloak_theme#install-on-a-keycloak-server" target="_blank">installation and branding instructions</good-link>.</good-paragraph>
+      <good-paragraph>The preview is reproduced unchanged from that repository with its <good-link href="/security/keycloak-theme-LICENSE.txt" target="_blank">Apache 2.0 license</good-link> and <good-link href="/security/keycloak-theme-NOTICE.txt" target="_blank">source notice</good-link>.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>

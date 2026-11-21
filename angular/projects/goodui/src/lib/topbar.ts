@@ -373,8 +373,9 @@ export class GoodTopbarMenuContainerComponent {
       @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" [mobileMode]="mobileMenuMode()" /> }
       <ng-content select="good-topbar-menu-container" />
     </div>
-    @if (!projectedMainMenu()) { <good-main-menu [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()" /> }
-    <ng-content select="good-main-menu" />
+    <ng-content select="good-main-menu">
+      <good-main-menu [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()" />
+    </ng-content>
   `,
   host: { class: 'good-topbar', '[attr.data-mobile-menu]': 'mobileMenuMode()' },
 })

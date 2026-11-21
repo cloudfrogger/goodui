@@ -1,16 +1,21 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoodAppLayoutComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
+import { GoodAppLayoutComponent, GoodMainMenuComponent, GoodSearchComponent, GoodNotificationsComponent, GoodThemeToggleComponent, GoodAvatarMenuComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GoodAppLayoutComponent],
+  imports: [RouterOutlet, GoodAppLayoutComponent, GoodMainMenuComponent, GoodSearchComponent, GoodNotificationsComponent, GoodThemeToggleComponent, GoodAvatarMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" brandMarkSrc="goodui-mark.svg" brandMarkDarkSrc="goodui-mark-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup"
-      [user]="user" [searchItems]="searchItems" [avatarActions]="avatarActions()">
+    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" brandMarkSrc="goodui-mark.svg" brandMarkDarkSrc="goodui-mark-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup">
+      <good-main-menu>
+        <good-search [items]="searchItems" />
+        <good-notifications />
+        <good-theme-toggle />
+        <good-avatar-menu [user]="user" [actions]="avatarActions()" />
+      </good-main-menu>
       <router-outlet />
     </good-app-layout>
   `,
@@ -53,6 +58,7 @@ export class App {
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'developing-with-ai', label: 'Developing with AI', icon: 'settings', route: '/getting-started/developing-with-ai' },
+      { id: 'security', label: 'Security', icon: 'check', route: '/getting-started/security' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
       { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
     ] },
@@ -131,6 +137,10 @@ export class App {
         { id: 'links', label: 'Links', route: '/components/links' },
         { id: 'dropdowns', label: 'Dropdowns', route: '/components/dropdowns' },
         { id: 'breadcrumbs', label: 'Breadcrumbs', route: '/components/breadcrumbs' },
+        { id: 'search', label: 'Search', route: '/components/search' },
+        { id: 'main-menu', label: 'Main menu', route: '/components/main-menu' },
+        { id: 'notifications', label: 'Notifications', route: '/components/notifications' },
+        { id: 'avatar-menu', label: 'Avatar menu', route: '/components/avatar-menu' },
         { id: 'topbar-menu', label: 'Topbar menu', route: '/components/topbar-menu' },
         { id: 'topbar-submenu', label: 'Topbar submenu', route: '/components/topbar-submenu' },
       ] },
@@ -182,6 +192,7 @@ export class App {
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'developing-with-ai', label: 'Developing with AI', icon: 'settings', route: '/getting-started/developing-with-ai' },
+      { id: 'security', label: 'Security', icon: 'check', route: '/getting-started/security' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
       { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
       { id: 'foundation', label: 'Foundation', children: [
@@ -211,6 +222,9 @@ export class App {
     ] },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
+    { id: 'main-menu', label: 'Main menu', description: 'good-main-menu · Topbar actions', route: '/components/main-menu' },
+    { id: 'notifications', label: 'Notifications', description: 'good-notifications · Topbar actions', route: '/components/notifications' },
+    { id: 'avatar-menu', label: 'Avatar menu', description: 'good-avatar-menu · Topbar actions', route: '/components/avatar-menu' },
     { id: 'textareas', label: 'Textareas', description: 'Multiline text, resizing, and form states', route: '/components/textareas' },
     { id: 'range-sliders', label: 'Range sliders', description: 'Single values, intervals, ticks, and step buttons', route: '/components/range-sliders' },
     { id: 'signature-pads', label: 'Signature pads', description: 'Timed pen strokes and SVG output', route: '/components/signature-pads' },
@@ -231,6 +245,7 @@ export class App {
     { id: 'designing', label: 'Designing', description: 'Getting Started', route: '/getting-started/designing' },
     { id: 'developing', label: 'Developing', description: 'Getting Started', route: '/getting-started/developing' },
     { id: 'developing-with-ai', label: 'Developing with AI', description: 'Install the skill and build screens with an AI agent', route: '/getting-started/developing-with-ai' },
+    { id: 'security', label: 'Security', description: 'OpenID Connect, role guards, API authorization, and the GoodUI Keycloak theme', route: '/getting-started/security' },
     { id: 'license', label: 'License', description: 'Getting Started', route: '/getting-started/license' },
     { id: 'changelog', label: 'Changelog', description: 'Getting Started · user-facing changes and commit references', route: '/getting-started/changelog' },
     { id: 'buttons', label: 'Buttons', description: 'Component examples', route: '/components/buttons' },
@@ -274,8 +289,9 @@ export class App {
     { id: 'dropdowns', label: 'Dropdowns', description: 'Button-based menus and placement', route: '/components/dropdowns' },
     { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },
     { id: 'badges', label: 'Badges', description: 'Colors, sizes, shapes, and removable labels', route: '/components/badges' },
+    { id: 'search', label: 'Search', description: 'good-search · GoodSearchComponent · Navigation links and local filtering', route: '/components/search' },
     { id: 'topbar-menu', label: 'Topbar menu', description: 'Responsive navigation and mobile popup', route: '/components/topbar-menu' },
-    { id: 'theme-toggle', label: 'Theme toggle', description: 'Direct Light, System, and Dark cycling', route: '/components/theme-toggle' },
+    { id: 'theme-toggle', label: 'Theme toggle', description: 'good-theme-toggle · Direct Light, System, and Dark cycling', route: '/components/theme-toggle' },
     { id: 'topbar-submenu', label: 'Topbar submenu', description: 'Nested navigation and keyboard behavior', route: '/components/topbar-submenu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },

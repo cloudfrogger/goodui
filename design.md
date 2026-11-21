@@ -19,7 +19,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Active sidebar item | 8 px radius, neutral background | `SidebarItem` owns active state |
 | Expanded sidebar | About 34 px parent row; 36 px child rows with 4 px gap and indentation | `SidebarItem` owns open state; `SidebarSubmenuGroup` owns guide lines and layout |
 | Cards and panels | 12 px radius, subtle neutral border | `radius.card` and `color.border` |
-| Topbar actions | 36 × 36 px circular hit areas | `MainMenu` owns four actions and 10 px gaps |
+| Topbar actions | 36 × 36 px circular hit areas | `MainMenu` owns alignment and 10 px gaps between projected actions |
 | Topbar dropdown | Help panel 220 px wide under topbar; 34 px rows, 2 px row gap, 6 px radius | `TopbarDropdownMenu` owns panel, divider, and rows |
 | Topbar submenu | Support Forum panel 218 × 124 px; 4 px gap from parent, aligned with trigger row | `TopbarSubmenu` owns the next level and flips at the viewport edge |
 | Avatar menu | About 250 × 384 px account panel under the avatar; 40 px rows, 36 px identity image, 8 px panel radius | `AvatarMenu` owns identity, row spacing, nested menus, appearance switch, and sign-out area |
@@ -424,7 +424,7 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 - The mobile sidebar opens from the topbar trigger and closes through the scrim or Escape. Desktop sidebar collapse exists as a design variant but is not yet exposed as an Angular API state.
 - `MainView` accepts page content without imposing a card layout. The heading and actions are optional; content grows and scrolls.
 - `Subnav` owns its horizontal viewport and child menu. Apps provide route data and do not add custom wrapping or page offsets.
-- `MainMenu` can hide its ThemeToggle and other actions independently. ThemeToggle is shown by default; Settings is a separate optional menu. Apps may project a custom `good-main-menu` into `Topbar`; the container still owns spacing and hit areas.
+- `MainMenu` accepts projected action components in application-defined order; AppLayout forwards a direct MainMenu child to Topbar. With no projected content it supplies the existing default actions. `MainMenu` can hide its generated ThemeToggle and other actions independently. ThemeToggle is shown by default; Settings is a separate optional menu. Apps may project a custom `good-main-menu` into `Topbar`; the container still owns spacing and hit areas.
 - Tailwind CSS 4 theme variables provide colors; the shipped component CSS provides geometry. Apps do not add `margin-left` or `padding-top` to align the shell.
 
 ## Maintenance workflow

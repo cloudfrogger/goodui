@@ -1,0 +1,18 @@
+GoodUI Keycloak Theme
+Copyright 2026 cloudfrogger contributors
+
+Contains adapted Keycloak FreeMarker layout templates (Apache License 2.0).
+Upstream: https://github.com/keycloak/keycloak
+Version: 26.8.2
+Commit: e514445f9dcdabc5bdcf67cab56c1e49655de067
+Files: login/template.ftl (keycloak.v2), account/index.ftl (keycloak.v3),
+admin/index.ftl (keycloak.v2), welcome/index.ftl (keycloak).
+All authentication page templates, messages, scripts, and React applications
+are inherited from the installed Keycloak distribution, not copied here.
+
+GoodUI colors and logo SVGs originate from the cloudfrogger GoodUI project:
+https://goodui.cloudfrogger.com
+The license does not grant rights to third-party trademarks.
+
+README collage source: https://raw.githubusercontent.com/cloudfrogger/goodui_keycloak_theme/31bebc6add939e58243e7861f8e6ad9075060039/docs/theme-collage.png
+Reproduced unchanged in the GoodUI Security chapter.

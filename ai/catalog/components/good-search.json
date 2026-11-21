@@ -34,7 +34,7 @@
   },
   "usageGuide": "guides/components/search.md",
   "usage": {
-    "summary": "`goodui.search` has a round trigger and a centered search dialog. The app supplies searchable links. The dialog filters labels and descriptions locally; tabs and external search are not currently part of the API.",
+    "summary": "`good-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/search` with a working preview and copyable examples.",
     "examples": []
   },
   "penpot": [

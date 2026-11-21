@@ -1,0 +1,41 @@
+<good-main-view title="Search" description="Open a search dialog from a compact navigation action.">
+  <good-section>
+    <good-prose>
+      <good-subheading>Try the search dialog</good-subheading>
+      <good-paragraph>Select the magnifier below. Search for <strong>Tables</strong> by label or <strong>pagination</strong> by description, then choose a result to navigate. Try an unmatched word to see the empty state.</good-paragraph>
+      <good-group appearance="contrast">
+        <good-action-group align="center">
+          <good-search [items]="items" />
+          <good-paragraph>Search the three sample navigation links.</good-paragraph>
+        </good-action-group>
+      </good-group>
+      <good-paragraph>Opening the dialog focuses the search field. Matching ignores letter case and checks both the label and description. An empty query shows all supplied links.</good-paragraph>
+      <good-paragraph>Use Tab and Shift+Tab to move between the field, results, and Close button. Enter follows a focused result. Escape or Close dismisses the dialog and restores focus to its magnifier. Choosing a result closes the dialog and navigates through Angular Router.</good-paragraph>
+
+      <good-subheading>Use Search in your application</good-subheading>
+      <good-paragraph>Import <code>GoodSearchComponent</code> and supply <code>GoodSearchItem</code> records. Give each item a unique, stable ID, a visible label, and an Angular route. The description is optional. Configure Angular Router in your application providers.</good-paragraph>
+      <good-code-block [code]="usageCode" language="typescript" title="Standalone search action" />
+
+      <good-subheading>Supply the searchable links</good-subheading>
+      <good-paragraph>The <code>items</code> input accepts <code>readonly GoodSearchItem[]</code> and defaults to an empty array. Your application supplies the navigation index. Search filters that index locally as the query changes. When nothing matches, the dialog displays <strong>No results</strong>.</good-paragraph>
+      <good-code-block [code]="modelCode" language="typescript" title="GoodSearchItem" />
+      <good-detail-list>
+        <div goodDetailRow><dt>id</dt><dd>Unique key used to track each result.</dd></div>
+        <div goodDetailRow><dt>label</dt><dd>Visible result title, included in matching.</dd></div>
+        <div goodDetailRow><dt>description</dt><dd>Optional supporting text, also included in matching.</dd></div>
+        <div goodDetailRow><dt>route</dt><dd>Destination passed to Angular Router when the result is selected.</dd></div>
+        <div goodDetailRow><dt>open() / close()</dt><dd>Public methods used by the trigger and dialog controls.</dd></div>
+      </good-detail-list>
+
+      <good-subheading>Connect the application shell</good-subheading>
+      <good-paragraph>The shell already includes Search in its main menu. Pass the same records through <code>searchItems</code> on <code>good-app-layout</code>, <code>good-topbar</code>, or <code>good-main-menu</code>. For the root shell from <good-link route="/getting-started/layout/general">Layout → General</good-link>, use this binding.</good-paragraph>
+      <good-code-block [code]="shellCode" language="html" title="Application shell" />
+      <good-paragraph>A standalone <code>good-main-menu</code> also accepts <code>[showSearch]="false"</code> to hide its search action. The default is <code>true</code>.</good-paragraph>
+
+      <good-subheading>A visible search field in page content</good-subheading>
+      <good-paragraph>For a search field that stays visible above a list or card grid, use <good-link route="/components/inputs">Input</good-link> with <code>type="search"</code>. Bind its value to your page's filtering logic.</good-paragraph>
+      <good-code-block [code]="inputCode" language="html" title="Page-level search field" />
+    </good-prose>
+  </good-section>
+  <good-section><good-prose><good-paragraph>Place Search inside <good-link route="/components/main-menu">Main menu</good-link> to compose your topbar actions.</good-paragraph></good-prose></good-section>
+</good-main-view>

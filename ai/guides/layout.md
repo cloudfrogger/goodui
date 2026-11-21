@@ -15,3 +15,5 @@ On mobile (640 px and below), framed Groups and Cards already reduce their inner
 For a page-level Card or framed Group that still needs more horizontal room, set `[mobileBleed]="true"`. It adds a symmetric 8 px extension on each side only at mobile widths. The default is `false`, so nested bounded content does not move unexpectedly.
 
 Read the exact catalog detail for each selected component. Required inputs are explicit there; selector names and imports come from `public-api.ts`.
+
+For a custom action area, project `good-main-menu` directly into AppLayout or Topbar, then place action components inside it in the desired order. The container owns spacing. See `guides/components/main-menu.md`.

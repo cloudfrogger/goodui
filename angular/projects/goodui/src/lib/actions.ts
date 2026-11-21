@@ -296,11 +296,13 @@ export class GoodAvatarMenuComponent {
   imports: [GoodSearchComponent, GoodNotificationsComponent, GoodThemeToggleComponent, GoodSettingsComponent, GoodAvatarMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    @if (showSearch()) { <good-search [items]="searchItems()" /> }
-    @if (showNotifications()) { <good-notifications [items]="notifications()" /> }
-    @if (showThemeToggle()) { <good-theme-toggle /> }
-    @if (showSettings()) { <good-settings [actions]="settingsActions()" /> }
-    @if (showAvatar()) { <good-avatar-menu [user]="user()" [actions]="avatarActions()" /> }
+    <ng-content>
+      @if (showSearch()) { <good-search [items]="searchItems()" /> }
+      @if (showNotifications()) { <good-notifications [items]="notifications()" /> }
+      @if (showThemeToggle()) { <good-theme-toggle /> }
+      @if (showSettings()) { <good-settings [actions]="settingsActions()" /> }
+      @if (showAvatar()) { <good-avatar-menu [user]="user()" [actions]="avatarActions()" /> }
+    </ng-content>
   `,
   host: { class: 'good-main-menu' },
 })

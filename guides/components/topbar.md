@@ -76,8 +76,14 @@ For a standalone topbar, use `[mobileMenuMode]="'popup'"`. For a projected menu 
     <good-topbar-menu-item label="Home" route="/" [active]="true" />
     <good-topbar-menu-item label="Projects" route="/projects" />
   </good-topbar-menu-container>
-  <good-main-menu />
+  <good-main-menu>
+    <good-search [items]="searchItems" />
+    <good-theme-toggle />
+    <good-avatar-menu [user]="currentUser" [actions]="accountActions" />
+  </good-main-menu>
 </good-topbar>
 ```
 
 The topbar owns spacing, hit areas, and responsive behavior. Apps do not need manual `flex`, `gap`, or positioning classes for this structure. `good-app-layout` wires the mobile drawer; with a standalone topbar, use `(menuToggle)` to open your own navigation.
+
+AppLayout also accepts a direct `good-main-menu` child and forwards it to the topbar action slot. The container is excluded from the page content. See [Main menu](main-menu.md) for composition and default behavior.

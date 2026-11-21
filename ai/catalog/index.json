@@ -781,7 +781,7 @@
         "symbol": "GoodMainMenuComponent"
       },
       "usageGuide": "guides/components/main-menu.md",
-      "summary": "`goodui.main-menu` is the topbar's right-hand action group. Its default composition contains [Search](./search.md), [Notifications](./notifications.md), [Theme toggle](./theme-toggle.md), and [Avatar menu](./avatar-menu.md), in that order. [Settings](./settings.md) is an additional optional action. Each action is a separate Penpot library component with a 36 × 36 px hit area. MainMenu owns spacing and alignment; individual actions have no external margins.",
+      "summary": "`good-main-menu` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
       "penpotCount": 1
     },
     {
@@ -1057,7 +1057,7 @@
         "symbol": "GoodSearchComponent"
       },
       "usageGuide": "guides/components/search.md",
-      "summary": "`goodui.search` has a round trigger and a centered search dialog. The app supplies searchable links. The dialog filters labels and descriptions locally; tabs and external search are not currently part of the API.",
+      "summary": "`good-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/search` with a working preview and copyable examples.",
       "penpotCount": 2
     },
     {

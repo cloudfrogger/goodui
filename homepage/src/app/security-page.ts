@@ -1,0 +1,72 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, type GoodBreadcrumbItem } from '@cloudfrogger/goodui';
+
+@Component({
+  selector: 'app-security-page',
+  standalone: true,
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './getting-started/security.html',
+})
+export class SecurityPageComponent {
+  readonly breadcrumbs: readonly GoodBreadcrumbItem[] = [
+    { label: 'Getting Started', route: '/getting-started/introduction' },
+    { label: 'Security' },
+  ];
+  readonly installCode = 'npm install keycloak-js';
+  readonly bootstrapCode = `import { bootstrapApplication } from '@angular/platform-browser';
+import Keycloak from 'keycloak-js';
+import { App } from './app/app';
+import { appConfig } from './app/app.config';
+
+const keycloak = new Keycloak({
+  url: 'https://login.example.com',
+  realm: 'example',
+  clientId: 'web-app',
+});
+
+await keycloak.init({
+  onLoad: 'login-required',
+  pkceMethod: 'S256',
+});
+
+await bootstrapApplication(App, {
+  ...appConfig,
+  providers: [
+    ...appConfig.providers,
+    { provide: Keycloak, useValue: keycloak },
+  ],
+});`;
+  readonly guardCode = `import { inject } from '@angular/core';
+import { Router, type CanActivateFn } from '@angular/router';
+import Keycloak from 'keycloak-js';
+
+export function requireClientRole(role: string): CanActivateFn {
+  return () => {
+    const keycloak = inject(Keycloak);
+    const router = inject(Router);
+
+    if (keycloak.authenticated === true && keycloak.hasResourceRole(role)) {
+      return true;
+    }
+
+    return router.createUrlTree(['/access-denied']);
+  };
+}`;
+  readonly routesCode = `import { Routes } from '@angular/router';
+import { requireClientRole } from './auth/role.guard';
+
+export const routes: Routes = [
+  {
+    path: 'administration',
+    canActivate: [requireClientRole('administrator')],
+    loadComponent: () => import('./administration-page')
+      .then(module => module.AdministrationPageComponent),
+  },
+  {
+    path: 'access-denied',
+    loadComponent: () => import('./access-denied-page')
+      .then(module => module.AccessDeniedPageComponent),
+  },
+];`;
+}

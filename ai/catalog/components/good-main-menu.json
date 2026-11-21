@@ -103,7 +103,9 @@
   "outputs": [],
   "variants": {},
   "composition": {
-    "projectedContent": [],
+    "projectedContent": [
+      "*"
+    ],
     "relatedSelectors": [
       "good-search",
       "good-notifications",
@@ -111,7 +113,7 @@
       "good-settings",
       "good-avatar-menu"
     ],
-    "notes": null
+    "notes": "See source template and component guide for projection slots."
   },
   "forms": {
     "controlValueAccessor": false,
@@ -119,7 +121,7 @@
   },
   "usageGuide": "guides/components/main-menu.md",
   "usage": {
-    "summary": "`goodui.main-menu` is the topbar's right-hand action group. Its default composition contains [Search](./search.md), [Notifications](./notifications.md), [Theme toggle](./theme-toggle.md), and [Avatar menu](./avatar-menu.md), in that order. [Settings](./settings.md) is an additional optional action. Each action is a separate Penpot library component with a 36 × 36 px hit area. MainMenu owns spacing and alignment; individual actions have no external margins.",
+    "summary": "`good-main-menu` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
     "examples": []
   },
   "penpot": [

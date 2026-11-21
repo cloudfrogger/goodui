@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodThemeService, GoodThemeToggleComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodLinkComponent, GoodThemeService, GoodThemeToggleComponent } from '@cloudfrogger/goodui';
 import { themePrepaintCode } from './theme-prepaint-code';
 
 @Component({
   selector: 'app-theme-toggle-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodThemeToggleComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodThemeToggleComponent, GoodCodeBlockComponent, GoodLinkComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view title="Theme toggle" description="A one-click appearance control for the topbar.">
@@ -16,7 +16,7 @@ import { themePrepaintCode } from './theme-prepaint-code';
       </section>
       <section class="showcase-section" aria-labelledby="theme-toggle-usage-title">
         <div class="showcase-section-heading"><h2 id="theme-toggle-usage-title">Topbar option</h2>
-          <p>The AppLayout shows this action by default. Set <code>showThemeToggle</code> to false to omit it; a standalone control uses the same theme service.</p></div>
+          <p>The AppLayout shows this action by default. Set <code>showThemeToggle</code> to false to omit it; a standalone control uses the same theme service. In a custom <good-link route="/components/main-menu">Main menu</good-link>, add or omit the good-theme-toggle child directly.</p></div>
         <good-code-block [code]="usageCode" language="html" title="Theme toggle usage" />
       </section>
       <section class="showcase-section" aria-labelledby="theme-toggle-loading-title">

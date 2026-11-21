@@ -62,3 +62,20 @@ The homepage's **Foundation → Layout** chapter starts with **General** for the
 `brand` is the accessible name for optional logo artwork. `brandLogoSrc` and `brandLogoDarkSrc` supply the light and dark wordmarks for the desktop sidebar and mobile drawer. `brandMarkSrc` and `brandMarkDarkSrc` supply the light and dark symbols for the mobile topbar and optional desktop BrandIcon. When a dark URL is omitted, the light image is used in both themes. Without a mark URL, the mobile topbar continues to show the wordmark or text, preserving existing application behavior. Without a wordmark URL, the sidebar and drawer show the text brand and generic accent mark. Put the files in your Angular application's `public/` directory (or use your own hosted URLs). GoodUI does not package an application logo or favicon.
 
 The browser favicon belongs to the application. Set its URL in your app's `src/index.html`, for example `<link rel="icon" type="image/svg+xml" href="favicon.svg">`, and put that file in your app's `public/` directory. Replace those with your own favicon when branding a consuming app; no GoodUI API or library file needs changing.
+
+## Choose your topbar actions
+
+Project a `good-main-menu` directly into AppLayout to choose the actions and their order. AppLayout forwards this container into Topbar and keeps routed content in the page area. Configure projected actions directly; shell action inputs continue to configure the generated default menu when no custom container is present.
+
+```html
+<good-app-layout [sidebarSections]="navigation">
+  <good-main-menu>
+    <good-search [items]="searchItems" />
+    <good-theme-toggle />
+    <good-avatar-menu [user]="currentUser" [actions]="accountActions" />
+  </good-main-menu>
+  <router-outlet />
+</good-app-layout>
+```
+
+Import MainMenu and its selected child components in the declaring standalone component. See [Main menu](../components/main-menu.md) and its linked action guides.
