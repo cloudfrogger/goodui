@@ -16,12 +16,12 @@
       <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
 
       <good-subheading>Avoid flickering on page load</good-subheading>
-      <figure>
-        <video class="w-full" autoplay [muted]="true" loop playsinline aria-label="White screen followed by the dark GoodUI page during loading">
+      <figure class="m-0 overflow-hidden rounded-[var(--good-radius-card)] border border-[var(--good-color-border)]">
+        <video class="block w-full" autoplay [muted]="true" loop playsinline aria-label="White screen followed by the dark GoodUI page, with a timeline showing elapsed loading time">
           <source src="media/theme-loading-flicker.webm" type="video/webm" />
           Your browser does not support embedded video.
         </video>
-        <figcaption>A dark-themed GoodUI page loading without the initial theme snippet. Stylesheets and scripts are deliberately delayed to make the white flash visible.</figcaption>
+        <figcaption class="bg-[var(--good-color-selected)] px-4 py-3 text-[length:var(--good-typography-caption-font-size)] font-normal leading-relaxed text-[var(--good-typography-caption-color)]">A dark-themed GoodUI page loading without the initial theme snippet. Stylesheets and scripts are deliberately delayed to make the white flash visible.</figcaption>
       </figure>
       <good-paragraph>A dark-themed app can briefly flash white while its stylesheets and JavaScript load. Setting <code>data-theme="dark"</code> alone still leaves the background white until the theme CSS arrives. The inline styles below immediately give the page a matching light or dark background. In your app's <code>src/index.html</code>, paste the entire snippet immediately after <code>&lt;meta charset="utf-8"&gt;</code> in the <code>&lt;head&gt;</code>, before external stylesheets and scripts.</good-paragraph>
       <good-code-block [code]="prepaintCode" language="html" title="src/index.html · inside head" />
