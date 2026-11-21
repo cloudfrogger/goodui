@@ -15,6 +15,11 @@
       <good-paragraph>Add the compiled GoodUI stylesheet to <code>src/styles.css</code>:</good-paragraph>
       <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
 
+      <good-subheading>Apply the theme before the first paint</good-subheading>
+      <good-paragraph>In your app's <code>src/index.html</code>, paste this snippet immediately after <code>&lt;meta charset="utf-8"&gt;</code> in the <code>&lt;head&gt;</code>, before external stylesheets and scripts. It sets the page background while Angular and GoodUI are still loading, so the first paint matches the user's theme.</good-paragraph>
+      <good-code-block [code]="prepaintCode" language="html" title="src/index.html · inside head" />
+      <good-paragraph>The script uses <code>light</code> or <code>dark</code> from the <code>goodui-theme</code> cookie. If the cookie is missing or has another value, it follows the system preference. If your app overrides GoodUI's <code>color.canvas</code> token, use your light and dark canvas colors in the inline styles as well.</good-paragraph>
+
       <good-subheading>Initialize GoodUI services</good-subheading>
       <good-paragraph>Add <code>provideGoodUI()</code> once to your root <code>app.config.ts</code>, alongside Angular Router. This is the shared provider entry point for GoodUI services, including notifications, calendar events, and theme handling. Components and services can then use Angular's <code>inject()</code> normally.</good-paragraph>
       <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />

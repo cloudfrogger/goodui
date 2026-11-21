@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, type GoodBreadcrumbItem } from '@goodui/angular';
+import { themePrepaintCode } from './theme-prepaint-code';
 
 @Component({
   selector: 'app-introduction-page',
@@ -86,6 +87,8 @@ cd hello-goodui
 npm install ../goodui/angular/dist/goodui`;
 
   readonly stylesCode = `@import "@goodui/angular/styles.css";`;
+
+  readonly prepaintCode = themePrepaintCode;
 
   readonly providersCode = `import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
