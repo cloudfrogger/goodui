@@ -13,26 +13,30 @@
     <div class="showcase-typography-layout">
     <section class="showcase-section">
       <div class="showcase-section-heading"><h2>Seven explicit heading styles</h2><p>Use <code>good-heading-1</code> through <code>good-heading-7</code> directly. Native h1–h6 and GoodUI Headings 1–6 share the same scale, weight, color, and line height. The seventh level uses role="heading" and aria-level="7" because HTML has no H7 element. No <code>level</code> input is needed.</p></div>
-      <good-prose><good-paragraph>Place the page heading and optional <code>good-summary</code> directly inside <code>good-main-view</code>. MainView owns their layout and responsive inset. Use <code>good-heading-group</code> when the same composition belongs inside other content. The former MainView title, description, eyebrow, and eyebrowAppearance inputs are removed; project the matching components instead.</good-paragraph></good-prose>
-      <good-prose><good-paragraph>Import the GoodUI stylesheet once to give native headings the same typography without importing a component. Heading 1 requests weight 1000; Inter provides at most 900 in Penpot, so its design specimen uses the closest available weight. Browsers likewise choose the closest face supported by the active font. Containers own outer spacing; headings have no default margins.</good-paragraph></good-prose>
-      <good-code-block [code]="pageHeadingCode" language="html" title="Compose a page heading" />
-      <div class="showcase-typography-heading-examples">
-        <div class="showcase-typography-example">
-          <good-heading-group>
-            <good-eyebrow>Workspace overview</good-eyebrow>
-            <good-heading-2>A clear page title</good-heading-2>
-            <good-summary>A short summary gives the page more context than a regular paragraph.</good-summary>
-          </good-heading-group>
-          <good-code-block [code]="headingCode" language="html" title="Heading with summary" />
+      <good-section spacing="content">
+        <good-prose>
+          <good-paragraph>Place the page heading and optional <code>good-summary</code> directly inside <code>good-main-view</code>. MainView owns their layout and responsive inset. Use <code>good-heading-group</code> when the same composition belongs inside other content. The former MainView title, description, eyebrow, and eyebrowAppearance inputs are removed; project the matching components instead.</good-paragraph>
+          <good-paragraph>Import the GoodUI stylesheet once to give native headings the same typography without importing a component. Heading 1 requests weight 1000; Inter provides at most 900 in Penpot, so its design specimen uses the closest available weight. Browsers likewise choose the closest face supported by the active font. Containers own outer spacing; headings have no default margins.</good-paragraph>
+        </good-prose>
+        <good-code-block [code]="pageHeadingCode" language="html" title="Compose a page heading" />
+        <div class="showcase-typography-heading-examples">
+          <div class="showcase-typography-example">
+            <good-heading-group>
+              <good-eyebrow>Workspace overview</good-eyebrow>
+              <good-heading-2>A clear page title</good-heading-2>
+              <good-summary>A short summary gives the page more context than a regular paragraph.</good-summary>
+            </good-heading-group>
+            <good-code-block [code]="headingCode" language="html" title="Heading with summary" />
+          </div>
+          <div class="showcase-typography-example">
+            <good-heading-group>
+              <good-eyebrow appearance="mono">A quieter category</good-eyebrow>
+              <good-heading-2>A heading can stand alone</good-heading-2>
+            </good-heading-group>
+            <good-code-block [code]="monoHeadingCode" language="html" title="Mono eyebrow" />
+          </div>
         </div>
-        <div class="showcase-typography-example">
-          <good-heading-group>
-            <good-eyebrow appearance="mono">A quieter category</good-eyebrow>
-            <good-heading-2>A heading can stand alone</good-heading-2>
-          </good-heading-group>
-          <good-code-block [code]="monoHeadingCode" language="html" title="Mono eyebrow" />
-        </div>
-      </div>
+      </good-section>
       <div class="showcase-typography-levels" aria-label="Heading level previews">
         @for (example of headingLevelPreviews; track example.style) {
           <div class="showcase-typography-level-row">
