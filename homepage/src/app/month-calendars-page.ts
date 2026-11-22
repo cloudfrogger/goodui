@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-  GoodMonthCalendarComponent, GoodMonthCalendarHighlight, GoodMonthCalendarSelection,
-  GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-} from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodMonthCalendarComponent, GoodMonthCalendarHighlight, GoodMonthCalendarSelection, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent, GoodEyebrowComponent } from '@cloudfrogger/goodui';
 
 const today = new Date();
 const monthKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
@@ -12,12 +8,13 @@ const dayKey = (day: number): string => `${monthKey}-${String(day).padStart(2, '
 @Component({
   selector: 'showcase-month-calendars-page',
   standalone: true,
-  imports: [GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-    GoodMonthCalendarComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent],
+  imports: [GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodMonthCalendarComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent, GoodEyebrowComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view eyebrow="COMPONENTS" title="Month calendar"
-      description="A compact month picker for a day or an entire week, with optional colored day markers.">
+    <good-main-view>
+  <good-eyebrow>COMPONENTS</good-eyebrow>
+  <good-heading-1>Month calendar</good-heading-1>
+  <good-summary>A compact month picker for a day or an entire week, with optional colored day markers.</good-summary>
       <good-section>
         <good-group title="Choose a day" appearance="plain">
           <good-prose><good-paragraph>Use the arrows to move one month. Choose the year in the center to pick a nearby year or enter any year directly.</good-paragraph></good-prose>

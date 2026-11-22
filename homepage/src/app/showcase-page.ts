@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem, LucideCircleQuestionMark, LucideEllipsis } from '@cloudfrogger/goodui';
+import { GoodIconComponent, GoodIconName, GoodMainViewComponent, GoodSubnavAction, GoodSubnavItem, LucideCircleQuestionMark, LucideEllipsis, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-showcase-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodIconComponent, RouterLink],
+  imports: [GoodMainViewComponent, GoodIconComponent, RouterLink, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view [title]="title" [description]="description" [subnavItems]="isAccount ? subnavItems : []" [subnavActions]="isAccount ? subnavActions : []" [subnavLabel]="'Account sections'">
+    <good-main-view [subnavItems]="isAccount ? subnavItems : []" [subnavActions]="isAccount ? subnavActions : []" [subnavLabel]="'Account sections'">
+  <good-heading-1>{{ title }}</good-heading-1>
+  <good-summary>{{ description }}</good-summary>
       @if (landing) {
         <div class="showcase-card-grid">
           @for (card of cards; track card.title) {

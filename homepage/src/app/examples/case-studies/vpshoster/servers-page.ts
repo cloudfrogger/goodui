@@ -1,12 +1,6 @@
 import { ChangeDetectionStrategy, Component, Signal, computed, inject, input, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  GoodActionGroupComponent, GoodBadgeComponent, GoodButtonComponent, GoodCheckboxComponent, GoodDropdownComponent,
-  GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodInputComponent, GoodLinkComponent, GoodMainViewComponent,
-  GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent,
-  GoodProseComponent, GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent,
-  GoodTabComponent, GoodSelectOption, flexRenderComponent, LucideEllipsis, LucideFilter, LucidePlus,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodBadgeComponent, GoodButtonComponent, GoodCheckboxComponent, GoodDropdownComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodInputComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent, GoodTabComponent, GoodSelectOption, flexRenderComponent, LucideEllipsis, LucideFilter, LucidePlus, GoodHeading1Component, GoodSummaryComponent, GoodEyebrowComponent } from '@cloudfrogger/goodui';
 import { VPS_PLANS, VpsCaseStudyStore, VpsServer } from './vps-store';
 import { vpsServersHtml, vpsServersTs, vpsStoreTs } from './source-code.generated';
 
@@ -61,11 +55,7 @@ class VpsActionsCellComponent {
 @Component({
   selector: 'example-vps-servers-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent,
-    GoodHintComponent, GoodLinkComponent, GoodStatusIconComponent, GoodTableCellDirective,
-    GoodInputComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent,
-    GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSelectComponent,
-    GoodSectionComponent, GoodTableComponent, GoodTabsComponent, GoodTabComponent],
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodStatusIconComponent, GoodTableCellDirective, GoodInputComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSelectComponent, GoodSectionComponent, GoodTableComponent, GoodTabsComponent, GoodTabComponent, GoodHeading1Component, GoodSummaryComponent, GoodEyebrowComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './servers-page.html',
 })

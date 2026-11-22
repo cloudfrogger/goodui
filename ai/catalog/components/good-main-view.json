@@ -47,45 +47,6 @@
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/main-view.ts",
       "kind": "input"
-    },
-    {
-      "name": "title",
-      "type": "string",
-      "required": false,
-      "default": "",
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/main-view.ts",
-      "kind": "input"
-    },
-    {
-      "name": "description",
-      "type": "string",
-      "required": false,
-      "default": "",
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/main-view.ts",
-      "kind": "input"
-    },
-    {
-      "name": "eyebrow",
-      "type": "string",
-      "required": false,
-      "default": "",
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/main-view.ts",
-      "kind": "input"
-    },
-    {
-      "name": "eyebrowAppearance",
-      "type": "GoodEyebrowAppearance",
-      "required": false,
-      "default": "brand",
-      "allowedValues": [
-        "brand",
-        "mono"
-      ],
-      "source": "angular/projects/goodui/src/lib/main-view.ts",
-      "kind": "input"
     }
   ],
   "outputs": [],
@@ -93,24 +54,20 @@
     "layout": [
       "page",
       "fill"
-    ],
-    "eyebrowAppearance": [
-      "brand",
-      "mono"
     ]
   },
   "composition": {
     "projectedContent": [
+      "good-heading-group",
+      "good-eyebrow",
+      "good-heading-1",
+      "good-summary",
       "[good-main-view-actions]",
       "[goodMainViewToolbar]",
       "*"
     ],
     "relatedSelectors": [
-      "good-subnav",
-      "good-heading-group",
-      "good-eyebrow",
-      "good-heading",
-      "good-summary"
+      "good-subnav"
     ],
     "notes": "See source template and component guide for projection slots."
   },
@@ -120,7 +77,7 @@
   },
   "usageGuide": "guides/components/main-view.md",
   "usage": {
-    "summary": "`goodui.main-view` provides the page container below the topbar. It supports an optional subnav, title, description, actions, and projected content. GoodUI owns page padding and scrolling. Penpot shows a content slot placeholder; Angular projects actual page content with `ng-content`.",
+    "summary": "`good-main-view` provides the page container below the topbar. It owns padding, scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
     "examples": [
       "ai/examples/edit-form.html",
       "ai/examples/login.html",

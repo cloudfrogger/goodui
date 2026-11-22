@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import {
-  GoodCalendarComponent, GoodCalendarEmptyAction, GoodCalendarEvent, GoodCalendarMove, GoodCalendarResize, GoodCalendarService,
-  GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent,
-  GoodModalHeaderComponent, GoodParagraphComponent, GoodSectionComponent, goodCalendarStartOfWeek,
-} from '@cloudfrogger/goodui';
+import { GoodCalendarComponent, GoodCalendarEmptyAction, GoodCalendarEvent, GoodCalendarMove, GoodCalendarResize, GoodCalendarService, GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodSectionComponent, goodCalendarStartOfWeek, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 const week = goodCalendarStartOfWeek(new Date());
 const at = (day: number, hour: number, minute = 0) => new Date(week.getFullYear(), week.getMonth(), week.getDate() + day, hour, minute);
@@ -12,11 +8,12 @@ const todayIndex = (new Date().getDay() + 6) % 7;
 @Component({
   selector: 'showcase-calendar-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodCalendarComponent, GoodCodeBlockComponent,
-    GoodModalComponent, GoodModalHeaderComponent, GoodModalFooterComponent, GoodButtonComponent, GoodParagraphComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodCalendarComponent, GoodCodeBlockComponent, GoodModalComponent, GoodModalHeaderComponent, GoodModalFooterComponent, GoodButtonComponent, GoodParagraphComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Calendar" description="A complete schedule with month, week, day, and list views. Move appointments or resize the events that allow it. Shaded hours remain bookable.">
+    <good-main-view>
+  <good-heading-1>Calendar</good-heading-1>
+  <good-summary>A complete schedule with month, week, day, and list views. Move appointments or resize the events that allow it. Shaded hours remain bookable.</good-summary>
       <good-section>
         <good-calendar label="Demo schedule" [holidays]="holidays"
           (eventSelected)="onSelect($event)" (eventDoubleClicked)="onDoubleClick($event)"

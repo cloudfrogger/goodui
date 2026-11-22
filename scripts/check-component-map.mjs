@@ -35,9 +35,10 @@ const actionGroupVariants = JSON.parse(readFileSync(resolve(root, 'design/action
 const progressVariants = JSON.parse(readFileSync(resolve(root, 'design/progress-variants.json'), 'utf8'));
 const errorPageVariants = JSON.parse(readFileSync(resolve(root, 'design/error-page-variants.json'), 'utf8'));
 const typographyComponents = JSON.parse(readFileSync(resolve(root, 'design/typography-components.json'), 'utf8'));
+const variantSelectors = new Set((map.variantSelectorMappings ?? []).map(entry => entry.angularSelector.slice(5)));
 const source = resolve(root, 'angular/projects/goodui/src/lib');
 const selectors = new Set(readdirSync(source).filter(name => name.endsWith('.ts'))
-  .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z-]+)'/g)].map(match => match[1])));
+  .flatMap(name => [...readFileSync(resolve(source, name), 'utf8').matchAll(/selector:\s*'good-([a-z0-9-]+)'/g)].map(match => match[1])));
 if (numberInputVariants.family !== 'goodui.number-input' || numberInputVariants.selector !== 'good-number-input' ||
     numberInputVariants.page !== '27 Number Inputs' || !/^[0-9a-f-]{36}$/.test(numberInputVariants.containerId)) {
   throw new Error('Invalid Number Input registry.');
@@ -235,7 +236,7 @@ const direct = new Set(map.directFamilies);
 const selectorOverrides = map.angularSelectorOverrides ?? {};
 const selectorForFamily = family => selectorOverrides[family] ?? `good-${family}`;
 for (const [family, selector] of Object.entries(selectorOverrides)) {
-  if (!direct.has(family) || !/^good-[a-z-]+$/.test(selector) || !selectors.has(selector.slice(5))) throw new Error(`Invalid selector override for ${family}`);
+  if (!direct.has(family) || !/^good-[a-z0-9-]+$/.test(selector) || !selectors.has(selector.slice(5))) throw new Error(`Invalid selector override for ${family}`);
 }
 if (new Set([...direct].map(selectorForFamily)).size !== direct.size) throw new Error('Duplicate direct Angular selector mapping.');
 
@@ -327,7 +328,7 @@ for (const [name, owner] of Object.entries(map.internalParts)) {
   if (selectors.has(name)) throw new Error(`goodui.${name} now has a selector; move it to directFamilies.`);
   if (!direct.has(owner)) throw new Error(`Unknown Angular owner for goodui.${name}: ${owner}`);
 }
-for (const name of selectors) if (name !== 'icon' && ![...direct].some(family => selectorForFamily(family) === `good-${name}`) && !pending.has(name)) throw new Error(`Unmapped Angular selector: good-${name}`);
+for (const name of selectors) if (name !== 'icon' && ![...direct].some(family => selectorForFamily(family) === `good-${name}`) && !pending.has(name) && !variantSelectors.has(name)) throw new Error(`Unmapped Angular selector: good-${name}`);
 if (buttonVariants.family !== 'goodui.button' || buttonVariants.selector !== 'good-button') throw new Error('Button variant family does not map to good-button.');
 const combinations = new Set();
 const ids = new Set();
@@ -504,8 +505,8 @@ checkMatrix(badgeVariants.variants, [
 ], badgeExpected, 'Badge', new Set());
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
 const typographyExpected = new Map([
-  ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', ['1', '2-6']], ['summary', null],
-  ['section', ['default', 'content']], ['prose', null], ['detail-list', null], ['columns', ['2', '3', '4']], ['column', null], ['paragraph', null], ['subheading', null], ['citation', null],
+  ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', ['1', '2']], ['summary', null],
+  ['section', ['default', 'content']], ['prose', null], ['detail-list', null], ['columns', ['2', '3', '4']], ['column', null], ['paragraph', null], ['subheading', ['2', '3', '4', '5', '6']], ['citation', null],
   ['separator', ['dots', 'line']], ['inline-image', ['center', 'left', 'right']],
   ['form-field', ['default', 'error']], ['field-label', ['false', 'true']],
   ['hint', null], ['error-text', null],
@@ -513,7 +514,7 @@ const typographyExpected = new Map([
 if (typographyComponents.page !== '12 Typography' || typographyComponents.families.length !== typographyExpected.size) throw new Error('Typography family registry is incomplete.');
 const typographyIds = new Set();
 for (const entry of typographyComponents.families) {
-  if (!typographyExpected.has(entry.family) || !direct.has(entry.family) || entry.selector !== `good-${entry.family}`) throw new Error(`Invalid Typography family: ${entry.family}`);
+  if (!typographyExpected.has(entry.family) || !direct.has(entry.family) || entry.selector !== selectorForFamily(entry.family)) throw new Error(`Invalid Typography family: ${entry.family}`);
   const expected = typographyExpected.get(entry.family);
   if (expected) {
     if (!entry.containerId || !entry.variants || expected.some(value => !entry.variants[value]) || Object.keys(entry.variants).length !== expected.length) throw new Error(`Incomplete Typography variants: ${entry.family}`);
@@ -528,6 +529,15 @@ for (const entry of typographyComponents.families) {
   typographyExpected.delete(entry.family);
 }
 if (typographyExpected.size) throw new Error(`Missing Typography families: ${[...typographyExpected.keys()].join(', ')}`);
+const headingStyles = typographyComponents.headingStyles;
+if (headingStyles?.length !== 7 || map.variantSelectorMappings?.length !== 7) throw new Error('Seven explicit heading styles are required.');
+for (const [index, style] of headingStyles.entries()) {
+  const selector = `good-heading-${index + 1}`;
+  const html = `h${[1, 2, 2, 3, 4, 5, 6][index]}`;
+  const match = map.variantSelectorMappings.find(entry => entry.angularSelector === selector);
+  if (style.selector !== selector || style.htmlElement !== html || !selectors.has(selector.slice(5)) ||
+      match?.penpotId !== style.componentId || match?.variant.level !== html.slice(1)) throw new Error(`Invalid fixed heading style: ${selector}`);
+}
 const formLayouts = typographyComponents.formLayouts?.variants;
 if (typographyComponents.formLayouts?.selector !== 'form[goodForm]' || typographyComponents.formLayouts?.input !== 'layout' || !formLayouts || Object.keys(formLayouts).sort().join(',') !== 'left,right,vertical') throw new Error('Incomplete Form layout manifest.');
 for (const [layout, id] of Object.entries(formLayouts)) if (!map.componentMappings.some(entry => entry.penpotName === `goodui.form.${layout}` && entry.penpotId === id && entry.angularSelector === 'form[goodForm]')) throw new Error(`Invalid Form layout mapping: ${layout}`);

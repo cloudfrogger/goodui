@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-  GoodSectionComponent, GoodSelectFontComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodSelectFontComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-select-font-page', standalone: true,
-  imports: [GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-    GoodSectionComponent, GoodSelectFontComponent],
+  imports: [GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodSelectFontComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './select-font-page.html',
 })

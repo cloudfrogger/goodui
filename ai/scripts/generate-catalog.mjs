@@ -33,6 +33,13 @@ const values = type => {
 };
 const json = value => `${JSON.stringify(value, null, 2)}\n`;
 const guideOverrides = {
+  'good-heading-1': 'components/typography',
+  'good-heading-2': 'components/typography',
+  'good-heading-3': 'components/typography',
+  'good-heading-4': 'components/typography',
+  'good-heading-5': 'components/typography',
+  'good-heading-6': 'components/typography',
+  'good-heading-7': 'components/typography',
   'good-header-actions': 'components/header-actions',
   'good-header-search': 'components/header-search',
   'good-header-notification': 'components/header-notification',
@@ -66,7 +73,7 @@ for (const modulePath of modules) {
       : templateUrlProp && ts.isPropertyAssignment(templateUrlProp) && ts.isStringLiteral(templateUrlProp.initializer)
         ? fs.readFileSync(path.resolve(path.dirname(modulePath), templateUrlProp.initializer.text), 'utf8') : '';
     const projections = [...template.matchAll(/<ng-content(?:\s+select="([^"]+)")?/g)].map(match => match[1] ?? '*');
-    const relatedSelectors = [...new Set([...template.matchAll(/<good-([a-z-]+)/g)].map(match => `good-${match[1]}`))].filter(value => value !== selector);
+    const relatedSelectors = [...new Set([...template.matchAll(/<good-([a-z0-9-]+)/g)].map(match => `good-${match[1]}`))].filter(value => value !== selector);
     const inputs = [], outputs = [];
     for (const member of cls.members) {
       if (!ts.isPropertyDeclaration(member) || !member.initializer || !ts.isCallExpression(member.initializer)) continue;
@@ -95,7 +102,7 @@ for (const modulePath of modules) {
     if (!guidePath) throw new Error(`Missing usage guide for ${selector}`);
     const usageSummary = fs.existsSync(guidePath) ? fs.readFileSync(guidePath, 'utf8').split('\n').map(line => line.trim()).find(line => line && !line.startsWith('#') && !line.startsWith('```') && !line.startsWith('|') && !line.startsWith('- ') && !line.startsWith('>')) ?? null : null;
     const examples = fs.readdirSync(path.join(root, 'ai/examples')).filter(file => file.endsWith('.html') && fs.readFileSync(path.join(root, 'ai/examples', file), 'utf8').includes(selector)).map(file => `ai/examples/${file}`);
-    const penpot = map.componentMappings.filter(item => item.angularSelector === selector).map(({ penpotName, penpotId, kind, state, owner }) => ({ penpotName, penpotId, kind, state, owner: owner ?? null }));
+    const penpot = [...map.componentMappings.filter(entry => !(map.variantSelectorMappings ?? []).some(variant => variant.angularSelector === entry.angularSelector && variant.penpotId === entry.penpotId)), ...(map.variantSelectorMappings ?? [])].filter(item => item.angularSelector === selector).map(({ penpotName, penpotId, kind, state, owner, variant }) => ({ penpotName, penpotId, kind, state, owner: owner ?? null, ...(variant ? { variant } : {}) }));
     const item = {
       $schema: '../component.schema.json',
       selector, className: cls.name.text, kind: decorator.expression.expression.getText().toLowerCase(),

@@ -1,17 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import {
-  GoodButtonComponent, GoodCodeBlockComponent, GoodErrorTextComponent, GoodFormFieldComponent,
-  GoodFieldLabelComponent, GoodGroupComponent, GoodHintComponent, GoodInputSize,
-  GoodMainViewComponent, GoodSectionComponent, GoodTextareaComponent,
-} from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodCodeBlockComponent, GoodErrorTextComponent, GoodFormFieldComponent, GoodFieldLabelComponent, GoodGroupComponent, GoodHintComponent, GoodInputSize, GoodMainViewComponent, GoodSectionComponent, GoodTextareaComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-textareas-page',
   standalone: true,
-  imports: [ReactiveFormsModule, GoodButtonComponent, GoodCodeBlockComponent, GoodErrorTextComponent,
-    GoodFormFieldComponent, GoodFieldLabelComponent, GoodGroupComponent, GoodHintComponent,
-    GoodMainViewComponent, GoodSectionComponent, GoodTextareaComponent],
+  imports: [ReactiveFormsModule, GoodButtonComponent, GoodCodeBlockComponent, GoodErrorTextComponent, GoodFormFieldComponent, GoodFieldLabelComponent, GoodGroupComponent, GoodHintComponent, GoodMainViewComponent, GoodSectionComponent, GoodTextareaComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './textareas-page.html',
 })

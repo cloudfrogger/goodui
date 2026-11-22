@@ -1,15 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import {
-  GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-  GoodSectionComponent, GoodSignaturePadComponent, GoodSignatureData, GoodSignatureStroke,
-} from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodSignaturePadComponent, GoodSignatureData, GoodSignatureStroke, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-signature-pads-page',
   standalone: true,
-  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-    GoodSectionComponent, GoodSignaturePadComponent, ReactiveFormsModule],
+  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodSignaturePadComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './signature-pads-page.html',
 })

@@ -1,4 +1,6 @@
-<good-main-view [title]="cluster()?.name || 'Database cluster'" eyebrow="Cloudhoster · Managed databases">
+<good-main-view>
+  <good-eyebrow>Cloudhoster · Managed databases</good-eyebrow>
+  <good-heading-1>{{ cluster()?.name || 'Database cluster' }}</good-heading-1>
   @if (cluster(); as item) {
     <good-section>
       <good-paragraph>

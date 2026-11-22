@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodFormDirective, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodFormDirective, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-login-example', standalone: true,
-  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodFormDirective, GoodInputComponent, GoodButtonComponent, GoodActionGroupComponent, GoodParagraphComponent],
+  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodFormDirective, GoodInputComponent, GoodButtonComponent, GoodActionGroupComponent, GoodParagraphComponent, GoodHeading1Component, GoodSummaryComponent],
   templateUrl: './login.html',
 })
 export class LoginExample {

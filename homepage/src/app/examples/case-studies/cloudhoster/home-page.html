@@ -2,7 +2,7 @@
   <good-section>
     <good-heading-group>
       <good-eyebrow>Cloudhoster · Case study</good-eyebrow>
-      <good-heading>Welcome aboard</good-heading>
+      <good-heading-1>Welcome aboard</good-heading-1>
       <good-summary>Your database workspace at a glance.</good-summary>
     </good-heading-group>
   </good-section>
@@ -13,12 +13,12 @@
       </good-card-header>
       <good-columns [columns]="2">
         <good-column>
-          <good-subheading [level]="3">Start with a database</good-subheading>
+          <good-heading-4>Start with a database</good-heading-4>
           <good-paragraph>Choose an engine, region, compute plan, and storage. The estimate updates as you configure it.</good-paragraph>
           <good-button (click)="openDatabases()">Explore databases</good-button>
         </good-column>
         <good-column>
-          <good-subheading [level]="3">Your workspace today</good-subheading>
+          <good-heading-4>Your workspace today</good-heading-4>
           <good-detail-list>
             <div goodDetailRow><dt>Database clusters</dt><dd>{{ store.clusters().length }}</dd></div>
             <div goodDetailRow><dt>Estimated monthly cost</dt><dd>{{ store.totalMonthly() | currency:'USD' }}</dd></div>
@@ -31,7 +31,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">Quick actions</good-subheading>
+      <good-heading-3>Quick actions</good-heading-3>
       <good-action-group>
         <good-link route="/examples/case-studies/cloudhoster/databases/create">Create a database cluster</good-link>
         <good-link route="/examples/case-studies/cloudhoster/databases">Inspect clusters</good-link>

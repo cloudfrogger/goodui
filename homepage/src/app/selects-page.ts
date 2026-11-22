@@ -1,17 +1,16 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import {
-  GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, GoodSelectOption, GoodSelectValue,
-  LucideCode2, LucidePalette, LucideShieldCheck, LucideStar,
-} from '@cloudfrogger/goodui';
+import { GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, GoodSelectOption, GoodSelectValue, LucideCode2, LucidePalette, LucideShieldCheck, LucideStar, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-selects-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Selects" description="Single and multiple choices with search, rich options, and country flags">
+    <good-main-view>
+  <good-heading-1>Selects</good-heading-1>
+  <good-summary>Single and multiple choices with search, rich options, and country flags</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Sizes and initial values</h2><p>Use a placeholder or provide a selected value. The same control height scale applies to all three sizes.</p></div>
         <div class="showcase-select-grid">

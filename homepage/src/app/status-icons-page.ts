@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  GoodCodeBlockComponent, GoodMainViewComponent, GoodSectionComponent, GoodStatusIconAppearance,
-  GoodStatusIconComponent, GoodStatusIconSize, GoodStatusIconStatus,
-} from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodSectionComponent, GoodStatusIconAppearance, GoodStatusIconComponent, GoodStatusIconSize, GoodStatusIconStatus, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-status-icons-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodStatusIconComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodStatusIconComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="StatusIcon" description="Compact, theme-aware state indicators with seven focused appearances.">
+    <good-main-view>
+  <good-heading-1>StatusIcon</good-heading-1>
+  <good-summary>Compact, theme-aware state indicators with seven focused appearances.</good-summary>
       <good-section>
         <section class="showcase-section">
           <div class="showcase-section-heading"><h2>Choose an appearance</h2><p>Start with a plain dot. Mono uses neutral text color; use Symbol when the shape itself should communicate the state.</p></div>

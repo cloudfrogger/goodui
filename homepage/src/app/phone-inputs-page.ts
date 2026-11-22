@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodInputPhoneComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
+import { GoodInputPhoneComponent, GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-phone-inputs-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodInputPhoneComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodInputPhoneComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Phone inputs" description="Country flags, calling codes, and one international phone value">
+    <good-main-view>
+  <good-heading-1>Phone inputs</good-heading-1>
+  <good-summary>Country flags, calling codes, and one international phone value</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Sizes and country defaults</h2><p>The first field uses the browser locale. Set a country explicitly when the application already knows it.</p></div>
         <div class="showcase-select-grid">

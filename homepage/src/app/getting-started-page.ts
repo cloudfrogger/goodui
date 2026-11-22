@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, type GoodBreadcrumbItem } from '@cloudfrogger/goodui';
+import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 import { themePrepaintCode } from './theme-prepaint-code';
 
 @Component({
   selector: 'app-introduction-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/introduction.html',
 })
@@ -14,7 +14,7 @@ export class IntroductionPageComponent {}
 @Component({
   selector: 'app-designing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent, GoodSubheadingComponent],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/designing.html',
 })
@@ -61,7 +61,7 @@ interaction or accessibility issue you can reproduce. Rebuild and show what chan
 @Component({
   selector: 'app-developing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent, GoodSubheadingComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodHeading1Component, GoodHeading3Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/developing.html',
 })
@@ -99,19 +99,16 @@ export const appConfig: ApplicationConfig = {
 </good-app-layout>`;
 
   readonly helloCode = `import { Component } from '@angular/core';
-import {
-  GoodAppLayoutComponent,
-  GoodMainViewComponent,
-  type GoodSidebarSection,
-} from '@cloudfrogger/goodui';
+import { GoodAppLayoutComponent, GoodMainViewComponent, type GoodSidebarSection, GoodHeading1Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [GoodAppLayoutComponent, GoodMainViewComponent],
+  imports: [GoodAppLayoutComponent, GoodMainViewComponent, GoodHeading1Component],
   template: \`
     <good-app-layout brand="HELLO" [sidebarSections]="navigation">
-      <good-main-view title="Hello, GoodUI!">
+      <good-main-view>
+  <good-heading-1>Hello, GoodUI!</good-heading-1>
         <p>Your first page is ready.</p>
       </good-main-view>
     </good-app-layout>
@@ -132,7 +129,7 @@ npm run start:homepage`;
 @Component({
   selector: 'app-license-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/license.html',
 })
@@ -141,7 +138,7 @@ export class LicensePageComponent {}
 @Component({
   selector: 'app-changelog-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/changelog.html',
 })

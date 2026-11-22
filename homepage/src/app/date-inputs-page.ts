@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodDateInputComponent, GoodDatePreset, GoodDateValue, GoodMainViewComponent, LucideCalendarCheck2, LucideMapPin } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodDateInputComponent, GoodDatePreset, GoodDateValue, GoodMainViewComponent, LucideCalendarCheck2, LucideMapPin, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 const iso = (date: Date): string => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 const today = new Date();
@@ -11,11 +11,13 @@ const year = today.getFullYear();
 @Component({
   selector: 'showcase-date-inputs-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodDateInputComponent, GoodCodeBlockComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodDateInputComponent, GoodCodeBlockComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`.date-showcase-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:24px; } .date-showcase-grid > * { min-width:0; } .date-showcase-grid p { margin:8px 0 0; color:var(--good-muted); font-size:12px; }`],
   template: `
-    <good-main-view title="Date inputs" description="Localized dates, constrained calendars, date ranges, and time in the shared Input style.">
+    <good-main-view>
+  <good-heading-1>Date inputs</good-heading-1>
+  <good-summary>Localized dates, constrained calendars, date ranges, and time in the shared Input style.</good-summary>
       <section class="showcase-section" aria-labelledby="date-core-title">
         <div class="showcase-section-heading"><h2 id="date-core-title">Date and range</h2><p>Weekends are unavailable by default. Dates outside the configured interval are disabled in the calendar and rejected when typed.</p></div>
         <div class="date-showcase-grid">

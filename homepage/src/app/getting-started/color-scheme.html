@@ -3,14 +3,14 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Foundation</good-eyebrow>
-        <good-heading [level]="1">Color Scheme</good-heading>
+        <good-heading-1>Color Scheme</good-heading-1>
         <good-summary>The shared color roles behind GoodUI's light and dark themes.</good-summary>
       </good-heading-group>
     </good-prose>
   </good-section>
 
   <good-section>
-    <good-subheading>One palette, semantic roles</good-subheading>
+    <good-heading-3>One palette, semantic roles</good-heading-3>
     <good-prose>
       <good-paragraph>GoodUI's Penpot <code>layout</code> set defines the base colors. The
         <code>layout-dark</code> set overrides colors that need a different value in dark mode. Components refer to
@@ -25,7 +25,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>Core UI colors</good-subheading>
+    <good-heading-3>Core UI colors</good-heading-3>
     <div class="foundation-color-grid" aria-label="Core color tokens">
       @for (color of coreColors(); track color.token) {
         <div class="foundation-color-row">
@@ -42,7 +42,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>Brand and status colors</good-subheading>
+    <good-heading-3>Brand and status colors</good-heading-3>
     <div class="foundation-color-grid" aria-label="Brand and status color tokens">
       @for (color of semanticColors(); track color.token) {
         <div class="foundation-color-row">
@@ -59,7 +59,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>Marker and highlight colors</good-subheading>
+    <good-heading-3>Marker and highlight colors</good-heading-3>
     <good-prose>
       <good-paragraph>These 16 colors identify appointment categories and other domain-specific highlights. Calendar event fills use the exact swatch color in the current appearance; the palette does not imply Success, Warning, or Error. Pair color with a label or icon whenever the category must be understood without color.</good-paragraph>
     </good-prose>
@@ -79,7 +79,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>Customize colors in your app</good-subheading>
+    <good-heading-3>Customize colors in your app</good-heading-3>
     <good-prose>
       <good-paragraph>Penpot <code>color.*</code> roles become CSS <code>--good-color-*</code> variables. The
         shorter <code>--good-brand</code> style aliases and Tailwind <code>--color-good-*</code> mappings use those
@@ -97,7 +97,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>Keep Penpot and code aligned</good-subheading>
+    <good-heading-3>Keep Penpot and code aligned</good-heading-3>
     <good-prose>
       <good-paragraph>App-level CSS overrides change the running app only. To publish a shared GoodUI palette,
         change the matching tokens in Penpot, export the token JSON to

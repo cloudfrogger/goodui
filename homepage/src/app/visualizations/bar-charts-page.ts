@@ -1,15 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodBarChartComponent, GoodChartAxisComponent, GoodChartBarComponent, GoodChartDataSource,
-  GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
-  GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodBarChartComponent, GoodChartAxisComponent, GoodChartBarComponent, GoodChartDataSource, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-bar-charts-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodBarChartComponent, GoodChartAxisComponent, GoodChartBarComponent, GoodCodeBlockComponent,
-    GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodMainViewComponent,
-    GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent,
-    GoodSummaryComponent],
+  imports: [GoodBarChartComponent, GoodChartAxisComponent, GoodChartBarComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component],
   templateUrl: './bar-charts-page.html',
 })
 export class BarChartsPageComponent {

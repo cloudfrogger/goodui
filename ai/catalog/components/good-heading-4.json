@@ -1,40 +1,16 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-subheading",
-  "className": "GoodSubheadingComponent",
+  "selector": "good-heading-4",
+  "className": "GoodHeading4Component",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodSubheadingComponent"
+    "symbol": "GoodHeading4Component"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",
-  "inputs": [
-    {
-      "name": "level",
-      "type": "GoodSubheadingLevel",
-      "required": false,
-      "default": "2",
-      "allowedValues": [
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "source": "angular/projects/goodui/src/lib/typography.ts",
-      "kind": "input"
-    }
-  ],
+  "inputs": [],
   "outputs": [],
-  "variants": {
-    "level": [
-      2,
-      3,
-      4,
-      5,
-      6
-    ]
-  },
+  "variants": {},
   "composition": {
     "projectedContent": [
       "*"
@@ -54,10 +30,13 @@
   "penpot": [
     {
       "penpotName": "goodui.subheading",
-      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
+      "penpotId": "4c1f5233-504c-80ed-8008-fbe8d49ff271",
       "kind": "component",
       "state": null,
-      "owner": null
+      "owner": null,
+      "variant": {
+        "level": "3"
+      }
     }
   ],
   "missing": {

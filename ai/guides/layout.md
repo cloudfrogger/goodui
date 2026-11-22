@@ -1,6 +1,6 @@
 # Layout rules
 
-Use `good-app-layout` for a full application shell. Its composition is AppLayout → SidebarContainer / Topbar / MainView. `good-main-view` owns the page title, description, eyebrow, actions, and content flow. Use `good-heading-group` only when building an independent heading composition; do not nest it around a `good-main-view` title.
+Use `good-app-layout` for a full application shell. Its composition is AppLayout → SidebarContainer / Topbar / MainView. `good-main-view` owns the layout of projected headings, summary, eyebrow, actions, and content. Place `good-heading-1` and optional `good-summary` directly inside it; there are no title or description inputs. Use `good-heading-group` when building an independent heading composition; do not nest it around a `good-main-view` title.
 
 Choose one page pattern. For a centered content page, put `good-section` elements directly inside `good-main-view`; MainView aligns its heading and entire content area to the same 1024 px width. For a free full-width page, use no `good-section`; heading and content then begin at the same left edge. Do not mix direct Sections and free page content. A standard page title belongs in MainView's `title` input in either pattern.
 

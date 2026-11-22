@@ -4,7 +4,7 @@
       <good-section>
         <good-prose>
           <good-link route="/examples/case-studies/vpshoster/servers">← Back to servers</good-link>
-          <good-heading [level]="1">Create servers</good-heading>
+          <good-heading-1>Create servers</good-heading-1>
           <good-paragraph>Choose a plan and configure the server. This case study previews the workflow locally; Create adds demo records without provisioning infrastructure.</good-paragraph>
         </good-prose>
       </good-section>
@@ -141,10 +141,10 @@
       </good-timeline>
     </good-assistant-main>
 
-    <good-assistant-header><good-subheading [level]="2">Order summary</good-subheading></good-assistant-header>
+    <good-assistant-header><good-heading-3>Order summary</good-heading-3></good-assistant-header>
     <good-assistant-body>
       <good-prose>
-        <good-subheading [level]="3">{{ selectedPlan().name }}</good-subheading>
+        <good-heading-4>{{ selectedPlan().name }}</good-heading-4>
         <good-paragraph>{{ selectedPlan().vcpus }} vCPUs · {{ selectedPlan().memoryGb }} GB RAM · {{ selectedPlan().diskGb }} GB SSD · {{ selectedPlan().category === 'cost' ? architecture() : 'x86' }}</good-paragraph>
         <good-detail-list>
           <div goodDetailRow><dt>Location</dt><dd>{{ location() }} · {{ zone() }}</dd></div>
@@ -157,7 +157,7 @@
         </good-detail-list>
         <good-separator variant="line" />
         <good-number-input label="Number of servers" [showLabel]="true" [min]="1" [max]="5" [(value)]="quantity" />
-        <good-subheading [level]="3">Monthly estimate</good-subheading>
+        <good-heading-4>Monthly estimate</good-heading-4>
         <good-detail-list>
           <div goodDetailRow><dt>{{ selectedPlan().name }} × {{ quantity() }}</dt><dd>{{ euro(selectedPlan().monthlyPrice * quantity()) }}</dd></div>
           @if (ipv4()) { <div goodDetailRow><dt>IPv4 × {{ quantity() }}</dt><dd>{{ euro(0.5 * quantity()) }}</dd></div> }
@@ -171,7 +171,7 @@
         <good-prose>
           <good-heading-group>
             <good-eyebrow>Estimated total</good-eyebrow>
-            <good-heading [level]="3">{{ euro(totalPrice()) }} / month</good-heading>
+            <good-heading-4>{{ euro(totalPrice()) }} / month</good-heading-4>
           </good-heading-group>
           <good-hint>{{ euro(totalPrice() / 720) }} / hour estimated. Prices are illustrative and exclude tax.</good-hint>
           <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
@@ -179,7 +179,7 @@
     </good-assistant-footer>
     <good-assistant-mobile>
       <good-paragraph><strong>{{ selectedPlan().name }}</strong> · {{ location() }} · {{ quantity() }} server{{ quantity() === 1 ? '' : 's' }}</good-paragraph>
-      <good-subheading [level]="3">{{ euro(totalPrice()) }} / month</good-subheading>
+      <good-heading-4>{{ euro(totalPrice()) }} / month</good-heading-4>
     </good-assistant-mobile>
   </good-assistant-panel>
 </good-main-view>

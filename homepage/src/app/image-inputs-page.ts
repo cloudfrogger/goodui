@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodImageInputComponent, GoodInlineImageComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodImageInputComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-image-inputs-page',
   standalone: true,
-  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodImageInputComponent, GoodInlineImageComponent, GoodCodeBlockComponent],
+  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodImageInputComponent, GoodInlineImageComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     .showcase-image-input-grid { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px; }
@@ -13,7 +13,9 @@ import { GoodCodeBlockComponent, GoodImageInputComponent, GoodInlineImageCompone
     @media (max-width: 600px) { .showcase-image-input-grid { gap: 24px; } }
   `],
   template: `
-    <good-main-view title="Image inputs" description="Choose, preview, replace, and remove images with one reusable control.">
+    <good-main-view>
+  <good-heading-1>Image inputs</good-heading-1>
+  <good-summary>Choose, preview, replace, and remove images with one reusable control.</good-summary>
       <section class="showcase-section" aria-labelledby="image-input-shapes">
         <div class="showcase-section-heading"><h2 id="image-input-shapes">Shapes and empty state</h2><p>The empty tile opens the file picker. The upload button is optional.</p></div>
         <div class="showcase-image-input-grid">

@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodFormDirective, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent, GoodMainViewComponent, GoodSelectComponent, GoodSelectOption, GoodParagraphComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodFormDirective, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent, GoodMainViewComponent, GoodSelectComponent, GoodSelectOption, GoodParagraphComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 @Component({
   selector: 'app-edit-form-example', standalone: true,
-  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodFormDirective, GoodGroupComponent, GoodFormRowComponent, GoodInputComponent, GoodSelectComponent, GoodActionGroupComponent, GoodButtonComponent, GoodParagraphComponent],
+  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodFormDirective, GoodGroupComponent, GoodFormRowComponent, GoodInputComponent, GoodSelectComponent, GoodActionGroupComponent, GoodButtonComponent, GoodParagraphComponent, GoodHeading1Component, GoodSummaryComponent],
   templateUrl: './edit-form.html',
 })
 export class EditFormExample {

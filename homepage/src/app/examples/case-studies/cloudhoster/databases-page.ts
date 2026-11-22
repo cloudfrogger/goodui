@@ -1,24 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent,
-  GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodEyebrowComponent,
-  GoodHeadingComponent, GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent,
-  GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent,
-  GoodSectionComponent, GoodStatusIconComponent, GoodSubheadingComponent, GoodSummaryComponent,
-  GoodTableCellDirective, GoodTableColumn, GoodTableComponent,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodStatusIconComponent, GoodSummaryComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodHeading4Component } from '@cloudfrogger/goodui';
 import { CloudhosterStore, DemoCluster } from './cloudhoster-store';
 import { cloudDatabasesHtml, cloudDatabasesTs, cloudStoreTs } from './source-code.generated';
 
 @Component({
   selector: 'example-cloudhoster-databases', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent,
-    GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodEyebrowComponent,
-    GoodHeadingComponent, GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent,
-    GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent,
-    GoodSectionComponent, GoodStatusIconComponent, GoodSubheadingComponent, GoodSummaryComponent,
-    GoodTableCellDirective, GoodTableComponent],
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodStatusIconComponent, GoodSummaryComponent, GoodTableCellDirective, GoodTableComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodHeading4Component],
   templateUrl: './databases-page.html',
 })
 export class CloudhosterDatabasesPageComponent {

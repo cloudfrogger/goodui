@@ -1,17 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodChartAxisComponent, GoodCheckboxComponent,
-  GoodChartDataSource, GoodChartLineComponent, GoodCodeBlockComponent, GoodCardComponent,
-  GoodCardHeaderComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent,
-  GoodDetailRowDirective, GoodGroupComponent, GoodInputComponent,
-  GoodLineChartComponent, GoodMainViewComponent, GoodModalComponent,
-  GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent,
-  GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent,
-  GoodTabComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent,
-  GoodTimelineComponent, GoodTimelineStepComponent,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodChartAxisComponent, GoodCheckboxComponent, GoodChartDataSource, GoodChartLineComponent, GoodCodeBlockComponent, GoodCardComponent, GoodCardHeaderComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodGroupComponent, GoodInputComponent, GoodLineChartComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent, GoodTabComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodHeading1Component, GoodEyebrowComponent } from '@cloudfrogger/goodui';
 import { CloudhosterStore, DemoPool } from './cloudhoster-store';
 import { cloudDetailHtml, cloudDetailTs, cloudStoreTs } from './source-code.generated';
 
@@ -19,15 +9,7 @@ interface DemoLog { time: string; host: string; message: string }
 
 @Component({
   selector: 'example-cloudhoster-database-detail', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent,
-    GoodChartAxisComponent, GoodCheckboxComponent, GoodChartLineComponent, GoodCodeBlockComponent,
-    GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective,
-    GoodGroupComponent, GoodInputComponent, GoodLineChartComponent,
-    GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent,
-    GoodModalHeaderComponent, GoodParagraphComponent, GoodSectionComponent,
-    GoodSelectComponent, GoodStatusIconComponent, GoodTabComponent,
-  GoodTableCellDirective, GoodTableComponent, GoodTabsComponent, GoodTimelineComponent,
-  GoodTimelineStepComponent],
+  imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodChartAxisComponent, GoodCheckboxComponent, GoodChartLineComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodGroupComponent, GoodInputComponent, GoodLineChartComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodSectionComponent, GoodSelectComponent, GoodStatusIconComponent, GoodTabComponent, GoodTableCellDirective, GoodTableComponent, GoodTabsComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodHeading1Component, GoodEyebrowComponent],
   templateUrl: './database-detail-page.html',
 })
 export class CloudhosterDatabaseDetailPageComponent {

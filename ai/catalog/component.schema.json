@@ -282,6 +282,12 @@
             "string",
             "null"
           ]
+        },
+        "variant": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       }
     }

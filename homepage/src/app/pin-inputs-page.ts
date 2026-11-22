@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodPinInputComponent, GoodPinInputSize, LucideMinus } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodPinInputComponent, GoodPinInputSize, LucideMinus, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-pin-inputs-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodPinInputComponent, GoodCodeBlockComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodPinInputComponent, GoodCodeBlockComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="PIN inputs" description="Large code slots with paste, one-time-code autofill, and configurable character sets">
+    <good-main-view>
+  <good-heading-1>PIN inputs</good-heading-1>
+  <good-summary>Large code slots with paste, one-time-code autofill, and configurable character sets</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Three sizes</h2><p>The default accepts 0–9, a–z, and A–Z. Paste a complete code into any field.</p></div>
         <div class="showcase-rating-list">

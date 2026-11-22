@@ -3,7 +3,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Foundation · Layout</good-eyebrow>
-        <good-heading [level]="1">Default layout</good-heading>
+        <good-heading-1>Default layout</good-heading-1>
         <good-summary>Use the standard page layout, or let a workspace fill the entire client content area.</good-summary>
       </good-heading-group>
       <good-paragraph>The <good-link route="/getting-started/layout/general">General</good-link> chapter sets up the application shell. Use this page layout for forms, documents, tables, and other content that should scroll normally.</good-paragraph>
@@ -11,7 +11,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>See the default layout</good-subheading>
+    <good-heading-3>See the default layout</good-heading-3>
     <good-prose>
       <good-paragraph>The annotated <good-link route="/examples/user-registration">user registration example</good-link> shows the left navigation, topbar, and page content. Select the screenshot for a closer look, then compare the labels with the structure directly below it.</good-paragraph>
     </good-prose>
@@ -27,7 +27,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>1. Connect a page route</good-subheading>
+    <good-heading-3>1. Connect a page route</good-heading-3>
     <good-prose>
       <good-paragraph>Register the route used by the shell's navigation item. Its component renders MainView inside the existing <code>&lt;router-outlet /&gt;</code>.</good-paragraph>
     </good-prose>
@@ -36,7 +36,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>2. Render a scrolling page</good-subheading>
+    <good-heading-3>2. Render a scrolling page</good-heading-3>
     <good-prose>
       <good-paragraph><code>layout="page"</code> is the default. MainView adds page padding and lets the content scroll. Put every top-level content block in a direct <code>good-section</code> to align the heading and content to one centered reading width.</good-paragraph>
     </good-prose>
@@ -44,7 +44,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>Use the available width</good-subheading>
+    <good-heading-3>Use the available width</good-heading-3>
     <good-prose>
       <good-paragraph>Direct Sections make a centered reading page, as shown above. For a scrolling page that uses the available width, put the content directly inside MainView. Its heading and content then start at the same left edge. The <code>layout="page"</code> value can be omitted because it is the default.</good-paragraph>
     </good-prose>
@@ -55,7 +55,7 @@
   </good-section>
 
   <good-section id="fill-layout">
-    <good-subheading>Fill option: use the entire client content area</good-subheading>
+    <good-heading-3>Fill option: use the entire client content area</good-heading-3>
     <good-prose>
       <good-paragraph>Fill is a variant of the same layout. Set <code>layout="fill"</code> on MainView to remove its outer padding and use the full width and height available to page content. The sidebar and topbar stay in place. The calendar below touches the edges of that remaining client area, without the page layout's surrounding whitespace.</good-paragraph>
     </good-prose>
@@ -66,11 +66,11 @@
     <good-code-block [code]="fillPageCode" language="html" title="Fill variant · src/app/calendar-page.html" />
     <good-prose>
       <good-paragraph>Place one primary workspace directly inside MainView. Its content scrolls internally, while the application frame stays fixed. For Calendar, <code>[fillHeight]="true"</code> makes the calendar fill MainView and keeps its time grid, month view, and list scrolling within the component.</good-paragraph>
-      <good-paragraph>Omit a surrounding Section or Card when the workspace should touch the edges. An optional MainView title or description keeps the normal heading inset; leave the heading out when the workspace should also touch the topbar.</good-paragraph>
+      <good-paragraph>Omit a surrounding Section or Card when the workspace should touch the edges. A projected Heading 1 and optional Summary keep the normal heading inset; leave the heading out when the workspace should also touch the topbar.</good-paragraph>
     </good-prose>
     <good-code-block [code]="fillComponentCode" language="typescript" title="src/app/calendar-page.ts" />
     <good-prose>
-      <good-subheading>Optional fixed toolbar</good-subheading>
+      <good-heading-3>Optional fixed toolbar</good-heading-3>
       <good-paragraph>Add <code>goodMainViewToolbar</code> to a command strip that should stay above the workspace. MainView gives the remaining height to the content. Use <code>good-action-bar</code> for grouped commands and tools; the panes beneath it scroll independently.</good-paragraph>
     </good-prose>
     <good-code-block [code]="fillToolbarCode" language="html" title="Fixed toolbar above a filled workspace" />

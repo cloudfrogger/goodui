@@ -825,7 +825,7 @@
     {
       "penpotName": "goodui.heading",
       "penpotId": "c0c3286f-e4bf-804c-8008-d58c723ff455",
-      "angularSelector": "good-heading",
+      "angularSelector": "good-heading-1",
       "kind": "component",
       "state": null
     },
@@ -1642,7 +1642,7 @@
     {
       "penpotName": "goodui.subheading",
       "penpotId": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
-      "angularSelector": "good-subheading",
+      "angularSelector": "good-heading-3",
       "kind": "component",
       "state": null
     },
@@ -2243,6 +2243,80 @@
     "search": "good-header-search",
     "notifications": "good-header-notification",
     "theme-toggle": "good-header-themetoggle",
-    "avatar-menu": "good-header-avatar"
-  }
+    "avatar-menu": "good-header-avatar",
+    "heading": "good-heading-1",
+    "subheading": "good-heading-3"
+  },
+  "variantSelectorMappings": [
+    {
+      "penpotName": "goodui.heading",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58c723ff455",
+      "angularSelector": "good-heading-1",
+      "kind": "component",
+      "state": null,
+      "variant": {
+        "level": "1"
+      }
+    },
+    {
+      "penpotName": "goodui.heading",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d5d1a6fa0770",
+      "angularSelector": "good-heading-2",
+      "kind": "component",
+      "state": null,
+      "variant": {
+        "level": "2"
+      }
+    },
+    {
+      "penpotName": "goodui.subheading",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
+      "angularSelector": "good-heading-3",
+      "kind": "component",
+      "state": null,
+      "variant": {
+        "level": "2"
+      }
+    },
+    {
+      "penpotName": "goodui.subheading",
+      "penpotId": "4c1f5233-504c-80ed-8008-fbe8d49ff271",
+      "angularSelector": "good-heading-4",
+      "kind": "component",
+      "state": null,
+      "variant": {
+        "level": "3"
+      }
+    },
+    {
+      "penpotName": "goodui.subheading",
+      "penpotId": "4c1f5233-504c-80ed-8008-fbe8d4bac54e",
+      "angularSelector": "good-heading-5",
+      "kind": "component",
+      "state": null,
+      "variant": {
+        "level": "4"
+      }
+    },
+    {
+      "penpotName": "goodui.subheading",
+      "penpotId": "4c1f5233-504c-80ed-8008-fbe8d4d58983",
+      "angularSelector": "good-heading-6",
+      "kind": "component",
+      "state": null,
+      "variant": {
+        "level": "5"
+      }
+    },
+    {
+      "penpotName": "goodui.subheading",
+      "penpotId": "4c1f5233-504c-80ed-8008-fbe8d4f04986",
+      "angularSelector": "good-heading-7",
+      "kind": "component",
+      "state": null,
+      "variant": {
+        "level": "6"
+      }
+    }
+  ]
 }

@@ -1,48 +1,45 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  GoodCitationComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodErrorTextComponent, GoodEyebrowComponent,
-  GoodFieldLabelComponent, GoodFormFieldComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
-  GoodHintComponent, GoodInlineImageComponent, GoodInputComponent, GoodMainViewComponent,
-  GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSeparatorComponent, GoodSubheadingComponent,
-  GoodSummaryComponent,
-} from '@cloudfrogger/goodui';
+import { GoodCitationComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodErrorTextComponent, GoodEyebrowComponent, GoodFieldLabelComponent, GoodFormFieldComponent, GoodHeadingGroupComponent, GoodHintComponent, GoodInlineImageComponent, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSeparatorComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodHeading4Component, GoodHeading6Component, GoodHeading7Component, GoodHeading5Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-typography-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent,
-    GoodSummaryComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodSubheadingComponent,
-    GoodCitationComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodSeparatorComponent, GoodInlineImageComponent, GoodFormFieldComponent,
-    GoodFieldLabelComponent, GoodHintComponent, GoodErrorTextComponent, GoodInputComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodCitationComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodSeparatorComponent, GoodInlineImageComponent, GoodFormFieldComponent, GoodFieldLabelComponent, GoodHintComponent, GoodErrorTextComponent, GoodInputComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodHeading4Component, GoodHeading6Component, GoodHeading7Component, GoodHeading5Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/typography.html',
 })
 export class TypographyPageComponent {
   readonly headingLevelPreviews = [
-    { kind: 'heading', level: 1, name: 'Heading H1', size: '24 px', text: 'Page title' },
-    { kind: 'heading', level: 2, name: 'Heading H2', size: '20 px', text: 'Section title' },
-    { kind: 'subheading', level: 2, name: 'Subheading H2', size: '16 px', text: 'Section heading' },
-    { kind: 'subheading', level: 3, name: 'Subheading H3', size: '16 px', text: 'Nested section' },
-    { kind: 'subheading', level: 4, name: 'Subheading H4', size: '16 px', text: 'Detail heading' },
-    { kind: 'subheading', level: 5, name: 'Subheading H5', size: '16 px', text: 'Small section' },
-    { kind: 'subheading', level: 6, name: 'Subheading H6', size: '16 px', text: 'Fine detail' },
+    { style: 1, name: 'Heading 1 · H1', size: '24 px', text: 'Page title' },
+    { style: 2, name: 'Heading 2 · H2', size: '20 px', text: 'Section title' },
+    { style: 3, name: 'Heading 3 · H2', size: '16 px', text: 'Compact section heading' },
+    { style: 4, name: 'Heading 4 · H3', size: '16 px', text: 'Nested section' },
+    { style: 5, name: 'Heading 5 · H4', size: '16 px', text: 'Detail heading' },
+    { style: 6, name: 'Heading 6 · H5', size: '16 px', text: 'Small section' },
+    { style: 7, name: 'Heading 7 · H6', size: '16 px', text: 'Fine detail' },
   ] as const;
 
   headingLevelCode(example: (typeof this.headingLevelPreviews)[number]): string {
-    const tag = `good-${example.kind}`;
-    const level = example.level === (example.kind === 'heading' ? 1 : 2) ? '' : ` [level]="${example.level}"`;
-    return `<${tag}${level}>${example.text}</${tag}>`;
+    return `<good-heading-${example.style}>${example.text}</good-heading-${example.style}>`;
   }
 
+  readonly pageHeadingCode = `<good-main-view>
+  <good-heading-1>Reports</good-heading-1>
+  <good-summary>A concise page summary.</good-summary>
+  <good-section spacing="content">
+    <good-heading-3>Recent reports</good-heading-3>
+    <good-prose><good-paragraph>Your page content goes here.</good-paragraph></good-prose>
+  </good-section>
+</good-main-view>`;
   readonly headingCode = `<good-heading-group>
   <good-eyebrow>Workspace overview</good-eyebrow>
-  <good-heading [level]="3">A clear page title</good-heading>
+  <good-heading-2>A clear page title</good-heading-2>
   <good-summary>A short summary gives the page more context than a regular paragraph.</good-summary>
 </good-heading-group>`;
 
   readonly monoHeadingCode = `<good-heading-group>
   <good-eyebrow appearance="mono">A quieter category</good-eyebrow>
-  <good-heading [level]="3">A heading can stand alone</good-heading>
+  <good-heading-2>A heading can stand alone</good-heading-2>
 </good-heading-group>`;
 
   readonly paragraphCode = `<good-prose>
@@ -69,61 +66,61 @@ export class DetailsComponent {}`;
 
   readonly twoColumnCode = `<good-columns>
   <good-column>
-    <good-subheading [level]="4">Plan</good-subheading>
+    <good-heading-5>Plan</good-heading-5>
     <good-paragraph>Write the first part of your content here.</good-paragraph>
   </good-column>
   <good-column>
-    <good-subheading [level]="4">Build</good-subheading>
+    <good-heading-5>Build</good-heading-5>
     <good-paragraph>Write the second part here. Both columns stack on narrow screens.</good-paragraph>
   </good-column>
 </good-columns>`;
 
   readonly threeColumnCode = `<good-columns [columns]="3">
   <good-column>
-    <good-subheading [level]="4">Discover</good-subheading>
+    <good-heading-5>Discover</good-heading-5>
     <good-paragraph>Find the need.</good-paragraph>
   </good-column>
   <good-column>
-    <good-subheading [level]="4">Design</good-subheading>
+    <good-heading-5>Design</good-heading-5>
     <good-paragraph>Make a clear path.</good-paragraph>
   </good-column>
   <good-column>
-    <good-subheading [level]="4">Deliver</good-subheading>
+    <good-heading-5>Deliver</good-heading-5>
     <good-paragraph>Check the result.</good-paragraph>
   </good-column>
 </good-columns>`;
 
   readonly fourColumnCode = `<good-columns [columns]="4">
   <good-column>
-    <good-subheading [level]="4">Overview</good-subheading>
+    <good-heading-5>Overview</good-heading-5>
     <good-paragraph>Visible everywhere.</good-paragraph>
   </good-column>
   <good-column>
-    <good-subheading [level]="4">Status</good-subheading>
+    <good-heading-5>Status</good-heading-5>
     <good-paragraph>Visible everywhere.</good-paragraph>
   </good-column>
   <good-column [visibleAt]="['sm', 'md', 'lg', 'xl']">
-    <good-subheading [level]="4">Details</good-subheading>
+    <good-heading-5>Details</good-heading-5>
     <good-paragraph>Hidden only in xs.</good-paragraph>
   </good-column>
   <good-column [visibleAt]="['lg', 'xl']">
-    <good-subheading [level]="4">Context</good-subheading>
+    <good-heading-5>Context</good-heading-5>
     <good-paragraph>Appears when four columns fit.</good-paragraph>
   </good-column>
 </good-columns>`;
 
   readonly contentSectionCode = `<good-section spacing="content">
-  <good-subheading>Choose your header actions</good-subheading>
+  <good-heading-3>Choose your header actions</good-heading-3>
   <good-prose>
     <good-paragraph>Compose the actions your application needs.</good-paragraph>
     <good-paragraph>Related paragraphs keep their own reading rhythm.</good-paragraph>
   </good-prose>
   <good-code-block [code]="headerTemplate" language="html" />
-  <good-subheading [level]="3">Add a keyboard shortcut</good-subheading>
+  <good-heading-4>Add a keyboard shortcut</good-heading-4>
   <good-prose><good-paragraph>Enable the optional search shortcut.</good-paragraph></good-prose>
 </good-section>`;
   readonly sectionCode = `<good-section>
-  <good-subheading>Design with reusable components</good-subheading>
+  <good-heading-3>Design with reusable components</good-heading-3>
   <good-prose>
     <good-paragraph>The section sets a readable width and connects its heading to the text.</good-paragraph>
     <good-paragraph>Prose handles spacing between paragraphs.</good-paragraph>
@@ -131,7 +128,7 @@ export class DetailsComponent {}`;
 </good-section>`;
 
   readonly subheadingCode = `<good-prose>
-  <good-subheading [level]="3">A new section</good-subheading>
+  <good-heading-4>A new section</good-heading-4>
   <good-paragraph>The following paragraph sits closer to its subheading.</good-paragraph>
 </good-prose>`;
 
@@ -186,25 +183,28 @@ export class DetailsComponent {}`;
 import {
   GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
   GoodColumnsComponent, GoodColumnComponent,
-  GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent,
+  GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent, GoodEyebrowComponent, GoodSeparatorComponent, GoodInlineImageComponent,
 } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
-    GoodSubheadingComponent, GoodSeparatorComponent, GoodInlineImageComponent,
+    GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent, GoodEyebrowComponent, GoodSeparatorComponent, GoodInlineImageComponent,
     GoodColumnsComponent, GoodColumnComponent],
   templateUrl: './page.html',
 })
 export class PageComponent {}`;
 
-  readonly exampleCode = `<good-main-view title="Project notes" eyebrow="WORKSPACE" description="A short page summary">
+  readonly exampleCode = `<good-main-view>
+  <good-eyebrow>WORKSPACE</good-eyebrow>
+  <good-heading-1>Project notes</good-heading-1>
+  <good-summary>A short page summary</good-summary>
   <good-section>
-    <good-subheading>Overview</good-subheading>
+    <good-heading-3>Overview</good-heading-3>
     <good-prose>
       <good-paragraph>Introduce the topic with a readable paragraph.</good-paragraph>
-      <good-subheading [level]="3">Next steps</good-subheading>
+      <good-heading-4>Next steps</good-heading-4>
       <good-paragraph>Continue with the details.</good-paragraph>
       <good-separator />
       <good-inline-image src="/diagram.svg" alt="Workflow diagram" caption="How the steps connect" />

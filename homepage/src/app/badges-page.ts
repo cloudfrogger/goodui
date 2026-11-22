@@ -1,18 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  GoodBadgeColor, GoodBadgeComponent, GoodBadgeSize, GoodCodeBlockComponent,
-  GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
-  GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
-  GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, LucideSparkles,
-} from '@cloudfrogger/goodui';
+import { GoodBadgeColor, GoodBadgeComponent, GoodBadgeSize, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, LucideSparkles, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-badges-page',
   standalone: true,
-  imports: [GoodBadgeComponent, GoodCodeBlockComponent, GoodEyebrowComponent,
-    GoodHeadingComponent, GoodHeadingGroupComponent, GoodMainViewComponent,
-    GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-    GoodSubheadingComponent, GoodSummaryComponent],
+  imports: [GoodBadgeComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view>
@@ -20,14 +12,14 @@ import {
         <good-prose>
           <good-heading-group>
             <good-eyebrow>Components</good-eyebrow>
-            <good-heading [level]="1">Badges</good-heading>
+            <good-heading-1>Badges</good-heading-1>
             <good-summary>Compact labels for status and metadata.</good-summary>
           </good-heading-group>
         </good-prose>
       </good-section>
 
       <good-section>
-        <good-subheading>1. Start with a label</good-subheading>
+        <good-heading-3>1. Start with a label</good-heading-3>
         <good-prose>
           <good-paragraph>Import <code>GoodBadgeComponent</code> from <code>&#64;goodui/angular</code> into your standalone component. <code>label</code> is the only required input. Without other inputs, the badge is primary, solid, pill shaped, and default sized.</good-paragraph>
         </good-prose>
@@ -36,7 +28,7 @@ import {
       </good-section>
 
       <good-section>
-        <good-subheading>2. Choose a color and treatment</good-subheading>
+        <good-heading-3>2. Choose a color and treatment</good-heading-3>
         <good-prose>
           <good-paragraph><code>color</code> selects a semantic role. Use <code>success</code> for a positive state, <code>warning</code> for attention, <code>destructive</code> for a problem, or <code>info</code> for neutral information. <code>primary</code>, <code>secondary</code>, and <code>text</code> are useful for general labels.</good-paragraph>
           <good-paragraph><code>variant</code> controls emphasis: <code>solid</code> is the default, <code>outline</code> has a colored border, and <code>light</code> uses a soft fill. The same colors work in both themes.</good-paragraph>
@@ -58,7 +50,7 @@ import {
       </good-section>
 
       <good-section>
-        <good-subheading>3. Adjust size, shape, and icon</good-subheading>
+        <good-heading-3>3. Adjust size, shape, and icon</good-heading-3>
         <good-prose>
           <good-paragraph><code>size</code> accepts <code>small</code>, <code>default</code>, or <code>large</code>. <code>shape</code> is <code>pill</code> by default; choose <code>square</code> for compact corners. A leading <code>icon</code> accepts a re-exported Lucide icon or custom icon data. Use <code>iconSrc</code> for a decorative image URL when you do not supply <code>icon</code>.</good-paragraph>
         </good-prose>
@@ -79,7 +71,7 @@ import {
       </good-section>
 
       <good-section>
-        <good-subheading>4. Remove a badge from your data</good-subheading>
+        <good-heading-3>4. Remove a badge from your data</good-heading-3>
         <good-prose>
           <good-paragraph>Set <code>[removable]="true"</code> to show an X button. The <code>removed</code> event tells your component which item to delete; the badge does not modify your array. Set <code>removeLabel</code> when the default accessible name “Remove &#123;label&#125;” is not specific enough.</good-paragraph>
         </good-prose>
@@ -97,7 +89,7 @@ import {
       </good-section>
 
       <good-section>
-        <good-subheading>Parameter reference</good-subheading>
+        <good-heading-3>Parameter reference</good-heading-3>
         <good-prose>
           <good-paragraph><code>label</code> (required string) sets the text. <code>color</code> defaults to <code>primary</code>; <code>variant</code> to <code>solid</code>; <code>shape</code> to <code>pill</code>; and <code>size</code> to <code>default</code>.</good-paragraph>
           <good-paragraph><code>icon</code> and <code>iconSrc</code> are optional leading visuals; <code>icon</code> takes precedence. <code>removable</code> defaults to <code>false</code>, <code>removeLabel</code> overrides the X button's accessible name, and <code>(removed)</code> fires on activation. The older <code>circle</code> shape and <code>medium</code> size remain aliases for <code>pill</code> and <code>default</code>.</good-paragraph>

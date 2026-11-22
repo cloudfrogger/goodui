@@ -24,7 +24,7 @@ good-app-layout, good-sidebar-container, good-sidebar-menu-container, good-sideb
 good-sidebar-submenu-group, good-sidebar-submenu-item, good-topbar, good-topbar-menu-container,
 good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, good-topbar-submenu,
 good-header-actions, good-header-themetoggle, good-main-view, good-subnav, good-button, good-action-group, good-action-bar, good-assistant-panel, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-month-calendar, good-line-chart, good-bar-chart, good-scatter-chart, good-histogram, good-sparkline, good-chart-axis, good-chart-line, good-chart-bar, good-chart-scatter, good-chart-histogram, good-progress, good-timeline, good-timeline-step, good-range-slider, good-signature-pad, good-color-controls, good-color-picker, good-select-font, good-rich-text-editor, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-expandable, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-textarea, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-tabs, good-tab, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
-good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good-prose, good-detail-list, good-columns, good-column, good-paragraph, good-subheading, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
+good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3, good-heading-4, good-heading-5, good-heading-6, good-heading-7, good-summary, good-section, good-prose, good-detail-list, good-columns, good-column, good-paragraph, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-heading-group-text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-summary-gap); min-width: 0; }
@@ -71,10 +71,10 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 @container (min-width: 1280px) { .good-column[data-visible-xl="false"] { display: none; } }
 .good-paragraph { margin: 0; }
 .good-prose > * + * { margin-block-start: var(--good-typography-flow-gap); }
-.good-prose > good-link + good-heading { margin-block-start: var(--good-space-4); }
-.good-prose > good-heading + good-paragraph { margin-block-start: var(--good-space-2); }
-.good-prose > * + good-subheading { margin-block-start: var(--good-typography-flow-section-gap); }
-.good-prose > good-subheading + good-paragraph { margin-block-start: var(--good-typography-paragraph-subheading-gap); }
+.good-prose > good-link + .good-heading { margin-block-start: var(--good-space-4); }
+.good-prose > .good-heading + good-paragraph { margin-block-start: var(--good-space-2); }
+.good-prose > * + .good-subheading { margin-block-start: var(--good-typography-flow-section-gap); }
+.good-prose > .good-subheading + good-paragraph { margin-block-start: var(--good-typography-paragraph-subheading-gap); }
 .good-prose > * + good-separator { margin-block-start: var(--good-typography-separator-before-gap); }
 .good-prose > good-separator + * { margin-block-start: var(--good-typography-separator-after-gap); }
 .good-paragraph p { margin: 0; color: var(--good-typography-paragraph-color); font-size: var(--good-typography-paragraph-font-size); font-weight: var(--good-typography-paragraph-font-weight); line-height: 1.65; overflow-wrap: break-word; }
@@ -1120,3 +1120,5 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-world-map-scale { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 44px; padding: 8px 16px; border-top: 1px solid var(--good-color-border); color: var(--good-color-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .good-world-map-scale-label { margin-right: auto; color: var(--good-color-text); font-weight: 600; }
 .good-world-map-scale-ramp { display: block; flex: 1 1 100px; max-width: 180px; min-width: 64px; height: 10px; border: 1px solid var(--good-color-border); border-radius: var(--good-radius-pill); }
+
+.good-main-view-heading-content { min-width: 0; flex: 1; }

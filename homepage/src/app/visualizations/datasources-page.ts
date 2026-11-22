@@ -1,13 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
-  GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-chart-datasources-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent,
-    GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent, GoodSubheadingComponent,
-    GoodParagraphComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodHeading3Component],
   templateUrl: './datasources-page.html',
 })
 export class ChartDatasourcesPageComponent {

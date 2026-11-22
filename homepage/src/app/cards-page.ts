@@ -1,18 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  GoodActionMenuComponent, GoodButtonComponent, GoodCardActionsDirective, GoodCardComponent,
-  GoodCardFooterComponent, GoodCardHeaderComponent, GoodLinkComponent, GoodMainViewComponent,
-  GoodMenuAction, LucidePlus,
-} from '@cloudfrogger/goodui';
+import { GoodActionMenuComponent, GoodButtonComponent, GoodCardActionsDirective, GoodCardComponent, GoodCardFooterComponent, GoodCardHeaderComponent, GoodLinkComponent, GoodMainViewComponent, GoodMenuAction, LucidePlus, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-cards-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCardFooterComponent,
-    GoodCardActionsDirective, GoodButtonComponent, GoodActionMenuComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCardFooterComponent, GoodCardActionsDirective, GoodButtonComponent, GoodActionMenuComponent, GoodLinkComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Cards" description="Bordered content with optional headers, actions, images, and footers">
+    <good-main-view>
+  <good-heading-1>Cards</good-heading-1>
+  <good-summary>Bordered content with optional headers, actions, images, and footers</good-summary>
       <div class="showcase-card-showcase-grid">
         <good-card [mobileBleed]="true">
           <h2>Border-only card</h2>

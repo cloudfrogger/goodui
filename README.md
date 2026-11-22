@@ -45,7 +45,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
    ```ts
    import { ApplicationConfig } from '@angular/core';
    import { provideRouter } from '@angular/router';
-   import { provideGoodUI } from '@cloudfrogger/goodui';
+   import { provideGoodUI, GoodHeading1Component } from '@cloudfrogger/goodui';
    import { routes } from './app.routes';
 
    export const appConfig: ApplicationConfig = {
@@ -58,12 +58,12 @@ GoodUI currently ships from this repository as a locally built package. It targe
    ```ts
    import { Component } from '@angular/core';
    import { RouterOutlet } from '@angular/router';
-   import { GoodAppLayoutComponent, type GoodSidebarSection } from '@cloudfrogger/goodui';
+   import { GoodAppLayoutComponent, type GoodSidebarSection, GoodHeading1Component } from '@cloudfrogger/goodui';
 
    @Component({
      selector: 'app-root',
      standalone: true,
-     imports: [GoodAppLayoutComponent, RouterOutlet],
+     imports: [GoodAppLayoutComponent, RouterOutlet, GoodHeading1Component],
      template: `
        <good-app-layout brand="MY APP" [sidebarSections]="navigation">
          <router-outlet />
@@ -79,7 +79,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
    }
    ```
 
-   Each routed page can use `<good-main-view title="Home">...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppLayout guide](guides/layout/app-layout.md) for topbar items, user data, and nested menus.
+   Each routed page can compose its heading with `<good-main-view><good-heading-1>Home</good-heading-1>...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppLayout guide](guides/layout/app-layout.md) for topbar items, user data, and nested menus.
 
    Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@cloudfrogger/goodui`. See the [Button guide](guides/components/button.md) and the homepage's `/components/buttons` page for all variants and sizes.
 

@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodModalPresentation, GoodModalSize } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodModalPresentation, GoodModalSize, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-modals-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodActionGroupComponent, GoodButtonComponent, GoodModalComponent, GoodModalHeaderComponent, GoodModalFooterComponent],
+  imports: [GoodMainViewComponent, GoodActionGroupComponent, GoodButtonComponent, GoodModalComponent, GoodModalHeaderComponent, GoodModalFooterComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Modals" description="Focused dialogs with reusable headers, scrollable bodies, optional actions, and a managed dialog stack">
+    <good-main-view>
+  <good-heading-1>Modals</good-heading-1>
+  <good-summary>Focused dialogs with reusable headers, scrollable bodies, optional actions, and a managed dialog stack</good-summary>
       <div class="showcase-code-showcase">
         <section class="showcase-section">
           <div class="showcase-section-heading"><h2>Sizes and presentations</h2><p>All presentations use a near-full-screen overlay on narrow viewports.</p></div>

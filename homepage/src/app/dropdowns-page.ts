@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodDropdownComponent, GoodDropdownFooterDirective, GoodDropdownHeaderDirective, GoodDropdownItem, GoodMainViewComponent, LucideDownload, LucideFileText, LucideFolder, LucideSettings2, LucideShare2, LucideTrash2, LucideUsers } from '@cloudfrogger/goodui';
+import { GoodDropdownComponent, GoodDropdownFooterDirective, GoodDropdownHeaderDirective, GoodDropdownItem, GoodMainViewComponent, LucideDownload, LucideFileText, LucideFolder, LucideSettings2, LucideShare2, LucideTrash2, LucideUsers, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-dropdowns-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodDropdownComponent, GoodDropdownHeaderDirective, GoodDropdownFooterDirective],
+  imports: [GoodMainViewComponent, GoodDropdownComponent, GoodDropdownHeaderDirective, GoodDropdownFooterDirective, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Dropdowns" description="Button-based menus with reusable sections, placement, and nested actions.">
+    <good-main-view>
+  <good-heading-1>Dropdowns</good-heading-1>
+  <good-summary>Button-based menus with reusable sections, placement, and nested actions.</good-summary>
       <section class="showcase-section" aria-labelledby="dropdown-composition-title">
         <div class="showcase-section-heading"><h2 id="dropdown-composition-title">Header, items, and footer</h2><p>The middle section can scroll while the header and footer stay visible.</p></div>
         <div class="showcase-dropdown-row">

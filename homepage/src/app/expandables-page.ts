@@ -1,18 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  GoodButtonComponent, GoodCodeBlockComponent, GoodExpandableComponent,
-  GoodExpandableHeaderDirective, GoodEyebrowComponent, GoodHeadingComponent,
-  GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent,
-  GoodProseComponent, GoodSectionComponent, GoodSummaryComponent,
-} from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodCodeBlockComponent, GoodExpandableComponent, GoodExpandableHeaderDirective, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-expandables-page',
   standalone: true,
-  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodExpandableComponent,
-    GoodExpandableHeaderDirective, GoodEyebrowComponent, GoodHeadingComponent,
-    GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent,
-    GoodProseComponent, GoodSectionComponent, GoodSummaryComponent],
+  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodExpandableComponent, GoodExpandableHeaderDirective, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view>
@@ -20,7 +12,7 @@ import {
         <good-prose>
           <good-heading-group>
             <good-eyebrow>Components</good-eyebrow>
-            <good-heading [level]="1">Expandables</good-heading>
+            <good-heading-1>Expandables</good-heading-1>
             <good-summary>Full-width disclosures for short answers, details, and rich content.</good-summary>
           </good-heading-group>
         </good-prose>

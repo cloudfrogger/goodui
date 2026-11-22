@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodLinkAppearance, GoodLinkComponent, GoodLinkDecoration, GoodLinkUnderline, GoodMainViewComponent } from '@cloudfrogger/goodui';
+import { GoodLinkAppearance, GoodLinkComponent, GoodLinkDecoration, GoodLinkUnderline, GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-links-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Links" description="Theme-aware navigation links with optional underline styles">
+    <good-main-view>
+  <good-heading-1>Links</good-heading-1>
+  <good-summary>Theme-aware navigation links with optional underline styles</good-summary>
       @for (appearance of appearances; track appearance) {
         <section class="showcase-section">
           <div class="showcase-section-heading"><h2>{{ appearance === 'brand' ? 'Brand' : 'Mono' }} appearance</h2><p>Hover a link to compare its resting and underlined states.</p></div>

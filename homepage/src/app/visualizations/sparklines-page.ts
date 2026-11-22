@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCardComponent, GoodCardHeaderComponent, GoodChartDataSource, GoodCodeBlockComponent,
-  GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingComponent,
-  GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
-  GoodSectionComponent, GoodSparklineComponent, GoodSubheadingComponent, GoodSummaryComponent,
-  GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodMarkerColor } from '@cloudfrogger/goodui';
+import { GoodCardComponent, GoodCardHeaderComponent, GoodChartDataSource, GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSparklineComponent, GoodSummaryComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodMarkerColor, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 interface TrendRow {
   region: string;
@@ -14,11 +10,7 @@ interface TrendRow {
 
 @Component({
   selector: 'showcase-sparklines-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodDetailListComponent,
-    GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
-    GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-    GoodSparklineComponent, GoodSubheadingComponent, GoodSummaryComponent, GoodTableCellDirective,
-    GoodTableComponent],
+  imports: [GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSparklineComponent, GoodSummaryComponent, GoodTableCellDirective, GoodTableComponent, GoodHeading1Component, GoodHeading3Component],
   templateUrl: './sparklines-page.html',
 })
 export class SparklinesPageComponent {

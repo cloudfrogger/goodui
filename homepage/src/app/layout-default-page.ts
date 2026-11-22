@@ -1,16 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent,
-  GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent,
-  GoodProseComponent, GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent,
-} from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-layout-default-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodSubheadingComponent,
-    GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent,
-    GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodHeading1Component, GoodHeading3Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/layout-default.html',
 })
@@ -36,7 +30,9 @@ export const routes: Routes = [
       import('./overview-page').then(m => m.OverviewPageComponent) },
 ];`;
 
-  readonly pageCode = `<good-main-view title="Overview" description="A quick view of your workspace.">
+  readonly pageCode = `<good-main-view>
+  <good-heading-1>Overview</good-heading-1>
+  <good-summary>A quick view of your workspace.</good-summary>
   <good-section>
     <good-prose>
       <good-paragraph>Your page content goes here.</good-paragraph>
@@ -44,20 +40,21 @@ export const routes: Routes = [
   </good-section>
 </good-main-view>`;
 
-  readonly freePageCode = `<good-main-view title="Schedule">
+  readonly freePageCode = `<good-main-view>
+  <good-heading-1>Schedule</good-heading-1>
   <good-calendar />
 </good-main-view>`;
 
   readonly pageComponentCode = `import { Component } from '@angular/core';
 import {
-  GoodMainViewComponent, GoodParagraphComponent,
+  GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent, GoodParagraphComponent,
   GoodProseComponent, GoodSectionComponent,
 } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-overview-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent,
+  imports: [GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent, GoodSectionComponent,
     GoodProseComponent, GoodParagraphComponent],
   templateUrl: './overview-page.html',
 })

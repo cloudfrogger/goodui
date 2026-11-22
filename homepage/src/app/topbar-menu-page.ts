@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarMenuContainerComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarMenuContainerComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-topbar-menu-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodTopbarMenuContainerComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodTopbarMenuContainerComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Topbar menu" description="A navigation row that can disappear or open from an icon when space is limited.">
+    <good-main-view>
+  <good-heading-1>Topbar menu</good-heading-1>
+  <good-summary>A navigation row that can disappear or open from an icon when space is limited.</good-summary>
       <section class="showcase-section" aria-labelledby="topbar-menu-preview-title">
         <div class="showcase-section-heading"><h2 id="topbar-menu-preview-title">Responsive navigation</h2>
           <p>Open Help and its nested submenu. On mobile, use the grid icon to open this menu as a popup.</p></div>

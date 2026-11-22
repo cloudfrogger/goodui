@@ -14,7 +14,7 @@
   "composition": {
     "projectedContent": [
       "good-eyebrow",
-      "good-heading",
+      "good-heading-1, good-heading-2, good-heading-3, good-heading-4, good-heading-5, good-heading-6, good-heading-7",
       "good-summary"
     ],
     "relatedSelectors": [],

@@ -5,17 +5,17 @@
 
       <good-heading-group>
         <good-eyebrow>Getting started</good-eyebrow>
-        <good-heading [level]="1">Developing</good-heading>
+        <good-heading-1>Developing</good-heading-1>
         <good-summary>Get started with developing using GoodUI in Angular.</good-summary>
       </good-heading-group>
 
-      <good-subheading>Install and style GoodUI</good-subheading>
+      <good-heading-3>Install and style GoodUI</good-heading-3>
       <good-paragraph>GoodUI targets Angular 21.2. You need Node.js 20.19 or newer. Create an Angular app and install GoodUI from npm:</good-paragraph>
       <good-code-block [code]="setupCode" language="bash" title="terminal" />
       <good-paragraph>Add the compiled GoodUI stylesheet to <code>src/styles.css</code>:</good-paragraph>
       <good-code-block [code]="stylesCode" language="css" title="src/styles.css" />
 
-      <good-subheading>Avoid flickering on page load</good-subheading>
+      <good-heading-3>Avoid flickering on page load</good-heading-3>
       <figure class="m-0 overflow-hidden rounded-[var(--good-radius-card)] border border-[var(--good-color-border)]">
         <video class="block w-full" autoplay [muted]="true" loop playsinline aria-label="White screen followed by the dark GoodUI page, with a timeline showing elapsed loading time">
           <source src="media/theme-loading-flicker.webm" type="video/webm" />
@@ -27,26 +27,26 @@
       <good-code-block [code]="prepaintCode" language="html" title="src/index.html · inside head" />
       <good-paragraph>The script uses <code>light</code> or <code>dark</code> from the <code>goodui-theme</code> cookie. If the cookie is missing or has another value, it follows the system preference. If your app overrides GoodUI's <code>color.canvas</code> token, use your light and dark canvas colors in the inline styles as well.</good-paragraph>
 
-      <good-subheading>Initialize GoodUI services</good-subheading>
+      <good-heading-3>Initialize GoodUI services</good-heading-3>
       <good-paragraph>Add <code>provideGoodUI()</code> once to your root <code>app.config.ts</code>, alongside Angular Router. This is the shared provider entry point for GoodUI services, including notifications, calendar events, and theme handling. Components and services can then use Angular's <code>inject()</code> normally.</good-paragraph>
       <good-code-block [code]="providersCode" language="typescript" title="src/app/app.config.ts" />
       <good-paragraph>The notification service is <code>GoodNotificationCenter</code>. Its <code>publish()</code> method accepts <code>persist: false</code> for a toast that must not enter notification history. You can turn history off by default in the provider options:</good-paragraph>
       <good-code-block [code]="providerOptionsCode" language="typescript" title="Optional app default" />
       <good-paragraph>A message's own <code>persist</code> value takes precedence. Inbox-only messages always appear in the panel.</good-paragraph>
 
-      <good-subheading>Render your first page</good-subheading>
+      <good-heading-3>Render your first page</good-heading-3>
       <good-paragraph>Replace <code>src/app/app.ts</code> with a small page:</good-paragraph>
       <good-code-block [code]="helloCode" language="typescript" title="src/app/app.ts" />
       <good-paragraph>The <code>--routing</code> option creates the router configuration required by <code>good-app-layout</code>. Start the app with <code>npm start</code> and open <code>http://localhost:4200/</code>. GoodUI's compiled CSS works without Tailwind in the consuming app.</good-paragraph>
 
-      <good-subheading>Add your application branding</good-subheading>
+      <good-heading-3>Add your application branding</good-heading-3>
       <good-paragraph>Pass your own wordmarks to the desktop sidebar and mobile drawer. Pass separate symbol assets for the mobile topbar. Each dark image is optional; the light image remains visible when it is omitted. Existing apps that only pass a wordmark continue to show it in the mobile topbar.</good-paragraph>
       <good-code-block [code]="brandCode" language="html" title="Application shell" />
 
-      <good-subheading>Develop with an AI agent</good-subheading>
+      <good-heading-3>Develop with an AI agent</good-heading-3>
       <good-paragraph>Follow <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> to install the GoodUI skill and build your first screen with version-matched component references and step-by-step prompts.</good-paragraph>
 
-      <good-subheading>Add GoodUI to an existing Angular app</good-subheading>
+      <good-heading-3>Add GoodUI to an existing Angular app</good-heading-3>
       <good-paragraph>In your Angular 21.2 project, run <code>npm install @cloudfrogger/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</good-paragraph>
       <good-paragraph>Add <code>provideGoodUI()</code> to your existing root providers and keep <code>provideRouter(routes)</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</good-paragraph>
       <good-paragraph>To run this repository's website and component examples:</good-paragraph>

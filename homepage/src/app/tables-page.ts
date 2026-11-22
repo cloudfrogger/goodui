@@ -1,10 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
-import {
-  GoodActionGroupComponent, GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent,
-  GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent,
-  GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent,
-  LucideTrash2,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent, LucideTrash2, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 interface RecordRow {
   id: string;
@@ -75,12 +70,12 @@ class TableDeleteCellComponent {
 @Component({
   selector: 'showcase-tables-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodTableComponent, GoodTableCellDirective, GoodSwitchComponent,
-    GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent,
-    GoodHintComponent, GoodLinkComponent, GoodParagraphComponent, GoodStatusIconComponent],
+  imports: [GoodMainViewComponent, GoodTableComponent, GoodTableCellDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Tables" description="Searchable records, rich cells, and client or server pagination">
+    <good-main-view>
+  <good-heading-1>Tables</good-heading-1>
+  <good-summary>Searchable records, rich cells, and client or server pagination</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Records</h2><p>Search and sort the full data set. Custom cells render a Badge, Switch, and action menu.</p></div>
         <good-table label="Workspace records" [data]="rows()" [columns]="columns" [getRowId]="rowId"

@@ -1,15 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodChartAxisComponent, GoodChartDataSource, GoodChartScatterComponent, GoodCodeBlockComponent,
-  GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodMainViewComponent,
-  GoodParagraphComponent, GoodProseComponent, GoodScatterChartComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodChartAxisComponent, GoodChartDataSource, GoodChartScatterComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodScatterChartComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-scatter-plots-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodChartAxisComponent, GoodChartScatterComponent, GoodCodeBlockComponent,
-    GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodMainViewComponent,
-    GoodParagraphComponent, GoodProseComponent, GoodScatterChartComponent, GoodSectionComponent,
-    GoodSubheadingComponent, GoodSummaryComponent],
+  imports: [GoodChartAxisComponent, GoodChartScatterComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodScatterChartComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component],
   templateUrl: './scatter-plots-page.html',
 })
 export class ScatterPlotsPageComponent {

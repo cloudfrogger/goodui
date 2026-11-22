@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodMainViewComponent, GoodRadioAppearance, GoodRadioGroupComponent, GoodRadioOption, GoodRadioSize } from '@cloudfrogger/goodui';
+import { GoodMainViewComponent, GoodRadioAppearance, GoodRadioGroupComponent, GoodRadioOption, GoodRadioSize, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-radio-groups-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodRadioGroupComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodRadioGroupComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Radio groups" description="Single selection with brand and mono appearances">
+    <good-main-view>
+  <good-heading-1>Radio groups</good-heading-1>
+  <good-summary>Single selection with brand and mono appearances</good-summary>
       @for (appearance of appearances; track appearance) {
         <section class="showcase-section">
           <div class="showcase-section-heading">

@@ -1,18 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  GOOD_MARKER_COLORS, GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent,
-  GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodProgressColor,
-  GoodProgressComponent, GoodSectionComponent,
-} from '@cloudfrogger/goodui';
+import { GOOD_MARKER_COLORS, GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodProgressColor, GoodProgressComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-progress-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodProgressComponent,
-    GoodAlertComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodProgressComponent, GoodAlertComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Progress" description="Track known progress, show ongoing work, or run a timed cycle with GoodUI colors and optional segmented bars.">
+    <good-main-view>
+  <good-heading-1>Progress</good-heading-1>
+  <good-summary>Track known progress, show ongoing work, or run a timed cycle with GoodUI colors and optional segmented bars.</good-summary>
       <good-section>
         <good-group title="Determinate progress" appearance="plain">
           <good-progress title="Upload progress" [value]="upload()" [showPercent]="true" />

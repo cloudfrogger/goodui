@@ -1,17 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodParagraphComponent,
-  GoodTabActivation, GoodTabComponent, GoodTabsComponent,
-  LucideBell, LucideFileText, LucideSettings,
-} from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodParagraphComponent, GoodTabActivation, GoodTabComponent, GoodTabsComponent, LucideBell, LucideFileText, LucideSettings, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-tabs-page',
   standalone: true,
-  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodParagraphComponent, GoodTabComponent, GoodTabsComponent],
+  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodMainViewComponent, GoodParagraphComponent, GoodTabComponent, GoodTabsComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Tabs" description="Switch between related panels without leaving the page">
+    <good-main-view>
+  <good-heading-1>Tabs</good-heading-1>
+  <good-summary>Switch between related panels without leaving the page</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading">
           <h2>Start with two panels</h2>

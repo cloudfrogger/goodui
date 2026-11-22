@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {
-  GoodActionGroupComponent, GoodAlertComponent, GoodBreadcrumbsComponent, GoodButtonComponent,
-  GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodPdfPreviewComponent,
-  GoodSectionComponent, type GoodBreadcrumbItem,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodAlertComponent, GoodBreadcrumbsComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 import { pdfReaderHtml, pdfReaderTs } from './source-code.generated';
 
 interface SamplePdf { name: string; file: string; description: string }
@@ -11,8 +7,7 @@ interface SamplePdf { name: string; file: string; description: string }
 @Component({
   selector: 'example-pdf-reader-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodAlertComponent, GoodBreadcrumbsComponent, GoodButtonComponent,
-    GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent],
+  imports: [GoodActionGroupComponent, GoodAlertComponent, GoodBreadcrumbsComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './pdf-reader-page.html',
 })

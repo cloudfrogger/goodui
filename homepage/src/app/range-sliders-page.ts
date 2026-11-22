@@ -1,16 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import {
-  GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-  GoodRangeSliderComponent, GoodRangeSliderRange, GoodRangeSliderSize, GoodRangeSliderTick,
-  GoodSectionComponent, LucideGrip, LucideMoveHorizontal,
-} from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodRangeSliderComponent, GoodRangeSliderRange, GoodRangeSliderSize, GoodRangeSliderTick, GoodSectionComponent, LucideGrip, LucideMoveHorizontal, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-range-sliders-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodRangeSliderComponent,
-    GoodButtonComponent, GoodCodeBlockComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodRangeSliderComponent, GoodButtonComponent, GoodCodeBlockComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './range-sliders-page.html',
 })

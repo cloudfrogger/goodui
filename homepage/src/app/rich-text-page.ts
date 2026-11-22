@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent,
-  GoodMainViewComponent, GoodRichTextEditorComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodRichTextEditorComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 import type { GoodRichTextFeature } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-rich-text-page', standalone: true,
-  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent,
-    GoodMainViewComponent, GoodRichTextEditorComponent, GoodSectionComponent],
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodRichTextEditorComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './rich-text-page.html',
 })

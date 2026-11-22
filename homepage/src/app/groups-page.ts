@@ -1,20 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormFieldComponent, GoodFormRowComponent,
-  GoodGroupComponent, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent,
-  GoodProseComponent, GoodSectionComponent,
-} from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormFieldComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent, GoodEyebrowComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-groups-page',
   standalone: true,
-  imports: [GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormFieldComponent,
-    GoodFormRowComponent, GoodGroupComponent, GoodInputComponent, GoodMainViewComponent,
-    GoodParagraphComponent, GoodProseComponent, GoodSectionComponent],
+  imports: [GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormFieldComponent, GoodFormRowComponent, GoodGroupComponent, GoodInputComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent, GoodEyebrowComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view eyebrow="COMPONENTS" title="Groups"
-      description="Lightweight structure for related content and responsive form rows.">
+    <good-main-view>
+  <good-eyebrow>COMPONENTS</good-eyebrow>
+  <good-heading-1>Groups</good-heading-1>
+  <good-summary>Lightweight structure for related content and responsive form rows.</good-summary>
       <good-section>
         <good-group title="Outline group" [mobileBleed]="true">
           <good-prose><good-paragraph>The heading sits in the frame. On mobile, this group uses compact inner padding and opts into an equal 8 px extension on both sides.</good-paragraph></good-prose>

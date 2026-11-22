@@ -1,17 +1,11 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
-import {
-  GoodActionGroupComponent, GoodAlertComponent, GoodBreadcrumbsComponent, GoodButtonComponent,
-  GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodNotificationCenter,
-  GoodNotificationDelivery, GoodProgressComponent, GoodSectionComponent,
-  type GoodBreadcrumbItem,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodAlertComponent, GoodBreadcrumbsComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodNotificationCenter, GoodNotificationDelivery, GoodProgressComponent, GoodSectionComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 import { notificationsHtml, notificationsTs } from './source-code.generated';
 
 @Component({
   selector: 'example-notifications-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodBreadcrumbsComponent, GoodGroupComponent,
-    GoodActionGroupComponent, GoodButtonComponent, GoodAlertComponent, GoodCodeBlockComponent, GoodProgressComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodBreadcrumbsComponent, GoodGroupComponent, GoodActionGroupComponent, GoodButtonComponent, GoodAlertComponent, GoodCodeBlockComponent, GoodProgressComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './notifications-page.html',
 })

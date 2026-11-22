@@ -1,16 +1,18 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodMainViewComponent, GoodSwitchComponent, GoodSwitchSize } from '@cloudfrogger/goodui';
+import { GoodMainViewComponent, GoodSwitchComponent, GoodSwitchSize, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 type SwitchRow = { label: string; status: 'default' | 'disabled' | 'error'; initial: boolean };
 
 @Component({
   selector: 'app-switches-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSwitchComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodSwitchComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Switches" description="Theme-aware on/off controls in three sizes, with disabled and error states.">
+    <good-main-view>
+  <good-heading-1>Switches</good-heading-1>
+  <good-summary>Theme-aware on/off controls in three sizes, with disabled and error states.</good-summary>
       <section class="showcase-section" aria-labelledby="switch-matrix-title">
         <div class="showcase-section-heading">
           <h2 id="switch-matrix-title">Switch states</h2>

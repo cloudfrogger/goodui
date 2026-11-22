@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodSubheadingComponent } from '@cloudfrogger/goodui';
+import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-assistant-panels-page',
   standalone: true,
-  imports: [GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent,
-    GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent,
-    GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodSubheadingComponent],
+  imports: [GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view layout="fill" title="Assistant panel" description="A contextual companion beside a full-height workspace.">
+    <good-main-view layout="fill">
+  <good-heading-1>Assistant panel</good-heading-1>
+  <good-summary>A contextual companion beside a full-height workspace.</good-summary>
       <good-assistant-panel label="Document details" [appearance]="softSurface() ? 'soft' : 'default'" [hideOnMobile]="hideMobile()" [(open)]="panelOpen">
         <good-assistant-main>
           <good-section>
@@ -41,9 +41,9 @@ import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantH
             </good-group>
           </good-section>
         </good-assistant-main>
-        <good-assistant-header><good-subheading [level]="2">Document details</good-subheading></good-assistant-header>
+        <good-assistant-header><good-heading-3>Document details</good-heading-3></good-assistant-header>
         <good-assistant-body>
-          <good-subheading [level]="3">{{ selected() }}</good-subheading>
+          <good-heading-4>{{ selected() }}</good-heading-4>
           <good-paragraph>Supporting details belong in the body. The header and footer stay in place while this area scrolls.</good-paragraph>
         </good-assistant-body>
         <good-assistant-footer><good-button variant="outline">Open document</good-button></good-assistant-footer>

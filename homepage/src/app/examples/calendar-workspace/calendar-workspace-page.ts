@@ -1,12 +1,5 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, afterNextRender, computed, inject, signal } from '@angular/core';
-import {
-  GoodActionGroupComponent, GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent,
-  GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent,
-  GoodMonthCalendarComponent, type GoodListboxItem,
-  type GoodCalendarEvent, type GoodCalendarEventInput, type GoodCalendarMove, type GoodCalendarResize,
-  type GoodCalendarView, type GoodMonthCalendarSelection,
-  goodCalendarStartOfWeek,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodMonthCalendarComponent, type GoodListboxItem, type GoodCalendarEvent, type GoodCalendarEventInput, type GoodCalendarMove, type GoodCalendarResize, type GoodCalendarView, type GoodMonthCalendarSelection, goodCalendarStartOfWeek } from '@cloudfrogger/goodui';
 import { calendarWorkspaceHtml, calendarWorkspaceTs } from './source-code.generated';
 
 type CalendarKind = 'work' | 'personal';
@@ -24,8 +17,7 @@ const dayKey = (date: Date): string =>
 @Component({
   selector: 'example-calendar-workspace-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent,
-    GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodMonthCalendarComponent],
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCalendarComponent, GoodCodeBlockComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodMonthCalendarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar-workspace-page.html',
 })

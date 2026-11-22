@@ -3,7 +3,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Foundation · Layout</good-eyebrow>
-        <good-heading [level]="1">General</good-heading>
+        <good-heading-1>General</good-heading-1>
         <good-summary>Set up the application shell once, then choose how each routed page uses the main area.</good-summary>
       </good-heading-group>
       <good-paragraph><code>good-app-layout</code> owns the sidebar, topbar, and responsive navigation. Routed pages render inside its <code>&lt;router-outlet /&gt;</code>. The <good-link route="/getting-started/layout/default">Default layout</good-link> chapter explains normal page scrolling and its fill variant for workspaces.</good-paragraph>
@@ -11,7 +11,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>How the frame works</good-subheading>
+    <good-heading-3>How the frame works</good-heading-3>
     <good-prose>
       <good-paragraph>On desktop, a 280 px sidebar sits beside the topbar and main area. At 900 px and below, the sidebar becomes a drawer. The shell handles offsets, navigation state, the drawer backdrop, and focus restoration. Group related links under expandable navigation items when the menu grows.</good-paragraph>
     </good-prose>
@@ -22,7 +22,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>1. Define the root component</good-subheading>
+    <good-heading-3>1. Define the root component</good-heading-3>
     <good-prose>
       <good-paragraph>Import <code>GoodAppLayoutComponent</code> and <code>RouterOutlet</code>. Give navigation items stable IDs and routes. The active route highlights its link and opens its parent group.</good-paragraph>
     </good-prose>
@@ -30,7 +30,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>2. Compose the shell</good-subheading>
+    <good-heading-3>2. Compose the shell</good-heading-3>
     <good-prose>
       <good-paragraph>Place <code>good-app-layout</code> around the outlet. Supply your application's wordmark and symbol from <code>public/brand/</code>. Dark artwork is optional; without it, the light image is reused. <code>mobileTopbarMenuMode="popup"</code> keeps topbar links in a separate mobile menu.</good-paragraph>
     </good-prose>
@@ -38,7 +38,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>3. Register the providers</good-subheading>
+    <good-heading-3>3. Register the providers</good-heading-3>
     <good-prose>
       <good-paragraph>Register Angular Router and <code>provideGoodUI()</code> once. The <good-link route="/getting-started/developing">Developing chapter</good-link> covers package installation and styles.</good-paragraph>
     </good-prose>
@@ -46,7 +46,7 @@
   </good-section>
 
   <good-section>
-    <good-subheading>Choose the page behavior</good-subheading>
+    <good-heading-3>Choose the page behavior</good-heading-3>
     <good-prose>
       <good-paragraph>Continue with <good-link route="/getting-started/layout/default">Default layout</good-link> for a normal scrolling page and the fill option for a workspace with its own scroll areas.</good-paragraph>
     </good-prose>

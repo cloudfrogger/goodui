@@ -1,16 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCheckboxAppearance, GoodCheckboxComponent, GoodCheckboxSize, GoodMainViewComponent } from '@cloudfrogger/goodui';
+import { GoodCheckboxAppearance, GoodCheckboxComponent, GoodCheckboxSize, GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 type CheckboxRow = { label: string; value: boolean | null; disabled: boolean };
 
 @Component({
   selector: 'showcase-checkboxes-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodCheckboxComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodCheckboxComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Checkboxes" description="Three states, two color styles, and three sizes">
+    <good-main-view>
+  <good-heading-1>Checkboxes</good-heading-1>
+  <good-summary>Three states, two color styles, and three sizes</good-summary>
       @for (appearance of appearances; track appearance) {
         <section class="showcase-section">
           <div class="showcase-section-heading">

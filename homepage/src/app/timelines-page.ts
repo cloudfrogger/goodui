@@ -1,17 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LucideCheck, LucideClipboardList, LucideFileText, LucideShieldCheck } from '@lucide/angular';
-import {
-  GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent,
-  GoodGroupComponent, GoodParagraphComponent, GoodSubheadingComponent,
-  GoodMainViewComponent, GoodSectionComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodTimelineSectionComponent, GoodTimelineStep,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodGroupComponent, GoodParagraphComponent, GoodMainViewComponent, GoodSectionComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodTimelineSectionComponent, GoodTimelineStep, GoodHeading1Component, GoodHeading4Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-timelines-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodColumnsComponent,
-    GoodColumnComponent, GoodParagraphComponent, GoodSubheadingComponent, GoodTimelineComponent,
-    GoodTimelineStepComponent, GoodTimelineSectionComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodColumnsComponent, GoodColumnComponent, GoodParagraphComponent, GoodTimelineComponent, GoodTimelineStepComponent, GoodTimelineSectionComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodHeading4Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './timelines-page.html',
 })

@@ -665,12 +665,84 @@
       "penpotCount": 3
     },
     {
-      "selector": "good-heading",
-      "className": "GoodHeadingComponent",
-      "file": "components/good-heading.json",
+      "selector": "good-heading-1",
+      "className": "GoodHeading1Component",
+      "file": "components/good-heading-1.json",
       "import": {
         "package": "@cloudfrogger/goodui",
-        "symbol": "GoodHeadingComponent"
+        "symbol": "GoodHeading1Component"
+      },
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-heading-2",
+      "className": "GoodHeading2Component",
+      "file": "components/good-heading-2.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeading2Component"
+      },
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-heading-3",
+      "className": "GoodHeading3Component",
+      "file": "components/good-heading-3.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeading3Component"
+      },
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-heading-4",
+      "className": "GoodHeading4Component",
+      "file": "components/good-heading-4.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeading4Component"
+      },
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-heading-5",
+      "className": "GoodHeading5Component",
+      "file": "components/good-heading-5.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeading5Component"
+      },
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-heading-6",
+      "className": "GoodHeading6Component",
+      "file": "components/good-heading-6.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeading6Component"
+      },
+      "usageGuide": "guides/components/typography.md",
+      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
+      "penpotCount": 1
+    },
+    {
+      "selector": "good-heading-7",
+      "className": "GoodHeading7Component",
+      "file": "components/good-heading-7.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeading7Component"
       },
       "usageGuide": "guides/components/typography.md",
       "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
@@ -829,7 +901,7 @@
         "symbol": "GoodMainViewComponent"
       },
       "usageGuide": "guides/components/main-view.md",
-      "summary": "`goodui.main-view` provides the page container below the topbar. It supports an optional subnav, title, description, actions, and projected content. GoodUI owns page padding and scrolling. Penpot shows a content slot placeholder; Angular projects actual page content with `ng-content`.",
+      "summary": "`good-main-view` provides the page container below the topbar. It owns padding, scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
       "penpotCount": 6
     },
     {
@@ -1239,18 +1311,6 @@
       "usageGuide": "guides/components/status-icon.md",
       "summary": "`good-status-icon` is a compact, non-interactive status indicator. Set its required `status` and use the default flat dot (`appearance=\"plain\"`) unless the surrounding UI needs a stronger visual cue. The component owns its shape, color, size, and accessible name; it does not change application state or emit events.",
       "penpotCount": 42
-    },
-    {
-      "selector": "good-subheading",
-      "className": "GoodSubheadingComponent",
-      "file": "components/good-subheading.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodSubheadingComponent"
-      },
-      "usageGuide": "guides/components/typography.md",
-      "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
-      "penpotCount": 1
     },
     {
       "selector": "good-subnav",

@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodNumberInputComponent, GoodNumberInputSize, LucideCoins, LucideGauge } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodNumberInputComponent, GoodNumberInputSize, LucideCoins, LucideGauge, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-number-inputs-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodNumberInputComponent, GoodCodeBlockComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodNumberInputComponent, GoodCodeBlockComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Number inputs" description="Animated stepping with editable values, bounds, and optional Lucide icons.">
+    <good-main-view>
+  <good-heading-1>Number inputs</good-heading-1>
+  <good-summary>Animated stepping with editable values, bounds, and optional Lucide icons.</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Sizes and disabled state</h2><p>The stepper fills its available width by default. Minus and plus move by one; click a number to type it directly.</p></div>
         <div class="showcase-rating-list">

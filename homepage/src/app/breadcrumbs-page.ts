@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodBreadcrumbItem, GoodBreadcrumbsComponent, GoodButtonComponent, GoodMainViewComponent, LucideHouse } from '@cloudfrogger/goodui';
+import { GoodBreadcrumbItem, GoodBreadcrumbsComponent, GoodButtonComponent, GoodMainViewComponent, LucideHouse, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-breadcrumbs-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodButtonComponent],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodButtonComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Breadcrumbs" description="Wayfinding for nested pages">
+    <good-main-view>
+  <good-heading-1>Breadcrumbs</good-heading-1>
+  <good-summary>Wayfinding for nested pages</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Path and separator</h2><p>Earlier levels are links. The current page is announced to assistive technology.</p></div>
         <div class="showcase-breadcrumb-examples">

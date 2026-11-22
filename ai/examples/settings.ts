@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodFormDirective, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSwitchComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodFormDirective, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSwitchComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 @Component({
   selector: 'app-settings-example', standalone: true,
-  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodGroupComponent, GoodFormDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodParagraphComponent],
+  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodGroupComponent, GoodFormDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodParagraphComponent, GoodHeading1Component, GoodSummaryComponent],
   templateUrl: './settings.html',
 })
 export class SettingsExample {

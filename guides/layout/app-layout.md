@@ -32,7 +32,9 @@ AppLayout
   [topbarItems]="topbarItems"
   [user]="currentUser"
   [notifications]="notifications">
-  <good-main-view title="Dashboard" description="Overview">
+  <good-main-view>
+  <good-heading-1>Dashboard</good-heading-1>
+  <good-summary>Overview</good-summary>
     <good-section>
       <!-- Put the page's centered content here. -->
     </good-section>

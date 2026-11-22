@@ -1,23 +1,13 @@
 import { CurrencyPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent,
-  GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingComponent,
-  GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent,
-  GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component } from '@cloudfrogger/goodui';
 import { CloudhosterStore } from './cloudhoster-store';
 import { cloudHomeHtml, cloudHomeTs, cloudStoreTs } from './source-code.generated';
 
 @Component({
   selector: 'example-cloudhoster-home', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CurrencyPipe, GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent,
-    GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingComponent,
-    GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent,
-    GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-    GoodSubheadingComponent, GoodSummaryComponent],
+  imports: [CurrencyPipe, GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component],
   templateUrl: './home-page.html',
 })
 export class CloudhosterHomePageComponent {

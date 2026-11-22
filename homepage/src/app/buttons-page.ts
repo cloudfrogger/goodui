@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodButtonComponent, GoodButtonSize, GoodButtonVariant, GoodMainViewComponent, LucidePlus, LucideTrash2 } from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodButtonSize, GoodButtonVariant, GoodMainViewComponent, LucidePlus, LucideTrash2, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-buttons-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodButtonComponent],
+  imports: [GoodMainViewComponent, GoodButtonComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Buttons" description="Five reusable variants, three sizes, and optional Lucide icons.">
+    <good-main-view>
+  <good-heading-1>Buttons</good-heading-1>
+  <good-summary>Five reusable variants, three sizes, and optional Lucide icons.</good-summary>
       <section class="showcase-section" aria-labelledby="button-matrix-title">
         <div class="showcase-section-heading">
           <h2 id="button-matrix-title">Button variants</h2>

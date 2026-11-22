@@ -3,7 +3,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Data visualizations</good-eyebrow>
-        <good-heading>Bar charts</good-heading>
+        <good-heading-1>Bar charts</good-heading-1>
         <good-summary>Compare values by category with the same data-source and axis contract as line charts.</good-summary>
       </good-heading-group>
       <good-paragraph>Pass one or more typed sources, declare the axes, and add one <code>good-chart-bar</code> per measure. Bars with the same X value sit beside each other. The chart owns its Card, legend, responsive plot, and optional data-table switch.</good-paragraph>
@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">Two series in GoodUI colors</good-subheading>
+      <good-heading-3>Two series in GoodUI colors</good-heading-3>
       <good-bar-chart title="Requests by quarter" [sources]="requestSources" [showDataToggle]="true">
         <good-chart-axis position="x" type="category" label="Quarter" />
         <good-chart-axis position="y" type="number" label="Requests" [min]="0" [precision]="0" />
@@ -25,7 +25,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">A custom palette and one-dimensional data</good-subheading>
+      <good-heading-3>A custom palette and one-dimensional data</good-heading-3>
       <good-paragraph>Set <code>[colors]</code> to an array of marker names or CSS colors to replace the chart palette. Here <code>violet</code> stays theme-aware. With one numeric key and no <code>xKey</code>, row positions become the X values. Set <code>color</code> on an individual bar definition when just that series needs another color.</good-paragraph>
       <good-bar-chart title="Tasks by day" [sources]="[taskCounts]" [colors]="customColors">
         <good-chart-axis position="x" type="number" label="Day" [precision]="0" />
@@ -37,7 +37,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">Horizontal bars</good-subheading>
+      <good-heading-3>Horizontal bars</good-heading-3>
       <good-paragraph>Set <code>orientation="horizontal"</code> when category labels need more room or a ranked comparison reads better from top to bottom. The source keys and declarative axes stay the same: X describes the categories in the data, Y describes their numeric values. GoodUI rotates their visual placement.</good-paragraph>
       <good-bar-chart title="Requests by quarter" [sources]="requestSources" orientation="horizontal">
         <good-chart-axis position="x" type="category" label="Quarter" />

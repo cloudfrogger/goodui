@@ -1,15 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 
 @Component({
   selector: 'showcase-error-pages-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent],
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Error pages" description="Friendly recovery paths for missing pages and temporary server failures.">
+    <good-main-view>
+  <good-heading-1>Error pages</good-heading-1>
+  <good-summary>Friendly recovery paths for missing pages and temporary server failures.</good-summary>
       <good-section>
         <good-group title="Open a page" appearance="plain">
           <good-action-group orientation="responsive">

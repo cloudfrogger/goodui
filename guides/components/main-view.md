@@ -1,21 +1,43 @@
 # MainView
 
-`goodui.main-view` provides the page container below the topbar. It supports an optional subnav, title, description, actions, and projected content. GoodUI owns page padding and scrolling. Penpot shows a content slot placeholder; Angular projects actual page content with `ng-content`.
+`good-main-view` provides the page container below the topbar. It owns padding, scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.
 
 ```html
-<good-main-view title="Dashboard" description="Overview">
+<good-main-view>
+  <good-heading-1>Dashboard</good-heading-1>
+  <good-summary>Overview of your workspace.</good-summary>
   <app-dashboard-content />
 </good-main-view>
 ```
 
-The content area grows with its children and does not impose a card or column structure. Your application supplies its page content; MainView already supplies the page spacing. `title` renders the reusable `good-heading` as an H1, and `description` renders `good-summary`. Pass `eyebrow` and optional `eyebrowAppearance="mono"` to place a small label above the title. All three belong to `good-heading-group`, which owns their gaps. See [Typography](./typography.md) for standalone composition.
+Import `GoodMainViewComponent`, `GoodHeading1Component`, and `GoodSummaryComponent` in the standalone component declaring this template. Headings and summaries are content components; MainView has no `title`, `description`, `eyebrow`, or `eyebrowAppearance` input. Use bindings inside projected text for dynamic page titles:
 
-For a fixed strip above a height-filling workspace, set `layout="fill"` and mark the strip with `goodMainViewToolbar`. MainView keeps the strip outside its flexible content area. The child below fills the remaining height and owns internal scrolling. [ActionBar](./action-bar.md) is a ready-made command strip, but this slot accepts any component.
+```html
+<good-main-view>
+  <good-eyebrow appearance="mono">Workspace</good-eyebrow>
+  <good-heading-1>{{ projectName() }}</good-heading-1>
+  <good-summary>{{ projectSummary() }}</good-summary>
+  <good-section spacing="content">
+    <good-heading-3>Recent activity</good-heading-3>
+    <!-- page content -->
+  </good-section>
+</good-main-view>
+```
 
-`layout="fill"` removes padding from the workspace, not from an optional page heading. If you set `title`, `description`, or `eyebrow`, MainView gives that heading the same 30 px desktop or 24 px mobile side inset as a default page. The workspace below still reaches the edges. Omit the heading when the workspace itself should touch the topbar.
+For conditional heading content, use a single HeadingGroup inside the conditional block, or separate conditionals for Heading and Summary so Angular can project each root into its slot.
 
-Penpot page `02 Layout` shows this combination in `goodui.main-view.fill-heading` and `.fill-heading-mobile`. The heading and workspace use different inset rules by design; their [published IDs](../contributing/design-to-code.md) map to the same `good-main-view` selector.
+Only direct Heading 1, Summary, Eyebrow, and HeadingGroup children enter the page header. Other direct heading styles remain in the page content. Headings nested in Sections, forms, or Cards remain in the content. MainView preserves HeadingGroup's inner spacing and renders no empty header when none is supplied. An optional direct `good-heading-group` can supply the complete heading composition instead. Project page actions with `[good-main-view-actions]` as before.
 
-For a full-height workspace with contextual information at its right, place [Assistant panel](./assistant-panel.md) in the fill content. The main area and companion surface scroll separately; the component handles mobile presentation.
+MainView accepts only `layout`, `subnavItems`, `subnavActions`, and `subnavLabel`. Pass the subnav records and actions through these inputs. The content area grows with its children and does not impose a card or column structure. Pages containing direct Sections share their centered 1024 px width with the header; free pages retain full content width.
 
-Pass `subnavItems` to place [Subnav](./subnav.md) above the heading. MainView makes the strip full width and keeps the page content aligned to its normal padding. `subnavLabel` sets the navigation landmark's accessible name. Pass `subnavActions` to add optional buttons and action menus at the right edge of the strip.
+For a fixed strip above a height-filling workspace, set `layout="fill"` and mark the strip with `goodMainViewToolbar`. MainView keeps the strip outside the flexible workspace; the child below fills the remaining height and owns its scrolling. [ActionBar](action-bar.md) is a ready-made strip.
+
+```html
+<good-main-view layout="fill">
+  <good-heading-1>Schedule</good-heading-1>
+  <good-summary>Upcoming work.</good-summary>
+  <good-calendar [fillHeight]="true" />
+</good-main-view>
+```
+
+Fill layout keeps the projected header's 30 px desktop or 24 px mobile side inset while its workspace reaches the edges. Without heading content, the workspace can touch the topbar. Penpot `goodui.main-view.fill-heading` and `.fill-heading-mobile` preserve this geometry; the linked Heading and Summary are projected content, not MainView text inputs. See [Typography](typography.md) and [the migration guide](../migrations/explicit-headings.md).

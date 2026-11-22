@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodMainViewComponent, GoodRatingComponent, GoodRatingIcon, GoodRatingSize, LucideSmile } from '@cloudfrogger/goodui';
+import { GoodMainViewComponent, GoodRatingComponent, GoodRatingIcon, GoodRatingSize, LucideSmile, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-ratings-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodRatingComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodRatingComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Ratings" description="Selectable or display-only scores with Lucide symbols">
+    <good-main-view>
+  <good-heading-1>Ratings</good-heading-1>
+  <good-summary>Selectable or display-only scores with Lucide symbols</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Choose a rating</h2><p>Click a symbol or use the arrow keys. A rating always starts at one.</p></div>
         <div class="showcase-rating-list">

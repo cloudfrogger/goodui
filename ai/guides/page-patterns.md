@@ -4,14 +4,18 @@ Pick the page width before composing controls:
 
 ```html
 <!-- Centered content: heading and sections share one width. -->
-<good-main-view title="Settings" description="Manage your preferences">
+<good-main-view>
+  <good-heading-1>Settings</good-heading-1>
+  <good-summary>Manage your preferences</good-summary>
   <good-section>
     <good-group title="Notifications">...</good-group>
   </good-section>
 </good-main-view>
 
 <!-- Free content: heading and content both start at the page edge. -->
-<good-main-view title="Schedule" description="Upcoming work">
+<good-main-view>
+  <good-heading-1>Schedule</good-heading-1>
+  <good-summary>Upcoming work</good-summary>
   <good-calendar />
 </good-main-view>
 

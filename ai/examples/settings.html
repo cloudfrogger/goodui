@@ -1,4 +1,6 @@
-<good-main-view title="Settings" description="Choose how you receive updates.">
+<good-main-view>
+  <good-heading-1>Settings</good-heading-1>
+  <good-summary>Choose how you receive updates.</good-summary>
   <form goodForm [formGroup]="form" (ngSubmit)="save()">
     <good-group title="Notifications">
       <good-switch label="Email updates" [showLabel]="true" formControlName="emailUpdates" />

@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { LucideStar } from '@lucide/angular';
-import { GoodCodeBlockComponent, GoodColorControlsComponent, GoodColorPickerComponent,
-  GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodColorControlsComponent, GoodColorPickerComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-color-controls-page', standalone: true,
-  imports: [GoodCodeBlockComponent, GoodColorControlsComponent, GoodColorPickerComponent,
-    GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent],
+  imports: [GoodCodeBlockComponent, GoodColorControlsComponent, GoodColorPickerComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './color-controls-page.html',
 })

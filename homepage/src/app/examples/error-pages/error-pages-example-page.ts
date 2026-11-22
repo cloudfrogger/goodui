@@ -1,10 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  GoodActionGroupComponent, GoodBreadcrumbsComponent, GoodButtonComponent,
-  GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent,
-  GoodSectionComponent, type GoodBreadcrumbItem,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodBreadcrumbsComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 import {
   errorPagesExampleHtml, errorPagesExampleTs, notFoundHtml, notFoundTs,
   serverErrorHtml, serverErrorTs,
@@ -13,8 +9,7 @@ import {
 @Component({
   selector: 'example-error-pages-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodBreadcrumbsComponent, GoodButtonComponent,
-    GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent],
+  imports: [GoodActionGroupComponent, GoodBreadcrumbsComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './error-pages-example-page.html',
 })

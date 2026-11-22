@@ -3,7 +3,7 @@
 `good-subnav` navigates between sections of one area, such as account pages. It is a 60 px strip on desktop and a 44 px strip on mobile. `good-main-view` can place it above the heading without extra layout CSS.
 
 ```ts
-import { GoodMainViewComponent, type GoodSubnavItem } from '@cloudfrogger/goodui';
+import { GoodMainViewComponent, type GoodSubnavItem, GoodHeading1Component } from '@cloudfrogger/goodui';
 
 readonly accountSections: readonly GoodSubnavItem[] = [
   { id: 'home', label: 'Account Home', route: '/account/home', children: [
@@ -18,7 +18,8 @@ readonly accountSections: readonly GoodSubnavItem[] = [
 ```
 
 ```html
-<good-main-view title="Billing" [subnavItems]="accountSections" subnavLabel="Account sections">
+<good-main-view [subnavItems]="accountSections" subnavLabel="Account sections">
+  <good-heading-1>Billing</good-heading-1>
   <app-billing-content />
 </good-main-view>
 ```
@@ -30,7 +31,7 @@ The strip never wraps. On narrow screens, users can swipe or scroll the item row
 Place optional controls at the right edge without page-level layout CSS:
 
 ```ts
-import { GoodMainViewComponent, LucideCircleQuestionMark, LucideEllipsis, type GoodSubnavAction } from '@cloudfrogger/goodui';
+import { GoodMainViewComponent, LucideCircleQuestionMark, LucideEllipsis, type GoodSubnavAction, GoodHeading1Component } from '@cloudfrogger/goodui';
 
 readonly subnavActions: readonly GoodSubnavAction[] = [
   { id: 'help', label: 'Help', icon: LucideCircleQuestionMark, variant: 'outline', size: 'small', route: '/help' },

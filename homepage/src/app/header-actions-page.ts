@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodSubheadingComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodGroupComponent, GoodInlineImageComponent, GoodActionGroupComponent, GoodButtonComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderAvatarComponent, GoodHeaderThemeToggleComponent, GoodNotificationCenter, GoodThemeService, type GoodSearchItem, type GoodUser, type GoodMenuAction } from '@cloudfrogger/goodui';
+import { GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodGroupComponent, GoodInlineImageComponent, GoodActionGroupComponent, GoodButtonComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderAvatarComponent, GoodHeaderThemeToggleComponent, GoodNotificationCenter, GoodThemeService, type GoodSearchItem, type GoodUser, type GoodMenuAction, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-header-actions-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodSubheadingComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodGroupComponent, GoodInlineImageComponent, GoodActionGroupComponent, GoodButtonComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderAvatarComponent, GoodHeaderThemeToggleComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodGroupComponent, GoodInlineImageComponent, GoodActionGroupComponent, GoodButtonComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderAvatarComponent, GoodHeaderThemeToggleComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './components/header-actions.html',
 })

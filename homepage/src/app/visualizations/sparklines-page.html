@@ -3,7 +3,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Data visualizations</good-eyebrow>
-        <good-heading>Sparklines</good-heading>
+        <good-heading-1>Sparklines</good-heading-1>
         <good-summary>A small trend line for a metric or table cell, using the same typed data sources as larger charts.</good-summary>
       </good-heading-group>
       <good-paragraph>A Sparkline shows one numeric series without axes, labels, or a Card of its own. Give it a <code>GoodChartDataSource</code> and a numeric <code>yKey</code>. With no <code>xKey</code>, each row gets the next horizontal position. The endpoint dot makes the latest value easy to spot; the SVG describes the trend to screen readers.</good-paragraph>
@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">One compact metric</good-subheading>
+      <good-heading-3>One compact metric</good-heading-3>
       <good-card>
         <good-card-header title="Weekly visits" [headingLevel]="3" />
         <good-detail-list>
@@ -26,7 +26,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">Several trends in a Table</good-subheading>
+      <good-heading-3>Several trends in a Table</good-heading-3>
       <good-paragraph>Project a Sparkline into a custom Table cell when every row has its own data source. GoodUI Table owns the cell layout; each Sparkline owns only its compact trend.</good-paragraph>
       <good-table [data]="rows" [columns]="columns" tableStyle="compact" [reorderable]="false">
         <ng-template goodTableCell="trend" let-row>

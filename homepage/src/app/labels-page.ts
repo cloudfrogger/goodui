@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodHintComponent, GoodInputComponent, GoodMainViewComponent, GoodRadioGroupComponent, type GoodRadioOption } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodHintComponent, GoodInputComponent, GoodMainViewComponent, GoodRadioGroupComponent, type GoodRadioOption, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 type FormLayout = 'vertical' | 'left' | 'right';
 const createExampleForm = () => new FormGroup({ name: new FormControl(''), email: new FormControl(''), team: new FormControl('') });
@@ -8,10 +8,12 @@ const createExampleForm = () => new FormGroup({ name: new FormControl(''), email
 @Component({
   selector: 'app-labels-page',
   standalone: true,
-  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodFormDirective, GoodFormFieldComponent, GoodFieldLabelComponent, GoodInputComponent, GoodCheckboxComponent, GoodRadioGroupComponent, GoodHintComponent, GoodButtonComponent, GoodActionGroupComponent, GoodCodeBlockComponent],
+  imports: [ReactiveFormsModule, GoodMainViewComponent, GoodFormDirective, GoodFormFieldComponent, GoodFieldLabelComponent, GoodInputComponent, GoodCheckboxComponent, GoodRadioGroupComponent, GoodHintComponent, GoodButtonComponent, GoodActionGroupComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Forms and labels" description="Choose one alignment for a form. GoodUI keeps its labels, controls, help text, and actions on a shared grid.">
+    <good-main-view>
+  <good-heading-1>Forms and labels</good-heading-1>
+  <good-summary>Choose one alignment for a form. GoodUI keeps its labels, controls, help text, and actions on a shared grid.</good-summary>
       @for (example of layouts; track example.layout) {
         <section class="showcase-section" [attr.aria-labelledby]="example.layout + '-title'">
           <div class="showcase-section-heading">

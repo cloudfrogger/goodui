@@ -1,0 +1,46 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-heading-6",
+  "className": "GoodHeading6Component",
+  "kind": "component",
+  "import": {
+    "package": "@cloudfrogger/goodui",
+    "symbol": "GoodHeading6Component"
+  },
+  "source": "angular/projects/goodui/src/lib/typography.ts",
+  "inputs": [],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/typography.md",
+  "usage": {
+    "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
+    "examples": []
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.subheading",
+      "penpotId": "4c1f5233-504c-80ed-8008-fbe8d4d58983",
+      "kind": "component",
+      "state": null,
+      "owner": null,
+      "variant": {
+        "level": "5"
+      }
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

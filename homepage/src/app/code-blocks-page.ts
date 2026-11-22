@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-code-blocks-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Code blocks" description="Readable source examples with highlighting, copying, line numbers, and an optional preview">
+    <good-main-view>
+  <good-heading-1>Code blocks</good-heading-1>
+  <good-summary>Readable source examples with highlighting, copying, line numbers, and an optional preview</good-summary>
       <div class="showcase-code-showcase">
         <section class="showcase-section">
           <div class="showcase-section-heading"><h2>TypeScript with line numbers</h2><p>The code remains selectable and can scroll horizontally.</p></div>

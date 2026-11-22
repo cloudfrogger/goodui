@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, contentChild, input } from '@angular/core';
 import { GoodSubnavComponent } from './subnav';
-import { GoodEyebrowComponent, GoodEyebrowAppearance, GoodHeadingComponent, GoodHeadingGroupComponent, GoodSummaryComponent } from './typography';
+import { GoodEyebrowComponent, GoodHeading1Component, GoodHeadingGroupComponent, GoodSummaryComponent } from './typography';
 import { GoodSubnavAction, GoodSubnavItem } from './models';
 
 export type GoodMainViewLayout = 'page' | 'fill';
@@ -8,17 +8,24 @@ export type GoodMainViewLayout = 'page' | 'fill';
 @Component({
   selector: 'good-main-view',
   standalone: true,
-  imports: [GoodSubnavComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent],
+  imports: [GoodSubnavComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (subnavItems().length) { <good-subnav [items]="subnavItems()" [actions]="subnavActions()" [ariaLabel]="subnavLabel()" /> }
-    @if (eyebrow() || title() || description()) {
+    @if (hasHeading()) {
       <header class="good-main-view-heading">
-        <good-heading-group>
-          @if (eyebrow()) { <good-eyebrow [appearance]="eyebrowAppearance()">{{ eyebrow() }}</good-eyebrow> }
-          @if (title()) { <good-heading>{{ title() }}</good-heading> }
-          @if (description()) { <good-summary>{{ description() }}</good-summary> }
-        </good-heading-group>
+        <div class="good-main-view-heading-content">
+          <ng-content select="good-heading-group" />
+          @if (hasDirectHeading()) {
+            <div class="good-heading-group">
+              <ng-content select="good-eyebrow" />
+              <div class="good-heading-group-text">
+                <ng-content select="good-heading-1" />
+                <ng-content select="good-summary" />
+              </div>
+            </div>
+          }
+        </div>
         <div class="good-main-view-actions"><ng-content select="[good-main-view-actions]" /></div>
       </header>
     }
@@ -32,8 +39,10 @@ export class GoodMainViewComponent {
   readonly subnavItems = input<readonly GoodSubnavItem[]>([]);
   readonly subnavActions = input<readonly GoodSubnavAction[]>([]);
   readonly subnavLabel = input('Subnav');
-  readonly title = input('');
-  readonly description = input('');
-  readonly eyebrow = input('');
-  readonly eyebrowAppearance = input<GoodEyebrowAppearance>('brand');
+  private readonly heading = contentChild(GoodHeading1Component, { descendants: false });
+  private readonly summary = contentChild(GoodSummaryComponent, { descendants: false });
+  private readonly eyebrow = contentChild(GoodEyebrowComponent, { descendants: false });
+  private readonly headingGroup = contentChild(GoodHeadingGroupComponent, { descendants: false });
+  protected readonly hasDirectHeading = computed(() => !!(this.heading() || this.summary() || this.eyebrow()));
+  protected readonly hasHeading = computed(() => this.hasDirectHeading() || !!this.headingGroup());
 }

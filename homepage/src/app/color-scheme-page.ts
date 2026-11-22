@@ -1,11 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
-import {
-  GoodButtonComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingComponent,
-  GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent,
-  GoodSectionComponent, GoodSubheadingComponent, GoodSummaryComponent, GoodThemeService,
-  GOOD_MARKER_COLORS,
-} from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodThemeService, GOOD_MARKER_COLORS, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 type ColorRole = { name: string; token: string; purpose: string };
 
@@ -37,9 +32,7 @@ const markerRoles: readonly ColorRole[] = GOOD_MARKER_COLORS.map(name => ({
 @Component({
   selector: 'showcase-color-scheme-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodSubheadingComponent,
-    GoodHeadingGroupComponent, GoodEyebrowComponent, GoodHeadingComponent, GoodSummaryComponent,
-    GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodButtonComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodButtonComponent, GoodHeading1Component, GoodHeading3Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/color-scheme.html',
 })

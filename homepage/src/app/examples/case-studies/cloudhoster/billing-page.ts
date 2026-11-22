@@ -1,16 +1,6 @@
 import { CurrencyPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import {
-  GoodActionGroupComponent, GoodAlertComponent, GoodBarChartComponent, GoodButtonComponent,
-  GoodCardComponent, GoodCardHeaderComponent, GoodChartAxisComponent, GoodChartBarComponent,
-  GoodChartDataSource, GoodChartLineComponent, GoodCheckboxComponent, GoodCodeBlockComponent,
-  GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective,
-  GoodGroupComponent, GoodHeadingComponent, GoodHintComponent, GoodInputComponent, GoodLineChartComponent,
-  GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent,
-  GoodModalHeaderComponent, GoodNumberInputComponent, GoodParagraphComponent,
-  GoodSectionComponent, GoodSelectComponent, GoodSubheadingComponent, GoodTabComponent,
-  GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodAlertComponent, GoodBarChartComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodChartAxisComponent, GoodChartBarComponent, GoodChartDataSource, GoodChartLineComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodGroupComponent, GoodHintComponent, GoodInputComponent, GoodLineChartComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent, GoodParagraphComponent, GoodSectionComponent, GoodSelectComponent, GoodTabComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTabsComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading4Component, GoodSummaryComponent, GoodEyebrowComponent } from '@cloudfrogger/goodui';
 import { CloudhosterStore, DemoSpendAlert } from './cloudhoster-store';
 import { cloudBillingHtml, cloudBillingTs, cloudStoreTs } from './source-code.generated';
 
@@ -18,15 +8,7 @@ interface DemoInvoice { id: string; period: string; total: number; status: strin
 
 @Component({
   selector: 'example-cloudhoster-billing', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CurrencyPipe, GoodActionGroupComponent, GoodAlertComponent, GoodBarChartComponent,
-    GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodChartAxisComponent,
-    GoodChartBarComponent, GoodChartLineComponent, GoodCheckboxComponent, GoodCodeBlockComponent,
-    GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective,
-    GoodGroupComponent, GoodHeadingComponent, GoodHintComponent, GoodInputComponent, GoodLineChartComponent,
-    GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent,
-    GoodModalHeaderComponent, GoodNumberInputComponent, GoodParagraphComponent,
-    GoodSectionComponent, GoodSelectComponent, GoodSubheadingComponent, GoodTabComponent,
-    GoodTableCellDirective, GoodTableComponent, GoodTabsComponent],
+  imports: [CurrencyPipe, GoodActionGroupComponent, GoodAlertComponent, GoodBarChartComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodChartAxisComponent, GoodChartBarComponent, GoodChartLineComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodColumnComponent, GoodColumnsComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodGroupComponent, GoodHintComponent, GoodInputComponent, GoodLineChartComponent, GoodLinkComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent, GoodParagraphComponent, GoodSectionComponent, GoodSelectComponent, GoodTabComponent, GoodTableCellDirective, GoodTableComponent, GoodTabsComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading4Component, GoodSummaryComponent, GoodEyebrowComponent],
   templateUrl: './billing-page.html',
 })
 export class CloudhosterBillingPageComponent {

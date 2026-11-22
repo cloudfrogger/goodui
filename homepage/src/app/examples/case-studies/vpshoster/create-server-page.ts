@@ -1,15 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
-  GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodFormRowComponent, GoodGroupComponent, GoodHeadingGroupComponent, GoodHintComponent, GoodInputComponent,
-  GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodListboxItem, GoodMainViewComponent,
-  GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
-  GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
-  GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
-  GoodRadioGroupComponent, GoodRadioOption, GoodSectionComponent, GoodSelectComponent, GoodSelectOption, GoodSelectValue, GoodSeparatorComponent, GoodSubheadingComponent, GoodTableColumn,
-  GoodTableComponent, GoodTabComponent, GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodFormRowComponent, GoodGroupComponent, GoodHeadingGroupComponent, GoodHintComponent, GoodInputComponent, GoodLinkComponent, GoodListboxComponent, GoodListboxItem, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent, GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent, GoodRadioGroupComponent, GoodRadioOption, GoodSectionComponent, GoodSelectComponent, GoodSelectOption, GoodSelectValue, GoodSeparatorComponent, GoodTableColumn, GoodTableComponent, GoodTabComponent, GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component } from '@cloudfrogger/goodui';
 import { VPS_PLANS, VpsCaseStudyStore, VpsPlan } from './vps-store';
 import { vpsCreateHtml, vpsCreateTs, vpsStoreTs } from './source-code.generated';
 
@@ -23,14 +14,7 @@ const imageVersions: Record<string, readonly string[]> = {
 @Component({
   selector: 'example-vps-create-server-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent,
-    GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodFormRowComponent, GoodGroupComponent, GoodHeadingGroupComponent, GoodHintComponent, GoodInputComponent,
-    GoodHeadingComponent, GoodLinkComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent,
-    GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent,
-    GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent,
-    GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent,
-    GoodRadioGroupComponent, GoodSectionComponent, GoodSelectComponent, GoodSeparatorComponent, GoodSubheadingComponent, GoodTableComponent, GoodTabComponent,
-    GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent],
+  imports: [GoodActionGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodCheckboxComponent, GoodCodeBlockComponent, GoodDetailListComponent, GoodDetailRowDirective, GoodEyebrowComponent, GoodFormRowComponent, GoodGroupComponent, GoodHeadingGroupComponent, GoodHintComponent, GoodInputComponent, GoodLinkComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalFooterComponent, GoodModalHeaderComponent, GoodNumberInputComponent, GoodParagraphComponent, GoodProseComponent, GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodAssistantMobileComponent, GoodRadioGroupComponent, GoodSectionComponent, GoodSelectComponent, GoodSeparatorComponent, GoodTableComponent, GoodTabComponent, GoodTabsComponent, GoodTextareaComponent, GoodTimelineComponent, GoodTimelineSectionComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './create-server-page.html',
 })

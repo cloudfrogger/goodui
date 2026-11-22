@@ -1,4 +1,6 @@
-<good-main-view title="Managed databases" eyebrow="Cloudhoster · Case study">
+<good-main-view>
+  <good-eyebrow>Cloudhoster · Case study</good-eyebrow>
+  <good-heading-1>Managed databases</good-heading-1>
   <good-section>
     <good-card [mobileBleed]="true">
       <good-card-header title="Databases, simplified" backgroundImage="/case-studies/cloudhoster/database-hero.svg">
@@ -6,12 +8,12 @@
       </good-card-header>
       <good-columns [columns]="2">
         <good-column>
-          <good-subheading [level]="3">Build on your terms</good-subheading>
+          <good-heading-4>Build on your terms</good-heading-4>
           <good-paragraph>Pick PostgreSQL, MySQL, or MongoDB, then choose a region and compute plan. Storage can grow with your application.</good-paragraph>
           <good-button (click)="create()">Create database cluster</good-button>
         </good-column>
         <good-column>
-          <good-subheading [level]="3">Included in the workflow</good-subheading>
+          <good-heading-4>Included in the workflow</good-heading-4>
           <good-paragraph>Version selection · live cost estimate · metrics · logs · users · connection pools · spend alerts.</good-paragraph>
           <good-link route="/examples/case-studies/cloudhoster/billing">Explore billing</good-link>
         </good-column>
@@ -22,7 +24,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Cloudhoster · Case study</good-eyebrow>
-        <good-heading [level]="2">Your clusters</good-heading>
+        <good-heading-2>Your clusters</good-heading-2>
         <good-summary>Open a cluster to inspect its activity and settings.</good-summary>
       </good-heading-group>
       @if (store.notice()) { <good-paragraph role="status">{{ store.notice() }}</good-paragraph> }
@@ -40,7 +42,7 @@
     </good-table>
   </good-section>
   <good-section>
-    <good-prose><good-subheading [level]="2">Supported engines</good-subheading>
+    <good-prose><good-heading-3>Supported engines</good-heading-3>
       <good-paragraph>Start with a familiar data model and adjust capacity later.</good-paragraph></good-prose>
     <good-columns [columns]="3">
       <good-column><good-card><good-card-header title="PostgreSQL" [headingLevel]="3" tone="secondary" />

@@ -3,7 +3,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Data visualizations</good-eyebrow>
-        <good-heading>Histograms</good-heading>
+        <good-heading-1>Histograms</good-heading-1>
         <good-summary>Turn individual numeric measurements into a distribution of counts.</good-summary>
       </good-heading-group>
       <good-paragraph>A Histogram groups raw values into adjacent intervals. It answers “How often did a value fall in this range?” rather than comparing named categories. Supply one numeric key per source; GoodUI chooses common bin boundaries for every series so their distributions are comparable.</good-paragraph>
@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">Compare two distributions</good-subheading>
+      <good-heading-3>Compare two distributions</good-heading-3>
       <good-histogram title="Task duration" [sources]="sources" [binCount]="8" [showDataToggle]="true">
         <good-chart-axis position="x" type="number" label="Minutes" [min]="0" [max]="56" [precision]="0" />
         <good-chart-axis position="y" type="number" label="Tasks" [min]="0" [precision]="0" />
@@ -25,7 +25,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">One source and a custom color</good-subheading>
+      <good-heading-3>One source and a custom color</good-heading-3>
       <good-paragraph>Set <code>[binCount]</code> to an integer from 2 through 40. With no X bounds, GoodUI uses the smallest and largest valid values across all sources. <code>[colors]</code> replaces the marker palette; a series can override it with its own <code>color</code>.</good-paragraph>
       <good-histogram title="Workflow A duration" [sources]="[workflowA]" [binCount]="7" [colors]="['violet']">
         <good-chart-axis position="x" type="number" label="Minutes" [min]="0" [max]="56" />

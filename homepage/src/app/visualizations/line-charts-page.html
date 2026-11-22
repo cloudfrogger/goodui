@@ -3,7 +3,7 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Data visualizations</good-eyebrow>
-        <good-heading>Line charts</good-heading>
+        <good-heading-1>Line charts</good-heading-1>
         <good-summary>Compare measured values across categories or time without writing chart CSS.</good-summary>
       </good-heading-group>
       <good-paragraph>Give the chart one or more typed data sources, define the axes, then add one line per measure. The card, legend, and responsive plot are part of <code>good-line-chart</code>. This sample uses illustrative monthly averages for Düsseldorf and Valletta.</good-paragraph>
@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">Two cities, one year</good-subheading>
+      <good-heading-3>Two cities, one year</good-heading-3>
       <good-line-chart title="Average monthly temperature" [sources]="temperatureSources"
         ariaLabel="Illustrative monthly temperatures in Düsseldorf and Valletta" [showDataToggle]="true">
         <good-chart-axis position="x" type="category" label="Month" />
@@ -27,7 +27,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-subheading [level]="2">One-dimensional source</good-subheading>
+      <good-heading-3>One-dimensional source</good-heading-3>
       <good-paragraph>A one-key source can still make a line. With a numeric X axis and no <code>xKey</code>, the chart uses row positions 1, 2, 3, and so on. Here <code>[colors]</code> replaces the default palette with an array containing the theme-aware <code>violet</code> marker. An individual <code>good-chart-line color="teal"</code> would override its assigned palette color.</good-paragraph>
       <good-line-chart title="Visits this week" [sources]="[visits]" [colors]="customColors">
         <good-chart-axis position="x" type="number" label="Day" [precision]="0" />

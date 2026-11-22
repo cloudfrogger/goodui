@@ -8,8 +8,6 @@ import { GoodImagePreviewComponent } from './image-preview';
 import { GOOD_COMPOSITE_REQUIRED_CONTROL } from './required-control';
 
 export type GoodEyebrowAppearance = 'brand' | 'mono';
-export type GoodHeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
-export type GoodSubheadingLevel = 2 | 3 | 4 | 5 | 6;
 export type GoodSeparatorVariant = 'dots' | 'line';
 export type GoodImageAlign = 'center' | 'left' | 'right';
 export type GoodColumnBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -17,7 +15,7 @@ export type GoodColumnBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 @Component({
   selector: 'good-heading-group', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'good-heading-group' },
-  template: `<ng-content select="good-eyebrow" /><div class="good-heading-group-text"><ng-content select="good-heading" /><ng-content select="good-summary" /></div>`,
+  template: `<ng-content select="good-eyebrow" /><div class="good-heading-group-text"><ng-content select="good-heading-1, good-heading-2, good-heading-3, good-heading-4, good-heading-5, good-heading-6, good-heading-7" /><ng-content select="good-summary" /></div>`,
 })
 export class GoodHeadingGroupComponent {}
 
@@ -31,24 +29,53 @@ export class GoodEyebrowComponent {
 }
 
 @Component({
-  selector: 'good-heading', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgTemplateOutlet],
-  host: { class: 'good-heading', '[attr.data-level]': 'level()' },
-  template: `
-    <ng-template #content><ng-content /></ng-template>
-    @switch (level()) {
-      @case (2) { <h2><ng-container [ngTemplateOutlet]="content" /></h2> }
-      @case (3) { <h3><ng-container [ngTemplateOutlet]="content" /></h3> }
-      @case (4) { <h4><ng-container [ngTemplateOutlet]="content" /></h4> }
-      @case (5) { <h5><ng-container [ngTemplateOutlet]="content" /></h5> }
-      @case (6) { <h6><ng-container [ngTemplateOutlet]="content" /></h6> }
-      @default { <h1><ng-container [ngTemplateOutlet]="content" /></h1> }
-    }
-  `,
+  selector: 'good-heading-1', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-heading', 'data-level': '1', 'data-heading-style': '1' },
+  template: `<h1><ng-content /></h1>`,
 })
-export class GoodHeadingComponent {
-  readonly level = input<GoodHeadingLevel>(1);
-}
+export class GoodHeading1Component {}
+
+@Component({
+  selector: 'good-heading-2', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-heading', 'data-level': '2', 'data-heading-style': '2' },
+  template: `<h2><ng-content /></h2>`,
+})
+export class GoodHeading2Component {}
+
+@Component({
+  selector: 'good-heading-3', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-subheading', 'data-level': '2', 'data-heading-style': '3' },
+  template: `<h2><ng-content /></h2>`,
+})
+export class GoodHeading3Component {}
+
+@Component({
+  selector: 'good-heading-4', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-subheading', 'data-level': '3', 'data-heading-style': '4' },
+  template: `<h3><ng-content /></h3>`,
+})
+export class GoodHeading4Component {}
+
+@Component({
+  selector: 'good-heading-5', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-subheading', 'data-level': '4', 'data-heading-style': '5' },
+  template: `<h4><ng-content /></h4>`,
+})
+export class GoodHeading5Component {}
+
+@Component({
+  selector: 'good-heading-6', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-subheading', 'data-level': '5', 'data-heading-style': '6' },
+  template: `<h5><ng-content /></h5>`,
+})
+export class GoodHeading6Component {}
+
+@Component({
+  selector: 'good-heading-7', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-subheading', 'data-level': '6', 'data-heading-style': '7' },
+  template: `<h6><ng-content /></h6>`,
+})
+export class GoodHeading7Component {}
 
 @Component({
   selector: 'good-summary', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
@@ -120,25 +147,6 @@ export class GoodColumnComponent {
   host: { class: 'good-paragraph' }, template: `<p><ng-content /></p>`,
 })
 export class GoodParagraphComponent {}
-
-@Component({
-  selector: 'good-subheading', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgTemplateOutlet],
-  host: { class: 'good-subheading' },
-  template: `
-    <ng-template #content><ng-content /></ng-template>
-    @switch (level()) {
-      @case (3) { <h3><ng-container [ngTemplateOutlet]="content" /></h3> }
-      @case (4) { <h4><ng-container [ngTemplateOutlet]="content" /></h4> }
-      @case (5) { <h5><ng-container [ngTemplateOutlet]="content" /></h5> }
-      @case (6) { <h6><ng-container [ngTemplateOutlet]="content" /></h6> }
-      @default { <h2><ng-container [ngTemplateOutlet]="content" /></h2> }
-    }
-  `,
-})
-export class GoodSubheadingComponent {
-  readonly level = input<GoodSubheadingLevel>(2);
-}
 
 @Component({
   selector: 'good-citation', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,

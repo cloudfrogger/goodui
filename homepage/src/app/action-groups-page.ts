@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodActionGroupSpacing, GoodButtonComponent, GoodDropdownComponent, GoodDropdownItem, GoodLinkComponent, GoodMainViewComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodActionGroupSpacing, GoodButtonComponent, GoodDropdownComponent, GoodDropdownItem, GoodLinkComponent, GoodMainViewComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-action-groups-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodActionGroupComponent, GoodButtonComponent, GoodDropdownComponent, GoodLinkComponent],
+  imports: [GoodMainViewComponent, GoodActionGroupComponent, GoodButtonComponent, GoodDropdownComponent, GoodLinkComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Action groups" description="Consistent spacing and alignment for related controls, in rows or columns.">
+    <good-main-view>
+  <good-heading-1>Action groups</good-heading-1>
+  <good-summary>Consistent spacing and alignment for related controls, in rows or columns.</good-summary>
       <section class="showcase-section" aria-labelledby="action-group-mixed-title">
         <div class="showcase-section-heading">
           <h2 id="action-group-mixed-title">Mixed controls</h2>

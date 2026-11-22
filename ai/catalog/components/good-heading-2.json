@@ -1,42 +1,16 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-heading",
-  "className": "GoodHeadingComponent",
+  "selector": "good-heading-2",
+  "className": "GoodHeading2Component",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodHeadingComponent"
+    "symbol": "GoodHeading2Component"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",
-  "inputs": [
-    {
-      "name": "level",
-      "type": "GoodHeadingLevel",
-      "required": false,
-      "default": "1",
-      "allowedValues": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "source": "angular/projects/goodui/src/lib/typography.ts",
-      "kind": "input"
-    }
-  ],
+  "inputs": [],
   "outputs": [],
-  "variants": {
-    "level": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6
-    ]
-  },
+  "variants": {},
   "composition": {
     "projectedContent": [
       "*"
@@ -56,10 +30,13 @@
   "penpot": [
     {
       "penpotName": "goodui.heading",
-      "penpotId": "c0c3286f-e4bf-804c-8008-d58c723ff455",
+      "penpotId": "c0c3286f-e4bf-804c-8008-d5d1a6fa0770",
       "kind": "component",
       "state": null,
-      "owner": null
+      "owner": null,
+      "variant": {
+        "level": "2"
+      }
     }
   ],
   "missing": {

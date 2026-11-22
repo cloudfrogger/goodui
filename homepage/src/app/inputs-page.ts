@@ -1,14 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodCodeBlockComponent, GoodErrorTextComponent, GoodHintComponent, GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, LucideSearch, LucideShieldCheck } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodErrorTextComponent, GoodHintComponent, GoodInputComponent, GoodInputSize, GoodMainViewComponent, LucideMail, LucideSearch, LucideShieldCheck, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-inputs-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodInputComponent, GoodHintComponent, GoodErrorTextComponent, GoodCodeBlockComponent, ReactiveFormsModule],
+  imports: [GoodMainViewComponent, GoodInputComponent, GoodHintComponent, GoodErrorTextComponent, GoodCodeBlockComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Inputs" description="Text and file controls with shared sizes, themes, and states.">
+    <good-main-view>
+  <good-heading-1>Inputs</good-heading-1>
+  <good-summary>Text and file controls with shared sizes, themes, and states.</good-summary>
       <section class="showcase-section" aria-labelledby="input-states-title">
         <div class="showcase-section-heading"><h2 id="input-states-title">Sizes and states</h2><p>Readonly values remain selectable. Disabled inputs cannot be edited.</p></div>
         <div class="showcase-button-table-wrap" role="region" aria-label="Input sizes; scroll horizontally to compare all sizes" tabindex="0">

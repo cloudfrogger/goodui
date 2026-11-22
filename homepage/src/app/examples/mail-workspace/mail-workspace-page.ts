@@ -1,12 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  GoodActionBarComponent, GoodCodeBlockComponent, GoodDropdownComponent, GoodGroupComponent, GoodInputComponent, GoodListboxComponent, GoodMainViewComponent,
-  GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent,
-  GoodResizableComponent, GoodResizablePaneComponent, GoodSeparatorComponent, GoodTableComponent,
-  LucideArchive, LucideFileCode2, LucideFilter, LucideFolder, LucideMailPlus, LucideMailOpen, LucideSearch,
-  LucideStar, LucideTrash2, type GoodActionBarGroup, type GoodDropdownItem, type GoodListboxItem, type GoodTableColumn,
-} from '@cloudfrogger/goodui';
+import { GoodActionBarComponent, GoodCodeBlockComponent, GoodDropdownComponent, GoodGroupComponent, GoodInputComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodSeparatorComponent, GoodTableComponent, LucideArchive, LucideFileCode2, LucideFilter, LucideFolder, LucideMailPlus, LucideMailOpen, LucideSearch, LucideStar, LucideTrash2, type GoodActionBarGroup, type GoodDropdownItem, type GoodListboxItem, type GoodTableColumn } from '@cloudfrogger/goodui';
 import { mailWorkspaceHtml, mailWorkspaceTs } from './source-code.generated';
 
 interface MailMessage {
@@ -25,9 +19,7 @@ interface MailMessage {
 @Component({
   selector: 'example-mail-workspace-page',
   standalone: true,
-  imports: [GoodActionBarComponent, GoodCodeBlockComponent, GoodDropdownComponent, GoodGroupComponent, GoodInputComponent, GoodListboxComponent, GoodMainViewComponent,
-    GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent,
-    GoodResizableComponent, GoodResizablePaneComponent, GoodSeparatorComponent, GoodTableComponent],
+  imports: [GoodActionBarComponent, GoodCodeBlockComponent, GoodDropdownComponent, GoodGroupComponent, GoodInputComponent, GoodListboxComponent, GoodMainViewComponent, GoodModalComponent, GoodModalHeaderComponent, GoodParagraphComponent, GoodProseComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodSeparatorComponent, GoodTableComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './mail-workspace-page.html',
 })

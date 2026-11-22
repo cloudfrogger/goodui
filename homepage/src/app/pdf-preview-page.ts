@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-pdf-preview-page',
   standalone: true,
-  imports: [GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent],
+  imports: [GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodPdfPreviewComponent, GoodSectionComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="PDF preview" description="Render PDF files directly in an application with page, zoom, rotation, and download controls.">
+    <good-main-view>
+  <good-heading-1>PDF preview</good-heading-1>
+  <good-summary>Render PDF files directly in an application with page, zoom, rotation, and download controls.</good-summary>
       <good-section>
         <good-group title="Preview" appearance="plain">
           <good-pdf-preview source="/pdf/welcome-guide.pdf" title="Welcome guide" downloadName="welcome-guide.pdf" workerUrl="/pdf.worker.min.mjs" />

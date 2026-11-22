@@ -1,18 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  GoodAlertAppearance, GoodAlertComponent, GoodAlertSize, GoodAlertTone,
-  GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodProgressComponent, GoodSectionComponent,
-  LucideCircleCheck, LucideInfo, LucideOctagonAlert, LucideTriangleAlert,
-} from '@cloudfrogger/goodui';
+import { GoodAlertAppearance, GoodAlertComponent, GoodAlertSize, GoodAlertTone, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodLinkComponent, GoodMainViewComponent, GoodProgressComponent, GoodSectionComponent, LucideCircleCheck, LucideInfo, LucideOctagonAlert, LucideTriangleAlert, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-alerts-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodAlertComponent,
-    GoodButtonComponent, GoodLinkComponent, GoodCodeBlockComponent, GoodProgressComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodAlertComponent, GoodButtonComponent, GoodLinkComponent, GoodCodeBlockComponent, GoodProgressComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Alerts" description="Reusable messages with six tones, four appearances, three sizes, actions, and dismissal.">
+    <good-main-view>
+  <good-heading-1>Alerts</good-heading-1>
+  <good-summary>Reusable messages with six tones, four appearances, three sizes, actions, and dismissal.</good-summary>
       <good-section>
       <good-group title="Tones" appearance="plain">
         @for (tone of tones; track tone) {

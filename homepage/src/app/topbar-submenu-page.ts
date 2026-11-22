@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarSubmenuComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodTopbarItem, GoodTopbarSubmenuComponent, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-topbar-submenu-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodTopbarSubmenuComponent, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodTopbarSubmenuComponent, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Topbar submenu" description="A reusable next level for nested topbar navigation.">
+    <good-main-view>
+  <good-heading-1>Topbar submenu</good-heading-1>
+  <good-summary>A reusable next level for nested topbar navigation.</good-summary>
       <section class="showcase-section" aria-labelledby="topbar-submenu-preview-title">
         <div class="showcase-section-heading"><h2 id="topbar-submenu-preview-title">Nested menu</h2>
           <p>Parent rows expand another level; links navigate. Use click, keyboard focus, and Escape to explore the behavior.</p></div>

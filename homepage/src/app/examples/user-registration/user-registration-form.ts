@@ -1,14 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
-import {
-  GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent,
-  GoodErrorTextComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent,
-  GoodFormRowComponent, GoodGroupComponent, GoodHintComponent, GoodInputComponent,
-  GoodInputPhoneComponent, GoodListboxComponent, GoodListboxGroup, GoodParagraphComponent,
-  GoodRadioGroupComponent, GoodSelectCountryComponent,
-  GoodTextareaComponent,
-} from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodErrorTextComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodFormRowComponent, GoodGroupComponent, GoodHintComponent, GoodInputComponent, GoodInputPhoneComponent, GoodListboxComponent, GoodListboxGroup, GoodParagraphComponent, GoodRadioGroupComponent, GoodSelectCountryComponent, GoodTextareaComponent } from '@cloudfrogger/goodui';
 
 const passwordsMatch: ValidatorFn = form => {
   const password = form.get('password')?.value;
@@ -18,11 +11,7 @@ const passwordsMatch: ValidatorFn = form => {
 
 @Component({
   selector: 'example-user-registration-form', standalone: true,
-  imports: [ReactiveFormsModule, GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent,
-    GoodCardHeaderComponent, GoodErrorTextComponent, GoodFieldLabelComponent, GoodFormDirective,
-    GoodFormFieldComponent, GoodFormRowComponent, GoodGroupComponent, GoodHintComponent,
-    GoodInputComponent, GoodInputPhoneComponent, GoodListboxComponent, GoodParagraphComponent, GoodRadioGroupComponent,
-    GoodSelectCountryComponent, GoodTextareaComponent],
+  imports: [ReactiveFormsModule, GoodActionGroupComponent, GoodButtonComponent, GoodCardComponent, GoodCardHeaderComponent, GoodErrorTextComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodFormRowComponent, GoodGroupComponent, GoodHintComponent, GoodInputComponent, GoodInputPhoneComponent, GoodListboxComponent, GoodParagraphComponent, GoodRadioGroupComponent, GoodSelectCountryComponent, GoodTextareaComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-registration-form.html',
 })

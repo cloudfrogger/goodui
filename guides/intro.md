@@ -33,19 +33,16 @@ Replace `src/app/app.ts` with a small page:
 
 ```ts
 import { Component } from '@angular/core';
-import {
-  GoodAppLayoutComponent,
-  GoodMainViewComponent,
-  type GoodSidebarSection,
-} from '@cloudfrogger/goodui';
+import { GoodAppLayoutComponent, GoodMainViewComponent, type GoodSidebarSection, GoodHeading1Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [GoodAppLayoutComponent, GoodMainViewComponent],
+  imports: [GoodAppLayoutComponent, GoodMainViewComponent, GoodHeading1Component],
   template: `
     <good-app-layout brand="HELLO" [sidebarSections]="navigation">
-      <good-main-view title="Hello, GoodUI!">
+      <good-main-view>
+  <good-heading-1>Hello, GoodUI!</good-heading-1>
         <p>Your first page is ready.</p>
       </good-main-view>
     </good-app-layout>

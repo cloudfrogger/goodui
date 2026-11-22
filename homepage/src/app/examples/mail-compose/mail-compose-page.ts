@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodFieldLabelComponent, GoodFormDirective,
-  GoodFormFieldComponent, GoodInputComponent, GoodMainViewComponent, GoodRichTextEditorComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodInputComponent, GoodMainViewComponent, GoodRichTextEditorComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'example-mail-compose-page',
   standalone: true,
-  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodFieldLabelComponent, GoodFormDirective,
-    GoodFormFieldComponent, GoodInputComponent, GoodMainViewComponent, GoodRichTextEditorComponent],
+  imports: [GoodActionGroupComponent, GoodButtonComponent, GoodFieldLabelComponent, GoodFormDirective, GoodFormFieldComponent, GoodInputComponent, GoodMainViewComponent, GoodRichTextEditorComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './mail-compose-page.html',
 })

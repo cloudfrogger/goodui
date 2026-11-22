@@ -1,15 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodChartAxisComponent, GoodChartDataSource, GoodChartHistogramComponent, GoodCodeBlockComponent,
-  GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodHistogramComponent,
-  GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-  GoodSubheadingComponent, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodChartAxisComponent, GoodChartDataSource, GoodChartHistogramComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodHistogramComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-histograms-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodChartAxisComponent, GoodChartHistogramComponent, GoodCodeBlockComponent,
-    GoodEyebrowComponent, GoodHeadingComponent, GoodHeadingGroupComponent, GoodHistogramComponent,
-    GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent,
-    GoodSubheadingComponent, GoodSummaryComponent],
+  imports: [GoodChartAxisComponent, GoodChartHistogramComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodHistogramComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component],
   templateUrl: './histograms-page.html',
 })
 export class HistogramsPageComponent {

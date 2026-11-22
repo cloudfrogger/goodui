@@ -1,20 +1,18 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CA, DE, FR, JP, RU, US } from 'country-flag-icons/string/3x2';
-import {
-  GoodCodeBlockComponent, GoodListboxComponent, GoodListboxGroup, GoodListboxItem,
-  GoodListboxItemDirective, GoodListboxItemSelectionChange, GoodMainViewComponent,
-  LucideFolder, LucideListFilter, LucidePalette, LucideShieldCheck,
-} from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodListboxComponent, GoodListboxGroup, GoodListboxItem, GoodListboxItemDirective, GoodListboxItemSelectionChange, GoodMainViewComponent, LucideFolder, LucideListFilter, LucidePalette, LucideShieldCheck, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 const flagUrl = (svg: string): string => `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 
 @Component({
   selector: 'showcase-listboxes-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodListboxComponent, GoodListboxItemDirective, GoodCodeBlockComponent],
+  imports: [GoodMainViewComponent, GoodListboxComponent, GoodListboxItemDirective, GoodCodeBlockComponent, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-main-view title="Listboxes" description="Visible lists with keyboard selection, optional checkboxes and search, and clear grouping">
+    <good-main-view>
+  <good-heading-1>Listboxes</good-heading-1>
+  <good-summary>Visible lists with keyboard selection, optional checkboxes and search, and clear grouping</good-summary>
       <section class="showcase-section">
         <div class="showcase-section-heading">
           <h2>Simple, single, and multiple</h2>
