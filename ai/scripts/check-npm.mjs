@@ -14,6 +14,7 @@ const required = new Set([
   'package.json', 'ai/manifest.json', 'ai/install.mjs', 'ai/skill/goodui/SKILL.md',
   'ai/catalog/index.json', 'ai/catalog/index.schema.json', 'ai/catalog/component.schema.json',
   'ai/guides/component-discovery.md', 'ai/guides/layout.md', 'ai/guides/page-patterns.md',
+  'ai/guides/common-mistakes.md', 'guides/layout/screen-design.md',
   'angular/projects/goodui/package.json', 'angular/projects/goodui/src/public-api.ts',
   'design/component-map.json',
 ]);

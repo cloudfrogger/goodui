@@ -148,6 +148,7 @@ export class App {
       ] },
     ] },
     { id: 'examples', heading: 'EXAMPLES', items: [
+      { id: 'settings-example', label: 'Settings', icon: 'settings', route: '/examples/settings' },
       { id: 'user-registration', label: 'User registration', icon: 'account', route: '/examples/user-registration' },
       { id: 'notifications-example', label: 'Notifications', icon: 'bell', route: '/examples/notifications' },
       { id: 'pdf-reader-example', label: 'PDF reader', icon: 'book', route: '/examples/pdf-reader' },
@@ -296,6 +297,7 @@ export class App {
     { id: 'theme-toggle', label: 'Header theme toggle', description: 'good-header-themetoggle · Direct Light, System, and Dark cycling', route: '/components/header-actions' },
     { id: 'header-submenu', label: 'Header submenu', description: 'Nested levels within Header menu', route: '/components/header-menu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
+    { id: 'settings-example', label: 'Settings', description: 'Workspace overview, details, and explicit editing', route: '/examples/settings' },
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },
     { id: 'webmailer-case-study', label: 'Webmailer case study', description: 'Mail workspace and composer built with GoodUI', route: '/examples/case-studies/webmailer' },
     { id: 'vpshoster-case-study', label: 'VPS hoster case study', description: 'Server list and configuration flow built with GoodUI', route: '/examples/case-studies/vpshoster' },

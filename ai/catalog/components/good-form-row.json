@@ -31,7 +31,8 @@
   },
   "composition": {
     "projectedContent": [
-      "*"
+      "*",
+      "[good-form-row-actions]"
     ],
     "relatedSelectors": [],
     "notes": "See source template and component guide for projection slots."
@@ -60,6 +61,20 @@
       "penpotId": "2d089ed4-0973-8065-8008-d7d2293ab7a0",
       "kind": "component",
       "state": "3",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.form-row.3-actions",
+      "penpotId": "489901a3-7f15-8049-8008-fc8a65b2f013",
+      "kind": "component",
+      "state": "3-actions",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.form-row.3-actions-mobile",
+      "penpotId": "489901a3-7f15-8049-8008-fc8a672942eb",
+      "kind": "component",
+      "state": "3-actions-mobile",
       "owner": null
     }
   ],

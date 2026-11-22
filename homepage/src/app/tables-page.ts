@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent, LucideTrash2, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent, LucideTrash2, GoodHeading1Component, GoodSummaryComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodHeading2Component, GoodInputComponent } from '@cloudfrogger/goodui';
 
 interface RecordRow {
   id: string;
@@ -22,18 +22,18 @@ interface ServerCellExampleRow {
 }
 
 const initialRows: RecordRow[] = [
-  { id: '1', name: 'Analytics workspace', owner: 'Avery Stone', status: 'Active', enabled: true, updated: '2026-10-21' },
-  { id: '2', name: 'Billing portal', owner: 'Morgan Lee', status: 'Review', enabled: true, updated: '2026-10-19' },
-  { id: '3', name: 'Customer insights', owner: 'Jordan Kim', status: 'Active', enabled: true, updated: '2026-10-17' },
-  { id: '4', name: 'Design assets', owner: 'Taylor Reed', status: 'Paused', enabled: false, updated: '2026-10-15' },
-  { id: '5', name: 'Release dashboard', owner: 'Sam Rivera', status: 'Active', enabled: true, updated: '2026-10-13' },
-  { id: '6', name: 'Team directory', owner: 'Casey Brooks', status: 'Review', enabled: false, updated: '2026-10-11' },
-  { id: '7', name: 'Operations hub', owner: 'Alex Parker', status: 'Active', enabled: true, updated: '2026-10-09' },
-  { id: '8', name: 'Support queue', owner: 'Jamie Chen', status: 'Paused', enabled: false, updated: '2026-10-07' },
-  { id: '9', name: 'Partner access', owner: 'Riley Morgan', status: 'Review', enabled: true, updated: '2026-10-05' },
-  { id: '10', name: 'Content studio', owner: 'Dana Patel', status: 'Active', enabled: true, updated: '2026-10-03' },
-  { id: '11', name: 'Security reports', owner: 'Chris Evans', status: 'Paused', enabled: false, updated: '2026-10-01' },
-  { id: '12', name: 'Product roadmap', owner: 'Skyler Bell', status: 'Active', enabled: true, updated: '2026-09-29' },
+  { id: '1', name: 'Analytics workspace', owner: 'Example team 1', status: 'Active', enabled: true, updated: '2026-10-21' },
+  { id: '2', name: 'Billing portal', owner: 'Example team 2', status: 'Review', enabled: true, updated: '2026-10-19' },
+  { id: '3', name: 'Customer insights', owner: 'Example team 3', status: 'Active', enabled: true, updated: '2026-10-17' },
+  { id: '4', name: 'Design assets', owner: 'Example team 4', status: 'Paused', enabled: false, updated: '2026-10-15' },
+  { id: '5', name: 'Release dashboard', owner: 'Example team 5', status: 'Active', enabled: true, updated: '2026-10-13' },
+  { id: '6', name: 'Team directory', owner: 'Example team 6', status: 'Review', enabled: false, updated: '2026-10-11' },
+  { id: '7', name: 'Operations hub', owner: 'Example team 7', status: 'Active', enabled: true, updated: '2026-10-09' },
+  { id: '8', name: 'Support queue', owner: 'Example team 8', status: 'Paused', enabled: false, updated: '2026-10-07' },
+  { id: '9', name: 'Partner access', owner: 'Example team 9', status: 'Review', enabled: true, updated: '2026-10-05' },
+  { id: '10', name: 'Content studio', owner: 'Example team 10', status: 'Active', enabled: true, updated: '2026-10-03' },
+  { id: '11', name: 'Security reports', owner: 'Example team 11', status: 'Paused', enabled: false, updated: '2026-10-01' },
+  { id: '12', name: 'Product roadmap', owner: 'Example team 12', status: 'Active', enabled: true, updated: '2026-09-29' },
 ];
 
 @Component({
@@ -70,7 +70,7 @@ class TableDeleteCellComponent {
 @Component({
   selector: 'showcase-tables-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodTableComponent, GoodTableCellDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodHeading1Component, GoodSummaryComponent],
+  imports: [GoodMainViewComponent, GoodTableComponent, GoodTableCellDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodHeading1Component, GoodSummaryComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodHeading2Component, GoodInputComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view>
@@ -134,6 +134,17 @@ class TableDeleteCellComponent {
         <p class="showcase-table-feedback" role="status">Order: {{ reorderedColumns().length ? reorderedColumns().join(' · ') : 'original column order' }}</p>
         <good-code-block [code]="reorderCode" language="html" title="Reorder columns or opt out" />
       </section>
+      <good-section layout="settings">
+        <good-heading-group><good-heading-2>Tables inside sections</good-heading-2><good-summary>Control the frame and density independently. Keep a small search field beside section actions.</good-summary></good-heading-group>
+        <good-action-group good-section-actions spacing="small">
+          <good-input label="Search section records" type="search" size="small" placeholder="Search records" [value]="sectionSearch()" (valueChange)="sectionSearch.set($event)" />
+          <good-button variant="outline" size="small" (click)="sectionSearch.set('')">Clear search</good-button>
+        </good-action-group>
+        <good-table label="Section records" frameAppearance="none" density="compact" [searchTerm]="sectionSearch()"
+          [data]="rows().slice(0, 3)" [columns]="simpleColumns" [getRowId]="rowId" [reorderable]="false" />
+        <good-code-block [code]="embeddedTableCode" language="html" title="Independent table frame and density" />
+        <good-paragraph>Omit density to keep the legacy tableStyle behavior. Use density="default" to override tableStyle="compact". See the <good-link route="/examples/settings">Settings example</good-link> for the full overview and editing flow.</good-paragraph>
+      </good-section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Styles</h2><p>Connected rows are the default. Bordered, striped, and compact layouts use the same columns and cells.</p></div>
         <div class="showcase-table-style-grid">
@@ -173,6 +184,15 @@ class TableDeleteCellComponent {
   `,
 })
 export class TablesPageComponent {
+  readonly sectionSearch = signal('');
+  readonly embeddedTableCode = `<good-section layout="settings">
+  <good-heading-group><good-heading-2>Team access</good-heading-2>
+    <good-summary>Review the teams in this workspace.</good-summary></good-heading-group>
+  <good-input good-section-actions label="Search teams" size="small"
+    [value]="query()" (valueChange)="query.set($event)" />
+  <good-table frameAppearance="none" density="compact" [searchTerm]="query()"
+    [data]="teams" [columns]="columns" [reorderable]="false" />
+</good-section>`;
   readonly rows = signal(initialRows);
   readonly serverDemoRows: readonly ServerCellExampleRow[] = [
     { id: 'sample-1', name: 'demo-node', status: 'running', plan: 'CPX22', architecture: 'x86', diskGb: 80, zone: 'eu-central', publicIp: '192.0.2.10' },

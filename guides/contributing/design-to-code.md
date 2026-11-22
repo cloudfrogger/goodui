@@ -293,3 +293,18 @@ The Header shell is published as `goodui.app-header` with its seven existing sta
 ### Declarative shell regions
 
 The four published `goodui.sidebar` states map to `good-sidebar` / `GoodSidebarComponent`; the seven `goodui.app-header` states map to `good-app-header` / `GoodAppHeaderComponent`. All eleven former SidebarContainer/Header IDs and main-instance IDs remain stable, and the AppShell compositions retain linked copies. Navigation is projected: Sidebar owns its items; AppHeader owns HeaderMenu and HeaderActions. Shell array and mobile-menu configuration inputs are removed. The same Sidebar component is presented in a mobile modal drawer without duplicating state.
+
+### Settings page composition
+
+Page `44 Settings` publishes the following additions. All original Section, Table, and FormRow IDs remain valid. [settings-layout-contract.json](../../design/settings-layout-contract.json) records the inputs, slots, responsive rules, and six example board IDs.
+
+| Penpot component | Stable library ID | Angular mapping |
+| --- | --- | --- |
+| `goodui.section.settings` | `489901a3-7f15-8049-8008-fc89e6cf3bc1` | `good-section layout="settings"` |
+| `goodui.section.settings-danger` | `489901a3-7f15-8049-8008-fc89ecca52fa` | `good-section layout="settings" appearance="danger"` |
+| `goodui.table.embedded-default` | `489901a3-7f15-8049-8008-fc89ece41d55` | `good-table frameAppearance="none" density="default"` |
+| `goodui.table.embedded-compact` | `489901a3-7f15-8049-8008-fc89ed012d9b` | `good-table frameAppearance="none" density="compact"` |
+| `goodui.form-row.3-actions` | `489901a3-7f15-8049-8008-fc8a65b2f013` | `good-form-row [columns]="3"` with `[good-form-row-actions]` |
+| `goodui.form-row.3-actions-mobile` | `489901a3-7f15-8049-8008-fc8a672942eb` | The same row below 500 px container width |
+
+The examples demonstrate workspace overview → detail read mode → edit mode at desktop and mobile widths. Their outer composition frames are detached to accommodate projected content and runtime table cells, which Penpot does not allow adding to component copies. The Heading, Summary, Sidebar, Header, FormField, Input, Button, and repeated FormRow instances remain linked. The embedded library Table specimens retain linked Badge, Switch, and ActionMenu parts. External search is a small Input in the section action area; filtering, saving, cancellation, and confirmation execute in the Angular example.

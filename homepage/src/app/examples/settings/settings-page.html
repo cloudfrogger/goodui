@@ -1,0 +1,112 @@
+<good-main-view>
+  <good-heading-1>{{ detail() ? (workspace()?.name ?? 'Workspace not found') : 'Settings' }}</good-heading-1>
+  <good-summary>{{ detail() ? 'Manage workspace details, team access, and availability.' : 'Choose a workspace to review and manage its settings.' }}</good-summary>
+  <good-action-group good-main-view-actions spacing="small">
+    @if (workspace()) {
+      @if (editing()) {
+        <good-button variant="outline" (click)="cancel()">Cancel</good-button>
+        <good-button (click)="save()">Save changes</good-button>
+      } @else { <good-button (click)="edit()">Edit settings</good-button> }
+    }
+    <good-button variant="ghost" (click)="sourceOpen.set(true)">View source</good-button>
+  </good-action-group>
+  <good-section><good-breadcrumbs [items]="breadcrumbs()" /></good-section>
+  @if (!detail()) {
+    <good-section layout="settings">
+      <good-heading-group><good-heading-2>Workspaces</good-heading-2><good-summary>Open a workspace to read its configuration before making changes.</good-summary></good-heading-group>
+      <good-input good-section-actions label="Search workspaces" type="search" size="small" placeholder="Search workspaces" [value]="query()" (valueChange)="query.set($event)" />
+      <good-table label="Workspaces" frameAppearance="none" density="compact" [reorderable]="false"
+        [data]="store.workspaces()" [columns]="columns" [getRowId]="rowId" [searchTerm]="query()">
+        <ng-template goodTableCell="name" let-row><good-link [route]="'/examples/settings/' + row.id">{{ row.name }}</good-link></ng-template>
+      </good-table>
+      <good-paragraph>Changes in this example are kept in memory for this session. Reloading restores the sample workspaces.</good-paragraph>
+    </good-section>
+  } @else if (workspace(); as current) {
+    @if (feedback()) { <good-section><good-paragraph role="status">{{ feedback() }}</good-paragraph></good-section> }
+    <good-section layout="settings">
+      <good-heading-group><good-heading-2>General</good-heading-2><good-summary>The name and region used to identify this workspace.</good-summary></good-heading-group>
+      @if (editing()) {
+        <form goodForm [fullWidth]="true" [formGroup]="form" (ngSubmit)="save()">
+          <good-form-row>
+            <good-form-field><good-field-label forId="workspace-name" [required]="true">Workspace name</good-field-label>
+              <good-input inputId="workspace-name" label="Workspace name" formControlName="name" [error]="form.controls.name.touched && form.controls.name.invalid" />
+              @if (form.controls.name.touched && form.controls.name.invalid) { <good-error-text>Enter a workspace name.</good-error-text> }
+            </good-form-field>
+            <good-form-field><good-field-label forId="workspace-region" [required]="true">Region</good-field-label>
+              <good-input inputId="workspace-region" label="Region" formControlName="region" [error]="form.controls.region.touched && form.controls.region.invalid" />
+              @if (form.controls.region.touched && form.controls.region.invalid) { <good-error-text>Enter a region.</good-error-text> }
+            </good-form-field>
+          </good-form-row>
+        </form>
+      } @else {
+        <good-detail-list><div goodDetailRow><dt>Workspace name</dt><dd>{{ current.name }}</dd></div><div goodDetailRow><dt>Region</dt><dd>{{ current.region }}</dd></div></good-detail-list>
+      }
+    </good-section>
+    <good-section layout="settings">
+      <good-heading-group><good-heading-2>Team access</good-heading-2><good-summary>Review the teams that can use this workspace.</good-summary></good-heading-group>
+      <good-action-group good-section-actions spacing="small">
+        <good-input label="Search teams" type="search" size="small" placeholder="Search teams" [value]="memberQuery()" (valueChange)="memberQuery.set($event)" />
+        @if (editing()) { <good-button size="small" variant="outline" (click)="addMember()">Add example team</good-button> }
+      </good-action-group>
+      <good-table label="Team access" frameAppearance="none" density="compact" [reorderable]="false"
+        [data]="displayedMembers()" [columns]="memberColumns" [getRowId]="rowId" [searchTerm]="memberQuery()" emptyMessage="No teams found">
+        <ng-template goodTableCell="actions" let-row>
+          @if (editing()) { <good-button size="small" variant="ghost" [ariaLabel]="'Remove ' + row.name" (click)="removeMember(row.id)">Remove</good-button> }
+          @else { <good-paragraph>—</good-paragraph> }
+        </ng-template>
+      </good-table>
+    </good-section>
+    <good-section layout="settings">
+      <good-heading-group><good-heading-2>Availability</good-heading-2><good-summary>Set the recurring windows for this workspace. Each end time must follow its start time.</good-summary></good-heading-group>
+      @if (editing()) { <good-button good-section-actions size="small" variant="outline" (click)="addRow()">Add window</good-button> }
+      @if (editing()) {
+        <form goodForm [fullWidth]="true" [formGroup]="form" (ngSubmit)="save()">
+          @for (row of form.controls.schedule.controls; track row; let index = $index) {
+            <good-group appearance="plain" [formGroup]="row">
+              <good-form-row [columns]="3">
+                <good-form-field><good-field-label [forId]="'day-' + row.controls.id.value">Day</good-field-label>
+                  <good-input [inputId]="'day-' + row.controls.id.value" [label]="'Day ' + (index + 1)" formControlName="day" [error]="row.controls.day.touched && row.controls.day.invalid" />
+                  @if (row.controls.day.touched && row.controls.day.invalid) { <good-error-text>Enter a day.</good-error-text> }
+                </good-form-field>
+                <good-form-field><good-field-label [forId]="'start-' + row.controls.id.value">From</good-field-label>
+                  <good-input [inputId]="'start-' + row.controls.id.value" [label]="'From ' + (index + 1)" placeholder="HH:MM" formControlName="start" [error]="row.touched && row.invalid" />
+                </good-form-field>
+                <good-form-field><good-field-label [forId]="'end-' + row.controls.id.value">Until</good-field-label>
+                  <good-input [inputId]="'end-' + row.controls.id.value" [label]="'Until ' + (index + 1)" placeholder="HH:MM" formControlName="end" [error]="row.touched && row.invalid" />
+                </good-form-field>
+                <good-button good-form-row-actions variant="ghost" [ariaLabel]="'Remove window ' + (index + 1)" (click)="removeRow(index)">Remove</good-button>
+              </good-form-row>
+              @if (row.touched && row.invalid) { <good-error-text>Enter a day and a valid start and end time. The end must be after the start.</good-error-text> }
+            </good-group>
+          } @empty { <good-paragraph>No availability windows. Add a window to get started.</good-paragraph> }
+        </form>
+      } @else {
+        <good-detail-list>
+          @for (row of current.schedule; track row.id) { <div goodDetailRow><dt>{{ row.day }}</dt><dd>{{ row.start }}–{{ row.end }}</dd></div> }
+        </good-detail-list>
+        @if (!current.schedule.length) { <good-paragraph>No availability windows configured.</good-paragraph> }
+      }
+    </good-section>
+    @if (!editing()) {
+      <good-section layout="settings" appearance="danger">
+        <good-heading-group><good-heading-2>Archive workspace</good-heading-2><good-summary>Remove this workspace from the active overview. Confirm its name before continuing.</good-summary></good-heading-group>
+        <good-button good-section-actions variant="outline" (click)="archiveName.set(''); archiveOpen.set(true)">Archive workspace</good-button>
+      </good-section>
+    }
+  } @else {
+    <good-section><good-alert tone="neutral" title="Workspace not found" message="This workspace is unavailable or has been archived." /><good-link route="/examples/settings">Back to settings</good-link></good-section>
+  }
+</good-main-view>
+<good-modal [(open)]="archiveOpen">
+  <good-modal-header title="Archive workspace" />
+  <good-group appearance="plain">
+    <good-paragraph>Enter {{ workspace()?.name }} to archive this workspace in the demo.</good-paragraph>
+    <good-input label="Workspace name to confirm" [value]="archiveName()" (valueChange)="archiveName.set($event)" />
+    <good-action-group><good-button variant="outline" (click)="archiveOpen.set(false)">Cancel</good-button><good-button variant="destructive" [disabled]="archiveName() !== workspace()?.name" (click)="archive()">Confirm archive</good-button></good-action-group>
+  </good-group>
+</good-modal>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Settings example source" />
+  <good-code-block [code]="htmlSource" language="html" title="settings-page.html" />
+  <good-code-block [code]="typescriptSource" language="typescript" title="settings-page.ts" />
+</good-modal>

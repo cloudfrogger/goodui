@@ -602,7 +602,7 @@
       },
       "usageGuide": "guides/components/group.md",
       "summary": "`good-group` collects related content without the visual weight of a Card. It owns padding and a 16 px gap between projected children. Paragraphs and controls contribute no outer spacing, so a paragraph, Checkbox, RadioGroup, Select, or FormRow can be substituted without doubling that gap. Checkbox and radio choices retain 44 px touch targets inside their own bounds. `appearance=\"outline\"` (default) draws a quiet border and places an optional title in that border; `contrast` uses a soft theme-aware background; `plain` keeps the spacing with no surface. Set `title` to label the native `section`. `headingLevel` defaults to 2 and accepts 2, 3, or 4 so heading order remains correct. `headingId` can be set when a page needs a stable external reference. The title is omitted completely when empty.",
-      "penpotCount": 2
+      "penpotCount": 4
     },
     {
       "selector": "good-group",
@@ -1226,7 +1226,7 @@
       },
       "usageGuide": "guides/components/typography.md",
       "summary": "GoodUI Typography supplies content structure and spacing without page-specific margin rules. The Penpot source is `12 Typography`; [typography-components.json](../../design/typography-components.json) maps every published component and variant to its Angular selector. The [homepage example](../../homepage/src/app/getting-started/typography.html) shows the system in use.",
-      "penpotCount": 1
+      "penpotCount": 3
     },
     {
       "selector": "good-select",
@@ -1442,7 +1442,7 @@
       },
       "usageGuide": "guides/components/table.md",
       "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
-      "penpotCount": 1
+      "penpotCount": 3
     },
     {
       "selector": "good-tabs",

@@ -36,7 +36,9 @@ Create a people directory for a small team in my open design file.
 I need a search field, a table of people, and a clear action to add a person.
 Show desktop and mobile versions with a useful empty state.
 
-Inspect the live GoodUI library first and use linked components and their variants.
+Read guides/layout/screen-design.md from the GoodUI references and inspect the live
+library first. Use linked components and their variants. Establish the hierarchy and
+action placement, then inspect desktop/mobile exports for clipping and alignment.
 Show me the finished design and tell me which GoodUI components you used.
 Create only the Penpot design for now.`;
 }

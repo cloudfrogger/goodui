@@ -41,3 +41,7 @@ For a fixed strip above a height-filling workspace, set `layout="fill"` and mark
 ```
 
 Fill layout keeps the projected header's 30 px desktop or 24 px mobile side inset while its workspace reaches the edges. Without heading content, the workspace can touch the topbar. Penpot `goodui.main-view.fill-heading` and `.fill-heading-mobile` preserve this geometry; the linked Heading and Summary are projected content, not MainView text inputs. See [Typography](typography.md) and [the migration guide](../migrations/explicit-headings.md).
+
+The [Settings example](../../homepage/src/app/examples/settings/settings-page.html) composes the page heading and `[good-main-view-actions]` with `good-section layout="settings"`. Section headers own their local actions; MainView owns Edit, Cancel, and Save. Tables use `frameAppearance="none"` to avoid nested frames. Application data and draft state stay in the example.
+
+At 640 px viewport width and below, MainView places page actions after the heading and description in a full-width row. ActionGroup can wrap its controls without squeezing the page heading into a narrow column.

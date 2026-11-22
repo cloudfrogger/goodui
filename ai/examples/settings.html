@@ -2,10 +2,11 @@
   <good-heading-1>Settings</good-heading-1>
   <good-summary>Choose how you receive updates.</good-summary>
   <form goodForm [formGroup]="form" (ngSubmit)="save()">
-    <good-group title="Notifications">
+    <good-section layout="settings">
+      <good-heading-group><good-heading-2>Notifications</good-heading-2><good-summary>Choose which updates to receive.</good-summary></good-heading-group>
       <good-switch label="Email updates" [showLabel]="true" formControlName="emailUpdates" />
       <good-switch label="Activity alerts" [showLabel]="true" formControlName="activityAlerts" />
-    </good-group>
+    </good-section>
     <good-action-group><good-button type="submit">Save settings</good-button></good-action-group>
   </form>
   @if (saved()) { <good-paragraph>Settings saved in this demo.</good-paragraph> }

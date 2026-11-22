@@ -1,5 +1,7 @@
 # Page patterns
 
+Use [Designing a GoodUI screen](../../guides/layout/screen-design.md) to choose a composition, surface hierarchy, and action placement. Its reference table links complete application examples; the small snippets below are starting points rather than complete visual specifications.
+
 Pick the page width before composing controls:
 
 ```html
@@ -32,7 +34,7 @@ Keep one pattern per page. In the centered pattern, put each top-level content b
 | Sign in | MainView → Card → native form + Input + Button | `ai/examples/login.ts` and `.html` |
 | Data overview | MainView → Table with typed columns, search and pagination | `ai/examples/table-view.ts` and `.html` |
 | Edit record | MainView → native form + Group + FormRow + Input/Select + ActionGroup | `ai/examples/edit-form.ts` and `.html` |
-| Settings | MainView → native form + Group + Switch + ActionGroup | `ai/examples/settings.ts` and `.html` |
+| Settings | MainView → settings Section + HeadingGroup + native form + Switch + ActionGroup | `ai/examples/settings.ts` and `.html` |
 
 The example app in `ai/examples/main.ts` renders all four pages. It compiles against the locally built library. Its demo handlers keep state in memory; add real persistence and authorization in the consuming application.
 
@@ -41,3 +43,7 @@ The example app in `ai/examples/main.ts` renders all four pages. It compiles aga
 If the application uses `good-app-shell`, it already has the Notifications bell and one notification host. For maintenance notices, background jobs, and other messages a person may need to revisit, publish through `GoodNotificationCenter`; use `delivery: 'inbox'` when no toast should interrupt the page. Do not reproduce a reference screenshot's notification banner as an Expandable or permanent page Alert merely because it appears above the content. Read `guides/components/notifications.md` before implementing that part of a screen.
 
 Keep a `good-alert` in page content when it explains the current task or a nearby field, such as a form validation error. Use a toast for brief action feedback when the user should see it immediately; choose `persist` according to whether it belongs in the bell history. Avoid publishing the same seeded message on every route visit.
+
+## Settings overview and detail
+
+Use MainView page actions for Edit, Cancel, and Save. Compose `good-section layout="settings"` with a projected HeadingGroup and `[good-section-actions]`; use `appearance="danger"` for a quiet archive section with an application-owned confirmation. `good-settings` is a shell header menu. Embed Tables with independent `frameAppearance="none"` and `density="compact"`; drive `[searchTerm]` from a small Input beside section actions. Repeated FormRows accept `[good-form-row-actions]` and keep domain validation and add/remove logic in the app. See `guides/components/typography.md`, `guides/components/table.md`, `guides/components/group.md`, and the complete `homepage/src/app/examples/settings/` example. Routes are `/examples/settings` and `/examples/settings/:id`; drafts are discarded by Cancel and saved only on valid submission.

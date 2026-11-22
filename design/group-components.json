@@ -17,6 +17,7 @@
       "family": "form-row",
       "selector": "good-form-row",
       "input": "columns",
+      "actionsContract": "design/settings-layout-contract.json",
       "variants": {
         "2": "2d089ed4-0973-8065-8008-d7d2293c4e5c",
         "3": "2d089ed4-0973-8065-8008-d7d2293ab7a0"

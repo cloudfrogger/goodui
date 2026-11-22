@@ -1,8 +1,10 @@
 # Layout rules
 
-Use `good-app-shell` for a full application shell. Its composition is AppShell → Sidebar / AppHeader / MainView. `good-main-view` owns the layout of projected headings, summary, eyebrow, actions, and content. Place `good-heading-1` and optional `good-summary` directly inside it; there are no title or description inputs. Use `good-heading-group` when building an independent heading composition; do not nest it around a `good-main-view` title.
+For a new screen or substantial composition change, first read [Designing a GoodUI screen](../../guides/layout/screen-design.md). Choose hierarchy and a suitable complete example before looking up individual controls.
 
-Choose one page pattern. For a centered content page, put `good-section` elements directly inside `good-main-view`; MainView aligns its heading and entire content area to the same 1024 px width. For a free full-width page, use no `good-section`; heading and content then begin at the same left edge. Do not mix direct Sections and free page content. A standard page title belongs in MainView's `title` input in either pattern.
+Use `good-app-shell` for a full application shell. Its composition is AppShell → Sidebar / AppHeader / MainView. `good-main-view` owns the layout of projected headings, summary, eyebrow, actions, and content. Place `good-heading-1` and optional `good-summary` directly inside it; there are no title or description inputs. A single direct `good-heading-group` may instead contain the page heading and Summary; headings nested inside page Sections remain section content.
+
+Choose one page pattern. For a centered content page, put `good-section` elements directly inside `good-main-view`; MainView aligns its heading and entire content area to the same 1024 px width. For a free full-width page, use no `good-section`; heading and content then begin at the same left edge. Do not mix direct Sections and free page content. A standard page title is projected through `good-heading-1`; MainView has no `title` input.
 
 `good-main-view layout="page"` is the default and lets the page scroll. For a workspace that fills the client area below the topbar without outer padding, set `layout="fill"`, project one primary child, and let that child scroll internally. For `good-calendar`, also set `[fillHeight]="true"` for a flush frame. See `guides/layout/app-shell.md` and `homepage/src/app/examples/calendar-workspace/` for the complete pattern.
 

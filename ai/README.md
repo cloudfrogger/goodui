@@ -41,6 +41,12 @@ Codex supports explicit `$goodui` invocation. Claude Code supports `/goodui`. Ke
 
 After updating GoodUI, its bundled references update automatically. Re-run the installer to refresh the skill; use `--force` after reviewing any edits to the existing copy. Keep the lockfile and skill changes together.
 
+## Design guidance included with the skill
+
+For new screens and substantial layout changes, the skill directs the agent to `guides/layout/screen-design.md`. It covers task and visual hierarchy, choosing complete examples, surfaces and actions, responsive behavior, and a rendered review with concrete failure criteria. The catalog remains the API reference. The design guide helps agents make and verify composition decisions; a successful build alone does not prove a good interface.
+
+These instructions reach another project when it installs the updated package and refreshes its GoodUI skill. Existing installed skills do not update just because this repository changes. Review local edits before using the installer's `--force` option, then start a new agent session.
+
 ## Find the right references
 
 Start with `ai/catalog/index.json` and `ai/guides/component-discovery.md`. Read component details and guides for the requested task. The catalog covers the public Angular selectors, their imports, inputs, outputs, variants, projection slots, and forms integration. Source files and `angular/projects/goodui/src/public-api.ts` cover services and exported types. `ai/examples/` supplies small page patterns; the referenced homepage examples show larger compositions.

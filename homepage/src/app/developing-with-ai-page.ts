@@ -29,7 +29,9 @@ and Status columns, a status badge for each row, and an Add person button.
 Use fictional sample data and make the search work locally.
 Reuse the application's existing shell and navigation. If the app has no shell yet,
 initialize GoodUI and add an application layout. Add a route for the directory.
-Choose the GoodUI components from the catalog and check their exact inputs and events.
+Read guides/layout/screen-design.md from the installed package and inspect the closest
+complete example. Identify the page hierarchy, main action, and mobile priorities before
+choosing controls. Use deliberate surfaces and action emphasis, then check the exact APIs.
 Build the app, open the page, and check desktop, mobile, light, and dark appearances.`;
   readonly formPrompt = `Use the GoodUI skill. Make Add person open a GoodUI modal containing a form for
 Name, Email, and Role. Use Angular Reactive Forms with the GoodUI form controls and
@@ -44,8 +46,11 @@ in light and dark themes. Explain which GoodUI options you changed.`;
   readonly projectInstructions = `For Angular UI work, use the GoodUI skill.
 Read the installed @cloudfrogger/goodui package's ai/catalog/index.json and only the
 component details, guides, and examples relevant to the task. Check version identity.
+For a new screen or substantial layout change, read guides/layout/screen-design.md and
+inspect a suitable complete example before composing the page.
 Use documented GoodUI components and layout capabilities, and keep application data
-and business logic in this project. Verify the build and the rendered interaction.`;
+and business logic in this project. Review the rendered hierarchy, responsive layout,
+and main interaction in both themes; a successful build alone is not visual validation.`;
   readonly updateCode = `npm install @cloudfrogger/goodui@latest
 node node_modules/@cloudfrogger/goodui/ai/install.mjs --agent codex --force`;
 }

@@ -254,3 +254,11 @@ For cursor mode, pass the backend's opaque `nextCursor` and `hasNextPage` with e
 | `request` | — | Complete request for manual search, sorting, or pagination. |
 
 Penpot page `16 Tables` publishes `goodui.table` with `style=default/bordered/striped/compact` and `state=populated/empty`. A populated specimen contains linked Badge, Switch, and action controls to show composition; their values and actions are runtime data. Optional search and pagination are composed parts of the same `good-table` selector. [table-variants.json](../../design/table-variants.json) records the published IDs. Penpot and CSS share the `table.*` token relationships through the token export and generation workflow.
+
+## Embed a quiet table in a section
+
+`frameAppearance="none"` removes the outer border, radius, and surface, retaining semantic headers and row separators. `density="compact"` changes cell padding and row height independently of the frame or `tableStyle`. Set `density="default"` to explicitly use normal cells, including with legacy `tableStyle="compact"`. Omitting `density` preserves the existing style behavior. All existing style variants and IDs remain supported.
+
+For search beside Section actions, keep `searchable` false and bind `[searchTerm]` from a small GoodUI Input in `[good-section-actions]`. Search uses the existing client filter or manual request path, resets pagination and cursor history, and emits `searchChange` when the effective term changes. The default integrated search remains available through `searchable`; avoid showing both search controls. See [Settings sections](typography.md#settings-sections) and the [complete Settings example](../../homepage/src/app/examples/settings/settings-page.html).
+
+The embedded normal and compact Penpot components are published on `44 Settings`; their stable IDs and exact Angular inputs are in [settings-layout-contract.json](../../design/settings-layout-contract.json). They supplement the original eight Table variants on `16 Tables`.

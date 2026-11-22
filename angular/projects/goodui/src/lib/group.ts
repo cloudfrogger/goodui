@@ -38,7 +38,7 @@ export class GoodGroupComponent {
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'good-form-row', '[attr.data-columns]': 'columns()' },
-  template: `<ng-content />`,
+  template: `<ng-content /><div class="good-form-row-actions"><ng-content select="[good-form-row-actions]" /></div>`,
 })
 export class GoodFormRowComponent {
   readonly columns = input<2 | 3>(2);

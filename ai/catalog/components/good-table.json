@@ -65,6 +65,39 @@
       "kind": "input"
     },
     {
+      "name": "frameAppearance",
+      "type": "\"default\" | \"none\"",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "none"
+      ],
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "density",
+      "type": "\"default\" | \"compact\"",
+      "required": false,
+      "default": null,
+      "allowedValues": [
+        "default",
+        "compact"
+      ],
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
+      "name": "searchTerm",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
       "name": "reorderable",
       "type": "boolean",
       "required": false,
@@ -248,6 +281,14 @@
       "striped",
       "compact"
     ],
+    "frameAppearance": [
+      "default",
+      "none"
+    ],
+    "density": [
+      "default",
+      "compact"
+    ],
     "sortingMode": [
       "client",
       "manual"
@@ -284,6 +325,20 @@
       "penpotId": "c0c3286f-e4bf-804c-8008-d7049380955e",
       "kind": "component",
       "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.table.embedded-default",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ece41d55",
+      "kind": "component",
+      "state": "embedded-default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.table.embedded-compact",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ed012d9b",
+      "kind": "component",
+      "state": "embedded-compact",
       "owner": null
     }
   ],

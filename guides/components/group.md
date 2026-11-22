@@ -39,3 +39,21 @@ Use `[fullWidth]="true"` on `form[goodForm]` when its content should use all of 
 Import `GoodGroupComponent` and `GoodFormRowComponent` from `@cloudfrogger/goodui` alongside Form, FormField, and control components. The [Groups homepage page](../../homepage/src/app/groups-page.ts) shows all three appearances, an untitled Group, and copyable code. The [registration example](../../homepage/src/app/examples/user-registration/user-registration-form.ts) shows the row and grouping in a complete reactive form.
 
 Penpot publishes `goodui.group.outline`, `.outline-no-title`, `.contrast`, and `.plain` plus `goodui.form-row.2` and `.3` on `19 Groups`. Their IDs and Angular inputs are in [group-components.json](../../design/group-components.json). Group boards contain linked FormRow instances; FormRow boards contain linked FormField instances. The frame, surface, radius, padding, and gaps bind to `group.*` and `form-row.gap` tokens. In Penpot the outlined title uses a small background piece over the border. The Angular layout uses a heading over the border with CSS. Responsive stacking and focus or validation state are runtime behavior; Penpot specimens show the desktop composition.
+
+## Repeated rows with actions
+
+Project a Button or ActionGroup with `good-form-row-actions` alongside two or three FormFields. FormRow reserves an intrinsic-width final track and aligns the action with the control line. Labels, hints, and errors remain owned by FormField. Rows with three fields become two tracks below 700 px container width, and all fields stack below 500 px; the action moves to the end and loses its label offset only when all fields stack below 500 px. Wrap rows in a plain Group or `form[goodForm]` to establish the container width. Keep labels explicit on every row for accessible repeated controls. The row owns layout only; adding/removing records and validating values belong to the application.
+
+```html
+<good-form-row [columns]="3">
+  <good-form-field><!-- First labeled control --></good-form-field>
+  <good-form-field><!-- Second labeled control --></good-form-field>
+  <good-form-field><!-- Third labeled control --></good-form-field>
+  <good-button good-form-row-actions variant="ghost" ariaLabel="Remove window 1"
+    (click)="removeRow(0)">Remove</good-button>
+</good-form-row>
+```
+
+The [Settings example](../../homepage/src/app/examples/settings/settings-page.html) demonstrates repeated day/from/until rows, validation, removal, and draft cancellation on desktop and mobile.
+
+Page `44 Settings` adds linked-control specimens for the three-field action row in desktop and mobile layouts. Their IDs are recorded in [settings-layout-contract.json](../../design/settings-layout-contract.json); the original two- and three-column FormRow components remain unchanged.

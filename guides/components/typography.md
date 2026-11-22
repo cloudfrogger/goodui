@@ -210,3 +210,26 @@ The current Penpot plugin rejects applying a `fontFamilies` token to text. The s
 ## Penpot reference page
 
 Open **43 Typography Reference** for a dedicated overview of the seven heading levels, Summary, Paragraph, Eyebrow, Citation, Hint, ErrorText, and FieldLabel, plus linked HeadingGroup and Prose compositions. The examples are real library instances. Their main components remain on **12 Typography**, so changes to the design system propagate to this reference without creating duplicate component families. The page and board IDs are listed in `design/typography-components.json`.
+
+## Settings sections
+
+Use `good-section layout="settings"` to compose settings pages. Project a `good-heading-group` with a semantic heading and Summary, then put controls in `[good-section-actions]`. The Section owns 24 px vertical padding, a quiet bottom divider, a 24 px heading-to-content gap, and a wrapping header. Adjacent settings Sections have no extra outer gap. Use `appearance="danger"` for a quiet destructive section: only its heading gains the destructive text color; its surface stays neutral and its bottom divider is omitted. Place the actual destructive command behind an application-owned confirmation.
+
+```html
+<good-section layout="settings">
+  <good-heading-group>
+    <good-heading-2>Team access</good-heading-2>
+    <good-summary>Review who can use this workspace.</good-summary>
+  </good-heading-group>
+  <good-action-group good-section-actions spacing="small">
+    <good-input label="Search teams" size="small" [value]="query()" (valueChange)="query.set($event)" />
+    <good-button size="small">Add team</good-button>
+  </good-action-group>
+  <good-table frameAppearance="none" density="compact" [searchTerm]="query()"
+    [data]="teams" [columns]="columns" [reorderable]="false" />
+</good-section>
+```
+
+The existing `spacing` behavior and default Section layout remain available. `good-settings` is the header menu; it does not own page structure. See the complete [Settings example](../../homepage/src/app/examples/settings/settings-page.html) for overview → detail → read → edit, cancellation, validation, repeated rows, and archive confirmation. It uses only GoodUI composition and Angular Forms, with no example CSS.
+
+The settings and danger compositions are published on `44 Settings`; [settings-layout-contract.json](../../design/settings-layout-contract.json) records their stable IDs, inputs, and slots. Default and content Section variants on `12 Typography` keep their existing IDs and spacing semantics.

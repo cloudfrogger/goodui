@@ -703,8 +703,8 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 .good-table-scroll tbody tr[data-selected="true"] td:first-child { box-shadow: inset 3px 0 0 var(--good-color-accent); }
 .good-table-scroll tbody tr[data-row-id] { cursor: pointer; }
 .good-table-scroll tbody tr[data-row-id]:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: -2px; }
-.good-table-frame[data-style="compact"] .good-table-scroll :is(th, td) { padding: var(--good-table-compact-padding-block) var(--good-table-compact-padding-inline); }
-.good-table-frame[data-style="compact"] .good-table-scroll td { height: var(--good-table-compact-row-height); }
+.good-table-frame[data-density="compact"] .good-table-scroll :is(th, td) { padding: var(--good-table-compact-padding-block) var(--good-table-compact-padding-inline); }
+.good-table-frame[data-density="compact"] .good-table-scroll td { height: var(--good-table-compact-row-height); }
 .good-table-empty { display: flex; min-height: var(--good-table-empty-min-height); flex-direction: column; align-items: center; justify-content: center; gap: var(--good-space-2); color: var(--good-table-muted); text-align: center; }
 .good-table-empty svg { color: var(--good-table-empty-icon); }
 .good-table-empty strong { font-size: 13px; font-weight: 600; }
@@ -1137,3 +1137,31 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 
 .good-sidebar-item > button.good-submenu-link { width: 100%; border: 0; background: transparent; font-family: inherit; text-align: left; cursor: pointer; }
 .good-sidebar-item > .good-submenu-link .good-icon { width: 16px; height: 16px; color: var(--good-icon); }
+
+/* Sections retain content order; settings headers and actions share a wrapping row. */
+.good-section[data-layout="settings"] > section { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: var(--good-space-6) var(--good-space-4); padding-block: var(--good-space-6); border-bottom: 1px solid var(--good-color-border); }
+.good-section[data-layout="settings"] > section > * { flex: 1 0 100%; min-width: 0; max-width: 100%; margin-block-start: 0; }
+.good-section[data-layout="settings"] > section > good-heading-group { flex: 1; min-width: min(100%, 240px); }
+.good-section[data-layout="settings"] > section > [good-section-actions] { flex: 0 1 auto; min-width: 0; max-width: 100%; }
+.good-section[data-layout="settings"] > section > good-input[good-section-actions], .good-section[data-layout="settings"] > section > [good-section-actions] good-input { width: min(100%, var(--good-table-search-width)); }
+.good-section[data-layout="settings"] > section > .good-action-group[good-section-actions] { width: max-content; }
+.good-section[data-layout="settings"] + .good-section[data-layout="settings"] { margin-block-start: 0; }
+.good-section[data-layout="settings"] > section > good-heading-group .good-summary p { font-size: var(--good-typography-paragraph-font-size); font-weight: var(--good-typography-paragraph-font-weight); letter-spacing: normal; }
+.good-section[data-appearance="danger"] > section > good-heading-group :is(h1, h2, h3, h4, h5, h6, [role="heading"]) { color: var(--good-alert-destructive-color); }
+.good-section[data-appearance="danger"] > section { border-bottom: 0; }
+.good-table-frame[data-frame="none"] { border: 0; border-radius: 0; background: transparent; }
+.good-form-row-actions:empty { display: none; }
+.good-form-row:has(> .good-form-row-actions:not(:empty)) { grid-template-columns: repeat(2, minmax(0, 1fr)) auto; }
+.good-form-row[data-columns="3"]:has(> .good-form-row-actions:not(:empty)) { grid-template-columns: repeat(3, minmax(0, 1fr)) auto; }
+.good-form-row-actions { display: flex; gap: var(--good-space-2); padding-top: calc(var(--good-typography-label-font-size) * 1.4 + var(--good-typography-field-label-gap)); }
+@container (max-width: 700px) {
+  .good-form-row[data-columns="3"]:has(> .good-form-row-actions:not(:empty)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .good-form-row[data-columns="3"] > .good-form-row-actions { justify-self: end; }
+}
+@container (max-width: 500px) {
+  .good-form-row-actions { padding-top: 0; justify-self: end; }
+}
+@media (max-width: 640px) {
+  .good-main-view-heading { flex-direction: column; align-items: stretch; gap: var(--good-space-4); }
+  .good-main-view-actions { max-width: 100%; }
+}

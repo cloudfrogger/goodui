@@ -85,10 +85,13 @@ export class GoodSummaryComponent {}
 
 @Component({
   selector: 'good-section', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-section', '[attr.data-spacing]': 'spacing()' }, template: `<section><ng-content /></section>`,
+  host: { class: 'good-section', '[attr.data-spacing]': 'spacing()', '[attr.data-layout]': 'layout()', '[attr.data-appearance]': 'appearance()' },
+  template: `<section><ng-content /></section>`,
 })
 export class GoodSectionComponent {
   readonly spacing = input<'default' | 'content'>('default');
+  readonly layout = input<'default' | 'settings'>('default');
+  readonly appearance = input<'default' | 'danger'>('default');
 }
 
 @Component({

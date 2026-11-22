@@ -81,7 +81,7 @@ export interface GoodTableRequest {
   host: { class: 'good-table', '[attr.data-column-dragging]': 'dragSourceId() ? "true" : null', '[attr.data-responsive-columns]': 'hasResponsiveColumns() ? "true" : null' },
   template: `
     <ng-content select="ng-template[goodTableCell]" />
-    <div #frame class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.aria-busy]="loading() ? 'true' : null">
+    <div #frame class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.data-frame]="frameAppearance()" [attr.data-density]="density() ?? ((tableStyle() ?? style()) === 'compact' ? 'compact' : 'default')" [attr.aria-busy]="loading() ? 'true' : null">
       @if (searchable()) {
         <div class="good-table-toolbar">
           <good-input label="Search records" type="search" [startIcon]="searchIcon" [placeholder]="searchPlaceholder()"
@@ -213,6 +213,10 @@ export class GoodTableComponent<TData extends RowData> implements AfterViewInit 
   readonly style = input<GoodTableStyle>('default');
   /** Prefer this name in templates: static style="compact" is interpreted as an HTML style attribute. */
   readonly tableStyle = input<GoodTableStyle | null>(null);
+  readonly frameAppearance = input<'default' | 'none'>('default');
+  readonly density = input<'default' | 'compact' | null>(null);
+  /** External search, including when searchable=false. Uses the same filtering and request path. */
+  readonly searchTerm = input('');
   /** Drag or use the header grips to reorder columns; enabled by default. */
   readonly reorderable = input(true, { transform: booleanAttribute });
   /** Optional controlled order of leaf column IDs; emits changes from user reordering. */
@@ -342,6 +346,7 @@ export class GoodTableComponent<TData extends RowData> implements AfterViewInit 
   });
 
   constructor() {
+    effect(() => { const term = this.searchTerm(); untracked(() => this.setSearch(term)); });
     effect(() => {
       this.columns();
       const width = this.tableWidth();

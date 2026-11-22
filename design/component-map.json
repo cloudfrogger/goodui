@@ -2188,6 +2188,48 @@
       "angularSelector": "good-header-actions",
       "kind": "component",
       "state": "search-hotkey"
+    },
+    {
+      "penpotName": "goodui.section.settings",
+      "penpotId": "489901a3-7f15-8049-8008-fc89e6cf3bc1",
+      "angularSelector": "good-section",
+      "kind": "component",
+      "state": "settings"
+    },
+    {
+      "penpotName": "goodui.section.settings-danger",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ecca52fa",
+      "angularSelector": "good-section",
+      "kind": "component",
+      "state": "settings-danger"
+    },
+    {
+      "penpotName": "goodui.table.embedded-default",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ece41d55",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "embedded-default"
+    },
+    {
+      "penpotName": "goodui.table.embedded-compact",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ed012d9b",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "embedded-compact"
+    },
+    {
+      "penpotName": "goodui.form-row.3-actions",
+      "penpotId": "489901a3-7f15-8049-8008-fc8a65b2f013",
+      "angularSelector": "good-form-row",
+      "kind": "component",
+      "state": "3-actions"
+    },
+    {
+      "penpotName": "goodui.form-row.3-actions-mobile",
+      "penpotId": "489901a3-7f15-8049-8008-fc8a672942eb",
+      "angularSelector": "good-form-row",
+      "kind": "component",
+      "state": "3-actions-mobile"
     }
   ],
   "variantManifests": [
@@ -2229,7 +2271,8 @@
     "design/rich-text-contract.json",
     "design/color-controls-contract.json",
     "design/world-map-contract.json",
-    "design/header-search-variants.json"
+    "design/header-search-variants.json",
+    "design/settings-layout-contract.json"
   ],
   "angularSelectorOverrides": {
     "main-menu": "good-header-actions",

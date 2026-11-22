@@ -589,3 +589,11 @@ for (const region of shellContract.regions) {
   }
 }
 if (shellContract.regions.map(region => region.states.length).join(',') !== '6,7,4' || shellContract.responsive.sidebarInstances !== 1) throw new Error('Incomplete declarative shell contract.');
+
+const settingsLayout = JSON.parse(readFileSync(resolve(root, 'design/settings-layout-contract.json'), 'utf8'));
+for (const entry of settingsLayout.components) {
+  const mapping = map.componentMappings.find(item => item.penpotName === entry.penpotName);
+  if (!mapping || mapping.penpotId !== entry.penpotId || mapping.angularSelector !== entry.angularSelector || mapping.state !== entry.state) {
+    throw new Error(`Settings layout mapping differs from its published component: ${entry.penpotName}`);
+  }
+}

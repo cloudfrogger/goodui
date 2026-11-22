@@ -7,3 +7,9 @@
 - **Duplicating shell spacing or heading markup:** Use MainView and Group ownership as described in `layout.md`.
 - **Assuming every Penpot shape is a public selector:** `penpot.kind` distinguishes component and internal part; absent mappings are marked in `missing`.
 - **Assuming a successful TypeScript build proves usability:** Check keyboard focus, form errors, dark theme, and narrow screens in a browser.
+
+- **Assembling showcase specimens into a workflow:** Start with the closest complete example and preserve its useful hierarchy; use the catalog to verify the exact APIs.
+- **Choosing controls before the composition:** Inspect the user's reference for region sizes, reading order, density, and action placement. A different widget exposing the same commands may still produce the wrong workflow.
+- **Wrapping every block in another frame:** Give Section, Group, Card, and Table distinct jobs. Use an embedded Table without an extra frame when the enclosing section already establishes the context.
+- **Shrinking headings to fit actions on mobile:** Preserve readable heading width and let the documented page/section action areas wrap. Check the rendered result with realistic text.
+- **Calling a page finished after a build:** Apply the concrete visual and interaction checks in [Designing a GoodUI screen](../../guides/layout/screen-design.md); state any unavailable check.

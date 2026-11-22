@@ -61,7 +61,8 @@
         "typography.section.content.subsection-gap",
         "typography.section.content.section-gap"
       ],
-      "note": "Default preserves compact spacing and its original library ID. Content owns 24 px direct block gaps, 12 px after headings, 40 px before later headings, and 48 px between adjacent content Sections. Prose retains its 20 px paragraph gap; images retain their caption gap. Set spacing explicitly on nested Sections."
+      "note": "Default preserves compact spacing and its original library ID. Content owns 24 px direct block gaps, 12 px after headings, 40 px before later headings, and 48 px between adjacent content Sections. Prose retains its 20 px paragraph gap; images retain their caption gap. Set spacing explicitly on nested Sections.",
+      "settingsContract": "design/settings-layout-contract.json"
     },
     {
       "family": "prose",

@@ -1,0 +1,166 @@
+{
+  "page": "44 Settings",
+  "pageId": "489901a3-7f15-8049-8008-fc89a1713350",
+  "components": [
+    {
+      "penpotName": "goodui.section.settings",
+      "penpotId": "489901a3-7f15-8049-8008-fc89e6cf3bc1",
+      "angularSelector": "good-section",
+      "kind": "component",
+      "state": "settings",
+      "shapeId": "489901a3-7f15-8049-8008-fc89e107d22d",
+      "semantics": "layout=settings;appearance=default"
+    },
+    {
+      "penpotName": "goodui.section.settings-danger",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ecca52fa",
+      "angularSelector": "good-section",
+      "kind": "component",
+      "state": "settings-danger",
+      "shapeId": "489901a3-7f15-8049-8008-fc89e6d13c61",
+      "semantics": "layout=settings;appearance=danger"
+    },
+    {
+      "penpotName": "goodui.table.embedded-default",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ece41d55",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "embedded-default",
+      "shapeId": "489901a3-7f15-8049-8008-fc89eccc38ae",
+      "semantics": "frameAppearance=none;density=default"
+    },
+    {
+      "penpotName": "goodui.table.embedded-compact",
+      "penpotId": "489901a3-7f15-8049-8008-fc89ed012d9b",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "embedded-compact",
+      "shapeId": "489901a3-7f15-8049-8008-fc89ece7b0ea",
+      "semantics": "frameAppearance=none;density=compact"
+    },
+    {
+      "penpotName": "goodui.form-row.3-actions",
+      "penpotId": "489901a3-7f15-8049-8008-fc8a65b2f013",
+      "angularSelector": "good-form-row",
+      "kind": "component",
+      "state": "3-actions",
+      "shapeId": "489901a3-7f15-8049-8008-fc8a641a728f",
+      "semantics": "columns=3;actions"
+    },
+    {
+      "penpotName": "goodui.form-row.3-actions-mobile",
+      "penpotId": "489901a3-7f15-8049-8008-fc8a672942eb",
+      "angularSelector": "good-form-row",
+      "kind": "component",
+      "state": "3-actions-mobile",
+      "shapeId": "489901a3-7f15-8049-8008-fc8a65b6c7d9",
+      "semantics": "columns=3;actions;mobile"
+    }
+  ],
+  "angular": {
+    "good-section": {
+      "inputs": {
+        "layout": [
+          "default",
+          "settings"
+        ],
+        "appearance": [
+          "default",
+          "danger"
+        ],
+        "spacing": [
+          "default",
+          "content"
+        ]
+      },
+      "projection": [
+        "good-heading-group",
+        "[good-section-actions]",
+        "*"
+      ]
+    },
+    "good-table": {
+      "inputs": {
+        "frameAppearance": [
+          "default",
+          "none"
+        ],
+        "density": [
+          "default",
+          "compact",
+          null
+        ],
+        "searchTerm": "string"
+      },
+      "note": "Legacy tableStyle=compact selects compact density unless density is explicit. Existing Table variant IDs are preserved."
+    },
+    "good-form-row": {
+      "inputs": {
+        "columns": [
+          2,
+          3
+        ]
+      },
+      "projection": [
+        "good-form-field",
+        "[good-form-row-actions]"
+      ],
+      "breakpoints": {
+        "twoColumns": 700,
+        "oneColumn": 500
+      }
+    },
+    "good-main-view": {
+      "mobileActions": "Actions follow the full-width heading at viewport widths of 640 px and below."
+    }
+  },
+  "examples": [
+    {
+      "name": "example.settings.overview-desktop",
+      "id": "489901a3-7f15-8049-8008-fc8aa7c53294",
+      "width": 1440,
+      "mode": "overview"
+    },
+    {
+      "name": "example.settings.overview-mobile",
+      "id": "489901a3-7f15-8049-8008-fc8ac703f99e",
+      "width": 390,
+      "mode": "overview"
+    },
+    {
+      "name": "example.settings.read-desktop",
+      "id": "489901a3-7f15-8049-8008-fc8af508e286",
+      "width": 1440,
+      "mode": "read"
+    },
+    {
+      "name": "example.settings.read-mobile",
+      "id": "489901a3-7f15-8049-8008-fc8b560d5f14",
+      "width": 390,
+      "mode": "read"
+    },
+    {
+      "name": "example.settings.edit-desktop",
+      "id": "489901a3-7f15-8049-8008-fc8b9d74f56b",
+      "width": 1440,
+      "mode": "edit"
+    },
+    {
+      "name": "example.settings.edit-mobile",
+      "id": "489901a3-7f15-8049-8008-fc8c1d32a7a3",
+      "width": 390,
+      "mode": "edit"
+    }
+  ],
+  "composition": "The example owns detached AppShell, Section, HeadingGroup, and runtime Table composition frames so projected children and runtime cell content can vary. Sidebar, Header, Heading, Summary, FormField, Input, Button, and repeated FormRow components remain linked. Library embedded Table components preserve linked Badge, Switch, and ActionMenu specimens. No domain behavior belongs to the reusable components.",
+  "homepage": "homepage/src/app/examples/settings/settings-page.html",
+  "prototype": {
+    "navigation": [
+      "overview -> read",
+      "read -> edit",
+      "edit -> read (Save or Cancel)",
+      "read/edit breadcrumb -> overview"
+    ],
+    "note": "Penpot demonstrates navigation with sample content. Filtering, validation, draft changes, saving, removal, and archive confirmation run in the Angular example."
+  }
+}
