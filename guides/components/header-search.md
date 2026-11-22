@@ -37,12 +37,12 @@ The following fields describe each `GoodSearchItem`:
 
 ## Shell integration
 
-`good-app-layout`, `good-topbar`, and `good-header-actions` accept the navigation records through `searchItems`.
+`good-app-shell`, `good-app-header`, and `good-header-actions` accept the navigation records through `searchItems`.
 
 ```html
-<good-app-layout [searchItems]="items">
+<good-app-shell [searchItems]="items">
   <router-outlet />
-</good-app-layout>
+</good-app-shell>
 ```
 
 HeaderActions shows the action by default. A standalone HeaderActions can set `[showSearch]="false"` to hide it.

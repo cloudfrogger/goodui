@@ -1,11 +1,11 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-sidebar-container",
-  "className": "GoodSidebarContainerComponent",
+  "selector": "good-sidebar",
+  "className": "GoodSidebarComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodSidebarContainerComponent"
+    "symbol": "GoodSidebarComponent"
   },
   "source": "angular/projects/goodui/src/lib/sidebar.ts",
   "inputs": [
@@ -13,7 +13,9 @@
       "name": "brand",
       "type": "string",
       "required": false,
-      "default": "GOODUI",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/sidebar.ts",
       "kind": "input"
@@ -22,7 +24,9 @@
       "name": "brandLogoSrc",
       "type": "string",
       "required": false,
-      "default": "",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/sidebar.ts",
       "kind": "input"
@@ -31,25 +35,18 @@
       "name": "brandLogoDarkSrc",
       "type": "string",
       "required": false,
-      "default": "",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/sidebar.ts",
       "kind": "input"
     },
     {
-      "name": "sections",
-      "type": "readonly GoodSidebarSection[]",
-      "required": false,
-      "default": [],
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/sidebar.ts",
-      "kind": "input"
-    },
-    {
-      "name": "activeRoute",
+      "name": "label",
       "type": "string",
       "required": false,
-      "default": "",
+      "default": "Primary navigation",
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/sidebar.ts",
       "kind": "input"
@@ -61,9 +58,7 @@
     "projectedContent": [
       "*"
     ],
-    "relatedSelectors": [
-      "good-sidebar-menu-container"
-    ],
+    "relatedSelectors": [],
     "notes": "See source template and component guide for projection slots."
   },
   "forms": {
@@ -72,33 +67,35 @@
   },
   "usageGuide": "guides/components/sidebar.md",
   "usage": {
-    "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
-    "examples": []
+    "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
+    "examples": [
+      "ai/examples/shell.html"
+    ]
   },
   "penpot": [
     {
-      "penpotName": "goodui.sidebar-container.default",
+      "penpotName": "goodui.sidebar.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f4ac0f922",
       "kind": "component",
       "state": "default",
       "owner": null
     },
     {
-      "penpotName": "goodui.sidebar-container.drawer",
+      "penpotName": "goodui.sidebar.drawer",
       "penpotId": "521fe58c-da62-80e2-8008-d33fc3f1ea97",
       "kind": "component",
       "state": "drawer",
       "owner": null
     },
     {
-      "penpotName": "goodui.sidebar-container.drawer-expanded",
+      "penpotName": "goodui.sidebar.drawer-expanded",
       "penpotId": "521fe58c-da62-80e2-8008-d345f7623c28",
       "kind": "component",
       "state": "drawer-expanded",
       "owner": null
     },
     {
-      "penpotName": "goodui.sidebar-container.expanded",
+      "penpotName": "goodui.sidebar.expanded",
       "penpotId": "521fe58c-da62-80e2-8008-d3458996ee89",
       "kind": "component",
       "state": "expanded",

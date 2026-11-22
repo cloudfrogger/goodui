@@ -1,13 +1,13 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-app-layout",
-  "className": "GoodAppLayoutComponent",
+  "selector": "good-app-shell",
+  "className": "GoodAppShellComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodAppLayoutComponent"
+    "symbol": "GoodAppShellComponent"
   },
-  "source": "angular/projects/goodui/src/lib/app-layout.ts",
+  "source": "angular/projects/goodui/src/lib/app-shell.ts",
   "inputs": [
     {
       "name": "brand",
@@ -15,7 +15,7 @@
       "required": false,
       "default": "GOODUI",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -24,7 +24,7 @@
       "required": false,
       "default": "",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -33,7 +33,7 @@
       "required": false,
       "default": "",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -42,7 +42,7 @@
       "required": false,
       "default": "",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -51,7 +51,7 @@
       "required": false,
       "default": "",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -60,7 +60,7 @@
       "required": false,
       "default": false,
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -69,37 +69,7 @@
       "required": false,
       "default": true,
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
-      "kind": "input"
-    },
-    {
-      "name": "sidebarSections",
-      "type": "readonly GoodSidebarSection[]",
-      "required": false,
-      "default": [],
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
-      "kind": "input"
-    },
-    {
-      "name": "topbarItems",
-      "type": "readonly GoodTopbarItem[]",
-      "required": false,
-      "default": [],
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
-      "kind": "input"
-    },
-    {
-      "name": "mobileTopbarMenuMode",
-      "type": "GoodTopbarMobileMenuMode",
-      "required": false,
-      "default": "hidden",
-      "allowedValues": [
-        "hidden",
-        "popup"
-      ],
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -108,7 +78,7 @@
       "required": false,
       "default": null,
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -117,7 +87,7 @@
       "required": false,
       "default": [],
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -126,7 +96,7 @@
       "required": false,
       "default": [],
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -135,7 +105,7 @@
       "required": false,
       "default": [],
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -144,7 +114,7 @@
       "required": false,
       "default": true,
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -153,7 +123,7 @@
       "required": false,
       "default": false,
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     },
     {
@@ -162,27 +132,19 @@
       "required": false,
       "default": [],
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/app-layout.ts",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
       "kind": "input"
     }
   ],
   "outputs": [],
-  "variants": {
-    "mobileTopbarMenuMode": [
-      "hidden",
-      "popup"
-    ]
-  },
+  "variants": {},
   "composition": {
     "projectedContent": [
-      "good-header-actions",
+      "good-sidebar",
+      "good-app-header",
       "*"
     ],
     "relatedSelectors": [
-      "good-sidebar-container",
-      "good-topbar",
-      "good-header-actions",
-      "good-topbar-menu-container",
       "good-notification-host"
     ],
     "notes": "See source template and component guide for projection slots."
@@ -191,49 +153,51 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/layout/app-layout.md",
+  "usageGuide": "guides/layout/app-shell.md",
   "usage": {
-    "summary": "`AppLayout` is the complete application shell. On desktop it positions a 280 px sidebar beside a 70 px topbar and the page area. On mobile it uses a 60 px topbar and a sidebar drawer with a scrim. The shell owns offsets, scroll areas, and stacking, so pages do not need layout margins for these regions.",
-    "examples": []
+    "summary": "`good-app-shell` arranges the sidebar, application header, routed page, and notification host. Declare `good-sidebar` and `good-app-header` as direct children; the shell does not accept navigation arrays or create menu content for you.",
+    "examples": [
+      "ai/examples/shell.html"
+    ]
   },
   "penpot": [
     {
-      "penpotName": "goodui.app-layout.desktop",
+      "penpotName": "goodui.app-shell.desktop",
       "penpotId": "521fe58c-da62-80e2-8008-d33f7af79de1",
       "kind": "component",
       "state": "desktop",
       "owner": null
     },
     {
-      "penpotName": "goodui.app-layout.help-submenu-open",
+      "penpotName": "goodui.app-shell.help-submenu-open",
       "penpotId": "521fe58c-da62-80e2-8008-d3cb84e00368",
       "kind": "component",
       "state": "help-submenu-open",
       "owner": null
     },
     {
-      "penpotName": "goodui.app-layout.mobile",
+      "penpotName": "goodui.app-shell.mobile",
       "penpotId": "521fe58c-da62-80e2-8008-d33fc5601fd6",
       "kind": "component",
       "state": "mobile",
       "owner": null
     },
     {
-      "penpotName": "goodui.app-layout.mobile-drawer-expanded",
+      "penpotName": "goodui.app-shell.mobile-drawer-expanded",
       "penpotId": "521fe58c-da62-80e2-8008-d345fc71d6ee",
       "kind": "component",
       "state": "mobile-drawer-expanded",
       "owner": null
     },
     {
-      "penpotName": "goodui.app-layout.mobile-drawer-open",
+      "penpotName": "goodui.app-shell.mobile-drawer-open",
       "penpotId": "521fe58c-da62-80e2-8008-d33fc5a77074",
       "kind": "component",
       "state": "mobile-drawer-open",
       "owner": null
     },
     {
-      "penpotName": "goodui.app-layout.sidebar-expanded",
+      "penpotName": "goodui.app-shell.sidebar-expanded",
       "penpotId": "521fe58c-da62-80e2-8008-d34591f8da80",
       "kind": "component",
       "state": "sidebar-expanded",

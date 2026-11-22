@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router, Routes } from '@angular/router';
 import { ShowcasePageComponent } from './showcase-page';
 import { ButtonsPageComponent } from './buttons-page';
 import { SwitchesPageComponent } from './switches-page';
@@ -23,12 +24,15 @@ export const routes: Routes = [
   { path: '', redirectTo: 'getting-started/introduction', pathMatch: 'full' },
   { path: 'getting-started', redirectTo: 'getting-started/introduction', pathMatch: 'full' },
   { path: 'getting-started/introduction', loadComponent: () => import('./getting-started-page').then(module => module.IntroductionPageComponent) },
+  { path: 'getting-started/contributing', loadComponent: () => import('./getting-started-page').then(module => module.ContributingPageComponent) },
   { path: 'getting-started/designing', loadComponent: () => import('./getting-started-page').then(module => module.DesigningPageComponent) },
-  { path: 'getting-started/layout', redirectTo: 'getting-started/layout/general', pathMatch: 'full' },
-  { path: 'getting-started/layout/general', loadComponent: () => import('./layout-general-page').then(module => module.LayoutGeneralPageComponent) },
-  { path: 'getting-started/layout/page', redirectTo: 'getting-started/layout/default', pathMatch: 'full' },
-  { path: 'getting-started/layout/default', loadComponent: () => import('./layout-default-page').then(module => module.LayoutDefaultPageComponent) },
-  { path: 'getting-started/layout/fill', redirectTo: 'getting-started/layout/default', pathMatch: 'full' },
+  { path: 'getting-started/layout', redirectTo: 'getting-started/layout/default-shell', pathMatch: 'full' },
+  { path: 'getting-started/layout/sidebar', loadComponent: () => import('./sidebar-page').then(module => module.SidebarPageComponent) },
+  { path: 'getting-started/layout/general', redirectTo: 'getting-started/layout/default-shell', pathMatch: 'full' },
+  { path: 'getting-started/layout/page', redirectTo: 'getting-started/layout/default-shell', pathMatch: 'full' },
+  { path: 'getting-started/layout/default-shell', loadComponent: () => import('./default-shell-page').then(module => module.DefaultShellPageComponent) },
+  { path: 'getting-started/layout/default', redirectTo: 'getting-started/layout/default-shell', pathMatch: 'full' },
+  { path: 'getting-started/layout/fill', redirectTo: 'getting-started/layout/default-shell', pathMatch: 'full' },
   { path: 'getting-started/typography', loadComponent: () => import('./typography-page').then(module => module.TypographyPageComponent) },
   { path: 'getting-started/color-scheme', loadComponent: () => import('./color-scheme-page').then(module => module.ColorSchemePageComponent) },
   { path: 'getting-started/developing', loadComponent: () => import('./getting-started-page').then(module => module.DevelopingPageComponent) },
@@ -79,13 +83,15 @@ export const routes: Routes = [
   { path: 'components/breadcrumbs', component: BreadcrumbsPageComponent },
   { path: 'components/badges', component: BadgesPageComponent },
   { path: 'components/search', redirectTo: 'components/header-actions', pathMatch: 'full' },
-  { path: 'components/topbar-menu', loadComponent: () => import('./topbar-menu-page').then(module => module.TopbarMenuPageComponent) },
+  { path: 'components/header-menu', loadComponent: () => import('./header-menu-page').then(module => module.HeaderMenuPageComponent) },
   { path: 'components/header-actions', loadComponent: () => import('./header-actions-page').then(module => module.HeaderActionsPageComponent) },
   { path: 'components/main-menu', redirectTo: 'components/header-actions', pathMatch: 'full' },
   { path: 'components/notifications', redirectTo: 'components/header-actions', pathMatch: 'full' },
   { path: 'components/avatar-menu', redirectTo: 'components/header-actions', pathMatch: 'full' },
   { path: 'components/theme-toggle', redirectTo: 'components/header-actions', pathMatch: 'full' },
-  { path: 'components/topbar-submenu', loadComponent: () => import('./topbar-submenu-page').then(module => module.TopbarSubmenuPageComponent) },
+  { path: 'components/topbar-menu', redirectTo: 'components/header-menu', pathMatch: 'full' },
+  { path: 'components/topbar-submenu', redirectTo: () => inject(Router).parseUrl('/components/header-menu#header-submenu'), pathMatch: 'full' },
+  { path: 'components/header-submenu', redirectTo: () => inject(Router).parseUrl('/components/header-menu#header-submenu'), pathMatch: 'full' },
   { path: 'components/checkboxes', component: CheckboxesPageComponent },
   { path: 'components/radio-groups', component: RadioGroupsPageComponent },
   { path: 'components/ratings', component: RatingsPageComponent },

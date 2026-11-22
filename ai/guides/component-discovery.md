@@ -4,7 +4,7 @@ Start with `ai/catalog/index.json`. Each entry gives a selector, Angular import 
 
 | User need | Starting points |
 | --- | --- |
-| Application frame, sidebar, navigation, page spacing | `good-app-layout`, `good-main-view`, `good-subnav`, `good-breadcrumbs`; `ai/guides/layout.md` |
+| Application frame, sidebar, navigation, page spacing | `good-app-shell`, `good-main-view`, `good-subnav`, `good-breadcrumbs`; `ai/guides/layout.md` |
 | Form, validation, fields, choices, date, phone, file | `form[goodForm]`, `good-group`, `good-form-row`, `good-form-field`; input, select, checkbox, radio, date, and upload families |
 | Records, filters, ordering, pagination, row actions | `good-table`, `good-input`, `good-select`, `good-action-menu`; `guides/components/table.md` |
 | Commands, menus, confirmations, notifications | Button, ActionGroup, ActionBar, Dropdown, Modal, Alert; `guides/components/notifications.md` |
@@ -16,4 +16,4 @@ For services and TypeScript types, search `angular/projects/goodui/src/public-ap
 
 Before using a candidate, check its required inputs and projection selectors. A catalog description helps discovery; the detail file and guide establish the actual API. Follow each `source` and `usageGuide` path relative to the reference root. This applies equally to a source checkout, the installed npm package, and a full archive.
 
-For configurable topbar actions, project `good-header-actions` into `good-app-layout` or `good-topbar`, then compose `good-header-search`, `good-header-notification`, `good-header-themetoggle`, and `good-header-avatar` as its children. See `guides/components/header-actions.md`; configure each projected action directly.
+For configurable topbar actions, project `good-header-actions` into `good-app-shell` or `good-app-header`, then compose `good-header-search`, `good-header-notification`, `good-header-themetoggle`, and `good-header-avatar` as its children. See `guides/components/header-actions.md`; configure each projected action directly.

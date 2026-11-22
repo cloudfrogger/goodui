@@ -16,15 +16,15 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include
 
 | Penpot component | Library ID |
 | --- | --- |
-| `goodui.app-layout.desktop` | `521fe58c-da62-80e2-8008-d33f7af79de1` |
-| `goodui.app-layout.mobile` | `521fe58c-da62-80e2-8008-d33fc5601fd6` |
-| `goodui.app-layout.mobile-drawer-open` | `521fe58c-da62-80e2-8008-d33fc5a77074` |
-| `goodui.app-layout.sidebar-expanded` | `521fe58c-da62-80e2-8008-d34591f8da80` |
-| `goodui.app-layout.mobile-drawer-expanded` | `521fe58c-da62-80e2-8008-d345fc71d6ee` |
-| `goodui.sidebar-container.default` | `521fe58c-da62-80e2-8008-d33f4ac0f922` |
-| `goodui.sidebar-container.drawer` | `521fe58c-da62-80e2-8008-d33fc3f1ea97` |
-| `goodui.sidebar-container.expanded` | `521fe58c-da62-80e2-8008-d3458996ee89` |
-| `goodui.sidebar-container.drawer-expanded` | `521fe58c-da62-80e2-8008-d345f7623c28` |
+| `goodui.app-shell.desktop` | `521fe58c-da62-80e2-8008-d33f7af79de1` |
+| `goodui.app-shell.mobile` | `521fe58c-da62-80e2-8008-d33fc5601fd6` |
+| `goodui.app-shell.mobile-drawer-open` | `521fe58c-da62-80e2-8008-d33fc5a77074` |
+| `goodui.app-shell.sidebar-expanded` | `521fe58c-da62-80e2-8008-d34591f8da80` |
+| `goodui.app-shell.mobile-drawer-expanded` | `521fe58c-da62-80e2-8008-d345fc71d6ee` |
+| `goodui.sidebar.default` | `521fe58c-da62-80e2-8008-d33f4ac0f922` |
+| `goodui.sidebar.drawer` | `521fe58c-da62-80e2-8008-d33fc3f1ea97` |
+| `goodui.sidebar.expanded` | `521fe58c-da62-80e2-8008-d3458996ee89` |
+| `goodui.sidebar.drawer-expanded` | `521fe58c-da62-80e2-8008-d345f7623c28` |
 | `goodui.sidebar-menu-container.default` | `521fe58c-da62-80e2-8008-d33f4a57452a` |
 | `goodui.sidebar-menu-container.expanded` | `521fe58c-da62-80e2-8008-d3457ea24a0f` |
 | `goodui.sidebar-item.default` | `521fe58c-da62-80e2-8008-d33f49ccaa46` |
@@ -32,24 +32,24 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include
 | `goodui.sidebar-item.expanded` | `521fe58c-da62-80e2-8008-d34552e9bc72` |
 | `goodui.sidebar-submenu-group.collapsed` / `.expanded` | `521fe58c-da62-80e2-8008-d345acbb05fb` / `521fe58c-da62-80e2-8008-d3454e2d2cfc` |
 | `goodui.sidebar-submenu-item.default` / `.active` | `521fe58c-da62-80e2-8008-d34536320476` / `521fe58c-da62-80e2-8008-d34536702092` |
-| `goodui.topbar.default` | `521fe58c-da62-80e2-8008-d33f667375d0` |
-| `goodui.topbar.with-brand` | `521fe58c-da62-80e2-8008-d33f66ae31ee` |
-| `goodui.topbar.mobile` | `521fe58c-da62-80e2-8008-d33fc43d443e` |
-| `goodui.topbar.mobile-menu-icon` / `.mobile-menu-popup-open` | `c0c3286f-e4bf-804c-8008-d5e514a9b336` / `c0c3286f-e4bf-804c-8008-d5e5154d923f` |
+| `goodui.app-header.default` | `521fe58c-da62-80e2-8008-d33f667375d0` |
+| `goodui.app-header.with-brand` | `521fe58c-da62-80e2-8008-d33f66ae31ee` |
+| `goodui.app-header.mobile` | `521fe58c-da62-80e2-8008-d33fc43d443e` |
+| `goodui.app-header.mobile-menu-icon` / `.mobile-menu-popup-open` | `c0c3286f-e4bf-804c-8008-d5e514a9b336` / `c0c3286f-e4bf-804c-8008-d5e5154d923f` |
 | `goodui.brand-icon.default` | `521fe58c-da62-80e2-8008-d33f6648cf58` |
-| `goodui.topbar-menu-container.default` | `521fe58c-da62-80e2-8008-d33f65433040` |
-| `goodui.topbar-menu-container.mobile-icon` / `.mobile-popup-open` | `c0c3286f-e4bf-804c-8008-d5e4dc8469c8` / `c0c3286f-e4bf-804c-8008-d5e4f1abf064` |
-| `goodui.topbar-menu-item.default` | `521fe58c-da62-80e2-8008-d33f65037987` |
-| `goodui.topbar-menu-item.open` | `521fe58c-da62-80e2-8008-d3cb40c02667` |
-| `goodui.topbar-dropdown-item.link` | `521fe58c-da62-80e2-8008-d3caa3b78281` |
-| `goodui.topbar-dropdown-item.parent` | `521fe58c-da62-80e2-8008-d3caefc179e0` |
-| `goodui.topbar-dropdown-item.open` | `521fe58c-da62-80e2-8008-d3caf0167256` |
-| `goodui.topbar-dropdown-menu.default` | `521fe58c-da62-80e2-8008-d3cb1bfe9de3` |
-| `goodui.topbar-dropdown-menu.nested-open` | `521fe58c-da62-80e2-8008-d3cb41079b9e` |
-| `goodui.topbar-submenu.default` | `521fe58c-da62-80e2-8008-d3cb2ae3b496` |
-| `goodui.topbar.help-open` | `521fe58c-da62-80e2-8008-d3cb51d73426` |
-| `goodui.topbar.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb522ee751` |
-| `goodui.app-layout.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb84e00368` |
+| `goodui.header-menu.default` | `521fe58c-da62-80e2-8008-d33f65433040` |
+| `goodui.header-menu.mobile-icon` / `.mobile-popup-open` | `c0c3286f-e4bf-804c-8008-d5e4dc8469c8` / `c0c3286f-e4bf-804c-8008-d5e4f1abf064` |
+| `goodui.header-menu-item.default` | `521fe58c-da62-80e2-8008-d33f65037987` |
+| `goodui.header-menu-item.open` | `521fe58c-da62-80e2-8008-d3cb40c02667` |
+| `goodui.header-dropdown-item.link` | `521fe58c-da62-80e2-8008-d3caa3b78281` |
+| `goodui.header-dropdown-item.parent` | `521fe58c-da62-80e2-8008-d3caefc179e0` |
+| `goodui.header-dropdown-item.open` | `521fe58c-da62-80e2-8008-d3caf0167256` |
+| `goodui.header-dropdown-menu.default` | `521fe58c-da62-80e2-8008-d3cb1bfe9de3` |
+| `goodui.header-dropdown-menu.nested-open` | `521fe58c-da62-80e2-8008-d3cb41079b9e` |
+| `goodui.header-submenu.default` | `521fe58c-da62-80e2-8008-d3cb2ae3b496` |
+| `goodui.app-header.help-open` | `521fe58c-da62-80e2-8008-d3cb51d73426` |
+| `goodui.app-header.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb522ee751` |
+| `goodui.app-shell.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb84e00368` |
 | `goodui.main-menu.default` | `521fe58c-da62-80e2-8008-d33f6619a524` |
 | `goodui.theme-toggle.light` / `.system` / `.dark` | `f52a309e-8b45-80e4-8008-d86c7ab97196` / `f52a309e-8b45-80e4-8008-d86c7bab8421` / `f52a309e-8b45-80e4-8008-d86c7c8f020f` |
 | `goodui.search` (`hotkey=false`) / `.open` | `521fe58c-da62-80e2-8008-d33f6563524e` / `521fe58c-da62-80e2-8008-d33ffe1c4f79` |
@@ -67,7 +67,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include
 | `goodui.main-view.default` / `.mobile` | `521fe58c-da62-80e2-8008-d33f7aa54b2b` / `521fe58c-da62-80e2-8008-d33fc4dcceec` |
 | `goodui.main-view.account` | `521fe58c-da62-80e2-8008-d34655a672c2` |
 | `goodui.main-view.account-mobile` | `521fe58c-da62-80e2-8008-d40ced977d68` |
-| `goodui.main-view.fill-heading` / `.fill-heading-mobile` | `1b6260d7-e591-805d-8008-e28200da7174` / `1b6260d7-e591-805d-8008-e282014cb32c` on `02 Layout`; both map to `good-main-view layout="fill"` with an optional heading. The heading keeps the standard 30/24 px inset while the workspace below spans the full width. |
+| `goodui.main-view.fill-heading` / `.fill-heading-mobile` | `1b6260d7-e591-805d-8008-e28200da7174` / `1b6260d7-e591-805d-8008-e282014cb32c` on `02 Shell`; both map to `good-main-view layout="fill"` with an optional heading. The heading keeps the standard 30/24 px inset while the workspace below spans the full width. |
 | `goodui.subnav-item.link` / `.parent` / `.active` | `521fe58c-da62-80e2-8008-d40ca2339866` / `521fe58c-da62-80e2-8008-d40ca29a692f` / `521fe58c-da62-80e2-8008-d40ca32c96fa` |
 | `goodui.subnav.desktop` / `.mobile` / `.menu-open` | `521fe58c-da62-80e2-8008-d40cb8b8e01a` / `521fe58c-da62-80e2-8008-d40cba28bff7` / `521fe58c-da62-80e2-8008-d40cd63c49cf` |
 | `goodui.subnav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
@@ -242,7 +242,7 @@ The original outlined Button component IDs `521fe58c-da62-80e2-8008-d41a0ffcd7b8
 
 `goodui.expandable` is a published eight-variant family on page `31 Expandables` (variant container `8c729319-5265-802b-8008-dfff9ab66723`). `icon=plus/chevron/arrow/caret` and `state=collapsed/expanded` map to `good-expandable`; the default `plus/collapsed` library ID is `8c729319-5265-802b-8008-dfff89ac5116`. Label, projected header/body content, `disabled`, and activation events are runtime behavior. A linked disabled specimen has ID `8c729319-5265-802b-8008-dfffd1b30932`. [expandable-contract.json](../../design/expandable-contract.json) records all eight published IDs.
 
-`goodui.alert` is a published 72-variant family on `21 Alerts`: six tones, four appearances, and three sizes map directly to `good-alert`. All variants have linked Lucide Info instances and token-bound surface, text, padding, and icon size. The published `goodui.alert-composition.actions-dismissible` component shows a linked GoodUI Button and Lucide X; Penpot cannot add children to a component copy, so this optional-content specimen has a detached Alert frame. Angular uses projected actions and the `dismissible` input. The four published `goodui.notification-host` variants show `placement=top-right/top` and `state=single/stacked`, with linked Alert instances; timing, queueing, and acknowledgement are runtime service behavior. [alert-contract.json](../../design/alert-contract.json) and [notification-host-contract.json](../../design/notification-host-contract.json) record all IDs and selector mappings. The light and dark render were inspected, and the editor was restored to light on `02 Layout`.
+`goodui.alert` is a published 72-variant family on `21 Alerts`: six tones, four appearances, and three sizes map directly to `good-alert`. All variants have linked Lucide Info instances and token-bound surface, text, padding, and icon size. The published `goodui.alert-composition.actions-dismissible` component shows a linked GoodUI Button and Lucide X; Penpot cannot add children to a component copy, so this optional-content specimen has a detached Alert frame. Angular uses projected actions and the `dismissible` input. The four published `goodui.notification-host` variants show `placement=top-right/top` and `state=single/stacked`, with linked Alert instances; timing, queueing, and acknowledgement are runtime service behavior. [alert-contract.json](../../design/alert-contract.json) and [notification-host-contract.json](../../design/notification-host-contract.json) record all IDs and selector mappings. The light and dark render were inspected, and the editor was restored to light on `02 Shell`.
 
 `goodui.dropdown` is a published 16-variant family whose trigger is a linked `goodui.button` instance. Its optional trailing chevron is a linked Lucide instance layered over the Button copy because Penpot does not allow adding children inside a copy; Angular renders it inside the Button. Four `goodui.dropdown-panel` variants contain linked `goodui.dropdown-item` instances. Twelve item variants cover plain, icon, badge, submenu, and disabled visuals; further text/detail and arbitrary custom icon data are runtime content. `goodui.dropdown.submenu-open` shows a linked child panel. [dropdown-variants.json](https://github.com/cloudfrogger/goodui/blob/master/design/dropdown-variants.json) records all IDs. The scroll variant uses a clipped list as the Penpot representation of browser scrolling. Trigger mode, focus, keyboard handling, dynamic viewport clamping, and actual scrollbars are Angular behavior rather than static Penpot variants.
 
@@ -262,7 +262,7 @@ The previous public names `GoodSectionNavComponent`, `GoodSectionNavItem`, `good
 
 ### Header actions composition
 
-`goodui.main-menu.default` maps to `good-header-actions`, a container for application-selected action components. Its linked Search, Notifications, ThemeToggle, and AvatarMenu instances represent the default arrangement. Angular accepts custom projected children in their declared order; AppLayout forwards its direct HeaderActions child to Topbar. Stable component IDs, geometry, and token bindings are unchanged. See [Header actions](../components/header-actions.md).
+`goodui.main-menu.default` maps to `good-header-actions`, a container for application-selected action components. Its linked Search, Notifications, ThemeToggle, and AvatarMenu instances represent the default arrangement. Angular accepts custom projected children in their declared order; AppShell projects AppHeader, which owns its HeaderActions child. Stable component IDs, geometry, and token bindings are unchanged. See [Header actions](../components/header-actions.md).
 
 ### Header search variants
 
@@ -279,3 +279,17 @@ The shared heading scale is 28/26/24/22/20/18/16 px. Native H1–H6 match the co
 ### Typography reference page
 
 `43 Typography Reference` (page `4c1f5233-504c-80ed-8008-fbf549f71786` in file `0f428ff0-c8e2-8078-8008-fb55d9570459`) is the dedicated visual overview. Its Heading scale, Text roles, and Compositions boards use linked copies of the existing library components. Published main instances and their stable IDs remain on `12 Typography`; edit those mains rather than publishing duplicate reference components. Board IDs are recorded in `design/typography-components.json` under `referencePage`.
+
+### Header menu family rename
+
+The former Header menu container, menu item, dropdown menu, dropdown item, and submenu families now use `goodui.header-menu`, `goodui.header-menu-item`, `goodui.header-dropdown-menu`, `goodui.header-dropdown-item`, and `goodui.header-submenu`. Their eleven library IDs and main instances are preserved. Angular uses the matching `good-header-*` selectors; Header submenu belongs to the combined Header menu documentation chapter. See [migration](../migrations/header-menu.md).
+
+The Header shell is published as `goodui.app-header` with its seven existing state IDs and main-instance IDs preserved. Angular exports `GoodAppHeaderComponent` with selector `good-app-header`; the former Header selector and component name are replaced. Shared `topbar.*` geometry tokens retain their names and bindings.
+
+### AppShell naming
+
+`goodui.app-shell` replaces the former AppLayout family name. Its six published desktop, mobile, expanded, drawer-open, and Help-submenu state IDs and main instances remain unchanged. Angular maps each state to `good-app-shell` / `GoodAppShellComponent`; the homepage uses the Default shell chapter and `getting-started/layout/default-shell` route.
+
+### Declarative shell regions
+
+The four published `goodui.sidebar` states map to `good-sidebar` / `GoodSidebarComponent`; the seven `goodui.app-header` states map to `good-app-header` / `GoodAppHeaderComponent`. All eleven former SidebarContainer/Header IDs and main-instance IDs remain stable, and the AppShell compositions retain linked copies. Navigation is projected: Sidebar owns its items; AppHeader owns HeaderMenu and HeaderActions. Shell array and mobile-menu configuration inputs are removed. The same Sidebar component is presented in a mobile modal drawer without duplicating state.

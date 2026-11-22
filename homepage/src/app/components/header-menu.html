@@ -1,0 +1,33 @@
+<good-main-view>
+  <good-heading-1>Header menu</good-heading-1>
+  <good-summary>Responsive header navigation with nested submenus, alongside your header actions.</good-summary>
+  <good-section spacing="content">
+    <good-inline-image src="/foundation/header-menu-annotated.png" [fullWidth]="true" [previewable]="true" alt="Annotated GoodUI header: good-app-header contains good-header-menu on the left and good-header-actions on the right; the open Help menu reveals good-header-submenu" caption="The Header shell (good-app-header) contains Header menu and Header actions. Nested navigation opens as Header submenu." />
+  </good-section>
+  <good-section spacing="content">
+    <good-heading-2>Responsive navigation</good-heading-2>
+    <good-prose>
+      <good-paragraph>Use <code>good-header-menu</code> for the navigation side of your topbar and <code>good-header-actions</code> for Search, Notifications, Theme toggle, and Avatar. Import <code>GoodHeaderMenuComponent</code> and pass your navigation items. The menu owns layout, opening, and keyboard behavior.</good-paragraph>
+      <good-paragraph>Try Help → Support in this example. On mobile, open the menu with its grid icon. Parent items expand a level; only links navigate.</good-paragraph>
+    </good-prose>
+    <div class="showcase-header-menu-preview">
+      <good-header-menu [items]="items" activeRoute="/components/header-menu" mobileMode="popup" />
+    </div>
+    <good-code-block [code]="compositionCode" language="typescript" title="Import the menu" />
+    <good-code-block [code]="menuCode" language="html" title="Compose the header" />
+  </good-section>
+  <good-section spacing="content" id="header-submenu">
+    <good-heading-2>Header submenu</good-heading-2>
+    <good-prose>
+      <good-paragraph><code>good-header-submenu</code> belongs to Header menu. Add <code>children</code> to a navigation item to create the next level; the menu composes it automatically. You do not need to place or position a separate submenu in your page.</good-paragraph>
+      <good-paragraph>The first panel uses <code>good-header-dropdown-menu</code> and <code>good-header-dropdown-item</code>. A parent row opens <code>good-header-submenu</code>, which reuses those rows for further levels. Desktop panels flip toward available viewport space; mobile levels stack inside the popup or drawer.</good-paragraph>
+      <good-paragraph>Use click, hover on desktop, or keyboard focus to open a parent. Escape closes the deepest open level and restores focus to its trigger; outside clicks close the menu. Parent buttons expose <code>aria-expanded</code> and <code>aria-controls</code>, and active links expose <code>aria-current="page"</code>.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="nestedCode" language="typescript" title="Create nested navigation with children" />
+  </good-section>
+  <good-section spacing="content">
+    <good-heading-2>Mobile behavior</good-heading-2>
+    <good-prose><good-paragraph>Set <code>mobileMode="popup"</code> on Header menu for its own icon and popup. <code>hidden</code> explicitly hides this menu on mobile; essential navigation then belongs in your declarative Sidebar. AppShell receives the Sidebar and AppHeader as children, without navigation-array inputs.</good-paragraph></good-prose>
+    <good-code-block [code]="usageCode" language="html" title="AppShell configuration" />
+  </good-section>
+</good-main-view>

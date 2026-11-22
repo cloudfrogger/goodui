@@ -33,35 +33,36 @@ Replace `src/app/app.ts` with a small page:
 
 ```ts
 import { Component } from '@angular/core';
-import { GoodAppLayoutComponent, GoodMainViewComponent, type GoodSidebarSection, GoodHeading1Component } from '@cloudfrogger/goodui';
+import {
+  GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent, GoodSidebarItemComponent,
+  GoodHeaderMenuComponent, GoodHeaderMenuItemComponent, GoodMainViewComponent, GoodHeading1Component,
+} from '@cloudfrogger/goodui';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [GoodAppLayoutComponent, GoodMainViewComponent, GoodHeading1Component],
+  selector: 'app-root', standalone: true,
+  imports: [GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent, GoodSidebarItemComponent,
+    GoodHeaderMenuComponent, GoodHeaderMenuItemComponent, GoodMainViewComponent, GoodHeading1Component],
   template: `
-    <good-app-layout brand="HELLO" [sidebarSections]="navigation">
+    <good-app-shell brand="HELLO">
+      <good-sidebar><good-sidebar-item label="Home" icon="home" route="/" /></good-sidebar>
+      <good-app-header>
+        <good-header-menu mobileMode="popup"><good-header-menu-item label="Home" route="/" /></good-header-menu>
+      </good-app-header>
       <good-main-view>
-  <good-heading-1>Hello, GoodUI!</good-heading-1>
+        <good-heading-1>Hello, GoodUI!</good-heading-1>
         <p>Your first page is ready.</p>
       </good-main-view>
-    </good-app-layout>
+    </good-app-shell>
   `,
 })
-export class App {
-  readonly navigation: readonly GoodSidebarSection[] = [
-    { id: 'main', heading: 'MAIN', items: [
-      { id: 'home', label: 'Home', icon: 'home', route: '/' },
-    ] },
-  ];
-}
+export class App {}
 ```
 
-The `--routing` option creates the router configuration required by `good-app-layout`. Start the app with `npm start` and open `http://localhost:4200/`. GoodUI's compiled CSS works without Tailwind in the consuming app.
+The `--routing` option creates the router configuration required by `good-app-shell`. Start the app with `npm start` and open `http://localhost:4200/`. GoodUI's compiled CSS works without Tailwind in the consuming app.
 
 ### Add GoodUI to an existing Angular app
 
-Build GoodUI with the first four commands above. In your Angular 21.2 project, run `npm install /path/to/goodui/angular/dist/goodui`, add the same CSS import to its global stylesheet, and import `GoodAppLayoutComponent` and `GoodMainViewComponent` in the component that owns your page. Ensure the app provides Angular Router, for example with `provideRouter(routes)` in `app.config.ts`. Use the page example above as a starting point; existing routes can render inside the layout with `<router-outlet />`.
+Build GoodUI with the first four commands above. In your Angular 21.2 project, run `npm install /path/to/goodui/angular/dist/goodui`, add the same CSS import to its global stylesheet, and import the shell regions and page components used by your template, as shown above. Ensure the app provides Angular Router, for example with `provideRouter(routes)` in `app.config.ts`. Use the page example above as a starting point; existing routes can render inside the layout with `<router-outlet />`.
 
 For a working example in this repository:
 
@@ -70,7 +71,7 @@ npm run setup
 npm run start:homepage
 ```
 
-The homepage opens at `http://localhost:4200/`. Explore the [AppLayout](./layout/app-layout.md), [sidebar](./components/sidebar.md), [topbar](./components/topbar.md), and [main view](./components/main-view.md) guides. The full design contract is in the repository's `design.md`.
+The homepage opens at `http://localhost:4200/`. Explore the [AppShell](./layout/app-shell.md), [sidebar](./components/sidebar.md), [topbar](./components/app-header.md), and [main view](./components/main-view.md) guides. The full design contract is in the repository's `design.md`.
 
 ### License
 

@@ -58,28 +58,41 @@ GoodUI currently ships from this repository as a locally built package. It targe
    ```ts
    import { Component } from '@angular/core';
    import { RouterOutlet } from '@angular/router';
-   import { GoodAppLayoutComponent, type GoodSidebarSection, GoodHeading1Component } from '@cloudfrogger/goodui';
+   import {
+     GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent,
+     GoodSidebarMenuContainerComponent, GoodSidebarItemComponent,
+     GoodHeaderMenuComponent, GoodHeaderMenuItemComponent,
+     GoodHeaderActionsComponent, GoodHeaderThemeToggleComponent,
+   } from '@cloudfrogger/goodui';
 
    @Component({
-     selector: 'app-root',
-     standalone: true,
-     imports: [GoodAppLayoutComponent, RouterOutlet, GoodHeading1Component],
+     selector: 'app-root', standalone: true,
+     imports: [RouterOutlet, GoodAppShellComponent, GoodAppHeaderComponent,
+       GoodSidebarComponent, GoodSidebarMenuContainerComponent, GoodSidebarItemComponent,
+       GoodHeaderMenuComponent, GoodHeaderMenuItemComponent,
+       GoodHeaderActionsComponent, GoodHeaderThemeToggleComponent],
      template: `
-       <good-app-layout brand="MY APP" [sidebarSections]="navigation">
-         <router-outlet />
-       </good-app-layout>
+   <good-app-shell
+     brand="Example App">
+     <good-sidebar>
+       <good-sidebar-menu-container heading="WORKSPACE">
+         <good-sidebar-item label="Overview" icon="dashboard" route="/overview" />
+       </good-sidebar-menu-container>
+     </good-sidebar>
+     <good-app-header>
+       <good-header-menu mobileMode="popup">
+         <good-header-menu-item label="Overview" route="/overview" />
+       </good-header-menu>
+       <good-header-actions><good-header-themetoggle /></good-header-actions>
+     </good-app-header>
+     <router-outlet />
+   </good-app-shell>
      `,
    })
-   export class App {
-     readonly navigation: readonly GoodSidebarSection[] = [
-       { id: 'main', heading: 'WORKSPACE', items: [
-         { id: 'home', label: 'Home', icon: 'home', route: '/' },
-       ] },
-     ];
-   }
+   export class App {}
    ```
 
-   Each routed page can compose its heading with `<good-main-view><good-heading-1>Home</good-heading-1>...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppLayout guide](guides/layout/app-layout.md) for topbar items, user data, and nested menus.
+   Each routed page can compose its heading with `<good-main-view><good-heading-1>Home</good-heading-1>...</good-main-view>` for consistent page spacing. See the [working homepage](homepage/src/app/app.ts) and [AppShell guide](guides/layout/app-shell.md) for topbar items, user data, and nested menus.
 
    Add actions with `<good-button variant="default">Save</good-button>`. GoodUI includes Lucide Angular as a dependency and re-exports its icon classes, so `<good-button [icon]="plusIcon">Add</good-button>` needs only `LucidePlus` imported from `@cloudfrogger/goodui`. See the [Button guide](guides/components/button.md) and the homepage's `/components/buttons` page for all variants and sizes.
 
@@ -109,7 +122,7 @@ GoodUI currently ships from this repository as a locally built package. It targe
 
    For source examples, use `<good-code-block [code]="example" language="typescript" [lineNumbers]="true" />`. Add `[collapsible]="true"` for a faded preview or `[inline]="true"` for code inside a sentence. See the [Code block guide](guides/components/code-block.md) and `/components/code-blocks` on the homepage.
 
-   Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-layout>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppLayout guide](guides/layout/app-layout.md).
+   Your app owns its branding. To use a logo, place its images in your app's `public/` directory and set `brandLogoSrc` and optional `brandLogoDarkSrc` on `<good-app-shell>`. Set `brand` to the accessible name. To set a favicon, place your icon in `public/` and reference it from your app's `src/index.html`; GoodUI never changes the document favicon. See the [AppShell guide](guides/layout/app-shell.md).
 
 ## Homepage and component gallery
 
@@ -123,7 +136,7 @@ The [Drone deployment guide](guides/deployment/drone.md) covers the Docker-only 
 
 | Package | Responsibility |
 | --- | --- |
-| `good-app-layout` | Responsive shell, sidebar and topbar placement, mobile drawer |
+| `good-app-shell` | Responsive shell, sidebar and topbar placement, mobile drawer |
 | Sidebar components | Sections, headings, items, and recursive submenus |
 | Topbar components | Optional brand icon, menu groups, nested dropdowns |
 | Main menu components | Search, notifications, settings, and avatar actions |
@@ -153,7 +166,7 @@ The [Drone deployment guide](guides/deployment/drone.md) covers the Docker-only 
 | `good-action-menu` | Compact icon trigger and keyboard-accessible action menu |
 | `GoodThemeService` | Light/dark appearance with semantic CSS variables |
 
-The components own their layout. Your app can provide data through `GoodAppLayoutComponent` inputs or compose the exported container and item components directly when needed.
+The components own their layout. Your app can provide data through `GoodAppShellComponent` inputs or compose the exported container and item components directly when needed.
 
 ## Run the homepage
 

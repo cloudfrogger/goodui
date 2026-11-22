@@ -1,11 +1,19 @@
 ---
 name: goodui
-description: Build or refine Angular screens with GoodUI components, or compose linked GoodUI designs in Penpot. Use the installed package's component catalog, API details, layout rules, and examples.
+description: Design linked GoodUI screens in Penpot, or build Angular screens with GoodUI components. Use the live design library for Penpot and version-matched component references for Angular.
 ---
 
 # GoodUI
 
-## Find the matching references
+## Start with a Penpot design
+
+For a design-only task, no Angular project or npm package is required. Use the available Penpot MCP connection to inspect the target file and the live shared GoodUI library. Ask for a missing file link or connection when it cannot be discovered. The skill itself does not install the Penpot library or configure MCP.
+
+Compose linked GoodUI instances in the target file, reuse published variants and tokens, and inspect the rendered desktop and mobile designs. Keep domain-specific content in the consuming design. Do not create Angular code unless requested. If a reusable capability is missing, explain the gap before substituting an unrelated custom component.
+
+If local GoodUI references are unavailable, read only the relevant design guides and mapping from `https://github.com/cloudfrogger/goodui`: start with `design.md` and `design/component-map.json`, then the affected component guides under `guides/components/`. Use the live library to verify names, IDs, variants, and availability; repository references do not replace live inspection. When implementation begins, use the installed Angular package's matching references as described below.
+
+## Find the matching Angular references
 
 In the consuming application's root, read `node_modules/@cloudfrogger/goodui/package.json`. Prefer the references bundled in that same package. Set your reference root to `node_modules/@cloudfrogger/goodui`; paths below are relative to that directory. Check its `ai/manifest.json` and `ai/catalog/index.json` against the installed package name and version.
 
@@ -16,7 +24,7 @@ For a source checkout, use its root and `angular/projects/goodui/package.json`. 
 1. Read `ai/catalog/index.json` to find suitable selectors and import symbols. `ai/guides/component-discovery.md` explains how to find components, services, and exported types from a task description. Read only the relevant component detail files and linked guides. Catalog files record inputs, defaults, required values, outputs, model changes, projection slots, forms integration, and Penpot ownership. Use `angular/projects/goodui/src/public-api.ts` and the referenced source files for exported types, services, and behavior that needs clarification.
 2. Read `ai/guides/layout.md` and `ai/guides/page-patterns.md` when composing a page. Choose the shell and page layout before arranging controls. MainView owns page insets and heading alignment; Group, FormRow, Card, Columns, ActionGroup, and the workspace components own their layout. Prefer these capabilities and shared tokens when they satisfy the requested screen. Describe a missing reusable capability when the library cannot express the requested layout, and agree on the approach with the user.
 3. Import public symbols from `@cloudfrogger/goodui` and global CSS from `@cloudfrogger/goodui/styles.css`. Check the app's root `provideGoodUI()` configuration and router. Use the catalog's exact inputs, outputs, projected slots, and Angular Forms integration. Keep domain data, persistence, and product-specific commands in the consuming application.
-4. For configurable topbar actions, project `good-header-actions` into AppLayout or Topbar and compose action components inside it. Read `guides/components/header-actions.md` and each child guide; configure projected children directly. For notifications, read `guides/components/notifications.md`. AppLayout includes a notification host and a bell in its default menu. A custom HeaderActions chooses whether to include the bell. Use `GoodNotificationCenter` for revisitable messages, an inline Alert for nearby task/form problems, and a transient toast for immediate feedback.
+4. For configurable topbar actions, project `good-header-actions` into `good-app-header` inside AppShell and compose action components inside it. Read `guides/components/header-actions.md` and each child guide; configure projected children directly. For notifications, read `guides/components/notifications.md`. AppShell includes a notification host; AppHeader supplies a bell when it renders its default actions. A custom HeaderActions chooses whether to include the bell. Use `GoodNotificationCenter` for revisitable messages, an inline Alert for nearby task/form problems, and a transient toast for immediate feedback.
 5. Use `ai/examples/` for small form, table, and settings patterns. Guides link to complete homepage examples when useful. For a named case study, read `ai/case-studies/index.md`, then that study and its relevant screen. Keep routine component work focused on its relevant references.
 6. Build the consuming app and exercise the requested interaction. Inspect desktop and mobile layouts, light and dark themes, and applicable keyboard, focus, and form behavior. State what was verified and what still needs a real backend, browser, or device check.
 

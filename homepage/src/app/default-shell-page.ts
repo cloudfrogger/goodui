@@ -2,25 +2,35 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component } from '@cloudfrogger/goodui';
 
 @Component({
-  selector: 'showcase-layout-default-page',
+  selector: 'showcase-default-shell-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './getting-started/layout-default.html',
+  templateUrl: './getting-started/default-shell.html',
 })
-export class LayoutDefaultPageComponent {
-  readonly structureCode = `<!-- navigation supplies the left sidebar's menu items. -->
-<!-- topbarItems supplies the top navigation links and menus. -->
-<good-app-layout
-  brand="Your app"
-  [sidebarSections]="navigation"
-  [topbarItems]="topbarItems">
-  <good-main-view layout="page">
+export class DefaultShellPageComponent {
+  readonly structureCode = `<good-app-shell brand="Your app">
+  <good-sidebar>
+    <good-sidebar-menu-container heading="WORKSPACE">
+      <good-sidebar-item label="Overview" icon="dashboard" route="/overview" />
+      <!-- Declare more sidebar items here. -->
+    </good-sidebar-menu-container>
+  </good-sidebar>
+  <good-app-header>
+    <good-header-menu mobileMode="popup">
+      <good-header-menu-item label="Overview" route="/overview" />
+      <!-- Declare header navigation here. -->
+    </good-header-menu>
+    <good-header-actions>
+      <good-header-themetoggle />
+    </good-header-actions>
+  </good-app-header>
+  <good-main-view>
     <good-section>
       <!-- Your page content goes here. -->
     </good-section>
   </good-main-view>
-</good-app-layout>`;
+</good-app-shell>`;
 
   readonly routesCode = `import { Routes } from '@angular/router';
 

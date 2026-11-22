@@ -38,6 +38,6 @@ readonly groups: readonly GoodActionBarGroup[] = [
 
 Each command accepts `id`, `label`, optional GoodUI `icon`, `variant`, `disabled`, and `priority`. `normal` is the default. `important` remains in the visible row; `overflow` always appears in More. Commands show a larger icon above a compact label. As width shrinks, lower-priority commands move into More while the labels of visible commands remain readable. If even important commands exceed the available width, their row scrolls horizontally while More stays available. The tools slot moves below the command row when the bar is narrow.
 
-Use `goodMainViewToolbar` for a fixed strip above a height-filling child. The child owns its own scrolling. The slot is generic and also accepts a custom control or status strip. See [MainView](./main-view.md) and [Fill layout](../layout/app-layout.md).
+Use `goodMainViewToolbar` for a fixed strip above a height-filling child. The child owns its own scrolling. The slot is generic and also accepts a custom control or status strip. See [MainView](./main-view.md) and [Fill layout](../layout/app-shell.md).
 
 Penpot mapping: `goodui.action-bar` is pending a live library component and ID. The Penpot MCP was disconnected during this implementation. No ID or variant has been invented; see `design/action-bar-contract.json`.

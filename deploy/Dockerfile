@@ -9,7 +9,7 @@ RUN npm --prefix angular ci --legacy-peer-deps --no-audit --no-fund
 COPY package.json LICENSE design.md ./
 COPY ai/ ai/
 COPY guides/ guides/
-COPY design/component-map.json design/component-map.json
+COPY design/*.json design/
 COPY angular/ angular/
 COPY homepage/ homepage/
 COPY scripts/ scripts/

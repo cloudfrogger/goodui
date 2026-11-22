@@ -1,168 +1,166 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-topbar",
-  "className": "GoodTopbarComponent",
+  "selector": "good-app-header",
+  "className": "GoodAppHeaderComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodTopbarComponent"
+    "symbol": "GoodAppHeaderComponent"
   },
-  "source": "angular/projects/goodui/src/lib/topbar.ts",
+  "source": "angular/projects/goodui/src/lib/header.ts",
   "inputs": [
     {
       "name": "brand",
       "type": "string",
       "required": false,
-      "default": "GOODUI",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "brandLogoSrc",
       "type": "string",
       "required": false,
-      "default": "",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "brandLogoDarkSrc",
       "type": "string",
       "required": false,
-      "default": "",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "brandMarkSrc",
       "type": "string",
       "required": false,
-      "default": "",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "brandMarkDarkSrc",
       "type": "string",
       "required": false,
-      "default": "",
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "showBrandIcon",
       "type": "boolean",
       "required": false,
-      "default": false,
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "showMobileBrand",
       "type": "boolean",
       "required": false,
-      "default": true,
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
-      "kind": "input"
-    },
-    {
-      "name": "items",
-      "type": "readonly GoodTopbarItem[]",
-      "required": false,
-      "default": [],
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
-      "kind": "input"
-    },
-    {
-      "name": "activeRoute",
-      "type": "string",
-      "required": false,
-      "default": "",
-      "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
-      "kind": "input"
-    },
-    {
-      "name": "mobileMenuMode",
-      "type": "GoodTopbarMobileMenuMode",
-      "required": false,
-      "default": "hidden",
-      "allowedValues": [
-        "hidden",
-        "popup"
-      ],
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "user",
       "type": "GoodUser",
       "required": false,
-      "default": null,
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "notifications",
       "type": "readonly GoodNotification[]",
       "required": false,
-      "default": [],
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "searchItems",
       "type": "readonly GoodSearchItem[]",
       "required": false,
-      "default": [],
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "settingsActions",
       "type": "readonly GoodMenuAction[]",
       "required": false,
-      "default": [],
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "showThemeToggle",
       "type": "boolean",
       "required": false,
-      "default": true,
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "showSettings",
       "type": "boolean",
       "required": false,
-      "default": false,
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
       "name": "avatarActions",
       "type": "readonly GoodMenuAction[]",
       "required": false,
-      "default": [],
+      "default": {
+        "expression": "undefined"
+      },
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     }
   ],
@@ -170,24 +168,18 @@
     {
       "name": "menuToggle",
       "type": "void",
-      "source": "angular/projects/goodui/src/lib/topbar.ts"
+      "source": "angular/projects/goodui/src/lib/header.ts"
     }
   ],
-  "variants": {
-    "mobileMenuMode": [
-      "hidden",
-      "popup"
-    ]
-  },
+  "variants": {},
   "composition": {
     "projectedContent": [
-      "good-topbar-menu-container",
+      "good-header-menu",
       "good-header-actions"
     ],
     "relatedSelectors": [
       "good-icon",
       "good-brand-icon",
-      "good-topbar-menu-container",
       "good-header-actions"
     ],
     "notes": "See source template and component guide for projection slots."
@@ -196,56 +188,58 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/components/topbar.md",
+  "usageGuide": "guides/components/app-header.md",
   "usage": {
-    "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
-    "examples": []
+    "summary": "Use `good-app-header` to compose the application's header. Declare `good-header-menu` and `good-header-actions` inside it, then place AppHeader directly inside `good-app-shell`. AppHeader owns header layout and the mobile sidebar trigger; the menu owns navigation and its mobile popup.",
+    "examples": [
+      "ai/examples/shell.html"
+    ]
   },
   "penpot": [
     {
-      "penpotName": "goodui.topbar.default",
+      "penpotName": "goodui.app-header.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f667375d0",
       "kind": "component",
       "state": "default",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar.help-open",
+      "penpotName": "goodui.app-header.help-open",
       "penpotId": "521fe58c-da62-80e2-8008-d3cb51d73426",
       "kind": "component",
       "state": "help-open",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar.help-submenu-open",
+      "penpotName": "goodui.app-header.help-submenu-open",
       "penpotId": "521fe58c-da62-80e2-8008-d3cb522ee751",
       "kind": "component",
       "state": "help-submenu-open",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar.mobile",
+      "penpotName": "goodui.app-header.mobile",
       "penpotId": "521fe58c-da62-80e2-8008-d33fc43d443e",
       "kind": "component",
       "state": "mobile",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar.mobile-menu-icon",
+      "penpotName": "goodui.app-header.mobile-menu-icon",
       "penpotId": "c0c3286f-e4bf-804c-8008-d5e514a9b336",
       "kind": "component",
       "state": "mobile-menu-icon",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar.mobile-menu-popup-open",
+      "penpotName": "goodui.app-header.mobile-menu-popup-open",
       "penpotId": "c0c3286f-e4bf-804c-8008-d5e5154d923f",
       "kind": "component",
       "state": "mobile-menu-popup-open",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar.with-brand",
+      "penpotName": "goodui.app-header.with-brand",
       "penpotId": "521fe58c-da62-80e2-8008-d33f66ae31ee",
       "kind": "component",
       "state": "with-brand",

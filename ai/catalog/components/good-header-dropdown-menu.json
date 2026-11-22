@@ -1,13 +1,13 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-topbar-dropdown-menu",
-  "className": "GoodTopbarDropdownMenuComponent",
+  "selector": "good-header-dropdown-menu",
+  "className": "GoodHeaderDropdownMenuComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodTopbarDropdownMenuComponent"
+    "symbol": "GoodHeaderDropdownMenuComponent"
   },
-  "source": "angular/projects/goodui/src/lib/topbar.ts",
+  "source": "angular/projects/goodui/src/lib/header.ts",
   "inputs": [
     {
       "name": "items",
@@ -15,7 +15,7 @@
       "required": false,
       "default": [],
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
@@ -24,7 +24,7 @@
       "required": false,
       "default": "Menu",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
@@ -33,7 +33,7 @@
       "required": false,
       "default": "",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     }
   ],
@@ -41,15 +41,15 @@
     {
       "name": "navigate",
       "type": "void",
-      "source": "angular/projects/goodui/src/lib/topbar.ts"
+      "source": "angular/projects/goodui/src/lib/header.ts"
     }
   ],
   "variants": {},
   "composition": {
     "projectedContent": [],
     "relatedSelectors": [
-      "good-topbar-dropdown-item",
-      "good-topbar-submenu"
+      "good-header-dropdown-item",
+      "good-header-submenu"
     ],
     "notes": null
   },
@@ -57,21 +57,21 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/components/topbar.md",
+  "usageGuide": "guides/components/header-menu.md",
   "usage": {
-    "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
+    "summary": "Use `good-header-menu` for responsive header navigation, including every nested submenu level. Place it inside `good-app-header` beside `good-header-actions`. The menu owns spacing, open state, panel placement, and keyboard behavior; consumers supply navigation data rather than positioning panels.",
     "examples": []
   },
   "penpot": [
     {
-      "penpotName": "goodui.topbar-dropdown-menu.default",
+      "penpotName": "goodui.header-dropdown-menu.default",
       "penpotId": "521fe58c-da62-80e2-8008-d3cb1bfe9de3",
       "kind": "component",
       "state": "default",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar-dropdown-menu.nested-open",
+      "penpotName": "goodui.header-dropdown-menu.nested-open",
       "penpotId": "521fe58c-da62-80e2-8008-d3cb41079b9e",
       "kind": "component",
       "state": "nested-open",

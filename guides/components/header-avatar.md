@@ -27,7 +27,7 @@ accountActions: readonly GoodMenuAction[] = [
 <good-header-avatar [user]="currentUser" [actions]="accountActions" />
 ```
 
-Pass the same values as `[user]` and `[avatarActions]` to `good-app-layout` when using the complete shell. The badge, icons, row details, submenu children, and sign-out action are optional. Route entries use Angular Router links; callback entries use buttons. Give submenu parents children instead of a route. `separatorBefore` adds a divider before a row. Sign-out is provided by the host application; the library does not assume an authentication system.
+Pass the same values as `[user]` and `[avatarActions]` to `good-app-shell` when using the complete shell. The badge, icons, row details, submenu children, and sign-out action are optional. Route entries use Angular Router links; callback entries use buttons. Give submenu parents children instead of a route. `separatorBefore` adds a divider before a row. Sign-out is provided by the host application; the library does not assume an authentication system.
 
 The menu itself owns identity and item layout, so consumers do not add spacing around rows. `GoodAvatarMenuItemComponent` is exported for composing account rows elsewhere. On desktop its submenu opens to the left of the avatar panel; on narrow screens it expands inside the panel.
 

@@ -1,6 +1,6 @@
 # Notifications
 
-`good-header-notification` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.
+`good-header-notification` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-shell` includes `good-notification-host` automatically. An application without AppShell can place one host near its root; use exactly one host per application.
 
 ```ts
 import { ApplicationConfig, Injectable, inject } from '@angular/core';

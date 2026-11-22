@@ -4,8 +4,8 @@ GoodUI is reviewed at 1440 × 900 px and 390 × 844 px. Its current layout rules
 
 - Sidebar: 280 px wide with a 1 px right border and 70 px brand area. Its menu scrolls independently from the page.
 - Brand artwork: the desktop sidebar places a 160 × 35 px wordmark 24 px from the left; the mobile drawer places a 145 × 32 px wordmark 32 px from the left; the closed mobile topbar places a 30 × 28 px symbol before its drawer trigger. Applications provide the images.
-- Topbar: 70 px on desktop, 60 px on mobile. It begins to the right of the sidebar on desktop and fills the viewport on mobile.
-- Topbar navigation: items share a dedicated container. At the mobile breakpoint, the menu moves into the drawer.
+- Header: 70 px on desktop, 60 px on mobile. It begins to the right of the sidebar on desktop and fills the viewport on mobile.
+- Header navigation: items share a dedicated container. At the mobile breakpoint, the menu moves into the drawer.
 - HeaderActions: four 36 px actions, spaced 10 px apart and right aligned, in this order: search, notifications, settings, avatar.
 - MainView `layout="page"`: 30 px horizontal and 20 px top padding on desktop; 24 px horizontal padding on mobile.
 - MainView `layout="page"` (default) lets the page scroll and aligns direct Sections to the centered reading width. `layout="fill"` removes outer padding and gives one primary child the remaining height so that component can scroll internally.

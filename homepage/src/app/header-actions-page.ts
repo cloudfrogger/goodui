@@ -18,15 +18,22 @@ export class HeaderActionsPageComponent {
     { id: 'tables', label: 'Tables', description: 'Records and pagination', route: '/components/tables' },
   ];
   notify(): void { this.center.publish({ title: 'Changes saved', message: 'Your preferences are up to date.', delivery: 'inbox', tone: 'success', persist: true }); }
-  readonly compositionCode = `<good-app-layout [sidebarSections]="navigation">
+  readonly compositionCode = `<good-app-shell>
+  <good-sidebar><good-sidebar-item label="Home" route="/" /></good-sidebar>
+  <good-app-header>
+    <good-header-menu mobileMode="popup"><good-header-menu-item label="Home" route="/" /></good-header-menu>
   <good-header-actions>
     <good-header-search [items]="searchItems" />
     <good-header-notification />
     <good-header-avatar [user]="currentUser" [actions]="accountActions" />
   </good-header-actions>
+  </good-app-header>
   <router-outlet />
-</good-app-layout>`;
-  readonly importsCode = `import {
+</good-app-shell>`;
+  readonly importsCode = `import { RouterOutlet } from '@angular/router';
+import {
+  GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent, GoodSidebarItemComponent,
+  GoodHeaderMenuComponent, GoodHeaderMenuItemComponent,
   GoodHeaderActionsComponent, GoodHeaderSearchComponent,
   GoodHeaderNotificationComponent, GoodHeaderAvatarComponent,
   GoodHeaderThemeToggleComponent,

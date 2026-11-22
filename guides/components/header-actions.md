@@ -3,20 +3,23 @@
 `good-header-actions` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.
 
 ```html
-<good-app-layout [sidebarSections]="navigation">
+<good-app-shell>
+  <good-sidebar><good-sidebar-item label="Home" route="/" /></good-sidebar>
+  <good-app-header>
   <good-header-actions>
     <good-header-search [items]="searchItems" />
     <good-header-notification />
     <good-header-themetoggle />
     <good-header-avatar [user]="currentUser" [actions]="accountActions" />
   </good-header-actions>
+  </good-app-header>
   <router-outlet />
-</good-app-layout>
+</good-app-shell>
 ```
 
-Import `GoodHeaderActionsComponent` and each child component in the standalone component that declares this template. The same composition works directly inside `good-topbar`. Remove or reorder child tags to choose the available actions and their order. Settings is available as `good-settings`. Projected content replaces all generated actions; configure each child directly. Shell inputs configure only the generated default menu.
+Import `GoodHeaderActionsComponent` and each child component in the standalone component that declares this template. The same composition works directly inside `good-app-header`. Remove or reorder child tags to choose the available actions and their order. Settings is available as `good-settings`. Projected content replaces all generated actions; configure each child directly. Shell action inputs provide defaults inherited by AppHeader; explicit HeaderActions children configure their own actions.
 
-With no projected content, the existing default composition remains Search, Notifications, Theme toggle, and Avatar menu. Its inputs remain `user`, `notifications`, `searchItems`, `settingsActions`, `avatarActions`, `showSearch`, `showNotifications`, `showThemeToggle`, `showSettings`, and `showAvatar`. All visibility inputs default to true except `showSettings`, which defaults to false. AppLayout and Topbar forward `showThemeToggle` and `showSettings`.
+With no projected content, the existing default composition remains Search, Notifications, Theme toggle, and Avatar menu. Its inputs remain `user`, `notifications`, `searchItems`, `settingsActions`, `avatarActions`, `showSearch`, `showNotifications`, `showThemeToggle`, `showSettings`, and `showAvatar`. All visibility inputs default to true except `showSettings`, which defaults to false. AppShell and AppHeader provide inherited defaults for `showThemeToggle` and `showSettings`.
 
 The homepage chapter `/components/header-actions` contains dedicated sections for each action. Component references: [Search](header-search.md), [Notification](header-notification.md), [Theme toggle](header-themetoggle.md), [Avatar](header-avatar.md), and [Settings](settings.md). Each owns its hit area and interaction. Search optionally uses a 320 × 40 px trigger with `[hotkey]="true"`; at 1200 px viewport width and below it returns to its 36 × 36 px icon. HeaderActions owns spacing; actions have no external margins. Use Angular conditional blocks inside the container to control visibility. An explicitly supplied conditional block owns the content even when no actions are currently visible.
 

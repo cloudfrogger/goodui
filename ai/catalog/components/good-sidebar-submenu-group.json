@@ -72,7 +72,7 @@
   },
   "usageGuide": "guides/components/sidebar.md",
   "usage": {
-    "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
+    "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
     "examples": []
   },
   "penpot": [

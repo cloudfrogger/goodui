@@ -125,15 +125,27 @@
       "penpotCount": 3
     },
     {
-      "selector": "good-app-layout",
-      "className": "GoodAppLayoutComponent",
-      "file": "components/good-app-layout.json",
+      "selector": "good-app-header",
+      "className": "GoodAppHeaderComponent",
+      "file": "components/good-app-header.json",
       "import": {
         "package": "@cloudfrogger/goodui",
-        "symbol": "GoodAppLayoutComponent"
+        "symbol": "GoodAppHeaderComponent"
       },
-      "usageGuide": "guides/layout/app-layout.md",
-      "summary": "`AppLayout` is the complete application shell. On desktop it positions a 280 px sidebar beside a 70 px topbar and the page area. On mobile it uses a 60 px topbar and a sidebar drawer with a scrim. The shell owns offsets, scroll areas, and stacking, so pages do not need layout margins for these regions.",
+      "usageGuide": "guides/components/app-header.md",
+      "summary": "Use `good-app-header` to compose the application's header. Declare `good-header-menu` and `good-header-actions` inside it, then place AppHeader directly inside `good-app-shell`. AppHeader owns header layout and the mobile sidebar trigger; the menu owns navigation and its mobile popup.",
+      "penpotCount": 7
+    },
+    {
+      "selector": "good-app-shell",
+      "className": "GoodAppShellComponent",
+      "file": "components/good-app-shell.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodAppShellComponent"
+      },
+      "usageGuide": "guides/layout/app-shell.md",
+      "summary": "`good-app-shell` arranges the sidebar, application header, routed page, and notification host. Declare `good-sidebar` and `good-app-header` as direct children; the shell does not accept navigation arrays or create menu content for you.",
       "penpotCount": 6
     },
     {
@@ -252,8 +264,8 @@
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodBrandIconComponent"
       },
-      "usageGuide": "guides/components/topbar.md",
-      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
+      "usageGuide": "guides/components/app-header.md",
+      "summary": "Use `good-app-header` to compose the application's header. Declare `good-header-menu` and `good-header-actions` inside it, then place AppHeader directly inside `good-app-shell`. AppHeader owns header layout and the mobile sidebar trigger; the menu owns navigation and its mobile popup.",
       "penpotCount": 1
     },
     {
@@ -629,6 +641,54 @@
       "penpotCount": 4
     },
     {
+      "selector": "good-header-dropdown-item",
+      "className": "GoodHeaderDropdownItemComponent",
+      "file": "components/good-header-dropdown-item.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderDropdownItemComponent"
+      },
+      "usageGuide": "guides/components/header-menu.md",
+      "summary": "Use `good-header-menu` for responsive header navigation, including every nested submenu level. Place it inside `good-app-header` beside `good-header-actions`. The menu owns spacing, open state, panel placement, and keyboard behavior; consumers supply navigation data rather than positioning panels.",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-header-dropdown-menu",
+      "className": "GoodHeaderDropdownMenuComponent",
+      "file": "components/good-header-dropdown-menu.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderDropdownMenuComponent"
+      },
+      "usageGuide": "guides/components/header-menu.md",
+      "summary": "Use `good-header-menu` for responsive header navigation, including every nested submenu level. Place it inside `good-app-header` beside `good-header-actions`. The menu owns spacing, open state, panel placement, and keyboard behavior; consumers supply navigation data rather than positioning panels.",
+      "penpotCount": 2
+    },
+    {
+      "selector": "good-header-menu",
+      "className": "GoodHeaderMenuComponent",
+      "file": "components/good-header-menu.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderMenuComponent"
+      },
+      "usageGuide": "guides/components/header-menu.md",
+      "summary": "Use `good-header-menu` for responsive header navigation, including every nested submenu level. Place it inside `good-app-header` beside `good-header-actions`. The menu owns spacing, open state, panel placement, and keyboard behavior; consumers supply navigation data rather than positioning panels.",
+      "penpotCount": 3
+    },
+    {
+      "selector": "good-header-menu-item",
+      "className": "GoodHeaderMenuItemComponent",
+      "file": "components/good-header-menu-item.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderMenuItemComponent"
+      },
+      "usageGuide": "guides/components/header-menu.md",
+      "summary": "Use `good-header-menu` for responsive header navigation, including every nested submenu level. Place it inside `good-app-header` beside `good-header-actions`. The menu owns spacing, open state, panel placement, and keyboard behavior; consumers supply navigation data rather than positioning panels.",
+      "penpotCount": 2
+    },
+    {
       "selector": "good-header-notification",
       "className": "GoodHeaderNotificationComponent",
       "file": "components/good-header-notification.json",
@@ -651,6 +711,18 @@
       "usageGuide": "guides/components/header-search.md",
       "summary": "`good-header-search` opens a modal navigation search from a round magnifier action or an optional wide trigger with a keyboard shortcut. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.",
       "penpotCount": 2
+    },
+    {
+      "selector": "good-header-submenu",
+      "className": "GoodHeaderSubmenuComponent",
+      "file": "components/good-header-submenu.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodHeaderSubmenuComponent"
+      },
+      "usageGuide": "guides/components/header-menu.md",
+      "summary": "Use `good-header-menu` for responsive header navigation, including every nested submenu level. Place it inside `good-app-header` beside `good-header-actions`. The menu owns spacing, open state, panel placement, and keyboard behavior; consumers supply navigation data rather than positioning panels.",
+      "penpotCount": 1
     },
     {
       "selector": "good-header-themetoggle",
@@ -985,7 +1057,7 @@
         "symbol": "GoodNotificationHostComponent"
       },
       "usageGuide": "guides/components/notifications.md",
-      "summary": "`good-header-notification` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-layout` includes `good-notification-host` automatically. An application without AppLayout can place one host near its root; use exactly one host per application.",
+      "summary": "`good-header-notification` is the topbar bell and side panel. `GoodNotificationCenter` is the injectable notification service; it sends [Alerts](alert.md) to a toast, a top-entry stack, or only the panel. Register GoodUI once in the root `app.config.ts` with `provideGoodUI()`. `good-app-shell` includes `good-notification-host` automatically. An application without AppShell can place one host near its root; use exactly one host per application.",
       "penpotCount": 1
     },
     {
@@ -1217,15 +1289,15 @@
       "penpotCount": 2
     },
     {
-      "selector": "good-sidebar-container",
-      "className": "GoodSidebarContainerComponent",
-      "file": "components/good-sidebar-container.json",
+      "selector": "good-sidebar",
+      "className": "GoodSidebarComponent",
+      "file": "components/good-sidebar.json",
       "import": {
         "package": "@cloudfrogger/goodui",
-        "symbol": "GoodSidebarContainerComponent"
+        "symbol": "GoodSidebarComponent"
       },
       "usageGuide": "guides/components/sidebar.md",
-      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
+      "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
       "penpotCount": 4
     },
     {
@@ -1237,7 +1309,7 @@
         "symbol": "GoodSidebarItemComponent"
       },
       "usageGuide": "guides/components/sidebar.md",
-      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
+      "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
       "penpotCount": 3
     },
     {
@@ -1249,7 +1321,7 @@
         "symbol": "GoodSidebarMenuContainerComponent"
       },
       "usageGuide": "guides/components/sidebar.md",
-      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
+      "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
       "penpotCount": 2
     },
     {
@@ -1261,7 +1333,7 @@
         "symbol": "GoodSidebarSubmenuGroupComponent"
       },
       "usageGuide": "guides/components/sidebar.md",
-      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
+      "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
       "penpotCount": 2
     },
     {
@@ -1273,7 +1345,7 @@
         "symbol": "GoodSidebarSubmenuItemComponent"
       },
       "usageGuide": "guides/components/sidebar.md",
-      "summary": "**Design IDs:** `goodui.sidebar-container`, `goodui.sidebar-menu-container`, `goodui.sidebar-item`, `goodui.sidebar-submenu-group`, `goodui.sidebar-submenu-item`.",
+      "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
       "penpotCount": 2
     },
     {
@@ -1430,78 +1502,6 @@
       },
       "usageGuide": "guides/components/timeline-step.md",
       "summary": "`good-timeline-step` defines one step inside `good-timeline`. It is a declarative configuration tag; the parent renders the visible marker, text, and connector.",
-      "penpotCount": 1
-    },
-    {
-      "selector": "good-topbar",
-      "className": "GoodTopbarComponent",
-      "file": "components/good-topbar.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodTopbarComponent"
-      },
-      "usageGuide": "guides/components/topbar.md",
-      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
-      "penpotCount": 7
-    },
-    {
-      "selector": "good-topbar-dropdown-item",
-      "className": "GoodTopbarDropdownItemComponent",
-      "file": "components/good-topbar-dropdown-item.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodTopbarDropdownItemComponent"
-      },
-      "usageGuide": "guides/components/topbar.md",
-      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
-      "penpotCount": 3
-    },
-    {
-      "selector": "good-topbar-dropdown-menu",
-      "className": "GoodTopbarDropdownMenuComponent",
-      "file": "components/good-topbar-dropdown-menu.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodTopbarDropdownMenuComponent"
-      },
-      "usageGuide": "guides/components/topbar.md",
-      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
-      "penpotCount": 2
-    },
-    {
-      "selector": "good-topbar-menu-container",
-      "className": "GoodTopbarMenuContainerComponent",
-      "file": "components/good-topbar-menu-container.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodTopbarMenuContainerComponent"
-      },
-      "usageGuide": "guides/components/topbar.md",
-      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
-      "penpotCount": 3
-    },
-    {
-      "selector": "good-topbar-menu-item",
-      "className": "GoodTopbarMenuItemComponent",
-      "file": "components/good-topbar-menu-item.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodTopbarMenuItemComponent"
-      },
-      "usageGuide": "guides/components/topbar.md",
-      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
-      "penpotCount": 2
-    },
-    {
-      "selector": "good-topbar-submenu",
-      "className": "GoodTopbarSubmenuComponent",
-      "file": "components/good-topbar-submenu.json",
-      "import": {
-        "package": "@cloudfrogger/goodui",
-        "symbol": "GoodTopbarSubmenuComponent"
-      },
-      "usageGuide": "guides/components/topbar.md",
-      "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
       "penpotCount": 1
     },
     {

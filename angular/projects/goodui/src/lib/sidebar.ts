@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, contentChildren, effect, forwardRef, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Signal, computed, contentChildren, effect, forwardRef, inject, input, signal } from '@angular/core';
+import { GoodNavigationState, GoodShellContext, GOOD_SHELL_DEFAULTS } from './shell-context';
 import { RouterLink } from '@angular/router';
 import { GoodIconComponent } from './icon';
-import { GoodNavItem, GoodSidebarSection, goodItemContainsRoute, goodRouteActive } from './models';
+import { GoodNavItem, goodItemContainsRoute, goodRouteActive } from './models';
 
 let nextPanelId = 0;
 
@@ -44,10 +45,12 @@ export class GoodSidebarSubmenuItemComponent {
   readonly active = input(false);
   readonly activeMatch = input<'exact' | 'prefix'>('prefix');
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
   readonly disabled = computed(() => this.item()?.disabled ?? false);
   readonly text = computed(() => this.item()?.label ?? this.label());
   readonly link = computed(() => this.item()?.route ?? this.route());
-  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.activeRoute(), this.item()?.activeMatch ?? this.activeMatch()));
+  readonly isActive: Signal<boolean> = computed(() => this.active() || goodRouteActive(this.link(), this.routeState(), this.item()?.activeMatch ?? this.activeMatch()));
 }
 
 @Component({
@@ -64,9 +67,9 @@ export class GoodSidebarSubmenuItemComponent {
       <div class="good-submenu-children" [id]="panelId" [hidden]="!isOpen()">
         @for (child of children(); track child.id) {
           @if (child.children?.length) {
-            <good-sidebar-submenu-group [item]="child" [activeRoute]="activeRoute()" [depth]="depth() + 1" />
+            <good-sidebar-submenu-group [item]="child" [activeRoute]="routeState()" [depth]="depth() + 1" />
           } @else {
-            <good-sidebar-submenu-item [item]="child" [activeRoute]="activeRoute()" />
+            <good-sidebar-submenu-item [item]="child" [activeRoute]="routeState()" />
           }
         }
         <ng-content />
@@ -82,11 +85,15 @@ export class GoodSidebarSubmenuGroupComponent {
   readonly label = input('');
   readonly expanded = input(false);
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
   readonly depth = input(1);
   readonly localOpen = signal<boolean | null>(null);
+  readonly projectedLinks = contentChildren(GoodSidebarSubmenuItemComponent, { descendants: true });
+  readonly projectedGroups = contentChildren(GoodSidebarSubmenuGroupComponent, { descendants: true });
   readonly children = computed(() => this.item()?.children ?? []);
   readonly text = computed(() => this.item()?.label ?? this.label());
-  readonly initiallyOpen = computed(() => this.expanded() || (!!this.item() && goodItemContainsRoute(this.item()!, this.activeRoute())));
+  readonly initiallyOpen: Signal<boolean> = computed(() => this.expanded() || this.projectedLinks().some(link => link.isActive()) || this.projectedGroups().some(group => group.initiallyOpen()) || (!!this.item() && goodItemContainsRoute(this.item()!, this.routeState())));
   readonly isOpen = computed(() => this.accordion
     ? this.accordion.isOpen(this.depth(), this.panelId, this.initiallyOpen())
     : (this.localOpen() ?? this.initiallyOpen()));
@@ -104,7 +111,7 @@ export class GoodSidebarSubmenuGroupComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (hasChildren()) {
-      <button type="button" class="good-sidebar-row" [class.good-is-active]="isActive()" [class.good-is-disabled]="item()?.disabled ?? false" [disabled]="item()?.disabled ?? false"
+      <button type="button" [class]="depth > 0 ? 'good-submenu-link' : 'good-sidebar-row'" [class.good-is-active]="isActive()" [class.good-is-disabled]="item()?.disabled ?? false" [disabled]="item()?.disabled ?? false"
         [attr.aria-expanded]="isOpen()" [attr.aria-controls]="panelId" (click)="toggle()">
         @if (iconName()) { <good-icon [name]="iconName()!" /> }
         <span class="good-menu-label">{{ text() }}</span>
@@ -114,16 +121,17 @@ export class GoodSidebarSubmenuGroupComponent {
       <div class="good-sidebar-children" [id]="panelId" [hidden]="!isOpen()">
         @for (child of children(); track child.id) {
           @if (child.children?.length) {
-            <good-sidebar-submenu-group [item]="child" [activeRoute]="activeRoute()" [depth]="1" />
+            <good-sidebar-submenu-group [item]="child" [activeRoute]="routeState()" [depth]="1" />
           } @else {
-            <good-sidebar-submenu-item [item]="child" [activeRoute]="activeRoute()" />
+            <good-sidebar-submenu-item [item]="child" [activeRoute]="routeState()" />
           }
         }
         <ng-content />
       </div>
     } @else if (link() && !item()?.disabled) {
-      <a class="good-sidebar-row" [class.good-is-active]="isActive()" [routerLink]="link()"
+      <a [class]="depth > 0 ? 'good-submenu-link' : 'good-sidebar-row'" [class.good-is-active]="isActive()" [routerLink]="link()"
         [attr.aria-current]="isActive() ? 'page' : null">
+        @if (depth > 0) { <span class="good-submenu-dot" aria-hidden="true"></span> }
         @if (iconName()) { <good-icon [name]="iconName()!" /> }
         <span class="good-menu-label">{{ text() }}</span>
         @if (badgeText()) { <span class="good-menu-badge">{{ badgeText() }}</span> }
@@ -135,7 +143,7 @@ export class GoodSidebarSubmenuGroupComponent {
       </span>
     }
   `,
-  host: { class: 'good-sidebar-item' },
+  host: { class: 'good-sidebar-item', '[attr.data-depth]': 'depth' },
 })
 export class GoodSidebarItemComponent {
   private readonly accordion = inject(GoodSidebarAccordion, { optional: true });
@@ -149,22 +157,28 @@ export class GoodSidebarItemComponent {
   readonly activeMatch = input<'exact' | 'prefix'>('prefix');
   readonly expanded = input(false);
   readonly activeRoute = input('');
-  readonly projectedGroups = contentChildren(GoodSidebarSubmenuGroupComponent);
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
+  private readonly parentItem = inject(GoodSidebarItemComponent, { optional: true, skipSelf: true });
+  readonly depth: number = (this.parentItem?.depth ?? -1) + 1;
+  readonly projectedItems = contentChildren(GoodSidebarItemComponent, { descendants: true });
+  readonly projectedGroups = contentChildren(GoodSidebarSubmenuGroupComponent, { descendants: true });
+  readonly projectedLinks = contentChildren(GoodSidebarSubmenuItemComponent, { descendants: true });
   readonly children = computed(() => this.item()?.children ?? []);
-  readonly hasChildren = computed(() => this.children().length > 0 || this.projectedGroups().length > 0);
+  readonly hasChildren = computed(() => this.children().length > 0 || this.projectedGroups().length > 0 || this.projectedItems().length > 0 || this.projectedLinks().length > 0);
   readonly text = computed(() => this.item()?.label ?? this.label());
   readonly iconName = computed(() => this.item()?.icon ?? this.icon());
   readonly link = computed(() => this.item()?.route ?? this.route());
   readonly badgeText = computed(() => this.item()?.badge ?? this.badge());
-  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.activeRoute(), this.item()?.activeMatch ?? this.activeMatch()));
-  readonly initiallyOpen = computed(() => this.expanded() || (!!this.item() && goodItemContainsRoute(this.item()!, this.activeRoute())));
+  readonly isActive: Signal<boolean> = computed(() => this.active() || goodRouteActive(this.link(), this.routeState(), this.item()?.activeMatch ?? this.activeMatch()) || this.projectedItems().some(item => item.isActive()) || this.projectedGroups().some(group => group.initiallyOpen()) || this.projectedLinks().some(link => link.isActive()));
+  readonly initiallyOpen: Signal<boolean> = computed(() => this.expanded() || this.isActive() || (!!this.item() && goodItemContainsRoute(this.item()!, this.routeState())));
   readonly localOpen = signal<boolean | null>(null);
   readonly isOpen = computed(() => this.accordion
-    ? this.accordion.isOpen(0, this.panelId, this.initiallyOpen())
+    ? this.accordion.isOpen(this.depth, this.panelId, this.initiallyOpen())
     : (this.localOpen() ?? this.initiallyOpen()));
 
   toggle(): void {
-    if (this.accordion) this.accordion.toggle(0, this.panelId, this.isOpen());
+    if (this.accordion) this.accordion.toggle(this.depth, this.panelId, this.isOpen());
     else this.localOpen.set(!this.isOpen());
   }
 }
@@ -179,7 +193,7 @@ export class GoodSidebarItemComponent {
     @if (heading()) { <h2 class="good-sidebar-heading">{{ heading() }}</h2> }
     <div class="good-sidebar-items">
       @for (item of items(); track item.id) {
-        <good-sidebar-item [item]="item" [activeRoute]="activeRoute()" />
+        <good-sidebar-item [item]="item" [activeRoute]="routeState()" />
       }
       <ng-content />
     </div>
@@ -191,42 +205,46 @@ export class GoodSidebarMenuContainerComponent {
   readonly heading = input('');
   readonly items = input<readonly GoodNavItem[]>([]);
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
 
   constructor() {
     effect(() => {
-      this.activeRoute();
+      this.routeState();
       this.accordion.reset();
     });
   }
 }
 
 @Component({
-  selector: 'good-sidebar-container',
-  standalone: true,
-  imports: [GoodSidebarMenuContainerComponent],
+  selector: 'good-sidebar', standalone: true,
+  providers: [GoodSidebarAccordion],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="good-sidebar-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
-      @if (brandLogoSrc()) {
-        <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
-        @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
+    <div class="good-sidebar-brand" [class.good-has-dark-logo]="!!branding().brandLogoDarkSrc">
+      @if (branding().brandLogoSrc) {
+        <img class="good-brand-logo good-brand-logo-light" [src]="branding().brandLogoSrc" [alt]="branding().brand" />
+        @if (branding().brandLogoDarkSrc) { <img class="good-brand-logo good-brand-logo-dark" [src]="branding().brandLogoDarkSrc" [alt]="branding().brand" /> }
       } @else {
-        <span class="good-brand-mark" aria-hidden="true"></span><span class="good-brand-name">{{ brand() }}</span>
+        <span class="good-brand-mark" aria-hidden="true"></span><span class="good-brand-name">{{ branding().brand }}</span>
       }
     </div>
-    <nav class="good-sidebar-scroll" aria-label="Hauptnavigation">
-      @for (section of sections(); track section.id) {
-        <good-sidebar-menu-container [heading]="section.heading ?? ''" [items]="section.items" [activeRoute]="activeRoute()" />
-      }
-      <ng-content />
-    </nav>
+    <nav class="good-sidebar-scroll" [attr.aria-label]="label()"><ng-content /></nav>
   `,
-  host: { class: 'good-sidebar-container' },
+  host: { class: 'good-sidebar' },
 })
-export class GoodSidebarContainerComponent {
-  readonly brand = input('GOODUI');
-  readonly brandLogoSrc = input('');
-  readonly brandLogoDarkSrc = input('');
-  readonly sections = input<readonly GoodSidebarSection[]>([]);
-  readonly activeRoute = input('');
+export class GoodSidebarComponent {
+  private readonly shell = inject(GoodShellContext, { optional: true });
+  private readonly navigation = inject(GoodNavigationState);
+  private readonly accordion = inject(GoodSidebarAccordion);
+  readonly brand = input<string>();
+  readonly brandLogoSrc = input<string>();
+  readonly brandLogoDarkSrc = input<string>();
+  readonly label = input('Primary navigation');
+  readonly branding = computed(() => ({
+    brand: this.brand() ?? this.shell?.options().brand ?? GOOD_SHELL_DEFAULTS.brand,
+    brandLogoSrc: this.brandLogoSrc() ?? this.shell?.options().brandLogoSrc ?? '',
+    brandLogoDarkSrc: this.brandLogoDarkSrc() ?? this.shell?.options().brandLogoDarkSrc ?? '',
+  }));
+  constructor() { effect(() => { this.navigation.activeRoute(); this.accordion.reset(); }); }
 }

@@ -37,7 +37,7 @@
       <good-heading-2>Render your first page</good-heading-2>
       <good-paragraph>Replace <code>src/app/app.ts</code> with a small page:</good-paragraph>
       <good-code-block [code]="helloCode" language="typescript" title="src/app/app.ts" />
-      <good-paragraph>The <code>--routing</code> option creates the router configuration required by <code>good-app-layout</code>. Start the app with <code>npm start</code> and open <code>http://localhost:4200/</code>. GoodUI's compiled CSS works without Tailwind in the consuming app.</good-paragraph>
+      <good-paragraph>The <code>--routing</code> option creates the router configuration required by <code>good-app-shell</code>. Start the app with <code>npm start</code> and open <code>http://localhost:4200/</code>. GoodUI's compiled CSS works without Tailwind in the consuming app.</good-paragraph>
 
       <good-heading-2>Add your application branding</good-heading-2>
       <good-paragraph>Pass your own wordmarks to the desktop sidebar and mobile drawer. Pass separate symbol assets for the mobile topbar. Each dark image is optional; the light image remains visible when it is omitted. Existing apps that only pass a wordmark continue to show it in the mobile topbar.</good-paragraph>
@@ -47,7 +47,7 @@
       <good-paragraph>Follow <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> to install the GoodUI skill and build your first screen with version-matched component references and step-by-step prompts.</good-paragraph>
 
       <good-heading-2>Add GoodUI to an existing Angular app</good-heading-2>
-      <good-paragraph>In your Angular 21.2 project, run <code>npm install @cloudfrogger/goodui</code>, add the same CSS import to its global stylesheet, and import <code>GoodAppLayoutComponent</code> and <code>GoodMainViewComponent</code> in the component that owns your page.</good-paragraph>
+      <good-paragraph>In your Angular 21.2 project, run <code>npm install @cloudfrogger/goodui</code>, add the same CSS import to its global stylesheet, and import the shell regions and page components used by your template, as shown above.</good-paragraph>
       <good-paragraph>Add <code>provideGoodUI()</code> to your existing root providers and keep <code>provideRouter(routes)</code>. Use the page example above as a starting point; existing routes can render inside the layout with <code>&lt;router-outlet /&gt;</code>.</good-paragraph>
       <good-paragraph>To run this repository's website and component examples:</good-paragraph>
       <good-code-block [code]="homepageCode" language="bash" title="terminal" />

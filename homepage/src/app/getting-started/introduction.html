@@ -4,11 +4,33 @@
       <good-heading-group>
         <good-eyebrow>Getting started</good-eyebrow>
         <good-heading-1>Introduction</good-heading-1>
-        <good-summary>GoodUI is a complete Angular UI toolkit for SaaS applications. It comes with a reusable Penpot
-          component library and is designed for AI-assisted design and implementation: component names, variants, and
-          Angular APIs have a clear mapping, so the same building blocks can move from design to code.</good-summary>
+        <good-summary>A component toolkit designed to help people and AI agents turn SaaS ideas into consistent interfaces.</good-summary>
       </good-heading-group>
-      <figure class="m-0 overflow-hidden rounded-[var(--good-radius-card)] border border-[var(--good-color-border)]">
+    </good-prose>
+  </good-section>
+
+  <good-section spacing="content">
+    <good-heading-2>Why I started GoodUI</good-heading-2>
+    <good-prose>
+      <good-paragraph>I started GoodUI because I was frustrated by how long it took to implement a SaaS application. I wanted to concentrate on the backend: the application logic, the data, and the problem the product was meant to solve. Frontend work kept taking a substantial share of my time. Building layouts, styling controls, and making everything work across screen sizes repeatedly slowed progress until projects stalled.</good-paragraph>
+      <good-paragraph>AI agents helped with implementation. I still spent too much time assembling interfaces, explaining visual decisions, and refining the result. That led to the idea behind GoodUI: a component library built for AI-assisted development, with building blocks an agent can understand and compose reliably.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section spacing="content">
+    <good-heading-2>A component kit built for AI</good-heading-2>
+    <good-prose>
+      <good-paragraph>I admire the polish of UI frameworks such as Fuse and Metronic. For my own workflow, I wanted an easy-to-use component kit that could carry that consistency into everyday application development. I wanted to describe the interface I needed and have an agent assemble it from familiar, documented parts.</good-paragraph>
+      <good-paragraph>GoodUI gives that kit a shared vocabulary: reusable Penpot components, matching Angular components, documented variants, and version-matched agent references. Component names, inputs, and composition rules connect the design to the implementation. The agent can look up the real API and use the same building blocks throughout the application.</good-paragraph>
+    </good-prose>
+  </good-section>
+
+  <good-section spacing="content">
+    <good-heading-2>See the toolkit in use</good-heading-2>
+    <good-prose>
+      <good-paragraph>The case studies show how the same components can form different applications: a mail workspace, server configuration, database management, and data visualizations, in light and dark themes.</good-paragraph>
+      <figure class="m-0 overflow-hidden rounded-[var(--good-radius-card)] border border-[var(--good-color-border)]"
+        style="width: 100%; max-width: var(--good-typography-flow-max-width); box-sizing: border-box;">
         <video class="block h-auto w-full" autoplay [muted]="true" loop playsinline
           width="1440" height="980" poster="/media/case-study-showcase.jpg"
           aria-label="GoodUI case studies showing a mail workspace, server configuration, database management, and charts in light and dark themes">
@@ -19,20 +41,23 @@
           <good-link route="/examples/case-studies/vpshoster">VPS hoster</good-link>, and
           <good-link route="/examples/case-studies/cloudhoster">Cloudhoster</good-link> case studies.</figcaption>
       </figure>
-      <good-paragraph>Layout flexibility is intentionally limited. GoodUI components own their spacing, structure, and composition
-        rules so different combinations produce a consistent interface with little custom layout work. The toolkit
-        includes an application shell, navigation, menus, controls, and page content components. The Angular package
-        uses Tailwind CSS 4; <code>homepage/</code> shows it in use.</good-paragraph>
+    </good-prose>
+  </good-section>
 
-      <good-heading-2>Sourcecode and Contributing</good-heading-2>
-      <good-paragraph>If you want to contribute to GoodUI, please check the repository for contribution guidelines and open issues.
-        The sourcecode is fully available on GitHub, and contributions are welcome.
-      </good-paragraph>
-      <good-paragraph><good-link href="https://github.com/cloudfrogger/goodui" target="_blank">GitHub ·
-          cloudfrogger/goodui</good-link></good-paragraph>
+  <good-section spacing="content">
+    <good-heading-2>Consistency is a design choice</good-heading-2>
+    <good-prose>
+      <good-paragraph>The goal is to build interfaces entirely with GoodUI's own components and have them work well on desktop and mobile. I am happy to give up some freedom in visual design in exchange for a coherent result and fewer decisions to revisit on every screen.</good-paragraph>
+      <good-paragraph>Components own their spacing, structure, and responsive behavior. Layout systems arrange them, typography establishes hierarchy, and shared tokens keep the appearance consistent. That lets developers and agents spend more time on the application's behavior and the backend that supports it.</good-paragraph>
+    </good-prose>
+  </good-section>
 
-      <good-heading-2>License</good-heading-2>
-      <good-paragraph>GoodUI is licensed under the MIT License. You can find the full license text in the repository. Feel free to open issues or submit pull requests to improve GoodUI.</good-paragraph>
+  <good-section spacing="content">
+    <good-heading-2>The goal: a complete application toolkit</good-heading-2>
+    <good-prose>
+      <good-paragraph>The ambition goes beyond individual controls. The toolkit should cover layout systems, fonts and typography, multilingual interfaces, calendars, charts and other data visualizations, animation, notifications, and clear error handling. These pieces should work together as one reusable system.</good-paragraph>
+      <good-paragraph>GoodUI already provides application shells, navigation, forms, tables, calendars, charts, notifications, and error pages. The library is growing toward the broader goal; the component chapters document what is available today and how to use it.</good-paragraph>
+      <good-paragraph>Start with <good-link route="/getting-started/developing">Developing</good-link> to set up an application, or follow <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> to give your agent the skill and component references. <good-link route="/getting-started/designing">Designing</good-link> explains how the Penpot library connects to the Angular implementation.</good-paragraph>
     </good-prose>
   </good-section>
 </good-main-view>

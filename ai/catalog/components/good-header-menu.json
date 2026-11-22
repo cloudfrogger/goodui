@@ -1,13 +1,13 @@
 {
   "$schema": "../component.schema.json",
-  "selector": "good-topbar-menu-container",
-  "className": "GoodTopbarMenuContainerComponent",
+  "selector": "good-header-menu",
+  "className": "GoodHeaderMenuComponent",
   "kind": "component",
   "import": {
     "package": "@cloudfrogger/goodui",
-    "symbol": "GoodTopbarMenuContainerComponent"
+    "symbol": "GoodHeaderMenuComponent"
   },
-  "source": "angular/projects/goodui/src/lib/topbar.ts",
+  "source": "angular/projects/goodui/src/lib/header.ts",
   "inputs": [
     {
       "name": "items",
@@ -15,7 +15,7 @@
       "required": false,
       "default": [],
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
@@ -24,7 +24,7 @@
       "required": false,
       "default": "",
       "allowedValues": null,
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     },
     {
@@ -36,7 +36,7 @@
         "hidden",
         "popup"
       ],
-      "source": "angular/projects/goodui/src/lib/topbar.ts",
+      "source": "angular/projects/goodui/src/lib/header.ts",
       "kind": "input"
     }
   ],
@@ -53,7 +53,7 @@
     ],
     "relatedSelectors": [
       "good-icon",
-      "good-topbar-menu-item"
+      "good-header-menu-item"
     ],
     "notes": "See source template and component guide for projection slots."
   },
@@ -61,28 +61,30 @@
     "controlValueAccessor": false,
     "validator": false
   },
-  "usageGuide": "guides/components/topbar.md",
+  "usageGuide": "guides/components/header-menu.md",
   "usage": {
-    "summary": "**Design IDs:** `goodui.topbar`, `goodui.brand-icon`, `goodui.topbar-menu-container`, `goodui.topbar-menu-item`, `goodui.topbar-dropdown-menu`, `goodui.topbar-dropdown-item`, `goodui.topbar-submenu`.",
-    "examples": []
+    "summary": "Use `good-header-menu` for responsive header navigation, including every nested submenu level. Place it inside `good-app-header` beside `good-header-actions`. The menu owns spacing, open state, panel placement, and keyboard behavior; consumers supply navigation data rather than positioning panels.",
+    "examples": [
+      "ai/examples/shell.html"
+    ]
   },
   "penpot": [
     {
-      "penpotName": "goodui.topbar-menu-container.default",
+      "penpotName": "goodui.header-menu.default",
       "penpotId": "521fe58c-da62-80e2-8008-d33f65433040",
       "kind": "component",
       "state": "default",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar-menu-container.mobile-icon",
+      "penpotName": "goodui.header-menu.mobile-icon",
       "penpotId": "c0c3286f-e4bf-804c-8008-d5e4dc8469c8",
       "kind": "component",
       "state": "mobile-icon",
       "owner": null
     },
     {
-      "penpotName": "goodui.topbar-menu-container.mobile-popup-open",
+      "penpotName": "goodui.header-menu.mobile-popup-open",
       "penpotId": "c0c3286f-e4bf-804c-8008-d5e4f1abf064",
       "kind": "component",
       "state": "mobile-popup-open",

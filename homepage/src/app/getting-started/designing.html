@@ -5,76 +5,64 @@
       <good-heading-group>
         <good-eyebrow>Getting started</good-eyebrow>
         <good-heading-1>Designing with GoodUI and an AI agent</good-heading-1>
-        <good-summary>Prompt your own screen in Penpot with the GoodUI design library. Then prompt Codex or Claude to implement that design with the GoodUI Angular library.</good-summary>
+        <good-summary>Build your interface with an AI agent and GoodUI. Start with a Penpot design, or give the agent wireframes or mockups to implement directly with the GoodUI Angular library.</good-summary>
       </good-heading-group>
-      <good-paragraph>This workflow has two creative steps: first describe the screen you want and review your linked Penpot design; then ask the agent to turn that exact design into a working Angular page. The GoodUI skill and catalog connect the design components to real Angular APIs.</good-paragraph>
-    </good-prose>
-    <good-inline-image src="/foundation/designing-workflow.svg" style="--good-typography-image-max-width: 100%"
-      alt="Two-step workflow: prompt a Penpot screen with linked GoodUI design components, then prompt its Angular implementation with the GoodUI Angular library"
-      caption="Prompt the Penpot design first. Use that design and the GoodUI Angular library for the implementation prompt." [previewable]="true" loading="eager" />
-  </good-section>
-
-  <good-section>
-    <good-heading-2>1. Prepare an Angular app and matching references</good-heading-2>
-    <good-prose>
-      <good-paragraph>Follow <good-link route="/getting-started/developing">Developing</good-link> to install <code>@cloudfrogger/goodui</code> and import its stylesheet. The npm package includes the GoodUI skill, catalog, guides, source references, and examples for that installed version. <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> walks through the complete agent setup.</good-paragraph>
-      <good-paragraph>Run these commands in your Angular app's root to install GoodUI and print the bundled reference version.</good-paragraph>
-    </good-prose>
-    <good-code-block [code]="prepareReferencesCode" language="bash" title="Prepare local GoodUI references" />
-    <good-prose>
-      <good-paragraph>The installed package and its reference manifest should show the same version. Older installations can use the full AI archive from their exact release or recorded source commit.</good-paragraph>
+      <good-paragraph>Designing in Penpot is optional. You can give your agent wireframes or mockups and ask it to build the interface directly with GoodUI. See <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> to get started with that approach.</good-paragraph>
+      <good-paragraph>Choose Penpot if you would like an editable UI design to explore ideas and plan your own extensions. You can also create that design later, after the application is already taking shape. The steps below explain the Penpot workflow if you choose it.</good-paragraph>
+      <good-inline-image src="/foundation/designing-penpot-hero.png" [fullWidth]="true"
+        alt="The GoodUI design system in the Penpot editor, showing the Shell page with linked desktop, mobile, and open navigation drawer designs"
+        caption="GoodUI in Penpot: linked shell components for desktop and mobile, organized in one design library."
+        [previewable]="true" loading="eager" />
+      <good-paragraph>For the Penpot workflow, start with a local project folder, the GoodUI skill, and an empty Penpot design file. Add the GoodUI library, connect your agent, and describe the screen you want. You can turn the design into an Angular application later.</good-paragraph>
     </good-prose>
   </good-section>
 
   <good-section>
-    <good-heading-2>2. Make the skill available to your agent</good-heading-2>
+    <good-heading-2>1. Install the GoodUI skill from GitHub</good-heading-2>
     <good-prose>
-      <good-paragraph>Run the command for the agent you use from your Angular app's root. Keeping the skill in the project makes the setup visible beside the app and easy to update with GoodUI. Start a new agent session after installation. The skill finds the references at <code>node_modules/@cloudfrogger/goodui/ai</code>.</good-paragraph>
-      <good-paragraph><strong>Codex:</strong> place the skill at <code>.agents/skills/goodui/SKILL.md</code>.</good-paragraph>
+      <good-paragraph>Create an empty local folder for your project and open it in your editor. Open a terminal in that folder and run these two commands to install the skill for Codex. You do not need Angular or npm to start designing.</good-paragraph>
     </good-prose>
-    <good-code-block [code]="codexSkillCode" language="bash" title="Install for Codex" />
+    <good-code-block [code]="installSkillCode" language="bash" title="Install the GoodUI skill" />
     <good-prose>
-      <good-paragraph><strong>Claude Code:</strong> place the same skill at <code>.claude/skills/goodui/SKILL.md</code>. Copy both if your team uses both agents.</good-paragraph>
-    </good-prose>
-    <good-code-block [code]="claudeSkillCode" language="bash" title="Install for Claude Code" />
-    <good-prose>
-      <good-paragraph>The skill checks the installed GoodUI version and loads the relevant catalog files, guides, and examples. See the <good-link href="https://github.com/cloudfrogger/goodui/blob/master/ai/README.md" target="_blank">AI package instructions</good-link> when updating the package.</good-paragraph>
+      <good-paragraph>For Claude Code, replace <code>.agents</code> with <code>.claude</code> in both commands. Start a new agent session in this folder after installation. The skill tells the agent how to use GoodUI and where to find its references on GitHub.</good-paragraph>
     </good-prose>
   </good-section>
 
   <good-section>
-    <good-heading-2>3. Make the GoodUI Penpot library available</good-heading-2>
+    <good-heading-2>2. Open a new Penpot project and add GoodUI</good-heading-2>
     <good-prose>
-      <good-paragraph>Get access to the live GoodUI Penpot file in your workspace. Publish or enable it as a library in your target design file, then choose its components from the asset library. Start with the application shell, then add linked cards, tables, fields, and actions. Select published variants and shared tokens for light and dark appearances; keep instances linked so later library updates remain traceable.</good-paragraph>
-      <good-paragraph>Connect your agent's Penpot MCP integration and give it access to the target file and GoodUI library. <strong>The skill does not connect Penpot by itself.</strong> Ask the agent to inspect the live components before editing and to report the component names it used. The bundled references document the Penpot-to-Angular mapping. If access is missing, establish the connection before asking for the design.</good-paragraph>
-      <good-paragraph>The <good-link href="https://github.com/cloudfrogger/goodui/blob/master/guides/contributing/design-to-code.md" target="_blank">design-to-code guide</good-link> records the published Penpot families and their Angular owners.</good-paragraph>
+      <good-paragraph>Open Penpot, create a project, and create a design file inside it. Give the file your application's name. This is where the agent will create your screens.</good-paragraph>
+      <good-paragraph>In the design file, open <strong>Assets</strong>, open the library manager, and add the shared <strong>GoodUI</strong> library. Its components are now available in your file. The GoodUI library file must be shared as a library in your Penpot team; if it is missing from the list, ask your workspace owner to give you access and share it first. Installing the skill does not install the Penpot library.</good-paragraph>
     </good-prose>
   </good-section>
 
   <good-section>
-    <good-heading-2>4. Prompt your own Penpot screen</good-heading-2>
+    <good-heading-2>3. Connect your agent to Penpot</good-heading-2>
     <good-prose>
-      <good-paragraph>Give the agent a user task, the information to show, and the interaction you expect. Ask it to compose your screen with linked GoodUI Penpot components and to show desktop and mobile states. Review this design before requesting code.</good-paragraph>
+      <good-paragraph>Set up the Penpot MCP connection in your agent if you have not already connected it. Keep your new design file open and give the agent its link and the GoodUI library file's link. The skill supplies the instructions; the MCP connection lets the agent inspect and edit your actual design.</good-paragraph>
+      <good-paragraph>Start with this short connection check. If something is missing, the agent should explain the required connection or access before creating a design.</good-paragraph>
     </good-prose>
-    <good-code-block [code]="designPrompt" title="Prompt 1 · Design the screen" />
+    <good-code-block [code]="connectionPrompt" title="Check the connection" />
   </good-section>
 
   <good-section>
-    <good-heading-2>5. Prompt the Angular implementation of that design</good-heading-2>
+    <good-heading-2>4. Describe your first screen</good-heading-2>
     <good-prose>
-      <good-paragraph>Give the agent the Penpot screen from step 4 and ask it to implement that screen in your Angular app, primarily with the GoodUI Angular library. The catalog supplies exact imports, selectors, inputs, outputs, and form behavior. GoodUI layout components provide the application frame and spacing.</good-paragraph>
+      <good-paragraph>Tell the agent what you want to build. Describe who will use the screen, what they should see, and what they should be able to do. For example, paste this prompt and adapt the content to your application.</good-paragraph>
     </good-prose>
-    <good-code-block [code]="implementationPrompt" title="Prompt 2 · Build the Angular page" />
+    <good-code-block [code]="designPrompt" title="Create your first GoodUI design" />
+    <good-prose>
+      <good-paragraph>Review the result in Penpot and ask for small changes in plain language: “Make the main action easier to find,” “Add an empty state,” or “Show me the mobile version.” The agent should reuse linked GoodUI components and their variants so your screens stay consistent.</good-paragraph>
+    </good-prose>
   </good-section>
 
   <good-section>
-    <good-heading-2>6. Review the rendered result and refine it</good-heading-2>
+    <good-heading-2>5. Turn the design into an application when you are ready</good-heading-2>
     <good-prose>
-      <good-paragraph>Open the page and check the actual content, not just a successful build. Look at mobile and desktop widths, light and dark themes, keyboard focus, and the main interaction. Give the agent one concrete correction at a time. Reusing a small set of GoodUI components and local references keeps each iteration focused and avoids repeatedly sending the entire design system to the agent.</good-paragraph>
-    </good-prose>
-    <good-code-block [code]="refinePrompt" title="Prompt 3 · Improve the rendered page" />
-    <good-prose>
-      <good-paragraph>Repeat this screen-by-screen. The <good-link route="/examples/user-registration">registration example</good-link> shows how a complete form uses the same GoodUI controls, layout, validation, and displayed source code.</good-paragraph>
+      <good-paragraph>Your Penpot design is the starting point for implementation. Follow <good-link route="/getting-started/developing">Developing</good-link> to install the GoodUI Angular package, then use <good-link route="/getting-started/developing-with-ai">Developing with AI</good-link> to have the agent implement your screen with the matching components.</good-paragraph>
+      <good-inline-image src="/foundation/designing-workflow.svg" [fullWidth]="true"
+        alt="Two-step workflow: prompt a Penpot screen with linked GoodUI design components, then prompt its Angular implementation with the GoodUI Angular library"
+        caption="Design in Penpot first. Turn the reviewed design into an Angular application afterward." [previewable]="true" />
     </good-prose>
   </good-section>
 </good-main-view>

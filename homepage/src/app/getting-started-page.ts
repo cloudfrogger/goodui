@@ -24,38 +24,21 @@ export class DesigningPageComponent {
     { label: 'Designing' },
   ];
 
-  readonly prepareReferencesCode = `npm install @cloudfrogger/goodui
-node -p "require('./node_modules/@cloudfrogger/goodui/ai/manifest.json').version"`;
+  readonly installSkillCode = `mkdir -p .agents/skills/goodui
+curl -fL https://raw.githubusercontent.com/cloudfrogger/goodui/master/ai/skill/goodui/SKILL.md -o .agents/skills/goodui/SKILL.md`;
 
-  readonly codexSkillCode = 'node node_modules/@cloudfrogger/goodui/ai/install.mjs --agent codex';
+  readonly connectionPrompt = `Use the GoodUI skill. Check that you can access my open Penpot design file
+and the shared GoodUI library through Penpot MCP. Inspect the available components.
+If a connection or permission is missing, tell me what I need to set up.`;
 
-  readonly claudeSkillCode = 'node node_modules/@cloudfrogger/goodui/ai/install.mjs --agent claude';
+  readonly designPrompt = `Use the GoodUI skill and the shared GoodUI library in Penpot.
+Create a people directory for a small team in my open design file.
+I need a search field, a table of people, and a clear action to add a person.
+Show desktop and mobile versions with a useful empty state.
 
-  readonly designPrompt = `Use the GoodUI skill in this project. The matching references are bundled in node_modules/@cloudfrogger/goodui/ai.
-Create my Penpot design for a people directory for a small team: one overview page with search, a table of people,
-and a clear action to add a person. Keep the interface calm, readable, and useful at desktop
-and mobile widths, with a clear heading, useful empty state, and balanced spacing. Use mainly
-linked components and documented variants from the GoodUI Penpot library.
-
-Inspect the live library through Penpot MCP before editing. Compose the screen in my Penpot
-file, including desktop and mobile states. Tell me which library components and variants you
-used and show the finished design. Do not write the Angular page yet. If Penpot access is
-missing, tell me what connection or file access is needed; do not invent library IDs.`;
-
-  readonly implementationPrompt = `Use the GoodUI skill and the installed package's ai/catalog. Implement the people directory from the
-Penpot design we just created in this Angular application. Use the installed GoodUI Angular
-library and its CSS: good-app-layout for the shell, good-main-view for the page, and GoodUI
-table, input, card, and button components where they fit. Map the linked Penpot components
-to their Angular selectors using the catalog. Check actual imports, inputs, and outputs.
-Add application CSS only for a need the library cannot express; explain any such gap.
-
-Build the app, then inspect the page at mobile and desktop sizes in light and dark themes.
-Check search, sorting, focus, and keyboard use. Show the finished result and list any
-remaining gaps. Work on this one page before adding more screens.`;
-
-  readonly refinePrompt = `Compare the rendered people directory with my Penpot design. Improve the visual hierarchy and spacing using
-GoodUI components and tokens, keep the table readable on a narrow screen, and fix any
-interaction or accessibility issue you can reproduce. Rebuild and show what changed.`;
+Inspect the live GoodUI library first and use linked components and their variants.
+Show me the finished design and tell me which GoodUI components you used.
+Create only the Penpot design for now.`;
 }
 
 @Component({
@@ -89,42 +72,53 @@ export const appConfig: ApplicationConfig = {
 
   readonly providerOptionsCode = `provideGoodUI({ notifications: { persistToHistory: false } })`;
 
-  readonly brandCode = `<good-app-layout
+  readonly brandCode = `<good-app-shell
   brand="Your product"
   brandLogoSrc="/brand/wordmark-light.svg"
   brandLogoDarkSrc="/brand/wordmark-dark.svg"
   brandMarkSrc="/brand/symbol-light.svg"
   brandMarkDarkSrc="/brand/symbol-dark.svg">
+  <good-sidebar><good-sidebar-item label="Home" route="/" /></good-sidebar>
+  <good-app-header><good-header-menu mobileMode="popup"><good-header-menu-item label="Home" route="/" /></good-header-menu></good-app-header>
   <router-outlet />
-</good-app-layout>`;
+</good-app-shell>`;
 
   readonly helloCode = `import { Component } from '@angular/core';
-import { GoodAppLayoutComponent, GoodMainViewComponent, type GoodSidebarSection, GoodHeading1Component } from '@cloudfrogger/goodui';
+import {
+  GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent, GoodSidebarItemComponent,
+  GoodHeaderMenuComponent, GoodHeaderMenuItemComponent, GoodMainViewComponent, GoodHeading1Component,
+} from '@cloudfrogger/goodui';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [GoodAppLayoutComponent, GoodMainViewComponent, GoodHeading1Component],
+  selector: 'app-root', standalone: true,
+  imports: [GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent, GoodSidebarItemComponent,
+    GoodHeaderMenuComponent, GoodHeaderMenuItemComponent, GoodMainViewComponent, GoodHeading1Component],
   template: \`
-    <good-app-layout brand="HELLO" [sidebarSections]="navigation">
+    <good-app-shell brand="HELLO">
+      <good-sidebar><good-sidebar-item label="Home" icon="home" route="/" /></good-sidebar>
+      <good-app-header>
+        <good-header-menu mobileMode="popup"><good-header-menu-item label="Home" route="/" /></good-header-menu>
+      </good-app-header>
       <good-main-view>
-  <good-heading-1>Hello, GoodUI!</good-heading-1>
+        <good-heading-1>Hello, GoodUI!</good-heading-1>
         <p>Your first page is ready.</p>
       </good-main-view>
-    </good-app-layout>
+    </good-app-shell>
   \`,
 })
-export class App {
-  readonly navigation: readonly GoodSidebarSection[] = [
-    { id: 'main', heading: 'MAIN', items: [
-      { id: 'home', label: 'Home', icon: 'home', route: '/' },
-    ] },
-  ];
-}`;
+export class App {}`;
 
   readonly homepageCode = `npm run setup
 npm run start:homepage`;
 }
+
+@Component({
+  selector: 'app-contributing-page', standalone: true,
+  imports: [GoodMainViewComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './getting-started/contributing.html',
+})
+export class ContributingPageComponent {}
 
 @Component({
   selector: 'app-license-page',

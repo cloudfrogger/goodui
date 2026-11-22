@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, OnDestroy, computed, contentChild, forwardRef, inject, input, output, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, OnDestroy, computed, forwardRef, inject, input, output, signal, viewChild } from '@angular/core';
+import { GoodNavigationState, GoodShellContext, GOOD_SHELL_DEFAULTS } from './shell-context';
 import { RouterLink } from '@angular/router';
 import { GoodHeaderActionsComponent } from './actions';
 import { GoodIconComponent } from './icon';
@@ -30,7 +31,7 @@ export class GoodBrandIconComponent {
 }
 
 @Component({
-  selector: 'good-topbar-dropdown-item',
+  selector: 'good-header-dropdown-item',
   standalone: true,
   imports: [RouterLink, GoodIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -55,49 +56,53 @@ export class GoodBrandIconComponent {
       </span>
     }
   `,
-  host: { class: 'good-topbar-dropdown-item' },
+  host: { class: 'good-header-dropdown-item' },
 })
-export class GoodTopbarDropdownItemComponent {
+export class GoodHeaderDropdownItemComponent {
   readonly item = input.required<GoodTopbarItem>();
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
   readonly expanded = input(false);
   readonly panelId = input<string | null>(null);
   readonly hover = output<void>();
   readonly focused = output<void>();
   readonly toggle = output<void>();
   readonly navigate = output<void>();
-  readonly isActive = computed(() => goodTopbarItemContainsRoute(this.item(), this.activeRoute()));
+  readonly isActive = computed(() => goodTopbarItemContainsRoute(this.item(), this.routeState()));
 }
 
 @Component({
-  selector: 'good-topbar-dropdown-menu',
+  selector: 'good-header-dropdown-menu',
   standalone: true,
-  imports: [GoodTopbarDropdownItemComponent, forwardRef(() => GoodTopbarSubmenuComponent)],
+  imports: [GoodHeaderDropdownItemComponent, forwardRef(() => GoodHeaderSubmenuComponent)],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="good-dropdown-panel" role="group" [attr.aria-label]="label()">
       @for (item of items(); track item.id) {
         <div class="good-dropdown-entry" [class.good-dropdown-separated]="item.separatorBefore">
-          <good-topbar-dropdown-item [item]="item" [activeRoute]="activeRoute()"
+          <good-header-dropdown-item [item]="item" [activeRoute]="routeState()"
             [expanded]="openChildId() === item.id" [panelId]="item.children?.length ? panelId(item) : null"
             (hover)="onHover(item)" (focused)="onFocus(item)" (toggle)="onToggle(item)" (navigate)="onNavigate()" />
           @if (item.children?.length && openChildId() === item.id) {
-            <good-topbar-submenu [id]="panelId(item)" [items]="item.children!" [activeRoute]="activeRoute()"
+            <good-header-submenu [id]="panelId(item)" [items]="item.children!" [activeRoute]="routeState()"
               [label]="item.label" (navigate)="onNavigate()" />
           }
         </div>
       }
     </div>
   `,
-  host: { class: 'good-topbar-dropdown-menu' },
+  host: { class: 'good-header-dropdown-menu' },
 })
-export class GoodTopbarDropdownMenuComponent {
+export class GoodHeaderDropdownMenuComponent {
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly label = input('Menu');
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
   readonly navigate = output<void>();
   readonly openChildId = signal<string | null>(null);
-  readonly submenu = viewChild(GoodTopbarSubmenuComponent);
+  readonly submenu = viewChild(GoodHeaderSubmenuComponent);
   private readonly uid = `good-dropdown-${++nextDropdownId}`;
   private readonly element: ElementRef<HTMLElement> = inject(ElementRef);
   private openedByClick = false;
@@ -139,7 +144,7 @@ export class GoodTopbarDropdownMenuComponent {
   closeDeepest(): boolean {
     if (this.submenu()?.menu()?.closeDeepest()) return true;
     if (!this.openChildId()) return false;
-    const trigger = this.element.nativeElement.querySelector<HTMLElement>(':scope > .good-dropdown-panel > .good-dropdown-entry > good-topbar-dropdown-item > button[aria-expanded="true"]');
+    const trigger = this.element.nativeElement.querySelector<HTMLElement>(':scope > .good-dropdown-panel > .good-dropdown-entry > good-header-dropdown-item > button[aria-expanded="true"]');
     this.openChildId.set(null);
     this.openedByClick = false;
     this.suppressFocusOpen = true;
@@ -156,20 +161,22 @@ export class GoodTopbarDropdownMenuComponent {
 }
 
 @Component({
-  selector: 'good-topbar-submenu',
+  selector: 'good-header-submenu',
   standalone: true,
-  imports: [GoodTopbarDropdownMenuComponent],
+  imports: [GoodHeaderDropdownMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<good-topbar-dropdown-menu [items]="items()" [label]="label()" [activeRoute]="activeRoute()" (navigate)="navigate.emit()" />`,
-  host: { class: 'good-topbar-submenu', '[class.good-submenu-flipped]': 'flipped()' },
+  template: `<good-header-dropdown-menu [items]="items()" [label]="label()" [activeRoute]="routeState()" (navigate)="navigate.emit()" />`,
+  host: { class: 'good-header-submenu', '[class.good-submenu-flipped]': 'flipped()' },
 })
-export class GoodTopbarSubmenuComponent {
+export class GoodHeaderSubmenuComponent {
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly label = input('Submenu');
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
   readonly navigate = output<void>();
   readonly flipped = signal(false);
-  readonly menu = viewChild(GoodTopbarDropdownMenuComponent);
+  readonly menu = viewChild(GoodHeaderDropdownMenuComponent);
   private readonly element: ElementRef<HTMLElement> = inject(ElementRef);
 
   constructor() { setTimeout(() => this.updatePlacement()); }
@@ -185,9 +192,9 @@ export class GoodTopbarSubmenuComponent {
 }
 
 @Component({
-  selector: 'good-topbar-menu-item',
+  selector: 'good-header-menu-item',
   standalone: true,
-  imports: [RouterLink, GoodIconComponent, GoodTopbarDropdownMenuComponent],
+  imports: [RouterLink, GoodIconComponent, GoodHeaderDropdownMenuComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (children().length) {
@@ -197,27 +204,29 @@ export class GoodTopbarSubmenuComponent {
         {{ text() }}<good-icon name="chevron-down" />
       </button>
       @if (open()) {
-        <good-topbar-dropdown-menu [id]="panelId" [items]="children()" [label]="text()" [activeRoute]="activeRoute()" (navigate)="closeMenu()" />
+        <good-header-dropdown-menu [id]="panelId" [items]="children()" [label]="text()" [activeRoute]="routeState()" (navigate)="closeMenu()" />
       }
     } @else if (link()) {
       <a class="good-topbar-link" [class.good-is-active]="isActive()" [routerLink]="link()"
         [attr.aria-current]="isActive() ? 'page' : null">{{ text() }}</a>
     } @else { <span class="good-topbar-link">{{ text() }}</span> }
   `,
-  host: { class: 'good-topbar-menu-item' },
+  host: { class: 'good-header-menu-item' },
 })
-export class GoodTopbarMenuItemComponent implements OnDestroy {
+export class GoodHeaderMenuItemComponent implements OnDestroy {
   readonly item = input<GoodTopbarItem | null>(null);
   readonly label = input('');
   readonly route = input<string | undefined>();
   readonly active = input(false);
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
   readonly text = computed(() => this.item()?.label ?? this.label());
   readonly link = computed(() => this.item()?.route ?? this.route());
   readonly children = computed(() => this.item()?.children ?? []);
-  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.activeRoute()) || (this.item() ? goodTopbarItemContainsRoute(this.item()!, this.activeRoute()) : false));
+  readonly isActive = computed(() => this.active() || goodRouteActive(this.link(), this.routeState()) || (this.item() ? goodTopbarItemContainsRoute(this.item()!, this.routeState()) : false));
   readonly open = signal(false);
-  readonly dropdown = viewChild(GoodTopbarDropdownMenuComponent);
+  readonly dropdown = viewChild(GoodHeaderDropdownMenuComponent);
   readonly panelId = `good-topbar-panel-${++nextDropdownId}`;
   private readonly element: ElementRef<HTMLElement> = inject(ElementRef);
   private openedByClick = false;
@@ -295,26 +304,28 @@ export class GoodTopbarMenuItemComponent implements OnDestroy {
 }
 
 @Component({
-  selector: 'good-topbar-menu-container',
+  selector: 'good-header-menu',
   standalone: true,
-  imports: [GoodIconComponent, GoodTopbarMenuItemComponent],
+  imports: [GoodIconComponent, GoodHeaderMenuItemComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <button #mobileTrigger type="button" class="good-topbar-mobile-trigger good-action-button"
-      [attr.aria-label]="mobileOpen() ? 'Close topbar menu' : 'Open topbar menu'"
+      [attr.aria-label]="mobileOpen() ? 'Close header menu' : 'Open header menu'"
       aria-haspopup="true" [attr.aria-expanded]="mobileOpen()" [attr.aria-controls]="mobilePanelId"
       (click)="toggleMobileMenu()"><good-icon name="grid" /></button>
-    <div class="good-topbar-menu-items" [id]="mobilePanelId" [class.good-topbar-menu-popup-open]="mobileOpen()"
-      [attr.role]="mobileMode() === 'popup' ? 'navigation' : null" [attr.aria-label]="mobileMode() === 'popup' ? 'Topbar menu' : null">
-      @for (item of items(); track item.id) { <good-topbar-menu-item [item]="item" [activeRoute]="activeRoute()" /> }
+    <div class="good-header-menu-items" [id]="mobilePanelId" [class.good-header-menu-popup-open]="mobileOpen()"
+      [attr.role]="mobileMode() === 'popup' ? 'navigation' : null" [attr.aria-label]="mobileMode() === 'popup' ? 'Header menu' : null">
+      @for (item of items(); track item.id) { <good-header-menu-item [item]="item" [activeRoute]="routeState()" /> }
       <ng-content />
     </div>
   `,
-  host: { class: 'good-topbar-menu-container', '[attr.data-mobile-mode]': 'mobileMode()' },
+  host: { class: 'good-header-menu', '[attr.data-mobile-mode]': 'mobileMode()' },
 })
-export class GoodTopbarMenuContainerComponent {
+export class GoodHeaderMenuComponent {
   readonly items = input<readonly GoodTopbarItem[]>([]);
   readonly activeRoute = input('');
+  private readonly navigation = inject(GoodNavigationState);
+  readonly routeState = computed(() => this.activeRoute() || this.navigation.activeRoute());
   readonly mobileMode = input<GoodTopbarMobileMenuMode>('hidden');
   readonly mobileOpen = signal(false);
   readonly mobilePanelId = `good-topbar-mobile-panel-${++nextDropdownId}`;
@@ -350,53 +361,69 @@ export class GoodTopbarMenuContainerComponent {
 }
 
 @Component({
-  selector: 'good-topbar',
+  selector: 'good-app-header',
   standalone: true,
-  imports: [GoodIconComponent, GoodBrandIconComponent, GoodTopbarMenuContainerComponent, GoodHeaderActionsComponent],
+  imports: [GoodIconComponent, GoodBrandIconComponent, GoodHeaderActionsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="good-topbar-left">
-      <button type="button" class="good-mobile-menu-button good-action-button" aria-label="Open sidebar" (click)="menuToggle.emit()"><good-icon name="menu" /></button>
-      @if (showMobileBrand()) {
-        @if (brandMarkSrc()) {
-          <good-brand-icon class="good-mobile-brand-icon" [src]="brandMarkSrc()" [darkSrc]="brandMarkDarkSrc()" [label]="brand()" />
+      @if (!shell || shell.hasSidebar()) { <button type="button" class="good-mobile-menu-button good-action-button" aria-label="Open sidebar" (click)="openSidebar()"><good-icon name="menu" /></button> }
+      @if (config().showMobileBrand) {
+        @if (config().brandMarkSrc) {
+          <good-brand-icon class="good-mobile-brand-icon" [src]="config().brandMarkSrc" [darkSrc]="config().brandMarkDarkSrc" [label]="config().brand" />
         } @else {
-          <span class="good-mobile-brand" [class.good-has-dark-logo]="!!brandLogoDarkSrc()">
-            @if (brandLogoSrc()) {
-              <img class="good-brand-logo good-brand-logo-light" [src]="brandLogoSrc()" [alt]="brand()" />
-              @if (brandLogoDarkSrc()) { <img class="good-brand-logo good-brand-logo-dark" [src]="brandLogoDarkSrc()" [alt]="brand()" /> }
-            } @else { {{ brand() }} }
+          <span class="good-mobile-brand" [class.good-has-dark-logo]="!!config().brandLogoDarkSrc">
+            @if (config().brandLogoSrc) {
+              <img class="good-brand-logo good-brand-logo-light" [src]="config().brandLogoSrc" [alt]="config().brand" />
+              @if (config().brandLogoDarkSrc) { <img class="good-brand-logo good-brand-logo-dark" [src]="config().brandLogoDarkSrc" [alt]="config().brand" /> }
+            } @else { {{ config().brand }} }
           </span>
         }
       }
-      @if (showBrandIcon()) { <good-brand-icon class="good-desktop-brand-icon" [src]="brandMarkSrc()" [darkSrc]="brandMarkDarkSrc()" [label]="brand()" /> }
-      @if (!projectedMenu()) { <good-topbar-menu-container [items]="items()" [activeRoute]="activeRoute()" [mobileMode]="mobileMenuMode()" /> }
-      <ng-content select="good-topbar-menu-container" />
+      @if (config().showBrandIcon) { <good-brand-icon class="good-desktop-brand-icon" [src]="config().brandMarkSrc" [darkSrc]="config().brandMarkDarkSrc" [label]="config().brand" /> }
+      <ng-content select="good-header-menu" />
     </div>
     <ng-content select="good-header-actions">
-      <good-header-actions [user]="user()" [notifications]="notifications()" [searchItems]="searchItems()" [settingsActions]="settingsActions()" [avatarActions]="avatarActions()" [showThemeToggle]="showThemeToggle()" [showSettings]="showSettings()" />
+      <good-header-actions [user]="config().user" [notifications]="config().notifications" [searchItems]="config().searchItems" [settingsActions]="config().settingsActions" [avatarActions]="config().avatarActions" [showThemeToggle]="config().showThemeToggle" [showSettings]="config().showSettings" />
     </ng-content>
   `,
-  host: { class: 'good-topbar', '[attr.data-mobile-menu]': 'mobileMenuMode()' },
+  host: { class: 'good-app-header' },
 })
-export class GoodTopbarComponent {
-  readonly brand = input('GOODUI');
-  readonly brandLogoSrc = input('');
-  readonly brandLogoDarkSrc = input('');
-  readonly brandMarkSrc = input('');
-  readonly brandMarkDarkSrc = input('');
-  readonly showBrandIcon = input(false);
-  readonly showMobileBrand = input(true);
-  readonly items = input<readonly GoodTopbarItem[]>([]);
-  readonly activeRoute = input('');
-  readonly mobileMenuMode = input<GoodTopbarMobileMenuMode>('hidden');
-  readonly user = input<GoodUser | null>(null);
-  readonly notifications = input<readonly GoodNotification[]>([]);
-  readonly searchItems = input<readonly GoodSearchItem[]>([]);
-  readonly settingsActions = input<readonly GoodMenuAction[]>([]);
-  readonly showThemeToggle = input(true);
-  readonly showSettings = input(false);
-  readonly avatarActions = input<readonly GoodMenuAction[]>([]);
+export class GoodAppHeaderComponent {
+  readonly shell = inject(GoodShellContext, { optional: true });
+  readonly brand = input<string>();
+  readonly brandLogoSrc = input<string>();
+  readonly brandLogoDarkSrc = input<string>();
+  readonly brandMarkSrc = input<string>();
+  readonly brandMarkDarkSrc = input<string>();
+  readonly showBrandIcon = input<boolean>();
+  readonly showMobileBrand = input<boolean>();
+  readonly user = input<GoodUser | null>();
+  readonly notifications = input<readonly GoodNotification[]>();
+  readonly searchItems = input<readonly GoodSearchItem[]>();
+  readonly settingsActions = input<readonly GoodMenuAction[]>();
+  readonly showThemeToggle = input<boolean>();
+  readonly showSettings = input<boolean>();
+  readonly avatarActions = input<readonly GoodMenuAction[]>();
   readonly menuToggle = output<void>();
-  readonly projectedMenu = contentChild(GoodTopbarMenuContainerComponent);
+  readonly config = computed(() => {
+    const inherited = this.shell?.options() ?? GOOD_SHELL_DEFAULTS;
+    return {
+      brand: this.brand() ?? inherited.brand,
+      brandLogoSrc: this.brandLogoSrc() ?? inherited.brandLogoSrc,
+      brandLogoDarkSrc: this.brandLogoDarkSrc() ?? inherited.brandLogoDarkSrc,
+      brandMarkSrc: this.brandMarkSrc() ?? inherited.brandMarkSrc,
+      brandMarkDarkSrc: this.brandMarkDarkSrc() ?? inherited.brandMarkDarkSrc,
+      showBrandIcon: this.showBrandIcon() ?? inherited.showBrandIcon,
+      showMobileBrand: this.showMobileBrand() ?? inherited.showMobileBrand,
+      user: this.user() === undefined ? inherited.user : this.user()!,
+      notifications: this.notifications() ?? inherited.notifications,
+      searchItems: this.searchItems() ?? inherited.searchItems,
+      settingsActions: this.settingsActions() ?? inherited.settingsActions,
+      showThemeToggle: this.showThemeToggle() ?? inherited.showThemeToggle,
+      showSettings: this.showSettings() ?? inherited.showSettings,
+      avatarActions: this.avatarActions() ?? inherited.avatarActions,
+    };
+  });
+  openSidebar(): void { this.shell?.sidebarOpen.set(true); this.menuToggle.emit(); }
 }

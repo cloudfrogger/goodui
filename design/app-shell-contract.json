@@ -1,0 +1,118 @@
+{
+  "penpotFileId": "0f428ff0-c8e2-8078-8008-fb55d9570459",
+  "regions": [
+    {
+      "family": "goodui.app-shell",
+      "selector": "good-app-shell",
+      "source": "angular/projects/goodui/src/lib/app-shell.ts",
+      "slots": [
+        "good-sidebar",
+        "good-app-header",
+        "*"
+      ],
+      "states": [
+        {
+          "name": "goodui.app-shell.desktop",
+          "id": "521fe58c-da62-80e2-8008-d33f7af79de1"
+        },
+        {
+          "name": "goodui.app-shell.help-submenu-open",
+          "id": "521fe58c-da62-80e2-8008-d3cb84e00368"
+        },
+        {
+          "name": "goodui.app-shell.mobile",
+          "id": "521fe58c-da62-80e2-8008-d33fc5601fd6"
+        },
+        {
+          "name": "goodui.app-shell.mobile-drawer-expanded",
+          "id": "521fe58c-da62-80e2-8008-d345fc71d6ee"
+        },
+        {
+          "name": "goodui.app-shell.mobile-drawer-open",
+          "id": "521fe58c-da62-80e2-8008-d33fc5a77074"
+        },
+        {
+          "name": "goodui.app-shell.sidebar-expanded",
+          "id": "521fe58c-da62-80e2-8008-d34591f8da80"
+        }
+      ]
+    },
+    {
+      "family": "goodui.app-header",
+      "selector": "good-app-header",
+      "source": "angular/projects/goodui/src/lib/header.ts",
+      "slots": [
+        "good-header-menu",
+        "good-header-actions"
+      ],
+      "states": [
+        {
+          "name": "goodui.app-header.default",
+          "id": "521fe58c-da62-80e2-8008-d33f667375d0"
+        },
+        {
+          "name": "goodui.app-header.help-open",
+          "id": "521fe58c-da62-80e2-8008-d3cb51d73426"
+        },
+        {
+          "name": "goodui.app-header.help-submenu-open",
+          "id": "521fe58c-da62-80e2-8008-d3cb522ee751"
+        },
+        {
+          "name": "goodui.app-header.mobile",
+          "id": "521fe58c-da62-80e2-8008-d33fc43d443e"
+        },
+        {
+          "name": "goodui.app-header.mobile-menu-icon",
+          "id": "c0c3286f-e4bf-804c-8008-d5e514a9b336"
+        },
+        {
+          "name": "goodui.app-header.mobile-menu-popup-open",
+          "id": "c0c3286f-e4bf-804c-8008-d5e5154d923f"
+        },
+        {
+          "name": "goodui.app-header.with-brand",
+          "id": "521fe58c-da62-80e2-8008-d33f66ae31ee"
+        }
+      ]
+    },
+    {
+      "family": "goodui.sidebar",
+      "selector": "good-sidebar",
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "slots": [
+        "good-sidebar-item",
+        "good-sidebar-menu-container"
+      ],
+      "states": [
+        {
+          "name": "goodui.sidebar.default",
+          "id": "521fe58c-da62-80e2-8008-d33f4ac0f922"
+        },
+        {
+          "name": "goodui.sidebar.drawer",
+          "id": "521fe58c-da62-80e2-8008-d33fc3f1ea97"
+        },
+        {
+          "name": "goodui.sidebar.drawer-expanded",
+          "id": "521fe58c-da62-80e2-8008-d345f7623c28"
+        },
+        {
+          "name": "goodui.sidebar.expanded",
+          "id": "521fe58c-da62-80e2-8008-d3458996ee89"
+        }
+      ]
+    }
+  ],
+  "responsive": {
+    "breakpoint": 900,
+    "sidebarInstances": 1,
+    "desktop": "Native dialog presented as a nonmodal column with presentation role.",
+    "mobile": "The same projected Sidebar inside a native modal dialog. Escape, backdrop, Close, or navigation dismisses it; focus returns to the trigger."
+  },
+  "routing": "Sidebar and Header menu items follow Angular Router unless activeRoute is explicitly supplied.",
+  "shellPage": {
+    "id": "521fe58c-da62-80e2-8008-d33f7aa6fcb6",
+    "name": "02 Shell"
+  }
+}

@@ -8,8 +8,21 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "baseUrl": ".",
-    "paths": { "@cloudfrogger/goodui": ["../../angular/dist/goodui"] }
+    "paths": {
+      "@cloudfrogger/goodui": [
+        "../../angular/dist/goodui"
+      ]
+    }
   },
-  "angularCompilerOptions": { "strictTemplates": true },
-  "files": ["main.ts", "login.ts", "table-view.ts", "edit-form.ts", "settings.ts"]
+  "angularCompilerOptions": {
+    "strictTemplates": true
+  },
+  "files": [
+    "main.ts",
+    "login.ts",
+    "table-view.ts",
+    "edit-form.ts",
+    "settings.ts",
+    "shell.ts"
+  ]
 }

@@ -8,4 +8,4 @@
 
 The menu stays inside the viewport near its right edge, is keyboard accessible, and returns focus to its trigger when closed.
 
-Settings is optional in the standard topbar: set `[showSettings]="true"` on `good-app-layout`, `good-topbar`, or `good-header-actions` to include it.
+Settings is optional in the standard topbar: set `[showSettings]="true"` on `good-app-shell`, `good-app-header`, or `good-header-actions` to include it.

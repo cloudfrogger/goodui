@@ -33,6 +33,13 @@ const values = type => {
 };
 const json = value => `${JSON.stringify(value, null, 2)}\n`;
 const guideOverrides = {
+  'good-app-header': 'components/app-header',
+  'good-brand-icon': 'components/app-header',
+  'good-header-menu': 'components/header-menu',
+  'good-header-menu-item': 'components/header-menu',
+  'good-header-dropdown-menu': 'components/header-menu',
+  'good-header-dropdown-item': 'components/header-menu',
+  'good-header-submenu': 'components/header-menu',
   'good-heading-1': 'components/typography',
   'good-heading-2': 'components/typography',
   'good-heading-3': 'components/typography',
@@ -45,7 +52,7 @@ const guideOverrides = {
   'good-header-notification': 'components/header-notification',
   'good-header-avatar': 'components/header-avatar',
   'good-header-themetoggle': 'components/header-themetoggle',
-  'good-app-layout': 'layout/app-layout',
+  'good-app-shell': 'layout/app-shell',
   'good-avatar-menu-item': 'components/header-avatar',
   'good-color-picker': 'components/color-controls',
   'good-image-preview': 'components/image-input',

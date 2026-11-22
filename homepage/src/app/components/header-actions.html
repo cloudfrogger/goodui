@@ -16,7 +16,7 @@
       </good-header-actions>
     </good-group>
     <good-prose>
-      <good-paragraph>Import the container and each action in the component declaring this template. The same composition works inside a standalone <code>good-topbar</code>. The container owns alignment and responsive gaps. Configure projected children directly; remove or reorder tags to choose the available actions.</good-paragraph>
+      <good-paragraph>Import the container and each action in the component declaring this template. The same composition works inside a standalone <code>good-app-header</code>. The container owns alignment and responsive gaps. Configure projected children directly; remove or reorder tags to choose the available actions.</good-paragraph>
       <good-paragraph>With no projected content, Header actions supplies Search, Notification, Theme toggle, and Avatar. Existing data inputs remain <code>searchItems</code>, <code>notifications</code>, <code>user</code>, and <code>avatarActions</code>. Visibility inputs <code>showSearch</code>, <code>showNotifications</code>, <code>showThemeToggle</code>, and <code>showAvatar</code> default to true. Optional <code>showSettings</code> defaults to false. These inputs configure the generated defaults; configure custom children on their own tags.</good-paragraph>
       <good-paragraph>The following sections document Search, Notification, Avatar, and Theme toggle as independent components, each with its own working example and API.</good-paragraph>
     </good-prose>
@@ -44,7 +44,7 @@
     <good-group appearance="contrast"><good-action-group><good-header-notification /><good-button (click)="notify()">Add notification</good-button></good-action-group></good-group>
     <good-code-block [code]="notificationTemplateCode" language="html" title="Optional application-supplied notifications" />
     <good-code-block [code]="notificationCode" language="typescript" title="Publish an inbox message" />
-    <good-prose><good-paragraph>Register <code>provideGoodUI()</code> once. AppLayout already includes a notification host; applications without AppLayout need one <code>good-notification-host</code> for toasts. Public <code>open()</code> and <code>close()</code> control the inbox. Escape and Close return focus to the bell. See the <good-link route="/examples/notifications">Notifications example</good-link> for progress, delivery, actions, and acknowledgements.</good-paragraph></good-prose>
+    <good-prose><good-paragraph>Register <code>provideGoodUI()</code> once. AppShell already includes a notification host; applications without AppShell need one <code>good-notification-host</code> for toasts. Public <code>open()</code> and <code>close()</code> control the inbox. Escape and Close return focus to the bell. See the <good-link route="/examples/notifications">Notifications example</good-link> for progress, delivery, actions, and acknowledgements.</good-paragraph></good-prose>
   </good-section>
   <good-section spacing="content" id="header-avatar">
     <good-heading-2>Header avatar · good-header-avatar</good-heading-2>

@@ -12,16 +12,16 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 
 | Area | Current baseline | GoodUI owner |
 | --- | --- | --- |
-| Sidebar | 280 px wide, fixed at left, white, right border | `SidebarContainer` owns width, scrolling, brand area, and menu spacing |
-| Topbar | 70 px tall, fixed beside sidebar | `Topbar` arranges navigation and `HeaderActions` |
-| Topbar content | 30 px horizontal padding | Topbar owns padding |
+| Sidebar | 280 px wide, fixed at left, white, right border | `Sidebar` owns width, scrolling, brand area, and menu spacing |
+| Header | 70 px tall, fixed beside sidebar | `Header` arranges navigation and `HeaderActions` |
+| Header content | 30 px horizontal padding | Header owns padding |
 | Sidebar menu | About 20 px left padding, 4 px between rows | `SidebarMenuContainer` owns heading and item list |
 | Active sidebar item | 8 px radius, neutral background | `SidebarItem` owns active state |
 | Expanded sidebar | About 34 px parent row; 36 px child rows with 4 px gap and indentation | `SidebarItem` owns open state; `SidebarSubmenuGroup` owns guide lines and layout |
 | Cards and panels | 12 px radius, subtle neutral border | `radius.card` and `color.border` |
-| Topbar actions | 36 × 36 px circular hit areas | `HeaderActions` owns alignment and 10 px gaps between projected actions |
-| Topbar dropdown | Help panel 220 px wide under topbar; 34 px rows, 2 px row gap, 6 px radius | `TopbarDropdownMenu` owns panel, divider, and rows |
-| Topbar submenu | Support Forum panel 218 × 124 px; 4 px gap from parent, aligned with trigger row | `TopbarSubmenu` owns the next level and flips at the viewport edge |
+| Header actions | 36 × 36 px circular hit areas | `HeaderActions` owns alignment and 10 px gaps between projected actions |
+| Header dropdown | Help panel 220 px wide under topbar; 34 px rows, 2 px row gap, 6 px radius | `HeaderDropdownMenu` owns panel, divider, and rows |
+| Header submenu | Support Forum panel 218 × 124 px; 4 px gap from parent, aligned with trigger row | `HeaderSubmenu` owns the next level and flips at the viewport edge |
 | Avatar menu | About 250 × 384 px account panel under the avatar; 40 px rows, 36 px identity image, 8 px panel radius | `AvatarMenu` owns identity, row spacing, nested menus, appearance switch, and sign-out area |
 | Main view | 20 px top and 30 px horizontal padding below topbar; 24 px horizontal on mobile | `MainView` owns page container and optional heading. `layout=fill` removes workspace padding but keeps that inset on an optional heading; an omitted heading lets the workspace touch the topbar. |
 | Subnav | 60 px desktop, 44 px mobile; active 2 px underline; one scrollable row | `Subnav` owns the section strip, item spacing, horizontal scroll, and dropdown position |
@@ -68,15 +68,15 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 | Phone input | 32/40/48 px high, with flag and calling-code selector beside a native telephone field | `InputPhone` owns country selection, national digits, international value, and field states |
 | Dropdown | Button-sized trigger; 240 px token-based popup with 36 px item rows | `Dropdown` owns sections, placement, scrolling, nested items, and dismissal |
 | Breadcrumbs | 14 px labels, 8 px gaps; optional card border and 12 px radius | `Breadcrumbs` owns hierarchy, separators, overflow menu, and card frame |
-| Mobile | 60 px topbar, sidebar as drawer | `AppLayout` owns trigger, scrim, drawer, and scroll lock |
+| Mobile | 60 px topbar, sidebar as drawer | `AppShell` owns trigger, scrim, drawer, and scroll lock |
 
 These are the current desktop and mobile measurements for GoodUI. The shell should avoid horizontal overflow between 390 px and desktop. The Angular implementation switches navigation at a 900 px breakpoint.
 
 ## Component hierarchy
 
 ```text
-AppLayout
-├─ SidebarContainer
+AppShell
+├─ Sidebar
 │  ├─ brand area
 │  └─ SidebarMenuContainer (repeatable)
 │     ├─ heading
@@ -84,15 +84,15 @@ AppLayout
 │        └─ SidebarSubmenuGroup (optional and recursive)
 │           └─ SidebarSubmenuItem (repeatable)
 └─ content area
-   ├─ Topbar
+   ├─ Header
    │  ├─ mobile drawer trigger
    │  ├─ BrandIcon (optional; after the trigger on mobile)
-   │  ├─ TopbarMenuContainer
-   │  │  └─ TopbarMenuItem (repeatable; optional dropdown)
-   │  │     └─ TopbarDropdownMenu
-   │  │        ├─ TopbarDropdownItem (link or expandable parent)
-   │  │        └─ TopbarSubmenu (optional and recursive)
-   │  │           └─ TopbarDropdownItem (repeatable)
+   │  ├─ HeaderMenu
+   │  │  └─ HeaderMenuItem (repeatable; optional dropdown)
+   │  │     └─ HeaderDropdownMenu
+   │  │        ├─ HeaderDropdownItem (link or expandable parent)
+   │  │        └─ HeaderSubmenu (optional and recursive)
+   │  │           └─ HeaderDropdownItem (repeatable)
    │  └─ HeaderActions
    │     ├─ Search
    │     ├─ Notifications
@@ -116,37 +116,37 @@ AppLayout
             └─ CardFooter (optional; text, Link, Button, or mixed actions)
 ```
 
-`AppLayout` owns shell geometry, scrolling, and mobile switching. Apps do not set sidebar offsets, topbar height, overlay layers, or content padding. Each container owns its alignment and spacing; individual items have no external layout margins.
+`AppShell` owns shell geometry, scrolling, and mobile switching. Apps do not set sidebar offsets, topbar height, overlay layers, or content padding. Each container owns its alignment and spacing; individual items have no external layout margins.
 
 `Dropdown` can be placed in any action area. It owns a Button trigger, optional header and footer, and a list of recursive `DropdownItem` entries inside a positioned `DropdownPanel`.
 
-The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppLayout` feed the desktop sidebar and mobile drawer; `brandMarkSrc` and `brandMarkDarkSrc` feed the mobile topbar symbol and optional desktop BrandIcon. On mobile the drawer trigger precedes the symbol. `showMobileBrand=false` hides only the mobile topbar branding; the sidebar and drawer retain their branding. `brand` is the image's accessible name. When no mark URL is supplied, the mobile topbar retains the wordmark or text fallback for existing consumers. The dark URLs are optional; if absent, their light URLs remain visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI homepage uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers. Penpot's AppLayout, SidebarContainer, Topbar, and BrandIcon masters show GoodUI artwork as specimen content to demonstrate placement; the runtime fallback remains generic.
+The shell owns the brand image placement, while the consuming app owns the actual artwork. Optional `brandLogoSrc` and `brandLogoDarkSrc` URLs on `AppShell` feed the desktop sidebar and mobile drawer; `brandMarkSrc` and `brandMarkDarkSrc` feed the mobile topbar symbol and optional desktop BrandIcon. On mobile the drawer trigger precedes the symbol. `showMobileBrand=false` hides only the mobile topbar branding; the sidebar and drawer retain their branding. `brand` is the image's accessible name. When no mark URL is supplied, the mobile topbar retains the wordmark or text fallback for existing consumers. The dark URLs are optional; if absent, their light URLs remain visible in both themes. Favicon selection belongs to each application's `index.html` and public assets, never to the Angular library. The GoodUI homepage uses the exported GoodUI wordmarks and mark; this does not make them default assets for consumers. Penpot's AppShell, Sidebar, Header, and BrandIcon masters show GoodUI artwork as specimen content to demonstrate placement; the runtime fallback remains generic.
 
 ### Alerts and notifications
 
 `good-alert` has `tone=neutral/info/success/brand/destructive/warning`, `appearance=default/mono/outline/light`, and `size=small/default/large`. Default uses a tone-tinted surface, light uses a quieter tint, outline uses the base surface and border with tone-colored text, and mono leaves only its optional icon tone-colored. The neutral surface aliases the application gray. Warning, Badge, and Rating share `color.warning` (`#EAB308` light, `#FACC15` dark); small Warning text and Alert icon strokes use the companion `color.warning-foreground` for contrast. The `alert.*` Penpot tokens alias existing GoodUI color and spacing roles, including theme-specific badge tints, so no separate dark value list is maintained. Content, actions, the optional X, and the custom Lucide icon are runtime options. `good-alert` owns the action row and responsive wrapping; callers project Buttons and Links through `[goodAlertActions]`.
 
-`provideGoodUI()` is the root Angular provider entry point for the library's application services and shared options. It registers `GoodNotificationCenter` and `GoodThemeService`; existing direct service injection remains available. `GoodNotificationCenter` publishes the same alert content to a top-right toast, a centered top-entry toast, or the notification side panel only. AppLayout includes `good-notification-host`; standalone layouts place one host near their root. Three toasts are visible at once, with later messages queued and timed only after display. Focus and hover pause timeouts. `persist` on each published toast overrides the optional `notifications.persistToHistory` app default (true); inbox-only delivery always persists. Acknowledgement messages wait for action and remain in the panel as read when saved; the panel also offers mark-as-read and removal. The panel orders dated messages newest first and shows their creation date and time in the viewer's locale. `GoodNotification` input items can supply a Unix-millisecond `createdAt` for the same behavior; undated legacy items follow in supplied order. The bell displays unread count through `good-badge`, sized by `notification.count.*` tokens to 16 px. The published `goodui.notifications.unread` Penpot composition links the bell and Badge; its single-digit label is centered as a local instance override because Penpot does not reflow that copied Badge label after the width override. Angular uses regular flex centering. The drawer closes on backdrop clicks, Escape, or the close button and returns focus to the bell. Session memory is the library default; application persistence is a separate integration. See [Alert](guides/components/alert.md), [Notifications](guides/components/notifications.md), and [design/alert-contract.json](design/alert-contract.json).
+`provideGoodUI()` is the root Angular provider entry point for the library's application services and shared options. It registers `GoodNotificationCenter` and `GoodThemeService`; existing direct service injection remains available. `GoodNotificationCenter` publishes the same alert content to a top-right toast, a centered top-entry toast, or the notification side panel only. AppShell includes `good-notification-host`; standalone layouts place one host near their root. Three toasts are visible at once, with later messages queued and timed only after display. Focus and hover pause timeouts. `persist` on each published toast overrides the optional `notifications.persistToHistory` app default (true); inbox-only delivery always persists. Acknowledgement messages wait for action and remain in the panel as read when saved; the panel also offers mark-as-read and removal. The panel orders dated messages newest first and shows their creation date and time in the viewer's locale. `GoodNotification` input items can supply a Unix-millisecond `createdAt` for the same behavior; undated legacy items follow in supplied order. The bell displays unread count through `good-badge`, sized by `notification.count.*` tokens to 16 px. The published `goodui.notifications.unread` Penpot composition links the bell and Badge; its single-digit label is centered as a local instance override because Penpot does not reflow that copied Badge label after the width override. Angular uses regular flex centering. The drawer closes on backdrop clicks, Escape, or the close button and returns focus to the bell. Session memory is the library default; application persistence is a separate integration. See [Alert](guides/components/alert.md), [Notifications](guides/components/notifications.md), and [design/alert-contract.json](design/alert-contract.json).
 
-Penpot page `21 Alerts` publishes 72 `goodui.alert` variants and four `goodui.notification-host` arrangements. All Alert variants retain linked Lucide Info artwork and bind their surface, text, padding, and icon size to `alert.*` tokens. The action/dismiss composition is a separate reusable component with a detached Alert frame, linked GoodUI Button, and linked Lucide X: Penpot does not permit adding children inside a component copy. The manifests record every published ID. The light and dark renders were inspected, and Penpot was restored to light on `02 Layout`.
+Penpot page `21 Alerts` publishes 72 `goodui.alert` variants and four `goodui.notification-host` arrangements. All Alert variants retain linked Lucide Info artwork and bind their surface, text, padding, and icon size to `alert.*` tokens. The action/dismiss composition is a separate reusable component with a detached Alert frame, linked GoodUI Button, and linked Lucide X: Penpot does not permit adding children inside a component copy. The manifests record every published ID. The light and dark renders were inspected, and Penpot was restored to light on `02 Shell`.
 
 ## Public components
 
 | Design ID | Responsibility |
 | --- | --- |
-| `goodui.app-layout` | Desktop/mobile shell, fixed areas, drawer, content offset |
-| `goodui.sidebar-container` | Brand area, scrolling, desktop/drawer presentation |
+| `goodui.app-shell` | Desktop/mobile shell, fixed areas, drawer, content offset |
+| `goodui.sidebar` | Brand area, scrolling, desktop/drawer presentation |
 | `goodui.sidebar-menu-container` | Group heading and vertical sidebar items |
 | `goodui.sidebar-item` | Navigation, icon, label, optional badge/expander, active/open/disabled states |
 | `goodui.sidebar-submenu-group` | Indented nested level, guide lines, child links, open/closed state |
 | `goodui.sidebar-submenu-item` | Child link with dot, label, route, active state |
-| `goodui.topbar` | Optional brand icon, navigation, action group, mobile trigger |
+| `goodui.app-header` | Optional brand icon, navigation, action group, mobile trigger |
 | `goodui.brand-icon` | Optional brand placeholder without a fixed product logo |
-| `goodui.topbar-menu-container` | Navigation items and responsive drawer layout |
-| `goodui.topbar-menu-item` | Link or dropdown trigger with active/open state |
-| `goodui.topbar-dropdown-menu` | Panel, border, dividers, rows, open submenu state |
-| `goodui.topbar-dropdown-item` | Reusable 34 px link or submenu trigger; `link`, `parent`, `open` states |
-| `goodui.topbar-submenu` | Next menu level using the same row components |
+| `goodui.header-menu` | Navigation items and responsive drawer layout |
+| `goodui.header-menu-item` | Link or dropdown trigger with active/open state |
+| `goodui.header-dropdown-menu` | Panel, border, dividers, rows, open submenu state |
+| `goodui.header-dropdown-item` | Reusable 34 px link or submenu trigger; `link`, `parent`, `open` states |
+| `goodui.header-submenu` | Next menu level using the same row components |
 | `goodui.main-menu` | Search, notifications, settings, avatar in fixed order |
 | `goodui.search` | Trigger and search dialog with input, results, empty state |
 | `goodui.notifications` | Bell, unread Badge, and dismissible drawer; `default`, `unread`, and `open` design states |
@@ -357,13 +357,13 @@ Penpot's `goodui.dropdown` has 16 `placement` × `chevron` × `state` variants a
 
 The switch track and thumb dimensions have their own semantic sizing tokens. `switch.on.background` aliases `color.brand` in light mode and is overridden in dark mode. `switch.error.border` aliases `color.error`, which is `#DC2626` in light mode and `#F87171` in dark mode. The same relationships generate the CSS variables. Angular uses a native checkbox with switch semantics, a 44 × 44 px minimum hit area, an accessible label, and optional `ControlValueAccessor` form binding. The visual component contains no product-specific label; consumers supply the label text.
 
-### Nested topbar menus
+### Nested header menus
 
-The homepage has a top-level “Getting Started” menu with Introduction, Designing, Developing, License, and Changelog routes. Its separate Help menu has “Support Forum,” “Licenses & FAQ,” “Documentation,” and “Contact Us” after a divider. “Support Forum” reveals “All Questions,” “Popular Questions,” and “Ask Question.” Parents show a chevron; only leaves navigate. The selected parent uses `color.selected`; text, icons, borders, and surfaces use semantic color roles.
+The homepage has a top-level “Getting Started” menu with Introduction, Designing, Developing, Developing with AI, Security, Contributing, License, and Changelog routes. Its separate Help menu has “Support Forum,” “Licenses & FAQ,” “Documentation,” and “Contact Us” after a divider. “Support Forum” reveals “All Questions,” “Popular Questions,” and “Ask Question.” Parents show a chevron; only leaves navigate. The selected parent uses `color.selected`; text, icons, borders, and surfaces use semantic color roles.
 
-`TopbarMenuItem` owns the trigger and first open state. `TopbarDropdownMenu` arranges the first level; `TopbarDropdownItem` renders a link or parent; `TopbarSubmenu` arranges the next level. Further levels reuse these components. Desktop supports hover, click, and keyboard focus. On mobile, `mobileTopbarMenuMode` selects the default drawer placement (`hidden`) or a topbar icon and popup (`popup`). Both stack nested levels vertically. Escape closes the deepest level first and returns focus to its trigger; outside clicks close the chain. Submenus flip toward available viewport space.
+`HeaderMenuItem` owns the trigger and first open state. `HeaderDropdownMenu` arranges the first level; `HeaderDropdownItem` renders a link or parent; `HeaderSubmenu` arranges the next level. Further levels reuse these components. Desktop supports hover, click, and keyboard focus. On mobile, HeaderMenu's `mobileMode` explicitly hides its mobile navigation (`hidden`) or shows an icon and popup (`popup`). Sidebar is a separate projected navigation area; no header items are copied into it. Escape closes the deepest level first and returns focus to its trigger; outside clicks close the chain. Submenus flip toward available viewport space.
 
-Penpot includes `goodui.topbar-menu-item.open`, `goodui.topbar-dropdown-item.link`/`.parent`/`.open`, `goodui.topbar-dropdown-menu.default`/`.nested-open`, `goodui.topbar-submenu.default`, and the composed topbar and AppLayout open states. Its `goodui.topbar-menu-container.mobile-icon` and `.mobile-popup-open` states compose into `goodui.topbar.mobile-menu-icon` and `.mobile-menu-popup-open`. Angular renders the recursive `GoodTopbarItem.children` model through `GoodTopbarDropdownItemComponent`, `GoodTopbarDropdownMenuComponent`, and `GoodTopbarSubmenuComponent`. The homepage shows Help → Support Forum with working routes, mobile popup layout, and edge flipping, plus dedicated Topbar menu and Topbar submenu component pages.
+Penpot includes `goodui.header-menu-item.open`, `goodui.header-dropdown-item.link`/`.parent`/`.open`, `goodui.header-dropdown-menu.default`/`.nested-open`, `goodui.header-submenu.default`, and the composed topbar and AppShell open states. Its `goodui.header-menu.mobile-icon` and `.mobile-popup-open` states compose into `goodui.app-header.mobile-menu-icon` and `.mobile-menu-popup-open`. Angular renders the recursive `GoodTopbarItem.children` model through `GoodHeaderDropdownItemComponent`, `GoodHeaderDropdownMenuComponent`, and `GoodHeaderSubmenuComponent`. The homepage shows Help → Support Forum with working routes, mobile popup layout, and edge flipping, with Header submenu documented as a section of the combined Header menu chapter.
 
 ### Avatar account menu
 
@@ -409,7 +409,7 @@ The Penpot token catalog supports `spacing` on flex/grid gaps and padding, `sizi
 
 ## Penpot inventory
 
-File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Layout`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, and `09 Code`. The library contains main components for the elements above. AppLayout has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Topbar has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
+File: `New File 4` (ID `a552d28a-7556-80e4-8008-d3392c96c899`; the plugin API could not rename the file). Pages: `01 Components`, `02 Shell`, `03 Controls`, `04 Logos`, `05 Badges`, `06 Checkboxes`, `07 Radio Groups`, `08 Cards and Links`, and `09 Code`. The library contains main components for the elements above. AppShell has desktop, mobile, mobile drawer open, desktop sidebar expanded, and mobile drawer expanded states. Header has default, with-brand, and mobile states. Search, notifications, settings, and avatar each have trigger and open states. The sidebar also has real components for expanded parents, open/closed groups, and normal/active child links.
 
 `04 Logos` contains 14 reusable brand assets: light and dark wordmarks, standalone symbols, square symbols, glossy square symbols, and three badge styles in both appearances. The names use `goodui.logo.<form>.<appearance>`; the complete IDs are in [Design to Angular](guides/contributing/design-to-code.md). These are product artwork assets, not UI component families, so they have no Angular selector. Both wordmarks and both standalone symbols have transparent, editable Penpot vector paths traced from the supplied PNGs. Their direct SVG exports are `assets/brand/goodui-logo-light.svg`, `goodui-logo-dark.svg`, `goodui-mark.svg`, and `goodui-mark-dark.svg`. The Angular homepage uses the symbols for its mobile topbar and favicons, selecting the dark assets according to the active GoodUI theme. Square symbols, glossy square symbols, and badges still use image fills that preserve their original backgrounds and effects. A traced vector can differ slightly from its raster source; review each exported SVG against the artwork after any brand update.
 
@@ -424,7 +424,7 @@ Shell compositions use nested component instances. Keep IDs when a component ret
 - The mobile sidebar opens from the topbar trigger and closes through the scrim or Escape. Desktop sidebar collapse exists as a design variant but is not yet exposed as an Angular API state.
 - `MainView` accepts page content without imposing a card layout. The heading and actions are optional; content grows and scrolls.
 - `Subnav` owns its horizontal viewport and child menu. Apps provide route data and do not add custom wrapping or page offsets.
-- `HeaderActions` accepts projected action components in application-defined order; AppLayout forwards a direct HeaderActions child to Topbar. With no projected content it supplies the existing default actions. `HeaderActions` can hide its generated ThemeToggle and other actions independently. ThemeToggle is shown by default; Settings is a separate optional menu. Apps may project a custom `good-header-actions` into `Topbar`; the container still owns spacing and hit areas.
+- `HeaderActions` accepts projected action components in application-defined order; AppShell projects AppHeader; HeaderActions belongs inside AppHeader. With no projected content it supplies the existing default actions. `HeaderActions` can hide its generated ThemeToggle and other actions independently. ThemeToggle is shown by default; Settings is a separate optional menu. Apps may project a custom `good-header-actions` into `Header`; the container still owns spacing and hit areas.
 - Tailwind CSS 4 theme variables provide colors; the shipped component CSS provides geometry. Apps do not add `margin-left` or `padding-top` to align the shell.
 
 ## Maintenance workflow
@@ -458,3 +458,7 @@ The PDF toolbar's six linked Lucide icons use 14 px outer bounds and scaled chil
 ## Section content spacing
 
 `good-section spacing="content"` opts into a content hierarchy: 24 px between direct blocks, 12 px from a Heading/Subheading to its content, 40 px before a later Heading/Subheading/HeadingGroup, and 48 px between adjacent content Sections. The default mode preserves the existing compact spacing. Section owns these external relationships; Prose retains 20 px paragraph spacing, images keep their caption gap, and nested controls keep their own layout. First and last blocks gain no outer space. HeadingGroup retains its own internal spacing and is followed by the regular block gap. Penpot `goodui.section` publishes `spacing=default/content`; see `design/typography-components.json`. The Header actions chapter is the initial mixed-content application of this mode.
+
+### Declarative shell regions
+
+`good-app-shell` projects `good-sidebar` and `good-app-header` as direct children and renders one notification host. Shell no longer accepts navigation-array or mobile-menu inputs. AppHeader projects HeaderMenu and HeaderActions; Sidebar projects SidebarItem and optional MenuContainer groups. Sidebar follows Angular Router automatically, including projected active descendants. Its single component instance remains alive in a native modal drawer on mobile and a presentation container on desktop. Branding inherits shell defaults and can be overridden by either region. The published Sidebar and AppHeader families retain their stable IDs, nested instances, dimensions, and theme tokens.

@@ -1,5 +1,20 @@
 # GoodUI for coding agents
 
+## Start a Penpot design without Angular
+
+Open an empty local project folder in your editor. From that folder, install the skill directly from GitHub for Codex:
+
+```sh
+mkdir -p .agents/skills/goodui
+curl -fL https://raw.githubusercontent.com/cloudfrogger/goodui/master/ai/skill/goodui/SKILL.md -o .agents/skills/goodui/SKILL.md
+```
+
+For Claude Code, replace `.agents` with `.claude` in both commands. Start a new agent session afterward. This downloads the current skill from `master`; it does not install an Angular package or the Penpot library.
+
+In Penpot, create a project and a design file, then add the shared GoodUI library through **Assets** and the library manager. Your Penpot team needs access to the GoodUI file, shared as a library. Connect your agent to Penpot through MCP and provide the target file and GoodUI library links. Ask: “Use the GoodUI skill. Inspect the shared GoodUI library and create desktop and mobile designs for a searchable people directory in my open file. Use linked components. Do not write Angular code yet.”
+
+The skill can use the live library and relevant GitHub references for design-only work. For Angular implementation, install the package and use its version-matched references below.
+
 ## Set up an Angular project
 
 Install `@cloudfrogger/goodui` with npm and import `@cloudfrogger/goodui/styles.css` in the application's global stylesheet. Follow the homepage's Developing chapter for the root providers and application shell.

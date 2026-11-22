@@ -4,7 +4,7 @@ These Markdown guides document the Angular library and its Penpot mapping. The [
 
 - [Get started](intro.md)
 - [Design tokens](foundations/tokens.md) and [naming](foundations/naming.md)
-- [App layout](layout/app-layout.md) and [layout rules](layout/layout-rules.md)
+- [App layout](layout/app-shell.md) and [layout rules](layout/layout-rules.md)
 - [Components](components/)
 - [Header actions](components/header-actions.md) and [migration](migrations/header-actions.md)
 - [Typography](components/typography.md)

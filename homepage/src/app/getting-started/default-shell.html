@@ -3,26 +3,26 @@
     <good-prose>
       <good-heading-group>
         <good-eyebrow>Foundation · Layout</good-eyebrow>
-        <good-heading-1>Default layout</good-heading-1>
+        <good-heading-1>Default shell</good-heading-1>
         <good-summary>Use the standard page layout, or let a workspace fill the entire client content area.</good-summary>
       </good-heading-group>
-      <good-paragraph>The <good-link route="/getting-started/layout/general">General</good-link> chapter sets up the application shell. Use this page layout for forms, documents, tables, and other content that should scroll normally.</good-paragraph>
+      <good-paragraph>Use this shell for forms, documents, tables, and other content that should scroll normally.</good-paragraph>
     </good-prose>
   </good-section>
 
   <good-section>
-    <good-heading-2>See the default layout</good-heading-2>
+    <good-heading-2>See the default shell</good-heading-2>
     <good-prose>
-      <good-paragraph>The annotated <good-link route="/examples/user-registration">user registration example</good-link> shows the left navigation, topbar, and page content. Select the screenshot for a closer look, then compare the labels with the structure directly below it.</good-paragraph>
+      <good-paragraph>The annotated <good-link route="/examples/user-registration">user registration example</good-link> shows the same shell on desktop and mobile. Desktop keeps the sidebar beside the page; mobile opens it from the highlighted menu button. Select the screenshot for a closer look, then compare the labels with the structure directly below it.</good-paragraph>
     </good-prose>
-    <good-inline-image src="/foundation/layout-default-annotated.png" style="--good-typography-image-max-width: 100%"
-      alt="Annotated GoodUI layout with arrows identifying good-sidebar-container on the left, good-topbar across the top, and good-main-view for page content"
-      caption="Left navigation, topbar, and page content in the default layout."
+    <good-inline-image src="/foundation/default-shell-annotated.png" style="--good-typography-image-max-width: 100%"
+      alt="Side-by-side desktop and mobile GoodUI screenshots, with annotations identifying good-sidebar, good-app-header, and good-main-view on desktop and highlighting the mobile sidebar menu button"
+      caption="Desktop and mobile share the same shell. On mobile, the sidebar opens as a drawer."
       [previewable]="true" loading="eager" />
-    <good-code-block [code]="structureCode" language="html" title="Default layout structure" />
+    <good-code-block [code]="structureCode" language="html" title="Default shell structure" />
     <good-prose>
-      <good-paragraph><code>good-app-layout</code> creates <code>good-sidebar-container</code> from <code>navigation</code> and <code>good-topbar</code> from <code>topbarItems</code>. Your page belongs inside <code>good-main-view</code>. The <good-link route="/getting-started/layout/general">General</good-link> chapter shows the menu arrays, imports, and providers.</good-paragraph>
-      <good-paragraph>For a routed application, keep AppLayout in the root template and place <code>&lt;router-outlet /&gt;</code> inside it. The routed component then renders MainView and its page content, as shown in the next steps.</good-paragraph>
+      <good-paragraph><code>good-app-shell</code> arranges the <code>good-sidebar</code> and <code>good-app-header</code> children you declare. Your page belongs inside <code>good-main-view</code>. The <good-link route="/getting-started/layout/sidebar">Sidebar</good-link> chapter shows the declarative menu structure and imports. See <good-link route="/getting-started/developing">Developing</good-link> for router and provider setup.</good-paragraph>
+      <good-paragraph>For a routed application, keep AppShell in the root template and place <code>&lt;router-outlet /&gt;</code> inside it. The routed component then renders MainView and its page content, as shown in the next steps.</good-paragraph>
     </good-prose>
   </good-section>
 

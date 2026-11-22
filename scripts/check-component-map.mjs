@@ -579,3 +579,13 @@ if (sectionContract.input !== 'spacing' || sectionContract.variants.default !== 
   throw new Error('Section spacing must preserve its original default ID and opt-in content mode.');
 }
 console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${phoneVariants.variants.length} Phone Input, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
+
+const shellContract = JSON.parse(readFileSync(resolve(root, 'design/app-shell-contract.json'), 'utf8'));
+for (const region of shellContract.regions) {
+  const source = readFileSync(resolve(root, region.source), 'utf8');
+  if (!source.includes(`selector: '${region.selector}'`)) throw new Error(`Missing declarative shell region: ${region.selector}`);
+  for (const state of region.states) {
+    if (!map.componentMappings.some(entry => entry.penpotId === state.id && entry.penpotName === state.name && entry.angularSelector === region.selector)) throw new Error(`Unverified shell region state: ${state.name}`);
+  }
+}
+if (shellContract.regions.map(region => region.states.length).join(',') !== '6,7,4' || shellContract.responsive.sidebarInstances !== 1) throw new Error('Incomplete declarative shell contract.');

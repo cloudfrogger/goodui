@@ -1,23 +1,33 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoodAppLayoutComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
+import { GoodAppShellComponent, GoodAppHeaderComponent, GoodHeaderMenuComponent, GoodSidebarComponent, GoodSidebarMenuContainerComponent, GoodSidebarItemComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GoodAppLayoutComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent],
+  imports: [RouterOutlet, GoodAppShellComponent, GoodAppHeaderComponent, GoodHeaderMenuComponent, GoodSidebarComponent, GoodSidebarMenuContainerComponent, GoodSidebarItemComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <good-app-layout brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" brandMarkSrc="goodui-mark.svg" brandMarkDarkSrc="goodui-mark-dark.svg" [sidebarSections]="sidebarSections" [topbarItems]="topbarItems" mobileTopbarMenuMode="popup">
-      <good-header-actions>
-        <good-header-search [items]="searchItems" />
-        <good-header-notification />
-        <good-header-themetoggle />
-        <good-header-avatar [user]="user" [actions]="avatarActions()" />
-      </good-header-actions>
+    <good-app-shell brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" brandMarkSrc="goodui-mark.svg" brandMarkDarkSrc="goodui-mark-dark.svg">
+      <good-sidebar>
+        @for (section of navigationSections; track section.id) {
+          <good-sidebar-menu-container [heading]="section.heading ?? ''">
+            @for (item of section.items; track item.id) { <good-sidebar-item [item]="item" /> }
+          </good-sidebar-menu-container>
+        }
+      </good-sidebar>
+      <good-app-header>
+        <good-header-menu [items]="headerNavigation" mobileMode="popup" />
+        <good-header-actions>
+          <good-header-search [items]="searchItems" />
+          <good-header-notification />
+          <good-header-themetoggle />
+          <good-header-avatar [user]="user" [actions]="avatarActions()" />
+        </good-header-actions>
+      </good-app-header>
       <router-outlet />
-    </good-app-layout>
+    </good-app-shell>
   `,
 })
 export class App {
@@ -52,20 +62,24 @@ export class App {
     ] },
     { id: 'sign-out', label: 'Log out', variant: 'sign-out', route: '/sign-out' },
   ]);
-  readonly sidebarSections: readonly GoodSidebarSection[] = [
+  readonly navigationSections: readonly GoodSidebarSection[] = [
     { id: 'getting-started', heading: 'GETTING STARTED', items: [
       { id: 'introduction', label: 'Introduction', icon: 'book', route: '/getting-started/introduction' },
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'developing-with-ai', label: 'Developing with AI', icon: 'settings', route: '/getting-started/developing-with-ai' },
       { id: 'security', label: 'Security', icon: 'check', route: '/getting-started/security' },
+      { id: 'contributing', label: 'Contributing', icon: 'book', route: '/getting-started/contributing' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
       { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
     ] },
     { id: 'foundation', heading: 'FOUNDATION', items: [
       { id: 'layout', label: 'Layout', icon: 'grid', children: [
-        { id: 'layout-general', label: 'General', route: '/getting-started/layout/general' },
-        { id: 'layout-default', label: 'Default layout', route: '/getting-started/layout/default' },
+        { id: 'default-shell', label: 'Default shell', route: '/getting-started/layout/default-shell' },
+        { id: 'sidebar', label: 'Sidebar', route: '/getting-started/layout/sidebar' },
+        { id: 'header-menu', label: 'Header menu', route: '/components/header-menu' },
+        { id: 'header-actions', label: 'Header actions', route: '/components/header-actions' },
+        { id: 'breadcrumbs', label: 'Breadcrumbs', route: '/components/breadcrumbs' },
       ] },
       { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
       { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
@@ -80,6 +94,8 @@ export class App {
         { id: 'checkboxes', label: 'Checkboxes', route: '/components/checkboxes' },
         { id: 'radio-groups', label: 'Radio groups', route: '/components/radio-groups' },
         { id: 'ratings', label: 'Ratings', route: '/components/ratings' },
+        { id: 'tabs', label: 'Tabs', route: '/components/tabs' },
+        { id: 'links', label: 'Links', route: '/components/links' },
       ] },
       { id: 'inputs-category', label: 'Inputs', icon: 'card', children: [
         { id: 'inputs', label: 'Text and file', route: '/components/inputs' },
@@ -95,6 +111,7 @@ export class App {
         { id: 'date-inputs', label: 'Date inputs', route: '/components/date-inputs' },
         { id: 'image-inputs', label: 'Image inputs', route: '/components/image-inputs' },
         { id: 'selects', label: 'Selects', route: '/components/selects' },
+        { id: 'dropdowns', label: 'Dropdowns', route: '/components/dropdowns' },
         { id: 'listboxes', label: 'Listboxes', route: '/components/listboxes' },
         { id: 'labels', label: 'Forms and labels', route: '/components/labels' },
       ] },
@@ -129,15 +146,6 @@ export class App {
         { id: 'status-icons', label: 'StatusIcon', route: '/components/status-icons' },
         { id: 'modals', label: 'Modals', route: '/components/modals' },
         { id: 'error-pages', label: 'Error pages', route: '/components/error-pages' },
-      ] },
-      { id: 'navigation-category', label: 'Navigation', icon: 'menu', children: [
-        { id: 'tabs', label: 'Tabs', route: '/components/tabs' },
-        { id: 'links', label: 'Links', route: '/components/links' },
-        { id: 'dropdowns', label: 'Dropdowns', route: '/components/dropdowns' },
-        { id: 'breadcrumbs', label: 'Breadcrumbs', route: '/components/breadcrumbs' },
-        { id: 'header-actions', label: 'Header actions', route: '/components/header-actions' },
-        { id: 'topbar-menu', label: 'Topbar menu', route: '/components/topbar-menu' },
-        { id: 'topbar-submenu', label: 'Topbar submenu', route: '/components/topbar-submenu' },
       ] },
     ] },
     { id: 'examples', heading: 'EXAMPLES', items: [
@@ -181,19 +189,19 @@ export class App {
       { id: 'network', label: 'Network', icon: 'network', route: '/network' },
     ] },
   ];
-  readonly topbarItems: readonly GoodTopbarItem[] = [
+  readonly headerNavigation: readonly GoodTopbarItem[] = [
     { id: 'getting-started', label: 'Getting Started', children: [
       { id: 'introduction', label: 'Introduction', icon: 'book', route: '/getting-started/introduction' },
       { id: 'designing', label: 'Designing', icon: 'grid', route: '/getting-started/designing' },
       { id: 'developing', label: 'Developing', icon: 'settings', route: '/getting-started/developing' },
       { id: 'developing-with-ai', label: 'Developing with AI', icon: 'settings', route: '/getting-started/developing-with-ai' },
       { id: 'security', label: 'Security', icon: 'check', route: '/getting-started/security' },
+      { id: 'contributing', label: 'Contributing', icon: 'book', route: '/getting-started/contributing' },
       { id: 'license', label: 'License', icon: 'card', route: '/getting-started/license' },
       { id: 'changelog', label: 'Changelog', icon: 'book', route: '/getting-started/changelog' },
       { id: 'foundation', label: 'Foundation', children: [
         { id: 'layout', label: 'Layout', icon: 'grid', children: [
-          { id: 'layout-general', label: 'General', route: '/getting-started/layout/general' },
-          { id: 'layout-default', label: 'Default layout', route: '/getting-started/layout/default' },
+          { id: 'default-shell', label: 'Default shell', route: '/getting-started/layout/default-shell' },
         ] },
         { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
         { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
@@ -216,6 +224,7 @@ export class App {
     ] },
   ];
   readonly searchItems: readonly GoodSearchItem[] = [
+    { id: 'contributing', label: 'Contributing', description: 'Pull requests, first contributions, development help, and AI enthusiasts', route: '/getting-started/contributing' },
     { id: 'header-actions', label: 'Header actions', description: 'good-header-actions · Compose search, notification, avatar, and theme toggle', route: '/components/header-actions' },
     { id: 'notifications', label: 'Header notification', description: 'good-header-notification · Topbar actions', route: '/components/header-actions' },
     { id: 'avatar-menu', label: 'Header avatar', description: 'good-header-avatar · Topbar actions', route: '/components/header-actions' },
@@ -223,9 +232,9 @@ export class App {
     { id: 'range-sliders', label: 'Range sliders', description: 'Single values, intervals, ticks, and step buttons', route: '/components/range-sliders' },
     { id: 'signature-pads', label: 'Signature pads', description: 'Timed pen strokes and SVG output', route: '/components/signature-pads' },
     { id: 'timelines', label: 'Timelines', description: 'Responsive process steps and milestone histories', route: '/components/timelines' },
-    { id: 'layout-general', label: 'Layout · General', description: 'Foundation · application shell, navigation, and providers', route: '/getting-started/layout/general' },
-    { id: 'layout-default', label: 'Layout · Default layout', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default' },
-    { id: 'layout-fill', label: 'Layout · Fill option', description: 'Default layout variant · entire client content area without outer padding', route: '/getting-started/layout/default' },
+    { id: 'sidebar', label: 'Sidebar', description: 'Declarative good-sidebar and nested good-sidebar-item navigation', route: '/getting-started/layout/sidebar' },
+    { id: 'default-shell', label: 'Layout · Default shell', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default-shell' },
+    { id: 'layout-fill', label: 'Layout · Fill option', description: 'Default shell variant · entire client content area without outer padding', route: '/getting-started/layout/default-shell' },
     { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
     { id: 'chart-datasources', label: 'Chart data sources', description: 'Typed keys, dimensions, multiple sources, and axis conversions', route: '/visualizations/datasources' },
     { id: 'line-charts', label: 'Line charts', description: 'Responsive, multi-series charts with optional data table', route: '/visualizations/line-charts' },
@@ -284,9 +293,9 @@ export class App {
     { id: 'breadcrumbs', label: 'Breadcrumbs', description: 'Nested paths and overflow navigation', route: '/components/breadcrumbs' },
     { id: 'badges', label: 'Badges', description: 'Colors, sizes, shapes, and removable labels', route: '/components/badges' },
     { id: 'search', label: 'Header search', description: 'good-header-search · GoodHeaderSearchComponent · Navigation links and local filtering', route: '/components/header-actions' },
-    { id: 'topbar-menu', label: 'Topbar menu', description: 'Responsive navigation and mobile popup', route: '/components/topbar-menu' },
+    { id: 'header-menu', label: 'Header menu', description: 'Responsive navigation, nested submenus, and mobile popup', route: '/components/header-menu' },
     { id: 'theme-toggle', label: 'Header theme toggle', description: 'good-header-themetoggle · Direct Light, System, and Dark cycling', route: '/components/header-actions' },
-    { id: 'topbar-submenu', label: 'Topbar submenu', description: 'Nested navigation and keyboard behavior', route: '/components/topbar-submenu' },
+    { id: 'header-submenu', label: 'Header submenu', description: 'Nested levels within Header menu', route: '/components/header-menu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },
     { id: 'webmailer-case-study', label: 'Webmailer case study', description: 'Mail workspace and composer built with GoodUI', route: '/examples/case-studies/webmailer' },

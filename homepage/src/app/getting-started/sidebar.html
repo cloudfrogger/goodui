@@ -1,0 +1,41 @@
+<good-main-view>
+  <good-heading-1>Sidebar</good-heading-1>
+  <good-summary>Declare navigation where it belongs, with automatic active links and one responsive sidebar.</good-summary>
+  <good-section spacing="content">
+    <good-heading-2>Declare your navigation</good-heading-2>
+    <good-prose>
+      <good-paragraph>Place <code>good-sidebar</code> directly inside <code>good-app-shell</code>. Add <code>good-sidebar-item</code> children for links, and nest items to make expandable groups. Use <code>good-sidebar-menu-container</code> when a group needs a section heading. The sidebar owns its branding, spacing, scrolling, and nested guide lines.</good-paragraph>
+      <good-paragraph>Try the example below. Documentation contains the current Sidebar page, so GoodUI opens that ancestor and marks its link automatically. Select Header menu to navigate to a sibling chapter.</good-paragraph>
+    </good-prose>
+    <good-group title="Declarative sidebar" appearance="outline">
+      <good-sidebar brand="Example App" brandLogoSrc="" brandLogoDarkSrc="" label="Sidebar example">
+        <good-sidebar-menu-container heading="WORKSPACE">
+          <good-sidebar-item label="Overview" icon="dashboard" route="/dashboard" activeMatch="exact" />
+          <good-sidebar-item label="Documentation" icon="book">
+            <good-sidebar-item label="Layout">
+              <good-sidebar-item label="Sidebar" route="/getting-started/layout/sidebar" />
+              <good-sidebar-item label="Header menu" route="/components/header-menu" />
+            </good-sidebar-item>
+          </good-sidebar-item>
+        </good-sidebar-menu-container>
+      </good-sidebar>
+    </good-group>
+    <good-code-block [code]="sidebarCode" language="html" title="Declare links and nested groups" />
+  </good-section>
+  <good-section spacing="content">
+    <good-heading-2>Compose the application shell</good-heading-2>
+    <good-prose>
+      <good-paragraph>The shell arranges your Sidebar, AppHeader, and routed page. It no longer accepts navigation arrays. Header navigation belongs in <code>good-header-menu</code> inside <code>good-app-header</code>; sidebar navigation belongs in <code>good-sidebar</code>. Brand inputs on the shell are shared defaults that either child can override.</good-paragraph>
+      <good-paragraph>On mobile, the header's sidebar button opens the same Sidebar instance in a modal drawer. Escape, the backdrop, Close, or navigation dismisses it and restores focus. Resizing preserves the sidebar's projected content and state.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="importsCode" language="typescript" title="Standalone imports" />
+    <good-code-block [code]="shellCode" language="html" title="One declarative shell" />
+  </good-section>
+  <good-section spacing="content">
+    <good-heading-2>Routes and keyboard behavior</good-heading-2>
+    <good-prose>
+      <good-paragraph>Use <code>route</code> on leaves and <code>label</code> on parent groups. GoodUI reads the Angular Router, highlights active links, and opens their ancestors. Set <code>activeMatch="exact"</code> for an overview route that prefixes other pages. No active-route binding is needed.</good-paragraph>
+      <good-paragraph>Parent buttons expose <code>aria-expanded</code> and <code>aria-controls</code>. Enter and Space toggle them; Tab skips collapsed children. Give separate sidebars distinct <code>label</code> values so their navigation landmarks remain identifiable.</good-paragraph>
+    </good-prose>
+  </good-section>
+</good-main-view>

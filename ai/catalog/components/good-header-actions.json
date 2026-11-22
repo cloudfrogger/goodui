@@ -122,7 +122,9 @@
   "usageGuide": "guides/components/header-actions.md",
   "usage": {
     "summary": "`good-header-actions` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
-    "examples": []
+    "examples": [
+      "ai/examples/shell.html"
+    ]
   },
   "penpot": [
     {
