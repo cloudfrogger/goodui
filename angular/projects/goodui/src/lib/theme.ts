@@ -32,8 +32,7 @@ export class GoodThemeService {
   }
 
   cycle(): void {
-    const next: Record<GoodThemePreference, GoodThemePreference> = { light: 'system', system: 'dark', dark: 'light' };
-    this.setTheme(next[this.preference()]);
+    this.toggle();
   }
 
   toggle(): void {

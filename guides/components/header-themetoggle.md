@@ -1,6 +1,6 @@
 # Header theme toggle
 
-`goodui.theme-toggle` maps to `good-header-themetoggle`. It is an optional 36 × 36 px topbar action. One click cycles **Light → System → Dark → Light** without opening a menu. The icon shows the current preference: sun, monitor, or moon. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.
+`goodui.theme-toggle` maps to `good-header-themetoggle`. It is an optional 36 × 36 px topbar action. One click switches **Light ↔ Dark** without opening a menu. The icon shows the currently active theme: sun for Light or moon for Dark, including when the initial theme follows the system. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.
 
 ```html
 <good-app-shell [showThemeToggle]="true">
@@ -10,7 +10,7 @@
 
 Set `[showThemeToggle]="false"` to remove it. `good-header-actions` and `good-app-header` accept the same input. A custom composition can place `<good-header-themetoggle />` directly. The main menu owns spacing, while the control owns its hit area and hover style.
 
-`GoodThemeService.preference()` is `light`, `system`, or `dark`; `theme()` remains the resolved `light` or `dark` value used for colors and theme-aware artwork. Explicit Light and Dark choices are stored in the `goodui-theme` cookie for one year. System mode removes the cookie and follows `prefers-color-scheme`, including changes while the page is open. Apps can select a mode with `theme.setTheme('system')` or advance it with `theme.cycle()`. The legacy `theme.toggle()` remains a direct light/dark switch for callers that need one. Older `localStorage` values are ignored.
+`GoodThemeService.preference()` is `light`, `system`, or `dark`; `theme()` remains the resolved `light` or `dark` value used for colors and theme-aware artwork. Explicit Light and Dark choices are stored in the `goodui-theme` cookie for one year. System mode removes the cookie and follows `prefers-color-scheme`, including changes while the page is open. System remains an initialization fallback and a programmatic preference, not a third selector state. Apps can restore it with `theme.setTheme('system')`. Both `theme.cycle()` and `theme.toggle()` switch from the resolved theme directly to its opposite and persist that explicit choice. Older `localStorage` values are ignored.
 
 To apply the correct color before Angular and its CSS load, put this script and critical background in the consuming app's `src/index.html` head, before other styles or scripts. The fallback colors match GoodUI's default `color.canvas` token; update them if your app overrides that token.
 
@@ -30,4 +30,4 @@ To apply the correct color before Angular and its CSS load, put this script and 
 </style>
 ```
 
-Penpot `01 Components` publishes `goodui.theme-toggle.light`, `.system`, and `.dark`. These are the three runtime states of the same Angular selector, each bound to `control.action-size`, `radius.action`, `color.surface`, and `color.icon`. HeaderActions uses the Light instance as its representative default composition; Angular renders the matching icon for the active preference.
+Penpot `01 Components` publishes `goodui.theme-toggle.light` and `.dark`, bound to `control.action-size`, `radius.action`, `color.surface`, and `color.icon`. They represent the active theme, including a theme resolved from the device setting. The former System specimen has been removed; the Light and Dark library IDs are preserved. HeaderActions uses the Light instance as its representative composition.

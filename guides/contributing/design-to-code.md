@@ -51,7 +51,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include
 | `goodui.app-header.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb522ee751` |
 | `goodui.app-shell.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb84e00368` |
 | `goodui.main-menu.default` | `521fe58c-da62-80e2-8008-d33f6619a524` |
-| `goodui.theme-toggle.light` / `.system` / `.dark` | `f52a309e-8b45-80e4-8008-d86c7ab97196` / `f52a309e-8b45-80e4-8008-d86c7bab8421` / `f52a309e-8b45-80e4-8008-d86c7c8f020f` |
+| `goodui.theme-toggle.light` / `.dark` | `f52a309e-8b45-80e4-8008-d86c7ab97196` / `f52a309e-8b45-80e4-8008-d86c7c8f020f` |
 | `goodui.search` (`hotkey=false`) / `.open` | `521fe58c-da62-80e2-8008-d33f6563524e` / `521fe58c-da62-80e2-8008-d33ffe1c4f79` |
 | `goodui.notifications.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65811a2c` / `521fe58c-da62-80e2-8008-d33fff9a20ba` |
 | `goodui.notifications.unread` | `5fd6a355-e255-80dc-8008-d81d121a0160` (linked bell and destructive Badge with 16 px `notification.count.*` overrides) |

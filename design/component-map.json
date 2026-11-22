@@ -1241,13 +1241,6 @@
       "state": "light"
     },
     {
-      "penpotName": "goodui.theme-toggle.system",
-      "penpotId": "f52a309e-8b45-80e4-8008-d86c7bab8421",
-      "angularSelector": "good-header-themetoggle",
-      "kind": "component",
-      "state": "system"
-    },
-    {
       "penpotName": "goodui.theme-toggle.dark",
       "penpotId": "f52a309e-8b45-80e4-8008-d86c7c8f020f",
       "angularSelector": "good-header-themetoggle",

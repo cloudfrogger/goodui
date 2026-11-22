@@ -733,8 +733,8 @@
         "symbol": "GoodHeaderThemeToggleComponent"
       },
       "usageGuide": "guides/components/header-themetoggle.md",
-      "summary": "`goodui.theme-toggle` maps to `good-header-themetoggle`. It is an optional 36 × 36 px topbar action. One click cycles **Light → System → Dark → Light** without opening a menu. The icon shows the current preference: sun, monitor, or moon. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.",
-      "penpotCount": 3
+      "summary": "`goodui.theme-toggle` maps to `good-header-themetoggle`. It is an optional 36 × 36 px topbar action. One click switches **Light ↔ Dark** without opening a menu. The icon shows the currently active theme: sun for Light or moon for Dark, including when the initial theme follows the system. The accessible button label names both the current and next mode; keyboard users activate it with Enter or Space.",
+      "penpotCount": 2
     },
     {
       "selector": "good-heading-1",

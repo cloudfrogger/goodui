@@ -56,10 +56,10 @@
   </good-section>
   <good-section spacing="content" id="header-themetoggle">
     <good-heading-2>Header theme toggle · good-header-themetoggle</good-heading-2>
-    <good-prose><good-paragraph><code>GoodHeaderThemeToggleComponent</code> cycles Light → System → Dark → Light. It has no inputs. Its icon represents the selected preference, and its accessible label announces the current and next mode. Enter or Space activates the button.</good-paragraph></good-prose>
-    <good-group appearance="contrast"><good-action-group><good-header-themetoggle /><good-paragraph>Current mode: {{ theme.preference() }}</good-paragraph></good-action-group></good-group>
+    <good-prose><good-paragraph><code>GoodHeaderThemeToggleComponent</code> switches directly between Light and Dark. It has no inputs. Its icon represents the currently active theme, and its accessible label announces the current and next mode. Enter or Space activates the button.</good-paragraph></good-prose>
+    <good-group appearance="contrast"><good-action-group><good-header-themetoggle /><good-paragraph>Current mode: {{ theme.theme() }}</good-paragraph></good-action-group></good-group>
     <good-code-block [code]="themeCode" language="html" title="Add the optional theme action" />
-    <good-prose><good-paragraph><code>GoodThemeService.preference()</code> returns light, system, or dark; <code>theme()</code> returns the resolved appearance. Explicit choices are stored in the <code>goodui-theme</code> cookie; System removes that cookie and follows the device. The <good-link route="/getting-started/developing">Developing chapter</good-link> explains how to avoid flickering on page load with an early theme and background-color snippet.</good-paragraph></good-prose>
+    <good-prose><good-paragraph><code>GoodThemeService.theme()</code> returns the active light or dark appearance shown by the control. Without a saved choice, GoodUI follows the device setting; the icon still shows the resolved theme. Clicking selects the opposite theme and stores it in the <code>goodui-theme</code> cookie. Applications can call <code>setTheme('system')</code> to return to following the device. The <good-link route="/getting-started/developing">Developing chapter</good-link> explains how to avoid flickering on page load with an early theme and background-color snippet.</good-paragraph></good-prose>
   </good-section>
   <good-section spacing="content">
     <good-heading-2>Update existing applications</good-heading-2>

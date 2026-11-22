@@ -6,23 +6,56 @@ import { GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHe
 import { GoodThemeService } from './theme';
 
 describe('GoodHeaderThemeToggleComponent', () => {
-  it('changes mode on each click without opening a menu', () => {
+  afterEach(() => {
+    document.cookie = 'goodui-theme=; Path=/; Max-Age=0';
+    vi.unstubAllGlobals();
+  });
+
+  it('shows the active theme and switches directly on every click', () => {
     TestBed.configureTestingModule({ imports: [GoodHeaderThemeToggleComponent] });
     const fixture = TestBed.createComponent(GoodHeaderThemeToggleComponent);
     const theme = TestBed.inject(GoodThemeService);
     theme.setTheme('light');
     fixture.detectChanges();
     const button = fixture.nativeElement.querySelector('button') as HTMLButtonElement;
+    expect(fixture.componentInstance.icon()).toBe('sun');
+    expect(button.getAttribute('aria-label')).toBe('Appearance: light. Switch to dark mode');
     button.click();
     fixture.detectChanges();
-    expect(theme.preference()).toBe('system');
-    expect(button.getAttribute('aria-label')).toContain('Switch to dark mode');
+    expect(theme.preference()).toBe('dark');
+    expect(fixture.componentInstance.icon()).toBe('moon');
+    expect(button.getAttribute('aria-label')).toBe('Appearance: dark. Switch to light mode');
     expect(fixture.nativeElement.querySelector('[role="menu"]')).toBeNull();
     button.click();
-    expect(theme.preference()).toBe('dark');
-    button.click();
+    fixture.detectChanges();
     expect(theme.preference()).toBe('light');
-    document.cookie = 'goodui-theme=; Path=/; Max-Age=0';
+    expect(fixture.componentInstance.icon()).toBe('sun');
+  });
+
+  it('shows the resolved system theme and toggles away from it', () => {
+    let dark = true;
+    let onChange: (() => void) | undefined;
+    vi.stubGlobal('matchMedia', vi.fn(() => ({
+      get matches() { return dark; },
+      addEventListener: (_name: string, listener: () => void) => { onChange = listener; },
+    })));
+    TestBed.configureTestingModule({ imports: [GoodHeaderThemeToggleComponent] });
+    const fixture = TestBed.createComponent(GoodHeaderThemeToggleComponent);
+    const theme = TestBed.inject(GoodThemeService);
+    theme.setTheme('system');
+    fixture.detectChanges();
+    const button = fixture.nativeElement.querySelector('button') as HTMLButtonElement;
+    expect(fixture.componentInstance.icon()).toBe('moon');
+    expect(button.getAttribute('aria-label')).toBe('Appearance: dark. Switch to light mode');
+    dark = false;
+    onChange?.();
+    fixture.detectChanges();
+    expect(fixture.componentInstance.icon()).toBe('sun');
+    expect(button.getAttribute('aria-label')).toBe('Appearance: light. Switch to dark mode');
+    button.click();
+    fixture.detectChanges();
+    expect(theme.preference()).toBe('dark');
+    expect(document.cookie).toContain('goodui-theme=dark');
   });
 });
 

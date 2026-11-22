@@ -159,15 +159,15 @@ export class GoodHeaderNotificationComponent {
   standalone: true,
   imports: [GoodIconComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<button type="button" class="good-action-button" [attr.aria-label]="label()" [attr.title]="label()" (click)="theme.cycle()">
+  template: `<button type="button" class="good-action-button" [attr.aria-label]="label()" [attr.title]="label()" (click)="theme.toggle()">
     <good-icon [name]="icon()" />
   </button>`,
   host: { class: 'good-header-themetoggle' },
 })
 export class GoodHeaderThemeToggleComponent {
   readonly theme = inject(GoodThemeService);
-  readonly icon = computed(() => ({ light: 'sun', system: 'monitor', dark: 'moon' } as const)[this.theme.preference()]);
-  readonly label = computed(() => `Appearance: ${this.theme.preference()}. Switch to ${{ light: 'system', system: 'dark', dark: 'light' }[this.theme.preference()]} mode`);
+  readonly icon = computed(() => this.theme.theme() === 'light' ? 'sun' : 'moon');
+  readonly label = computed(() => `Appearance: ${this.theme.theme()}. Switch to ${this.theme.theme() === 'light' ? 'dark' : 'light'} mode`);
 }
 
 @Component({
@@ -288,7 +288,7 @@ export class GoodAvatarMenuItemComponent {
         @if (action.variant !== 'sign-out') { <good-avatar-menu-item [action]="action" [path]="action.id" (closed)="closeMenu()" /> }
       }
       <span class="good-avatar-separator" role="separator"></span>
-      <label class="good-avatar-theme-row"><span>Dark Mode</span><input type="checkbox" role="switch" [checked]="theme.preference() === 'dark'" (change)="theme.setTheme($any($event.target).checked ? 'dark' : 'light')" /><span class="good-avatar-switch" aria-hidden="true"></span></label>
+      <label class="good-avatar-theme-row"><span>Dark Mode</span><input type="checkbox" role="switch" [checked]="theme.theme() === 'dark'" (change)="theme.setTheme($any($event.target).checked ? 'dark' : 'light')" /><span class="good-avatar-switch" aria-hidden="true"></span></label>
       @for (action of actions(); track action.id) {
         @if (action.variant === 'sign-out') { <good-avatar-menu-item [action]="action" [path]="action.id" (closed)="closeMenu()" /> }
       }

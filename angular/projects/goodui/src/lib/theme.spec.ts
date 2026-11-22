@@ -9,36 +9,43 @@ describe('GoodThemeService', () => {
     vi.unstubAllGlobals();
   });
 
-  it('cycles light, system, and dark, clears the cookie for system, and follows device changes', () => {
+  it('switches directly between light and dark and persists each choice', () => {
+    vi.stubGlobal('matchMedia', vi.fn(() => ({ matches: false, addEventListener: vi.fn() })));
+    document.cookie = 'goodui-theme=light; Path=/';
+    const theme = TestBed.inject(GoodThemeService);
+    theme.cycle();
+    expect(theme.preference()).toBe('dark');
+    expect(document.cookie).toContain('goodui-theme=dark');
+    theme.cycle();
+    expect(theme.preference()).toBe('light');
+    expect(document.cookie).toContain('goodui-theme=light');
+  });
+
+  it('resolves system changes until a toggle selects the opposite active theme', () => {
     let dark = false;
     let onChange: (() => void) | undefined;
     vi.stubGlobal('matchMedia', vi.fn(() => ({
       get matches() { return dark; },
       addEventListener: (_name: string, listener: () => void) => { onChange = listener; },
     })));
-    document.cookie = 'goodui-theme=light; Path=/';
     const theme = TestBed.inject(GoodThemeService);
-
-    expect(theme.preference()).toBe('light');
-    expect(theme.theme()).toBe('light');
-    theme.cycle();
     expect(theme.preference()).toBe('system');
     expect(theme.theme()).toBe('light');
-    expect(document.cookie).not.toContain('goodui-theme=');
     dark = true;
-    onChange?.();
-    expect(theme.theme()).toBe('dark');
-    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
-
-    theme.cycle();
-    expect(theme.preference()).toBe('dark');
-    expect(document.cookie).toContain('goodui-theme=dark');
-    dark = false;
     onChange?.();
     expect(theme.theme()).toBe('dark');
     theme.cycle();
     expect(theme.preference()).toBe('light');
     expect(document.cookie).toContain('goodui-theme=light');
+    onChange?.();
+    expect(theme.theme()).toBe('light');
+    theme.setTheme('system');
+    expect(document.cookie).not.toContain('goodui-theme=');
+    expect(theme.theme()).toBe('dark');
+    dark = false;
+    onChange?.();
+    expect(theme.theme()).toBe('light');
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
   });
 
   it('uses the explicit cookie before the system preference and ignores an old localStorage value', () => {
