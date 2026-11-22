@@ -2,16 +2,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodHeading2Component } from '@cloudfrogger/goodui';
 
 @Component({
-  selector: 'app-security-page',
+  selector: 'app-authentication-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './getting-started/security.html',
+  templateUrl: './getting-started/authentication.html',
 })
-export class SecurityPageComponent {
+export class AuthenticationPageComponent {
   readonly breadcrumbs: readonly GoodBreadcrumbItem[] = [
     { label: 'Getting Started', route: '/getting-started/introduction' },
-    { label: 'Security' },
+    { label: 'Authentication' },
   ];
   readonly installCode = 'npm install keycloak-js';
   readonly bootstrapCode = `import { bootstrapApplication } from '@angular/platform-browser';

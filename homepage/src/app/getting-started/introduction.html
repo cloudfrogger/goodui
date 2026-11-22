@@ -31,10 +31,11 @@
       <good-paragraph>The case studies show how the same components can form different applications: a mail workspace, server configuration, database management, and data visualizations, in light and dark themes.</good-paragraph>
       <figure class="m-0 overflow-hidden rounded-[var(--good-radius-card)] border border-[var(--good-color-border)]"
         style="width: 100%; max-width: var(--good-typography-flow-max-width); box-sizing: border-box;">
-        <video class="block h-auto w-full" autoplay [muted]="true" loop playsinline
+        <video class="block h-auto w-full" autoplay muted [muted]="true" loop playsinline preload="metadata"
           width="1440" height="980" poster="/media/case-study-showcase.jpg"
           aria-label="GoodUI case studies showing a mail workspace, server configuration, database management, and charts in light and dark themes">
-          <source src="/media/case-study-showcase.webm" type="video/webm" />
+          <source src="/media/case-study-showcase.mp4" type="video/mp4" />
+          <source src="/media/case-study-showcase-vp9.webm" type="video/webm" />
         </video>
         <figcaption class="bg-[var(--good-color-selected)] px-4 py-3 text-[length:var(--good-typography-caption-font-size)] font-normal leading-relaxed text-[var(--good-typography-caption-color)]">Explore the
           <good-link route="/examples/case-studies/webmailer">Webmailer</good-link>,
