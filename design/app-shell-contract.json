@@ -78,6 +78,8 @@
     },
     {
       "family": "goodui.sidebar",
+      "page": "45 Sidebars and Menus",
+      "pageId": "ffd8177e-90f6-8061-8008-fc9af9f40969",
       "selector": "good-sidebar",
       "source": "angular/projects/goodui/src/lib/sidebar.ts",
       "slots": [

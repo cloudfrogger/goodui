@@ -29,6 +29,8 @@
     "sharedByBothVariants": true
   },
   "composition": {
+    "page": "45 Sidebars and Menus",
+    "pageId": "ffd8177e-90f6-8061-8008-fc9af9f40969",
     "id": "4c1f5233-504c-80ed-8008-fb5c51acce40",
     "family": "goodui.main-menu.search-hotkey",
     "selector": "good-header-actions",

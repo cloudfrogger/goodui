@@ -27,3 +27,5 @@ The existing `good-sidebar-submenu-group` and `good-sidebar-submenu-item` parts 
 Penpot `goodui.sidebar` retains all former SidebarContainer library IDs. Linked MenuContainer, SidebarItem, SubmenuGroup, and SubmenuItem specimens remain intact. IDs and selectors are recorded in `design/component-map.json`. The **Layout → Sidebar** homepage chapter contains a working declarative example and complete shell markup.
 
 The shared region, responsive, and state contract is `design/app-shell-contract.json`.
+
+Penpot sidebar masters and their menu/item parts are on **45 Sidebars and Menus**. The move from `01 Components` preserves all component, main-shape, and child IDs; shell specimens on `02 Shell` remain linked.

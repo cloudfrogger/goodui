@@ -53,3 +53,5 @@ readonly subnavActions: readonly GoodSubnavAction[] = [
 `Subnav` is a named navigation landmark. Current links use `aria-current="page"`; menu buttons use `aria-expanded` and `aria-controls`. Arrow Left/Right and Home/End move among top-level links or buttons. Opening a menu focuses its first link; Escape closes it and returns focus. Outside click, horizontal scroll, window resize, and route changes also close it. Keep labels concise enough to scan, and use an explicit accessible label when a page has more than one navigation landmark.
 
 Penpot states: `goodui.subnav.desktop`, `.mobile`, `.menu-open`, `.with-actions`; `goodui.subnav-item.link`, `.parent`, `.active`; and `goodui.subnav-dropdown.default`. The mobile viewport clips a longer nested item track to document the scroll behavior.
+
+Penpot Subnav, SubnavItem, and SubnavDropdown masters are on **45 Sidebars and Menus** with unchanged IDs and linked MainView specimens.

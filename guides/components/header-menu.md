@@ -62,3 +62,5 @@ Parent rows use buttons with `aria-expanded` and `aria-controls`; leaves use lin
 The five `goodui.header-menu`, `goodui.header-menu-item`, `goodui.header-dropdown-menu`, `goodui.header-dropdown-item`, and `goodui.header-submenu` families retain all eleven original library IDs. Default/open, link/parent/open, nested-open, and mobile icon/popup states retain their behavior and geometry. The registry is `design/component-map.json`; the stable IDs are listed in [Design to Angular](../contributing/design-to-code.md).
 
 See the combined [Header menu homepage chapter](../../homepage/src/app/components/header-menu.html) and [migration guide](../migrations/header-menu.md).
+
+These navigation masters are on **45 Sidebars and Menus**. Their IDs and linked AppHeader instances are unchanged after moving from `01 Components`.

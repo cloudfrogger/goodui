@@ -12,6 +12,8 @@ The native GoodUI library snapshot belongs at `design/penpot/goodui.penpot`, but
 
 ## Penpot-Registry
 
+Navigation masters are organized on **45 Sidebars and Menus** (page ID `ffd8177e-90f6-8061-8008-fc9af9f40969`): four Sidebars, nine sidebar menu/item components, eleven header menu/dropdown components, seven avatar menu components, seven Subnav components, and four HeaderActions/Settings compositions. These 42 masters moved from `01 Components` with their library, main-shape, and child IDs intact. The six page sections are organizational boards, not published UI components. AppHeader, MainView, Search, Notifications, ThemeToggle, and BrandIcon masters remain on `01 Components`; the linked shell examples remain on `02 Shell`.
+
 File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include `13 Images`, `14 Date Inputs`, `15 Ratings`, `16 Tables`, `17 Selects`, `18 Phone Inputs`, `21 Alerts`, `24 Progress`, `25 PDF Preview`, `27 Number Inputs`, `28 Listboxes`, `29 Tabs`, `33 Range Sliders`, and `34 Textareas`. The IDs below are Penpot main shape IDs; preserve them while editing.
 
 | Penpot component | Library ID |

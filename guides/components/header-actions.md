@@ -32,3 +32,5 @@ The design family names remain `goodui.main-menu`, `goodui.search`, `goodui.noti
 For the former selector and class names, see [migration](../migrations/header-actions.md).
 
 The optional `goodui.main-menu.search-hotkey` Penpot composition demonstrates Search (`hotkey=true`), Notification, and Avatar as linked instances. Enable it on a projected `good-header-search` child; the generated default search keeps `hotkey=false`. See [Header search](header-search.md).
+
+Penpot `goodui.main-menu.default` and `goodui.main-menu.search-hotkey` are on **45 Sidebars and Menus**. Search, Notifications, and ThemeToggle masters remain on `01 Components`; the AvatarMenu and Settings masters moved with the menus. All linked compositions and IDs are preserved.

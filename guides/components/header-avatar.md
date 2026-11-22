@@ -32,3 +32,5 @@ Pass the same values as `[user]` and `[avatarActions]` to `good-app-shell` when 
 The menu itself owns identity and item layout, so consumers do not add spacing around rows. `GoodAvatarMenuItemComponent` is exported for composing account rows elsewhere. On desktop its submenu opens to the left of the avatar panel; on narrow screens it expands inside the panel.
 
 The trigger exposes `aria-expanded`. Nested parents expose their own expanded state and can be opened by click, hover, or Right Arrow. Escape closes the deepest open submenu first, then the panel and returns focus to the avatar. Outside clicks close the menu. The Dark Mode control is a labeled switch backed by `GoodThemeService`.
+
+Penpot AvatarMenu, AvatarMenuItem, and AvatarSubmenu masters are on **45 Sidebars and Menus** with their existing library and main-shape IDs.

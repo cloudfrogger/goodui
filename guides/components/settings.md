@@ -11,3 +11,5 @@ The menu stays inside the viewport near its right edge, is keyboard accessible, 
 Settings is optional in the standard topbar: set `[showSettings]="true"` on `good-app-shell`, `good-app-header`, or `good-header-actions` to include it.
 
 For a settings **page**, compose MainView with [settings Sections](typography.md#settings-sections), page actions, DetailList, and Forms. The [complete Settings example](../../homepage/src/app/examples/settings/settings-page.html) includes workspace overview, read mode, explicit editing, repeated rows, and name-confirmed archiving. The `good-settings` selector continues to represent only the shell header menu.
+
+The header Settings trigger and open-menu masters are on **45 Sidebars and Menus**. The settings-page composition remains separately documented on `44 Settings`.
