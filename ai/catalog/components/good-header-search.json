@@ -17,6 +17,15 @@
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/actions.ts",
       "kind": "input"
+    },
+    {
+      "name": "hotkey",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/actions.ts",
+      "kind": "input"
     }
   ],
   "outputs": [],
@@ -34,15 +43,15 @@
   },
   "usageGuide": "guides/components/header-search.md",
   "usage": {
-    "summary": "`good-header-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.",
+    "summary": "`good-header-search` opens a modal navigation search from a round magnifier action or an optional wide trigger with a keyboard shortcut. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.",
     "examples": []
   },
   "penpot": [
     {
-      "penpotName": "goodui.search.default",
+      "penpotName": "goodui.search",
       "penpotId": "521fe58c-da62-80e2-8008-d33f6563524e",
       "kind": "component",
-      "state": "default",
+      "state": null,
       "owner": null
     },
     {

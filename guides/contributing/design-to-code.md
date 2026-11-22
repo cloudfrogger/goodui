@@ -52,7 +52,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include
 | `goodui.app-layout.help-submenu-open` | `521fe58c-da62-80e2-8008-d3cb84e00368` |
 | `goodui.main-menu.default` | `521fe58c-da62-80e2-8008-d33f6619a524` |
 | `goodui.theme-toggle.light` / `.system` / `.dark` | `f52a309e-8b45-80e4-8008-d86c7ab97196` / `f52a309e-8b45-80e4-8008-d86c7bab8421` / `f52a309e-8b45-80e4-8008-d86c7c8f020f` |
-| `goodui.search.default` / `.open` | `521fe58c-da62-80e2-8008-d33f6563524e` / `521fe58c-da62-80e2-8008-d33ffe1c4f79` |
+| `goodui.search` (`hotkey=false`) / `.open` | `521fe58c-da62-80e2-8008-d33f6563524e` / `521fe58c-da62-80e2-8008-d33ffe1c4f79` |
 | `goodui.notifications.default` / `.open` | `521fe58c-da62-80e2-8008-d33f65811a2c` / `521fe58c-da62-80e2-8008-d33fff9a20ba` |
 | `goodui.notifications.unread` | `5fd6a355-e255-80dc-8008-d81d121a0160` (linked bell and destructive Badge with 16 px `notification.count.*` overrides) |
 | `goodui.progress` (`mode` × `appearance` × `size`) | Container `bf5e7a26-ff29-80d7-8008-d9b649158136`; all 18 published IDs and Angular inputs in [progress-variants.json](../../design/progress-variants.json) |
@@ -263,3 +263,9 @@ The previous public names `GoodSectionNavComponent`, `GoodSectionNavItem`, `good
 ### Header actions composition
 
 `goodui.main-menu.default` maps to `good-header-actions`, a container for application-selected action components. Its linked Search, Notifications, ThemeToggle, and AvatarMenu instances represent the default arrangement. Angular accepts custom projected children in their declared order; AppLayout forwards its direct HeaderActions child to Topbar. Stable component IDs, geometry, and token bindings are unchanged. See [Header actions](../components/header-actions.md).
+
+### Header search variants
+
+`goodui.search` is a native `hotkey=false/true` variant family on `01 Components`. The original compact ID `521fe58c-da62-80e2-8008-d33f6563524e` is preserved. The wide variant is `4c1f5233-504c-80ed-8008-fb5b190807ea`; both map to `good-header-search` and share the existing search dialog. The linked Search/Notification/Avatar composition `goodui.main-menu.search-hotkey` has ID `4c1f5233-504c-80ed-8008-fb5c51acce40` and maps to `good-header-actions`. See `design/header-search-variants.json` for IDs, axes, and runtime semantics. The `header-search.*` tokens come from the live Penpot catalog; the original compact geometry remains unchanged.
+
+Section now publishes native `spacing=default/content` variants on `12 Typography`. The original ID `c0c3286f-e4bf-804c-8008-d59bac524010` remains the default; the content variant is `4c1f5233-504c-80ed-8008-fbe5a16e4492`. Both map to `good-section` and its `spacing` input. The registry in `design/typography-components.json` owns their IDs and relationships.

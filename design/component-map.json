@@ -1134,11 +1134,11 @@
       "state": null
     },
     {
-      "penpotName": "goodui.search.default",
+      "penpotName": "goodui.search",
       "penpotId": "521fe58c-da62-80e2-8008-d33f6563524e",
       "angularSelector": "good-header-search",
       "kind": "component",
-      "state": "default"
+      "state": null
     },
     {
       "penpotName": "goodui.search.open",
@@ -2188,6 +2188,13 @@
       "angularSelector": "good-world-map",
       "kind": "component",
       "state": "aggregated-overlays"
+    },
+    {
+      "penpotName": "goodui.main-menu.search-hotkey",
+      "penpotId": "4c1f5233-504c-80ed-8008-fb5c51acce40",
+      "angularSelector": "good-header-actions",
+      "kind": "component",
+      "state": "search-hotkey"
     }
   ],
   "variantManifests": [
@@ -2228,7 +2235,8 @@
     "design/input-phone-variants.json",
     "design/rich-text-contract.json",
     "design/color-controls-contract.json",
-    "design/world-map-contract.json"
+    "design/world-map-contract.json",
+    "design/header-search-variants.json"
   ],
   "angularSelectorOverrides": {
     "main-menu": "good-header-actions",

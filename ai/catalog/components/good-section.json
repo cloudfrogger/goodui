@@ -8,9 +8,27 @@
     "symbol": "GoodSectionComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",
-  "inputs": [],
+  "inputs": [
+    {
+      "name": "spacing",
+      "type": "\"default\" | \"content\"",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "content"
+      ],
+      "source": "angular/projects/goodui/src/lib/typography.ts",
+      "kind": "input"
+    }
+  ],
   "outputs": [],
-  "variants": {},
+  "variants": {
+    "spacing": [
+      "default",
+      "content"
+    ]
+  },
   "composition": {
     "projectedContent": [
       "*"

@@ -1788,6 +1788,24 @@
         }
       },
       "section": {
+        "content": {
+          "block-gap": {
+            "$value": "{space.6}",
+            "$type": "spacing"
+          },
+          "heading-gap": {
+            "$value": "{space.3}",
+            "$type": "spacing"
+          },
+          "subsection-gap": {
+            "$value": "40",
+            "$type": "spacing"
+          },
+          "section-gap": {
+            "$value": "48",
+            "$type": "spacing"
+          }
+        },
         "max-width": {
           "$value": "1024",
           "$type": "sizing"
@@ -2954,6 +2972,66 @@
       "segment": {
         "width": { "$value": "14", "$type": "sizing" },
         "gap": { "$value": "3", "$type": "sizing" }
+      }
+    },
+    "header-search": {
+      "width": {
+        "$value": "320",
+        "$type": "sizing"
+      },
+      "height": {
+        "$value": "{control.input-height-default}",
+        "$type": "sizing"
+      },
+      "icon-size": {
+        "$value": "20",
+        "$type": "sizing"
+      },
+      "radius": {
+        "$value": "{radius.control}",
+        "$type": "borderRadius"
+      },
+      "padding": {
+        "$value": "{space.3}",
+        "$type": "spacing"
+      },
+      "gap": {
+        "$value": "{space.3}",
+        "$type": "spacing"
+      },
+      "background": {
+        "$value": "{color.selected}",
+        "$type": "color"
+      },
+      "foreground": {
+        "$value": "{color.muted}",
+        "$type": "color"
+      },
+      "shortcut": {
+        "height": {
+          "$value": "24",
+          "$type": "sizing"
+        },
+        "padding": {
+          "$value": "{space.2}",
+          "$type": "spacing"
+        },
+        "radius": {
+          "$value": "{radius.compact}",
+          "$type": "borderRadius"
+        },
+        "font-size": {
+          "$value": "{typography.caption.font-size}",
+          "$type": "fontSizes"
+        },
+        "background": {
+          "$value": "{color.surface}",
+          "$type": "color"
+        },
+        "border": {
+          "$value": "{color.border}",
+          "$type": "color"
+        }
       }
     }
   },

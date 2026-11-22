@@ -39,6 +39,12 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-section + .good-section { margin-block-start: var(--good-typography-flow-section-gap); }
 .good-section > section { display: flex; flex-direction: column; align-items: stretch; gap: var(--good-typography-paragraph-subheading-gap); min-width: 0; }
 .good-section > section > .good-heading-group + * { margin-block-start: var(--good-typography-heading-content-gap); }
+/* Section owns spacing between content blocks; text and controls retain their own inner rhythm. */
+.good-section[data-spacing="content"] > section { gap: 0; }
+.good-section[data-spacing="content"] > section > * + * { margin-block-start: var(--good-typography-section-content-block-gap); }
+.good-section[data-spacing="content"] > section > :is(.good-subheading, .good-heading, .good-heading-group):not(:first-child) { margin-block-start: var(--good-typography-section-content-subsection-gap); }
+.good-section[data-spacing="content"] > section > :is(.good-subheading, .good-heading) + * { margin-block-start: var(--good-typography-section-content-heading-gap); }
+.good-section[data-spacing="content"] + .good-section[data-spacing="content"] { margin-block-start: var(--good-typography-section-content-section-gap); }
 .good-prose { display: flex; flex-direction: column; align-items: stretch; min-width: 0; max-width: var(--good-typography-flow-max-width); }
 .good-detail-list { display: block; width: 100%; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-detail-list dl { display: grid; gap: var(--good-space-2); margin: 0; }
@@ -436,6 +442,17 @@ good-heading-group, good-eyebrow, good-heading, good-summary, good-section, good
 .good-header-search, .good-header-notification, .good-header-themetoggle, .good-settings, .good-header-avatar { position: relative; display: inline-flex; }
 .good-action-button, .good-avatar-button { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; width: var(--good-control-action-size); height: var(--good-control-action-size); padding: 0; border: 0; border-radius: var(--good-radius-action); background: transparent; color: var(--good-icon); cursor: pointer; }
 .good-action-button:hover, .good-avatar-button:hover { background: var(--good-selected); color: var(--good-text); }
+.good-action-button.good-header-search-hotkey { width: var(--good-header-search-width); height: var(--good-header-search-height); justify-content: flex-start; gap: var(--good-header-search-gap); padding-inline: var(--good-header-search-padding); border-radius: var(--good-header-search-radius); background: var(--good-header-search-background); color: var(--good-header-search-foreground); font: inherit; font-size: var(--good-typography-paragraph-font-size); }
+.good-header-search-hotkey > good-icon { width: var(--good-header-search-icon-size); height: var(--good-header-search-icon-size); flex: none; }
+.good-header-search-label { flex: 1; text-align: left; }
+.good-header-search-shortcut { display: inline-flex; align-items: center; justify-content: center; flex: none; height: var(--good-header-search-shortcut-height); padding-inline: var(--good-header-search-shortcut-padding); border: 1px solid var(--good-header-search-shortcut-border); border-radius: var(--good-header-search-shortcut-radius); background: var(--good-header-search-shortcut-background); font: inherit; font-size: var(--good-header-search-shortcut-font-size); white-space: nowrap; }
+.good-action-button.good-header-search-hotkey:hover { color: var(--good-text); }
+.good-action-button.good-header-search-hotkey:focus-visible { outline: 2px solid var(--good-accent); outline-offset: 2px; }
+@media (max-width: 1200px) {
+  .good-action-button.good-header-search-hotkey { width: var(--good-control-action-size); height: var(--good-control-action-size); padding: 0; justify-content: center; border-radius: var(--good-radius-action); background: transparent; }
+  .good-header-search-label, .good-header-search-shortcut { display: none; }
+  .good-action-button.good-header-search-hotkey:hover { background: var(--good-selected); }
+}
 .good-avatar-button { overflow: hidden; background: var(--good-selected); color: var(--good-text); font-size: 11px; font-weight: 700; }
 .good-avatar-button img { width: 100%; height: 100%; object-fit: cover; }
 .good-notification-count { position: absolute; top: calc(-1 * var(--good-space-1)); right: calc(-1 * var(--good-space-1)); z-index: 1; pointer-events: none; }

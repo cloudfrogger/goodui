@@ -131,6 +131,13 @@
       "kind": "component",
       "state": "default",
       "owner": null
+    },
+    {
+      "penpotName": "goodui.main-menu.search-hotkey",
+      "penpotId": "4c1f5233-504c-80ed-8008-fb5c51acce40",
+      "kind": "component",
+      "state": "search-hotkey",
+      "owner": null
     }
   ],
   "missing": {

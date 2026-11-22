@@ -4,6 +4,7 @@ Case studies document a working application context. Open one only when the task
 
 | Study | When to open it | Detail |
 | --- | --- | --- |
+| DockerHub header | A wide navigation search trigger with a shortcut hint and independent account actions | [DockerHub header](dockerhub.md) |
 | Webmailer | A workspace with grouped commands, folders, a selectable list, preview, and rich text composition | [Webmailer](webmailer.md) |
 | VPS hoster | A sortable server list with filters and a multi-section server configuration flow | [VPS hoster](vpshoster.md) |
 

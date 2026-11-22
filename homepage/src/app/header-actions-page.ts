@@ -46,6 +46,7 @@ export class NavigationSearchComponent {
     { id: 'tables', label: 'Tables', description: 'Records and pagination', route: '/components/tables' },
   ];
 }`;
+  readonly hotkeyCode = '<good-header-search [items]="items" [hotkey]="true" />';
   readonly searchModelCode = `interface GoodSearchItem {
   id: string;
   label: string;

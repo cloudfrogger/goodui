@@ -62,8 +62,8 @@
       "required": false,
       "default": "outline",
       "allowedValues": [
-        "outline",
         "default",
+        "outline",
         "secondary",
         "destructive",
         "ghost"
@@ -180,8 +180,8 @@
   ],
   "variants": {
     "variant": [
-      "outline",
       "default",
+      "outline",
       "secondary",
       "destructive",
       "ghost"

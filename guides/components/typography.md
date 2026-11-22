@@ -87,6 +87,36 @@ Every column is visible at every size unless its `visibleAt` input says otherwis
 
 Penpot page `12 Typography` publishes a `goodui.columns` variant group with `columns=2/3/4` and a linked `goodui.column` component. Its specimens show desktop composition; the container breakpoints and per-column visibility are Angular runtime behavior. Their published IDs are in [typography-components.json](../../design/typography-components.json).
 
+## Section spacing
+
+Section accepts `spacing="default"` (the default) or `spacing="content"`. The default retains the compact 8 px child gap and 24 px gap between adjacent sections. Choose content spacing for articles, help pages, and documentation mixing explanations, images, previews, and code:
+
+```html
+<good-section spacing="content">
+  <good-subheading>Choose your header actions</good-subheading>
+  <good-prose>
+    <good-paragraph>Compose the actions your application needs.</good-paragraph>
+    <good-paragraph>Each action remains independently configurable.</good-paragraph>
+  </good-prose>
+  <good-inline-image src="/header.png" alt="Example application header" />
+  <good-code-block [code]="headerTemplate" language="html" />
+  <good-subheading [level]="3">Add a keyboard shortcut</good-subheading>
+  <good-prose><good-paragraph>Enable the optional search shortcut.</good-paragraph></good-prose>
+</good-section>
+```
+
+| Relationship in content mode | Gap |
+| --- | --- |
+| Direct content blocks (text, image, preview, code) | 24 px |
+| Heading or Subheading followed by content | 12 px |
+| Before a subsequent Heading, Subheading, or HeadingGroup | 40 px |
+| Adjacent Sections both using content spacing | 48 px |
+| Paragraphs within Prose | Unchanged: 20 px |
+
+The first block has no added leading space and the last has no trailing space. A HeadingGroup retains its own internal rhythm; the next content block receives the regular 24 px gap. Images retain their caption spacing. Section manages only its direct children, so it does not alter controls inside a Group, Card, form, or dialog. Set the mode explicitly on nested Sections. Keep related paragraphs in one Prose container and make new topics siblings with the correct heading level. Do not add padding to individual paragraphs to create page spacing.
+
+Penpot publishes `goodui.section` with `spacing=default/content` on `12 Typography`; the original default component ID is preserved. IDs, token names, and runtime relationships are in `design/typography-components.json`.
+
 ## Content flow
 
 `good-prose` provides a readable 760 px maximum width and owns the vertical rhythm of its children. `good-paragraph` renders only its text and does not set an outer margin of its own, so it can be exchanged for a control or another content component without adding a second gap. Prose uses the 20 px `typography.flow.gap` token between its children. `good-subheading` renders a semantic H2–H6 (`level=2` by default); `good-citation` renders a blockquote with optional `source` and `cite`; and `good-separator` defaults to three quiet dots or accepts `variant="line"`. Penpot's `style` axis maps to the Angular `variant` input because `style` is reserved for HTML/CSS. Subheadings belong between paragraphs as siblings, keeping the HTML valid. A leading Subheading or Separator has no artificial top margin.

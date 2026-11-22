@@ -1,0 +1,55 @@
+{
+  "penpotFileId": "0f428ff0-c8e2-8078-8008-fb55d9570459",
+  "page": "01 Components",
+  "pageId": "a552d28a-7556-80e4-8008-d3392c96c89a",
+  "family": "goodui.search",
+  "selector": "good-header-search",
+  "containerId": "4c1f5233-504c-80ed-8008-fb5b5998dc4e",
+  "axes": {
+    "hotkey": [
+      "false",
+      "true"
+    ]
+  },
+  "variants": [
+    {
+      "id": "521fe58c-da62-80e2-8008-d33f6563524e",
+      "mainInstanceId": "521fe58c-da62-80e2-8008-d33f654453bf",
+      "hotkey": "false"
+    },
+    {
+      "id": "4c1f5233-504c-80ed-8008-fb5b190807ea",
+      "mainInstanceId": "4c1f5233-504c-80ed-8008-fb5b06d16787",
+      "hotkey": "true"
+    }
+  ],
+  "dialog": {
+    "id": "521fe58c-da62-80e2-8008-d33ffe1c4f79",
+    "family": "goodui.search.open",
+    "sharedByBothVariants": true
+  },
+  "composition": {
+    "id": "4c1f5233-504c-80ed-8008-fb5c51acce40",
+    "family": "goodui.main-menu.search-hotkey",
+    "selector": "good-header-actions",
+    "children": [
+      "goodui.search",
+      "goodui.notifications.default",
+      "goodui.avatar-menu.default"
+    ]
+  },
+  "runtime": {
+    "hotkey": {
+      "type": "boolean",
+      "default": false
+    },
+    "shortcut": [
+      "Control+k",
+      "Meta+k"
+    ],
+    "macHint": "⌘ K",
+    "otherHint": "Ctrl K",
+    "compactAtMaxWidth": 1200,
+    "ownership": "First visible opted-in instance handles an unclaimed shortcut; an open modal keeps it."
+  }
+}

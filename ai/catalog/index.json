@@ -614,7 +614,7 @@
       },
       "usageGuide": "guides/components/header-actions.md",
       "summary": "`good-header-actions` is the topbar action container. It owns alignment and responsive gaps. Applications compose its children in any order without adding layout CSS.",
-      "penpotCount": 1
+      "penpotCount": 2
     },
     {
       "selector": "good-header-avatar",
@@ -649,7 +649,7 @@
         "symbol": "GoodHeaderSearchComponent"
       },
       "usageGuide": "guides/components/header-search.md",
-      "summary": "`good-header-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.",
+      "summary": "`good-header-search` opens a modal navigation search from a round magnifier action or an optional wide trigger with a keyboard shortcut. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.",
       "penpotCount": 2
     },
     {

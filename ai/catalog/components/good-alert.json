@@ -32,8 +32,8 @@
       "default": "default",
       "allowedValues": [
         "mono",
-        "outline",
         "default",
+        "outline",
         "light"
       ],
       "source": "angular/projects/goodui/src/lib/alert.ts",
@@ -127,8 +127,8 @@
     ],
     "appearance": [
       "mono",
-      "outline",
       "default",
+      "outline",
       "light"
     ],
     "size": [

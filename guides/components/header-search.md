@@ -1,6 +1,6 @@
 # Header search
 
-`good-header-search` opens a modal navigation search from a round magnifier action. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.
+`good-header-search` opens a modal navigation search from a round magnifier action or an optional wide trigger with a keyboard shortcut. It filters application-supplied link labels and descriptions locally, with automatic input focus, keyboard navigation, and an empty state. The homepage documents it at `/components/header-actions` in its Header search section with a working preview and copyable examples.
 
 ## Standalone usage
 
@@ -19,7 +19,12 @@ readonly items: readonly GoodSearchItem[] = [
 
 ## API
 
-`items` is the sole component input. It accepts `readonly GoodSearchItem[]` and defaults to `[]`.
+| Input | Type | Default | Meaning |
+| --- | --- | --- | --- |
+| `items` | `readonly GoodSearchItem[]` | `[]` | Locally searched navigation records |
+| `hotkey` | `boolean` | `false` | Wide search trigger and Ctrl+K / Command+K shortcut |
+
+The following fields describe each `GoodSearchItem`:
 
 | Field | Required | Meaning |
 | --- | --- | --- |
@@ -41,6 +46,22 @@ readonly items: readonly GoodSearchItem[] = [
 ```
 
 HeaderActions shows the action by default. A standalone HeaderActions can set `[showSearch]="false"` to hide it.
+
+## Visible keyboard shortcut
+
+```html
+<good-header-actions>
+  <good-header-search [items]="items" [hotkey]="true" />
+  <good-header-notification />
+  <good-header-avatar [user]="currentUser" />
+</good-header-actions>
+```
+
+The opt-in trigger shows a magnifier, “Search…,” and a keycap: **Ctrl K** on Windows/Linux or **⌘ K** on Apple platforms. It is a button that opens the same dialog, not an editable field. At viewport widths of 1200 px and below it becomes the compact magnifier; the shortcut remains active. Both Control+K and Meta+K are supported.
+
+Enable `hotkey` on one search per application, normally in the shell. If multiple visible instances opt in, the first registered instance handles the unclaimed event. Hidden or inert instances, a shortcut claimed by another handler, and an already-open modal are skipped. Repeated keydown, composition, and additional modifiers are ignored. Leaving `hotkey` false retains the icon-only action without a global shortcut. Focus returns to the trigger after dismissal, including when opened from the keyboard.
+
+Penpot publishes the `hotkey=false/true` variants in `goodui.search` on `01 Components`. The existing compact component ID and shared dialog ID are preserved. `goodui.main-menu.search-hotkey` composes linked Search, Notification, and Avatar instances. IDs and responsive semantics are recorded in `design/header-search-variants.json`.
 
 ## Keyboard and navigation
 

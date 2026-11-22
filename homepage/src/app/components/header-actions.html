@@ -1,5 +1,5 @@
 <good-main-view title="Header actions" description="Compose the actions in the upper-right corner of the application header.">
-  <good-section>
+  <good-section spacing="content">
     <good-prose>
       <good-paragraph><code>good-header-actions</code> is the container for the right-hand side of the header. Place independent actions inside it in the order you need. The example shows Search, Notification, and Avatar; Theme toggle is an optional fourth action.</good-paragraph>
     </good-prose>
@@ -19,19 +19,24 @@
       <good-paragraph>The following sections document Search, Notification, Avatar, and Theme toggle as independent components, each with its own working example and API.</good-paragraph>
     </good-prose>
   </good-section>
-  <good-section id="header-search">
+  <good-section spacing="content" id="header-search">
     <good-subheading>Header search · good-header-search</good-subheading>
     <good-prose>
       <good-paragraph><code>GoodHeaderSearchComponent</code> opens a modal navigation search. Supply <code>items: readonly GoodSearchItem[]</code>, which defaults to an empty array. Matching ignores letter case and searches labels and descriptions locally. An empty query shows all items; an unmatched query shows “No results.”</good-paragraph>
     </good-prose>
     <good-group appearance="contrast"><good-action-group><good-header-search [items]="items" /><good-paragraph>Try “Tables” or “pagination.”</good-paragraph></good-action-group></good-group>
     <good-code-block [code]="searchCode" language="typescript" title="Standalone header search" />
+    <good-subheading [level]="3">Show the search shortcut</good-subheading>
+    <good-prose><good-paragraph>Set <code>[hotkey]="true"</code> to show a wide search button with a magnifier, “Search…,” and a keyboard hint. Press Ctrl+K on Windows/Linux or ⌘K on Mac to open the same search dialog. The default is <code>false</code>, which keeps the compact icon action.</good-paragraph></good-prose>
+    <good-group appearance="contrast"><good-header-actions><good-header-search [items]="items" [hotkey]="true" /><good-header-notification /><good-header-avatar [user]="user" [actions]="actions" /></good-header-actions></good-group>
+    <good-code-block [code]="hotkeyCode" language="html" title="Enable the keyboard shortcut" />
+    <good-prose><good-paragraph>At viewport widths of 1200 px and below, the button becomes a compact magnifier while the shortcut remains active. Enable this option on one search, usually in your application header. If several visible searches opt in, the first registered instance handles the shortcut. An already-open modal keeps keyboard focus; hidden instances and shortcuts claimed by another handler are skipped.</good-paragraph></good-prose>
     <good-code-block [code]="searchModelCode" language="typescript" title="GoodSearchItem" />
     <good-prose>
       <good-paragraph>Use unique stable IDs and configure Angular Router. Opening focuses the field. Tab and Shift+Tab move between controls and results; Enter follows a focused result. Escape and Close restore focus to the trigger. Public <code>open()</code> and <code>close()</code> methods control the dialog. For a permanently visible page search field, use <good-link route="/components/inputs">Input</good-link> with <code>type="search"</code>.</good-paragraph>
     </good-prose>
   </good-section>
-  <good-section id="header-notification">
+  <good-section spacing="content" id="header-notification">
     <good-subheading>Header notification · good-header-notification</good-subheading>
     <good-prose><good-paragraph><code>GoodHeaderNotificationComponent</code> is the bell and notification inbox. The badge counts unread messages. It combines entries from <code>GoodNotificationCenter</code> with optional <code>items: readonly GoodNotification[]</code>, which defaults to an empty array.</good-paragraph></good-prose>
     <good-group appearance="contrast"><good-action-group><good-header-notification /><good-button (click)="notify()">Add notification</good-button></good-action-group></good-group>
@@ -39,7 +44,7 @@
     <good-code-block [code]="notificationCode" language="typescript" title="Publish an inbox message" />
     <good-prose><good-paragraph>Register <code>provideGoodUI()</code> once. AppLayout already includes a notification host; applications without AppLayout need one <code>good-notification-host</code> for toasts. Public <code>open()</code> and <code>close()</code> control the inbox. Escape and Close return focus to the bell. See the <good-link route="/examples/notifications">Notifications example</good-link> for progress, delivery, actions, and acknowledgements.</good-paragraph></good-prose>
   </good-section>
-  <good-section id="header-avatar">
+  <good-section spacing="content" id="header-avatar">
     <good-subheading>Header avatar · good-header-avatar</good-subheading>
     <good-prose><good-paragraph><code>GoodHeaderAvatarComponent</code> owns the avatar trigger and account menu. It shows an avatar image or initials, identity details, navigation links, nested actions, a Dark Mode switch, and optional sign-out. The <code>user</code> input accepts <code>GoodUser | null</code> and defaults to null; <code>actions</code> accepts <code>readonly GoodMenuAction[]</code> and defaults to an empty array.</good-paragraph></good-prose>
     <good-group appearance="contrast"><good-header-avatar [user]="user" [actions]="actions" /></good-group>
@@ -47,14 +52,14 @@
     <good-code-block [code]="avatarCode" language="typescript" title="Identity and account actions" />
     <good-prose><good-paragraph>GoodUser supports name, email, initials, avatarUrl, and badge. Actions support id, label, icon, route, action, children, detail, separatorBefore, and variant. Supply children for submenu parents. The host application implements sign-out. Escape closes nested menus before the account panel and returns focus to the trigger; outside clicks close the panel.</good-paragraph></good-prose>
   </good-section>
-  <good-section id="header-themetoggle">
+  <good-section spacing="content" id="header-themetoggle">
     <good-subheading>Header theme toggle · good-header-themetoggle</good-subheading>
     <good-prose><good-paragraph><code>GoodHeaderThemeToggleComponent</code> cycles Light → System → Dark → Light. It has no inputs. Its icon represents the selected preference, and its accessible label announces the current and next mode. Enter or Space activates the button.</good-paragraph></good-prose>
     <good-group appearance="contrast"><good-action-group><good-header-themetoggle /><good-paragraph>Current mode: {{ theme.preference() }}</good-paragraph></good-action-group></good-group>
     <good-code-block [code]="themeCode" language="html" title="Add the optional theme action" />
     <good-prose><good-paragraph><code>GoodThemeService.preference()</code> returns light, system, or dark; <code>theme()</code> returns the resolved appearance. Explicit choices are stored in the <code>goodui-theme</code> cookie; System removes that cookie and follows the device. The <good-link route="/getting-started/developing">Developing chapter</good-link> explains how to avoid flickering on page load with an early theme and background-color snippet.</good-paragraph></good-prose>
   </good-section>
-  <good-section>
+  <good-section spacing="content">
     <good-subheading>Update existing applications</good-subheading>
     <good-prose><good-paragraph>Replace good-main-menu with good-header-actions, good-search with good-header-search, good-notifications with good-header-notification, good-avatar-menu with good-header-avatar, and good-theme-toggle with good-header-themetoggle. Import the matching GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderAvatarComponent, and GoodHeaderThemeToggleComponent classes. Inputs and behavior are unchanged. The former selectors and class names are replaced by these public names.</good-paragraph></good-prose>
   </good-section>

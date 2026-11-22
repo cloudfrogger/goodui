@@ -505,7 +505,7 @@ checkMatrix(badgeVariants.variants, [
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
 const typographyExpected = new Map([
   ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', ['1', '2-6']], ['summary', null],
-  ['section', null], ['prose', null], ['detail-list', null], ['columns', ['2', '3', '4']], ['column', null], ['paragraph', null], ['subheading', null], ['citation', null],
+  ['section', ['default', 'content']], ['prose', null], ['detail-list', null], ['columns', ['2', '3', '4']], ['column', null], ['paragraph', null], ['subheading', null], ['citation', null],
   ['separator', ['dots', 'line']], ['inline-image', ['center', 'left', 'right']],
   ['form-field', ['default', 'error']], ['field-label', ['false', 'true']],
   ['hint', null], ['error-text', null],
@@ -539,4 +539,31 @@ for (const [selection, id] of Object.entries(formFieldSelections)) {
 }
 if (typographyComponents.internalParts.length !== 1 || typographyComponents.internalParts[0].family !== 'image-caption' || typographyComponents.internalParts[0].owner !== 'inline-image' || !typographyComponents.internalParts[0].componentId || map.internalParts['image-caption'] !== 'inline-image') throw new Error('Image caption must be an internal part of good-inline-image.');
 if (typographyIds.has(typographyComponents.internalParts[0].componentId)) throw new Error('Duplicate image caption Penpot ID.');
+
+const headerSearch = JSON.parse(readFileSync(resolve(root, 'design/header-search-variants.json'), 'utf8'));
+if (headerSearch.family !== 'goodui.search' || headerSearch.selector !== 'good-header-search' ||
+    headerSearch.page !== '01 Components' || headerSearch.variants.length !== 2 ||
+    JSON.stringify(headerSearch.axes) !== JSON.stringify({ hotkey: ['false', 'true'] }) ||
+    new Set(headerSearch.variants.map(entry => entry.id)).size !== 2 ||
+    !headerSearch.variants.every(entry => /^[0-9a-f-]{36}$/.test(entry.id) && /^[0-9a-f-]{36}$/.test(entry.mainInstanceId)) ||
+    !['false', 'true'].every(value => headerSearch.variants.some(entry => entry.hotkey === value))) {
+  throw new Error('Header search requires both native hotkey variants with distinct stable IDs.');
+}
+const compactSearchId = '521fe58c-da62-80e2-8008-d33f6563524e';
+if (headerSearch.variants.find(entry => entry.hotkey === 'false')?.id !== compactSearchId ||
+    !map.componentMappings.some(entry => entry.penpotName === headerSearch.family && entry.penpotId === compactSearchId && entry.angularSelector === headerSearch.selector) ||
+    !map.componentMappings.some(entry => entry.penpotName === headerSearch.composition.family && entry.penpotId === headerSearch.composition.id && entry.angularSelector === 'good-header-actions') ||
+    !map.componentMappings.some(entry => entry.penpotName === headerSearch.dialog.family && entry.penpotId === headerSearch.dialog.id && entry.angularSelector === headerSearch.selector)) {
+  throw new Error('Header search variants, shared dialog, and HeaderActions composition must match the registry.');
+}
+if (!/readonly hotkey = input\(false\)/.test(readFileSync(resolve(source, 'actions.ts'), 'utf8'))) {
+  throw new Error('Header search hotkey must remain an opt-in boolean input.');
+}
+
+const sectionContract = typographyComponents.families.find(entry => entry.family === 'section');
+if (sectionContract.input !== 'spacing' || sectionContract.variants.default !== 'c0c3286f-e4bf-804c-8008-d59bac524010' ||
+    !map.componentMappings.some(entry => entry.penpotName === 'goodui.section' && entry.penpotId === sectionContract.variants.default) ||
+    !/readonly spacing = input<'default' \| 'content'>\('default'\)/.test(readFileSync(resolve(source, 'typography.ts'), 'utf8'))) {
+  throw new Error('Section spacing must preserve its original default ID and opt-in content mode.');
+}
 console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${phoneVariants.variants.length} Phone Input, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);

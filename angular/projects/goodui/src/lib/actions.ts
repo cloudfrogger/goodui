@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, HostListener, computed, forwardRef, inject, input, output, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GoodIconComponent } from './icon';
@@ -17,7 +18,11 @@ import { LucideInfo } from '@lucide/angular';
   imports: [GoodIconComponent, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button #trigger type="button" class="good-action-button" aria-label="Search" (click)="open()"><good-icon name="search" /></button>
+    <button #trigger type="button" class="good-action-button" [class.good-header-search-hotkey]="hotkey()"
+      aria-label="Search" [attr.aria-keyshortcuts]="hotkey() ? 'Control+k Meta+k' : null" (click)="open()">
+      <good-icon name="search" />
+      @if (hotkey()) { <span class="good-header-search-label">Search…</span><kbd class="good-header-search-shortcut" aria-hidden="true">{{ shortcutHint }}</kbd> }
+    </button>
     <dialog #dialog class="good-search-dialog" aria-label="Search" (keydown.escape)="close()" (close)="trigger.focus()">
       <div class="good-dialog-heading"><strong>Search</strong><button type="button" class="good-action-button" aria-label="Close" (click)="close()"><good-icon name="close" /></button></div>
       <label class="good-search-field"><good-icon name="search" /><input #searchInput type="search" placeholder="Search…" [value]="query()" (input)="query.set(searchInput.value)" /></label>
@@ -32,14 +37,33 @@ import { LucideInfo } from '@lucide/angular';
 })
 export class GoodHeaderSearchComponent {
   readonly items = input<readonly GoodSearchItem[]>([]);
+  readonly hotkey = input(false);
+  private readonly document = inject(DOCUMENT);
+  readonly shortcutHint = /Mac|iPhone|iPad|iPod/i.test(this.document.defaultView?.navigator.platform ?? '') ? '⌘ K' : 'Ctrl K';
+  private readonly trigger = viewChild.required<ElementRef<HTMLButtonElement>>('trigger');
   readonly query = signal('');
   readonly results = computed(() => this.items().filter(item => `${item.label} ${item.description ?? ''}`.toLocaleLowerCase().includes(this.query().toLocaleLowerCase())));
   private readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
   private readonly searchInput = viewChild.required<ElementRef<HTMLInputElement>>('searchInput');
 
+  @HostListener('document:keydown', ['$event'])
+  onShortcut(event: KeyboardEvent): void {
+    if (!this.hotkey() || event.defaultPrevented || event.repeat || event.isComposing ||
+        event.altKey || event.shiftKey || event.ctrlKey === event.metaKey || event.key.toLowerCase() !== 'k') return;
+    const trigger = this.trigger().nativeElement;
+    const style = this.document.defaultView?.getComputedStyle(trigger);
+    if (!trigger.getClientRects().length || style?.visibility === 'hidden' || style?.visibility === 'collapse' ||
+        trigger.closest('[inert]') || this.document.querySelector('dialog[open], [aria-modal="true"]')) return;
+    event.preventDefault();
+    this.open();
+  }
+
   open(): void {
-    this.dialog().nativeElement.showModal();
-    queueMicrotask(() => this.searchInput().nativeElement.focus());
+    const dialog = this.dialog().nativeElement;
+    if (dialog.open) return;
+    dialog.showModal();
+    const searchInput = this.searchInput().nativeElement;
+    queueMicrotask(() => { if (dialog.open) searchInput.focus(); });
   }
   close(): void { this.dialog().nativeElement.close(); }
 }

@@ -46,6 +46,20 @@
     </section>
 
     <section class="showcase-section">
+      <div class="showcase-section-heading"><h2>Space mixed page content</h2><p>Use <code>good-section spacing="content"</code> for explanations, images, examples, and code. It keeps headings close to their text and gives new topics more room. The default mode keeps compact layouts unchanged.</p></div>
+      <good-section spacing="content">
+        <good-subheading [level]="3">Choose your header actions</good-subheading>
+        <good-prose>
+          <good-paragraph>Section provides 24 px between content blocks. Prose keeps 20 px between related paragraphs.</good-paragraph>
+          <good-paragraph>Paragraphs need no extra padding, so they remain reusable inside cards, forms, and dialogs.</good-paragraph>
+        </good-prose>
+        <good-code-block [code]="contentSectionCode" language="html" title="Content spacing · Angular template" />
+        <good-subheading [level]="3">Start the next topic</good-subheading>
+        <good-prose><good-paragraph>A later heading has 40 px before it and 12 px before its following content. Adjacent content Sections have 48 px between them. Images and their captions keep their own inner spacing.</good-paragraph></good-prose>
+      </good-section>
+    </section>
+
+    <section class="showcase-section">
       <div class="showcase-section-heading"><h2>Content flow</h2><p>Use <code>good-section</code> for a centered content area up to 1024 px wide and <code>good-prose</code> for a 760 px reading width and text rhythm. Each example includes its Angular template.</p></div>
       <div class="showcase-typography-recipes">
         <div class="showcase-typography-recipe">

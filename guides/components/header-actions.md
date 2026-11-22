@@ -18,7 +18,7 @@ Import `GoodHeaderActionsComponent` and each child component in the standalone c
 
 With no projected content, the existing default composition remains Search, Notifications, Theme toggle, and Avatar menu. Its inputs remain `user`, `notifications`, `searchItems`, `settingsActions`, `avatarActions`, `showSearch`, `showNotifications`, `showThemeToggle`, `showSettings`, and `showAvatar`. All visibility inputs default to true except `showSettings`, which defaults to false. AppLayout and Topbar forward `showThemeToggle` and `showSettings`.
 
-The homepage chapter `/components/header-actions` contains dedicated sections for each action. Component references: [Search](header-search.md), [Notification](header-notification.md), [Theme toggle](header-themetoggle.md), [Avatar](header-avatar.md), and [Settings](settings.md). Each owns its 36 × 36 px hit area and interaction. HeaderActions owns spacing; actions have no external margins. Use Angular conditional blocks inside the container to control visibility. An explicitly supplied conditional block owns the content even when no actions are currently visible.
+The homepage chapter `/components/header-actions` contains dedicated sections for each action. Component references: [Search](header-search.md), [Notification](header-notification.md), [Theme toggle](header-themetoggle.md), [Avatar](header-avatar.md), and [Settings](settings.md). Each owns its hit area and interaction. Search optionally uses a 320 × 40 px trigger with `[hotkey]="true"`; at 1200 px viewport width and below it returns to its 36 × 36 px icon. HeaderActions owns spacing; actions have no external margins. Use Angular conditional blocks inside the container to control visibility. An explicitly supplied conditional block owns the content even when no actions are currently visible.
 
 Penpot `goodui.main-menu.default` retains its stable ID and linked Search, Notifications, ThemeToggle, and AvatarMenu instances. This specimen represents the default composition, rather than a mandatory action list.
 
@@ -27,3 +27,5 @@ Penpot `goodui.main-menu.default` retains its stable ID and linked Search, Notif
 The design family names remain `goodui.main-menu`, `goodui.search`, `goodui.notifications`, `goodui.avatar-menu`, and `goodui.theme-toggle` with their existing library IDs and states. `angularSelectorOverrides` in `design/component-map.json` explicitly maps them to the public Header selectors. No component ID or visual geometry changes with this rename.
 
 For the former selector and class names, see [migration](../migrations/header-actions.md).
+
+The optional `goodui.main-menu.search-hotkey` Penpot composition demonstrates Search (`hotkey=true`), Notification, and Avatar as linked instances. Enable it on a projected `good-header-search` child; the generated default search keeps `hotkey=false`. See [Header search](header-search.md).

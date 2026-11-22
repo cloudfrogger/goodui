@@ -58,9 +58,11 @@ export class GoodSummaryComponent {}
 
 @Component({
   selector: 'good-section', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-section' }, template: `<section><ng-content /></section>`,
+  host: { class: 'good-section', '[attr.data-spacing]': 'spacing()' }, template: `<section><ng-content /></section>`,
 })
-export class GoodSectionComponent {}
+export class GoodSectionComponent {
+  readonly spacing = input<'default' | 'content'>('default');
+}
 
 @Component({
   selector: 'good-prose', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,

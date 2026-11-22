@@ -112,6 +112,16 @@ export class DetailsComponent {}`;
   </good-column>
 </good-columns>`;
 
+  readonly contentSectionCode = `<good-section spacing="content">
+  <good-subheading>Choose your header actions</good-subheading>
+  <good-prose>
+    <good-paragraph>Compose the actions your application needs.</good-paragraph>
+    <good-paragraph>Related paragraphs keep their own reading rhythm.</good-paragraph>
+  </good-prose>
+  <good-code-block [code]="headerTemplate" language="html" />
+  <good-subheading [level]="3">Add a keyboard shortcut</good-subheading>
+  <good-prose><good-paragraph>Enable the optional search shortcut.</good-paragraph></good-prose>
+</good-section>`;
   readonly sectionCode = `<good-section>
   <good-subheading>Design with reusable components</good-subheading>
   <good-prose>

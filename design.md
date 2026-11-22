@@ -450,3 +450,11 @@ The PDF toolbar's six linked Lucide icons use 14 px outer bounds and scaled chil
 ## Error pages
 
 `good-error-page` is the generic recovery page body. The 404 and 500 Penpot variants on `26 Error Pages` show brand and destructive tones; their status code, title, description, optional reference, icon, image, and projected GoodUI Button actions are configured by the application. The Penpot variants show the default generated illustration; `imageSrc` and `imageAlt` supply runtime content without changing the layout. The component owns its responsive split layout and mobile stacking. Applications route unknown paths to a page that renders it; a client-side route does not itself change the HTTP response status. See [Error page](guides/components/error-page.md).
+
+## Header search shortcut variant
+
+`good-header-search` defaults to a compact 36 × 36 px action. With `[hotkey]="true"`, the native Penpot `goodui.search` variant uses a 320 × 40 px neutral button with a linked 20 px Lucide magnifier, “Search…,” and a shortcut keycap. The `header-search.*` tokens own its geometry and surfaces in both themes. A viewport of 1200 px or less uses the compact trigger while retaining the shortcut. Control+K or Meta+K opens the shared modal; Apple platforms show ⌘ K. One visible opted-in instance handles an unclaimed event, and an open modal keeps keyboard focus. IDs, variants, and the optional HeaderActions composition live in `design/header-search-variants.json`.
+
+## Section content spacing
+
+`good-section spacing="content"` opts into a content hierarchy: 24 px between direct blocks, 12 px from a Heading/Subheading to its content, 40 px before a later Heading/Subheading/HeadingGroup, and 48 px between adjacent content Sections. The default mode preserves the existing compact spacing. Section owns these external relationships; Prose retains 20 px paragraph spacing, images keep their caption gap, and nested controls keep their own layout. First and last blocks gain no outer space. HeadingGroup retains its own internal spacing and is followed by the regular block gap. Penpot `goodui.section` publishes `spacing=default/content`; see `design/typography-components.json`. The Header actions chapter is the initial mixed-content application of this mode.
