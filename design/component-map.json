@@ -2275,7 +2275,7 @@
       "kind": "component",
       "state": null,
       "variant": {
-        "level": "2"
+        "level": "3"
       }
     },
     {
@@ -2285,7 +2285,7 @@
       "kind": "component",
       "state": null,
       "variant": {
-        "level": "3"
+        "level": "4"
       }
     },
     {
@@ -2295,7 +2295,7 @@
       "kind": "component",
       "state": null,
       "variant": {
-        "level": "4"
+        "level": "5"
       }
     },
     {
@@ -2305,7 +2305,7 @@
       "kind": "component",
       "state": null,
       "variant": {
-        "level": "5"
+        "level": "6"
       }
     },
     {
@@ -2315,7 +2315,7 @@
       "kind": "component",
       "state": null,
       "variant": {
-        "level": "6"
+        "level": "7"
       }
     }
   ]

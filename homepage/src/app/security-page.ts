@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
+import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodHeading2Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-security-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/security.html',
 })

@@ -4,9 +4,9 @@ Use `good-columns` for two to four pieces of parallel text content. It distribut
 
 ```html
 <good-columns [columns]="3">
-  <good-column><good-heading-4>Plan</good-heading-4><good-paragraph>Set the direction.</good-paragraph></good-column>
-  <good-column><good-heading-4>Build</good-heading-4><good-paragraph>Make the page.</good-paragraph></good-column>
-  <good-column><good-heading-4>Review</good-heading-4><good-paragraph>Check the result.</good-paragraph></good-column>
+  <good-column><good-heading-3>Plan</good-heading-3><good-paragraph>Set the direction.</good-paragraph></good-column>
+  <good-column><good-heading-3>Build</good-heading-3><good-paragraph>Make the page.</good-paragraph></good-column>
+  <good-column><good-heading-3>Review</good-heading-3><good-paragraph>Check the result.</good-paragraph></good-column>
 </good-columns>
 ```
 

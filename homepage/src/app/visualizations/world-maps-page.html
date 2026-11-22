@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Percentage by country</good-heading-3>
+      <good-heading-2>Percentage by country</good-heading-2>
       <good-paragraph>The sample values are illustrative. The demo starts with the United States selected; Canada and Mexico appear gray as direct neighbors. Choose another country or World, then drag, scroll, pinch, or use the zoom buttons.</good-paragraph>
       <div class="good-chart-legend">
         <good-button variant="secondary" size="small" (click)="year.set('2024-01-01')">2024</good-button>
@@ -32,7 +32,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Color countries on a scale</good-heading-3>
+      <good-heading-2>Color countries on a scale</good-heading-2>
       <good-paragraph>Choose the GoodUI palette (sky → blue → violet), a classic cool-to-hot heatmap, or your own ordered color stops. The selected palette colors countries and the legend together. Unmapped countries stay neutral. Overlay colors use the map's separate <code>[colors]</code> input.</good-paragraph>
       <div class="good-chart-legend">
         <good-button [variant]="scaleMode() === 'corporate' ? 'default' : 'secondary'" [ariaPressed]="scaleMode() === 'corporate'" size="small" (click)="scaleMode.set('corporate')">GoodUI colors</good-button>
@@ -55,7 +55,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Bars and pie overlays</good-heading-3>
+      <good-heading-2>Bars and pie overlays</good-heading-2>
       <good-paragraph>Use two or more numeric keys for a small bar chart or pie in each country. The first value uses the first marker color, the second uses the next; <code>[colors]</code> replaces the palette. When nearby countries would crowd the map, GoodUI averages each measure and shows one bar or pie with a country count.</good-paragraph>
       <good-world-map title="Capacity · bars" [sources]="sources" [colors]="['teal', 'violet']">
         <good-map-overlay source="capacity" valueKeys="active,planned" type="bar" label="Active, planned" />

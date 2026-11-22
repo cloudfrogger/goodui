@@ -14,36 +14,40 @@ Use `good-detail-list` when labels and values need a stable reading order, such 
 </good-detail-list>
 ```
 
-Import `GoodDetailListComponent` and `GoodDetailRowDirective` from `@cloudfrogger/goodui`. Use a `good-heading-3` for a section title and `good-separator variant="line"` when two related groups need a visual break. Put the emphasized total below the breakdown so individual rows remain easy to scan. The VPS create case study shows this composition in a narrow assistant panel.
+Import `GoodDetailListComponent` and `GoodDetailRowDirective` from `@cloudfrogger/goodui`. Use a `good-heading-2` for a section title and `good-separator variant="line"` when two related groups need a visual break. Put the emphasized total below the breakdown so individual rows remain easy to scan. The VPS create case study shows this composition in a narrow assistant panel.
 
-## Seven heading styles
+## Shared heading scale
 
-Choose an explicit component instead of setting a `level` input. The numbers identify the seven styles shown in the homepage Typography chapter:
+Import the GoodUI stylesheet once. Native `h1` through `h6` receive the same typography as `good-heading-1` through `good-heading-6`, so ordinary semantic HTML works without Angular component imports. Fixed components remain useful for MainView and HeadingGroup projection.
 
-| Component | Import | HTML | Size |
+| GoodUI component | Native equivalent | Size | CSS weight |
 | --- | --- | --- | --- |
-| `good-heading-1` | `GoodHeading1Component` | H1 | 24 px |
-| `good-heading-2` | `GoodHeading2Component` | H2 | 20 px |
-| `good-heading-3` | `GoodHeading3Component` | H2 | 16 px |
-| `good-heading-4` | `GoodHeading4Component` | H3 | 16 px |
-| `good-heading-5` | `GoodHeading5Component` | H4 | 16 px |
-| `good-heading-6` | `GoodHeading6Component` | H5 | 16 px |
-| `good-heading-7` | `GoodHeading7Component` | H6 | 16 px |
+| `good-heading-1` | `h1` | 28 px | 1000 |
+| `good-heading-2` | `h2` | 26 px | 800 |
+| `good-heading-3` | `h3` | 24 px | 700 |
+| `good-heading-4` | `h4` | 22 px | 700 |
+| `good-heading-5` | `h5` | 20 px | 600 |
+| `good-heading-6` | `h6` | 18 px | 600 |
+| `good-heading-7` | `role="heading" aria-level="7"` | 16 px | 600 |
 
-Styles 2 and 3 are regular and compact section headings at the same semantic level. Style 7 renders H6; HTML has no H7. Choose a style that preserves the document's heading hierarchy. None of these components accepts a `level` input.
+Each component imports as `GoodHeadingNComponent`. There is no `level` input and no HTML H7 element. The seventh component exposes heading level 7 on its host for assistive technology. Use H1–H6 for the ordinary document hierarchy.
+
+The scale uses a shared 1.25 line height and progressively quieter tracking: -0.7 / -0.52 / -0.36 / -0.22 / 0 / 0 / 0 px. Native headings have no browser-default margins; Section and Prose own outer spacing. Component-specific heading roles and explicit application styles may override the global defaults.
+
+Weight 1000 is the requested CSS value. The current Inter font in Penpot supports at most 900, so the H1 specimen uses 900 as its heaviest available face. Browsers likewise select the closest face supported by the active font. This exception is recorded in the heading registry; it is not evidence that an Inter 1000 face exists.
 
 ```html
 <good-main-view>
   <good-heading-1>Reports</good-heading-1>
   <good-summary>A concise page summary.</good-summary>
   <good-section spacing="content">
-    <good-heading-3>Recent reports</good-heading-3>
+    <h2>Recent reports</h2>
     <good-prose><good-paragraph>Your page content goes here.</good-paragraph></good-prose>
   </good-section>
 </good-main-view>
 ```
 
-MainView lays out direct Heading 1, Summary, and optional Eyebrow components in its page header. Headings 2–7 remain page content, so section headings are never collected into the page header. `good-summary` is the description component. Its 15 px text, weight 700, and 0.75 px tracking remain unchanged. `good-eyebrow` accepts `appearance="brand"` (default) or `"mono"`. MainView no longer accepts title, description, eyebrow, or eyebrowAppearance inputs.
+MainView lays out direct Heading 1, Summary, and optional Eyebrow components in its page header. Keep using `good-heading-1` for this projection contract; native headings receive the shared visual scale in ordinary page content. Headings 2–7 remain page content. `good-summary` is the description component. Summary and Eyebrow retain their own typography. MainView has no title, description, eyebrow, or eyebrowAppearance inputs.
 
 For the same composition inside a Card, Section, or other content, use HeadingGroup:
 
@@ -55,18 +59,18 @@ For the same composition inside a Card, Section, or other content, use HeadingGr
 </good-heading-group>
 ```
 
-HeadingGroup owns its inner rhythm. Style 1 retains the 16 px title-to-summary gap; the other styles retain the compact 4 px gap. See [the migration guide](../migrations/explicit-headings.md) for the former selectors and inputs. Penpot keeps the existing Heading and Subheading families and stable IDs; `variantSelectorMappings` in `design/component-map.json` maps each of their seven published variants to its explicit Angular selector.
+HeadingGroup owns its inner rhythm. Heading 1 retains the 16 px title-to-summary gap; other levels retain the compact 4 px gap. See [the migration guide](../migrations/explicit-headings.md). Penpot IDs, scale values, and semantic levels are recorded in `design/typography-components.json` and `variantSelectorMappings` in `design/component-map.json`.
 
 ## Readable sections
 
-Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, grows up to 1024 px, centers itself in wider containers such as `good-main-view`, and spaces its heading from its body. It fills narrower containers without horizontal overflow. Adjacent sections receive the shared section gap. Give each section a descriptive fixed heading, such as `good-heading-3` for H2 or `good-heading-4` for H3. `good-prose` owns paragraph spacing inside the section and retains its 760 px reading width. Import `GoodMainViewComponent`, `GoodHeading1Component`, `GoodSummaryComponent`, `GoodSectionComponent`, `GoodHeading3Component`, `GoodProseComponent`, and `GoodParagraphComponent` from `@cloudfrogger/goodui` in the consuming standalone component.
+Use `good-section` for a content section beneath a page heading or beside other page content. It renders a native `section`, grows up to 1024 px, centers itself in wider containers such as `good-main-view`, and spaces its heading from its body. It fills narrower containers without horizontal overflow. Adjacent sections receive the shared section gap. Give each section a descriptive fixed heading, such as `good-heading-2` for H2 or `good-heading-3` for H3. `good-prose` owns paragraph spacing inside the section and retains its 760 px reading width. Import `GoodMainViewComponent`, `GoodHeading1Component`, `GoodSummaryComponent`, `GoodSectionComponent`, `GoodHeading2Component`, `GoodProseComponent`, and `GoodParagraphComponent` from `@cloudfrogger/goodui` in the consuming standalone component.
 
 ```html
 <good-main-view>
   <good-heading-1>Designing</good-heading-1>
   <good-summary>Getting Started with GoodUI</good-summary>
   <good-section>
-    <good-heading-3>Design with the component library</good-heading-3>
+    <good-heading-2>Design with the component library</good-heading-2>
     <good-prose>
       <good-paragraph>Build a page from reusable components.</good-paragraph>
       <good-paragraph>Keep design instances linked to their source.</good-paragraph>
@@ -88,15 +92,15 @@ Use `good-columns` for two to four parallel pieces of page content. Put each pie
 ```html
 <good-columns [columns]="3">
   <good-column>
-    <good-heading-4>Discover</good-heading-4>
+    <good-heading-3>Discover</good-heading-3>
     <good-paragraph>Find the need.</good-paragraph>
   </good-column>
   <good-column>
-    <good-heading-4>Design</good-heading-4>
+    <good-heading-3>Design</good-heading-3>
     <good-paragraph>Make a clear path.</good-paragraph>
   </good-column>
   <good-column>
-    <good-heading-4>Deliver</good-heading-4>
+    <good-heading-3>Deliver</good-heading-3>
     <good-paragraph>Check the result.</good-paragraph>
   </good-column>
 </good-columns>
@@ -112,14 +116,14 @@ Section accepts `spacing="default"` (the default) or `spacing="content"`. The de
 
 ```html
 <good-section spacing="content">
-  <good-heading-3>Choose your header actions</good-heading-3>
+  <good-heading-2>Choose your header actions</good-heading-2>
   <good-prose>
     <good-paragraph>Compose the actions your application needs.</good-paragraph>
     <good-paragraph>Each action remains independently configurable.</good-paragraph>
   </good-prose>
   <good-inline-image src="/header.png" alt="Example application header" />
   <good-code-block [code]="headerTemplate" language="html" />
-  <good-heading-4>Add a keyboard shortcut</good-heading-4>
+  <good-heading-3>Add a keyboard shortcut</good-heading-3>
   <good-prose><good-paragraph>Enable the optional search shortcut.</good-paragraph></good-prose>
 </good-section>
 ```
@@ -156,7 +160,7 @@ The [Typography page](../../homepage/src/app/getting-started/typography.html) pl
 ```html
 <good-prose>
   <good-paragraph>Introduce the subject in a readable text block.</good-paragraph>
-  <good-heading-3>Next steps</good-heading-3>
+  <good-heading-2>Next steps</good-heading-2>
   <good-paragraph>Continue with the details.</good-paragraph>
   <good-citation source="Team handbook">A short quotation.</good-citation>
   <good-separator />
@@ -202,3 +206,7 @@ For a Checkbox with a separate FieldLabel, set `forId` and `inputId` to the same
 The Penpot `layout` set is the source for the generated `--good-*` CSS variables. Font sizes, weights, letter spacing, colors, image corners, flex gaps, and supported padding are bound to tokens in the published Penpot components. Form compositions bind their width and gap properties to `form.*`; `form.column-gap` and `form.row-gap` alias the base spacing scale. Eyebrow, required, error, and muted colors alias the existing semantic colors and follow the active light or dark theme. The repository snapshot is exported to `design-tokens/penpot.tokens.json`; `npm run tokens:generate` builds the CSS.
 
 The current Penpot plugin rejects applying a `fontFamilies` token to text. The specimens retain Inter as their explicit font family; Angular uses the exported `typography.font-family` token. Penpot does not offer a token binding for line height or italic style, so these are explicit properties in Penpot and CSS. Semantic HTML tags, responsive wrapping, image alt text, and live error announcements are verified in Angular.
+
+## Penpot reference page
+
+Open **43 Typography Reference** for a dedicated overview of the seven heading levels, Summary, Paragraph, Eyebrow, Citation, Hint, ErrorText, and FieldLabel, plus linked HeadingGroup and Prose compositions. The examples are real library instances. Their main components remain on **12 Typography**, so changes to the design system propagate to this reference without creating duplicate component families. The page and board IDs are listed in `design/typography-components.json`.

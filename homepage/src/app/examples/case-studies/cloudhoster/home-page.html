@@ -13,12 +13,12 @@
       </good-card-header>
       <good-columns [columns]="2">
         <good-column>
-          <good-heading-4>Start with a database</good-heading-4>
+          <good-heading-3>Start with a database</good-heading-3>
           <good-paragraph>Choose an engine, region, compute plan, and storage. The estimate updates as you configure it.</good-paragraph>
           <good-button (click)="openDatabases()">Explore databases</good-button>
         </good-column>
         <good-column>
-          <good-heading-4>Your workspace today</good-heading-4>
+          <good-heading-3>Your workspace today</good-heading-3>
           <good-detail-list>
             <div goodDetailRow><dt>Database clusters</dt><dd>{{ store.clusters().length }}</dd></div>
             <div goodDetailRow><dt>Estimated monthly cost</dt><dd>{{ store.totalMonthly() | currency:'USD' }}</dd></div>
@@ -31,7 +31,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Quick actions</good-heading-3>
+      <good-heading-2>Quick actions</good-heading-2>
       <good-action-group>
         <good-link route="/examples/case-studies/cloudhoster/databases/create">Create a database cluster</good-link>
         <good-link route="/examples/case-studies/cloudhoster/databases">Inspect clusters</good-link>

@@ -59,10 +59,10 @@
         </good-timeline-section>
       </good-timeline>
     </good-assistant-main>
-    <good-assistant-header><good-heading-3>Monthly estimate</good-heading-3></good-assistant-header>
+    <good-assistant-header><good-heading-2>Monthly estimate</good-heading-2></good-assistant-header>
     <good-assistant-body>
       <good-prose>
-        <good-heading-4>{{ engine() }} · {{ edition() }}</good-heading-4>
+        <good-heading-3>{{ engine() }} · {{ edition() }}</good-heading-3>
         <good-paragraph>{{ cpu() }} vCPU · {{ memoryGb() }} GB RAM · {{ region() }}</good-paragraph>
         <good-detail-list>
           <div goodDetailRow><dt>Compute</dt><dd>{{ planPrice() | currency:'USD' }}</dd></div>
@@ -74,14 +74,14 @@
     <good-assistant-footer>
       <good-prose>
         <good-separator variant="line" />
-        <good-heading-4>{{ totalPrice() | currency:'USD' }} / month</good-heading-4>
+        <good-heading-3>{{ totalPrice() | currency:'USD' }} / month</good-heading-3>
         <good-hint>Illustrative estimate, before tax.</good-hint>
         <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View source</good-button>
       </good-prose>
     </good-assistant-footer>
     <good-assistant-mobile>
       <good-paragraph>{{ engine() }} · {{ cpu() }} vCPU · {{ storageGb() }} GB</good-paragraph>
-      <good-heading-4>{{ totalPrice() | currency:'USD' }} / month</good-heading-4>
+      <good-heading-3>{{ totalPrice() | currency:'USD' }} / month</good-heading-3>
     </good-assistant-mobile>
   </good-assistant-panel>
 </good-main-view>

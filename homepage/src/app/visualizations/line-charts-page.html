@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Two cities, one year</good-heading-3>
+      <good-heading-2>Two cities, one year</good-heading-2>
       <good-line-chart title="Average monthly temperature" [sources]="temperatureSources"
         ariaLabel="Illustrative monthly temperatures in Düsseldorf and Valletta" [showDataToggle]="true">
         <good-chart-axis position="x" type="category" label="Month" />
@@ -27,7 +27,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>One-dimensional source</good-heading-3>
+      <good-heading-2>One-dimensional source</good-heading-2>
       <good-paragraph>A one-key source can still make a line. With a numeric X axis and no <code>xKey</code>, the chart uses row positions 1, 2, 3, and so on. Here <code>[colors]</code> replaces the default palette with an array containing the theme-aware <code>violet</code> marker. An individual <code>good-chart-line color="teal"</code> would override its assigned palette color.</good-paragraph>
       <good-line-chart title="Visits this week" [sources]="[visits]" [colors]="customColors">
         <good-chart-axis position="x" type="number" label="Day" [precision]="0" />

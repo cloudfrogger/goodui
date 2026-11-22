@@ -18,7 +18,7 @@ Import `GoodMainViewComponent`, `GoodHeading1Component`, and `GoodSummaryCompone
   <good-heading-1>{{ projectName() }}</good-heading-1>
   <good-summary>{{ projectSummary() }}</good-summary>
   <good-section spacing="content">
-    <good-heading-3>Recent activity</good-heading-3>
+    <good-heading-2>Recent activity</good-heading-2>
     <!-- page content -->
   </good-section>
 </good-main-view>

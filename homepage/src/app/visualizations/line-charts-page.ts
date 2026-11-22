@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodChartAxisComponent, GoodChartDataSource, GoodChartLineComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodLineChartComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
+import { GoodChartAxisComponent, GoodChartDataSource, GoodChartLineComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodLineChartComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component } from '@cloudfrogger/goodui';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 @Component({
   selector: 'showcase-line-charts-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLineChartComponent, GoodChartAxisComponent, GoodChartLineComponent, GoodHeading1Component, GoodHeading3Component],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLineChartComponent, GoodChartAxisComponent, GoodChartLineComponent, GoodHeading1Component, GoodHeading2Component],
   templateUrl: './line-charts-page.html',
 })
 export class LineChartsPageComponent {

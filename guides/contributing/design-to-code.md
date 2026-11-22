@@ -272,4 +272,10 @@ Section now publishes native `spacing=default/content` variants on `12 Typograph
 
 ### Fixed heading selectors
 
-The existing Penpot `goodui.heading` variants (level 1/2) map to `good-heading-1` and `good-heading-2`. `goodui.subheading` now publishes level 2–6 variants mapping to `good-heading-3` through `good-heading-7`. `variantSelectorMappings` records all seven stable IDs and selectors; `design/typography-components.json` records their HTML semantics. MainView examples retain linked Heading/Summary instances, now interpreted as projected content instead of text inputs.
+The existing Penpot `goodui.heading` variants (level 1/2) map to `good-heading-1` and `good-heading-2`. `goodui.subheading` now publishes level 3–7 variants mapping to `good-heading-3` through `good-heading-7`. `variantSelectorMappings` records all seven stable IDs and selectors; `design/typography-components.json` records their HTML semantics. MainView examples retain linked Heading/Summary instances, now interpreted as projected content instead of text inputs.
+
+The shared heading scale is 28/26/24/22/20/18/16 px. Native H1–H6 match the corresponding GoodUI component; level 7 uses ARIA heading semantics. H1 requests CSS weight 1000; Inter in Penpot supports only 900, so the main specimen uses 900 and `headingStyles[0].penpotFontWeight` records the exception.
+
+### Typography reference page
+
+`43 Typography Reference` (page `4c1f5233-504c-80ed-8008-fbf549f71786` in file `0f428ff0-c8e2-8078-8008-fb55d9570459`) is the dedicated visual overview. Its Heading scale, Text roles, and Compositions boards use linked copies of the existing library components. Published main instances and their stable IDs remain on `12 Typography`; edit those mains rather than publishing duplicate reference components. Board IDs are recorded in `design/typography-components.json` under `referencePage`.

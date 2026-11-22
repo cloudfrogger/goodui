@@ -6,11 +6,11 @@
       <good-paragraph>Place one <code>good-resizable-pane</code> on each side. Drag the divider, use the arrow keys while it has focus, or set <code>split</code> in code. Below 680 px of available width, the two areas stack and the same divider moves vertically. Each area scrolls on its own.</good-paragraph>
       <good-resizable [(split)]="split" (splitChangeEnd)="settled.set($event)" ariaLabel="Resize folders and preview">
         <good-resizable-pane side="start">
-          <good-heading-4>Folders</good-heading-4>
+          <good-heading-3>Folders</good-heading-3>
           <good-paragraph>Inbox</good-paragraph><good-paragraph>Projects</good-paragraph><good-paragraph>Archive</good-paragraph>
         </good-resizable-pane>
         <good-resizable-pane side="end">
-          <good-heading-4>Preview</good-heading-4>
+          <good-heading-3>Preview</good-heading-3>
           <good-paragraph>Drag the divider to make this area wider. The first area currently has {{ split() }}% of the available space.</good-paragraph>
           <good-paragraph>Last completed adjustment: {{ settled() }}%.</good-paragraph>
         </good-resizable-pane>
@@ -29,17 +29,17 @@
       <good-paragraph>Place one Resizable inside a pane of another. The outer split uses <code>orientation="auto"</code>; the inner split uses <code>orientation="vertical"</code> so its list stays above its detail area. Give the containing pane <code>padding="none"</code> and the nested split <code>height="100%"</code> to fill the available space. Both dividers have independent values and work separately.</good-paragraph>
       <good-resizable orientation="auto" height="540px" [(split)]="nestedOuter" ariaLabel="Resize navigation and workspace">
         <good-resizable-pane side="start">
-          <good-heading-4>Navigation</good-heading-4>
+          <good-heading-3>Navigation</good-heading-3>
           <good-paragraph>Choose a workspace area.</good-paragraph>
         </good-resizable-pane>
         <good-resizable-pane side="end" padding="none">
           <good-resizable orientation="vertical" height="100%" [(split)]="nestedInner" ariaLabel="Resize list and detail">
             <good-resizable-pane side="start">
-              <good-heading-4>List</good-heading-4>
+              <good-heading-3>List</good-heading-3>
               <good-paragraph>Items remain above the detail view.</good-paragraph>
             </good-resizable-pane>
             <good-resizable-pane side="end">
-              <good-heading-4>Detail</good-heading-4>
+              <good-heading-3>Detail</good-heading-3>
               <good-paragraph>Drag either divider. The nested divider changes only this workspace area.</good-paragraph>
             </good-resizable-pane>
           </good-resizable>
@@ -53,13 +53,13 @@
     <good-group title="Choose the handle" appearance="plain">
       <good-paragraph><code>grip</code> is the quiet default: three dots in a small pill. Choose <code>line</code> for the lightest mark, <code>dots</code> for a bare dotted grip, or <code>chevrons</code> when the direction should be especially clear. The entire divider remains the touch and keyboard target in every style.</good-paragraph>
       @for (style of handles; track style) {
-        <good-heading-4>{{ style }}</good-heading-4>
+        <good-heading-3>{{ style }}</good-heading-3>
         <good-resizable [handle]="style" height="140px" [split]="35" [ariaLabel]="'Resize ' + style + ' example'">
           <good-resizable-pane side="start">First area</good-resizable-pane>
           <good-resizable-pane side="end">Second area</good-resizable-pane>
         </good-resizable>
       }
-      <good-heading-4>Disabled</good-heading-4>
+      <good-heading-3>Disabled</good-heading-3>
       <good-resizable height="140px" [split]="35" disabled ariaLabel="Disabled split view">
         <good-resizable-pane side="start">First area</good-resizable-pane>
         <good-resizable-pane side="end">Second area</good-resizable-pane>

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodButtonComponent, GoodChartDataSource, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodMapOverlayComponent, GoodMapColorScaleComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodWorldMapComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
+import { GoodButtonComponent, GoodChartDataSource, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodMapOverlayComponent, GoodMapColorScaleComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodWorldMapComponent, GoodHeading1Component, GoodHeading2Component } from '@cloudfrogger/goodui';
 
 @Component({ selector: 'showcase-world-maps-page', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodMapOverlayComponent, GoodMapColorScaleComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodWorldMapComponent, GoodHeading1Component, GoodHeading3Component],
+  imports: [GoodButtonComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodMainViewComponent, GoodMapOverlayComponent, GoodMapColorScaleComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodWorldMapComponent, GoodHeading1Component, GoodHeading2Component],
   templateUrl: './world-maps-page.html' })
 export class WorldMapsPageComponent {
   readonly country = signal('US');

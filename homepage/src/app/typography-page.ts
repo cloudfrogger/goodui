@@ -10,24 +10,28 @@ import { GoodCitationComponent, GoodCodeBlockComponent, GoodColumnComponent, Goo
 })
 export class TypographyPageComponent {
   readonly headingLevelPreviews = [
-    { style: 1, name: 'Heading 1 · H1', size: '24 px', text: 'Page title' },
-    { style: 2, name: 'Heading 2 · H2', size: '20 px', text: 'Section title' },
-    { style: 3, name: 'Heading 3 · H2', size: '16 px', text: 'Compact section heading' },
-    { style: 4, name: 'Heading 4 · H3', size: '16 px', text: 'Nested section' },
-    { style: 5, name: 'Heading 5 · H4', size: '16 px', text: 'Detail heading' },
-    { style: 6, name: 'Heading 6 · H5', size: '16 px', text: 'Small section' },
-    { style: 7, name: 'Heading 7 · H6', size: '16 px', text: 'Fine detail' },
+    { style: 1, name: 'Heading 1 · H1', size: '28 px · 1000', text: 'Page title' },
+    { style: 2, name: 'Heading 2 · H2', size: '26 px · 800', text: 'Section title' },
+    { style: 3, name: 'Heading 3 · H3', size: '24 px · 700', text: 'Subsection title' },
+    { style: 4, name: 'Heading 4 · H4', size: '22 px · 700', text: 'Detail heading' },
+    { style: 5, name: 'Heading 5 · H5', size: '20 px · 600', text: 'Small section' },
+    { style: 6, name: 'Heading 6 · H6', size: '18 px · 600', text: 'Fine detail' },
+    { style: 7, name: 'Heading 7 · ARIA level 7', size: '16 px · 600', text: 'Supporting heading' },
   ] as const;
 
   headingLevelCode(example: (typeof this.headingLevelPreviews)[number]): string {
     return `<good-heading-${example.style}>${example.text}</good-heading-${example.style}>`;
   }
 
+  nativeHeadingCode(example: (typeof this.headingLevelPreviews)[number]): string {
+    return example.style < 7 ? `<h${example.style}>${example.text}</h${example.style}>` : `<div role="heading" aria-level="7">${example.text}</div>`;
+  }
+
   readonly pageHeadingCode = `<good-main-view>
   <good-heading-1>Reports</good-heading-1>
   <good-summary>A concise page summary.</good-summary>
   <good-section spacing="content">
-    <good-heading-3>Recent reports</good-heading-3>
+    <good-heading-2>Recent reports</good-heading-2>
     <good-prose><good-paragraph>Your page content goes here.</good-paragraph></good-prose>
   </good-section>
 </good-main-view>`;
@@ -66,61 +70,61 @@ export class DetailsComponent {}`;
 
   readonly twoColumnCode = `<good-columns>
   <good-column>
-    <good-heading-5>Plan</good-heading-5>
+    <good-heading-4>Plan</good-heading-4>
     <good-paragraph>Write the first part of your content here.</good-paragraph>
   </good-column>
   <good-column>
-    <good-heading-5>Build</good-heading-5>
+    <good-heading-4>Build</good-heading-4>
     <good-paragraph>Write the second part here. Both columns stack on narrow screens.</good-paragraph>
   </good-column>
 </good-columns>`;
 
   readonly threeColumnCode = `<good-columns [columns]="3">
   <good-column>
-    <good-heading-5>Discover</good-heading-5>
+    <good-heading-4>Discover</good-heading-4>
     <good-paragraph>Find the need.</good-paragraph>
   </good-column>
   <good-column>
-    <good-heading-5>Design</good-heading-5>
+    <good-heading-4>Design</good-heading-4>
     <good-paragraph>Make a clear path.</good-paragraph>
   </good-column>
   <good-column>
-    <good-heading-5>Deliver</good-heading-5>
+    <good-heading-4>Deliver</good-heading-4>
     <good-paragraph>Check the result.</good-paragraph>
   </good-column>
 </good-columns>`;
 
   readonly fourColumnCode = `<good-columns [columns]="4">
   <good-column>
-    <good-heading-5>Overview</good-heading-5>
+    <good-heading-4>Overview</good-heading-4>
     <good-paragraph>Visible everywhere.</good-paragraph>
   </good-column>
   <good-column>
-    <good-heading-5>Status</good-heading-5>
+    <good-heading-4>Status</good-heading-4>
     <good-paragraph>Visible everywhere.</good-paragraph>
   </good-column>
   <good-column [visibleAt]="['sm', 'md', 'lg', 'xl']">
-    <good-heading-5>Details</good-heading-5>
+    <good-heading-4>Details</good-heading-4>
     <good-paragraph>Hidden only in xs.</good-paragraph>
   </good-column>
   <good-column [visibleAt]="['lg', 'xl']">
-    <good-heading-5>Context</good-heading-5>
+    <good-heading-4>Context</good-heading-4>
     <good-paragraph>Appears when four columns fit.</good-paragraph>
   </good-column>
 </good-columns>`;
 
   readonly contentSectionCode = `<good-section spacing="content">
-  <good-heading-3>Choose your header actions</good-heading-3>
+  <good-heading-2>Choose your header actions</good-heading-2>
   <good-prose>
     <good-paragraph>Compose the actions your application needs.</good-paragraph>
     <good-paragraph>Related paragraphs keep their own reading rhythm.</good-paragraph>
   </good-prose>
   <good-code-block [code]="headerTemplate" language="html" />
-  <good-heading-4>Add a keyboard shortcut</good-heading-4>
+  <good-heading-3>Add a keyboard shortcut</good-heading-3>
   <good-prose><good-paragraph>Enable the optional search shortcut.</good-paragraph></good-prose>
 </good-section>`;
   readonly sectionCode = `<good-section>
-  <good-heading-3>Design with reusable components</good-heading-3>
+  <good-heading-2>Design with reusable components</good-heading-2>
   <good-prose>
     <good-paragraph>The section sets a readable width and connects its heading to the text.</good-paragraph>
     <good-paragraph>Prose handles spacing between paragraphs.</good-paragraph>
@@ -128,7 +132,7 @@ export class DetailsComponent {}`;
 </good-section>`;
 
   readonly subheadingCode = `<good-prose>
-  <good-heading-4>A new section</good-heading-4>
+  <good-heading-3>A new section</good-heading-3>
   <good-paragraph>The following paragraph sits closer to its subheading.</good-paragraph>
 </good-prose>`;
 
@@ -183,14 +187,14 @@ export class DetailsComponent {}`;
 import {
   GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
   GoodColumnsComponent, GoodColumnComponent,
-  GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent, GoodEyebrowComponent, GoodSeparatorComponent, GoodInlineImageComponent,
+  GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodSummaryComponent, GoodEyebrowComponent, GoodSeparatorComponent, GoodInlineImageComponent,
 } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-page',
   standalone: true,
   imports: [GoodMainViewComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent,
-    GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent, GoodEyebrowComponent, GoodSeparatorComponent, GoodInlineImageComponent,
+    GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodSummaryComponent, GoodEyebrowComponent, GoodSeparatorComponent, GoodInlineImageComponent,
     GoodColumnsComponent, GoodColumnComponent],
   templateUrl: './page.html',
 })
@@ -201,10 +205,10 @@ export class PageComponent {}`;
   <good-heading-1>Project notes</good-heading-1>
   <good-summary>A short page summary</good-summary>
   <good-section>
-    <good-heading-3>Overview</good-heading-3>
+    <good-heading-2>Overview</good-heading-2>
     <good-prose>
       <good-paragraph>Introduce the topic with a readable paragraph.</good-paragraph>
-      <good-heading-4>Next steps</good-heading-4>
+      <good-heading-3>Next steps</good-heading-3>
       <good-paragraph>Continue with the details.</good-paragraph>
       <good-separator />
       <good-inline-image src="/diagram.svg" alt="Workflow diagram" caption="How the steps connect" />

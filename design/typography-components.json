@@ -29,7 +29,7 @@
         "1": "c0c3286f-e4bf-804c-8008-d58c723ff455",
         "2": "c0c3286f-e4bf-804c-8008-d5d1a6fa0770"
       },
-      "note": "Two fixed heading styles map to explicit Angular selectors and native H1/H2 elements. Selectors have no level input.",
+      "note": "Heading levels 1 and 2 render native H1/H2 with the shared heading scale. Inter supports at most 900 in Penpot; the H1 specimen uses 900 while its CSS weight token requests 1000.",
       "selectors": {
         "1": "good-heading-1",
         "2": "good-heading-2"
@@ -117,21 +117,21 @@
       "family": "subheading",
       "selector": "good-heading-3",
       "input": "level",
-      "note": "Five fixed subheading styles map to good-heading-3 through good-heading-7 and native H2 through H6. The selector number identifies the documented visual style, not an HTML H7 element.",
+      "note": "Heading levels 3\u20137 use the shared seven-step scale. Levels 3\u20136 render native H3\u2013H6; level 7 uses role=heading and aria-level=7 on its host.",
       "containerId": "4c1f5233-504c-80ed-8008-fbe8d4f5a30b",
       "variants": {
-        "2": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
-        "3": "4c1f5233-504c-80ed-8008-fbe8d49ff271",
-        "4": "4c1f5233-504c-80ed-8008-fbe8d4bac54e",
-        "5": "4c1f5233-504c-80ed-8008-fbe8d4d58983",
-        "6": "4c1f5233-504c-80ed-8008-fbe8d4f04986"
+        "3": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
+        "4": "4c1f5233-504c-80ed-8008-fbe8d49ff271",
+        "5": "4c1f5233-504c-80ed-8008-fbe8d4bac54e",
+        "6": "4c1f5233-504c-80ed-8008-fbe8d4d58983",
+        "7": "4c1f5233-504c-80ed-8008-fbe8d4f04986"
       },
       "selectors": {
-        "2": "good-heading-3",
-        "3": "good-heading-4",
-        "4": "good-heading-5",
-        "5": "good-heading-6",
-        "6": "good-heading-7"
+        "3": "good-heading-3",
+        "4": "good-heading-4",
+        "5": "good-heading-5",
+        "6": "good-heading-6",
+        "7": "good-heading-7"
       }
     },
     {
@@ -246,43 +246,82 @@
       "selector": "good-heading-1",
       "componentId": "c0c3286f-e4bf-804c-8008-d58c723ff455",
       "htmlElement": "h1",
-      "fontSize": 24
+      "fontSize": 28,
+      "fontWeight": 1000,
+      "nativeSelector": "h1",
+      "penpotFontWeight": 900,
+      "note": "CSS requests 1000; Inter offers at most 900 in Penpot. Browsers choose the closest available font face."
     },
     {
       "selector": "good-heading-2",
       "componentId": "c0c3286f-e4bf-804c-8008-d5d1a6fa0770",
       "htmlElement": "h2",
-      "fontSize": 20
+      "fontSize": 26,
+      "fontWeight": 800,
+      "nativeSelector": "h2"
     },
     {
       "selector": "good-heading-3",
       "componentId": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
-      "htmlElement": "h2",
-      "fontSize": 16
+      "htmlElement": "h3",
+      "fontSize": 24,
+      "fontWeight": 700,
+      "nativeSelector": "h3"
     },
     {
       "selector": "good-heading-4",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d49ff271",
-      "htmlElement": "h3",
-      "fontSize": 16
+      "htmlElement": "h4",
+      "fontSize": 22,
+      "fontWeight": 700,
+      "nativeSelector": "h4"
     },
     {
       "selector": "good-heading-5",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d4bac54e",
-      "htmlElement": "h4",
-      "fontSize": 16
+      "htmlElement": "h5",
+      "fontSize": 20,
+      "fontWeight": 600,
+      "nativeSelector": "h5"
     },
     {
       "selector": "good-heading-6",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d4d58983",
-      "htmlElement": "h5",
-      "fontSize": 16
+      "htmlElement": "h6",
+      "fontSize": 18,
+      "fontWeight": 600,
+      "nativeSelector": "h6"
     },
     {
       "selector": "good-heading-7",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d4f04986",
-      "htmlElement": "h6",
-      "fontSize": 16
+      "htmlElement": null,
+      "fontSize": 16,
+      "fontWeight": 600,
+      "nativeSelector": "[role=\"heading\"][aria-level=\"7\"]",
+      "role": "heading",
+      "ariaLevel": 7
     }
-  ]
+  ],
+  "referencePage": {
+    "name": "43 Typography Reference",
+    "id": "4c1f5233-504c-80ed-8008-fbf549f71786",
+    "penpotFileId": "0f428ff0-c8e2-8078-8008-fb55d9570459",
+    "kind": "linked-component-reference",
+    "componentSourcePage": "12 Typography",
+    "boards": [
+      {
+        "id": "4c1f5233-504c-80ed-8008-fbf590c82587",
+        "name": "Typography / Heading scale"
+      },
+      {
+        "id": "4c1f5233-504c-80ed-8008-fbf61a90f551",
+        "name": "Typography / Text roles"
+      },
+      {
+        "id": "4c1f5233-504c-80ed-8008-fbf66d799032",
+        "name": "Typography / Compositions"
+      }
+    ]
+  }
 }

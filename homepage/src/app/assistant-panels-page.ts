@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-assistant-panels-page',
   standalone: true,
-  imports: [GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading3Component, GoodHeading4Component, GoodSummaryComponent],
+  imports: [GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantHeaderComponent, GoodAssistantBodyComponent, GoodAssistantFooterComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodInlineImageComponent, GoodMainViewComponent, GoodParagraphComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view layout="fill">
@@ -41,9 +41,9 @@ import { GoodAssistantPanelComponent, GoodAssistantMainComponent, GoodAssistantH
             </good-group>
           </good-section>
         </good-assistant-main>
-        <good-assistant-header><good-heading-3>Document details</good-heading-3></good-assistant-header>
+        <good-assistant-header><good-heading-2>Document details</good-heading-2></good-assistant-header>
         <good-assistant-body>
-          <good-heading-4>{{ selected() }}</good-heading-4>
+          <good-heading-3>{{ selected() }}</good-heading-3>
           <good-paragraph>Supporting details belong in the body. The header and footer stay in place while this area scrolls.</good-paragraph>
         </good-assistant-body>
         <good-assistant-footer><good-button variant="outline">Open document</good-button></good-assistant-footer>

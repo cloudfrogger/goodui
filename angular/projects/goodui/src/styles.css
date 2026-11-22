@@ -26,14 +26,21 @@ good-topbar-menu-item, good-topbar-dropdown-menu, good-topbar-dropdown-item, goo
 good-header-actions, good-header-themetoggle, good-main-view, good-subnav, good-button, good-action-group, good-action-bar, good-assistant-panel, good-switch, good-checkbox, good-radio-group, good-rating, good-table, good-calendar, good-month-calendar, good-line-chart, good-bar-chart, good-scatter-chart, good-histogram, good-sparkline, good-chart-axis, good-chart-line, good-chart-bar, good-chart-scatter, good-chart-histogram, good-progress, good-timeline, good-timeline-step, good-range-slider, good-signature-pad, good-color-controls, good-color-picker, good-select-font, good-rich-text-editor, good-pdf-preview, good-error-page, good-link, good-card, good-card-header, good-card-footer, good-group, good-form-row, good-expandable, good-code-block, good-modal, good-modal-header, good-modal-footer, good-input, good-textarea, good-number-input, good-pin-input, good-input-phone, good-select, good-select-country, good-listbox, good-tabs, good-tab, good-date-input, good-image-input, good-image-preview, good-dropdown, good-breadcrumbs, good-badge, good-alert, good-notification-host,
 good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3, good-heading-4, good-heading-5, good-heading-6, good-heading-7, good-summary, good-section, good-prose, good-detail-list, good-columns, good-column, good-paragraph, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
+:where(h1, h2, h3, h4, h5, h6, [role="heading"][aria-level="7"]) { margin: 0; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; color: var(--good-typography-heading-color); line-height: 1.25; overflow-wrap: break-word; }
+:where(h1), good-heading-1 { font-size: var(--good-typography-heading-level-1-font-size); font-weight: var(--good-typography-heading-level-1-font-weight); letter-spacing: var(--good-typography-heading-level-1-letter-spacing); }
+:where(h2), good-heading-2 { font-size: var(--good-typography-heading-level-2-font-size); font-weight: var(--good-typography-heading-level-2-font-weight); letter-spacing: var(--good-typography-heading-level-2-letter-spacing); }
+:where(h3), good-heading-3 { font-size: var(--good-typography-heading-level-3-font-size); font-weight: var(--good-typography-heading-level-3-font-weight); letter-spacing: var(--good-typography-heading-level-3-letter-spacing); }
+:where(h4), good-heading-4 { font-size: var(--good-typography-heading-level-4-font-size); font-weight: var(--good-typography-heading-level-4-font-weight); letter-spacing: var(--good-typography-heading-level-4-letter-spacing); }
+:where(h5), good-heading-5 { font-size: var(--good-typography-heading-level-5-font-size); font-weight: var(--good-typography-heading-level-5-font-weight); letter-spacing: var(--good-typography-heading-level-5-letter-spacing); }
+:where(h6), good-heading-6 { font-size: var(--good-typography-heading-level-6-font-size); font-weight: var(--good-typography-heading-level-6-font-weight); letter-spacing: var(--good-typography-heading-level-6-letter-spacing); }
+:where([role="heading"][aria-level="7"]), good-heading-7 { font-size: var(--good-typography-heading-level-7-font-size); font-weight: var(--good-typography-heading-level-7-font-weight); letter-spacing: var(--good-typography-heading-level-7-letter-spacing); }
+
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-heading-group-text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-summary-gap); min-width: 0; }
 .good-heading-group-text:has(> .good-heading[data-level="1"]) { gap: var(--good-typography-heading-level-1-after-gap); }
 .good-eyebrow, .good-heading, .good-summary, .good-paragraph, .good-subheading, .good-citation, .good-field-label, .good-hint, .good-error-text { display: block; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-eyebrow { color: var(--good-typography-eyebrow-brand-color); font-size: var(--good-typography-eyebrow-font-size); font-weight: var(--good-typography-eyebrow-font-weight); line-height: 1.4; text-transform: uppercase; }
 .good-eyebrow[data-appearance="mono"] { color: var(--good-typography-eyebrow-mono-color); }
-.good-heading :is(h1,h2,h3,h4,h5,h6) { margin: 0; color: var(--good-typography-heading-color); font-size: var(--good-typography-heading-font-size); font-weight: var(--good-typography-heading-font-weight); line-height: 1.4; }
-.good-heading h1 { font-size: var(--good-typography-heading-level-1-font-size); font-weight: var(--good-typography-heading-level-1-font-weight); }
 .good-summary p { margin: 0; color: var(--good-typography-summary-color); font-size: var(--good-typography-summary-font-size); font-weight: var(--good-typography-summary-font-weight); letter-spacing: var(--good-typography-summary-letter-spacing); line-height: 1.5; }
 .good-section { display: block; width: 100%; max-width: var(--good-typography-section-max-width); min-width: 0; margin-inline: auto; }
 .good-section + .good-section { margin-block-start: var(--good-typography-flow-section-gap); }
@@ -42,8 +49,8 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 /* Section owns spacing between content blocks; text and controls retain their own inner rhythm. */
 .good-section[data-spacing="content"] > section { gap: 0; }
 .good-section[data-spacing="content"] > section > * + * { margin-block-start: var(--good-typography-section-content-block-gap); }
-.good-section[data-spacing="content"] > section > :is(.good-subheading, .good-heading, .good-heading-group):not(:first-child) { margin-block-start: var(--good-typography-section-content-subsection-gap); }
-.good-section[data-spacing="content"] > section > :is(.good-subheading, .good-heading) + * { margin-block-start: var(--good-typography-section-content-heading-gap); }
+.good-section[data-spacing="content"] > section > :is(.good-subheading, .good-heading, h1, h2, h3, h4, h5, h6, [role="heading"], .good-heading-group):not(:first-child) { margin-block-start: var(--good-typography-section-content-subsection-gap); }
+.good-section[data-spacing="content"] > section > :is(.good-subheading, .good-heading, h1, h2, h3, h4, h5, h6, [role="heading"]) + * { margin-block-start: var(--good-typography-section-content-heading-gap); }
 .good-section[data-spacing="content"] + .good-section[data-spacing="content"] { margin-block-start: var(--good-typography-section-content-section-gap); }
 .good-prose { display: flex; flex-direction: column; align-items: stretch; min-width: 0; max-width: var(--good-typography-flow-max-width); }
 .good-detail-list { display: block; width: 100%; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
@@ -73,12 +80,11 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 .good-prose > * + * { margin-block-start: var(--good-typography-flow-gap); }
 .good-prose > good-link + .good-heading { margin-block-start: var(--good-space-4); }
 .good-prose > .good-heading + good-paragraph { margin-block-start: var(--good-space-2); }
-.good-prose > * + .good-subheading { margin-block-start: var(--good-typography-flow-section-gap); }
-.good-prose > .good-subheading + good-paragraph { margin-block-start: var(--good-typography-paragraph-subheading-gap); }
+.good-prose > * + :is(.good-subheading, .good-heading, h1, h2, h3, h4, h5, h6, [role="heading"]) { margin-block-start: var(--good-typography-flow-section-gap); }
+.good-prose > :is(.good-subheading, .good-heading, h1, h2, h3, h4, h5, h6, [role="heading"]) + good-paragraph { margin-block-start: var(--good-typography-paragraph-subheading-gap); }
 .good-prose > * + good-separator { margin-block-start: var(--good-typography-separator-before-gap); }
 .good-prose > good-separator + * { margin-block-start: var(--good-typography-separator-after-gap); }
 .good-paragraph p { margin: 0; color: var(--good-typography-paragraph-color); font-size: var(--good-typography-paragraph-font-size); font-weight: var(--good-typography-paragraph-font-weight); line-height: 1.65; overflow-wrap: break-word; }
-.good-subheading :is(h2,h3,h4,h5,h6) { margin: 0; color: var(--good-typography-subheading-color); font-size: var(--good-typography-subheading-font-size); font-weight: var(--good-typography-subheading-font-weight); line-height: 1.4; }
 .good-citation blockquote { margin: 0; color: var(--good-typography-citation-color); font-size: var(--good-typography-citation-font-size); font-style: italic; line-height: 1.6; }
 .good-citation cite { display: block; margin-top: var(--good-typography-citation-source-gap); color: var(--good-typography-caption-color); font-size: var(--good-typography-caption-font-size); font-style: normal; }
 .good-separator { display: flex; align-items: center; justify-content: center; min-width: 0; }

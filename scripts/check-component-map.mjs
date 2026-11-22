@@ -506,7 +506,7 @@ checkMatrix(badgeVariants.variants, [
 if (badgeVariants.examples.length !== 4 || new Set(badgeVariants.examples.map(example => example.name)).size !== 4) throw new Error('Badge content examples are incomplete.');
 const typographyExpected = new Map([
   ['heading-group', null], ['eyebrow', ['brand', 'mono']], ['heading', ['1', '2']], ['summary', null],
-  ['section', ['default', 'content']], ['prose', null], ['detail-list', null], ['columns', ['2', '3', '4']], ['column', null], ['paragraph', null], ['subheading', ['2', '3', '4', '5', '6']], ['citation', null],
+  ['section', ['default', 'content']], ['prose', null], ['detail-list', null], ['columns', ['2', '3', '4']], ['column', null], ['paragraph', null], ['subheading', ['3', '4', '5', '6', '7']], ['citation', null],
   ['separator', ['dots', 'line']], ['inline-image', ['center', 'left', 'right']],
   ['form-field', ['default', 'error']], ['field-label', ['false', 'true']],
   ['hint', null], ['error-text', null],
@@ -533,10 +533,12 @@ const headingStyles = typographyComponents.headingStyles;
 if (headingStyles?.length !== 7 || map.variantSelectorMappings?.length !== 7) throw new Error('Seven explicit heading styles are required.');
 for (const [index, style] of headingStyles.entries()) {
   const selector = `good-heading-${index + 1}`;
-  const html = `h${[1, 2, 2, 3, 4, 5, 6][index]}`;
+  const html = index < 6 ? `h${index + 1}` : null;
   const match = map.variantSelectorMappings.find(entry => entry.angularSelector === selector);
   if (style.selector !== selector || style.htmlElement !== html || !selectors.has(selector.slice(5)) ||
-      match?.penpotId !== style.componentId || match?.variant.level !== html.slice(1)) throw new Error(`Invalid fixed heading style: ${selector}`);
+      match?.penpotId !== style.componentId || match?.variant.level !== String(index + 1) ||
+      style.fontSize !== [28, 26, 24, 22, 20, 18, 16][index] || style.fontWeight !== [1000, 800, 700, 700, 600, 600, 600][index] ||
+      (index === 6 && (style.role !== 'heading' || style.ariaLevel !== 7))) throw new Error(`Invalid fixed heading style: ${selector}`);
 }
 const formLayouts = typographyComponents.formLayouts?.variants;
 if (typographyComponents.formLayouts?.selector !== 'form[goodForm]' || typographyComponents.formLayouts?.input !== 'layout' || !formLayouts || Object.keys(formLayouts).sort().join(',') !== 'left,right,vertical') throw new Error('Incomplete Form layout manifest.');

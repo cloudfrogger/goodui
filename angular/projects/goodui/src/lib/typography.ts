@@ -44,36 +44,36 @@ export class GoodHeading2Component {}
 
 @Component({
   selector: 'good-heading-3', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-subheading', 'data-level': '2', 'data-heading-style': '3' },
-  template: `<h2><ng-content /></h2>`,
+  host: { class: 'good-subheading', 'data-level': '3', 'data-heading-style': '3' },
+  template: `<h3><ng-content /></h3>`,
 })
 export class GoodHeading3Component {}
 
 @Component({
   selector: 'good-heading-4', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-subheading', 'data-level': '3', 'data-heading-style': '4' },
-  template: `<h3><ng-content /></h3>`,
+  host: { class: 'good-subheading', 'data-level': '4', 'data-heading-style': '4' },
+  template: `<h4><ng-content /></h4>`,
 })
 export class GoodHeading4Component {}
 
 @Component({
   selector: 'good-heading-5', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-subheading', 'data-level': '4', 'data-heading-style': '5' },
-  template: `<h4><ng-content /></h4>`,
+  host: { class: 'good-subheading', 'data-level': '5', 'data-heading-style': '5' },
+  template: `<h5><ng-content /></h5>`,
 })
 export class GoodHeading5Component {}
 
 @Component({
   selector: 'good-heading-6', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-subheading', 'data-level': '5', 'data-heading-style': '6' },
-  template: `<h5><ng-content /></h5>`,
+  host: { class: 'good-subheading', 'data-level': '6', 'data-heading-style': '6' },
+  template: `<h6><ng-content /></h6>`,
 })
 export class GoodHeading6Component {}
 
 @Component({
   selector: 'good-heading-7', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-subheading', 'data-level': '6', 'data-heading-style': '7' },
-  template: `<h6><ng-content /></h6>`,
+  host: { class: 'good-subheading', 'data-level': '7', 'data-heading-style': '7', role: 'heading', 'aria-level': '7' },
+  template: `<ng-content />`,
 })
 export class GoodHeading7Component {}
 

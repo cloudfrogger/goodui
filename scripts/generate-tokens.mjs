@@ -64,8 +64,9 @@ function validateAndFormat(tokens, name, chain = []) {
     return String(opacity);
   }
   if (token.$type === 'fontWeights') {
-    if (!/^[1-9]00$/.test(raw)) throw new Error(`Invalid font weight: ${name}`);
-    return raw;
+    const weight = Number(raw);
+    if (!Number.isFinite(weight) || weight < 1 || weight > 1000) throw new Error(`Invalid font weight: ${name}`);
+    return String(weight);
   }
   if (token.$type === 'fontFamilies') {
     const families = Array.isArray(token.$value) ? token.$value : [token.$value];

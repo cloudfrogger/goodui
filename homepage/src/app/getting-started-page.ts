@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodHeading2Component, GoodHeading3Component } from '@cloudfrogger/goodui';
+import { GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, type GoodBreadcrumbItem, GoodHeading1Component, GoodHeading2Component } from '@cloudfrogger/goodui';
 import { themePrepaintCode } from './theme-prepaint-code';
 
 @Component({
@@ -14,7 +14,7 @@ export class IntroductionPageComponent {}
 @Component({
   selector: 'app-designing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodSectionComponent, GoodProseComponent, GoodParagraphComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/designing.html',
 })
@@ -61,7 +61,7 @@ interaction or accessibility issue you can reproduce. Rebuild and show what chan
 @Component({
   selector: 'app-developing-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodHeading1Component, GoodHeading3Component],
+  imports: [GoodMainViewComponent, GoodBreadcrumbsComponent, GoodSectionComponent, GoodProseComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodLinkComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/developing.html',
 })

@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Compare two sources</good-heading-3>
+      <good-heading-2>Compare two sources</good-heading-2>
       <good-scatter-chart title="Payload and response time" [sources]="sources" [showDataToggle]="true">
         <good-chart-axis position="x" type="number" label="Payload (KB)" [min]="0" [precision]="0" />
         <good-chart-axis position="y" type="number" label="Response time (ms)" [min]="0" [precision]="0" />
@@ -25,7 +25,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Choose colors</good-heading-3>
+      <good-heading-2>Choose colors</good-heading-2>
       <good-paragraph>Set <code>[colors]</code> to marker names or CSS colors. An individual <code>good-chart-scatter color="..."</code> overrides the palette for that series. A time X axis is also possible when its key is a date or datetime.</good-paragraph>
       <good-code-block [code]="paletteCode" language="html" title="Custom palette · Angular template" />
     </good-prose>

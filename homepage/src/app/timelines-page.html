@@ -45,27 +45,27 @@
       <p>Set the shared choices on <code>&lt;good-timeline&gt;</code>. Give only exceptional steps their own overrides. These are the accepted values:</p>
       <good-columns [columns]="2">
         <good-column>
-          <good-heading-4>Form</good-heading-4>
+          <good-heading-3>Form</good-heading-3>
           <good-paragraph><code>appearance</code> accepts <code>simple</code> (plain line), <code>detailed</code> (text panels), or <code>illustrated</code> (graphics above the line). Default: <code>simple</code>.</good-paragraph>
         </good-column>
         <good-column>
-          <good-heading-4>Direction and size</good-heading-4>
+          <good-heading-3>Direction and size</good-heading-3>
           <good-paragraph><code>orientation</code> accepts <code>auto</code>, <code>horizontal</code>, or <code>vertical</code>. Auto turns vertical below 680 px of component width. <code>size</code> accepts <code>small</code>, <code>default</code>, or <code>large</code>. Defaults: <code>auto</code> and <code>default</code>.</good-paragraph>
         </good-column>
         <good-column>
-          <good-heading-4>Palette</good-heading-4>
+          <good-heading-3>Palette</good-heading-3>
           <good-paragraph><code>tone</code> accepts <code>brand</code> (default), <code>secondary</code>, or <code>mono</code>. <code>color</code> and optional <code>completedColor</code> accept <code>brand</code>, <code>accent</code>, <code>success</code>, <code>warning</code>, <code>info</code>, <code>destructive</code>, <code>neutral</code>, or <code>violet</code>. Mono removes all color.</good-paragraph>
         </good-column>
         <good-column>
-          <good-heading-4>Progress</good-heading-4>
+          <good-heading-3>Progress</good-heading-3>
           <good-paragraph><code>[currentIndex]</code> starts at 0; earlier steps are completed. Set it to the step count when all are done. A step's <code>state</code> may be <code>completed</code>, <code>current</code>, <code>upcoming</code>, <code>error</code>, or <code>deactivated</code>. Boolean <code>deactivated</code> works on a step or the whole timeline.</good-paragraph>
         </good-column>
         <good-column>
-          <good-heading-4>Markers and graphics</good-heading-4>
+          <good-heading-3>Markers and graphics</good-heading-3>
           <good-paragraph><code>marker</code> accepts <code>number</code> (default), <code>icon</code>, or <code>dot</code>; a step may override it. A step may use <code>iconName</code>, custom <code>[icon]</code>, or <code>imageSrc</code> with <code>imageAlt</code>. The image wins. In illustrated mode, <code>endpoint="start"</code> and <code>endpoint="end"</code> put first and last icons on the line.</good-paragraph>
         </good-column>
         <good-column>
-          <good-heading-4>Step content</good-heading-4>
+          <good-heading-3>Step content</good-heading-3>
           <good-paragraph>Each step needs unique <code>id</code> and visible <code>title</code>. Optional <code>eyebrow</code>, <code>description</code>, and <code>transitionLabel</code> add context; a transition labels the line leaving that step. <code>ariaLabel</code> names the timeline for assistive technology.</good-paragraph>
         </good-column>
       </good-columns>

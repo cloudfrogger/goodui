@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodHeading3Component } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodHeading2Component } from '@cloudfrogger/goodui';
 import { UserRegistrationPageComponent } from './user-registration-page';
 import {
   userRegistrationFormHtml, userRegistrationFormTs,
@@ -9,7 +9,7 @@ import {
 @Component({
   selector: 'showcase-user-registration-example-page',
   standalone: true,
-  imports: [UserRegistrationPageComponent, GoodCodeBlockComponent, GoodHeading3Component],
+  imports: [UserRegistrationPageComponent, GoodCodeBlockComponent, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-registration-example-page.html',
 })

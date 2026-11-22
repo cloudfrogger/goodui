@@ -37,7 +37,7 @@ body { margin: 0; }
 .showcase-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
 .showcase-card { min-height: 172px; padding: 28px 30px; border: 1px solid var(--good-card-border); border-radius: var(--good-card-radius); background: var(--good-card-background); box-shadow: 0 1px 2px #00000008; color: var(--good-text); text-decoration: none; }
 .showcase-card-icon { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin-bottom: 14px; border-radius: 7px; color: var(--good-accent); border: 1px solid var(--good-accent); font-size: 17px; }
-.showcase-card h2 { margin: 0 0 7px; font-size: 16px; font-weight: 600; }
+.showcase-card h2 { margin: 0 0 7px; }
 .showcase-card p { margin: 0; color: var(--good-muted); line-height: 1.5; }
 .showcase-card:hover { border-color: var(--good-accent); }
 .showcase-card-showcase-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 24px; }
@@ -50,10 +50,10 @@ body { margin: 0; }
 @media (max-width: 680px) { .showcase-link-row { grid-template-columns: 1fr; gap: 8px; } }
 .showcase-section { margin-bottom: 24px; padding: 24px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); }
 .showcase-section-heading { margin-bottom: 20px; }
-.showcase-section-heading h2 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
+.showcase-section-heading h2 { margin: 0 0 4px; }
 .showcase-section-heading p { margin: 0; color: var(--good-muted); }
 .showcase-status-appearance { padding-block: var(--good-space-4); border-top: 1px solid var(--good-border); }
-.showcase-status-appearance h3 { margin: 0 0 var(--good-space-3); color: var(--good-text); font-size: 14px; font-weight: 600; text-transform: capitalize; }
+.showcase-status-appearance h3 { margin: 0 0 var(--good-space-3); color: var(--good-text); text-transform: capitalize; }
 .showcase-status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: var(--good-space-3) var(--good-space-5); }
 .showcase-status-item { display: flex; align-items: center; gap: var(--good-space-2); min-width: 0; color: var(--good-text); font-size: 13px; text-transform: capitalize; }
 .showcase-status-item good-status-icon { flex: none; }
@@ -67,7 +67,7 @@ body { margin: 0; }
 .showcase-rating-example strong { width: 100px; color: var(--good-muted); font-size: 13px; text-transform: capitalize; }
 .showcase-rating-list > p { margin: 0; color: var(--good-muted); font-size: 13px; }
 .showcase-table-style-grid { display: grid; gap: var(--good-space-5); }
-.showcase-table-style-grid h3 { margin: 0 0 var(--good-space-2); color: var(--good-muted); font-size: 13px; text-transform: capitalize; }
+.showcase-table-style-grid h3 { margin: 0 0 var(--good-space-2); color: var(--good-muted); text-transform: capitalize; }
 .showcase-table-feedback { margin: var(--good-space-3) 0 0; color: var(--good-muted); font-size: 13px; }
 @media (max-width: 600px) { .showcase-rating-example { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--good-space-1); } .showcase-rating-example strong { width: auto; } }
 .showcase-topbar-menu-preview { display: flex; align-items: center; min-height: 70px; padding: 0 20px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); }
@@ -126,7 +126,7 @@ body { margin: 0; }
 .showcase-listbox-flag { display: block; flex: none; width: 25px; height: 18px; border-radius: 2px; object-fit: cover; }
 .showcase-listbox-item-selected { color: var(--good-accent); }
 .showcase-listbox-explanation { padding: 16px 18px; border: 1px solid var(--good-border); border-radius: var(--good-radius-card); background: var(--good-surface); font-size: 13px; }
-.showcase-listbox-explanation h3 { margin: 0 0 10px; font-size: 15px; }
+.showcase-listbox-explanation h3 { margin: 0 0 10px; }
 .showcase-listbox-explanation p { margin: 0 0 12px; line-height: 1.5; }
 @media (max-width: 850px) { .showcase-listbox-grid-three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px) { .showcase-listbox-grid, .showcase-listbox-grid-three { grid-template-columns: minmax(0, 1fr); } }

@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading3Component } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodEyebrowComponent, GoodHeadingGroupComponent, GoodInlineImageComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodProseComponent, GoodSectionComponent, GoodSummaryComponent, GoodHeading1Component, GoodHeading2Component } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-layout-general-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodHeading1Component, GoodHeading3Component],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodEyebrowComponent, GoodSummaryComponent, GoodProseComponent, GoodParagraphComponent, GoodCodeBlockComponent, GoodInlineImageComponent, GoodLinkComponent, GoodHeading1Component, GoodHeading2Component],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './getting-started/layout-general.html',
 })

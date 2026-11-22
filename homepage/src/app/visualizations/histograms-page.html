@@ -11,7 +11,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>Compare two distributions</good-heading-3>
+      <good-heading-2>Compare two distributions</good-heading-2>
       <good-histogram title="Task duration" [sources]="sources" [binCount]="8" [showDataToggle]="true">
         <good-chart-axis position="x" type="number" label="Minutes" [min]="0" [max]="56" [precision]="0" />
         <good-chart-axis position="y" type="number" label="Tasks" [min]="0" [precision]="0" />
@@ -25,7 +25,7 @@
   </good-section>
   <good-section>
     <good-prose>
-      <good-heading-3>One source and a custom color</good-heading-3>
+      <good-heading-2>One source and a custom color</good-heading-2>
       <good-paragraph>Set <code>[binCount]</code> to an integer from 2 through 40. With no X bounds, GoodUI uses the smallest and largest valid values across all sources. <code>[colors]</code> replaces the marker palette; a series can override it with its own <code>color</code>.</good-paragraph>
       <good-histogram title="Workflow A duration" [sources]="[workflowA]" [binCount]="7" [colors]="['violet']">
         <good-chart-axis position="x" type="number" label="Minutes" [min]="0" [max]="56" />

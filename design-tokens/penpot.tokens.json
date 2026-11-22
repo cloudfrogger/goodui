@@ -1603,19 +1603,19 @@
       },
       "heading": {
         "font-size": {
-          "$value": "20",
+          "$value": "26",
           "$type": "fontSizes"
         },
         "font-weight": {
-          "$value": "600",
-          "$type": "fontWeights"
-        },
-        "level-1-font-weight": {
           "$value": "800",
           "$type": "fontWeights"
         },
+        "level-1-font-weight": {
+          "$value": "1000",
+          "$type": "fontWeights"
+        },
         "level-1-font-size": {
-          "$value": "24",
+          "$value": "28",
           "$type": "fontSizes"
         },
         "level-1-after-gap": {
@@ -1641,6 +1641,82 @@
         "actions-gap": {
           "$value": "{space.6}",
           "$type": "spacing"
+        },
+        "level-1-letter-spacing": {
+          "$value": "-0.7",
+          "$type": "letterSpacing"
+        },
+        "level-2-font-size": {
+          "$value": "{typography.heading.font-size}",
+          "$type": "fontSizes"
+        },
+        "level-2-font-weight": {
+          "$value": "{typography.heading.font-weight}",
+          "$type": "fontWeights"
+        },
+        "level-2-letter-spacing": {
+          "$value": "-0.52",
+          "$type": "letterSpacing"
+        },
+        "level-3-font-size": {
+          "$value": "{typography.subheading.font-size}",
+          "$type": "fontSizes"
+        },
+        "level-3-font-weight": {
+          "$value": "{typography.subheading.font-weight}",
+          "$type": "fontWeights"
+        },
+        "level-3-letter-spacing": {
+          "$value": "-0.36",
+          "$type": "letterSpacing"
+        },
+        "level-4-font-size": {
+          "$value": "22",
+          "$type": "fontSizes"
+        },
+        "level-4-font-weight": {
+          "$value": "700",
+          "$type": "fontWeights"
+        },
+        "level-4-letter-spacing": {
+          "$value": "-0.22",
+          "$type": "letterSpacing"
+        },
+        "level-5-font-size": {
+          "$value": "20",
+          "$type": "fontSizes"
+        },
+        "level-5-font-weight": {
+          "$value": "600",
+          "$type": "fontWeights"
+        },
+        "level-5-letter-spacing": {
+          "$value": "0",
+          "$type": "letterSpacing"
+        },
+        "level-6-font-size": {
+          "$value": "18",
+          "$type": "fontSizes"
+        },
+        "level-6-font-weight": {
+          "$value": "600",
+          "$type": "fontWeights"
+        },
+        "level-6-letter-spacing": {
+          "$value": "0",
+          "$type": "letterSpacing"
+        },
+        "level-7-font-size": {
+          "$value": "16",
+          "$type": "fontSizes"
+        },
+        "level-7-font-weight": {
+          "$value": "600",
+          "$type": "fontWeights"
+        },
+        "level-7-letter-spacing": {
+          "$value": "0",
+          "$type": "letterSpacing"
         }
       },
       "eyebrow": {
@@ -1703,11 +1779,11 @@
       },
       "subheading": {
         "font-size": {
-          "$value": "16",
+          "$value": "24",
           "$type": "fontSizes"
         },
         "font-weight": {
-          "$value": "600",
+          "$value": "700",
           "$type": "fontWeights"
         },
         "color": {

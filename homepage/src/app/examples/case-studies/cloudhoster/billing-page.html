@@ -98,7 +98,7 @@
               </good-card>
             }
           } @else {
-            <good-heading-4>{{ editingAlert() ? 'Edit' : 'Create' }} spend alert</good-heading-4>
+            <good-heading-3>{{ editingAlert() ? 'Edit' : 'Create' }} spend alert</good-heading-3>
             <good-input label="Alert name" [showLabel]="true" [(value)]="alertName" />
             <good-number-input label="Monthly budget in USD" [showLabel]="true" [min]="1" [max]="100000" [(value)]="alertBudget" />
             <good-select label="Resource scope" [showLabel]="true" [options]="scopes" [(value)]="alertScope" />

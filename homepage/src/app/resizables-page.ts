@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading4Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodMainViewComponent, GoodParagraphComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodSectionComponent, GoodHeading1Component, GoodHeading3Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-resizables-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodParagraphComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodHeading1Component, GoodHeading4Component, GoodSummaryComponent],
+  imports: [GoodMainViewComponent, GoodSectionComponent, GoodGroupComponent, GoodParagraphComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodResizableComponent, GoodResizablePaneComponent, GoodHeading1Component, GoodHeading3Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './resizables-page.html',
 })
