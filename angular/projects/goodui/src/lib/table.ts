@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, Directive, ElementRef, TemplateRef, booleanAttribute, computed, contentChildren, effect, inject, input, model, output, signal, untracked, viewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, Directive, ElementRef, TemplateRef, booleanAttribute, computed, contentChild, contentChildren, effect, inject, input, model, output, signal, untracked, viewChild } from '@angular/core';
 import { LucideArrowDown, LucideArrowDownUp, LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearch, LucideSearchX } from '@lucide/angular';
 import { FlexRender, ColumnDef, Column, RowData, SortingState, PaginationState, injectTable, tableFeatures,
   rowSortingFeature, createSortedRowModel, sortFn_alphanumeric, sortFn_text, sortFn_datetime,
@@ -51,6 +51,12 @@ export class GoodTableCellDirective<TData = any> {
   ): context is GoodTableCellContext<TData> { return true; }
 }
 
+/** Custom empty content rendered outside the horizontal data scroller. */
+@Directive({ selector: 'ng-template[goodTableEmpty]', standalone: true })
+export class GoodTableEmptyDirective {
+  readonly template = inject<TemplateRef<unknown>>(TemplateRef);
+}
+
 const tableColumnMinWidth: Record<GoodTableColumnBreakpoint, number> = {
   xs: 0, sm: 480, md: 700, lg: 960, xl: 1280,
 };
@@ -82,12 +88,17 @@ export interface GoodTableRequest {
   template: `
     <ng-content select="ng-template[goodTableCell]" />
     <div #frame class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.data-frame]="frameAppearance()" [attr.data-density]="density() ?? ((tableStyle() ?? style()) === 'compact' ? 'compact' : 'default')" [attr.aria-busy]="loading() ? 'true' : null">
+      <div class="good-table-heading">
+        @if (title()) { <h2 class="good-table-title">{{ title() }}</h2> }
+        <div class="good-table-heading-actions"><ng-content select="[goodTableActions]" /></div>
+      </div>
       @if (searchable()) {
         <div class="good-table-toolbar">
           <good-input label="Search records" type="search" [startIcon]="searchIcon" [placeholder]="searchPlaceholder()"
             [value]="search()" (valueChange)="setSearch($event)" />
         </div>
       }
+      @if (table.getRowModel().rows.length || loading() || !emptyContent()) {
       <div class="good-table-scroll" role="region" tabindex="0"
         [attr.aria-label]="label() + ' table. Scroll horizontally for more columns when needed.'">
         <table [attr.aria-label]="label()">
@@ -172,6 +183,10 @@ export interface GoodTableRequest {
           </tbody>
         </table>
       </div>
+      }
+      @if (!loading() && !table.getRowModel().rows.length && emptyContent(); as empty) {
+        <div class="good-table-empty-content" role="region" [attr.aria-label]="label()"><ng-container [ngTemplateOutlet]="empty.template" /></div>
+      }
       <span class="good-sr-only" role="status" aria-live="polite">{{ columnOrderAnnouncement() }}</span>
       @if (pagination(); as config) {
         <div class="good-table-footer">
@@ -209,7 +224,10 @@ export class GoodTableComponent<TData extends RowData> implements AfterViewInit 
   }
   readonly data = input.required<readonly TData[]>();
   readonly columns = input.required<readonly GoodTableColumn<TData>[]>();
+  readonly emptyContent = contentChild(GoodTableEmptyDirective);
   readonly label = input('Records');
+  /** Optional visible heading above the table; actions are projected with goodTableActions. */
+  readonly title = input('');
   readonly style = input<GoodTableStyle>('default');
   /** Prefer this name in templates: static style="compact" is interpreted as an HTML style attribute. */
   readonly tableStyle = input<GoodTableStyle | null>(null);

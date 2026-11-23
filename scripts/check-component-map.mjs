@@ -578,6 +578,17 @@ if (sectionContract.input !== 'spacing' || sectionContract.variants.default !== 
     !/readonly spacing = input<'default' \| 'content'>\('default'\)/.test(readFileSync(resolve(source, 'typography.ts'), 'utf8'))) {
   throw new Error('Section spacing must preserve its original default ID and opt-in content mode.');
 }
+const recordLayout = JSON.parse(readFileSync(resolve(root, 'design/record-layout-contract.json'), 'utf8'));
+const recordIds = new Set();
+for (const entry of recordLayout.components) {
+  const mapping = map.componentMappings.find(item => item.penpotName === entry.name);
+  if (!mapping || mapping.penpotId !== entry.id || mapping.angularSelector !== entry.selector ||
+      recordIds.has(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.mainInstanceId)) {
+    throw new Error(`Record layout mapping differs from its published component: ${entry.name}`);
+  }
+  recordIds.add(entry.id);
+}
+
 console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${phoneVariants.variants.length} Phone Input, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
 
 const shellContract = JSON.parse(readFileSync(resolve(root, 'design/app-shell-contract.json'), 'utf8'));

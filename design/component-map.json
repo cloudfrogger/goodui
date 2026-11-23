@@ -112,7 +112,9 @@
     "header-submenu",
     "world-map",
     "map-overlay",
-    "map-color-scale"
+    "map-color-scale",
+    "avatar",
+    "empty-state"
   ],
   "internalParts": {
     "alert-composition": "alert",
@@ -2230,6 +2232,118 @@
       "angularSelector": "good-form-row",
       "kind": "component",
       "state": "3-actions-mobile"
+    },
+    {
+      "penpotName": "goodui.table.with-actions",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdd463adb483",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "with-actions"
+    },
+    {
+      "penpotName": "goodui.table.with-actions-mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdd49b30fa52",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "with-actions-mobile"
+    },
+    {
+      "penpotName": "goodui.avatar.small-square",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec229d0fd5",
+      "angularSelector": "good-avatar",
+      "kind": "component",
+      "state": "small-square"
+    },
+    {
+      "penpotName": "goodui.avatar.small-circle",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec404c01b9",
+      "angularSelector": "good-avatar",
+      "kind": "component",
+      "state": "small-circle"
+    },
+    {
+      "penpotName": "goodui.avatar.default-square",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec45b1d6aa",
+      "angularSelector": "good-avatar",
+      "kind": "component",
+      "state": "default-square"
+    },
+    {
+      "penpotName": "goodui.avatar.default-circle",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec486aed45",
+      "angularSelector": "good-avatar",
+      "kind": "component",
+      "state": "default-circle"
+    },
+    {
+      "penpotName": "goodui.avatar.large-square",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec4b387904",
+      "angularSelector": "good-avatar",
+      "kind": "component",
+      "state": "large-square"
+    },
+    {
+      "penpotName": "goodui.avatar.large-circle",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec4d013493",
+      "angularSelector": "good-avatar",
+      "kind": "component",
+      "state": "large-circle"
+    },
+    {
+      "penpotName": "goodui.detail-list.grid-3",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec6b34cdaa",
+      "angularSelector": "good-detail-list",
+      "kind": "component",
+      "state": "grid-3"
+    },
+    {
+      "penpotName": "goodui.detail-list.grid-2",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec7651c7ab",
+      "angularSelector": "good-detail-list",
+      "kind": "component",
+      "state": "grid-2"
+    },
+    {
+      "penpotName": "goodui.detail-list.grid-mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec8222993c",
+      "angularSelector": "good-detail-list",
+      "kind": "component",
+      "state": "grid-mobile"
+    },
+    {
+      "penpotName": "goodui.empty-state.default",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded2c6a0ddf",
+      "angularSelector": "good-empty-state",
+      "kind": "component",
+      "state": "default"
+    },
+    {
+      "penpotName": "goodui.empty-state.mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded3fec0079",
+      "angularSelector": "good-empty-state",
+      "kind": "component",
+      "state": "mobile"
+    },
+    {
+      "penpotName": "goodui.card.contrast",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded5a5af708",
+      "angularSelector": "good-card",
+      "kind": "component",
+      "state": "contrast"
+    },
+    {
+      "penpotName": "goodui.main-view.identity",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded963d104a",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "identity"
+    },
+    {
+      "penpotName": "goodui.main-view.identity-mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded992deef9",
+      "angularSelector": "good-main-view",
+      "kind": "component",
+      "state": "identity-mobile"
     }
   ],
   "variantManifests": [
@@ -2272,7 +2386,8 @@
     "design/color-controls-contract.json",
     "design/world-map-contract.json",
     "design/header-search-variants.json",
-    "design/settings-layout-contract.json"
+    "design/settings-layout-contract.json",
+    "design/record-layout-contract.json"
   ],
   "angularSelectorOverrides": {
     "main-menu": "good-header-actions",

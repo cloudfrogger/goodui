@@ -1,0 +1,194 @@
+{
+  "page": "46 Record Layouts",
+  "pageId": "ffd8177e-90f6-8061-8008-fdebe2ca345e",
+  "components": [
+    {
+      "name": "goodui.avatar.small-square",
+      "id": "ffd8177e-90f6-8061-8008-fdec229d0fd5",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec1f8fee09",
+      "selector": "good-avatar",
+      "inputs": {
+        "size": "small",
+        "shape": "square",
+        "name": "Example record"
+      }
+    },
+    {
+      "name": "goodui.avatar.small-circle",
+      "id": "ffd8177e-90f6-8061-8008-fdec404c01b9",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec229f249e",
+      "selector": "good-avatar",
+      "inputs": {
+        "size": "small",
+        "shape": "circle",
+        "name": "Example record"
+      }
+    },
+    {
+      "name": "goodui.avatar.default-square",
+      "id": "ffd8177e-90f6-8061-8008-fdec45b1d6aa",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec404f8418",
+      "selector": "good-avatar",
+      "inputs": {
+        "size": "default",
+        "shape": "square",
+        "name": "Example record"
+      }
+    },
+    {
+      "name": "goodui.avatar.default-circle",
+      "id": "ffd8177e-90f6-8061-8008-fdec486aed45",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec45b52e87",
+      "selector": "good-avatar",
+      "inputs": {
+        "size": "default",
+        "shape": "circle",
+        "name": "Example record"
+      }
+    },
+    {
+      "name": "goodui.avatar.large-square",
+      "id": "ffd8177e-90f6-8061-8008-fdec4b387904",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec486c50b6",
+      "selector": "good-avatar",
+      "inputs": {
+        "size": "large",
+        "shape": "square",
+        "name": "Example record"
+      }
+    },
+    {
+      "name": "goodui.avatar.large-circle",
+      "id": "ffd8177e-90f6-8061-8008-fdec4d013493",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec4b3a1581",
+      "selector": "good-avatar",
+      "inputs": {
+        "size": "large",
+        "shape": "circle",
+        "name": "Example record"
+      }
+    },
+    {
+      "name": "goodui.detail-list.grid-3",
+      "id": "ffd8177e-90f6-8061-8008-fdec6b34cdaa",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec60745001",
+      "selector": "good-detail-list",
+      "inputs": {
+        "layout": "grid",
+        "columns": 3,
+        "containerColumns": 3
+      }
+    },
+    {
+      "name": "goodui.detail-list.grid-2",
+      "id": "ffd8177e-90f6-8061-8008-fdec7651c7ab",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec6b364fe9",
+      "selector": "good-detail-list",
+      "inputs": {
+        "layout": "grid",
+        "columns": 2,
+        "containerColumns": 2
+      }
+    },
+    {
+      "name": "goodui.detail-list.grid-mobile",
+      "id": "ffd8177e-90f6-8061-8008-fdec8222993c",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdec7653b191",
+      "selector": "good-detail-list",
+      "inputs": {
+        "layout": "grid",
+        "columns": 3,
+        "containerColumns": 1
+      }
+    },
+    {
+      "name": "goodui.empty-state.default",
+      "id": "ffd8177e-90f6-8061-8008-fded2c6a0ddf",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fded234ba190",
+      "selector": "good-empty-state",
+      "inputs": {
+        "headingLevel": 3,
+        "icon": "FolderPlus",
+        "actions": "projected Button"
+      }
+    },
+    {
+      "name": "goodui.empty-state.mobile",
+      "id": "ffd8177e-90f6-8061-8008-fded3fec0079",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fded399fc4ee",
+      "selector": "good-empty-state",
+      "inputs": {
+        "headingLevel": 3,
+        "icon": "FolderPlus",
+        "actions": "projected Button",
+        "containerWidth": 294
+      }
+    },
+    {
+      "name": "goodui.card.contrast",
+      "id": "ffd8177e-90f6-8061-8008-fded5a5af708",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fded5793e58b",
+      "selector": "good-card",
+      "inputs": {
+        "appearance": "contrast",
+        "header": "linked CardHeader",
+        "body": "linked grid DetailList"
+      }
+    },
+    {
+      "name": "goodui.main-view.identity",
+      "id": "ffd8177e-90f6-8061-8008-fded963d104a",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fded934a0be2",
+      "selector": "good-main-view",
+      "inputs": {
+        "leading": "goodMainViewLeading",
+        "heading": "Heading1 and Summary",
+        "actions": "good-main-view-actions",
+        "mobile": false,
+        "note": "MainView heading composition; other page content is projected below."
+      }
+    },
+    {
+      "name": "goodui.main-view.identity-mobile",
+      "id": "ffd8177e-90f6-8061-8008-fded992deef9",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fded963e9786",
+      "selector": "good-main-view",
+      "inputs": {
+        "leading": "goodMainViewLeading",
+        "heading": "Heading1 and Summary",
+        "actions": "good-main-view-actions",
+        "mobile": true,
+        "note": "MainView heading composition; other page content is projected below."
+      }
+    }
+  ],
+  "examples": [
+    {
+      "name": "example.patient-record.desktop",
+      "id": "ffd8177e-90f6-8061-8008-fdee3d2bc712",
+      "width": 1008,
+      "mobile": false
+    },
+    {
+      "name": "example.patient-record.mobile",
+      "id": "ffd8177e-90f6-8061-8008-fdee48800da2",
+      "width": 390,
+      "mobile": true
+    }
+  ],
+  "notes": [
+    "Existing Table and Card variant IDs remain unchanged.",
+    "Avatar sizes map to existing control/spacing roles; colors use the existing primary light badge palette.",
+    "DetailList rows are unchanged; grid responds to its container (three to two at 600 px, one at 400 px).",
+    "The application specimens own detached Card header/metadata text frames because Penpot nested component overrides do not reliably render. Avatar, Tabs, Buttons, and EmptyState remain linked.",
+    "Penpot dark exports have the existing stale text-color renderer limitation; inspect token bindings and the Angular dark rendering."
+  ],
+  "runtime": {
+    "mainViewLeading": "[goodMainViewLeading]",
+    "tableEmpty": "ng-template[goodTableEmpty]",
+    "cardAppearance": "default | contrast",
+    "avatar": "name, size, shape, decorative",
+    "detailList": "layout=rows|grid, columns=2|3",
+    "emptyState": "title, description, icon, headingLevel; projected actions"
+  }
+}

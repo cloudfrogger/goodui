@@ -58,6 +58,7 @@
   },
   "composition": {
     "projectedContent": [
+      "[goodMainViewLeading]",
       "good-heading-group",
       "good-eyebrow",
       "good-heading-1",
@@ -126,6 +127,20 @@
       "penpotId": "1b6260d7-e591-805d-8008-e282014cb32c",
       "kind": "component",
       "state": "fill-heading-mobile",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.main-view.identity",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded963d104a",
+      "kind": "component",
+      "state": "identity",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.main-view.identity-mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded992deef9",
+      "kind": "component",
+      "state": "identity-mobile",
       "owner": null
     }
   ],

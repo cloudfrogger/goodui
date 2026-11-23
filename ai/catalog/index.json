@@ -221,6 +221,18 @@
       "penpotCount": 4
     },
     {
+      "selector": "good-avatar",
+      "className": "GoodAvatarComponent",
+      "file": "components/good-avatar.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodAvatarComponent"
+      },
+      "usageGuide": "guides/components/avatar.md",
+      "summary": "Use `good-avatar` for a person's, team's, or organization's initials. It is a display component, not an account menu or action.",
+      "penpotCount": 6
+    },
+    {
       "selector": "good-avatar-menu-item",
       "className": "GoodAvatarMenuItemComponent",
       "file": "components/good-avatar-menu-item.json",
@@ -314,7 +326,7 @@
       },
       "usageGuide": "guides/components/card.md",
       "summary": "`good-card` is a bordered content container. It owns the surface, one-pixel border, 12 px corners, content padding, and separators. Add a header or footer only when the content needs one. `good-card-header` owns the title area and right-side actions; `good-card-footer` owns the bottom row.",
-      "penpotCount": 1
+      "penpotCount": 2
     },
     {
       "selector": "good-card-footer",
@@ -506,7 +518,7 @@
       },
       "usageGuide": "guides/components/detail-list.md",
       "summary": "Use `good-detail-list` for compact label/value pairs in summaries, settings, and price breakdowns. It renders a native `<dl>`. Add one `<div goodDetailRow>` per pair, with a native `<dt>` for the label and `<dd>` for the value. The value aligns to the right; long content wraps within narrow panels. The list has no border or page-specific padding.",
-      "penpotCount": 1
+      "penpotCount": 4
     },
     {
       "selector": "good-dropdown",
@@ -519,6 +531,18 @@
       "usageGuide": "guides/components/dropdown.md",
       "summary": "`good-dropdown` combines a GoodUI Button trigger with a structured popup. The trigger inherits Button's `variant`, `size`, leading `icon`, disabled state, and focus style. Set `showChevron` to hide the trailing chevron; an icon-only trigger needs an `ariaLabel`. The popup owns its placement, header, item list, footer, scrolling, and submenus, so consuming apps do not need positioning CSS.",
       "penpotCount": 4
+    },
+    {
+      "selector": "good-empty-state",
+      "className": "GoodEmptyStateComponent",
+      "file": "components/good-empty-state.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodEmptyStateComponent"
+      },
+      "usageGuide": "guides/components/empty-state.md",
+      "summary": "Use `good-empty-state` to explain why a content region has no records and offer a useful next action. It owns icon, heading, description, centered spacing, and wrapping projected actions; it adds no frame.",
+      "penpotCount": 2
     },
     {
       "selector": "good-error-page",
@@ -974,7 +998,7 @@
       },
       "usageGuide": "guides/components/main-view.md",
       "summary": "`good-main-view` provides the page container below the topbar. It owns padding, scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
-      "penpotCount": 6
+      "penpotCount": 8
     },
     {
       "selector": "good-map-color-scale",
@@ -1442,7 +1466,7 @@
       },
       "usageGuide": "guides/components/table.md",
       "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
-      "penpotCount": 3
+      "penpotCount": 5
     },
     {
       "selector": "good-tabs",
@@ -1535,6 +1559,18 @@
       "import": {
         "package": "@cloudfrogger/goodui",
         "symbol": "GoodTableCellDirective"
+      },
+      "usageGuide": "guides/components/table.md",
+      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
+      "penpotCount": 0
+    },
+    {
+      "selector": "ng-template[goodTableEmpty]",
+      "className": "GoodTableEmptyDirective",
+      "file": "components/ng-template-goodTableEmpty.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodTableEmptyDirective"
       },
       "usageGuide": "guides/components/table.md",
       "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",

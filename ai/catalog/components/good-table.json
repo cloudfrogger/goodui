@@ -37,6 +37,15 @@
       "kind": "input"
     },
     {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
       "name": "style",
       "type": "GoodTableStyle",
       "required": false,
@@ -300,7 +309,8 @@
   },
   "composition": {
     "projectedContent": [
-      "ng-template[goodTableCell]"
+      "ng-template[goodTableCell]",
+      "[goodTableActions]"
     ],
     "relatedSelectors": [
       "good-input",
@@ -339,6 +349,20 @@
       "penpotId": "489901a3-7f15-8049-8008-fc89ed012d9b",
       "kind": "component",
       "state": "embedded-compact",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.table.with-actions",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdd463adb483",
+      "kind": "component",
+      "state": "with-actions",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.table.with-actions-mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdd49b30fa52",
+      "kind": "component",
+      "state": "with-actions-mobile",
       "owner": null
     }
   ],

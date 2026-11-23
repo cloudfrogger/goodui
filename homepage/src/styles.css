@@ -6,7 +6,8 @@ body { margin: 0; }
 /* Documentation snippets, disclosures, and groups share the reading width. */
 .good-code-block:not(.good-code-display-inline),
 .good-expandable,
-.good-group {
+.showcase-section .good-group,
+.good-prose > .good-group {
   width: 100%;
   max-width: var(--good-typography-flow-max-width);
   min-width: 0;

@@ -7,5 +7,6 @@ Case studies document a working application context. Open one only when the task
 | DockerHub header | A wide navigation search trigger with a shortcut hint and independent account actions | [DockerHub header](dockerhub.md) |
 | Webmailer | A workspace with grouped commands, folders, a selectable list, preview, and rich text composition | [Webmailer](webmailer.md) |
 | VPS hoster | A sortable server list with filters and a multi-section server configuration flow | [VPS hoster](vpshoster.md) |
+| Patient records | A readable record with an identity header, responsive metadata, edit drafts, activity, and documents | [Patient records](patient-records.md) |
 
 Keep domain state and wording in the study. When a study reveals a reusable gap, change the generic GoodUI component, verify its public API, and update the study's demonstrated usage.

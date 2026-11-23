@@ -14,6 +14,8 @@ export type GoodMainViewLayout = 'page' | 'fill';
     @if (subnavItems().length) { <good-subnav [items]="subnavItems()" [actions]="subnavActions()" [ariaLabel]="subnavLabel()" /> }
     @if (hasHeading()) {
       <header class="good-main-view-heading">
+        <div class="good-main-view-identity">
+        <div class="good-main-view-leading"><ng-content select="[goodMainViewLeading]" /></div>
         <div class="good-main-view-heading-content">
           <ng-content select="good-heading-group" />
           @if (hasDirectHeading()) {
@@ -25,6 +27,7 @@ export type GoodMainViewLayout = 'page' | 'fill';
               </div>
             </div>
           }
+        </div>
         </div>
         <div class="good-main-view-actions"><ng-content select="[good-main-view-actions]" /></div>
       </header>

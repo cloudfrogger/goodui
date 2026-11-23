@@ -77,6 +77,16 @@ class TableDeleteCellComponent {
   <good-heading-1>Tables</good-heading-1>
   <good-summary>Searchable records, rich cells, and client or server pagination</good-summary>
       <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Table header actions</h2><p>Project Buttons or other controls into the title row. They stay reachable while the table body scrolls on small screens.</p></div>
+        <good-table title="Workspace records" label="Header action records" [data]="headerRows()" [columns]="simpleColumns" [getRowId]="rowId" [searchable]="true" [reorderable]="false">
+          <good-action-group goodTableActions spacing="small">
+            <good-button size="small" (click)="addHeaderRecord()">Add record</good-button>
+            <good-button size="small" variant="outline" [disabled]="headerRows().length === 3" (click)="headerRows.set(initialHeaderRows)">Reset records</good-button>
+          </good-action-group>
+        </good-table>
+        <good-code-block [code]="headerActionsCode" language="html" title="Project table header actions" />
+      </section>
+      <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Records</h2><p>Search and sort the full data set. Custom cells render a Badge, Switch, and action menu.</p></div>
         <good-table label="Workspace records" [data]="rows()" [columns]="columns" [getRowId]="rowId"
           [searchable]="true">
@@ -184,6 +194,21 @@ class TableDeleteCellComponent {
   `,
 })
 export class TablesPageComponent {
+  readonly initialHeaderRows = initialRows.slice(0, 3);
+  readonly headerRows = signal(this.initialHeaderRows);
+  private headerRecordNumber = 0;
+  addHeaderRecord(): void {
+    const number = ++this.headerRecordNumber;
+    this.headerRows.update(rows => [...rows, { ...initialRows[0], id: `header-extra-${number}`, name: `Added record ${number}` }]);
+  }
+  readonly headerActionsCode = `<good-table title="Workspace records" label="Workspace records"
+  [data]="headerRows()" [columns]="simpleColumns" [searchable]="true">
+  <good-action-group goodTableActions spacing="small">
+    <good-button size="small" (click)="addHeaderRecord()">Add record</good-button>
+    <good-button size="small" variant="outline" [disabled]="headerRows().length === 3"
+      (click)="headerRows.set(initialHeaderRows)">Reset records</good-button>
+  </good-action-group>
+</good-table>`;
   readonly sectionSearch = signal('');
   readonly embeddedTableCode = `<good-section layout="settings">
   <good-heading-group><good-heading-2>Team access</good-heading-2>

@@ -17,10 +17,27 @@
       "allowedValues": null,
       "source": "angular/projects/goodui/src/lib/card.ts",
       "kind": "input"
+    },
+    {
+      "name": "appearance",
+      "type": "\"default\" | \"contrast\"",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "contrast"
+      ],
+      "source": "angular/projects/goodui/src/lib/card.ts",
+      "kind": "input"
     }
   ],
   "outputs": [],
-  "variants": {},
+  "variants": {
+    "appearance": [
+      "default",
+      "contrast"
+    ]
+  },
   "composition": {
     "projectedContent": [
       "good-card-header",
@@ -47,6 +64,13 @@
       "penpotId": "c0c3286f-e4bf-804c-8008-d530253a828d",
       "kind": "component",
       "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.card.contrast",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded5a5af708",
+      "kind": "component",
+      "state": "contrast",
       "owner": null
     }
   ],

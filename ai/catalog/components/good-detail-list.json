@@ -8,9 +8,43 @@
     "symbol": "GoodDetailListComponent"
   },
   "source": "angular/projects/goodui/src/lib/typography.ts",
-  "inputs": [],
+  "inputs": [
+    {
+      "name": "layout",
+      "type": "\"grid\" | \"rows\"",
+      "required": false,
+      "default": "rows",
+      "allowedValues": [
+        "grid",
+        "rows"
+      ],
+      "source": "angular/projects/goodui/src/lib/typography.ts",
+      "kind": "input"
+    },
+    {
+      "name": "columns",
+      "type": "2 | 3",
+      "required": false,
+      "default": "3",
+      "allowedValues": [
+        2,
+        3
+      ],
+      "source": "angular/projects/goodui/src/lib/typography.ts",
+      "kind": "input"
+    }
+  ],
   "outputs": [],
-  "variants": {},
+  "variants": {
+    "layout": [
+      "grid",
+      "rows"
+    ],
+    "columns": [
+      2,
+      3
+    ]
+  },
   "composition": {
     "projectedContent": [
       "*"
@@ -25,7 +59,9 @@
   "usageGuide": "guides/components/detail-list.md",
   "usage": {
     "summary": "Use `good-detail-list` for compact label/value pairs in summaries, settings, and price breakdowns. It renders a native `<dl>`. Add one `<div goodDetailRow>` per pair, with a native `<dt>` for the label and `<dd>` for the value. The value aligns to the right; long content wraps within narrow panels. The list has no border or page-specific padding.",
-    "examples": []
+    "examples": [
+      "ai/examples/table-view.html"
+    ]
   },
   "penpot": [
     {
@@ -33,6 +69,27 @@
       "penpotId": "1b6260d7-e591-805d-8008-e2d28e329f5a",
       "kind": "component",
       "state": null,
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.detail-list.grid-3",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec6b34cdaa",
+      "kind": "component",
+      "state": "grid-3",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.detail-list.grid-2",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec7651c7ab",
+      "kind": "component",
+      "state": "grid-2",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.detail-list.grid-mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec8222993c",
+      "kind": "component",
+      "state": "grid-mobile",
       "owner": null
     }
   ],

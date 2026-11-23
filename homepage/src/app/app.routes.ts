@@ -103,6 +103,8 @@ export const routes: Routes = [
   { path: 'components/links', component: LinksPageComponent },
   { path: 'components/code-blocks', loadComponent: () => import('./code-blocks-page').then(module => module.CodeBlocksPageComponent) },
   { path: 'components/modals', loadComponent: () => import('./modals-page').then(module => module.ModalsPageComponent) },
+  { path: 'examples/patient-records', loadComponent: () => import('./examples/patient-records/patient-records-page').then(module => module.PatientRecordsPageComponent) },
+  { path: 'examples/patient-records/:id', loadComponent: () => import('./examples/patient-records/patient-records-page').then(module => module.PatientRecordsPageComponent) },
   { path: 'examples/settings', loadComponent: () => import('./examples/settings/settings-page').then(module => module.SettingsPageComponent) },
   { path: 'examples/settings/:id', loadComponent: () => import('./examples/settings/settings-page').then(module => module.SettingsPageComponent) },
   { path: 'examples/user-registration', loadComponent: () => import('./examples/user-registration/user-registration-example-page').then(module => module.UserRegistrationExamplePageComponent) },

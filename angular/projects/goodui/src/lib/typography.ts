@@ -103,10 +103,13 @@ export class GoodProseComponent {}
 /** A semantic label/value list for summaries, metadata, and price breakdowns. */
 @Component({
   selector: 'good-detail-list', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-detail-list' },
+  host: { class: 'good-detail-list', '[attr.data-layout]': 'layout()', '[attr.data-columns]': 'columns()' },
   template: `<dl><ng-content /></dl>`,
 })
-export class GoodDetailListComponent {}
+export class GoodDetailListComponent {
+  readonly layout = input<'rows' | 'grid'>('rows');
+  readonly columns = input<2 | 3>(3);
+}
 
 /** Place a native dt and dd inside this row to preserve description-list semantics. */
 @Directive({

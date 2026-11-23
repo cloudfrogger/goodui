@@ -58,6 +58,7 @@ const guideOverrides = {
   'good-image-preview': 'components/image-input',
   'good-notification-host': 'components/notifications',
   'good-select-country': 'components/select',
+  'ng-template[goodTableEmpty]': 'components/table',
   'div[goodDetailRow]': 'components/detail-list',
 };
 const generated = new Map();

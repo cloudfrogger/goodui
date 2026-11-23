@@ -1,5 +1,19 @@
 <good-main-view>
+  <good-avatar goodMainViewLeading name="Example directory" [decorative]="true" />
   <good-heading-1>People</good-heading-1>
   <good-summary>Search and sort the directory.</good-summary>
-  <good-table label="People" [data]="people" [columns]="columns" [searchable]="true" [pagination]="pagination" />
+  <good-detail-list layout="grid">
+    <div goodDetailRow><dt>Directory</dt><dd>Example accounts</dd></div>
+    <div goodDetailRow><dt>Members</dt><dd>{{ people().length }}</dd></div>
+  </good-detail-list>
+  <good-table title="Directory records" label="People" [data]="people()" [columns]="columns" [searchable]="true" [pagination]="pagination">
+    <good-action-group goodTableActions spacing="small">
+      <good-button size="small" (click)="addPerson()">Add person</good-button>
+    </good-action-group>
+    <ng-template goodTableEmpty>
+      <good-empty-state title="No matching people" description="Try another search or add a person.">
+        <good-button (click)="addPerson()">Add person</good-button>
+      </good-empty-state>
+    </ng-template>
+  </good-table>
 </good-main-view>

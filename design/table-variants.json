@@ -22,5 +22,25 @@
     { "name": "example.table-search-pagination", "id": "c0c3286f-e4bf-804c-8008-d704ca622feb", "published": false },
     { "name": "example.table-selected-row", "id": "2f4a7d00-3514-8040-8008-e16a8a6c64d2", "published": false, "state": "selected", "note": "Linked default Table with row-2 selected via color.selected and color.accent token-bound rail; selection is runtime state." }
   ],
-  "embeddingContract": "design/settings-layout-contract.json"
+  "embeddingContract": "design/settings-layout-contract.json",
+  "compositions": [
+    {
+      "name": "goodui.table.with-actions",
+      "id": "ffd8177e-90f6-8061-8008-fdd463adb483",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdd45240234c",
+      "width": 920,
+      "title": "Workspace records",
+      "projection": "goodTableActions",
+      "note": "Linked Table, Input, and small Button instances. Title and actions stay outside the horizontal data scroller; the mobile composition wraps actions below the title."
+    },
+    {
+      "name": "goodui.table.with-actions-mobile",
+      "id": "ffd8177e-90f6-8061-8008-fdd49b30fa52",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-fdd48d50f1c6",
+      "width": 342,
+      "title": "Workspace records",
+      "projection": "goodTableActions",
+      "note": "Linked Table, Input, and small Button instances. Title and actions stay outside the horizontal data scroller; the mobile composition wraps actions below the title."
+    }
+  ]
 }

@@ -234,6 +234,7 @@ For cursor mode, pass the backend's opaque `nextCursor` and `hasNextPage` with e
 | Input/output | Default | Meaning |
 | --- | --- | --- |
 | `data`, `columns` | required | Rows and TanStack column definitions; `meta.visibleFrom` defaults to `xs`. |
+| `title` | empty | Optional visible heading above the table. |
 | `label` | `Records` | Accessible table name. |
 | `tableStyle` | `default` | `default`, `bordered`, `striped`, or `compact`. Prefer this input in templates. |
 | `reorderable` | `true` | Show column grips; set `[reorderable]="false"` to prevent user reordering. |
@@ -262,3 +263,40 @@ Penpot page `16 Tables` publishes `goodui.table` with `style=default/bordered/st
 For search beside Section actions, keep `searchable` false and bind `[searchTerm]` from a small GoodUI Input in `[good-section-actions]`. Search uses the existing client filter or manual request path, resets pagination and cursor history, and emits `searchChange` when the effective term changes. The default integrated search remains available through `searchable`; avoid showing both search controls. See [Settings sections](typography.md#settings-sections) and the [complete Settings example](../../homepage/src/app/examples/settings/settings-page.html).
 
 The embedded normal and compact Penpot components are published on `44 Settings`; their stable IDs and exact Angular inputs are in [settings-layout-contract.json](../../design/settings-layout-contract.json). They supplement the original eight Table variants on `16 Tables`.
+
+
+## Title row actions
+
+Set `title` for a visible table heading and project an element with the static `goodTableActions` attribute for actions at its right edge. Use a GoodUI ActionGroup for several Buttons, or project another control with its normal Angular inputs and events. No extra directive import is needed. The Table owns the heading/action spacing. Keep the content as a direct child of Table; place conditional buttons inside the projected ActionGroup so Angular retains the projection slot.
+
+```html
+<good-table title="Workspace records" label="Workspace records"
+  [data]="records()" [columns]="columns" [searchable]="true">
+  <good-action-group goodTableActions spacing="small">
+    <good-button size="small" (click)="addRecord()">Add record</good-button>
+    <good-button size="small" variant="outline" (click)="exportRecords()">Export</good-button>
+  </good-action-group>
+</good-table>
+```
+
+Import Table, ActionGroup, and Button in the declaring standalone component; implement the action handlers in the application. `label` supplies the accessible table name. The optional visible title is a native H2 with the shared 18 px heading treatment. Actions also work without a title or integrated search. With neither title nor projected actions, the title row takes no space. An empty conditional action group may still reserve its own space; condition the projected group itself when it should disappear completely.
+
+The action area wraps below the title when space is limited. It remains outside the horizontally scrolling data region, so actions remain reachable while inspecting wide tables on mobile. Search retains its existing behavior in the row below. Use section actions when a command belongs to the surrounding section; use `goodTableActions` when the table owns the command. Cell templates, sorting, selection, pagination, frame appearance, and density keep their existing contracts.
+
+The [Tables homepage](../../homepage/src/app/tables-page.ts) demonstrates Add and Reset with real local data changes. The [agent example](../../ai/examples/table-view.html) includes an Add person handler. Penpot title/action compositions are recorded separately from the eight original variants in [table-variants.json](../../design/table-variants.json).
+
+## Custom empty content
+
+Import `GoodTableEmptyDirective` and supply an `ng-template goodTableEmpty`. Its contents are created only when the current row model is empty and loading is false, in a region named by `label` outside the data scroller. The empty template replaces column headings and data rows; the title, actions, search, and pagination keep their behavior. Without it, `emptyMessage` and the built-in icon remain unchanged. Filtering to zero rows also renders this template; choose copy and actions based on whether the application has records before filtering.
+
+```html
+<good-table label="Activity" [data]="entries()" [columns]="columns">
+  <ng-template goodTableEmpty>
+    <good-empty-state title="No entries yet" description="Start with a note.">
+      <good-button (click)="createEntry()">Create entry</good-button>
+    </good-empty-state>
+  </ng-template>
+</good-table>
+```
+
+The directive has no inputs or outputs and maps to the owning `good-table` empty region. Loading never instantiates the supplied template. See [Empty State](empty-state.md) and the patient records example.

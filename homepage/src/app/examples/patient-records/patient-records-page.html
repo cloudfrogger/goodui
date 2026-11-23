@@ -1,0 +1,97 @@
+@if (detail()) {
+  <good-main-view>
+    <good-avatar goodMainViewLeading [name]="store.patient().name" size="large" [decorative]="true" />
+    <good-heading-1>{{ store.patient().name }}</good-heading-1>
+    <good-summary>Patient DEMO-001 · Patient record</good-summary>
+    <good-action-group good-main-view-actions ariaLabel="Patient record actions" spacing="small">
+      <good-button variant="outline" [icon]="refreshIcon" [iconOnly]="true" ariaLabel="Refresh record" (click)="refresh()" />
+      <good-button [icon]="plusIcon" (click)="startEntry()">New entry</good-button>
+    </good-action-group>
+    <good-group appearance="plain">
+      <good-link route="/examples/patient-records">← All patients</good-link>
+      <good-card appearance="contrast">
+        <good-card-header title="Patient details">
+          <good-action-group goodCardActions spacing="small"><good-button size="small" variant="ghost" [icon]="editIcon" (click)="startEdit()">Edit details</good-button></good-action-group>
+        </good-card-header>
+        <good-detail-list layout="grid" [columns]="3">
+          <div goodDetailRow><dt>Name</dt><dd>{{ store.patient().name }}</dd></div>
+          <div goodDetailRow><dt>Date of birth</dt><dd>{{ store.patient().birthDate || 'Not provided' }}</dd></div>
+          <div goodDetailRow><dt>Patient number</dt><dd>DEMO-001</dd></div>
+          <div goodDetailRow><dt>Email</dt><dd>{{ store.patient().email || 'Not provided' }}</dd></div>
+          <div goodDetailRow><dt>Landline</dt><dd>{{ store.patient().landline || 'Not provided' }}</dd></div>
+          <div goodDetailRow><dt>Mobile</dt><dd>{{ store.patient().mobile || 'Not provided' }}</dd></div>
+          <div goodDetailRow><dt>Address</dt><dd>{{ store.patient().address || 'Not provided' }}</dd></div>
+        </good-detail-list>
+      </good-card>
+      <good-tabs ariaLabel="Patient record sections" [(activeId)]="activeTab">
+        <good-tab value="activity" label="Activity">
+          <good-card appearance="contrast">
+            <good-card-header [title]="'Record entries · ' + filteredEntries().length">
+              <span goodCardSubtitle>Treatments and notes at a glance</span>
+              <good-action-group goodCardActions spacing="small"><good-select label="Filter entry type" size="small" [options]="filterOptions" [value]="filter()" (valueChange)="filter.set($event)" /></good-action-group>
+            </good-card-header>
+            <good-table label="Record entries" [data]="filteredEntries()" [columns]="entryColumns" [getRowId]="rowId" [reorderable]="false" frameAppearance="none" [pagination]="store.entries().length ? { mode: 'client', pageSize: 10 } : null">
+              <ng-template goodTableEmpty>
+                @if (store.entries().length) {
+                  <good-empty-state title="No matching entries" description="Choose another entry type to see the rest of this record."><good-button variant="outline" (click)="filter.set('all')">Clear filter</good-button></good-empty-state>
+                } @else {
+                  <good-empty-state title="No record entries yet" description="Document the first treatment or add a note to this patient record."><good-button [icon]="plusIcon" (click)="startEntry()">Create first entry</good-button></good-empty-state>
+                }
+              </ng-template>
+            </good-table>
+          </good-card>
+        </good-tab>
+        <good-tab value="documents" label="Documents" [badge]="store.documents().length">
+          <good-card appearance="contrast">
+            <good-card-header title="Documents"><span goodCardSubtitle>Files stay in this browser session and are never uploaded.</span></good-card-header>
+            <good-input label="Attach documents" [showLabel]="true" type="file" [multiple]="true" (filesChange)="addDocuments($event)" />
+            <good-table label="Patient documents" [data]="store.documents()" [columns]="documentColumns" [getRowId]="rowId" frameAppearance="none" [reorderable]="false">
+              <ng-template goodTableCell="actions" let-document><good-action-group spacing="small"><good-button variant="ghost" size="small" [icon]="downloadIcon" (click)="download(document)">Download</good-button><good-button variant="ghost" size="small" (click)="removeDocument(document.id)">Remove</good-button></good-action-group></ng-template>
+              <ng-template goodTableEmpty><good-empty-state [icon]="fileIcon" title="No documents attached" description="Choose a file above to add it to this demo record." /></ng-template>
+            </good-table>
+          </good-card>
+        </good-tab>
+        <good-tab value="details" label="Details">
+          <good-card appearance="contrast"><good-card-header title="Contact details"><good-action-group goodCardActions><good-button variant="ghost" size="small" [icon]="editIcon" (click)="startEdit()">Edit patient details</good-button></good-action-group></good-card-header><good-detail-list layout="grid"><div goodDetailRow><dt>Landline</dt><dd>{{ store.patient().landline || 'Not provided' }}</dd></div><div goodDetailRow><dt>Mobile</dt><dd>{{ store.patient().mobile || 'Not provided' }}</dd></div><div goodDetailRow><dt>Email</dt><dd>{{ store.patient().email || 'Not provided' }}</dd></div><div goodDetailRow><dt>Postal address</dt><dd>{{ store.patient().address || 'Not provided' }}</dd></div></good-detail-list></good-card>
+        </good-tab>
+      </good-tabs>
+      <good-paragraph role="status">{{ updated() }}</good-paragraph>
+      <good-action-group spacing="small"><good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View example source</good-button></good-action-group>
+    </good-group>
+  </good-main-view>
+} @else {
+  <good-main-view>
+    <good-heading-1>Patients</good-heading-1><good-summary>Open a patient to read their details and activity.</good-summary>
+    <good-group appearance="plain">
+      <good-table title="Patient directory" label="Patient directory" [data]="patientRows()" [columns]="patientColumns" [searchTerm]="query()" [reorderable]="false">
+        <good-input goodTableActions label="Search patients" placeholder="Search patients" type="search" size="small" [value]="query()" (valueChange)="query.set($event)" />
+        <ng-template goodTableCell="name" let-patient><good-link route="/examples/patient-records/example">{{ patient.name }}</good-link></ng-template>
+      </good-table>
+      <good-paragraph>This example uses fictional data held in memory. Reloading restores the initial record.</good-paragraph>
+      <good-button variant="ghost" size="small" (click)="sourceOpen.set(true)">View example source</good-button>
+    </good-group>
+  </good-main-view>
+}
+<good-modal [(open)]="editing" size="large" [scrollBody]="true">
+  <good-modal-header title="Edit patient details" description="Cancel discards your changes." />
+  <form goodForm [fullWidth]="true" [formGroup]="patientForm" (ngSubmit)="savePatient()">
+    <good-form-row><good-input label="Name" [showLabel]="true" [required]="true" formControlName="name" /><good-date-input label="Date of birth" [showLabel]="true" locale="en-US" formControlName="birthDate" /></good-form-row>
+    <good-input label="Email" [showLabel]="true" type="email" formControlName="email" />
+    <good-form-row><good-input-phone label="Landline" [showLabel]="true" locale="en-US" formControlName="landline" /><good-input-phone label="Mobile" [showLabel]="true" locale="en-US" formControlName="mobile" /></good-form-row>
+    <good-input label="Address" [showLabel]="true" formControlName="address" />
+    <good-action-group><good-button type="submit" [disabled]="patientForm.invalid">Save details</good-button><good-button variant="outline" (click)="editing.set(false)">Cancel</good-button></good-action-group>
+  </form>
+</good-modal>
+<good-modal [(open)]="creating">
+  <good-modal-header title="New record entry" />
+  <form goodForm [formGroup]="entryForm" (ngSubmit)="saveEntry()">
+    <good-select label="Entry type" [showLabel]="true" [options]="entryTypes" formControlName="kind" />
+    <good-textarea label="Entry text" [showLabel]="true" [required]="true" formControlName="summary" />
+    <good-action-group><good-button type="submit" [disabled]="entryForm.invalid">Save entry</good-button><good-button variant="outline" (click)="creating.set(false)">Cancel</good-button></good-action-group>
+  </form>
+</good-modal>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Patient record example source" />
+  <good-code-block [code]="htmlSource" language="html" title="patient-records-page.html" />
+  <good-code-block [code]="typescriptSource" language="typescript" title="patient-records-page.ts" />
+</good-modal>

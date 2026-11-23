@@ -45,3 +45,5 @@ Fill layout keeps the projected header's 30 px desktop or 24 px mobile side inse
 The [Settings example](../../homepage/src/app/examples/settings/settings-page.html) composes the page heading and `[good-main-view-actions]` with `good-section layout="settings"`. Section headers own their local actions; MainView owns Edit, Cancel, and Save. Tables use `frameAppearance="none"` to avoid nested frames. Application data and draft state stay in the example.
 
 At 640 px viewport width and below, MainView places page actions after the heading and description in a full-width row. ActionGroup can wrap its controls without squeezing the page heading into a narrow column.
+
+Project an optional direct child with `goodMainViewLeading` to place an Avatar or other compact record marker alongside the heading. The identity row retains its reading order on mobile while actions move below it. The slot has no directive import; its content owns accessible naming (an Avatar next to the same visible name should be decorative). Do not put navigation actions into the identity marker.

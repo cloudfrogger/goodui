@@ -148,6 +148,7 @@ export class App {
       ] },
     ] },
     { id: 'examples', heading: 'EXAMPLES', items: [
+      { id: 'patient-records-example', label: 'Patient records', icon: 'account', route: '/examples/patient-records/example' },
       { id: 'settings-example', label: 'Settings', icon: 'settings', route: '/examples/settings' },
       { id: 'user-registration', label: 'User registration', icon: 'account', route: '/examples/user-registration' },
       { id: 'notifications-example', label: 'Notifications', icon: 'bell', route: '/examples/notifications' },
@@ -297,6 +298,7 @@ export class App {
     { id: 'theme-toggle', label: 'Header theme toggle', description: 'good-header-themetoggle · Direct Light, System, and Dark cycling', route: '/components/header-actions' },
     { id: 'header-submenu', label: 'Header submenu', description: 'Nested levels within Header menu', route: '/components/header-menu' },
     { id: 'labels', label: 'Forms and labels', description: 'Vertical, left-aligned, and right-aligned forms', route: '/components/labels' },
+    { id: 'patient-records-example', label: 'Patient records', description: 'Readable details, editing, activity, and documents using only GoodUI', route: '/examples/patient-records/example' },
     { id: 'settings-example', label: 'Settings', description: 'Workspace overview, details, and explicit editing', route: '/examples/settings' },
     { id: 'user-registration', label: 'User registration', description: 'Complete GoodUI form with matching passwords', route: '/examples/user-registration' },
     { id: 'webmailer-case-study', label: 'Webmailer case study', description: 'Mail workspace and composer built with GoodUI', route: '/examples/case-studies/webmailer' },

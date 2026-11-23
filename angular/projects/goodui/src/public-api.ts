@@ -72,3 +72,5 @@ export * from './lib/expandable';
 export * from '@lucide/angular';
 export * from './lib/action-menu';
 export * from './lib/app-shell';
+export * from './lib/avatar';
+export * from './lib/empty-state';

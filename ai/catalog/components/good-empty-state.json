@@ -1,0 +1,99 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-empty-state",
+  "className": "GoodEmptyStateComponent",
+  "kind": "component",
+  "import": {
+    "package": "@cloudfrogger/goodui",
+    "symbol": "GoodEmptyStateComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/empty-state.ts",
+  "inputs": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/empty-state.ts",
+      "kind": "input"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/empty-state.ts",
+      "kind": "input"
+    },
+    {
+      "name": "icon",
+      "type": "GoodButtonIcon",
+      "required": false,
+      "default": {
+        "expression": "LucideFolderPlus"
+      },
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/empty-state.ts",
+      "kind": "input"
+    },
+    {
+      "name": "headingLevel",
+      "type": "2 | 3",
+      "required": false,
+      "default": "3",
+      "allowedValues": [
+        2,
+        3
+      ],
+      "source": "angular/projects/goodui/src/lib/empty-state.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "headingLevel": [
+      2,
+      3
+    ]
+  },
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/empty-state.md",
+  "usage": {
+    "summary": "Use `good-empty-state` to explain why a content region has no records and offer a useful next action. It owns icon, heading, description, centered spacing, and wrapping projected actions; it adds no frame.",
+    "examples": [
+      "ai/examples/table-view.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.empty-state.default",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded2c6a0ddf",
+      "kind": "component",
+      "state": "default",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.empty-state.mobile",
+      "penpotId": "ffd8177e-90f6-8061-8008-fded3fec0079",
+      "kind": "component",
+      "state": "mobile",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

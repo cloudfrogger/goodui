@@ -1,0 +1,132 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-avatar",
+  "className": "GoodAvatarComponent",
+  "kind": "component",
+  "import": {
+    "package": "@cloudfrogger/goodui",
+    "symbol": "GoodAvatarComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/avatar.ts",
+  "inputs": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/avatar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "\"default\" | \"small\" | \"large\"",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/avatar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "shape",
+      "type": "\"square\" | \"circle\"",
+      "required": false,
+      "default": "square",
+      "allowedValues": [
+        "square",
+        "circle"
+      ],
+      "source": "angular/projects/goodui/src/lib/avatar.ts",
+      "kind": "input"
+    },
+    {
+      "name": "decorative",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/avatar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ],
+    "shape": [
+      "square",
+      "circle"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/avatar.md",
+  "usage": {
+    "summary": "Use `good-avatar` for a person's, team's, or organization's initials. It is a display component, not an account menu or action.",
+    "examples": [
+      "ai/examples/table-view.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.avatar.small-square",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec229d0fd5",
+      "kind": "component",
+      "state": "small-square",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar.small-circle",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec404c01b9",
+      "kind": "component",
+      "state": "small-circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar.default-square",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec45b1d6aa",
+      "kind": "component",
+      "state": "default-square",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar.default-circle",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec486aed45",
+      "kind": "component",
+      "state": "default-circle",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar.large-square",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec4b387904",
+      "kind": "component",
+      "state": "large-square",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.avatar.large-circle",
+      "penpotId": "ffd8177e-90f6-8061-8008-fdec4d013493",
+      "kind": "component",
+      "state": "large-circle",
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

@@ -4,6 +4,7 @@ import { dirname, join } from 'node:path';
 
 const homepageRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const examples = [
+  ['patient-records', [['patientRecordsHtml', 'patient-records-page.html'], ['patientRecordsTs', 'patient-records-page.ts']]],
   ['settings', [['settingsHtml', 'settings-page.html'], ['settingsTs', 'settings-page.ts']]],
   ['user-registration', [
     ['userRegistrationPageHtml', 'user-registration-page.html'],
