@@ -56,7 +56,8 @@
   "variants": {},
   "composition": {
     "projectedContent": [
-      "*"
+      "*",
+      "good-sidebar-footer"
     ],
     "relatedSelectors": [],
     "notes": "See source template and component guide for projection slots."
@@ -99,6 +100,20 @@
       "penpotId": "521fe58c-da62-80e2-8008-d3458996ee89",
       "kind": "component",
       "state": "expanded",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.sidebar.with-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8ac5588dec",
+      "kind": "component",
+      "state": "with-footer",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.sidebar.drawer-with-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8ac59cba0d",
+      "kind": "component",
+      "state": "drawer-with-footer",
       "owner": null
     }
   ],

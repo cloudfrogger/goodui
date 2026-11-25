@@ -603,6 +603,13 @@ for (const entry of currencyInput.variants) {
 if (currencyKeys.size !== currencyInput.axes.size.length * currencyInput.axes.status.length ||
     map.componentMappings.find(entry => entry.penpotName === currencyInput.family)?.penpotId !== currencyInput.variants.find(entry => entry.size === 'default' && entry.status === 'empty')?.id) throw new Error('Incomplete Currency Input matrix or default mapping.');
 
+const sidebarFooterContract = JSON.parse(readFileSync(resolve(root, 'design/sidebar-footer-contract.json'), 'utf8'));
+for (const entry of sidebarFooterContract.components) {
+  const mapping = map.componentMappings.find(item => item.penpotName === entry.penpotName);
+  if (!mapping || mapping.penpotId !== entry.penpotId || mapping.angularSelector !== entry.angularSelector || !/^[0-9a-f-]{36}$/.test(entry.mainInstanceId)) throw new Error(`Sidebar Footer mapping differs from its published component: ${entry.penpotName}`);
+}
+if (!JSON.parse(readFileSync(resolve(root, 'design/app-shell-contract.json'), 'utf8')).regions.find(region => region.selector === 'good-sidebar').slots.includes('good-sidebar-footer')) throw new Error('Missing Sidebar Footer projection contract.');
+
 console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${phoneVariants.variants.length} Phone Input, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
 
 const shellContract = JSON.parse(readFileSync(resolve(root, 'design/app-shell-contract.json'), 'utf8'));

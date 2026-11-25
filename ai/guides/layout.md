@@ -21,3 +21,7 @@ Read the exact catalog detail for each selected component. Required inputs are e
 For a custom action area, project `good-header-actions` into AppHeader, then place action components inside it in the desired order. The container owns spacing. See `guides/components/header-actions.md`.
 
 Declare `good-sidebar` and `good-app-header` directly inside AppShell. Put `good-header-menu` and `good-header-actions` inside AppHeader, and `good-sidebar-item` children inside Sidebar. AppShell has no navigation-array inputs. Route activity and Sidebar ancestors follow Angular Router; the same Sidebar instance becomes the mobile drawer. Read `guides/components/sidebar.md` and `guides/components/app-header.md`.
+
+## Persistent sidebar footer
+
+`good-sidebar-footer` is an optional direct Sidebar child, separate from the scrollable navigation. It remains at the bottom of Sidebar and keeps its state in AppShell's mobile drawer. Project existing GoodUI controls such as Select or SidebarItem; a tenant switch is application state, never a library-owned operation. In a standalone Sidebar, use a bounded layout container; AppShell already provides that height. See [Sidebar Footer](../../guides/components/sidebar-footer.md) and the compiled shell example.

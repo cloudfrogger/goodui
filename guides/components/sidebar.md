@@ -29,3 +29,7 @@ Penpot `goodui.sidebar` retains all former SidebarContainer library IDs. Linked 
 The shared region, responsive, and state contract is `design/app-shell-contract.json`.
 
 Penpot sidebar masters and their menu/item parts are on **45 Sidebars and Menus**. The move from `01 Components` preserves all component, main-shape, and child IDs; shell specimens on `02 Shell` remain linked.
+
+## Persistent footer
+
+Project one optional direct `good-sidebar-footer` child after the navigation content. Import `GoodSidebarFooterComponent`. Sidebar places it outside the `nav` scroller, with its own divider and compact spacing. It can contain SidebarItems, Select, Buttons, or other GoodUI controls; application code owns the actions and workspace selection. Omitting it adds no layout space. The same footer stays mounted in the mobile drawer and appears above the existing Close button. See [Sidebar Footer](sidebar-footer.md) for the complete contract and copyable example.

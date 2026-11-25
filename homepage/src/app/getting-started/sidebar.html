@@ -18,9 +18,21 @@
             </good-sidebar-item>
           </good-sidebar-item>
         </good-sidebar-menu-container>
+        <good-sidebar-footer>
+          <good-sidebar-item label="Settings" icon="settings" route="/examples/settings" />
+        </good-sidebar-footer>
       </good-sidebar>
     </good-group>
     <good-code-block [code]="sidebarCode" language="html" title="Declare links and nested groups" />
+  </good-section>
+  <good-section spacing="content">
+    <good-heading-2>Keep actions at the bottom</good-heading-2>
+    <good-prose>
+      <good-paragraph>Add an optional <code>good-sidebar-footer</code> directly inside Sidebar. The navigation above it uses the remaining height and scrolls independently. Settings links, a workspace selector, or other GoodUI controls remain visible at the bottom of the sidebar without covering menu entries.</good-paragraph>
+      <good-paragraph>The homepage sidebar demonstrates a local example workspace selector and a Settings example link. Changing that selector changes only the demonstration choice; your application owns tenant switching, permissions, and loading. On mobile the same footer remains inside the modal drawer, above its Close button, and keeps its state when the viewport changes.</good-paragraph>
+    </good-prose>
+    <good-code-block [code]="footerCode" language="html" title="Optional persistent footer" />
+    <good-code-block [code]="footerTypescript" language="typescript" title="Footer imports and application state" />
   </good-section>
   <good-section spacing="content">
     <good-heading-2>Compose the application shell</good-heading-2>

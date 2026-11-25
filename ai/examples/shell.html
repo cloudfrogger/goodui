@@ -7,6 +7,10 @@
         <good-sidebar-item label="Members" route="/settings/members" />
       </good-sidebar-item>
     </good-sidebar-menu-container>
+    <good-sidebar-footer ariaLabel="Workspace actions">
+      <good-select label="Workspace" size="small" [options]="workspaces" [(value)]="workspace" />
+      <good-sidebar-item label="Settings" icon="settings" route="/settings/profile" />
+    </good-sidebar-footer>
   </good-sidebar>
   <good-app-header>
     <good-header-menu mobileMode="popup">

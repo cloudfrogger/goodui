@@ -1334,7 +1334,19 @@
       },
       "usageGuide": "guides/components/sidebar.md",
       "summary": "Use `good-sidebar` for declarative application navigation. Place `good-sidebar-item` children inside it; nest items for expandable groups, and use `good-sidebar-menu-container` for optional section headings. Sidebar owns branding, spacing, scrolling, indentation, and guide lines.",
-      "penpotCount": 4
+      "penpotCount": 6
+    },
+    {
+      "selector": "good-sidebar-footer",
+      "className": "GoodSidebarFooterComponent",
+      "file": "components/good-sidebar-footer.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodSidebarFooterComponent"
+      },
+      "usageGuide": "guides/components/sidebar-footer.md",
+      "summary": "Use `good-sidebar-footer` for optional settings, account controls, or a workspace selector that stays at the bottom of Sidebar. It owns its divider, padding, safe-area inset, and vertical spacing. Sidebar keeps it outside the navigation scroller, so long menus scroll above it without covering footer controls.",
+      "penpotCount": 1
     },
     {
       "selector": "good-sidebar-item",

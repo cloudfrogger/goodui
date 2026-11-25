@@ -1,12 +1,12 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GoodAppShellComponent, GoodAppHeaderComponent, GoodHeaderMenuComponent, GoodSidebarComponent, GoodSidebarMenuContainerComponent, GoodSidebarItemComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
+import { GoodAppShellComponent, GoodAppHeaderComponent, GoodHeaderMenuComponent, GoodSidebarComponent, GoodSidebarFooterComponent, GoodSelectComponent, GoodSidebarMenuContainerComponent, GoodSidebarItemComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent, GoodMenuAction, GoodSearchItem, GoodSidebarSection, GoodThemeService, GoodTopbarItem, GoodUser } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GoodAppShellComponent, GoodAppHeaderComponent, GoodHeaderMenuComponent, GoodSidebarComponent, GoodSidebarMenuContainerComponent, GoodSidebarItemComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent],
+  imports: [RouterOutlet, GoodAppShellComponent, GoodAppHeaderComponent, GoodHeaderMenuComponent, GoodSidebarComponent, GoodSidebarFooterComponent, GoodSelectComponent, GoodSidebarMenuContainerComponent, GoodSidebarItemComponent, GoodHeaderActionsComponent, GoodHeaderSearchComponent, GoodHeaderNotificationComponent, GoodHeaderThemeToggleComponent, GoodHeaderAvatarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-app-shell brand="GoodUI" brandLogoSrc="goodui-logo-light.svg" brandLogoDarkSrc="goodui-logo-dark.svg" brandMarkSrc="goodui-mark.svg" brandMarkDarkSrc="goodui-mark-dark.svg">
@@ -16,6 +16,11 @@ import { GoodAppShellComponent, GoodAppHeaderComponent, GoodHeaderMenuComponent,
             @for (item of section.items; track item.id) { <good-sidebar-item [item]="item" /> }
           </good-sidebar-menu-container>
         }
+        <good-sidebar-footer ariaLabel="Sidebar footer example">
+          <good-select label="Example workspace" size="small" [options]="footerWorkspaces"
+            [value]="footerWorkspace()" (valueChange)="footerWorkspace.set($event)" />
+          <good-sidebar-item label="Settings example" icon="settings" route="/examples/settings" />
+        </good-sidebar-footer>
       </good-sidebar>
       <good-app-header>
         <good-header-menu [items]="headerNavigation" mobileMode="popup" />
@@ -40,6 +45,9 @@ export class App {
         ?.setAttribute('href', this.theme.theme() === 'dark' ? 'favicon-dark.svg' : 'favicon.svg');
     });
   }
+
+  readonly footerWorkspace = signal<string | readonly string[] | null>('goodui');
+  readonly footerWorkspaces = [{ value: 'goodui', label: 'GoodUI' }, { value: 'sandbox', label: 'Sandbox' }];
 
   readonly user: GoodUser = { name: 'GoodUI User', email: '', initials: 'GU', badge: 'Pro' };
   readonly language = signal('English');

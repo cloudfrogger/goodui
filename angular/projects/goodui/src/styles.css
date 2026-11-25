@@ -384,6 +384,10 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 [data-theme="dark"] .good-has-dark-logo .good-brand-logo-light { display: none; }
 [data-theme="dark"] .good-has-dark-logo .good-brand-logo-dark { display: block; }
 .good-sidebar-scroll { display: flex; flex-direction: column; gap: var(--good-space-1); flex: 1; min-height: 0; overflow-y: auto; padding: 20px 30px 24px 20px; scrollbar-width: thin; }
+/* Footer is a nonshrinking sibling of the navigation scroller, never an overlay. */
+.good-sidebar-footer { display: block; box-sizing: border-box; flex: none; min-width: 0; border-top: 1px solid var(--good-border); padding: var(--good-space-4) var(--good-space-5); padding-bottom: max(var(--good-space-4), env(safe-area-inset-bottom)); background: var(--good-surface); }
+.good-sidebar-footer-content { display: grid; min-width: 0; gap: var(--good-space-2); }
+.good-sidebar-footer:has(> .good-sidebar-footer-content:empty) { display: none; }
 .good-sidebar-menu-container { display: block; margin-bottom: 20px; }
 .good-sidebar-heading { margin: 0 0 var(--good-sidebar-menu-gap); color: var(--good-muted); font-size: 12px; font-weight: 500; line-height: 20px; text-transform: uppercase; }
 .good-sidebar-items { display: flex; flex-direction: column; gap: 4px; }

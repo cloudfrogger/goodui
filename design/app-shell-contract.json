@@ -84,7 +84,8 @@
       "source": "angular/projects/goodui/src/lib/sidebar.ts",
       "slots": [
         "good-sidebar-item",
-        "good-sidebar-menu-container"
+        "good-sidebar-menu-container",
+        "good-sidebar-footer"
       ],
       "states": [
         {
@@ -116,5 +117,11 @@
   "shellPage": {
     "id": "521fe58c-da62-80e2-8008-d33f7aa6fcb6",
     "name": "02 Shell"
+  },
+  "optionalFooter": {
+    "selector": "good-sidebar-footer",
+    "contract": "design/sidebar-footer-contract.json",
+    "sameInstanceOnMobile": true,
+    "outsideNavigationScroller": true
   }
 }

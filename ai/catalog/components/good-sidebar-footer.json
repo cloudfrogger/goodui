@@ -1,0 +1,55 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-sidebar-footer",
+  "className": "GoodSidebarFooterComponent",
+  "kind": "component",
+  "import": {
+    "package": "@cloudfrogger/goodui",
+    "symbol": "GoodSidebarFooterComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/sidebar.ts",
+  "inputs": [
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "required": false,
+      "default": "Sidebar footer",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/sidebar.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [],
+  "variants": {},
+  "composition": {
+    "projectedContent": [
+      "*"
+    ],
+    "relatedSelectors": [],
+    "notes": "See source template and component guide for projection slots."
+  },
+  "forms": {
+    "controlValueAccessor": false,
+    "validator": false
+  },
+  "usageGuide": "guides/components/sidebar-footer.md",
+  "usage": {
+    "summary": "Use `good-sidebar-footer` for optional settings, account controls, or a workspace selector that stays at the bottom of Sidebar. It owns its divider, padding, safe-area inset, and vertical spacing. Sidebar keeps it outside the navigation scroller, so long menus scroll above it without covering footer controls.",
+    "examples": [
+      "ai/examples/shell.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.sidebar-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8976d585c2",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

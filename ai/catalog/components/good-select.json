@@ -184,7 +184,8 @@
   "usage": {
     "summary": "`good-select` chooses one or more values from an application supplied list. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
     "examples": [
-      "ai/examples/edit-form.html"
+      "ai/examples/edit-form.html",
+      "ai/examples/shell.html"
     ]
   },
   "penpot": [

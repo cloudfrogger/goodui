@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router, provideRouter } from '@angular/router';
 import { GoodAppShellComponent } from './app-shell';
 import { GoodAppHeaderComponent, GoodHeaderMenuComponent, GoodHeaderMenuItemComponent } from './header';
-import { GoodSidebarComponent, GoodSidebarItemComponent } from './sidebar';
+import { GoodSidebarComponent, GoodSidebarFooterComponent, GoodSidebarItemComponent } from './sidebar';
 import { GoodHeaderActionsComponent, GoodHeaderThemeToggleComponent } from './actions';
 
 @Component({ standalone: true, template: '' })
 class RoutePage {}
 @Component({
   standalone: true,
-  imports: [GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent, GoodSidebarItemComponent,
+  imports: [GoodAppShellComponent, GoodAppHeaderComponent, GoodSidebarComponent, GoodSidebarFooterComponent, GoodSidebarItemComponent,
     GoodHeaderMenuComponent, GoodHeaderMenuItemComponent, GoodHeaderActionsComponent, GoodHeaderThemeToggleComponent],
   template: `<good-app-shell brand="Example App">
     <good-sidebar>
@@ -18,7 +18,10 @@ class RoutePage {}
         <good-sidebar-item label="Profile" route="/settings/profile" />
         <good-sidebar-item label="Access"><good-sidebar-item label="Members" route="/settings/members" /></good-sidebar-item>
       </good-sidebar-item>
-      <input aria-label="Keep draft" value="Draft value" />
+      <good-sidebar-footer ariaLabel="Workspace actions">
+        <input aria-label="Keep draft" value="Draft value" />
+        <good-sidebar-item label="Footer settings" route="/settings/members" />
+      </good-sidebar-footer>
     </good-sidebar>
     <good-app-header>
       <good-header-menu><good-header-menu-item label="Profile" route="/settings/profile" /></good-header-menu>
@@ -28,6 +31,16 @@ class RoutePage {}
   </good-app-shell>`,
 })
 class DeclarativeShell {}
+
+@Component({
+  imports: [GoodSidebarComponent, GoodSidebarFooterComponent, GoodSidebarItemComponent],
+  template: `<good-sidebar><good-sidebar-item label="Profile" route="/settings/profile" />
+    @if (showFooter()) { <good-sidebar-footer><input aria-label="Optional workspace" /></good-sidebar-footer> }
+  </good-sidebar>`,
+})
+class OptionalFooter {
+  readonly showFooter = signal(false);
+}
 
 class Viewport extends EventTarget {
   matches = false;
@@ -58,6 +71,9 @@ describe('Declarative AppShell', () => {
     const fixture = TestBed.createComponent(DeclarativeShell); fixture.detectChanges(); await fixture.whenStable();
     const root = fixture.nativeElement as HTMLElement;
     expect(root.querySelectorAll('good-sidebar')).toHaveLength(1);
+    expect(root.querySelector('nav good-sidebar-footer')).toBeNull();
+    expect(root.querySelector('good-sidebar-footer')?.parentElement?.tagName).toBe('GOOD-SIDEBAR');
+    expect(root.querySelector('good-sidebar-footer [role="group"]')?.getAttribute('aria-label')).toBe('Workspace actions');
     expect(root.querySelectorAll('good-app-header')).toHaveLength(1);
     expect(root.querySelector('.good-sidebar-brand')?.textContent).toContain('Example App');
     expect(root.querySelector('.good-sidebar-row[aria-expanded]')?.getAttribute('aria-expanded')).toBe('true');
@@ -103,4 +119,16 @@ describe('Declarative AppShell', () => {
     expect(root.querySelector('good-sidebar')).toBe(sidebar);
     expect(root.querySelector('input')?.value).toBe('Unsaved draft');
   });
+  it('adds no footer element when omitted and projects conditional footer controls outside navigation', async () => {
+    const fixture = TestBed.createComponent(OptionalFooter); fixture.detectChanges(); await fixture.whenStable();
+    const root = fixture.nativeElement as HTMLElement;
+    expect(root.querySelector('good-sidebar-footer')).toBeNull();
+    expect(root.querySelector('nav a')?.textContent).toContain('Profile');
+    fixture.componentInstance.showFooter.set(true); fixture.detectChanges();
+    expect(root.querySelector('good-sidebar-footer input')).not.toBeNull();
+    expect(root.querySelector('nav input')).toBeNull();
+    fixture.componentInstance.showFooter.set(false); fixture.detectChanges();
+    expect(root.querySelector('good-sidebar-footer')).toBeNull();
+  });
+
 });

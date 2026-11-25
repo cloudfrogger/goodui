@@ -12,7 +12,7 @@ The nested sidebar lets “My Account” expand to “Account Home,” which exp
 
 | Area | Current baseline | GoodUI owner |
 | --- | --- | --- |
-| Sidebar | 280 px wide, fixed at left, white, right border | `Sidebar` owns width, scrolling, brand area, and menu spacing |
+| Sidebar | 280 px wide, fixed at left, white, right border | `Sidebar` owns width, navigation scrolling, brand area, menu spacing, and an optional bottom Footer outside the scroller |
 | Header | 70 px tall, fixed beside sidebar | `Header` arranges navigation and `HeaderActions` |
 | Header content | 30 px horizontal padding | Header owns padding |
 | Sidebar menu | About 20 px left padding, 4 px between rows | `SidebarMenuContainer` owns heading and item list |
@@ -80,11 +80,12 @@ These are the current desktop and mobile measurements for GoodUI. The shell shou
 AppShell
 ├─ Sidebar
 │  ├─ brand area
-│  └─ SidebarMenuContainer (repeatable)
-│     ├─ heading
-│     └─ SidebarItem (repeatable)
-│        └─ SidebarSubmenuGroup (optional and recursive)
-│           └─ SidebarSubmenuItem (repeatable)
+│  ├─ SidebarMenuContainer (repeatable)
+│  │  ├─ heading
+│  │  └─ SidebarItem (repeatable)
+│  │     └─ SidebarSubmenuGroup (optional and recursive)
+│  │        └─ SidebarSubmenuItem (repeatable)
+│  └─ SidebarFooter (optional; projected controls outside navigation scrolling)
 └─ content area
    ├─ Header
    │  ├─ mobile drawer trigger
@@ -474,3 +475,5 @@ DetailList defaults to its existing aligned `layout=rows`; `layout=grid` puts la
 Page `46 Record Layouts` and `design/record-layout-contract.json` record the published components and source/example mapping. The patient records case study demonstrates the complete composition and edit/document/activity behavior without application CSS. Existing published variant IDs and token definitions remain unchanged.
 
 `goodui.currency-input` on `47 Currency Inputs` publishes the 15 size/status variants recorded in `design/currency-input-contract.json`. Values, locale, currency, precision, bounds, and edit drafts are runtime behavior. Currency uses Input and addon tokens without introducing domain-specific colors. Do not round-trip formatted monetary text into an input on each keystroke.
+
+`good-sidebar-footer` is an optional direct Sidebar child. Its own divider, shared token padding, safe-area bottom inset, and content gap stay outside navigation scrolling. AppShell keeps one Sidebar/Footer instance on desktop and mobile; the mobile drawer Close button stays below Sidebar. Footer owns no tenant or route logic. Its Penpot ID and current live-verification status are recorded in `design/sidebar-footer-contract.json`.

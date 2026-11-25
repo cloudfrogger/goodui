@@ -1,0 +1,57 @@
+{
+  "page": "45 Sidebars and Menus",
+  "pageId": "ffd8177e-90f6-8061-8008-fc9af9f40969",
+  "components": [
+    {
+      "penpotName": "goodui.sidebar-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8976d585c2",
+      "mainInstanceId": "6acf9490-2dab-80c0-8008-ff89740f82b7",
+      "angularSelector": "good-sidebar-footer",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.sidebar.with-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8ac5588dec",
+      "mainInstanceId": "6acf9490-2dab-80c0-8008-ff8ac50d98f8",
+      "angularSelector": "good-sidebar",
+      "kind": "component",
+      "state": "with-footer"
+    },
+    {
+      "penpotName": "goodui.sidebar.drawer-with-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8ac59cba0d",
+      "mainInstanceId": "6acf9490-2dab-80c0-8008-ff8ac55e2c75",
+      "angularSelector": "good-sidebar",
+      "kind": "component",
+      "state": "drawer-with-footer"
+    }
+  ],
+  "runtime": {
+    "parent": "good-sidebar",
+    "projection": "Arbitrary direct child content; existing GoodUI controls supply actions and selection.",
+    "ariaLabel": "Sidebar footer",
+    "landmark": "Named group rather than page contentinfo.",
+    "position": "Nonshrinking final Sidebar child, outside nav.good-sidebar-scroll.",
+    "navigation": "Uses remaining bounded height and scrolls independently; no footer overlay.",
+    "mobile": "Same Sidebar and Footer instances; footer stays above the existing drawer Close button.",
+    "optional": "No footer adds no space; an empty projected footer is hidden.",
+    "workspaceState": "Owned by the application, not the library."
+  },
+  "composition": [
+    "Linked goodui.select (small/selected)",
+    "Linked goodui.sidebar-item.default"
+  ],
+  "tokens": {
+    "surface": "color.surface",
+    "divider": "color.border",
+    "paddingBlock": "space.4",
+    "paddingInline": "space.5",
+    "gap": "space.2"
+  },
+  "penpotVerification": {
+    "componentCreation": "Confirmed against the live library through MCP; original Sidebar component IDs preserved.",
+    "visualExport": "Light Footer and desktop/drawer PNGs inspected. Dark exports update surfaces and icons but retain stale text rendering despite correct semantic text token bindings; full dark Penpot visual parity remains unverified. Angular light/dark browser checks pass.",
+    "sidebarCompositions": "Linked Footer, Select, SidebarItem, and navigation components; clipped navigation region ends above the bottom-anchored Footer."
+  }
+}

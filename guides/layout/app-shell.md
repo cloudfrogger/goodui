@@ -35,3 +35,5 @@ Header actions belong inside AppHeader. When no custom actions are projected, Ap
 Penpot `goodui.app-shell` retains the six existing desktop, mobile, expanded, drawer-open, and Help-submenu state IDs. Each composes linked Sidebar and AppHeader instances. `design/component-map.json` records their selectors. The homepage chapters under **Foundation → Layout** show Default shell and Sidebar. Provider setup is documented in Getting started → Developing.
 
 Open Penpot page **02 Shell** for the application shell anatomy and desktop/mobile specimens. Its page ID remains `521fe58c-da62-80e2-8008-d33f7aa6fcb6`.
+
+An optional direct `good-sidebar-footer` inside Sidebar stays outside its navigation scroller. Import `GoodSidebarFooterComponent` and project Settings links or workspace controls into it. AppShell retains the same footer instance on desktop and in the mobile drawer. The drawer's Close button remains below Sidebar; the footer stays at Sidebar's bottom above that control. See [Sidebar Footer](../components/sidebar-footer.md) for complete markup and ownership.

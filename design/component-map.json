@@ -115,7 +115,8 @@
     "map-color-scale",
     "avatar",
     "empty-state",
-    "currency-input"
+    "currency-input",
+    "sidebar-footer"
   ],
   "internalParts": {
     "alert-composition": "alert",
@@ -2352,6 +2353,27 @@
       "angularSelector": "good-currency-input",
       "kind": "component",
       "state": null
+    },
+    {
+      "penpotName": "goodui.sidebar-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8976d585c2",
+      "angularSelector": "good-sidebar-footer",
+      "kind": "component",
+      "state": null
+    },
+    {
+      "penpotName": "goodui.sidebar.with-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8ac5588dec",
+      "angularSelector": "good-sidebar",
+      "kind": "component",
+      "state": "with-footer"
+    },
+    {
+      "penpotName": "goodui.sidebar.drawer-with-footer",
+      "penpotId": "6acf9490-2dab-80c0-8008-ff8ac59cba0d",
+      "angularSelector": "good-sidebar",
+      "kind": "component",
+      "state": "drawer-with-footer"
     }
   ],
   "variantManifests": [
@@ -2396,7 +2418,8 @@
     "design/header-search-variants.json",
     "design/settings-layout-contract.json",
     "design/record-layout-contract.json",
-    "design/currency-input-contract.json"
+    "design/currency-input-contract.json",
+    "design/sidebar-footer-contract.json"
   ],
   "angularSelectorOverrides": {
     "main-menu": "good-header-actions",

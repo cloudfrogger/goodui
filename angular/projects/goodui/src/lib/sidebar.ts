@@ -216,6 +216,16 @@ export class GoodSidebarMenuContainerComponent {
   }
 }
 
+/** Optional bottom region; Sidebar keeps it outside the navigation scroller. */
+@Component({
+  selector: 'good-sidebar-footer', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'good-sidebar-footer' },
+  template: `<div class="good-sidebar-footer-content" role="group" [attr.aria-label]="ariaLabel()"><ng-content /></div>`,
+})
+export class GoodSidebarFooterComponent {
+  readonly ariaLabel = input('Sidebar footer');
+}
+
 @Component({
   selector: 'good-sidebar', standalone: true,
   providers: [GoodSidebarAccordion],
@@ -230,6 +240,7 @@ export class GoodSidebarMenuContainerComponent {
       }
     </div>
     <nav class="good-sidebar-scroll" [attr.aria-label]="label()"><ng-content /></nav>
+    <ng-content select="good-sidebar-footer" />
   `,
   host: { class: 'good-sidebar' },
 })
