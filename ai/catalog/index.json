@@ -497,6 +497,18 @@
       "penpotCount": 3
     },
     {
+      "selector": "good-currency-input",
+      "className": "GoodCurrencyInputComponent",
+      "file": "components/good-currency-input.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodCurrencyInputComponent"
+      },
+      "usageGuide": "guides/components/currency-input.md",
+      "summary": "Use `good-currency-input` for money. It keeps the typed text and caret intact while focused, then formats the amount after blur. The visible currency code identifies the unit independently from the numeric text. Use NumberInput for counts and generic numeric stepping.",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-date-input",
       "className": "GoodDateInputComponent",
       "file": "components/good-date-input.json",

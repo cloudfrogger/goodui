@@ -16,7 +16,7 @@ const required = new Set([
   'ai/guides/component-discovery.md', 'ai/guides/layout.md', 'ai/guides/page-patterns.md',
   'ai/guides/common-mistakes.md', 'guides/layout/screen-design.md',
   'angular/projects/goodui/package.json', 'angular/projects/goodui/src/public-api.ts',
-  'design/component-map.json', 'design/record-layout-contract.json', 'design/table-variants.json',
+  'design/component-map.json', 'design/currency-input-contract.json', 'design/record-layout-contract.json', 'design/table-variants.json',
 ]);
 for (const component of index.components) {
   const detailPath = `ai/catalog/${component.file}`;

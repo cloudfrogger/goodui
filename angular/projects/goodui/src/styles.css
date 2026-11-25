@@ -1197,3 +1197,5 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 .good-empty-state-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--good-space-3); max-width: 100%; }
 .good-empty-state-actions:empty { display: none; }
 @media (max-width: 640px) { .good-main-view-identity { gap: var(--good-space-4); } }
+
+.good-currency-input { display: block; width: 100%; min-width: 0; }

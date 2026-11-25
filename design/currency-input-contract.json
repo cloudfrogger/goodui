@@ -1,0 +1,147 @@
+{
+  "family": "goodui.currency-input",
+  "page": "47 Currency Inputs",
+  "pageId": "ffd8177e-90f6-8061-8008-ff7431f9d46f",
+  "containerId": "ffd8177e-90f6-8061-8008-ff74e940da8b",
+  "selector": "good-currency-input",
+  "axes": {
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "status": [
+      "empty",
+      "filled",
+      "error",
+      "disabled",
+      "readonly"
+    ]
+  },
+  "variants": [
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff7435ce140a",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff7432161bf7",
+      "size": "default",
+      "status": "filled"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff746aefc1cc",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff746747ad1f",
+      "size": "default",
+      "status": "empty"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff746e515a96",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff746af12dab",
+      "size": "default",
+      "status": "error"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff747192c0a6",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff746e532b7a",
+      "size": "default",
+      "status": "disabled"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff7474e66bae",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff7471950fa5",
+      "size": "default",
+      "status": "readonly"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff74842f6b47",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff7481583b35",
+      "size": "small",
+      "status": "empty"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff748712b2ae",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff74843079d0",
+      "size": "small",
+      "status": "filled"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff7489d8c165",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff748713c3f2",
+      "size": "small",
+      "status": "error"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff748d43c41f",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff7489db16cb",
+      "size": "small",
+      "status": "disabled"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff749003c170",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff748d453986",
+      "size": "small",
+      "status": "readonly"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff74b6f56931",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff74b40de174",
+      "size": "large",
+      "status": "empty"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff74b9bb8c36",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff74b6f73a94",
+      "size": "large",
+      "status": "filled"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff74bce7b699",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff74b9bce422",
+      "size": "large",
+      "status": "error"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff74bf8cd1a7",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff74bce905bc",
+      "size": "large",
+      "status": "disabled"
+    },
+    {
+      "id": "ffd8177e-90f6-8061-8008-ff74c38c3077",
+      "mainInstanceId": "ffd8177e-90f6-8061-8008-ff74bf8e1f65",
+      "size": "large",
+      "status": "readonly"
+    }
+  ],
+  "runtimeInputs": [
+    "value",
+    "currency",
+    "locale",
+    "min",
+    "max",
+    "required",
+    "readonly",
+    "disabled",
+    "label",
+    "inputId"
+  ],
+  "valueUnit": "safe integer minor units or null",
+  "editing": "Unformatted draft and stable caret until blur; Escape restores, Enter commits",
+  "composition": [
+    "linked goodui.input",
+    "linked goodui.input-addon side=end content=text tone=contrast"
+  ],
+  "tokenBindings": {
+    "surface": "input.background",
+    "border": "input.border",
+    "error": "input.error.border",
+    "foreground": "input.foreground",
+    "radius": "radius.control"
+  },
+  "nativeInputMode": "decimal",
+  "specimen": {
+    "currency": "EUR",
+    "locale": "de-DE",
+    "placeholder": "0,00",
+    "filledValue": 5000,
+    "errorDraft": "50,123"
+  },
+  "exportLimit": "Existing Penpot renderer may retain stale text colors in nested Input copies after theme switching; verify live bindings and the Angular dark rendering."
+}

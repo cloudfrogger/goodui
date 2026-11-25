@@ -80,6 +80,7 @@
   "usage": {
     "summary": "`good-main-view` provides the page container below the topbar. It owns padding, scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
     "examples": [
+      "ai/examples/currency.html",
       "ai/examples/edit-form.html",
       "ai/examples/login.html",
       "ai/examples/settings.html",

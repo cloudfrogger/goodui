@@ -1,0 +1,37 @@
+<good-main-view>
+  <good-heading-1>Currency inputs</good-heading-1>
+  <good-summary>Type naturally. Format on blur. Keep exact minor units in your model.</good-summary>
+  <good-group appearance="plain">
+    <good-group title="Decimal entry">
+      <good-paragraph>Type 5 and then 0. The field keeps 50 and your caret in place until you leave it. Euro amounts then display two decimal places with a comma.</good-paragraph>
+      <good-form-row>
+        <good-currency-input label="Euro price" [showLabel]="true" currency="EUR" locale="de-DE" placeholder="0,00" [formControl]="euro" />
+        <good-currency-input label="Dollar price" [showLabel]="true" currency="USD" locale="en-US" [formControl]="dollar" />
+      </good-form-row>
+      <good-paragraph role="status">Euro minor units: {{ euro.value === null ? 'empty' : euro.value }} · {{ euro.valid ? 'Valid amount' : 'Check the amount' }}</good-paragraph>
+    </good-group>
+    <good-group title="Currency precision">
+      <good-paragraph>The selected currency determines the number of minor digits: zero for yen, two for euros and dollars, three for Kuwaiti dinars. Excess precision is invalid; it is never silently rounded.</good-paragraph>
+      <good-form-row>
+        <good-currency-input label="Yen amount" [showLabel]="true" currency="JPY" locale="ja-JP" [formControl]="yen" />
+        <good-currency-input label="Dinar amount" [showLabel]="true" currency="KWD" locale="en-US" [formControl]="dinar" />
+      </good-form-row>
+    </good-group>
+    <good-group title="Sizes and states">
+      <good-form-row [columns]="3">
+        <good-currency-input label="Small amount" [showLabel]="true" size="small" currency="EUR" locale="de-DE" [value]="5000" />
+        <good-currency-input label="Default amount" [showLabel]="true" currency="EUR" locale="de-DE" [value]="5000" />
+        <good-currency-input label="Large amount" [showLabel]="true" size="large" currency="EUR" locale="de-DE" [value]="5000" />
+      </good-form-row>
+      <good-form-row [columns]="3">
+        <good-currency-input label="Disabled amount" [showLabel]="true" currency="EUR" locale="de-DE" [value]="5000" [disabled]="true" />
+        <good-currency-input label="Readonly amount" [showLabel]="true" currency="EUR" locale="de-DE" [value]="5000" [readonly]="true" />
+        <good-currency-input label="Required amount" [showLabel]="true" currency="EUR" locale="de-DE" [required]="true" [formControl]="required" />
+      </good-form-row>
+    </good-group>
+    <good-group title="Angular usage" appearance="plain">
+      <good-code-block [code]="htmlCode" language="html" title="currency-input.html" />
+      <good-code-block [code]="typescriptCode" language="typescript" title="currency-input.ts" />
+    </good-group>
+  </good-group>
+</good-main-view>

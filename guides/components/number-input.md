@@ -19,3 +19,5 @@ On value changes, digits slide upward with a brief brightness flicker. `prefers-
 ## Design mapping
 
 The `goodui.number-input` Penpot family maps to `good-number-input`. Size and disabled status are visual variants. Bounds, step, value, width behavior, and the choice of Lucide icon remain runtime inputs. Penpot specimens show the compact width; Angular fills the parent by default. The control reuses Input surface, border, focus, and height tokens in both themes.
+
+Typed drafts remain untouched until blur; formatting a bound value after every key belongs neither in the application nor in the stepper. For money, use [Currency input](currency-input.md), which provides locale-aware decimal input and exact integer minor units.

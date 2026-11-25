@@ -74,3 +74,4 @@ export * from './lib/action-menu';
 export * from './lib/app-shell';
 export * from './lib/avatar';
 export * from './lib/empty-state';
+export * from './lib/currency-input';

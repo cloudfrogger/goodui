@@ -46,6 +46,24 @@
       "kind": "input"
     },
     {
+      "name": "inputMode",
+      "type": "\"search\" | \"text\" | \"none\" | \"email\" | \"tel\" | \"url\" | \"decimal\" | \"numeric\"",
+      "required": false,
+      "default": null,
+      "allowedValues": [
+        "search",
+        "text",
+        "none",
+        "email",
+        "tel",
+        "url",
+        "decimal",
+        "numeric"
+      ],
+      "source": "angular/projects/goodui/src/lib/input.ts",
+      "kind": "input"
+    },
+    {
       "name": "size",
       "type": "GoodInputSize",
       "required": false,
@@ -281,6 +299,16 @@
       "tel",
       "url",
       "file"
+    ],
+    "inputMode": [
+      "search",
+      "text",
+      "none",
+      "email",
+      "tel",
+      "url",
+      "decimal",
+      "numeric"
     ],
     "size": [
       "default",

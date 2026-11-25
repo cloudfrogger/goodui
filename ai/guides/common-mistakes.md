@@ -13,3 +13,7 @@
 - **Wrapping every block in another frame:** Give Section, Group, Card, and Table distinct jobs. Use an embedded Table without an extra frame when the enclosing section already establishes the context.
 - **Shrinking headings to fit actions on mobile:** Preserve readable heading width and let the documented page/section action areas wrap. Check the rendered result with realistic text.
 - **Calling a page finished after a build:** Apply the concrete visual and interaction checks in [Designing a GoodUI screen](../../guides/layout/screen-design.md); state any unavailable check.
+
+## Formatting money while typing
+
+Do not bind a freshly formatted `toFixed()` string back into an Input after every keystroke: entering `50` can turn the first `5` into `5.00` and move the caret. Use CurrencyInput with integer minor units and let it format on blur. It accepts locale-aware decimals, rejects excess precision, and retains invalid drafts for correction. An ordinary NumberInput keeps numeric stepping and is not a currency field.

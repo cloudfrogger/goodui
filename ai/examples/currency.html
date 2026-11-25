@@ -1,0 +1,14 @@
+<good-main-view>
+  <good-heading-1>Payment amount</good-heading-1>
+  <good-summary>Enter an amount, then leave the field to commit its minor units.</good-summary>
+  <form goodForm [formGroup]="form" (ngSubmit)="save()">
+    <good-form-field [required]="true">
+      <good-field-label forId="payment-amount" [required]="true">Amount</good-field-label>
+      <good-currency-input inputId="payment-amount" label="Amount" currency="EUR" locale="de-DE"
+        [min]="0" formControlName="amount" describedBy="payment-amount-help" />
+      <good-hint id="payment-amount-help">Use a comma or a decimal point. Formatting happens on blur.</good-hint>
+    </good-form-field>
+    <good-button type="submit">Save amount</good-button>
+  </form>
+  <good-paragraph role="status">{{ feedback() }}</good-paragraph>
+</good-main-view>

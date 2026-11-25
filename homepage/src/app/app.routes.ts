@@ -10,7 +10,6 @@ import { BadgesPageComponent } from './badges-page';
 import { CheckboxesPageComponent } from './checkboxes-page';
 import { RadioGroupsPageComponent } from './radio-groups-page';
 import { RatingsPageComponent } from './ratings-page';
-import { TablesPageComponent } from './tables-page';
 import { CardsPageComponent } from './cards-page';
 import { LinksPageComponent } from './links-page';
 import { AlertsPageComponent } from './alerts-page';
@@ -64,6 +63,7 @@ export const routes: Routes = [
   { path: 'components/rich-text-editor', loadComponent: () => import('./rich-text-page').then(module => module.RichTextPageComponent) },
   { path: 'components/color-controls', loadComponent: () => import('./color-controls-page').then(module => module.ColorControlsPageComponent) },
   { path: 'components/select-font', loadComponent: () => import('./select-font-page').then(module => module.SelectFontPageComponent) },
+  { path: 'components/currency-inputs', loadComponent: () => import('./currency-inputs-page').then(module => module.CurrencyInputsPageComponent) },
   { path: 'components/number-inputs', loadComponent: () => import('./number-inputs-page').then(module => module.NumberInputsPageComponent) },
   { path: 'components/range-sliders', loadComponent: () => import('./range-sliders-page').then(module => module.RangeSlidersPageComponent) },
   { path: 'components/signature-pads', loadComponent: () => import('./signature-pads-page').then(module => module.SignaturePadsPageComponent) },
@@ -96,7 +96,7 @@ export const routes: Routes = [
   { path: 'components/checkboxes', component: CheckboxesPageComponent },
   { path: 'components/radio-groups', component: RadioGroupsPageComponent },
   { path: 'components/ratings', component: RatingsPageComponent },
-  { path: 'components/tables', component: TablesPageComponent },
+  { path: 'components/tables', loadComponent: () => import('./tables-page').then(module => module.TablesPageComponent) },
   { path: 'components/cards', component: CardsPageComponent },
   { path: 'components/groups', loadComponent: () => import('./groups-page').then(module => module.GroupsPageComponent) },
   { path: 'components/expandables', loadComponent: () => import('./expandables-page').then(module => module.ExpandablesPageComponent) },

@@ -171,6 +171,7 @@
   "usage": {
     "summary": "`good-button` owns the action's dimensions, padding, icon alignment, focus ring, disabled state, and native button behavior. It accepts text, a leading Lucide icon, an optional trailing `endIcon`, or an icon alone. An icon-only button is square at every size, whether its empty label is inferred or `iconOnly` is set explicitly.",
     "examples": [
+      "ai/examples/currency.html",
       "ai/examples/edit-form.html",
       "ai/examples/login.html",
       "ai/examples/settings.html",

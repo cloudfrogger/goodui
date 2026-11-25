@@ -114,7 +114,8 @@
     "map-overlay",
     "map-color-scale",
     "avatar",
-    "empty-state"
+    "empty-state",
+    "currency-input"
   ],
   "internalParts": {
     "alert-composition": "alert",
@@ -2344,6 +2345,13 @@
       "angularSelector": "good-main-view",
       "kind": "component",
       "state": "identity-mobile"
+    },
+    {
+      "penpotName": "goodui.currency-input",
+      "penpotId": "ffd8177e-90f6-8061-8008-ff746aefc1cc",
+      "angularSelector": "good-currency-input",
+      "kind": "component",
+      "state": null
     }
   ],
   "variantManifests": [
@@ -2387,7 +2395,8 @@
     "design/world-map-contract.json",
     "design/header-search-variants.json",
     "design/settings-layout-contract.json",
-    "design/record-layout-contract.json"
+    "design/record-layout-contract.json",
+    "design/currency-input-contract.json"
   ],
   "angularSelectorOverrides": {
     "main-menu": "good-header-actions",

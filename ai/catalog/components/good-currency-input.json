@@ -1,0 +1,207 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-currency-input",
+  "className": "GoodCurrencyInputComponent",
+  "kind": "component",
+  "import": {
+    "package": "@cloudfrogger/goodui",
+    "symbol": "GoodCurrencyInputComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/currency-input.ts",
+  "inputs": [
+    {
+      "name": "value",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "model"
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "required": false,
+      "default": "USD",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "default": "en-US",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Amount",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodInputSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "number",
+      "source": "angular/projects/goodui/src/lib/currency-input.ts",
+      "implicit": true
+    }
+  ],
+  "variants": {
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-input"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/currency-input.md",
+  "usage": {
+    "summary": "Use `good-currency-input` for money. It keeps the typed text and caret intact while focused, then formats the amount after blur. The visible currency code identifies the unit independently from the numeric text. Use NumberInput for counts and generic numeric stepping.",
+    "examples": [
+      "ai/examples/currency.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.currency-input",
+      "penpotId": "ffd8177e-90f6-8061-8008-ff746aefc1cc",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

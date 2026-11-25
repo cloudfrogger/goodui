@@ -36,7 +36,7 @@ export type GoodInputAddonTone = 'inline' | 'contrast';
             [id]="inputId() || null" [attr.aria-label]="accessibleLabel()" [attr.aria-invalid]="error() ? 'true' : null"
             [attr.aria-describedby]="describedBy() || null" (change)="onFileChange($event)" (blur)="onBlur()" />
         } @else {
-          <input class="good-input-native" [type]="type()" [value]="value()" [placeholder]="placeholder()"
+          <input class="good-input-native" [type]="type()" [attr.inputmode]="inputMode()" [value]="value()" [placeholder]="placeholder()"
             [disabled]="isDisabled()" [readOnly]="readonly()" [required]="effectiveRequired()" [name]="name()"
             [id]="inputId() || null" [attr.aria-label]="accessibleLabel()" [attr.aria-invalid]="error() ? 'true' : null"
             [attr.aria-describedby]="describedBy() || null" [attr.aria-expanded]="ariaExpanded()"
@@ -58,6 +58,7 @@ export class GoodInputComponent implements ControlValueAccessor, Validator {
   readonly label = input.required<string>();
   readonly showLabel = input(false);
   readonly type = input<GoodInputType>('text');
+  readonly inputMode = input<'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url' | 'none' | null>(null);
   readonly size = input<GoodInputSize>('default');
   readonly value = model('');
   readonly placeholder = input('');

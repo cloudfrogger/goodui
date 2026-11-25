@@ -38,7 +38,7 @@ readonly searchIcon = LucideSearch;
 ```html
 <good-input label="Search" [startIcon]="searchIcon" placeholder="Search records" />
 <good-input label="Website" startText="https://" startTone="contrast" />
-<good-input label="Amount" startText="$" endText="USD" endTone="contrast" />
+<good-input label="Distance" startText="≈" endText="km" endTone="contrast" />
 ```
 
 ## File selection
@@ -57,3 +57,5 @@ The published Penpot family `goodui.input` is on `03 Controls`, with `kind=text/
 Optional leading and trailing content is the internal `goodui.input-addon` family. Its 24 variants cover `side=start/end`, `content=icon/text`, `tone=inline/contrast`, and all three sizes. The visual part maps to the corresponding `startIcon`, `endIcon`, `startText`, `endText`, `startTone`, and `endTone` inputs on `good-input`; it has no separate Angular selector. Icon variants are linked Lucide library instances. The Penpot compositions `goodui.input.with-addons` and `goodui.input.file-with-addon` show how the parts fit into the control without detaching the shared addon instances.
 
 The `layout` token set contains `radius.control`, `control.input-height-*`, `control.input-icon-size-*`, `control.input-addon-icon-width-*`, `control.input-file-button-height-*`, `input.padding-inline-*`, `input.gap-*`, and semantic color roles. `radius.control` aliases `radius.button`; Input heights and icon sizes alias Button's scale. `input.error.border` aliases `color.error`, which resolves to `#DC2626` in light mode and `#F87171` in dark mode. Main components and compositions use flex layout, with live token bindings for dimensions, spacing, fill, border, and radius. The invisible native file input is positioned over its visual shell to retain native browser file activation.
+
+`inputMode` optionally selects the native keyboard hint (`decimal`, `numeric`, `tel`, `email`, `url`, `search`, `text`, or `none`); it defaults to `null`. This does not parse or format values. For localized monetary amounts and blur-only formatting, use [Currency input](currency-input.md) instead of feeding `toFixed()` results back into a numeric Input after each key.

@@ -33,7 +33,7 @@ import { GoodCodeBlockComponent, GoodErrorTextComponent, GoodHintComponent, Good
           <good-input label="Search" [showLabel]="true" placeholder="Search records" [startIcon]="searchIcon" />
           <good-input label="Email" [showLabel]="true" type="email" placeholder="name@example.com" [endIcon]="mailIcon" endTone="contrast" />
           <good-input label="Website" [showLabel]="true" placeholder="example.com" startText="https://" startTone="contrast" />
-          <good-input label="Amount" [showLabel]="true" type="number" placeholder="0.00" startText="$" endText="USD" endTone="contrast" />
+          <good-input label="Distance" [showLabel]="true" type="number" placeholder="0" startText="≈" endText="km" endTone="contrast" />
           <good-input label="Verified code" [showLabel]="true" placeholder="Enter code" [endIcon]="verifiedIcon" />
         </div>
       </section>
