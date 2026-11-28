@@ -1,0 +1,3 @@
+<good-select label="Team" [showLabel]="true" [options]="options" [filterable]="true" [formControl]="team" />
+<good-paragraph>Typing only filters; the selected key remains {{ team.value ?? 'none' }} until an existing option is chosen.</good-paragraph>
+<good-select-country label="Country" [showLabel]="true" [filterable]="true" [countries]="['DE', 'AT', 'US']" />

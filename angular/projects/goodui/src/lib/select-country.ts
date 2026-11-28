@@ -1,5 +1,5 @@
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
-import { ChangeDetectionStrategy, Component, DestroyRef, computed, effect, forwardRef, inject, input, model, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, booleanAttribute, computed, effect, forwardRef, inject, input, model, signal } from '@angular/core';
 import { GoodButtonSize } from './models';
 import { GoodSelectComponent, GoodSelectOption, GoodSelectValue } from './select';
 import { GOOD_COUNTRY_CODES, goodCountryFlagUrl, loadGoodCountryFlags } from './country-data';
@@ -20,7 +20,7 @@ export { GOOD_COUNTRY_CODES } from './country-data';
     <good-select [options]="countryOptions()" [value]="value()" (valueChange)="onValueChange($event)"
       [multiple]="multiple()" [maxSelected]="maxSelected()" [size]="size()" [disabled]="isDisabled()"
       [required]="required()" [error]="error()" [label]="label()" [showLabel]="showLabel()"
-      [placeholder]="placeholder()" [searchable]="searchable()" [searchPlaceholder]="searchPlaceholder()"
+      [placeholder]="placeholder()" [searchable]="searchable()" [filterable]="filterable()" [searchPlaceholder]="searchPlaceholder()"
       [describedBy]="describedBy()" />
   `,
 })
@@ -41,6 +41,7 @@ export class GoodSelectCountryComponent implements ControlValueAccessor, Validat
   readonly showLabel = input(false);
   readonly placeholder = input('Select a country');
   readonly searchable = input(true);
+  readonly filterable = input(false, { transform: booleanAttribute });
   readonly searchPlaceholder = input('Search countries');
   readonly describedBy = input('');
   private readonly formDisabled = signal(false);

@@ -338,6 +338,7 @@
     "summary": "`good-input` provides a text field or a native file selector in the same visual scale as GoodUI Button. The control owns its border, padding, rounding, focus indicator, optional label, and leading and trailing content. For a complete form, place it inside `good-form-field` in a native `<form goodForm layout=\"vertical|left|right\">`; the form aligns all fields without application CSS. The component fills the width its parent provides.",
     "examples": [
       "ai/examples/edit-form.html",
+      "ai/examples/email-input.html",
       "ai/examples/login.html"
     ]
   },

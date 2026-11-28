@@ -140,6 +140,15 @@
       "kind": "input"
     },
     {
+      "name": "filterable",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/select-country.ts",
+      "kind": "input"
+    },
+    {
       "name": "searchPlaceholder",
       "type": "string",
       "required": false,
@@ -186,8 +195,10 @@
   },
   "usageGuide": "guides/components/select.md",
   "usage": {
-    "summary": "`good-select` chooses one or more values from an application supplied list. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
-    "examples": []
+    "summary": "`good-select` chooses one or more values from an application supplied list. Set `[filterable]=\"true\"` to type a filter directly in the control; only selecting an existing option changes its value. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
+    "examples": [
+      "ai/examples/select-filter.html"
+    ]
   },
   "penpot": [
     {

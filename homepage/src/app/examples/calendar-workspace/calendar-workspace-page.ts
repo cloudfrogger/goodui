@@ -75,8 +75,7 @@ export class CalendarWorkspacePageComponent {
   pickDay(selection: GoodMonthCalendarSelection): void {
     const [year, month, day] = selection.start.split('-').map(Number);
     this.date.set(new Date(year, month - 1, day));
-    this.setView('day');
-    this.feedback.set(`Showing ${selection.start}.`);
+    this.feedback.set(`Showing the ${this.view()} containing ${selection.start}.`);
   }
 
   createEvent(): void {

@@ -1,6 +1,6 @@
 # Select
 
-`good-select` chooses one or more values from an application supplied list. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.
+`good-select` chooses one or more values from an application supplied list. Set `[filterable]="true"` to type a filter directly in the control; only selecting an existing option changes its value. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.
 
 ## Single selection
 
@@ -38,6 +38,19 @@ An option may provide `triggerLabel` to show shorter text in the closed control 
 
 For multiple selection, `value` is a `readonly string[]`. Selected values remain in their supplied order and appear as removable GoodUI badges. Choosing an option again toggles it off. `maxSelected` makes further unselected options unavailable until a badge is removed; selected options can still be deselected. An externally supplied value over the maximum remains visible and receives a `maxSelected` Angular Forms validation error until enough selections are removed. A disabled selected option remains visible and cannot be toggled or removed. Each option can have a Lucide `icon`, custom `iconSrc`, a smaller gray `description`, and `tags`. Icons and image sources carry into selected badges, including country flags. Tags appear inside popup rows; they do not change the selected value. `[searchable]="true"` places a search field at the top of the popup and filters labels, descriptions, values, and tags on the client. The popup list scrolls inside a 320 px maximum height. `searchPlaceholder` and `emptyMessage` can be customized.
 
+## Type in the control to filter
+
+```html
+<good-select label="Team" [options]="teams" [filterable]="true" [(value)]="team" />
+<good-select-country label="Country" [filterable]="true" [(value)]="country" />
+```
+
+`filterable` is a boolean, default `false`; the static `filterable` attribute also works. It replaces the button trigger with a native editable combobox. Its text is a transient query, not a free-form value. Filtering matches option labels, descriptions, values, and tags. The popup has no second search box in this mode, even when `searchable` is true. `searchable` alone retains the existing popup search behavior.
+
+Focus opens the list. Typing filters enabled and disabled existing options without emitting `valueChange` or `selectionChange` and without changing Angular Forms' value. Arrow keys navigate enabled options; Enter commits an existing choice. Space, Home, End, and normal text editing remain native input operations. Escape, Tab, or leaving clears the query and restores the selected label; unmatched text is discarded. There is no option creation, automatic first-match commit on blur, or free-text form value. The combobox exposes `aria-autocomplete="list"`, its expanded state, and the active option ID.
+
+The flag also supports multiple selection, maximum counts, disabled options, and Forms disabled/reset states. Multiple selection keeps its chips; selecting clears the query for the next choice. Country Select forwards the same flag. See the compiled `ai/examples/select-filter.ts` / `.html` pair and the Selects homepage.
+
 ## Countries
 
 ```ts
@@ -54,7 +67,7 @@ import { GoodSelectCountryComponent } from '@cloudfrogger/goodui';
   [countries]="['DE', 'FR', 'GB', 'US']" [value]="'DE'" />
 ```
 
-Country Select searches by default. `countries` is an optional allowlist of country codes; `excludedCountries` removes codes from the full list or allowlist. Input codes are normalized to uppercase. `locale` determines displayed names and sorting through `Intl.DisplayNames`; it defaults to `en-US`. The bundled flags come from [country-flag-icons](https://github.com/catamphetamine/country-flag-icons/blob/master/README.md), an MIT licensed dependency, and are loaded on demand. Country Select accepts the same `multiple`, `maxSelected`, `size`, `disabled`, `required`, `error`, `showLabel`, `placeholder`, `searchable`, `searchPlaceholder`, and `describedBy` inputs as Select. Its selected value is a country code or a list of codes.
+Country Select searches by default. `countries` is an optional allowlist of country codes; `excludedCountries` removes codes from the full list or allowlist. Input codes are normalized to uppercase. `locale` determines displayed names and sorting through `Intl.DisplayNames`; it defaults to `en-US`. The bundled flags come from [country-flag-icons](https://github.com/catamphetamine/country-flag-icons/blob/master/README.md), an MIT licensed dependency, and are loaded on demand. Country Select accepts the same `multiple`, `maxSelected`, `size`, `disabled`, `required`, `error`, `showLabel`, `placeholder`, `searchable`, `filterable`, `searchPlaceholder`, and `describedBy` inputs as Select. Its selected value is a country code or a list of codes.
 
 ## Interaction and design mapping
 

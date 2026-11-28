@@ -610,6 +610,20 @@ for (const entry of sidebarFooterContract.components) {
 }
 if (!JSON.parse(readFileSync(resolve(root, 'design/app-shell-contract.json'), 'utf8')).regions.find(region => region.selector === 'good-sidebar').slots.includes('good-sidebar-footer')) throw new Error('Missing Sidebar Footer projection contract.');
 
+const emailInput = JSON.parse(readFileSync(resolve(root, 'design/input-email-contract.json'), 'utf8'));
+if (emailInput.family !== 'goodui.input-email' || emailInput.selector !== 'good-input-email' ||
+    emailInput.page !== '48 Email Inputs' || !/^[0-9a-f-]{36}$/.test(emailInput.containerId)) throw new Error('Invalid Email Input contract.');
+const emailKeys = new Set(), emailIds = new Set();
+for (const entry of emailInput.variants) {
+  const key = `${entry.size}/${entry.status}`;
+  if (!['small', 'default', 'large'].includes(entry.size) || !['empty', 'filled', 'error', 'disabled', 'readonly'].includes(entry.status) ||
+      emailKeys.has(key) || emailIds.has(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.id) || !/^[0-9a-f-]{36}$/.test(entry.mainInstanceId)) throw new Error(`Invalid Email Input variant: ${key}`);
+  emailKeys.add(key); emailIds.add(entry.id);
+}
+if (emailKeys.size !== 15 || !map.componentMappings.some(entry => entry.penpotName === emailInput.family &&
+    entry.penpotId === emailInput.variants.find(v => v.size === 'default' && v.status === 'empty')?.id &&
+    entry.angularSelector === emailInput.selector)) throw new Error('Missing Email Input variants or canonical mapping.');
+
 console.log(`Checked ${map.componentMappings.length} Penpot components in ${direct.size + internal.length} families and ${pending.size} pending families against ${selectors.size - 1} Angular selectors, including ${switchCombinations.size} Switch, ${checkboxVariants.variants.length} Checkbox, ${radioGroupVariants.variants.length} Radio group, ${ratingVariants.variants.length} Rating, ${tableVariants.variants.length} Table, ${selectVariants.variants.length} Select, ${selectVariants.country.variants.length} Country Select, ${phoneVariants.variants.length} Phone Input, ${dateInputVariants.variants.length} Date input, ${linkVariants.variants.length} Link, ${cardVariants.variants.length} Card, and ${codeBlockVariants.variants.length} Code block variants.`);
 
 const shellContract = JSON.parse(readFileSync(resolve(root, 'design/app-shell-contract.json'), 'utf8'));

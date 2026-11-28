@@ -1,0 +1,57 @@
+<good-main-view>
+  <good-heading-1>Email inputs</good-heading-1>
+  <good-summary>A clear email field with gentle validation and regional domain assistance.</good-summary>
+  <good-section>
+    <good-heading-2>Try the regional completion</good-heading-2>
+    <good-prose>
+      <good-paragraph>Enter a local name and a domain without an ending, then leave the field. A German region preference adds .de, keeps the local name intact, and offers Undo. An existing ending is preserved. The browser locale is a preference, not geolocation.</good-paragraph>
+    </good-prose>
+    <good-group appearance="plain">
+      <good-form-row [columns]="2">
+        <good-input-email label="Try an email address" [showLabel]="true" country="DE" inputId="email-demo"
+          [(value)]="address" (completed)="completed($event)" />
+        <good-input-email label="Existing ending is preserved" [showLabel]="true" country="DE" value="Member+Tag@example.test" />
+      </good-form-row>
+    </good-group>
+    <good-paragraph role="status">{{ lastCompletion() }}</good-paragraph>
+    <good-code-block [code]="example" language="html" title="Regional email field" />
+    <good-code-block [code]="imports" language="typescript" title="Imports and value" />
+  </good-section>
+  <good-section>
+    <good-heading-2>Sizes and region preferences</good-heading-2>
+    <good-group appearance="plain">
+    <good-form-row [columns]="3">
+      <good-input-email label="Browser locale" [showLabel]="true" size="small" />
+      <good-input-email label="German default" [showLabel]="true" country="DE" />
+      <good-input-email label="UK default" [showLabel]="true" size="large" country="GB" />
+    </good-form-row>
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-heading-2>Choose the completion policy</good-heading-2>
+    <good-group appearance="plain">
+    <good-form-row [columns]="3">
+      <good-input-email label="Ask before completing" [showLabel]="true" country="DE" completion="suggest" />
+      <good-input-email label="No automatic addition" [showLabel]="true" completion="off" />
+      <good-input-email label="Explicit test ending" [showLabel]="true" defaultSuffix=".test" />
+    </good-form-row>
+    </good-group>
+  </good-section>
+  <good-section>
+    <good-heading-2>Forms and control states</good-heading-2>
+    <form goodForm [formGroup]="form" (ngSubmit)="submit()">
+      <good-input-email label="Contact email" [showLabel]="true" country="DE" [formControl]="emailControl"
+        [required]="true" name="contactEmail" [error]="emailControl.touched && emailControl.invalid" />
+      <good-button type="submit">Check email</good-button>
+    </form>
+    <good-paragraph role="status">{{ feedback() }}</good-paragraph>
+    <good-group appearance="plain">
+    <good-form-row [columns]="3">
+      <good-input-email label="Disabled" [showLabel]="true" [disabled]="true" value="account@example.test" />
+      <good-input-email label="Read-only" [showLabel]="true" [readonly]="true" value="account@example.test" />
+      <good-input-email label="External error" [showLabel]="true" [error]="true" value="account@example.test" describedBy="email-server-error" />
+    </good-form-row>
+    </good-group>
+    <good-paragraph id="email-server-error">Example server feedback: this address is already used. Syntax checks never prove ownership.</good-paragraph>
+  </good-section>
+</good-main-view>

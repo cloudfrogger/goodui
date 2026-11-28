@@ -50,6 +50,7 @@ export * from './lib/listbox';
 export * from './lib/tabs';
 export * from './lib/select-country';
 export * from './lib/input-phone';
+export * from './lib/input-email';
 export * from './lib/image-input';
 export * from './lib/image-preview';
 export * from './lib/date-input';

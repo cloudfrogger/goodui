@@ -3,7 +3,6 @@ import { Router, Routes } from '@angular/router';
 import { ShowcasePageComponent } from './showcase-page';
 import { ButtonsPageComponent } from './buttons-page';
 import { SwitchesPageComponent } from './switches-page';
-import { InputsPageComponent } from './inputs-page';
 import { DropdownsPageComponent } from './dropdowns-page';
 import { BreadcrumbsPageComponent } from './breadcrumbs-page';
 import { BadgesPageComponent } from './badges-page';
@@ -59,7 +58,7 @@ export const routes: Routes = [
   { path: 'components/action-groups', loadComponent: () => import('./action-groups-page').then(module => module.ActionGroupsPageComponent) },
   { path: 'components/action-bars', loadComponent: () => import('./action-bars-page').then(module => module.ActionBarsPageComponent) },
   { path: 'components/switches', component: SwitchesPageComponent },
-  { path: 'components/inputs', component: InputsPageComponent },
+  { path: 'components/inputs', loadComponent: () => import('./inputs-page').then(module => module.InputsPageComponent) },
   { path: 'components/textareas', loadComponent: () => import('./textareas-page').then(module => module.TextareasPageComponent) },
   { path: 'components/rich-text-editor', loadComponent: () => import('./rich-text-page').then(module => module.RichTextPageComponent) },
   { path: 'components/color-controls', loadComponent: () => import('./color-controls-page').then(module => module.ColorControlsPageComponent) },
@@ -75,6 +74,7 @@ export const routes: Routes = [
   { path: 'components/selects', loadComponent: () => import('./selects-page').then(module => module.SelectsPageComponent) },
   { path: 'components/listboxes', loadComponent: () => import('./listboxes-page').then(module => module.ListboxesPageComponent) },
   { path: 'components/tabs', loadComponent: () => import('./tabs-page').then(module => module.TabsPageComponent) },
+  { path: 'components/email-inputs', loadComponent: () => import('./email-inputs-page').then(module => module.EmailInputsPageComponent) },
   { path: 'components/phone-inputs', loadComponent: () => import('./phone-inputs-page').then(module => module.PhoneInputsPageComponent) },
   { path: 'components/date-inputs', loadComponent: () => import('./date-inputs-page').then(module => module.DateInputsPageComponent) },
   { path: 'components/calendar', loadComponent: () => import('./calendar-page').then(module => module.CalendarPageComponent) },

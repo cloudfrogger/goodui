@@ -189,5 +189,13 @@
         "state": "disabled"
       }
     ]
+  },
+  "filterable": {
+    "input": "filterable",
+    "default": false,
+    "semantics": "Editable trigger text only filters existing options. It never becomes the selected value. Blur/Escape/Tab clear the query and retain the selection. Country Select forwards this flag.",
+    "penpot": "Runtime interaction of the existing Select family; selected value, query, and exact results are not variant axes.",
+    "exampleBoardId": "60948412-f1d8-8070-8009-044027618964",
+    "examplePageId": "c0c3286f-e4bf-804c-8008-d7139977c4f8"
   }
 }

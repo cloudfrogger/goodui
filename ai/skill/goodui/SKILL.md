@@ -61,3 +61,9 @@ Use the global page rhythm: MainView has 32 px padding in both page and fill lay
 Use the shared dark palette from `guides/foundations/tokens.md`: anthracite canvas/surfaces and soft gray primary text. Keep components on semantic color roles; avoid local black backgrounds or white body text. Preserve at least 4.5:1 text contrast on the actual surface when overriding theme colors. The token-pair check is not a full WCAG audit of an application.
 
 For accessibility claims, consult `guides/foundations/accessibility.md` and `design/accessibility-assessment.json`. ISO/IEC 40500:2025 follows WCAG 2.2; the former 2012 edition follows WCAG 2.0. The 86-criterion review distinguishes bounded framework support from known gaps, pending verification, and application responsibilities. Never equate the 64 dark text-pair checks with full framework or application conformance. Read `guides/foundations/tokens.md` when changing colors.
+
+For a dedicated email field, use `good-input-email` / `GoodInputEmailComponent`, not a plain Input with application regexes. Read `guides/components/input-email.md` and the compiled email-input example. `completion="blur"` adds a regional ending on blur/Enter with Undo; `suggest` requires confirmation; `off` never adds one. Country is a locale preference or explicit application input, not geolocation. Validation is syntax only.
+
+For text entry that only filters a Select, set `[filterable]="true"` on `good-select` or `good-select-country`. The query never becomes a value; only existing-option selection commits. `searchable` alone means a search box in the popup. See `guides/components/select.md` and the compiled select-filter example.
+
+A Calendar sidebar date picker updates `date` without forcing `view` to day. Preserve week/month/list selection; use an explicit day drill-down only for that action. Hover feedback belongs to Calendar and needs no application overlay CSS.

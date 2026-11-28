@@ -159,3 +159,9 @@
 @container (max-width: 760px) {
   .good-calendar[data-fill-height="true"] .good-calendar-sidebar { border-right: 0; border-bottom: 1px solid var(--good-calendar-border); }
 }
+
+.good-calendar-slot-hover { display: none; }
+@media (hover: hover) {
+  .good-calendar:not([data-disabled="true"]) .good-calendar-slot-hover { display: block; position: absolute; inset-inline: 0; pointer-events: none; background: color-mix(in srgb, var(--good-color-accent) 4%, transparent); z-index: 1; }
+  .good-calendar:not([data-disabled="true"]) :is(.good-calendar-month-day, .good-calendar-all-day-cell):hover { box-shadow: inset 0 0 0 9999px color-mix(in srgb, var(--good-color-accent) 4%, transparent); }
+}

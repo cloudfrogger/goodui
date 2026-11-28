@@ -1,0 +1,6 @@
+<form goodForm [formGroup]="form" (ngSubmit)="submit()">
+  <good-input-email label="Contact email" [showLabel]="true" country="DE" completion="suggest"
+    [formControl]="email" [required]="true" name="email" [error]="email.touched && email.invalid" />
+  <good-button type="submit">Continue</good-button>
+</form>
+<good-paragraph role="status">{{ feedback() }}</good-paragraph>

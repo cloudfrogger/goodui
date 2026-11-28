@@ -1,16 +1,25 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, GoodSelectOption, GoodSelectValue, LucideCode2, LucidePalette, LucideShieldCheck, LucideStar, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
+import { GoodCodeBlockComponent, GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, GoodSelectOption, GoodSelectValue, LucideCode2, LucidePalette, LucideShieldCheck, LucideStar, GoodHeading1Component, GoodSummaryComponent } from '@cloudfrogger/goodui';
 
 @Component({
   selector: 'showcase-selects-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
+  imports: [GoodCodeBlockComponent, GoodMainViewComponent, GoodSelectComponent, GoodSelectCountryComponent, ReactiveFormsModule, GoodHeading1Component, GoodSummaryComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view>
   <good-heading-1>Selects</good-heading-1>
   <good-summary>Single and multiple choices with search, rich options, and country flags</good-summary>
+      <section class="showcase-section">
+        <div class="showcase-section-heading"><h2>Type to filter</h2><p>With filterable, type directly into the control to narrow existing options. Typing never changes the value. Select an option to commit it; Escape or leaving restores the selected label.</p></div>
+        <div class="showcase-select-grid">
+          <good-select label="Filter teams" [showLabel]="true" [options]="workspaceOptions" [filterable]="true" [(value)]="filteredTeam" />
+          <good-select label="Filter multiple teams" [showLabel]="true" [options]="workspaceOptions" [filterable]="true" [multiple]="true" [maxSelected]="3" />
+          <good-select-country label="Filter countries" [showLabel]="true" [filterable]="true" [countries]="supportedMarkets" />
+        </div>
+        <good-code-block [code]="filterExample" language="html" title="Filter-only text entry" />
+      </section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Sizes and initial values</h2><p>Use a placeholder or provide a selected value. The same control height scale applies to all three sizes.</p></div>
         <div class="showcase-select-grid">
@@ -66,6 +75,8 @@ export class SelectsPageComponent {
   ];
   readonly supportedMarkets = ['DE', 'FR', 'GB', 'US', 'CA', 'JP'] as const;
   readonly plan = signal<GoodSelectValue>('starter');
+  readonly filteredTeam = signal<GoodSelectValue>('design');
+  readonly filterExample = `<good-select [options]="options" [filterable]="true" [(value)]="selected" />`;
   readonly workspace = signal<GoodSelectValue>(null);
   readonly teams = signal<GoodSelectValue>(['design', 'engineering']);
   readonly country = signal<GoodSelectValue>('US');

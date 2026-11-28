@@ -1,0 +1,125 @@
+{
+  "family": "goodui.input-email",
+  "selector": "good-input-email",
+  "page": "48 Email Inputs",
+  "pageId": "60948412-f1d8-8070-8009-043da9dec9e8",
+  "containerId": "60948412-f1d8-8070-8009-043e9f56f538",
+  "axes": {
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "status": [
+      "empty",
+      "filled",
+      "error",
+      "disabled",
+      "readonly"
+    ]
+  },
+  "variants": [
+    {
+      "size": "small",
+      "status": "empty",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e28ab137c",
+      "id": "60948412-f1d8-8070-8009-043e305b59b3"
+    },
+    {
+      "size": "small",
+      "status": "filled",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e30606217",
+      "id": "60948412-f1d8-8070-8009-043e381bb6f6"
+    },
+    {
+      "size": "small",
+      "status": "error",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e382004ec",
+      "id": "60948412-f1d8-8070-8009-043e3fc2318c"
+    },
+    {
+      "size": "small",
+      "status": "disabled",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e3fc5ae96",
+      "id": "60948412-f1d8-8070-8009-043e47f0cf1b"
+    },
+    {
+      "size": "small",
+      "status": "readonly",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e47f4a613",
+      "id": "60948412-f1d8-8070-8009-043e5018ee22"
+    },
+    {
+      "size": "default",
+      "status": "empty",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e501e8b8a",
+      "id": "60948412-f1d8-8070-8009-043e583e71be"
+    },
+    {
+      "size": "default",
+      "status": "filled",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e58438b00",
+      "id": "60948412-f1d8-8070-8009-043e601bb03a"
+    },
+    {
+      "size": "default",
+      "status": "error",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e601ed618",
+      "id": "60948412-f1d8-8070-8009-043e67c3fbe4"
+    },
+    {
+      "size": "default",
+      "status": "disabled",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e67c74892",
+      "id": "60948412-f1d8-8070-8009-043e6f8b87df"
+    },
+    {
+      "size": "default",
+      "status": "readonly",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e6f8ed6a8",
+      "id": "60948412-f1d8-8070-8009-043e78094f3d"
+    },
+    {
+      "size": "large",
+      "status": "empty",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e780e3ebf",
+      "id": "60948412-f1d8-8070-8009-043e806b9634"
+    },
+    {
+      "size": "large",
+      "status": "filled",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e806fb355",
+      "id": "60948412-f1d8-8070-8009-043e8844aba3"
+    },
+    {
+      "size": "large",
+      "status": "error",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e884853e8",
+      "id": "60948412-f1d8-8070-8009-043e9058b78d"
+    },
+    {
+      "size": "large",
+      "status": "disabled",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e905be2ab",
+      "id": "60948412-f1d8-8070-8009-043e9784cb37"
+    },
+    {
+      "size": "large",
+      "status": "readonly",
+      "mainInstanceId": "60948412-f1d8-8070-8009-043e978786ac",
+      "id": "60948412-f1d8-8070-8009-043e9f539fd9"
+    }
+  ],
+  "penpotFileId": "0f428ff0-c8e2-8078-8008-fb55d9570459",
+  "runtime": {
+    "completion": "blur, suggest, or off; never changes a complete domain",
+    "region": "explicit country or browser locale, not geolocation",
+    "validation": "ASCII public-style syntax only; no mailbox verification",
+    "feedback": "Mail identity, format status, polite validation/completion feedback, Undo"
+  },
+  "verification": {
+    "mapping": "15 live library IDs confirmed; existing Input and Lucide parts remain linked.",
+    "angular": "Three sizes, Forms, completion modes, Undo and error behavior.",
+    "penpot": "Light empty/error specimens visually checked. Dark native exports retain the known cached text colors despite correct semantic fills; dark export text parity remains unverified. Angular checks cover both themes."
+  }
+}

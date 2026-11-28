@@ -24,6 +24,8 @@
     "edit-form.ts",
     "settings.ts",
     "shell.ts",
-    "table-workspace.ts"
+    "table-workspace.ts",
+    "email-input.ts",
+    "select-filter.ts"
   ]
 }

@@ -2,7 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 import {
   ChangeDetectionStrategy, Component, ElementRef, HostListener, OnDestroy, PLATFORM_ID,
-  computed, effect, forwardRef, inject, input, model, output, signal, viewChild,
+  booleanAttribute, computed, effect, forwardRef, inject, input, model, output, signal, viewChild,
 } from '@angular/core';
 import { LucideCheck, LucideChevronDown, LucideDynamicIcon, LucideSearch } from '@lucide/angular';
 import { GoodBadgeComponent } from './badge';
@@ -50,6 +50,22 @@ let nextSelectId = 0;
             (removed)="remove(option.value)" />
         }
       }
+      @if (filterable()) {
+        <div class="good-select-trigger good-select-filter-trigger">
+          <input #trigger class="good-select-filter-input" type="text" role="combobox" [id]="triggerId"
+            autocomplete="off" aria-autocomplete="list" aria-haspopup="listbox"
+            [value]="filterText()" [placeholder]="open() ? searchPlaceholder() : placeholder()" [disabled]="isDisabled()"
+            [attr.aria-label]="label()" [attr.aria-controls]="open() ? listId : null"
+            [attr.aria-expanded]="open()" [attr.aria-activedescendant]="activeOptionId()"
+            [attr.aria-required]="required() ? 'true' : null" [attr.aria-invalid]="error() ? 'true' : null"
+            [attr.aria-describedby]="describedBy() || null" (focus)="show()" (click)="show()"
+            (input)="onFilterInput($event)" (keydown)="onKeydown($event)" />
+          <button type="button" class="good-select-filter-toggle" tabindex="-1" [disabled]="isDisabled()"
+            [attr.aria-label]="'Toggle ' + label()" (mousedown)="$event.preventDefault()" (click)="toggle()">
+            <svg class="good-select-chevron" [lucideIcon]="chevronIcon" [size]="iconSize()" aria-hidden="true"></svg>
+          </button>
+        </div>
+      } @else {
       <button #trigger class="good-select-trigger" type="button" role="combobox" [id]="triggerId"
         aria-haspopup="listbox" [attr.aria-controls]="open() ? listId : null" [attr.aria-expanded]="open()"
         [attr.aria-label]="triggerLabel()" [attr.aria-required]="required() ? 'true' : null"
@@ -66,13 +82,14 @@ let nextSelectId = 0;
         }
         <svg class="good-select-chevron" [lucideIcon]="chevronIcon" [size]="iconSize()" aria-hidden="true"></svg>
       </button>
+      }
     </div>
     @if (open()) {
       <div #panel class="good-select-popup" [id]="popupId"
         [style.left.px]="position().left" [style.top.px]="position().top"
         [style.width.px]="position().width" [style.max-height.px]="position().maxHeight"
         [style.visibility]="positionReady() ? 'visible' : 'hidden'">
-        @if (searchable()) {
+        @if (searchable() && !filterable()) {
           <div class="good-select-search">
             <svg [lucideIcon]="searchIcon" [size]="16" aria-hidden="true"></svg>
             <input #searchInput type="search" [value]="query()" [placeholder]="searchPlaceholder()"
@@ -89,7 +106,7 @@ let nextSelectId = 0;
             <div class="good-select-option" role="option" [id]="optionId(index)"
               [attr.aria-selected]="isSelected(option.value)" [attr.aria-disabled]="isOptionDisabled(option)"
               [attr.data-active]="activeIndex() === index" [attr.data-selected]="isSelected(option.value)"
-              (pointerenter)="activeIndex.set(index)" (click)="choose(option)">
+              (pointerenter)="activeIndex.set(index)" (mousedown)="$event.preventDefault()" (click)="choose(option)">
               @if (option.icon; as icon) { <svg class="good-select-option-icon" [lucideIcon]="icon" [size]="optionIconSize()" aria-hidden="true"></svg> }
               @else if (option.iconSrc; as source) { <img class="good-select-option-image" [src]="source" alt="" /> }
               <span class="good-select-option-copy">
@@ -116,7 +133,7 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly document = inject(DOCUMENT);
   private readonly browser = isPlatformBrowser(inject(PLATFORM_ID));
-  private readonly trigger = viewChild<ElementRef<HTMLButtonElement>>('trigger');
+  private readonly trigger = viewChild<ElementRef<HTMLElement>>('trigger');
   private readonly panel = viewChild<ElementRef<HTMLElement>>('panel');
   private readonly list = viewChild<ElementRef<HTMLElement>>('list');
   private readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
@@ -136,6 +153,8 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
   readonly showLabel = input(false);
   readonly placeholder = input('Select an option');
   readonly searchable = input(false);
+  /** Let the trigger accept a query; only existing options can become values. */
+  readonly filterable = input(false, { transform: booleanAttribute });
   readonly searchPlaceholder = input('Search options');
   readonly emptyMessage = input('No options found');
   readonly describedBy = input('');
@@ -170,6 +189,8 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
       [option.label, option.description, option.value, ...(option.tags ?? [])]
         .filter(Boolean).some(text => text!.toLowerCase().includes(query))) : this.options();
   });
+  readonly filterText = computed(() => this.open() ? this.query() : this.multiple() ? '' :
+    (this.selectedOptions()[0]?.triggerLabel ?? this.selectedOptions()[0]?.label ?? ''));
   readonly activeOptionId = computed(() => this.open() && this.activeIndex() >= 0 && this.activeIndex() < this.filteredOptions().length
     ? this.optionId(this.activeIndex()) : null);
   readonly triggerLabel = computed(() => {
@@ -219,9 +240,12 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
     this.positionReady.set(false);
     this.open.set(true);
     if (this.browser) requestAnimationFrame(() => {
+      if (!this.open()) return;
       this.positionPanel();
       requestAnimationFrame(() => {
-        (this.searchable() ? this.searchInput()?.nativeElement : this.list()?.nativeElement)?.focus();
+        if (!this.open()) return;
+        if (this.filterable()) this.trigger()?.nativeElement.focus();
+        else (this.searchable() ? this.searchInput()?.nativeElement : this.list()?.nativeElement)?.focus();
         this.scrollActiveIntoView();
       });
     });
@@ -229,11 +253,16 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
   close(restoreFocus = false): void {
     if (!this.open()) return;
     this.open.set(false);
+    this.query.set('');
     this.positionReady.set(false);
     this.onTouched();
-    if (restoreFocus && this.browser) requestAnimationFrame(() => this.trigger()?.nativeElement.focus());
+    if (restoreFocus) this.restoreTriggerFocus();
   }
 
+  onFilterInput(event: Event): void {
+    if (this.isDisabled()) return;
+    this.show(); this.onSearch(event);
+  }
   onSearch(event: Event): void {
     this.query.set((event.target as HTMLInputElement).value);
     this.activeIndex.set(this.firstAvailableIndex(this.filteredOptions()));
@@ -250,7 +279,8 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
     if (this.multiple()) {
       const values = this.selectedValues();
       this.setValue(this.isSelected(option.value) ? values.filter(value => value !== option.value) : [...values, option.value]);
-      this.searchInput()?.nativeElement.focus();
+      if (this.filterable()) { this.query.set(''); this.activeIndex.set(this.firstAvailableIndex(this.filteredOptions())); this.trigger()?.nativeElement.focus(); }
+      else this.searchInput()?.nativeElement.focus();
     } else {
       this.setValue(option.value);
       this.close(true);
@@ -260,11 +290,12 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
     const option = this.options().find(item => item.value === value);
     if (this.isDisabled() || option?.disabled || !this.multiple()) return;
     this.setValue(this.selectedValues().filter(item => item !== value));
-    if (this.browser) requestAnimationFrame(() => this.trigger()?.nativeElement.focus());
+    this.restoreTriggerFocus();
   }
   optionId(index: number): string { return `${this.listId}-option-${index}`; }
 
   onKeydown(event: KeyboardEvent): void {
+    if (event.isComposing) return;
     const key = event.key;
     if (!this.open()) {
       if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(key)) { event.preventDefault(); this.show(); }
@@ -301,6 +332,16 @@ export class GoodSelectComponent implements ControlValueAccessor, Validator, OnD
   @HostListener('window:resize')
   onResize(): void { if (this.open()) this.positionPanel(); }
 
+  private restoreTriggerFocus(): void {
+    if (!this.browser) return;
+    const origin = this.document.activeElement;
+    requestAnimationFrame(() => {
+      const current = this.document.activeElement;
+      // Respect a subsequent Tab/click into a different field before this frame.
+      if (current && current !== origin && current !== this.document.body && !this.host.nativeElement.contains(current)) return;
+      if (!this.isDisabled()) this.trigger()?.nativeElement.focus();
+    });
+  }
   private setValue(value: GoodSelectValue): void {
     this.value.set(value);
     this.onChange(value);

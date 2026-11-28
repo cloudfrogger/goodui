@@ -50,6 +50,8 @@ interface CalendarTarget { key: string; minute: number | null; }
 export class GoodCalendarComponent {
   readonly calendar = inject(GoodCalendarService);
   readonly view = model<GoodCalendarView>('week');
+  readonly hoveredSlot = signal<{ day: string; minute: number } | null>(null);
+  readonly slotHoverMinutes = computed(() => Number.isFinite(this.snapMinutes()) ? Math.max(1, Math.min(1440, this.snapMinutes())) : 15);
   readonly date = model<Date>(new Date());
   readonly selectedEventId = model<string | null>(null);
   /** Omit this input to use GoodCalendarService. With it, listen to eventMoved and update the source yourself. */
@@ -205,6 +207,16 @@ export class GoodCalendarComponent {
   setView(view: GoodCalendarView): void {
     this.view.set(view);
     if (view === 'week' || view === 'day') setTimeout(() => this.scrollToWorkingHours(), 0);
+  }
+  onSlotPointerMove(event: PointerEvent, day: string): void {
+    if (this.disabled() || event.pointerType !== 'mouse' || (event.target as Element).closest('.good-calendar-timed-placement')) {
+      this.hoveredSlot.set(null); return;
+    }
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const step = this.slotHoverMinutes();
+    const minute = Math.max(0, Math.min(1440 - step, Math.floor((event.clientY - rect.top) / this.effectiveHourHeight() * 60 / step) * step));
+    const current = this.hoveredSlot();
+    if (current?.day !== day || current.minute !== minute) this.hoveredSlot.set({ day, minute });
   }
   showDay(date: Date): void { this.date.set(new Date(date)); this.setView('day'); }
   scrollToWorkingHours(): void {

@@ -1,0 +1,276 @@
+{
+  "$schema": "../component.schema.json",
+  "selector": "good-input-email",
+  "className": "GoodInputEmailComponent",
+  "kind": "component",
+  "import": {
+    "package": "@cloudfrogger/goodui",
+    "symbol": "GoodInputEmailComponent"
+  },
+  "source": "angular/projects/goodui/src/lib/input-email.ts",
+  "inputs": [
+    {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "model"
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "defaultSuffix",
+      "type": "string",
+      "required": false,
+      "default": null,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "completion",
+      "type": "GoodEmailCompletion",
+      "required": false,
+      "default": "blur",
+      "allowedValues": [
+        "blur",
+        "suggest",
+        "off"
+      ],
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "required": false,
+      "default": "Email address",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "showLabel",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "size",
+      "type": "GoodInputSize",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "small",
+        "large"
+      ],
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "autocomplete",
+      "type": "string",
+      "required": false,
+      "default": "email",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "inputId",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "describedBy",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "invalidMessage",
+      "type": "string",
+      "required": false,
+      "default": "Enter a complete email address, such as name@example.com.",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "requiredMessage",
+      "type": "string",
+      "required": false,
+      "default": "Enter an email address.",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "completedMessage",
+      "type": "string",
+      "required": false,
+      "default": "Added domain ending:",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "undoLabel",
+      "type": "string",
+      "required": false,
+      "default": "Undo",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    },
+    {
+      "name": "suggestionLabel",
+      "type": "string",
+      "required": false,
+      "default": "Use",
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "kind": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "valueChange",
+      "type": "string",
+      "source": "angular/projects/goodui/src/lib/input-email.ts",
+      "implicit": true
+    },
+    {
+      "name": "completed",
+      "type": "GoodEmailCompleted",
+      "source": "angular/projects/goodui/src/lib/input-email.ts"
+    }
+  ],
+  "variants": {
+    "completion": [
+      "blur",
+      "suggest",
+      "off"
+    ],
+    "size": [
+      "default",
+      "small",
+      "large"
+    ]
+  },
+  "composition": {
+    "projectedContent": [],
+    "relatedSelectors": [
+      "good-input",
+      "good-button"
+    ],
+    "notes": null
+  },
+  "forms": {
+    "controlValueAccessor": true,
+    "validator": true
+  },
+  "usageGuide": "guides/components/input-email.md",
+  "usage": {
+    "summary": "`good-input-email` is a dedicated email field with a Mail addon, native email keyboard and autocomplete, integrated syntax validation, and regional domain-ending assistance. It shares Input's three sizes and both themes. Its public import is `GoodInputEmailComponent`.",
+    "examples": [
+      "ai/examples/email-input.html"
+    ]
+  },
+  "penpot": [
+    {
+      "penpotName": "goodui.input-email",
+      "penpotId": "60948412-f1d8-8070-8009-043e583e71be",
+      "kind": "component",
+      "state": null,
+      "owner": null
+    }
+  ],
+  "missing": {
+    "usageGuide": false,
+    "penpotMapping": false
+  }
+}

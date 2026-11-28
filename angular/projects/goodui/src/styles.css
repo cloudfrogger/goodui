@@ -1214,3 +1214,17 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 @media (max-width: 640px) { .good-main-view-identity { gap: var(--good-space-4); } }
 
 .good-currency-input { display: block; width: 100%; min-width: 0; }
+
+/* Email composes Input; the feedback row owns its status and completion actions. */
+.good-input-email { display: block; min-width: 0; }
+.good-email-feedback { display: flex; align-items: center; flex-wrap: wrap; gap: var(--good-space-2); margin-top: var(--good-space-1); color: var(--good-muted); font: inherit; font-size: var(--good-typography-caption-font-size); line-height: 1.5; overflow-wrap: anywhere; }
+.good-email-feedback:empty { display: none; }
+.good-email-error { color: var(--good-color-error); }
+.good-input-email[data-valid="true"] .good-input-addon[data-side="end"] { color: var(--good-color-success); }
+
+.good-select-filter-input { flex: 1; width: 0; min-width: 0; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; }
+.good-select-filter-input::placeholder { color: var(--good-select-placeholder); opacity: 1; }
+.good-select-filter-toggle { display: inline-flex; flex: none; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.good-select-filter-toggle:disabled { cursor: not-allowed; }
+
+.good-input-email:not([data-valid="true"]) .good-input-field[data-status="error"] .good-input-addon[data-side="end"] { color: var(--good-color-error); }

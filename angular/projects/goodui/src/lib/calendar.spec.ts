@@ -132,3 +132,19 @@ describe('GoodCalendarService and layout', () => {
     expect(() => goodCalendarNonWorkingPeriods(monday, [{ daysOfWeek: [1], start: '18:00', end: '09:00' }])).toThrow(/overnight/);
   });
 });
+
+describe('Calendar hover feedback', () => {
+  it('highlights one snapped time slot for mouse input and clears it over events or on touch', () => {
+    const f = TestBed.createComponent(GoodCalendarComponent); f.detectChanges();
+    const day = f.nativeElement.querySelector('.good-calendar-time-day') as HTMLElement;
+    const event = { pointerType: 'mouse', target: day, currentTarget: day, clientY: 42 } as unknown as PointerEvent;
+    f.componentInstance.onSlotPointerMove(event, '2026-11-23');
+    expect(f.componentInstance.hoveredSlot()?.day).toBe('2026-11-23');
+    expect(f.componentInstance.hoveredSlot()!.minute % 15).toBe(0);
+    f.componentInstance.onSlotPointerMove({ ...event, pointerType: 'touch' } as PointerEvent, '2026-11-23');
+    expect(f.componentInstance.hoveredSlot()).toBeNull();
+    f.componentRef.setInput('disabled', true); f.detectChanges();
+    f.componentInstance.onSlotPointerMove(event, '2026-11-23'); expect(f.componentInstance.hoveredSlot()).toBeNull();
+    f.destroy();
+  });
+});

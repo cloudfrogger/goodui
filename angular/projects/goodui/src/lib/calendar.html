@@ -127,7 +127,13 @@
         @for (day of timeDays(); track day.key) {
           <div class="good-calendar-time-day" [attr.data-calendar-day]="day.key" [style.height.px]="gridHeight()" [style.grid-column]="$index + 2"
             [class.good-calendar-drop-target]="dragTarget()?.key === day.key && dragTarget()?.minute !== null"
-            (dblclick)="onEmptyDoubleClick($event, day.date, true)">
+            (dblclick)="onEmptyDoubleClick($event, day.date, true)"
+            (pointermove)="onSlotPointerMove($event, day.key)" (pointerleave)="hoveredSlot.set(null)">
+            @if (!disabled() && hoveredSlot()?.day === day.key) {
+              <div class="good-calendar-slot-hover" aria-hidden="true"
+                [style.top.px]="hoveredSlot()!.minute / 60 * effectiveHourHeight()"
+                [style.height.px]="slotHoverMinutes() / 60 * effectiveHourHeight()"></div>
+            }
             @for (period of day.nonWorking; track period.startMinute) {
               <div class="good-calendar-nonworking-band" aria-hidden="true"
                 [style.top.px]="period.startMinute / 60 * effectiveHourHeight()"

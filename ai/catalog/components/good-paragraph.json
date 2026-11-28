@@ -28,7 +28,9 @@
     "examples": [
       "ai/examples/currency.html",
       "ai/examples/edit-form.html",
+      "ai/examples/email-input.html",
       "ai/examples/login.html",
+      "ai/examples/select-filter.html",
       "ai/examples/settings.html"
     ]
   },

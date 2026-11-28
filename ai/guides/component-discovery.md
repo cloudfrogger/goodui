@@ -19,3 +19,9 @@ For services and TypeScript types, search `angular/projects/goodui/src/public-ap
 Before using a candidate, check its required inputs and projection selectors. A catalog description helps discovery; the detail file and guide establish the actual API. Follow each `source` and `usageGuide` path relative to the reference root. This applies equally to a source checkout, the installed npm package, and a full archive.
 
 For configurable topbar actions, project `good-header-actions` into `good-app-shell` or `good-app-header`, then compose `good-header-search`, `good-header-notification`, `good-header-themetoggle`, and `good-header-avatar` as its children. See `guides/components/header-actions.md`; configure each projected action directly.
+
+For a dedicated email field, use `good-input-email` / `GoodInputEmailComponent`, not a plain Input with application regexes. Read `guides/components/input-email.md` and the compiled email-input example. `completion="blur"` adds a regional ending on blur/Enter with Undo; `suggest` requires confirmation; `off` never adds one. Country is a locale preference or explicit application input, not geolocation. Validation is syntax only.
+
+For text entry that only filters a Select, set `[filterable]="true"` on `good-select` or `good-select-country`. The query never becomes a value; only existing-option selection commits. `searchable` alone means a search box in the popup. See `guides/components/select.md` and the compiled select-filter example.
+
+A Calendar sidebar date picker updates `date` without forcing `view` to day. Preserve week/month/list selection; use an explicit day drill-down only for that action. Hover feedback belongs to Calendar and needs no application overlay CSS.

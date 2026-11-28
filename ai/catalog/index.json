@@ -953,6 +953,18 @@
       "penpotCount": 4
     },
     {
+      "selector": "good-input-email",
+      "className": "GoodInputEmailComponent",
+      "file": "components/good-input-email.json",
+      "import": {
+        "package": "@cloudfrogger/goodui",
+        "symbol": "GoodInputEmailComponent"
+      },
+      "usageGuide": "guides/components/input-email.md",
+      "summary": "`good-input-email` is a dedicated email field with a Mail addon, native email keyboard and autocomplete, integrated syntax validation, and regional domain-ending assistance. It shares Input's three sizes and both themes. Its public import is `GoodInputEmailComponent`.",
+      "penpotCount": 1
+    },
+    {
       "selector": "good-input-phone",
       "className": "GoodInputPhoneComponent",
       "file": "components/good-input-phone.json",
@@ -1273,7 +1285,7 @@
         "symbol": "GoodSelectComponent"
       },
       "usageGuide": "guides/components/select.md",
-      "summary": "`good-select` chooses one or more values from an application supplied list. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
+      "summary": "`good-select` chooses one or more values from an application supplied list. Set `[filterable]=\"true\"` to type a filter directly in the control; only selecting an existing option changes its value. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
       "penpotCount": 3
     },
     {
@@ -1285,7 +1297,7 @@
         "symbol": "GoodSelectCountryComponent"
       },
       "usageGuide": "guides/components/select.md",
-      "summary": "`good-select` chooses one or more values from an application supplied list. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
+      "summary": "`good-select` chooses one or more values from an application supplied list. Set `[filterable]=\"true\"` to type a filter directly in the control; only selecting an existing option changes its value. Its control, popup, option spacing, selected marks, and removable multi selection badges use the GoodUI design tokens. Use `good-select-country` when the options are countries: it supplies localized country names and SVG flags while retaining the same Select behavior.",
       "penpotCount": 1
     },
     {

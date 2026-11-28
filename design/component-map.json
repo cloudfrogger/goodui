@@ -53,6 +53,7 @@
     "image-preview",
     "inline-image",
     "input",
+    "input-email",
     "input-phone",
     "listbox",
     "link",
@@ -2388,6 +2389,13 @@
       "angularSelector": "good-table",
       "kind": "component",
       "state": "fill-mobile"
+    },
+    {
+      "penpotName": "goodui.input-email",
+      "penpotId": "60948412-f1d8-8070-8009-043e583e71be",
+      "angularSelector": "good-input-email",
+      "kind": "component",
+      "state": null
     }
   ],
   "variantManifests": [
@@ -2433,7 +2441,8 @@
     "design/settings-layout-contract.json",
     "design/record-layout-contract.json",
     "design/currency-input-contract.json",
-    "design/sidebar-footer-contract.json"
+    "design/sidebar-footer-contract.json",
+    "design/input-email-contract.json"
   ],
   "angularSelectorOverrides": {
     "main-menu": "good-header-actions",
