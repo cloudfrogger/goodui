@@ -330,3 +330,7 @@ Angular's value is a safe integer in minor units or null. Decimal input and conv
 Angular keeps the footer outside the navigation scroller; the same instance remains in the mobile drawer above Close. The live library publishes `goodui.sidebar.with-footer` and `goodui.sidebar.drawer-with-footer`, with IDs and main shapes recorded in the same contract. Both retain linked navigation and Footer components; Footer retains linked Select and SidebarItem components. Targeted native PNG exports verify their bottom alignment. Browser checks verify scrolling, keyboard focus, selection, and responsive state retention.
 
 Sidebar Footer dark-mode native exports currently retain stale text rendering despite resolved semantic bindings. The Footer contract records this design verification limit; Angular light/dark browser checks pass.
+
+Table header runtime composition: `goodTableActions` accepts `good-action-bar appearance="compact"` for inline Buttons and measured More overflow. Integrated small search now shares the controls row. Existing Table library IDs and variants remain unchanged. The live desktop/mobile compositions now retain their stable IDs while composing linked small Input, Buttons, and a closed More Dropdown. `design/table-variants.json` records their layout and runtime overflow contract.
+
+Table action-composition dark exports retain the known stale text rendering seen in Sidebar Footer exports. Light specimens are visually checked; full dark Penpot parity remains unverified while Angular dark browser checks pass.

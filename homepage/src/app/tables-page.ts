@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
-import { GoodActionGroupComponent, GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent, LucideTrash2, GoodHeading1Component, GoodSummaryComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodHeading2Component, GoodInputComponent } from '@cloudfrogger/goodui';
+import { GoodActionBarComponent, GoodActionBarGroup, GoodActionBarSelection, GoodActionGroupComponent, GoodActionMenuComponent, GoodBadgeComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodMainViewComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodSwitchComponent, GoodTableCellDirective, GoodTableColumn, GoodTableComponent, GoodTablePagination, GoodTableRequest, flexRenderComponent, LucideTrash2, GoodHeading1Component, GoodSummaryComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodHeading2Component, GoodInputComponent } from '@cloudfrogger/goodui';
 
 interface RecordRow {
   id: string;
@@ -70,21 +70,20 @@ class TableDeleteCellComponent {
 @Component({
   selector: 'showcase-tables-page',
   standalone: true,
-  imports: [GoodMainViewComponent, GoodTableComponent, GoodTableCellDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodHeading1Component, GoodSummaryComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodHeading2Component, GoodInputComponent],
+  imports: [GoodActionBarComponent, GoodMainViewComponent, GoodTableComponent, GoodTableCellDirective, GoodSwitchComponent, GoodActionGroupComponent, GoodButtonComponent, GoodCodeBlockComponent, GoodGroupComponent, GoodHintComponent, GoodLinkComponent, GoodParagraphComponent, GoodStatusIconComponent, GoodHeading1Component, GoodSummaryComponent, GoodSectionComponent, GoodHeadingGroupComponent, GoodHeading2Component, GoodInputComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <good-main-view>
   <good-heading-1>Tables</good-heading-1>
   <good-summary>Searchable records, rich cells, and client or server pagination</good-summary>
       <section class="showcase-section">
-        <div class="showcase-section-heading"><h2>Table header actions</h2><p>Project Buttons or other controls into the title row. They stay reachable while the table body scrolls on small screens.</p></div>
+        <div class="showcase-section-heading"><h2>Table header actions</h2><p>Search and compact commands share the table header. Commands move into More when this table becomes narrow; important actions stay visible.</p></div>
         <good-table title="Workspace records" label="Header action records" [data]="headerRows()" [columns]="simpleColumns" [getRowId]="rowId" [searchable]="true" [reorderable]="false">
-          <good-action-group goodTableActions spacing="small">
-            <good-button size="small" (click)="addHeaderRecord()">Add record</good-button>
-            <good-button size="small" variant="outline" [disabled]="headerRows().length === 3" (click)="headerRows.set(initialHeaderRows)">Reset records</good-button>
-          </good-action-group>
+          <good-action-bar goodTableActions appearance="compact" ariaLabel="Record actions"
+            [groups]="headerCommands()" (commandSelected)="runHeaderCommand($event)" />
         </good-table>
-        <good-code-block [code]="headerActionsCode" language="html" title="Project table header actions" />
+        <good-code-block [code]="headerActionsCode" language="html" title="Project responsive table header actions" />
+        <good-code-block [code]="headerCommandsCode" language="typescript" title="Application-owned commands" />
       </section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Records</h2><p>Search and sort the full data set. Custom cells render a Badge, Switch, and action menu.</p></div>
@@ -201,14 +200,34 @@ export class TablesPageComponent {
     const number = ++this.headerRecordNumber;
     this.headerRows.update(rows => [...rows, { ...initialRows[0], id: `header-extra-${number}`, name: `Added record ${number}` }]);
   }
+  readonly headerCommands = computed<readonly GoodActionBarGroup[]>(() => [{ id: 'records', label: 'Records', commands: [
+    { id: 'add', label: 'Add record', priority: 'important', variant: 'default' },
+    { id: 'duplicate', label: 'Duplicate record', disabled: !this.headerRows().length },
+    { id: 'reset', label: 'Reset records', disabled: this.headerRows().length === 3 },
+    { id: 'clear', label: 'Clear records', priority: 'overflow', disabled: !this.headerRows().length },
+  ] }]);
+  runHeaderCommand(event: GoodActionBarSelection): void {
+    if (event.commandId === 'add') this.addHeaderRecord();
+    if (event.commandId === 'duplicate') {
+      const row = this.headerRows()[0];
+      if (row) this.headerRows.update(rows => [...rows, { ...row, id: `header-copy-${++this.headerRecordNumber}`, name: `${row.name} copy` }]);
+    }
+    if (event.commandId === 'reset') this.headerRows.set(this.initialHeaderRows);
+    if (event.commandId === 'clear') this.headerRows.set([]);
+  }
   readonly headerActionsCode = `<good-table title="Workspace records" label="Workspace records"
   [data]="headerRows()" [columns]="simpleColumns" [searchable]="true">
-  <good-action-group goodTableActions spacing="small">
-    <good-button size="small" (click)="addHeaderRecord()">Add record</good-button>
-    <good-button size="small" variant="outline" [disabled]="headerRows().length === 3"
-      (click)="headerRows.set(initialHeaderRows)">Reset records</good-button>
-  </good-action-group>
+  <good-action-bar goodTableActions appearance="compact" ariaLabel="Record actions"
+    [groups]="headerCommands()" (commandSelected)="runHeaderCommand($event)" />
 </good-table>`;
+  readonly headerCommandsCode = `readonly headerCommands = computed<readonly GoodActionBarGroup[]>(() => [{
+  id: 'records', label: 'Records', commands: [
+    { id: 'add', label: 'Add record', priority: 'important', variant: 'default' },
+    { id: 'reset', label: 'Reset records', disabled: this.headerRows().length === 3 },
+    { id: 'clear', label: 'Clear records', priority: 'overflow' },
+  ],
+}]);
+// Handle { groupId, commandId } in runHeaderCommand(); actions never mutate Table automatically.`;
   readonly sectionSearch = signal('');
   readonly embeddedTableCode = `<good-section layout="settings">
   <good-heading-group><good-heading-2>Team access</good-heading-2>

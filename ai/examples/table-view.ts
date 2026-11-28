@@ -1,17 +1,29 @@
-import { Component, signal } from '@angular/core';
-import { GoodMainViewComponent, GoodTableComponent, GoodTableColumn, GoodHeading1Component, GoodSummaryComponent, GoodActionGroupComponent, GoodButtonComponent, GoodAvatarComponent, GoodEmptyStateComponent, GoodTableEmptyDirective, GoodDetailListComponent, GoodDetailRowDirective } from '@cloudfrogger/goodui';
+import { Component, computed, signal } from '@angular/core';
+import { GoodMainViewComponent, GoodTableComponent, GoodTableColumn, GoodHeading1Component, GoodSummaryComponent, GoodActionBarComponent, GoodActionBarGroup, GoodActionBarSelection, GoodButtonComponent, GoodAvatarComponent, GoodEmptyStateComponent, GoodTableEmptyDirective, GoodDetailListComponent, GoodDetailRowDirective } from '@cloudfrogger/goodui';
 interface Person { id: number; name: string; email: string; status: string; }
 @Component({
   selector: 'app-table-example', standalone: true,
-  imports: [GoodMainViewComponent, GoodTableComponent, GoodHeading1Component, GoodSummaryComponent, GoodActionGroupComponent, GoodButtonComponent, GoodAvatarComponent, GoodEmptyStateComponent, GoodTableEmptyDirective, GoodDetailListComponent, GoodDetailRowDirective],
+  imports: [GoodMainViewComponent, GoodTableComponent, GoodHeading1Component, GoodSummaryComponent, GoodActionBarComponent, GoodButtonComponent, GoodAvatarComponent, GoodEmptyStateComponent, GoodTableEmptyDirective, GoodDetailListComponent, GoodDetailRowDirective],
   templateUrl: './table-view.html',
 })
 export class TableViewExample {
-  readonly people = signal<Person[]>([
+  readonly initialPeople: Person[] = [
     { id: 1, name: 'Example account 1', email: 'account-1@example.test', status: 'Active' },
     { id: 2, name: 'Example account 2', email: 'account-2@example.test', status: 'Invited' },
     { id: 3, name: 'Example account 3', email: 'account-3@example.test', status: 'Active' },
-  ]);
+  ];
+  readonly people = signal(this.initialPeople);
+  readonly commands = computed<readonly GoodActionBarGroup[]>(() => [{ id: 'directory', label: 'Directory', commands: [
+    { id: 'add', label: 'Add person', priority: 'important', variant: 'default' },
+    { id: 'reset', label: 'Reset directory', disabled: this.people() === this.initialPeople },
+    { id: 'clear', label: 'Clear directory', priority: 'overflow', disabled: !this.people().length },
+  ] }]);
+  runCommand(event: GoodActionBarSelection): void {
+    if (event.groupId !== 'directory') return;
+    if (event.commandId === 'add') this.addPerson();
+    if (event.commandId === 'reset') this.people.set(this.initialPeople);
+    if (event.commandId === 'clear') this.people.set([]);
+  }
   private nextId = 3;
   addPerson(): void {
     const id = ++this.nextId;

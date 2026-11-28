@@ -70,7 +70,7 @@ interface Entry extends GoodActionBarSelection { command: GoodActionBarCommand; 
       <span class="good-action-bar-measure-more"><good-button [icon]="moreIcon" variant="ghost" [size]="size()">More</good-button></span>
     </div>
   `,
-  host: { class: 'good-action-bar', '[attr.data-size]': 'size()', '[attr.data-stacked]': 'stacked()' },
+  host: { class: 'good-action-bar', '[attr.data-size]': 'size()', '[attr.data-appearance]': 'appearance()', '[attr.data-stacked]': 'stacked()' },
 })
 export class GoodActionBarComponent implements AfterViewInit, OnDestroy {
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
@@ -79,6 +79,8 @@ export class GoodActionBarComponent implements AfterViewInit, OnDestroy {
   private frame = 0;
   readonly groups = input<readonly GoodActionBarGroup[]>([]);
   readonly size = input<GoodButtonSize>('small');
+  /** Compact uses ordinary inline Buttons inside a section or table header. */
+  readonly appearance = input<'default' | 'compact'>('default');
   readonly ariaLabel = input('Actions');
   readonly commandSelected = output<GoodActionBarSelection>();
   readonly moreIcon = LucideEllipsis;
@@ -99,7 +101,7 @@ export class GoodActionBarComponent implements AfterViewInit, OnDestroy {
     });
   });
 
-  constructor() { effect(() => { this.entries(); this.size(); this.queueMeasure(); }); }
+  constructor() { effect(() => { this.entries(); this.size(); this.appearance(); this.queueMeasure(); }); }
 
   ngAfterViewInit(): void {
     if (!this.browser) return;
@@ -126,13 +128,13 @@ export class GoodActionBarComponent implements AfterViewInit, OnDestroy {
     const host = this.host.nativeElement;
     const width = host.clientWidth;
     if (!width) return;
-    const stacked = width < 700;
+    const stacked = this.appearance() === 'default' && width < 700;
     if (this.stacked() !== stacked) {
       this.stacked.set(stacked); this.queueMeasure(); return;
     }
     const tools = host.querySelector<HTMLElement>('.good-action-bar-tools');
     const toolsWidth = stacked ? 0 : (tools?.scrollWidth ?? 0);
-    const available = Math.max(0, width - 32 - (toolsWidth ? toolsWidth + 16 : 0));
+    const available = Math.max(0, width - parseFloat(getComputedStyle(host).paddingLeft) - parseFloat(getComputedStyle(host).paddingRight) - (toolsWidth ? toolsWidth + 16 : 0));
     const moreWidth = host.querySelector<HTMLElement>('.good-action-bar-measure-more')?.offsetWidth ?? 80;
     const widths = new Map(Array.from(host.querySelectorAll<HTMLElement>('.good-action-bar-measure-item')).map(element =>
       [element.dataset['key'] ?? '', element.offsetWidth]));

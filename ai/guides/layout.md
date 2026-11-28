@@ -25,3 +25,5 @@ Declare `good-sidebar` and `good-app-header` directly inside AppShell. Put `good
 ## Persistent sidebar footer
 
 `good-sidebar-footer` is an optional direct Sidebar child, separate from the scrollable navigation. It remains at the bottom of Sidebar and keeps its state in AppShell's mobile drawer. Project existing GoodUI controls such as Select or SidebarItem; a tenant switch is application state, never a library-owned operation. In a standalone Sidebar, use a bounded layout container; AppShell already provides that height. See [Sidebar Footer](../../guides/components/sidebar-footer.md) and the compiled shell example.
+
+For responsive Table header commands, project `good-action-bar goodTableActions appearance="compact"` with structured `groups` and handle `commandSelected`. Integrated search shares the header row. Normal actions move into More based on container width; use `important` sparingly for visible primary commands. Custom projected Buttons still wrap but do not automatically become menu items. See `guides/components/table.md` and `guides/components/action-bar.md`.

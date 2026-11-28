@@ -7,9 +7,8 @@
     <div goodDetailRow><dt>Members</dt><dd>{{ people().length }}</dd></div>
   </good-detail-list>
   <good-table title="Directory records" label="People" [data]="people()" [columns]="columns" [searchable]="true" [pagination]="pagination">
-    <good-action-group goodTableActions spacing="small">
-      <good-button size="small" (click)="addPerson()">Add person</good-button>
-    </good-action-group>
+    <good-action-bar goodTableActions appearance="compact" ariaLabel="Directory actions"
+      [groups]="commands()" (commandSelected)="runCommand($event)" />
     <ng-template goodTableEmpty>
       <good-empty-state title="No matching people" description="Try another search or add a person.">
         <good-button (click)="addPerson()">Add person</good-button>

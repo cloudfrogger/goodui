@@ -5,22 +5,72 @@
   "selector": "good-table",
   "containerId": "c0c3286f-e4bf-804c-8008-d70497244bf9",
   "axes": {
-    "style": ["default", "bordered", "striped", "compact"],
-    "state": ["populated", "empty"]
+    "style": [
+      "default",
+      "bordered",
+      "striped",
+      "compact"
+    ],
+    "state": [
+      "populated",
+      "empty"
+    ]
   },
   "variants": [
-    { "id": "c0c3286f-e4bf-804c-8008-d7049380955e", "style": "default", "state": "populated" },
-    { "id": "c0c3286f-e4bf-804c-8008-d704938cdb6a", "style": "default", "state": "empty" },
-    { "id": "c0c3286f-e4bf-804c-8008-d704939488e0", "style": "bordered", "state": "populated" },
-    { "id": "c0c3286f-e4bf-804c-8008-d704939c47a5", "style": "bordered", "state": "empty" },
-    { "id": "c0c3286f-e4bf-804c-8008-d70493a2d44f", "style": "striped", "state": "populated" },
-    { "id": "c0c3286f-e4bf-804c-8008-d70493a85954", "style": "striped", "state": "empty" },
-    { "id": "c0c3286f-e4bf-804c-8008-d70493abbfab", "style": "compact", "state": "populated" },
-    { "id": "c0c3286f-e4bf-804c-8008-d70493afc6c7", "style": "compact", "state": "empty" }
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d7049380955e",
+      "style": "default",
+      "state": "populated"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d704938cdb6a",
+      "style": "default",
+      "state": "empty"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d704939488e0",
+      "style": "bordered",
+      "state": "populated"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d704939c47a5",
+      "style": "bordered",
+      "state": "empty"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d70493a2d44f",
+      "style": "striped",
+      "state": "populated"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d70493a85954",
+      "style": "striped",
+      "state": "empty"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d70493abbfab",
+      "style": "compact",
+      "state": "populated"
+    },
+    {
+      "id": "c0c3286f-e4bf-804c-8008-d70493afc6c7",
+      "style": "compact",
+      "state": "empty"
+    }
   ],
   "examples": [
-    { "name": "example.table-search-pagination", "id": "c0c3286f-e4bf-804c-8008-d704ca622feb", "published": false },
-    { "name": "example.table-selected-row", "id": "2f4a7d00-3514-8040-8008-e16a8a6c64d2", "published": false, "state": "selected", "note": "Linked default Table with row-2 selected via color.selected and color.accent token-bound rail; selection is runtime state." }
+    {
+      "name": "example.table-search-pagination",
+      "id": "c0c3286f-e4bf-804c-8008-d704ca622feb",
+      "published": false
+    },
+    {
+      "name": "example.table-selected-row",
+      "id": "2f4a7d00-3514-8040-8008-e16a8a6c64d2",
+      "published": false,
+      "state": "selected",
+      "note": "Linked default Table with row-2 selected via color.selected and color.accent token-bound rail; selection is runtime state."
+    }
   ],
   "embeddingContract": "design/settings-layout-contract.json",
   "compositions": [
@@ -31,7 +81,7 @@
       "width": 920,
       "title": "Workspace records",
       "projection": "goodTableActions",
-      "note": "Linked Table, Input, and small Button instances. Title and actions stay outside the horizontal data scroller; the mobile composition wraps actions below the title."
+      "note": "Linked Table, small Input, Buttons, and closed Dropdown instances. Title is above the search/actions controls. Desktop shows commands beside search; mobile stacks search above the primary command and More. Existing published IDs are preserved."
     },
     {
       "name": "goodui.table.with-actions-mobile",
@@ -40,7 +90,21 @@
       "width": 342,
       "title": "Workspace records",
       "projection": "goodTableActions",
-      "note": "Linked Table, Input, and small Button instances. Title and actions stay outside the horizontal data scroller; the mobile composition wraps actions below the title."
+      "note": "Linked Table, small Input, Buttons, and closed Dropdown instances. Title is above the search/actions controls. Desktop shows commands beside search; mobile stacks search above the primary command and More. Existing published IDs are preserved."
     }
-  ]
+  ],
+  "responsiveHeader": {
+    "projection": "goodTableActions",
+    "composition": "good-action-bar appearance=compact",
+    "search": "Integrated small Input shares the header controls row; title is above.",
+    "overflow": "ActionBar measures its allocated container. Normal commands move to More; important remains visible; disabled states and command IDs persist.",
+    "penpotStatus": "Live desktop and mobile compositions updated through MCP; stable component and main-instance IDs preserved.",
+    "verification": "Light/dark browser checks passed at 1440, 1024, 390, and 320 px. Static closed More triggers illustrate overflow; browser tests verify the working menu.",
+    "penpotVerification": {
+      "light": "Targeted desktop/mobile native PNG exports inspected.",
+      "dark": "Surfaces and icons update, but native Penpot export retains stale text colors. Full dark design parity is unverified; Angular dark browser checks pass.",
+      "stableIds": "Both original composition IDs and main-instance IDs confirmed against the live library.",
+      "linkedParts": "Existing Table, small Input, small Buttons, and bottom-start/hidden-chevron/closed Dropdown."
+    }
+  }
 }

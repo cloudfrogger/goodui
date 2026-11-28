@@ -32,6 +32,18 @@
       "kind": "input"
     },
     {
+      "name": "appearance",
+      "type": "\"default\" | \"compact\"",
+      "required": false,
+      "default": "default",
+      "allowedValues": [
+        "default",
+        "compact"
+      ],
+      "source": "angular/projects/goodui/src/lib/action-bar.ts",
+      "kind": "input"
+    },
+    {
       "name": "ariaLabel",
       "type": "string",
       "required": false,
@@ -53,6 +65,10 @@
       "default",
       "small",
       "large"
+    ],
+    "appearance": [
+      "default",
+      "compact"
     ]
   },
   "composition": {
@@ -72,8 +88,10 @@
   },
   "usageGuide": "guides/components/action-bar.md",
   "usage": {
-    "summary": "`good-action-bar` puts grouped commands above a workspace. It uses GoodUI Button for visible commands, ActionGroup for their spacing, and Dropdown for the accessible More menu. Project existing Input, Dropdown, or other controls into `[goodActionBarTools]` for search and filters. Command IDs and behavior belong to the application.",
-    "examples": []
+    "summary": "`good-action-bar` puts grouped commands above a workspace. It uses GoodUI Button for visible commands, ActionGroup for their spacing, and Dropdown for the accessible More menu. Project existing Input, Dropdown, or other controls into `[goodActionBarTools]` for search and filters. Use `appearance=\"compact\"` inside `good-table` with the `goodTableActions` projection slot for responsive header Buttons beside search; commands collapse into More based on container width. Command IDs and behavior belong to the application.",
+    "examples": [
+      "ai/examples/table-view.html"
+    ]
   },
   "penpot": [],
   "missing": {

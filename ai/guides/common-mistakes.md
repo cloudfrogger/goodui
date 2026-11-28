@@ -17,3 +17,9 @@
 ## Formatting money while typing
 
 Do not bind a freshly formatted `toFixed()` string back into an Input after every keystroke: entering `50` can turn the first `5` into `5.00` and move the caret. Use CurrencyInput with integer minor units and let it format on blur. It accepts locale-aware decimals, rejects excess precision, and retains invalid drafts for correction. An ordinary NumberInput keeps numeric stepping and is not a currency field.
+
+## Table header actions that collapse into a menu
+
+Do not invent Table inputs such as `actions`, `headerActions`, or `actionSelected`: Table projects `[goodTableActions]`. For automatic overflow, import `GoodActionBarComponent` and project one `<good-action-bar goodTableActions appearance="compact" [groups]="commands()" (commandSelected)="runCommand($event)" />` directly into Table. Import `GoodActionBarGroup` and `GoodActionBarSelection` as types. Use Table's `[searchable]="true"` for integrated search; do not add a second search field or synchronize two queries.
+
+ActionGroup with arbitrary Buttons still wraps; it cannot infer menu labels, disabled state, or handlers and does not provide automatic overflow. Keep command IDs stable, handle both group and command IDs, and use a computed group array when disabled state depends on signals. Do not mark every command `important`, because important commands stay visible and can scroll. Verify a narrow table inside a wide viewport as well as mobile; no application breakpoint, CSS layout rule, or duplicate mobile menu is needed. Start from `ai/examples/table-view.ts` and `.html`.

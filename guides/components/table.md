@@ -1,6 +1,6 @@
 # Table
 
-`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.
+`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance="compact"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.
 
 ## Start with columns and data
 
@@ -267,7 +267,7 @@ The embedded normal and compact Penpot components are published on `44 Settings`
 
 ## Title row actions
 
-Set `title` for a visible table heading and project an element with the static `goodTableActions` attribute for actions at its right edge. Use a GoodUI ActionGroup for several Buttons, or project another control with its normal Angular inputs and events. No extra directive import is needed. The Table owns the heading/action spacing. Keep the content as a direct child of Table; place conditional buttons inside the projected ActionGroup so Angular retains the projection slot.
+Set `title` for a visible table heading and project an element with the static `goodTableActions` attribute for right-aligned header actions. Integrated search appears beside those actions, below the title. Use a GoodUI ActionGroup for several Buttons, or project another control with its normal Angular inputs and events. No extra directive import is needed. The Table owns the heading/action spacing. Keep the content as a direct child of Table; place conditional buttons inside the projected ActionGroup so Angular retains the projection slot.
 
 ```html
 <good-table title="Workspace records" label="Workspace records"
@@ -279,9 +279,9 @@ Set `title` for a visible table heading and project an element with the static `
 </good-table>
 ```
 
-Import Table, ActionGroup, and Button in the declaring standalone component; implement the action handlers in the application. `label` supplies the accessible table name. The optional visible title is a native H2 with the shared 18 px heading treatment. Actions also work without a title or integrated search. With neither title nor projected actions, the title row takes no space. An empty conditional action group may still reserve its own space; condition the projected group itself when it should disappear completely.
+Import Table, ActionGroup, and Button in the declaring standalone component; implement the action handlers in the application. `label` supplies the accessible table name. The optional visible title is a native H2 with the shared 18 px heading treatment. Actions also work without a title or integrated search. With no title, integrated search, or projected actions, the header takes no space. An empty conditional action group may still reserve its own space; condition the projected group itself when it should disappear completely.
 
-The action area wraps below the title when space is limited. It remains outside the horizontally scrolling data region, so actions remain reachable while inspecting wide tables on mobile. Search retains its existing behavior in the row below. Use section actions when a command belongs to the surrounding section; use `goodTableActions` when the table owns the command. Cell templates, sorting, selection, pagination, frame appearance, and density keep their existing contracts.
+The action area wraps below the title when space is limited. It remains outside the horizontally scrolling data region, so actions remain reachable while inspecting wide tables on mobile. Integrated search shares the header controls row with the actions and wraps when needed. Use section actions when a command belongs to the surrounding section; use `goodTableActions` when the table owns the command. Cell templates, sorting, selection, pagination, frame appearance, and density keep their existing contracts.
 
 The [Tables homepage](../../homepage/src/app/tables-page.ts) demonstrates Add and Reset with real local data changes. The [agent example](../../ai/examples/table-view.html) includes an Add person handler. Penpot title/action compositions are recorded separately from the eight original variants in [table-variants.json](../../design/table-variants.json).
 
@@ -300,3 +300,27 @@ Import `GoodTableEmptyDirective` and supply an `ng-template goodTableEmpty`. Its
 ```
 
 The directive has no inputs or outputs and maps to the owning `good-table` empty region. Loading never instantiates the supplied template. See [Empty State](empty-state.md) and the patient records example.
+
+## Responsive header commands
+
+For commands that should collapse into a menu, project the existing ActionBar in compact appearance:
+
+```html
+<good-table title="Records" label="Records" [data]="records()"
+  [columns]="columns" [searchable]="true">
+  <good-action-bar goodTableActions appearance="compact" ariaLabel="Record actions"
+    [groups]="commands" (commandSelected)="runCommand($event)" />
+</good-table>
+```
+
+```ts
+import { GoodActionBarComponent, type GoodActionBarGroup, type GoodActionBarSelection } from '@cloudfrogger/goodui';
+readonly commands: readonly GoodActionBarGroup[] = [{ id: 'records', label: 'Records', commands: [
+  { id: 'add', label: 'Add record', priority: 'important', variant: 'default' },
+  { id: 'export', label: 'Export records' },
+  { id: 'refresh', label: 'Refresh records' },
+] }];
+// Handle { groupId, commandId } in runCommand(event: GoodActionBarSelection).
+```
+
+Import `GoodActionBarComponent` alongside Table. The application owns operations and disabled states. The bar measures the table's allocated action width rather than the viewport. Normal commands move into the accessible More dropdown as space shrinks and return when it grows; `important` keeps the primary command visible, while `overflow` always puts a command in More. Visible Buttons and menu items share the same event contract. Existing custom `goodTableActions` content still works and wraps, but cannot automatically become menu items; use structured commands for that behavior. See [Action bar](action-bar.md) and the live Tables chapter.

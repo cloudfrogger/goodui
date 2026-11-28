@@ -85,7 +85,7 @@
         "symbol": "GoodActionBarComponent"
       },
       "usageGuide": "guides/components/action-bar.md",
-      "summary": "`good-action-bar` puts grouped commands above a workspace. It uses GoodUI Button for visible commands, ActionGroup for their spacing, and Dropdown for the accessible More menu. Project existing Input, Dropdown, or other controls into `[goodActionBarTools]` for search and filters. Command IDs and behavior belong to the application.",
+      "summary": "`good-action-bar` puts grouped commands above a workspace. It uses GoodUI Button for visible commands, ActionGroup for their spacing, and Dropdown for the accessible More menu. Project existing Input, Dropdown, or other controls into `[goodActionBarTools]` for search and filters. Use `appearance=\"compact\"` inside `good-table` with the `goodTableActions` projection slot for responsive header Buttons beside search; commands collapse into More based on container width. Command IDs and behavior belong to the application.",
       "penpotCount": 0
     },
     {
@@ -1489,7 +1489,7 @@
         "symbol": "GoodTableComponent"
       },
       "usageGuide": "guides/components/table.md",
-      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
+      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance=\"compact\"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.",
       "penpotCount": 5
     },
     {
@@ -1585,7 +1585,7 @@
         "symbol": "GoodTableCellDirective"
       },
       "usageGuide": "guides/components/table.md",
-      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
+      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance=\"compact\"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.",
       "penpotCount": 0
     },
     {
@@ -1597,7 +1597,7 @@
         "symbol": "GoodTableEmptyDirective"
       },
       "usageGuide": "guides/components/table.md",
-      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame.",
+      "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance=\"compact\"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.",
       "penpotCount": 0
     }
   ]

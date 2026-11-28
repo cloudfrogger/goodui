@@ -1,15 +1,34 @@
 {
   "family": "goodui.action-bar",
   "selector": "good-action-bar",
-  "penpotStatus": "pending-plugin-connection",
+  "penpotStatus": "pending-variant-publication",
   "proposedPage": "Action Bars",
-  "composition": ["goodui.button", "goodui.action-group", "goodui.dropdown", "goodui.input"],
+  "composition": [
+    "goodui.button",
+    "goodui.action-group",
+    "goodui.dropdown",
+    "goodui.input"
+  ],
   "runtime": {
     "groups": "ordered command groups with IDs and labels",
-    "priority": ["important", "normal", "overflow"],
+    "priority": [
+      "important",
+      "normal",
+      "overflow"
+    ],
     "overflow": "responsive More menu; important commands stay visible",
     "tools": "projected application controls",
-    "size": ["small", "default", "large"]
+    "size": [
+      "small",
+      "default",
+      "large"
+    ],
+    "appearance": [
+      "default",
+      "compact"
+    ],
+    "compact": "Ordinary inline Buttons with no extra frame; measures allocated container width for overflow. Same command events, disabled state, focus transfer, and priority rules."
   },
-  "publishedIds": []
+  "publishedIds": [],
+  "tableCompositions": "Compact appearance is represented inside the two published Table action compositions recorded in design/table-variants.json, using linked Buttons and Dropdown. The standalone family has no published ID."
 }
