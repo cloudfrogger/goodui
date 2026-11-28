@@ -703,14 +703,14 @@
 }
 
 [data-theme="dark"] {
-  --good-color-canvas: #09090B;
-  --good-color-surface: #09090B;
-  --good-color-text: #FAFAFA;
-  --good-color-border: #27272A;
+  --good-color-canvas: #18181B;
+  --good-color-surface: #1F1F23;
+  --good-color-text: #D4D4D8;
+  --good-color-border: #3F3F46;
   --good-color-accent: #60A5FA;
   --good-color-icon: #A1A1AA;
   --good-color-muted: #A1A1AA;
-  --good-color-selected: #18181B;
+  --good-color-selected: #2A2A30;
   --good-color-error: #F87171;
   --good-color-warning: #FACC15;
   --good-color-warning-foreground: var(--good-color-warning);
@@ -732,13 +732,13 @@
   --good-color-marker-green: #8BCDA2;
   --good-color-marker-teal: #7BCABB;
   --good-color-marker-cyan: #7DC4D5;
-  --good-button-secondary-hover: #27272A;
+  --good-button-secondary-hover: #323238;
   --good-switch-off-background: #52525B;
   --good-switch-on-background: #3B82F6;
   --good-badge-primary-outline-background: #172554;
   --good-badge-primary-light-background: #1E3A8A;
-  --good-badge-secondary-outline-background: #111113;
-  --good-badge-secondary-light-background: #18181B;
+  --good-badge-secondary-outline-background: var(--good-color-surface);
+  --good-badge-secondary-light-background: var(--good-color-selected);
   --good-badge-destructive-solid-foreground: #09090B;
   --good-badge-destructive-outline-background: #3F171B;
   --good-badge-destructive-light-background: #4A1D21;
@@ -750,8 +750,8 @@
   --good-badge-info-solid-foreground: #09090B;
   --good-badge-info-outline-background: #0D3444;
   --good-badge-info-light-background: #12495F;
-  --good-badge-text-outline-background: #18181B;
-  --good-badge-text-light-background: #27272A;
+  --good-badge-text-outline-background: var(--good-color-selected);
+  --good-badge-text-light-background: var(--good-button-secondary-hover);
   --good-code-syntax-keyword: #C4B5FD;
   --good-code-syntax-string: #86EFAC;
   --good-code-syntax-number: #FCD34D;

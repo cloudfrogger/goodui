@@ -231,7 +231,7 @@ Calendar selection is modeled by `[(selectedEventId)]` and the `eventSelected` o
 The optional `[showCurrentTime]` defaults to true. In week/day views, one pointer-transparent current-time line spans the full time grid, including every day column. It also appears in day view, independent of the selected date, as a current time-of-day guide. The local clock refreshes at minute boundaries and its position follows the hour grid height. The published internal `goodui.calendar.now-indicator` is linked into both Penpot view specimens; the week instance spans all seven columns. Its line height, dot size, and accent color bind to `calendar.now.*`; the fixed Penpot y-coordinate is illustrative rather than a runtime time value. Month and list views omit the indicator.
 `holidays` accepts named local dates and adds a compact, noninteractive label to month, week, day, and list views without making a day unavailable. The linked internal `goodui.calendar.holiday-label` component uses `color.selected` for the surface, `color.text` for readable small text, `color.marker.rose` for the decorative dot, `radius.compact` for corners, and `calendar.holiday.marker.size` for the dot in both appearance themes. The public `locale` input overrides the application's Angular `LOCALE_ID`; otherwise the browser locale is used. Formatting includes the hour rail and appointment times, so `de-DE` yields 24-hour time.
 The handle token is bound to height in the timed specimen and width in the all-day specimen. A temporary change from 16 to 20 resized both live Penpot handles to 20; the token and light theme were restored to 16. The repository snapshot and generated CSS expose the same 16 px value.
-The live Penpot `calendar.*` catalog and the repository token snapshot have matching names, types, values, and aliases (24 layout tokens and two dark overrides). In a reversible binding check, changing `space.2` from 8 to 10 moved a month cell's bound padding from 8 to 10; changing `calendar.cell.padding` to 12 moved it to 12. Both values and the light theme were restored. The dark theme resolves the event background to `#172554` and the calendar surface to `#09090B`, with the component bindings retained. The non-working band and weekend month cells retain their `calendar.nonworking.background` fill binding and resolve to `#18181B` in dark mode.
+The live Penpot `calendar.*` catalog and the repository token snapshot have matching names, types, values, and aliases (24 layout tokens and two dark overrides). In a reversible binding check, changing `space.2` from 8 to 10 moved a month cell's bound padding from 8 to 10; changing `calendar.cell.padding` to 12 moved it to 12. Both values and the light theme were restored. The dark theme resolves the event background to `#172554` and the calendar surface to `#1F1F23`, with the component bindings retained. The non-working band and weekend month cells retain their `calendar.nonworking.background` fill binding and resolve to `#2A2A30` in dark mode.
 
 - Semantic design ID: `goodui.<kebab-name>`, such as `goodui.sidebar-menu-container`.
 - Penpot main component: `goodui.<kebab-name>.<state-or-variant>`, such as `goodui.sidebar-item.active`.
@@ -380,15 +380,17 @@ Penpot themes `appearance/light` and `appearance/dark` switch the same semantic 
 
 | Role | Token | Light (`layout`) | Dark (`layout-dark`) |
 | --- | --- | --- | --- |
-| Canvas | `color.canvas` | `#FFFFFF` | `#09090B` |
-| Surface | `color.surface` | `#FFFFFF` | `#09090B` |
-| Primary text | `color.text` | `#09090B` | `#FAFAFA` |
+| Canvas | `color.canvas` | `#FFFFFF` | `#18181B` |
+| Surface | `color.surface` | `#FFFFFF` | `#1F1F23` |
+| Primary text | `color.text` | `#09090B` | `#D4D4D8` |
 | Secondary text | `color.muted` | `#71717A` | `#A1A1AA` |
-| Border | `color.border` | `#E4E4E7` | `#27272A` |
+| Border | `color.border` | `#E4E4E7` | `#3F3F46` |
 | Accent | `color.accent` | `#2563EB` | `#60A5FA` |
-| Selected item | `color.selected` | `#F4F4F5` | `#18181B` |
+| Selected item | `color.selected` | `#F4F4F5` | `#2A2A30` |
 | Icon | `color.icon` | `#69707D` | `#A1A1AA` |
 | Overlay | `color.overlay` | `#000000` | `#000000` |
+
+The default dark theme uses anthracite surfaces and soft gray text. Primary text contrasts at 11.99:1 on canvas and 11.11:1 on surface; muted text remains at 6.91:1 and 6.41:1. `npm run check:contrast` guards 64 dark text/background pairs against the WCAG 2.0 AA normal-text minimum of 4.5:1, including neutral hover states and calendar marker labels. This checks those color combinations, not full application conformance. Keep theme colors in the shared semantic tokens; do not restore near-black panels or white body text in component CSS.
 
 Shared `layout` dimensions: `space.1`, `.2`, `.2_5`, `.3`, `.5`, `.6`, `.7_5`, `.8` = 4, 8, 10, 12, 20, 24, 30, 32 px; `radius.item` = 8 px; `radius.card` = 12 px; `size.sidebar` = 280 px; `size.topbar` = 70 px. Add shared roles for overlay opacity, hover, or focus if several components need them.
 

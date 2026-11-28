@@ -3194,15 +3194,15 @@
   "layout-dark": {
     "color": {
       "canvas": {
-        "$value": "#09090B",
+        "$value": "#18181B",
         "$type": "color"
       },
       "surface": {
-        "$value": "#09090B",
+        "$value": "#1F1F23",
         "$type": "color"
       },
       "text": {
-        "$value": "#FAFAFA",
+        "$value": "#D4D4D8",
         "$type": "color"
       },
       "muted": {
@@ -3210,7 +3210,7 @@
         "$type": "color"
       },
       "border": {
-        "$value": "#27272A",
+        "$value": "#3F3F46",
         "$type": "color"
       },
       "accent": {
@@ -3218,7 +3218,7 @@
         "$type": "color"
       },
       "selected": {
-        "$value": "#18181B",
+        "$value": "#2A2A30",
         "$type": "color"
       },
       "icon": {
@@ -3319,7 +3319,7 @@
     "button": {
       "secondary": {
         "hover": {
-          "$value": "#27272A",
+          "$value": "#323238",
           "$type": "color"
         }
       }
@@ -3356,13 +3356,13 @@
       "secondary": {
         "outline": {
           "background": {
-            "$value": "#111113",
+            "$value": "{color.surface}",
             "$type": "color"
           }
         },
         "light": {
           "background": {
-            "$value": "#18181B",
+            "$value": "{color.selected}",
             "$type": "color"
           }
         }
@@ -3450,13 +3450,13 @@
       "text": {
         "outline": {
           "background": {
-            "$value": "#18181B",
+            "$value": "{color.selected}",
             "$type": "color"
           }
         },
         "light": {
           "background": {
-            "$value": "#27272A",
+            "$value": "{button.secondary.hover}",
             "$type": "color"
           }
         }

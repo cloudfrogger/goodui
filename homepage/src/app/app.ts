@@ -91,6 +91,7 @@ export class App {
       ] },
       { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
       { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
+      { id: 'iso-40500', label: 'ISO/IEC 40500', icon: 'check', route: '/getting-started/iso-40500' },
     ] },
     { id: 'components', heading: 'COMPONENTS', items: [
       { id: 'controls-category', label: 'Controls', icon: 'grid', children: [
@@ -216,6 +217,7 @@ export class App {
         ] },
         { id: 'typography', label: 'Typography', icon: 'book', route: '/getting-started/typography' },
         { id: 'color-scheme', label: 'Color Scheme', icon: 'sun', route: '/getting-started/color-scheme' },
+        { id: 'iso-40500', label: 'ISO/IEC 40500', icon: 'check', route: '/getting-started/iso-40500' },
       ] },
     ] },
     { id: 'home', label: 'Home', route: '/dashboard' },
@@ -246,7 +248,7 @@ export class App {
     { id: 'timelines', label: 'Timelines', description: 'Responsive process steps and milestone histories', route: '/components/timelines' },
     { id: 'sidebar', label: 'Sidebar', description: 'Declarative good-sidebar and nested good-sidebar-item navigation', route: '/getting-started/layout/sidebar' },
     { id: 'default-shell', label: 'Layout · Default shell', description: 'Foundation · scrolling pages and forms', route: '/getting-started/layout/default-shell' },
-    { id: 'layout-fill', label: 'Layout · Fill option', description: 'Default shell variant · entire client content area without outer padding', route: '/getting-started/layout/default-shell' },
+    { id: 'layout-fill', label: 'Layout · Fill option', description: 'Default shell variant · remaining inner height with responsive page insets', route: '/getting-started/layout/default-shell' },
     { id: 'typography', label: 'Typography', description: 'Foundation · headings, prose, images, and form text', route: '/getting-started/typography' },
     { id: 'chart-datasources', label: 'Chart data sources', description: 'Typed keys, dimensions, multiple sources, and axis conversions', route: '/visualizations/datasources' },
     { id: 'line-charts', label: 'Line charts', description: 'Responsive, multi-series charts with optional data table', route: '/visualizations/line-charts' },
@@ -255,6 +257,7 @@ export class App {
     { id: 'histograms', label: 'Histograms', description: 'Numeric distributions in shared count intervals', route: '/visualizations/histograms' },
     { id: 'sparklines', label: 'Sparklines', description: 'Compact trends for metrics and table cells', route: '/visualizations/sparklines' },
     { id: 'world-maps', label: 'World maps', description: 'Zoomable country maps with chart overlays', route: '/visualizations/world-maps' },
+    { id: 'iso-40500', label: 'ISO/IEC 40500', description: 'Framework support review · 86 WCAG 2.2 criteria, evidence, and application responsibilities', route: '/getting-started/iso-40500' },
     { id: 'color-scheme', label: 'Color Scheme', description: 'Foundation · light and dark color roles and customization', route: '/getting-started/color-scheme' },
     { id: 'introduction', label: 'Introduction', description: 'Getting Started', route: '/getting-started/introduction' },
     { id: 'designing', label: 'Designing', description: 'Getting Started', route: '/getting-started/designing' },

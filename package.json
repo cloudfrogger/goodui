@@ -15,6 +15,9 @@
     "build:lib": "npm --prefix angular run build:lib",
     "link:homepage": "npm --prefix homepage run link:goodui",
     "build:homepage": "npm run brand:sync && npm run build:lib && npm run link:homepage && npm --prefix homepage run build",
-    "start:homepage": "npm run brand:sync && npm run build:lib && npm run link:homepage && npm --prefix homepage start"
+    "start:homepage": "npm run brand:sync && npm run build:lib && npm run link:homepage && npm --prefix homepage start",
+    "check:contrast": "node scripts/check-theme-contrast.mjs",
+    "accessibility:generate": "node scripts/generate-accessibility-guide.mjs",
+    "accessibility:check": "node scripts/generate-accessibility-guide.mjs --check"
   }
 }

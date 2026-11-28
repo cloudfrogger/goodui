@@ -60,6 +60,8 @@ steps:
     commands:
       - npm --prefix angular ci --legacy-peer-deps --no-audit --no-fund
       - npm run check:mapping
+      - npm run check:contrast
+      - npm run accessibility:check
       - npm run build:lib
       - node ai/scripts/generate-catalog.mjs --check
       - node ai/scripts/check-catalog.mjs angular/dist/goodui

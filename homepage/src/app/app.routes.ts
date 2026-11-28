@@ -33,6 +33,7 @@ export const routes: Routes = [
   { path: 'getting-started/layout/default', redirectTo: 'getting-started/layout/default-shell', pathMatch: 'full' },
   { path: 'getting-started/layout/fill', redirectTo: 'getting-started/layout/default-shell', pathMatch: 'full' },
   { path: 'getting-started/typography', loadComponent: () => import('./typography-page').then(module => module.TypographyPageComponent) },
+  { path: 'getting-started/iso-40500', loadComponent: () => import('./iso-40500-page').then(module => module.Iso40500PageComponent) },
   { path: 'getting-started/color-scheme', loadComponent: () => import('./color-scheme-page').then(module => module.ColorSchemePageComponent) },
   { path: 'getting-started/developing', loadComponent: () => import('./getting-started-page').then(module => module.DevelopingPageComponent) },
   { path: 'getting-started/developing-with-ai', loadComponent: () => import('./developing-with-ai-page').then(module => module.DevelopingWithAiPageComponent) },

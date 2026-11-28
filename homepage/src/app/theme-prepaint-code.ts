@@ -8,6 +8,6 @@ export const themePrepaintCode = `<script>
 </script>
 <style>
   html { background-color: #fff; color-scheme: light; }
-  html[data-theme="dark"] { background-color: #09090b; color-scheme: dark; }
+  html[data-theme="dark"] { background-color: #18181b; color-scheme: dark; }
   body { background-color: inherit; }
 </style>`;

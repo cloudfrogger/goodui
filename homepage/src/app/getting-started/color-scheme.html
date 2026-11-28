@@ -10,12 +10,25 @@
         <code>layout-dark</code> set overrides colors that need a different value in dark mode. Components refer to
         semantic roles such as <code>color.brand</code> or <code>color.error</code>, so changing a role updates its
         linked uses.</good-paragraph>
+      <good-paragraph>Dark mode pairs an anthracite canvas with slightly lighter surfaces and soft gray text. Primary text has an 11.99:1 contrast ratio on the canvas; muted text has 6.91:1. The shared dark text pairs are checked against the WCAG 2.0 AA minimum of 4.5:1 for normal text.</good-paragraph>
       <good-paragraph>The swatches below read the active CSS variables. Use the button to switch between Light and Dark; the values
         also respond to color overrides in a consuming app.</good-paragraph>
     </good-prose>
     <good-button variant="secondary" size="small" (click)="theme.cycle()">
       Appearance: {{ theme.theme() }}
     </good-button>
+  </good-section>
+
+  <good-section>
+    <good-heading-2>Contrast and color choices</good-heading-2>
+    <good-prose>
+      <good-paragraph>Choose foreground and background together. Check at least 4.5:1 for normal text at WCAG AA, or 3:1 for qualifying large text (24 CSS pixels, or about 18.67 CSS pixels in bold). A 26 px page title qualifies; a 14 px description does not. Enhanced text contrast at AAA uses 7:1 and 4.5:1 respectively. Compare the unrounded ratio, including the actual effects of opacity and overlays.</good-paragraph>
+      <good-paragraph>The dark palette uses canvas <code>#18181B</code>, surface <code>#1F1F23</code>, primary text <code>#D4D4D8</code>, and muted text <code>#A1A1AA</code>. On the canvas these text colors reach 11.99:1 and 6.91:1. Selected surfaces use <code>#2A2A30</code>; their primary and muted text reach 9.65:1 and 5.57:1. The softer contrast is deliberate, with room above the normal-text AA threshold.</good-paragraph>
+      <good-paragraph>Use semantic roles for body text, descriptions, surfaces, status, and focus. Yellow <code>color.warning</code> is a vivid status fill; use <code>color.warning-foreground</code> for small warning text. Keep marker colors for categories and pair them with a visible label, shape, pattern, or icon. Do not convey required information with color alone. Keep links recognizable with wording and decoration, not only a different hue.</good-paragraph>
+      <good-paragraph>Text contrast does not prove control contrast. Essential control boundaries, state indicators, and graphical information need their own 3:1 checks under WCAG 2.2, with its applicable exceptions. Verify focus rings, disabled and error states, transparent surfaces, and both themes. Decorative separators and inactive controls have different requirements; do not treat every subtle divider as a failing text background.</good-paragraph>
+      <good-paragraph>The repository command <code>npm run check:contrast</code> checks 64 defined dark text pairs, including status text, neutral Badge labels, and Calendar marker labels. It does not cover every light-theme state, non-text boundary, image, application override, or combination. The <good-link route="/getting-started/iso-40500">ISO/IEC 40500 table</good-link> records this verification limit instead of presenting a full-framework conformance claim.</good-paragraph>
+      <good-paragraph>Reference: <good-link href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" target="_blank">minimum text contrast</good-link>, <good-link href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html" target="_blank">enhanced text contrast</good-link>, <good-link href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html" target="_blank">non-text contrast</good-link>, and <good-link href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html" target="_blank">color-independent meaning</good-link>.</good-paragraph>
+    </good-prose>
   </good-section>
 
   <good-section>

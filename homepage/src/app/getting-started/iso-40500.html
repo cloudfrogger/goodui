@@ -1,0 +1,30 @@
+<good-main-view>
+  <good-heading-1>ISO/IEC 40500</good-heading-1>
+  <good-table label="ISO/IEC 40500 framework support review" [data]="rows" [columns]="columns"
+    [getRowId]="rowId" [searchable]="true" searchPlaceholder="Find a criterion or responsibility"
+    frameAppearance="none" density="compact" [reorderable]="false">
+    <ng-template goodTableCell="criterion" let-row>
+      <details>
+        <summary>{{ row.id.includes('.') ? row.id + ' · ' : '' }}{{ row.title }}</summary>
+        <good-prose>
+          <good-paragraph><strong>{{ row.basis }}</strong>@if (row.introduced !== '—') { · Level {{ row.level }} · WCAG {{ row.introduced }} }</good-paragraph>
+          <good-paragraph>{{ row.explanation }}</good-paragraph>
+          @if (row.standardUrl) {
+            <good-paragraph><good-link underline="always" [href]="row.standardUrl" target="_blank">W3C criterion {{ row.id }}</good-link></good-paragraph>
+          }
+          @for (link of row.links ?? []; track link.url) {
+            <good-paragraph><good-link underline="always" [href]="link.url" target="_blank">{{ link.label }}</good-link></good-paragraph>
+          }
+          @for (path of row.evidence; track path) {
+            <good-paragraph><good-link underline="always" [href]="'https://github.com/cloudfrogger/goodui/blob/master/' + path" target="_blank">Implementation reference: {{ path }}</good-link></good-paragraph>
+          }
+        </good-prose>
+      </details>
+    </ng-template>
+    <ng-template goodTableCell="status" let-row>
+      @if (row.status === 'OK' || row.status === 'Not okay') {
+        <good-badge [color]="row.status === 'OK' ? 'success' : 'destructive'" variant="light" [label]="row.status" />
+      } @else { <span>—</span> }
+    </ng-template>
+  </good-table>
+</good-main-view>

@@ -4,6 +4,27 @@ GoodUI uses the connected Penpot file's `layout` and `layout-dark` token sets. T
 
 The interactive [Color Scheme page](../../homepage/src/app/getting-started/color-scheme.html) shows the current light and dark values for the 14 core `color.*` roles and 16 `color.marker.*` roles as swatches. Canvas, surface, text, muted, icon, border, selected, and overlay form the neutral layer. Brand and accent are separate roles even when they share a light value; error, warning, success, and info express state. Marker colors represent domain categories and highlights without status or brand meaning. Component tokens such as `button.default.background` alias these roles where appropriate. Overlay opacity is a separate component token.
 
+## Softer dark surfaces and text
+
+Dark mode uses an anthracite canvas (`#18181B`), slightly raised surfaces (`#1F1F23`), and soft gray primary text (`#D4D4D8`). Muted text stays `#A1A1AA`. Selected areas use `#2A2A30`, borders `#3F3F46`, and secondary hover surfaces `#323238`. Neutral Badge backgrounds alias those same roles. Light-mode values and shared dimensions are unchanged.
+
+| Dark text role | Canvas | Surface | Selected area |
+| --- | --- | --- | --- |
+| Primary text | 11.99:1 | 11.11:1 | 9.65:1 |
+| Muted text | 6.91:1 | 6.41:1 | 5.57:1 |
+
+[WCAG 2.0 SC 1.4.3](https://www.w3.org/WAI/WCAG20/Understanding/contrast-minimum.html) requires at least 4.5:1 for normal text at level AA, or 3:1 for qualifying large text. GoodUI checks the stricter 4.5:1 threshold for 64 dark text/background pairs: primary, muted, accent, and status text on canvas, surface, selected, and hover backgrounds; neutral Badge labels; and Calendar text on all 16 marker colors. From the GoodUI repository root, `npm run check:contrast` resolves aliases and compares unrounded sRGB luminance ratios. The npm release pipeline runs this check. Computed CSS colors, rather than antialiased screenshot pixels, determine text contrast.
+
+These checks cover the listed opaque token combinations, not every possible component state or application override and not complete WCAG conformance. Verify actual backgrounds and blended colors in the consuming application. Keep body text, descriptions, controls, and menus bound to semantic roles instead of adding local white text or black surfaces. Status and marker fills retain their separate meaning and contrasting label roles.
+
+## Choosing accessible color pairs
+
+Use at least 4.5:1 for normal text at AA, or 3:1 for qualifying large text (24 CSS px, or about 18.67 CSS px bold). AAA text thresholds are 7:1 and 4.5:1. Evaluate actual foreground and background together, including compositing, selected, hover, and error states in both themes. A text check does not cover the separate 3:1 requirements for essential non-text controls and graphics in WCAG 2.2. Decorative and inactive elements have relevant exceptions; inspect the criterion rather than treating every separator as an essential boundary.
+
+Keep state labels and icons alongside colors; category markers need meaningful text or another non-color distinction. Use `color.warning-foreground` for small warning text and `color.warning` for vivid fills. Check link recognition as well as contrast. A consumer override must revalidate affected aliases and component-specific colors, not just a single base swatch.
+
+See [the framework support review](accessibility.md) for the edition, criterion-level limitations, and application responsibilities. Sources: [minimum text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [enhanced text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html), [non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html), and [use of color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html).
+
 ## Marker and highlight palette
 
 The 16 names are `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `teal`, and `cyan`. They are published as `color.marker.<name>` in Penpot, `--good-color-marker-<name>` in CSS, and `--color-good-marker-<name>` in Tailwind 4. The light and dark sets have separate values. Penpot page `23 Marker Colors` displays token-bound swatches; calendar events accept `marker: '<name>'` and use that exact token for their fill. `calendar.marker.text` and `.text-on-deep` provide contrasting text on the marker fills. Applications can also use the variables for their own labeled markers or highlights. Color alone should not convey a required distinction; keep category text or another cue available.
