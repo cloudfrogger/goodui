@@ -30,7 +30,8 @@
       "ai/examples/edit-form.html",
       "ai/examples/login.html",
       "ai/examples/settings.html",
-      "ai/examples/table-view.html"
+      "ai/examples/table-view.html",
+      "ai/examples/table-workspace.html"
     ]
   },
   "penpot": [

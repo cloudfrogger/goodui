@@ -1,6 +1,18 @@
 # MainView
 
-`good-main-view` provides the page container below the topbar. It applies a shared inset in both page and fill layouts: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. It owns scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.
+`good-main-view` provides the page container below the topbar. It applies a shared inset in both page and fill layouts: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. Use `layout="fill"` to allocate the remaining height to one workspace; the default `layout="page"` grows with content. For a Table workspace, also set `[fillHeight]="true"` on Table. It owns scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.
+
+## Choose page or fill layout
+
+| Goal | MainView input | Child input |
+| --- | --- | --- |
+| Normal scrolling page | `layout="page"` (default) | None |
+| Table uses all remaining workspace height | `layout="fill"` | `good-table [fillHeight]="true"` |
+| Calendar uses all remaining workspace height | `layout="fill"` | `good-calendar [fillHeight]="true"` |
+
+MainView's public parameter is `layout`; the Table's public parameter is `fillHeight`. Both are needed for a filled Table inside AppShell. Fill preserves responsive page insets; it fills the available inner height. See the [complete compiled Table workspace example](../../ai/examples/table-workspace.html) and [its imports and data](../../ai/examples/table-workspace.ts). See [Table's version check](table.md#check-the-installed-version) if an installed package does not expose `fillHeight`.
+
+## Scrolling page
 
 ```html
 <good-main-view>

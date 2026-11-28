@@ -1009,7 +1009,7 @@
         "symbol": "GoodMainViewComponent"
       },
       "usageGuide": "guides/components/main-view.md",
-      "summary": "`good-main-view` provides the page container below the topbar. It applies a shared inset in both page and fill layouts: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. It owns scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
+      "summary": "`good-main-view` provides the page container below the topbar. It applies a shared inset in both page and fill layouts: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. Use `layout=\"fill\"` to allocate the remaining height to one workspace; the default `layout=\"page\"` grows with content. For a Table workspace, also set `[fillHeight]=\"true\"` on Table. It owns scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
       "penpotCount": 8
     },
     {

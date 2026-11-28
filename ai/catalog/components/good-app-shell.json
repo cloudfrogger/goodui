@@ -157,7 +157,8 @@
   "usage": {
     "summary": "`good-app-shell` arranges the sidebar, application header, routed page, and notification host. Declare `good-sidebar` and `good-app-header` as direct children; the shell does not accept navigation arrays or create menu content for you.",
     "examples": [
-      "ai/examples/shell.html"
+      "ai/examples/shell.html",
+      "ai/examples/table-workspace.html"
     ]
   },
   "penpot": [

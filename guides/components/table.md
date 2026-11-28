@@ -2,6 +2,25 @@
 
 `good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain in the row model. By default the table grows vertically; `[fillHeight]="true"` fills a bounded parent and scrolls only the row area beneath sticky column headings. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance="compact"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.
 
+## Use all available workspace height
+
+Yes: Table has a public boolean input, **`fillHeight`**, defaulting to `false`. Set **both** `layout="fill"` on MainView and `[fillHeight]="true"` on Table:
+
+```html
+<good-main-view layout="fill">
+  <good-heading-1>Records</good-heading-1>
+  <good-table [fillHeight]="true" label="Records" [data]="records" [columns]="columns" />
+</good-main-view>
+```
+
+AppShell supplies the bounded height. Only the row area scrolls; column headings stay visible and title, search, actions, and pagination stay fixed. Fill uses the available inner height with the normal page insets. It does not require an application scroll wrapper or a pixel height. See [the complete compiled example](../../ai/examples/table-workspace.html), [its imports and data](../../ai/examples/table-workspace.ts), and [loading/empty behavior](#fill-the-workspace-height).
+
+### Check the installed version
+
+Read the consuming application's `node_modules/@cloudfrogger/goodui/package.json`, `ai/manifest.json`, and `ai/catalog/components/good-table.json`. Look for an input named `fillHeight` **on `good-table`**, then confirm it in the package's Angular declarations. Calendar or RichTextEditor having a similarly named input does not establish Table support.
+
+GoodUI 0.0.79 predates Table's `fillHeight` input. The feature was introduced by source commit `01f4f77ba233dce33c28c91816a70be71ed97882`. Do not assume a newer README or repository checkout describes an older installed package. If the input is absent, report the installed version and update to a published package containing that commit, or use a local build containing it. Refresh the installed GoodUI skill afterward. Do not invent an alternative input or silently substitute application CSS. A repository commit alone does not update installed npm dependencies.
+
 ## Start with columns and data
 
 ```ts

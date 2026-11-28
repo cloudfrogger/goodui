@@ -192,7 +192,8 @@
   "usage": {
     "summary": "Use `good-app-header` to compose the application's header. Declare `good-header-menu` and `good-header-actions` inside it, then place AppHeader directly inside `good-app-shell`. AppHeader owns header layout and the mobile sidebar trigger; the menu owns navigation and its mobile popup.",
     "examples": [
-      "ai/examples/shell.html"
+      "ai/examples/shell.html",
+      "ai/examples/table-workspace.html"
     ]
   },
   "penpot": [

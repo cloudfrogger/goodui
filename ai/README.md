@@ -51,6 +51,8 @@ These instructions reach another project when it installs the updated package an
 
 Start with `ai/catalog/index.json` and `ai/guides/component-discovery.md`. Read component details and guides for the requested task. The catalog covers the public Angular selectors, their imports, inputs, outputs, variants, projection slots, and forms integration. Source files and `angular/projects/goodui/src/public-api.ts` cover services and exported types. `ai/examples/` supplies small page patterns; the referenced homepage examples show larger compositions.
 
+For “fill the available height” or “use the entire workspace,” use MainView `layout="fill"` together with Table `[fillHeight]="true"`. Start with `ai/examples/table-workspace.ts` and `.html`; `guides/components/table.md#check-the-installed-version` explains how to distinguish an older dependency from a missing capability. Repository changes do not update consuming applications automatically.
+
 Case studies are optional references under `ai/case-studies/`. Open a named study and its relevant screen when the task uses that workflow.
 
 For a Penpot design, provide a working Penpot MCP connection and access to the GoodUI library and target file. The skill uses the bundled mapping and live library inspection.

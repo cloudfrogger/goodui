@@ -7,7 +7,7 @@ Start with `ai/catalog/index.json`. Each entry gives a selector, Angular import 
 | Application frame, sidebar, navigation, page spacing | `good-app-shell`, `good-main-view`, `good-subnav`, `good-breadcrumbs`; `ai/guides/layout.md` |
 | Form, validation, fields, choices, date, phone, file | `form[goodForm]`, `good-group`, `good-form-row`, `good-form-field`; input, select, checkbox, radio, date, and upload families |
 | Records, filters, ordering, pagination, row actions | `good-table`, `good-input`, `good-select`, `good-action-menu`; `guides/components/table.md` |
-| Table fills available height; fixed search/actions/pagination and sticky column headings | `good-main-view layout="fill"` → `good-table [fillHeight]="true"`; `guides/components/table.md#fill-the-workspace-height`; complete `homepage/src/app/examples/table-workspace/` example |
+| Use entire workspace / full-height Table / fill available height; fixed controls and sticky column headings | `good-main-view layout="fill"` → `good-table [fillHeight]="true"`; `guides/components/table.md#fill-the-workspace-height`; compiled `ai/examples/table-workspace.ts` and `.html`; check the installed Table catalog for `fillHeight` before declaring support missing |
 | Table header actions beside search; narrow-container overflow menu | `good-table` + `good-action-bar goodTableActions appearance="compact"`; `guides/components/table.md#responsive-header-commands`; compiled `ai/examples/table-view.ts` and `.html` |
 | Commands, menus, confirmations, notifications | Button, ActionGroup, ActionBar, Dropdown, Modal, Alert; `guides/components/notifications.md` |
 | Workspace, schedule, composition, assistant | Resizable, Calendar, RichTextEditor, AssistantPanel; relevant component guides |

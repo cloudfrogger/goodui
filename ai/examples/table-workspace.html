@@ -1,0 +1,9 @@
+<good-app-shell brand="Example App">
+  <good-app-header />
+  <good-main-view layout="fill">
+    <good-heading-1>Records</good-heading-1>
+    <good-summary>Use the available height and scroll records within the table.</good-summary>
+    <good-table [fillHeight]="true" frameAppearance="none" label="Workspace records"
+      [data]="rows" [columns]="columns" [searchable]="true" [pagination]="pagination" />
+  </good-main-view>
+</good-app-shell>

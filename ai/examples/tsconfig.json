@@ -23,6 +23,7 @@
     "table-view.ts",
     "edit-form.ts",
     "settings.ts",
-    "shell.ts"
+    "shell.ts",
+    "table-workspace.ts"
   ]
 }
