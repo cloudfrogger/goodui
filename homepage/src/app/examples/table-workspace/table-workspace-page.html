@@ -1,0 +1,22 @@
+<good-main-view layout="fill">
+  <good-heading-1>Record workspace</good-heading-1>
+  <good-summary>A filled table with fixed controls and scrolling records.</good-summary>
+  <good-table label="Workspace records" [data]="rows()" [columns]="columns"
+    [fillHeight]="true" frameAppearance="none" [searchable]="true" [pagination]="pagination" [loading]="preview() === 'loading'"
+    [reorderable]="false" emptyMessage="No records in this preview">
+    <good-action-bar goodTableActions appearance="compact" ariaLabel="Table preview actions"
+      [groups]="commands()" (commandSelected)="runCommand($event)" />
+    @if (preview() === 'custom-empty') {
+      <ng-template goodTableEmpty>
+        <good-empty-state title="No records yet" description="This preview uses a custom empty template in the available row area.">
+          <good-button (click)="preview.set('records')">Show records</good-button>
+        </good-empty-state>
+      </ng-template>
+    }
+  </good-table>
+</good-main-view>
+<good-modal [(open)]="sourceOpen" size="large" [scrollBody]="true">
+  <good-modal-header title="Table workspace source" />
+  <good-code-block [code]="htmlSource" language="html" title="table-workspace-page.html" />
+  <good-code-block [code]="typescriptSource" language="typescript" title="table-workspace-page.ts" />
+</good-modal>

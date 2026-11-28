@@ -27,13 +27,13 @@ good-header-actions, good-header-themetoggle, good-main-view, good-subnav, good-
 good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3, good-heading-4, good-heading-5, good-heading-6, good-heading-7, good-summary, good-section, good-prose, good-detail-list, good-columns, good-column, good-paragraph, good-citation, good-separator, good-inline-image, good-form-field, good-field-label, good-hint, good-error-text { box-sizing: border-box; }
 
 :where(h1, h2, h3, h4, h5, h6, [role="heading"][aria-level="7"]) { margin: 0; min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; color: var(--good-typography-heading-color); line-height: 1.25; overflow-wrap: break-word; }
-:where(h1), good-heading-1 { font-size: var(--good-typography-heading-level-1-font-size); font-weight: var(--good-typography-heading-level-1-font-weight); letter-spacing: var(--good-typography-heading-level-1-letter-spacing); }
-:where(h2), good-heading-2 { font-size: var(--good-typography-heading-level-2-font-size); font-weight: var(--good-typography-heading-level-2-font-weight); letter-spacing: var(--good-typography-heading-level-2-letter-spacing); }
-:where(h3), good-heading-3 { font-size: var(--good-typography-heading-level-3-font-size); font-weight: var(--good-typography-heading-level-3-font-weight); letter-spacing: var(--good-typography-heading-level-3-letter-spacing); }
-:where(h4), good-heading-4 { font-size: var(--good-typography-heading-level-4-font-size); font-weight: var(--good-typography-heading-level-4-font-weight); letter-spacing: var(--good-typography-heading-level-4-letter-spacing); }
-:where(h5), good-heading-5 { font-size: var(--good-typography-heading-level-5-font-size); font-weight: var(--good-typography-heading-level-5-font-weight); letter-spacing: var(--good-typography-heading-level-5-letter-spacing); }
-:where(h6), good-heading-6 { font-size: var(--good-typography-heading-level-6-font-size); font-weight: var(--good-typography-heading-level-6-font-weight); letter-spacing: var(--good-typography-heading-level-6-letter-spacing); }
-:where([role="heading"][aria-level="7"]), good-heading-7 { font-size: var(--good-typography-heading-level-7-font-size); font-weight: var(--good-typography-heading-level-7-font-weight); letter-spacing: var(--good-typography-heading-level-7-letter-spacing); }
+:where(h1), good-heading-1 { font-size: var(--good-typography-heading-level-1-font-size); font-weight: var(--good-typography-heading-level-1-font-weight); letter-spacing: var(--good-typography-heading-level-1-letter-spacing); line-height: var(--good-typography-heading-level-1-line-height); }
+:where(h2), good-heading-2 { font-size: var(--good-typography-heading-level-2-font-size); font-weight: var(--good-typography-heading-level-2-font-weight); letter-spacing: var(--good-typography-heading-level-2-letter-spacing); line-height: var(--good-typography-heading-level-2-line-height); }
+:where(h3), good-heading-3 { font-size: var(--good-typography-heading-level-3-font-size); font-weight: var(--good-typography-heading-level-3-font-weight); letter-spacing: var(--good-typography-heading-level-3-letter-spacing); line-height: var(--good-typography-heading-level-3-line-height); }
+:where(h4), good-heading-4 { font-size: var(--good-typography-heading-level-4-font-size); font-weight: var(--good-typography-heading-level-4-font-weight); letter-spacing: var(--good-typography-heading-level-4-letter-spacing); line-height: var(--good-typography-heading-level-4-line-height); }
+:where(h5), good-heading-5 { font-size: var(--good-typography-heading-level-5-font-size); font-weight: var(--good-typography-heading-level-5-font-weight); letter-spacing: var(--good-typography-heading-level-5-letter-spacing); line-height: var(--good-typography-heading-level-5-line-height); }
+:where(h6), good-heading-6 { font-size: var(--good-typography-heading-level-6-font-size); font-weight: var(--good-typography-heading-level-6-font-weight); letter-spacing: var(--good-typography-heading-level-6-letter-spacing); line-height: var(--good-typography-heading-level-6-line-height); }
+:where([role="heading"][aria-level="7"]), good-heading-7 { font-size: var(--good-typography-heading-level-7-font-size); font-weight: var(--good-typography-heading-level-7-font-weight); letter-spacing: var(--good-typography-heading-level-7-letter-spacing); line-height: var(--good-typography-heading-level-7-line-height); }
 
 .good-heading-group { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-eyebrow-gap); min-width: 0; font-family: var(--good-typography-font-family), ui-sans-serif, system-ui, sans-serif; }
 .good-heading-group-text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--good-typography-heading-summary-gap); min-width: 0; }
@@ -555,14 +555,12 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 }
 .good-empty-state { padding: 24px; color: var(--good-muted); text-align: center; }
 
-.good-main-view { --good-main-view-top-padding: 20px; --good-main-view-inline-padding: 30px; --good-main-view-bottom-padding: 30px; display: flex; flex-direction: column; min-height: 100%; padding: var(--good-main-view-top-padding) var(--good-main-view-inline-padding) var(--good-main-view-bottom-padding); background: var(--good-canvas); }
-.good-main-view[data-layout="fill"] { flex: 1; height: 100%; min-height: 0; overflow: hidden; padding: 0; }
-.good-main-view[data-layout="fill"] > .good-main-view-heading { padding: var(--good-main-view-top-padding) var(--good-main-view-inline-padding) 0; }
+.good-main-view { --good-main-view-top-padding: var(--good-main-view-padding); --good-main-view-inline-padding: var(--good-main-view-padding); --good-main-view-bottom-padding: var(--good-main-view-padding); display: flex; flex-direction: column; min-height: 100%; padding: var(--good-main-view-top-padding) var(--good-main-view-inline-padding) var(--good-main-view-bottom-padding); background: var(--good-canvas); }
+.good-main-view[data-layout="fill"] { flex: 1; height: 100%; min-height: 0; overflow: hidden; }
 .good-main-view[data-layout="fill"] > .good-main-view-content { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
 .good-main-view > [goodMainViewToolbar] { flex: none; min-width: 0; }
 .good-main-view[data-layout="fill"] > .good-main-view-content > * { flex: 1; min-height: 0; }
-.good-main-view[data-layout="fill"] > .good-subnav { margin: 0; }
-.good-main-view > .good-subnav { flex: none; margin: calc(-1 * var(--good-main-view-top-padding)) calc(-1 * var(--good-main-view-inline-padding)) 36px; }
+.good-main-view > .good-subnav { flex: none; margin: calc(-1 * var(--good-main-view-top-padding)) calc(-1 * var(--good-main-view-inline-padding)) var(--good-main-view-padding); }
 .good-subnav { display: block; min-width: 0; height: var(--good-subnav-height); border-bottom: 1px solid var(--good-border); background: var(--good-surface); color: var(--good-text); }
 .good-subnav nav { height: 100%; }
 .good-subnav-row { display: flex; align-items: stretch; min-width: 0; height: 100%; }
@@ -682,6 +680,17 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 .good-table-toolbar { display: flex; align-items: center; flex: 1 1 12rem; min-width: 0; max-width: 100%; }
 .good-table-toolbar good-input { width: 100%; max-width: var(--good-table-search-width); }
 .good-table-scroll { max-width: 100%; overflow-x: auto; }
+/* MainView fill layout supplies a bounded height; Table owns the inner scroller. */
+.good-table[data-fill-height="true"] { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.good-table[data-fill-height="true"] > .good-table-frame { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.good-table[data-fill-height="true"] .good-table-heading,
+.good-table[data-fill-height="true"] .good-table-footer { flex: none; }
+.good-table[data-fill-height="true"] .good-table-scroll { display: flex; flex-direction: column; flex: 1; min-height: 0; overflow: auto; }
+.good-table[data-fill-height="true"] .good-table-scroll table { flex: none; border-collapse: separate; border-spacing: 0; }
+.good-table[data-fill-height="true"] .good-table-scroll thead { position: sticky; top: 0; z-index: 1; background: var(--good-table-header-background); }
+.good-table[data-fill-height="true"] .good-table-fill-state { flex: 1; min-height: 0; justify-content: safe center; padding: var(--good-space-4); }
+.good-table[data-fill-height="true"] .good-table-empty-content { display: flex; flex-direction: column; align-items: stretch; justify-content: safe center; flex: 1; min-height: 0; overflow: auto; }
+.good-table[data-fill-height="true"] .good-table-empty-content > * { flex: none; min-width: 0; max-width: 100%; }
 .good-table-scroll:focus-visible { outline: 2px solid var(--good-color-accent); outline-offset: -2px; }
 .good-table-scroll table { width: 100%; min-width: var(--good-table-min-width); border-collapse: collapse; text-align: left; font-size: 14px; }
 .good-table[data-responsive-columns="true"] .good-table-scroll table { min-width: 100%; }
@@ -1044,6 +1053,7 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
 .good-subnav-dropdown-link { box-sizing: border-box; display: flex; align-items: center; min-height: 40px; padding: 8px 10px; border-radius: var(--good-radius-control); color: var(--good-text); font-size: 13px; text-decoration: none; white-space: nowrap; }
 .good-subnav-dropdown-link:hover { background: var(--good-selected); }
 .good-subnav-dropdown-link.good-is-active { color: var(--good-accent); background: var(--good-selected); }
+.good-main-view-actions:empty { display: none; }
 .good-main-view-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--good-typography-heading-actions-gap); margin-bottom: var(--good-typography-heading-content-gap); }
 .good-main-view[data-layout="page"]:has(> .good-main-view-content > .good-section) > :is(.good-main-view-heading, .good-main-view-content) { width: 100%; max-width: var(--good-typography-section-max-width); margin-inline: auto; }
 .good-main-view-content { min-width: 0; flex: 1; }
@@ -1108,9 +1118,7 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
   .good-mobile-menu-button, .good-mobile-brand { display: inline-flex !important; }
   .good-mobile-brand { align-items: center; font-size: 15px; font-weight: 700; }
   .good-mobile-brand .good-brand-logo { max-width: min(140px, 34vw); height: 22px; }
-  .good-main-view { --good-main-view-inline-padding: 24px; --good-main-view-bottom-padding: 24px; }
   .good-subnav { height: var(--good-subnav-mobile-height); }
-  .good-main-view > .good-subnav { margin-bottom: 24px; }
   .good-subnav-track { gap: 8px; padding: 0 24px; }
   .good-subnav-actions { padding: 0 24px 0 8px; }
   .good-subnav-link, .good-subnav-chevron { min-height: 44px; }
@@ -1174,6 +1182,7 @@ good-heading-group, good-eyebrow, good-heading-1, good-heading-2, good-heading-3
   .good-form-row-actions { padding-top: 0; justify-self: end; }
 }
 @media (max-width: 640px) {
+  .good-main-view { --good-main-view-inline-padding: var(--good-space-4); }
   .good-main-view-heading { flex-direction: column; align-items: stretch; gap: var(--good-space-4); }
   .good-main-view-actions { max-width: 100%; }
 }

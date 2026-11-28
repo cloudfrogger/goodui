@@ -20,21 +20,21 @@ Import `GoodDetailListComponent` and `GoodDetailRowDirective` from `@cloudfrogge
 
 Import the GoodUI stylesheet once. Native `h1` through `h6` receive the same typography as `good-heading-1` through `good-heading-6`, so ordinary semantic HTML works without Angular component imports. Fixed components remain useful for MainView and HeadingGroup projection.
 
-| GoodUI component | Native equivalent | Size | CSS weight |
-| --- | --- | --- | --- |
-| `good-heading-1` | `h1` | 28 px | 1000 |
-| `good-heading-2` | `h2` | 26 px | 800 |
-| `good-heading-3` | `h3` | 24 px | 700 |
-| `good-heading-4` | `h4` | 22 px | 700 |
-| `good-heading-5` | `h5` | 20 px | 600 |
-| `good-heading-6` | `h6` | 18 px | 600 |
-| `good-heading-7` | `role="heading" aria-level="7"` | 16 px | 600 |
+| GoodUI component | Native equivalent | Size | Weight | Line height |
+| --- | --- | --- | --- | --- |
+| `good-heading-1` | `h1` | 26 px | 600 | 32 px |
+| `good-heading-2` | `h2` | 24 px | 600 | 30 px |
+| `good-heading-3` | `h3` | 22 px | 600 | 28 px |
+| `good-heading-4` | `h4` | 20 px | 600 | 26 px |
+| `good-heading-5` | `h5` | 18 px | 600 | 24 px |
+| `good-heading-6` | `h6` | 16 px | 600 | 22 px |
+| `good-heading-7` | `role="heading" aria-level="7"` | 14 px | 600 | 20 px |
 
 Each component imports as `GoodHeadingNComponent`. There is no `level` input and no HTML H7 element. The seventh component exposes heading level 7 on its host for assistive technology. Use H1–H6 for the ordinary document hierarchy.
 
-The scale uses a shared 1.25 line height and progressively quieter tracking: -0.7 / -0.52 / -0.36 / -0.22 / 0 / 0 / 0 px. Native headings have no browser-default margins; Section and Prose own outer spacing. Component-specific heading roles and explicit application styles may override the global defaults.
+The scale uses explicit line-height tokens and progressively quieter tracking: -0.7 / -0.52 / -0.36 / -0.22 / 0 / 0 / 0 px. Native headings have no browser-default margins; Section and Prose own outer spacing. All seven levels use weight 600 in both Angular and Penpot. Component-specific roles may override the global defaults.
 
-Weight 1000 is the requested CSS value. The current Inter font in Penpot supports at most 900, so the H1 specimen uses 900 as its heaviest available face. Browsers likewise select the closest face supported by the active font. This exception is recorded in the heading registry; it is not evidence that an Inter 1000 face exists.
+Summary is supporting copy: 14 px, weight 400, normal tracking, 21 px line height, and the theme-aware muted text color. HeadingGroup owns an 8 px title-to-summary gap. MainView owns a separate 24 px heading-block-to-content gap.
 
 ```html
 <good-main-view>
@@ -59,7 +59,7 @@ For the same composition inside a Card, Section, or other content, use HeadingGr
 </good-heading-group>
 ```
 
-HeadingGroup owns its inner rhythm. Heading 1 retains the 16 px title-to-summary gap; other levels retain the compact 4 px gap. See [the migration guide](../migrations/explicit-headings.md). Penpot IDs, scale values, and semantic levels are recorded in `design/typography-components.json` and `variantSelectorMappings` in `design/component-map.json`.
+HeadingGroup owns its inner rhythm. All heading levels use the shared 8 px title-to-summary gap. See [the migration guide](../migrations/explicit-headings.md). Penpot IDs, scale values, and semantic levels are recorded in `design/typography-components.json` and `variantSelectorMappings` in `design/component-map.json`.
 
 ## Readable sections
 
@@ -79,9 +79,9 @@ Use `good-section` for a content section beneath a page heading or beside other 
 </good-main-view>
 ```
 
-`good-main-view` owns the page heading-to-content gap. It aliases the H1 after-gap token, so a page title has the same 16 px spacing whether a Summary follows or content begins immediately. Section owns the 1024 px content width and heading-to-body spacing; Prose owns the narrower 760 px reading width and rhythm within the body. No page-specific wrapper or text margins are needed. The Penpot `goodui.section` composition uses linked Subheading and Prose instances and binds its gap to `typography.paragraph.subheading-gap`. Its standalone reference board binds Width to `typography.section.max-width`; CSS applies the same token to `max-width` and centers the responsive section with auto inline margins. Penpot cannot show that CSS centering without a containing layout. Prose uses `typography.flow.max-width`; adjacent sections use `typography.flow.section-gap`.
-Choose one page layout: direct `good-section` children for a centered reading page, or free content without `good-section` for a full-width page. With direct Sections, `good-main-view` centers both its optional `eyebrow`/`title`/`description` and the entire content area to the same 1024 px width. Without Sections, heading and content both use the full available width and begin at the same left edge. Keep the two patterns separate within a page. Use the MainView inputs for a standard page heading; place a `good-heading-group` inside a Section only when the heading is part of that Section's own content.
-Both patterns use `layout="page"`, the scrolling default. Use `layout="fill"` for one primary projected component that fills the available height without outer padding and manages its own scrolling; a page heading remains optional. The [AppShell guide](../layout/app-shell.md) shows a full-height calendar example.
+`good-main-view` owns the page heading-to-content gap. It uses the independent 24 px content-gap token; the inner 8 px title-to-summary gap is owned by HeadingGroup. Section owns the 1024 px content width and heading-to-body spacing; Prose owns the narrower 760 px reading width and rhythm within the body. No page-specific wrapper or text margins are needed. The Penpot `goodui.section` composition uses linked Subheading and Prose instances and binds its gap to `typography.paragraph.subheading-gap`. Its standalone reference board binds Width to `typography.section.max-width`; CSS applies the same token to `max-width` and centers the responsive section with auto inline margins. Penpot cannot show that CSS centering without a containing layout. Prose uses `typography.flow.max-width`; adjacent sections use `typography.flow.section-gap`.
+Choose one page layout: direct `good-section` children for a centered reading page, or free content without `good-section` for a full-width page. With direct Sections, `good-main-view` centers both its projected heading block and the entire content area to the same 1024 px width. Without Sections, heading and content both use the full available width and begin at the same left edge. Keep the two patterns separate within a page. Project Heading 1 and an optional Eyebrow and Summary into MainView for a standard page heading; place a `good-heading-group` inside a Section only when the heading is part of that Section's own content.
+Both patterns use `layout="page"`, the scrolling default. Use `layout="fill"` for one primary projected component that fills the remaining inner height with the shared responsive page inset and manages its own scrolling; a page heading remains optional. The [AppShell guide](../layout/app-shell.md) shows a full-height calendar example.
 
 When a `good-heading-group` is a direct child of Section, the following sibling receives additional space from `typography.heading.content-gap`. This keeps a page lead-in separate from a form or other content without adding a page-specific margin. The Penpot Section specimen contains a Subheading and Prose; this HeadingGroup-to-content sibling rule is an Angular composition behavior rather than an extra child in that specimen.
 

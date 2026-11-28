@@ -29,7 +29,7 @@
         "1": "c0c3286f-e4bf-804c-8008-d58c723ff455",
         "2": "c0c3286f-e4bf-804c-8008-d5d1a6fa0770"
       },
-      "note": "Heading levels 1 and 2 render native H1/H2 with the shared heading scale. Inter supports at most 900 in Penpot; the H1 specimen uses 900 while its CSS weight token requests 1000.",
+      "note": "Heading levels 1 and 2 render native H1/H2 with weight 600 and the shared compact heading scale.",
       "selectors": {
         "1": "good-heading-1",
         "2": "good-heading-2"
@@ -247,61 +247,66 @@
       "selector": "good-heading-1",
       "componentId": "c0c3286f-e4bf-804c-8008-d58c723ff455",
       "htmlElement": "h1",
-      "fontSize": 28,
-      "fontWeight": 1000,
+      "fontSize": 26,
+      "fontWeight": 600,
       "nativeSelector": "h1",
-      "penpotFontWeight": 900,
-      "note": "CSS requests 1000; Inter offers at most 900 in Penpot. Browsers choose the closest available font face."
+      "lineHeight": 32
     },
     {
       "selector": "good-heading-2",
       "componentId": "c0c3286f-e4bf-804c-8008-d5d1a6fa0770",
       "htmlElement": "h2",
-      "fontSize": 26,
-      "fontWeight": 800,
-      "nativeSelector": "h2"
+      "fontSize": 24,
+      "fontWeight": 600,
+      "nativeSelector": "h2",
+      "lineHeight": 30
     },
     {
       "selector": "good-heading-3",
       "componentId": "c0c3286f-e4bf-804c-8008-d58ca09f1874",
       "htmlElement": "h3",
-      "fontSize": 24,
-      "fontWeight": 700,
-      "nativeSelector": "h3"
+      "fontSize": 22,
+      "fontWeight": 600,
+      "nativeSelector": "h3",
+      "lineHeight": 28
     },
     {
       "selector": "good-heading-4",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d49ff271",
       "htmlElement": "h4",
-      "fontSize": 22,
-      "fontWeight": 700,
-      "nativeSelector": "h4"
+      "fontSize": 20,
+      "fontWeight": 600,
+      "nativeSelector": "h4",
+      "lineHeight": 26
     },
     {
       "selector": "good-heading-5",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d4bac54e",
       "htmlElement": "h5",
-      "fontSize": 20,
+      "fontSize": 18,
       "fontWeight": 600,
-      "nativeSelector": "h5"
+      "nativeSelector": "h5",
+      "lineHeight": 24
     },
     {
       "selector": "good-heading-6",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d4d58983",
       "htmlElement": "h6",
-      "fontSize": 18,
+      "fontSize": 16,
       "fontWeight": 600,
-      "nativeSelector": "h6"
+      "nativeSelector": "h6",
+      "lineHeight": 22
     },
     {
       "selector": "good-heading-7",
       "componentId": "4c1f5233-504c-80ed-8008-fbe8d4f04986",
       "htmlElement": null,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 600,
       "nativeSelector": "[role=\"heading\"][aria-level=\"7\"]",
       "role": "heading",
-      "ariaLevel": 7
+      "ariaLevel": 7,
+      "lineHeight": 20
     }
   ],
   "referencePage": {
@@ -324,5 +329,19 @@
         "name": "Typography / Compositions"
       }
     ]
+  },
+  "pageRhythm": {
+    "mainPadding": 32,
+    "mainMobileInlinePadding": 16,
+    "mainMobileMaxWidth": 640,
+    "headingSummaryGap": 8,
+    "headingContentGap": 24,
+    "summary": {
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 21,
+      "colorToken": "color.muted"
+    },
+    "note": "Page and fill layouts share 32 px padding, reduced to 16 px horizontally at viewport widths of 640 px and below. No published IDs changed."
   }
 }

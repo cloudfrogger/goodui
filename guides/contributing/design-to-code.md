@@ -69,7 +69,7 @@ File ID: `a552d28a-7556-80e4-8008-d3392c96c899`. Dedicated control pages include
 | `goodui.main-view.default` / `.mobile` | `521fe58c-da62-80e2-8008-d33f7aa54b2b` / `521fe58c-da62-80e2-8008-d33fc4dcceec` |
 | `goodui.main-view.account` | `521fe58c-da62-80e2-8008-d34655a672c2` |
 | `goodui.main-view.account-mobile` | `521fe58c-da62-80e2-8008-d40ced977d68` |
-| `goodui.main-view.fill-heading` / `.fill-heading-mobile` | `1b6260d7-e591-805d-8008-e28200da7174` / `1b6260d7-e591-805d-8008-e282014cb32c` on `02 Shell`; both map to `good-main-view layout="fill"` with an optional heading. The heading keeps the standard 30/24 px inset while the workspace below spans the full width. |
+| `goodui.main-view.fill-heading` / `.fill-heading-mobile` | `1b6260d7-e591-805d-8008-e28200da7174` / `1b6260d7-e591-805d-8008-e282014cb32c` on `02 Shell`; both map to `good-main-view layout="fill"` with an optional heading. Both heading and workspace retain the same responsive inset (32 px, with 16 px horizontally at 640 px and below), with a 24 px content gap. |
 | `goodui.subnav-item.link` / `.parent` / `.active` | `521fe58c-da62-80e2-8008-d40ca2339866` / `521fe58c-da62-80e2-8008-d40ca29a692f` / `521fe58c-da62-80e2-8008-d40ca32c96fa` |
 | `goodui.subnav.desktop` / `.mobile` / `.menu-open` | `521fe58c-da62-80e2-8008-d40cb8b8e01a` / `521fe58c-da62-80e2-8008-d40cba28bff7` / `521fe58c-da62-80e2-8008-d40cd63c49cf` |
 | `goodui.subnav-dropdown.default` | `521fe58c-da62-80e2-8008-d40cd5f5d476` |
@@ -276,7 +276,7 @@ Section now publishes native `spacing=default/content` variants on `12 Typograph
 
 The existing Penpot `goodui.heading` variants (level 1/2) map to `good-heading-1` and `good-heading-2`. `goodui.subheading` now publishes level 3–7 variants mapping to `good-heading-3` through `good-heading-7`. `variantSelectorMappings` records all seven stable IDs and selectors; `design/typography-components.json` records their HTML semantics. MainView examples retain linked Heading/Summary instances, now interpreted as projected content instead of text inputs.
 
-The shared heading scale is 28/26/24/22/20/18/16 px. Native H1–H6 match the corresponding GoodUI component; level 7 uses ARIA heading semantics. H1 requests CSS weight 1000; Inter in Penpot supports only 900, so the main specimen uses 900 and `headingStyles[0].penpotFontWeight` records the exception.
+The shared heading scale is 26/24/22/20/18/16/14 px at weight 600, with 32/30/28/26/24/22/20 px line heights. Native H1–H6 match the corresponding GoodUI component; level 7 uses ARIA heading semantics. Summary is muted 14 px / 400 / 21 px text. Live token bindings and the updated typography reference preserve all published IDs.
 
 ### Typography reference page
 
@@ -334,3 +334,11 @@ Sidebar Footer dark-mode native exports currently retain stale text rendering de
 Table header runtime composition: `goodTableActions` accepts `good-action-bar appearance="compact"` for inline Buttons and measured More overflow. Integrated small search now shares the controls row. Existing Table library IDs and variants remain unchanged. The live desktop/mobile compositions now retain their stable IDs while composing linked small Input, Buttons, and a closed More Dropdown. `design/table-variants.json` records their layout and runtime overflow contract.
 
 Table action-composition dark exports retain the known stale text rendering seen in Sidebar Footer exports. Light specimens are visually checked; full dark Penpot parity remains unverified while Angular dark browser checks pass.
+
+### Filled Table workspace
+
+`goodui.table.fill` (`60948412-f1d8-8070-8009-03f2e3a273dd`, main `60948412-f1d8-8070-8009-03f2e2723679`) and `goodui.table.fill-mobile` (`60948412-f1d8-8070-8009-03f2e5021321`, main `60948412-f1d8-8070-8009-03f2e3b1d904`) on `16 Tables` map to `good-table [fillHeight]="true"`. The fixed-height compositions preserve linked Input, Buttons, Dropdown, Badge, and Switch parts, with a clipped repeated-row region between fixed header controls and cursor pagination. Their dimensions represent example containers, not additional Angular size inputs. Sticky headings and scroll/state transitions are verified at runtime; static Penpot frames illustrate their allocation. Existing Table IDs remain unchanged. The precise contract and verification status are recorded in [table-variants.json](../../design/table-variants.json).
+
+Filled Table native exports can retain stale colors after theme switches, including after returning to light. Live Footer surface and Button text bindings were checked; complete export color parity remains unverified. Angular light/dark browser checks pass.
+
+Global page rhythm uses `main-view.padding` → `space.8` (32 px) in both layouts and themes, with `space.4` (16 px) horizontal padding at viewport widths of 640 px and below, with independent 8 px title-to-summary and 24 px heading-to-content tokens. MainView masters and their six AppShell compositions were refreshed without changing published IDs; typography reference labels use the current scale. Native Penpot text-color export caching remains a verification limit; Angular light/dark geometry and contrast were checked in browser. See [the migration](../migrations/main-view-spacing.md).

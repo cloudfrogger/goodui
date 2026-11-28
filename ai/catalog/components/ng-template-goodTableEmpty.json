@@ -22,7 +22,7 @@
   },
   "usageGuide": "guides/components/table.md",
   "usage": {
-    "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance=\"compact\"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.",
+    "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain in the row model. By default the table grows vertically; `[fillHeight]=\"true\"` fills a bounded parent and scrolls only the row area beneath sticky column headings. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance=\"compact\"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.",
     "examples": []
   },
   "penpot": [],

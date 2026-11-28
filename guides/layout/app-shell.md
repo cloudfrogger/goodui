@@ -37,3 +37,5 @@ Penpot `goodui.app-shell` retains the six existing desktop, mobile, expanded, dr
 Open Penpot page **02 Shell** for the application shell anatomy and desktop/mobile specimens. Its page ID remains `521fe58c-da62-80e2-8008-d33f7aa6fcb6`.
 
 An optional direct `good-sidebar-footer` inside Sidebar stays outside its navigation scroller. Import `GoodSidebarFooterComponent` and project Settings links or workspace controls into it. AppShell retains the same footer instance on desktop and in the mobile drawer. The drawer's Close button remains below Sidebar; the footer stays at Sidebar's bottom above that control. See [Sidebar Footer](../components/sidebar-footer.md) for complete markup and ownership.
+
+MainView owns a shared responsive inset for page and fill layouts: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. Fill changes height allocation, while its primary child owns inner scrolling. A 24 px gap separates the page heading block from content; no application offsets are required. See [the spacing migration](../migrations/main-view-spacing.md).

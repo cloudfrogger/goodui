@@ -91,6 +91,26 @@
       "title": "Workspace records",
       "projection": "goodTableActions",
       "note": "Linked Table, small Input, Buttons, and closed Dropdown instances. Title is above the search/actions controls. Desktop shows commands beside search; mobile stacks search above the primary command and More. Existing published IDs are preserved."
+    },
+    {
+      "name": "goodui.table.fill",
+      "id": "60948412-f1d8-8070-8009-03f2e3a273dd",
+      "mainInstanceId": "60948412-f1d8-8070-8009-03f2e2723679",
+      "width": 920,
+      "height": 720,
+      "projection": "goodTableActions",
+      "fillHeight": true,
+      "note": "Bounded Table with fixed title/search/actions and cursor pagination, clipped repeated rows, and pinned column headings. Scroll and state transitions are runtime behavior; linked Badge, Switch, Button, Input, and Dropdown parts are preserved."
+    },
+    {
+      "name": "goodui.table.fill-mobile",
+      "id": "60948412-f1d8-8070-8009-03f2e5021321",
+      "mainInstanceId": "60948412-f1d8-8070-8009-03f2e3b1d904",
+      "width": 342,
+      "height": 600,
+      "projection": "goodTableActions",
+      "fillHeight": true,
+      "note": "Bounded Table with fixed title/search/actions and cursor pagination, clipped repeated rows, and pinned column headings. Scroll and state transitions are runtime behavior; linked Badge, Switch, Button, Input, and Dropdown parts are preserved."
     }
   ],
   "responsiveHeader": {
@@ -105,6 +125,23 @@
       "dark": "Surfaces and icons update, but native Penpot export retains stale text colors. Full dark design parity is unverified; Angular dark browser checks pass.",
       "stableIds": "Both original composition IDs and main-instance IDs confirmed against the live library.",
       "linkedParts": "Existing Table, small Input, small Buttons, and bottom-start/hidden-chevron/closed Dropdown."
+    }
+  },
+  "fillHeight": {
+    "input": "fillHeight",
+    "default": false,
+    "parent": "good-main-view layout=fill, with Table as a direct content child, or another bounded layout",
+    "fixedRegions": [
+      "title, search and projected actions",
+      "pagination"
+    ],
+    "scrollRegion": "Only the flexible row area scrolls vertically and horizontally; the entire native thead remains sticky.",
+    "states": "Populated, loading with or without rows, built-in empty, and custom empty retain the allocated height.",
+    "penpotVerification": {
+      "mapping": "Both published composition IDs/main IDs confirmed live; existing Table IDs preserved.",
+      "light": "Allocation inspected in targeted desktop/mobile PNGs. After theme switches native exports can retain stale colors despite correct live semantic bindings; complete export color parity remains unverified.",
+      "dark": "Surfaces update but native exports retain the known stale text rendering. Full dark Penpot parity is unverified; Angular light/dark checks pass.",
+      "runtime": "Grouped native column headings, scrolling, loading and custom-empty transitions, search and pagination verified in browser."
     }
   }
 }

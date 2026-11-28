@@ -2374,6 +2374,20 @@
       "angularSelector": "good-sidebar",
       "kind": "component",
       "state": "drawer-with-footer"
+    },
+    {
+      "penpotName": "goodui.table.fill",
+      "penpotId": "60948412-f1d8-8070-8009-03f2e3a273dd",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "fill"
+    },
+    {
+      "penpotName": "goodui.table.fill-mobile",
+      "penpotId": "60948412-f1d8-8070-8009-03f2e5021321",
+      "angularSelector": "good-table",
+      "kind": "component",
+      "state": "fill-mobile"
     }
   ],
   "variantManifests": [

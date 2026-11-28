@@ -78,7 +78,7 @@
   },
   "usageGuide": "guides/components/main-view.md",
   "usage": {
-    "summary": "`good-main-view` provides the page container below the topbar. It owns padding, scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
+    "summary": "`good-main-view` provides the page container below the topbar. It applies a shared inset in both page and fill layouts: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. It owns scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.",
     "examples": [
       "ai/examples/currency.html",
       "ai/examples/edit-form.html",

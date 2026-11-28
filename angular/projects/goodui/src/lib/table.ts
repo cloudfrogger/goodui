@@ -84,9 +84,13 @@ export interface GoodTableRequest {
   imports: [FlexRender, NgTemplateOutlet, GoodButtonComponent, GoodInputComponent, LucideArrowDown, LucideArrowDownUp,
     LucideArrowUp, LucideChevronLeft, LucideChevronRight, LucideGripVertical, LucideSearchX],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'good-table', '[attr.data-column-dragging]': 'dragSourceId() ? "true" : null', '[attr.data-responsive-columns]': 'hasResponsiveColumns() ? "true" : null' },
+  host: { class: 'good-table', '[attr.data-fill-height]': 'fillHeight() ? "true" : null', '[attr.data-column-dragging]': 'dragSourceId() ? "true" : null', '[attr.data-responsive-columns]': 'hasResponsiveColumns() ? "true" : null' },
   template: `
     <ng-content select="ng-template[goodTableCell]" />
+    <ng-template #builtInEmptyState>
+      @if (loading()) { <span class="good-table-loading-indicator" aria-hidden="true"></span><span>Loading records...</span> }
+      @else { <svg lucideSearchX [size]="24" aria-hidden="true"></svg><strong>{{ emptyMessage() }}</strong> }
+    </ng-template>
     <div #frame class="good-table-frame" [attr.data-style]="tableStyle() ?? style()" [attr.data-frame]="frameAppearance()" [attr.data-density]="density() ?? ((tableStyle() ?? style()) === 'compact' ? 'compact' : 'default')" [attr.aria-busy]="loading() ? 'true' : null">
       <div class="good-table-heading">
         @if (title()) { <h2 class="good-table-title">{{ title() }}</h2> }
@@ -100,13 +104,13 @@ export interface GoodTableRequest {
       </div>
       @if (table.getRowModel().rows.length || loading() || !emptyContent()) {
       <div class="good-table-scroll" role="region" tabindex="0"
-        [attr.aria-label]="label() + ' table. Scroll horizontally for more columns when needed.'">
+        [attr.aria-label]="label() + (fillHeight() ? ' table. Scroll for more rows or columns when needed.' : ' table. Scroll horizontally for more columns when needed.')">
         <table [attr.aria-label]="label()">
           <thead [attr.data-reorderable]="reorderable()">
             @for (headerGroup of table.getHeaderGroups(); track headerGroup.id) {
               <tr>
                 @for (header of headerGroup.headers; track header.id) {
-                  <th scope="col" [attr.data-align]="columnMeta(header.column).align || null"
+                  <th [attr.scope]="header.subHeaders.length ? 'colgroup' : 'col'" [attr.colspan]="header.colSpan" [attr.data-align]="columnMeta(header.column).align || null"
                     [attr.data-column-id]="header.subHeaders.length ? null : header.column.id"
                     [attr.data-drop-target]="dragTargetId() === header.column.id ? 'true' : null"
                     [attr.data-drag-source]="dragSourceId() === header.column.id ? 'true' : null"
@@ -171,17 +175,19 @@ export interface GoodTableRequest {
                 }
               </tr>
             } @empty {
-              <tr class="good-table-empty-row">
-                <td [attr.colspan]="table.getVisibleLeafColumns().length || 1">
-                  <div class="good-table-empty" role="status">
-                    @if (loading()) { <span class="good-table-loading-indicator" aria-hidden="true"></span><span>Loading records...</span> }
-                    @else { <svg lucideSearchX [size]="24" aria-hidden="true"></svg><strong>{{ emptyMessage() }}</strong> }
-                  </div>
-                </td>
-              </tr>
+              @if (!fillHeight()) {
+                <tr class="good-table-empty-row">
+                  <td [attr.colspan]="table.getVisibleLeafColumns().length || 1">
+                    <div class="good-table-empty" role="status"><ng-container [ngTemplateOutlet]="builtInEmptyState" /></div>
+                  </td>
+                </tr>
+              }
             }
           </tbody>
         </table>
+        @if (fillHeight() && !table.getRowModel().rows.length) {
+          <div class="good-table-empty good-table-fill-state" role="status"><ng-container [ngTemplateOutlet]="builtInEmptyState" /></div>
+        }
       </div>
       }
       @if (!loading() && !table.getRowModel().rows.length && emptyContent(); as empty) {
@@ -195,7 +201,7 @@ export interface GoodTableRequest {
             <label class="good-table-page-size-label">Rows per page
               <select class="good-table-page-size" [value]="pageState().pageSize" [disabled]="loading()"
                 (change)="setPageSize($event)">
-                @for (size of pageSizeChoices(); track size) { <option [value]="size">{{ size }}</option> }
+                @for (size of pageSizeChoices(); track size) { <option [value]="size" [selected]="size === pageState().pageSize">{{ size }}</option> }
               </select>
             </label>
             <div class="good-table-page-buttons" aria-label="Table pages">
@@ -233,6 +239,8 @@ export class GoodTableComponent<TData extends RowData> implements AfterViewInit 
   readonly tableStyle = input<GoodTableStyle | null>(null);
   readonly frameAppearance = input<'default' | 'none'>('default');
   readonly density = input<'default' | 'compact' | null>(null);
+  /** Fill a bounded parent; only rows scroll, with sticky column headings. */
+  readonly fillHeight = input(false, { transform: booleanAttribute });
   /** External search, including when searchable=false. Uses the same filtering and request path. */
   readonly searchTerm = input('');
   /** Drag or use the header grips to reorder columns; enabled by default. */

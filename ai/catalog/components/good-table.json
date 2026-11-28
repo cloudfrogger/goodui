@@ -98,6 +98,15 @@
       "kind": "input"
     },
     {
+      "name": "fillHeight",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "allowedValues": null,
+      "source": "angular/projects/goodui/src/lib/table.ts",
+      "kind": "input"
+    },
+    {
       "name": "searchTerm",
       "type": "string",
       "required": false,
@@ -324,7 +333,7 @@
   },
   "usageGuide": "guides/components/table.md",
   "usage": {
-    "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance=\"compact\"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.",
+    "summary": "`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain in the row model. By default the table grows vertically; `[fillHeight]=\"true\"` fills a bounded parent and scrolls only the row area beneath sticky column headings. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance=\"compact\"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.",
     "examples": [
       "ai/examples/table-view.html"
     ]
@@ -363,6 +372,20 @@
       "penpotId": "ffd8177e-90f6-8061-8008-fdd49b30fa52",
       "kind": "component",
       "state": "with-actions-mobile",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.table.fill",
+      "penpotId": "60948412-f1d8-8070-8009-03f2e3a273dd",
+      "kind": "component",
+      "state": "fill",
+      "owner": null
+    },
+    {
+      "penpotName": "goodui.table.fill-mobile",
+      "penpotId": "60948412-f1d8-8070-8009-03f2e5021321",
+      "kind": "component",
+      "state": "fill-mobile",
       "owner": null
     }
   ],

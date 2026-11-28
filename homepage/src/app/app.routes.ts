@@ -110,6 +110,7 @@ export const routes: Routes = [
   { path: 'examples/user-registration', loadComponent: () => import('./examples/user-registration/user-registration-example-page').then(module => module.UserRegistrationExamplePageComponent) },
   { path: 'examples/notifications', loadComponent: () => import('./examples/notifications/notifications-page').then(module => module.NotificationsPageComponent) },
   { path: 'examples/pdf-reader', loadComponent: () => import('./examples/pdf-reader/pdf-reader-page').then(module => module.PdfReaderPageComponent) },
+  { path: 'examples/table-workspace', loadComponent: () => import('./examples/table-workspace/table-workspace-page').then(module => module.TableWorkspacePageComponent) },
   { path: 'examples/calendar-workspace', loadComponent: () => import('./examples/calendar-workspace/calendar-workspace-page').then(module => module.CalendarWorkspacePageComponent) },
   { path: 'examples/case-studies/webmailer', loadComponent: () => import('./examples/case-studies/webmailer/webmailer-page').then(module => module.WebmailerCaseStudyPageComponent) },
   { path: 'examples/case-studies/vpshoster', loadComponent: () => import('./examples/case-studies/vpshoster/overview-page').then(module => module.VpsCaseStudyOverviewPageComponent) },

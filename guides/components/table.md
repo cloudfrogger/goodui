@@ -1,6 +1,6 @@
 # Table
 
-`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain visible and the table grows vertically with them. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance="compact"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.
+`good-table` presents records in a native table with a consistent GoodUI frame, header, rows, optional search, and optional pagination. It uses TanStack Table for its row models and column definitions. Without `[pagination]`, all supplied rows remain in the row model. By default the table grows vertically; `[fillHeight]="true"` fills a bounded parent and scrolls only the row area beneath sticky column headings. Narrow screens scroll the table horizontally inside its frame. For responsive table header actions beside search, project `good-action-bar goodTableActions appearance="compact"`: visible Buttons collapse into More according to available container width. The application supplies commands and handles their events.
 
 ## Start with columns and data
 
@@ -244,6 +244,7 @@ For cursor mode, pass the backend's opaque `nextCursor` and `hasNextPage` with e
 | `searchPlaceholder` | `Search records` | Search prompt. |
 | `pagination` | `null` | Client, page, or cursor pagination configuration. |
 | `sortingMode`, `searchMode` | `client` | `client` or `manual`; page and cursor modes are manual. |
+| `fillHeight` | `false` | Fill a bounded parent; keep header controls and pagination outside vertical row scrolling. |
 | `loading` | `false` | Busy state during a backend request. |
 | `emptyMessage` | `NO records found` | Message for zero rows. |
 | `selectable` | `false` | Enables single-row selection from the table body. |
@@ -324,3 +325,26 @@ readonly commands: readonly GoodActionBarGroup[] = [{ id: 'records', label: 'Rec
 ```
 
 Import `GoodActionBarComponent` alongside Table. The application owns operations and disabled states. The bar measures the table's allocated action width rather than the viewport. Normal commands move into the accessible More dropdown as space shrinks and return when it grows; `important` keeps the primary command visible, while `overflow` always puts a command in More. Visible Buttons and menu items share the same event contract. Existing custom `goodTableActions` content still works and wraps, but cannot automatically become menu items; use structured commands for that behavior. See [Action bar](action-bar.md) and the live Tables chapter.
+
+## Fill the workspace height
+
+```html
+<good-main-view layout="fill">
+  <good-heading-1>Records</good-heading-1>
+  <good-table [fillHeight]="true" frameAppearance="none" label="Workspace records"
+    [data]="records()" [columns]="columns" [searchable]="true" [pagination]="pagination">
+    <good-action-bar goodTableActions appearance="compact"
+      [groups]="commands" (commandSelected)="runCommand($event)" />
+  </good-table>
+</good-main-view>
+```
+
+`fillHeight` is opt-in and accepts a boolean or the static `fillHeight` attribute. Place Table directly in MainView's fill content; AppShell supplies the viewport height and MainView allocates the remaining height after its own heading or toolbar. Outside AppShell, the layout container must provide a bounded height. There is no viewport-height calculation or application CSS in this pattern. Default Tables still grow naturally. For a continuous workspace surface within MainView, use `frameAppearance="none"` to remove the extra outer outline and rounded corners while retaining internal separators; `fillHeight` and frame appearance are independent.
+
+The Table title, integrated search, projected actions, and pagination remain fixed within the frame. The row region owns vertical and horizontal scrolling together, so column headings stay aligned with cells. The entire native `thead` sticks at the top of that region, including grouped column headings. It remains a semantic table; sorting, keyboard focus, column reordering, cell templates, and responsive command overflow use their existing contracts. This is scrolling, not row virtualization; pagination still controls which rows are rendered.
+
+With zero rows, the built-in loading or empty message uses the remaining row area below the column headings. A custom `goodTableEmpty` template fills the same remaining region, replacing the table as before. Custom content can scroll if it is tall. Header controls and pagination stay mounted in both cases. Loading with existing rows retains them and marks the frame busy; it does not render a custom empty template. No extra empty-state height or loading layout is required in application code.
+
+The complete [Table workspace example](../../homepage/src/app/examples/table-workspace/table-workspace-page.html) and its [TypeScript](../../homepage/src/app/examples/table-workspace/table-workspace-page.ts) demonstrate 120 local records, grouped column headings, pagination, search, responsive commands, and explicit loading/default/custom-empty previews. Use View source in its More menu to inspect both files.
+
+When the page heading already names one table, omit its visible `title` and retain `label` for accessibility. Search and compact actions share the table toolbar with 16 px inner padding. MainView owns the page inset (32 px, reduced to 16 px horizontally at viewport widths of 640 px and below) and 24 px title-block-to-table gap; the Table does not add another page gutter.

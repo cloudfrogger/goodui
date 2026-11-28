@@ -1,6 +1,6 @@
 # MainView
 
-`good-main-view` provides the page container below the topbar. It owns padding, scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.
+`good-main-view` provides the page container below the topbar. It applies a shared inset in both page and fill layouts: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. It owns scrolling, the optional subnav, and the layout of projected heading components, actions, toolbar, and page content.
 
 ```html
 <good-main-view>
@@ -40,10 +40,12 @@ For a fixed strip above a height-filling workspace, set `layout="fill"` and mark
 </good-main-view>
 ```
 
-Fill layout keeps the projected header's 30 px desktop or 24 px mobile side inset while its workspace reaches the edges. Without heading content, the workspace can touch the topbar. Penpot `goodui.main-view.fill-heading` and `.fill-heading-mobile` preserve this geometry; the linked Heading and Summary are projected content, not MainView text inputs. See [Typography](typography.md) and [the migration guide](../migrations/explicit-headings.md).
+Page and fill layouts share the same responsive inset: 32 px on every side, with 16 px horizontal padding at viewport widths of 640 px and below. Their heading and content containers begin on the same line, with 24 px between the complete heading block and content. Heading 1 uses 26 px / 600 / 32 px; Summary uses muted 14 px / 400 text 8 px below it. Fill changes height and scrolling, not page spacing. Penpot `goodui.main-view.fill-heading` and `.fill-heading-mobile` preserve this inset; Heading and Summary remain projected content. See [Typography](typography.md) and [the spacing migration](../migrations/main-view-spacing.md).
 
 The [Settings example](../../homepage/src/app/examples/settings/settings-page.html) composes the page heading and `[good-main-view-actions]` with `good-section layout="settings"`. Section headers own their local actions; MainView owns Edit, Cancel, and Save. Tables use `frameAppearance="none"` to avoid nested frames. Application data and draft state stay in the example.
 
-At 640 px viewport width and below, MainView places page actions after the heading and description in a full-width row. ActionGroup can wrap its controls without squeezing the page heading into a narrow column.
+At 640 px viewport width and below, MainView reduces horizontal padding to 16 px and places page actions after the heading and description in a full-width row. ActionGroup can wrap its controls without squeezing the page heading into a narrow column.
 
 Project an optional direct child with `goodMainViewLeading` to place an Avatar or other compact record marker alongside the heading. The identity row retains its reading order on mobile while actions move below it. The slot has no directive import; its content owns accessible naming (an Avatar next to the same visible name should be decorative). Do not put navigation actions into the identity marker.
+
+For a record workspace, put `<good-table [fillHeight]="true" ... />` directly in `good-main-view layout="fill"`. Table keeps its title/search/actions and pagination outside the row scroller and sticks its column headings, including grouped headers. Loading and empty templates consume the remaining row area. See [Table](table.md#fill-the-workspace-height) and the complete Table workspace example.

@@ -38,7 +38,7 @@
   <good-section>
     <good-heading-2>2. Render a scrolling page</good-heading-2>
     <good-prose>
-      <good-paragraph><code>layout="page"</code> is the default. MainView adds page padding and lets the content scroll. Put every top-level content block in a direct <code>good-section</code> to align the heading and content to one centered reading width.</good-paragraph>
+      <good-paragraph><code>layout="page"</code> is the default. MainView adds a shared inset of 32 px on every side, reduced to 16 px horizontally at 640 px and below, and lets the content scroll. Put every top-level content block in a direct <code>good-section</code> to align the heading and content to one centered reading width.</good-paragraph>
     </good-prose>
     <good-code-block [code]="pageCode" language="html" title="src/app/overview-page.html" />
   </good-section>
@@ -50,23 +50,23 @@
     </good-prose>
     <good-code-block [code]="freePageCode" language="html" title="Full-width scrolling page" />
     <good-prose>
-      <good-paragraph>For a workspace that meets all four edges without page scrolling, use the fill option described below.</good-paragraph>
+      <good-paragraph>For a workspace that fills the remaining inner height without page scrolling, use the fill option described below.</good-paragraph>
     </good-prose>
   </good-section>
 
   <good-section id="fill-layout">
-    <good-heading-2>Fill option: use the entire client content area</good-heading-2>
+    <good-heading-2>Fill option: use the remaining inner height</good-heading-2>
     <good-prose>
-      <good-paragraph>Fill is a variant of the same layout. Set <code>layout="fill"</code> on MainView to remove its outer padding and use the full width and height available to page content. The sidebar and topbar stay in place. The calendar below touches the edges of that remaining client area, without the page layout's surrounding whitespace.</good-paragraph>
+      <good-paragraph>Fill is a variant of the same layout. Set <code>layout="fill"</code> on MainView to give one workspace the remaining inner height. Page and fill layouts share the same responsive inset, so headings and workspace containers align. The sidebar and topbar stay in place; the workspace owns its scrolling.</good-paragraph>
     </good-prose>
     <good-inline-image src="/foundation/layout-fill-annotated.png" style="--good-typography-image-max-width: 100%"
-      alt="Annotated calendar workspace showing layout fill using the entire client content area without outer padding, while the application sidebar and topbar stay in place"
-      caption="The fill option removes MainView's outer padding and uses the entire client content area below the topbar and beside the sidebar."
+      alt="Calendar workspace filling MainView inside a consistent 32 px page inset, with the sidebar and topbar remaining fixed"
+      caption="Fill keeps the responsive page inset (32 px, with 16 px horizontally at 640 px and below) and allocates the remaining inner height to the calendar."
       [previewable]="true" />
     <good-code-block [code]="fillPageCode" language="html" title="Fill variant · src/app/calendar-page.html" />
     <good-prose>
       <good-paragraph>Place one primary workspace directly inside MainView. Its content scrolls internally, while the application frame stays fixed. For Calendar, <code>[fillHeight]="true"</code> makes the calendar fill MainView and keeps its time grid, month view, and list scrolling within the component.</good-paragraph>
-      <good-paragraph>Omit a surrounding Section or Card when the workspace should touch the edges. A projected Heading 1 and optional Summary keep the normal heading inset; leave the heading out when the workspace should also touch the topbar.</good-paragraph>
+      <good-paragraph>Put the workspace directly in MainView without a redundant Section or Card. An optional Heading 1 and Summary form a compact title block above it, followed by a 24 px content gap. Omitting the heading retains the same responsive inset.</good-paragraph>
     </good-prose>
     <good-code-block [code]="fillComponentCode" language="typescript" title="src/app/calendar-page.ts" />
     <good-prose>

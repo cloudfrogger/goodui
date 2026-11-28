@@ -537,7 +537,7 @@ for (const [index, style] of headingStyles.entries()) {
   const match = map.variantSelectorMappings.find(entry => entry.angularSelector === selector);
   if (style.selector !== selector || style.htmlElement !== html || !selectors.has(selector.slice(5)) ||
       match?.penpotId !== style.componentId || match?.variant.level !== String(index + 1) ||
-      style.fontSize !== [28, 26, 24, 22, 20, 18, 16][index] || style.fontWeight !== [1000, 800, 700, 700, 600, 600, 600][index] ||
+      style.fontSize !== [26, 24, 22, 20, 18, 16, 14][index] || style.fontWeight !== 600 || style.lineHeight !== [32, 30, 28, 26, 24, 22, 20][index] ||
       (index === 6 && (style.role !== 'heading' || style.ariaLevel !== 7))) throw new Error(`Invalid fixed heading style: ${selector}`);
 }
 const formLayouts = typographyComponents.formLayouts?.variants;

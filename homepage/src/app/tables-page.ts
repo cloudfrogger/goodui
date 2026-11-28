@@ -76,6 +76,11 @@ class TableDeleteCellComponent {
     <good-main-view>
   <good-heading-1>Tables</good-heading-1>
   <good-summary>Searchable records, rich cells, and client or server pagination</good-summary>
+      <good-section>
+        <good-heading-2>Fill the available height</good-heading-2>
+        <good-paragraph>Use <code>[fillHeight]="true"</code> inside MainView's fill layout. Only the row area scrolls; header controls and pagination stay fixed, and grouped column headings remain visible.</good-paragraph>
+        <good-link route="/examples/table-workspace">Open the Table workspace example</good-link>
+      </good-section>
       <section class="showcase-section">
         <div class="showcase-section-heading"><h2>Table header actions</h2><p>Search and compact commands share the table header. Commands move into More when this table becomes narrow; important actions stay visible.</p></div>
         <good-table title="Workspace records" label="Header action records" [data]="headerRows()" [columns]="simpleColumns" [getRowId]="rowId" [searchable]="true" [reorderable]="false">
